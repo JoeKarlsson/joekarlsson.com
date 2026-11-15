@@ -15,15 +15,13 @@ test.describe('Image Loading', () => {
 
 		// Scroll down
 		await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-		await page.waitForTimeout(500);
-
-		// Images should be loaded
-		const loadedImages = await page.evaluate(() => {
-			const imgs = document.querySelectorAll('img');
-			return Array.from(imgs).filter((img) => img.complete).length;
-		});
-
-		expect(loadedImages).toBeGreaterThan(0);
+		await expect
+			.poll(() =>
+				page.evaluate(
+					() => Array.from(document.querySelectorAll('img')).filter((img) => img.complete).length,
+				),
+			)
+			.toBeGreaterThan(0);
 	});
 });
 

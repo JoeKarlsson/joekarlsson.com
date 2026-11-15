@@ -18,7 +18,11 @@ test.describe('Console Errors', () => {
 			});
 
 			await page.goto(path);
-			await page.waitForTimeout(1000);
+			// Scripts deferred to idle run before the browser is next idle; a fixed second
+			// waited longer than that on a quiet page and could miss them on a busy runner
+			await page.evaluate(
+				() => new Promise((resolve) => requestIdleCallback(resolve, { timeout: 2000 })),
+			);
 
 			// Filter out known third-party errors
 			const realErrors = errors.filter(

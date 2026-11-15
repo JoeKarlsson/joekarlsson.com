@@ -8,8 +8,12 @@ export default defineConfig({
 	fullyParallel: true,
 	forbidOnly: !!process.env.CI,
 	retries: process.env.CI ? 2 : 0,
-	workers: process.env.CI ? 1 : undefined,
-	reporter: 'html',
+	// A test that passes only on retry fails the run, so flakes get fixed instead of hidden
+	failOnFlakyTests: !!process.env.CI,
+	// The CI runner has 4 cores; one worker left the job at 3 minutes on the deploy's critical path
+	workers: process.env.CI ? 2 : undefined,
+	// html alone printed nothing to the CI log; github annotates failures and flakes on the run
+	reporter: process.env.CI ? [['github'], ['list'], ['html', { open: 'never' }]] : 'html',
 	use: {
 		baseURL: `http://localhost:${port}`,
 		trace: 'on-first-retry',

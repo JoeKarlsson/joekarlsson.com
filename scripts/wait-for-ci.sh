@@ -22,9 +22,10 @@ if [[ -z "$RUN_ID" ]]; then
 fi
 
 # Every job but Lighthouse decides the deploy. Lighthouse audits 10 pages 3 times (about
-# 6 minutes, the last job to finish) and still turns the run red if a score drops, but
+# 3 minutes across its three jobs, the last to finish) and still turns the run red if a score drops, but
 # the deploy doesn't wait for it (2026-11-14). The failure notifier only runs on a failure.
-NOT_BLOCKING=$'^(Lighthouse CI|Failure Notification)\t'
+# Lighthouse runs as a matrix, so its jobs are named "Lighthouse CI (0)" and so on
+NOT_BLOCKING=$'^(Lighthouse CI( \\([0-9]+\\))?|Failure Notification)\t'
 echo "Waiting for CI run $RUN_ID on $SHORT_SHA (not for Lighthouse)..."
 for _ in $(seq 1 135); do
     JOBS=$(gh run view "$RUN_ID" --json jobs --jq '.jobs[] | "\(.name)\t\(.status)\t\(.conclusion)"')

@@ -370,6 +370,68 @@ describe('SEO meta tags', () => {
 	});
 });
 
+// The head tags every main page needs for search and link previews. These were
+// browser tests (e2e/seo.spec.ts); reading the built HTML checks the same thing in milliseconds.
+describe('main page head tags', () => {
+	// The attribute value of the first tag matching a selector-like attribute pair, in any attribute order
+	function headValue(html: string, tag: string, key: string, name: string, valueAttr: string) {
+		for (const element of html.match(new RegExp(`<${tag}\\s[^>]*>`, 'g')) ?? []) {
+			if (!element.includes(`${key}="${name}"`)) continue;
+			return element.match(new RegExp(`\\s${valueAttr}="([^"]*)"`))?.[1];
+		}
+		return undefined;
+	}
+	const meta = (html: string, key: string, name: string) =>
+		headValue(html, 'meta', key, name, 'content');
+	const link = (html: string, rel: string) => headValue(html, 'link', 'rel', rel, 'href');
+
+	for (const page of ['', 'blog/', 'about/', 'work/', 'uses/', 'contact/']) {
+		it(`/${page} has a title, description, Open Graph, Twitter and canonical tags`, () => {
+			const html = readDist(`${page}index.html`);
+			const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+			expect(title.length).toBeGreaterThan(10);
+			expect(title.length).toBeLessThan(70);
+			const description = meta(html, 'name', 'description') ?? '';
+			expect(description.length).toBeGreaterThan(50);
+			expect(description.length).toBeLessThan(300);
+			for (const property of ['og:title', 'og:description', 'og:type']) {
+				expect(meta(html, 'property', property), property).toBeTruthy();
+			}
+			expect(meta(html, 'property', 'og:url')).toMatch(/^https:/);
+			expect(meta(html, 'name', 'twitter:card')).toBeTruthy();
+			expect(meta(html, 'name', 'twitter:title')).toBeTruthy();
+			expect(link(html, 'canonical')).toMatch(/^https:/);
+		});
+	}
+
+	it('the homepage has an og:image, and its width and height come together', () => {
+		const html = readDist('index.html');
+		expect(meta(html, 'property', 'og:image')).toMatch(/^https:.*\.(png|jpe?g|webp|gif)/i);
+		const hasWidth = meta(html, 'property', 'og:image:width') !== undefined;
+		const hasHeight = meta(html, 'property', 'og:image:height') !== undefined;
+		expect(hasWidth).toBe(hasHeight);
+	});
+
+	it('the homepage links a favicon, an apple touch icon and a manifest that exist', () => {
+		const html = readDist('index.html');
+		expect(link(html, 'icon')).toBeTruthy();
+		for (const rel of ['apple-touch-icon', 'manifest']) {
+			const href = link(html, rel) ?? '';
+			expect(href, rel).toMatch(/^\//);
+			expect(existsSync(resolve(dist, href.slice(1).split('?')[0])), href).toBe(true);
+		}
+	});
+
+	it('a blog post carries structured data that parses', () => {
+		const html = readDist('blog/recording-setup-tour/index.html');
+		const blocks = [
+			...html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g),
+		];
+		expect(blocks.length).toBeGreaterThan(0);
+		for (const [, json] of blocks) expect(() => JSON.parse(json)).not.toThrow();
+	});
+});
+
 describe('build output structure', () => {
 	it('has _astro directory for assets', () => {
 		expect(existsSync(resolve(dist, '_astro'))).toBe(true);
