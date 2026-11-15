@@ -25,8 +25,12 @@ export function mastheadLines(title: string): string[] {
 	return lines;
 }
 
-/** The font size that fits the longest line to the container's width (cqi), capped at 150px */
+/**
+ * The font size that fits the longest line to the container's width (cqi), between 2.25rem and
+ * 150px, never smaller than a post's h2. The rem ends keep it growing with browser zoom and text size (WCAG 1.4.4), where
+ * cqi alone shrinks as zoom narrows the column; a long title wraps to more lines at the floor.
+ */
 export function mastheadFontSize(lines: string[]): string {
 	const longest = Math.max(...lines.map((line) => line.length));
-	return `min(150px, ${(100 / (longest * CHAR_WIDTH_EM)).toFixed(2)}cqi)`;
+	return `clamp(2.25rem, ${(100 / (longest * CHAR_WIDTH_EM)).toFixed(2)}cqi, 9.375rem)`;
 }

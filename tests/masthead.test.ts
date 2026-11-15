@@ -19,7 +19,7 @@ describe('mastheadLines', () => {
 });
 
 describe('mastheadFontSize', () => {
-	it('sizes to the longest line, capped at 150px', () => {
-		expect(mastheadFontSize(['ab', 'abcd'])).toBe('min(150px, 50.00cqi)');
+	it('sizes to the longest line, between 2.25rem (a post h2) and 150px, so zoom still enlarges it', () => {
+		expect(mastheadFontSize(['ab', 'abcd'])).toBe('clamp(2.25rem, 50.00cqi, 9.375rem)');
 	});
 });

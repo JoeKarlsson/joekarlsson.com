@@ -1,0 +1,78 @@
+---
+// The top of every post-layout page: posts, reviews, talks (BlogPost.astro) and newsletter
+// issues (DECISIONS.md, round 4 C). A kicker line between a pink rule and a thin one (the
+// default slot, usually MetaParts), the title fitted to the column (utils/masthead.ts), then
+// the picture or video with no tilt or tape, and the description as its italic caption.
+import { mastheadFontSize, mastheadLines } from '../utils/masthead';
+
+interface Props {
+	title: string;
+	/** The section the caption names first: Blog, Reviews, Talks, Newsletter */
+	label: string;
+	caption?: string;
+	heroImage?: string;
+	heroVideo?: string;
+	heroAlt?: string;
+	width?: number;
+	height?: number;
+	halftone?: 'flat' | 'dots';
+}
+
+const { title, label, caption, heroImage, heroVideo, heroAlt, width, height, halftone } =
+	Astro.props;
+const lines = mastheadLines(title);
+---
+
+<header class="masthead mb-10">
+	<p class="masthead-kicker">
+		<slot />
+	</p>
+	<h1 class="masthead-title" style={`font-size:${mastheadFontSize(lines)}`}>
+		{lines.map((line) => (
+			<>
+				<span>{line}</span>{' '}
+			</>
+		))}
+	</h1>
+	{/* controls on the video for the same WCAG 2.2.2 reason as rehype-gif-video;
+	in-view-play starts it, so a remembered pause or reduced motion keeps it still */}
+	{heroVideo ? (
+		<video
+			src={heroVideo}
+			data-halftone={halftone}
+			poster={heroImage}
+			data-autoplay-in-view
+			loop
+			muted
+			playsinline
+			controls
+			preload="metadata"
+			aria-label={heroAlt || title}
+			data-morph-target
+			class="mx-auto max-h-[440px] w-full max-w-[856px] object-cover"
+			width={width ?? 768}
+			height={height ?? 440}
+		/>
+	) : (
+		heroImage && (
+			<img
+				src={heroImage}
+				alt={heroAlt || title}
+				data-still-only
+				data-halftone={halftone}
+				data-morph-target
+				width={width}
+				height={height}
+				sizes="(min-width: 1024px) 856px, 100vw"
+				loading="eager"
+				fetchpriority="high"
+				class="mx-auto h-auto w-full max-w-[856px]"
+			/>
+		)
+	)}
+	{caption && (
+		<p class="masthead-caption">
+			<b>{label}</b> {caption}
+		</p>
+	)}
+</header>

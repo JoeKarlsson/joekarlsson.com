@@ -1,8 +1,9 @@
 ---
-import { ARTICLE_TITLE, META, MORE_LINK, PAGE_CONTAINER } from '../../utils/ui';
+import { MORE_LINK, PAGE_CONTAINER } from '../../utils/ui';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BackLink from '../../components/BackLink.astro';
+import Masthead from '../../components/Masthead.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import ShareLinks from '../../components/ShareLinks.astro';
@@ -71,34 +72,23 @@ const relatedSlugs = rankRelatedPosts(
 >
 	<div class={PAGE_CONTAINER}>
 		<div>
-			{/* The title lines up with the hero under it; below the hero, the text is
-			centered like a blog post's, with wide pictures and code at the hero's width
-			(the article is their @container) */}
+			{/* The masthead as on a post (Masthead.astro); below it the text is centered like a
+			blog post's, with wide pictures and code at the hero's width (the article is their
+			@container) */}
 			<article class="@container min-w-0" data-post-title={title} data-post-category="Newsletter">
 				<BackLink href="/newsletter/" label="Newsletter" />
-				{/* The card first, as posts and talks put their picture before the title */}
-				{heroImage && (
-					<img
-						src={heroImage}
-						alt={heroAlt || ''}
-						data-halftone="flat"
-						class="mb-8 block w-full rounded-xl"
-						width="1200"
-						height="630"
-						sizes="(min-width: 1280px) 856px, 100vw"
-						loading="eager"
-						fetchpriority="high"
-					/>
-				)}
-				<div class="mb-8">
-					<h1 class={ARTICLE_TITLE}>{title}</h1>
-					<p class={META}>
-						<FormattedDate date={date} />
-					</p>
-					{description && (
-						<p class="mt-4 max-w-(--reading-width) text-lg text-paper">{description}</p>
-					)}
-				</div>
+				<Masthead
+					title={title}
+					label="Newsletter"
+					caption={description}
+					heroImage={heroImage}
+					heroAlt={heroAlt}
+					width={1200}
+					height={630}
+					halftone="flat"
+				>
+					<FormattedDate date={date} />
+				</Masthead>
 				{substackUrl && (
 					<p class="mb-6 text-sm text-muted" role="note">
 						From the TL;DR in Tech archive, originally sent on Substack. Some links may have died

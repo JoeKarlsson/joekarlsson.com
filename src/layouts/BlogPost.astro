@@ -9,6 +9,7 @@ import { AMAZON_DISCLOSURE } from '../utils/affiliate';
 import AuthorBio from '../components/AuthorBio.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 import MetaParts from '../components/MetaParts.astro';
+import Masthead from '../components/Masthead.astro';
 import { inlineMarkdown } from '../utils/inline-markdown';
 import WrittenFor from '../components/WrittenFor.astro';
 import TableOfContents from '../components/TableOfContents.astro';
@@ -19,7 +20,6 @@ import ImageLightbox from '../components/ImageLightbox.astro';
 import Logo from '../components/Logo.astro';
 import { MARKS } from '../data/scribbles';
 import { halftoneMode } from '../utils/halftone';
-import { mastheadFontSize, mastheadLines } from '../utils/masthead';
 import { localImageSize } from '../utils/image-size.mjs';
 import { rankRelatedPosts } from '../utils/related-posts';
 import popularPosts from '../data/popular-posts.json';
@@ -166,7 +166,6 @@ const relatedSlugs =
 		popularPosts.visitorsByPath,
 	);
 
-const titleLines = mastheadLines(title);
 // The description is the masthead's caption, unless the text opens with it (a review's
 // description is its first lines), which would say the same thing twice in a row
 const captionText =
@@ -208,86 +207,43 @@ const captionText =
 				data-reading-time={readingTime}
 			>
 				<BackLink href={home.path} label={home.name} />
-				{/* The masthead (DECISIONS.md, round 4 C): a kicker line between a pink rule and a
-				thin one, the title fitted to the column (utils/masthead.ts), then the picture with the
-				description as its caption */}
-				<header class="masthead mb-10">
-					<p class="masthead-kicker">
-						<MetaParts>
-							<span>
-								<FormattedDate date={date} />
-								{updatedDate && (
-									<>
-										{' '}
-										(Updated <FormattedDate date={updatedDate} />)
-									</>
-								)}
-							</span>{' '}
-							{readingTime && <span>{readingTime} min read</span>}{' '}
-							{categories &&
-								categories.map((cat) => (
-									<>
-										<a
-											href={`/blog/category/${categorySlug(cat)}/`}
-											class="text-pink hover:text-paper"
-										>
-											{cat}
-										</a>{' '}
-									</>
-								))}
-							{writtenFor && <WrittenFor employer={writtenFor} />}
-							<slot name="meta" />
-						</MetaParts>
-					</p>
-					<h1 class="masthead-title" style={`font-size:${mastheadFontSize(titleLines)}`}>
-						{titleLines.map((line) => (
-							<>
-								<span>{line}</span>{' '}
-							</>
-						))}
-					</h1>
-					{/* controls on the video for the same WCAG 2.2.2 reason as rehype-gif-video;
-					in-view-play starts it, so a remembered pause or reduced motion keeps it still */}
-					{heroVideo ? (
-						<video
-							src={heroVideo}
-							data-halftone={halftoneMode(heroVideo)}
-							poster={heroImage}
-							data-autoplay-in-view
-							loop
-							muted
-							playsinline
-							controls
-							preload="metadata"
-							aria-label={heroAlt || title}
-							data-morph-target
-							class="mx-auto max-h-[440px] w-full max-w-[856px] object-cover"
-							width={heroSize?.width ?? 768}
-							height={heroSize?.height ?? 440}
-						/>
-					) : (
-						heroImage && (
-							<img
-								src={heroImage}
-								alt={heroAlt || title}
-								data-still-only
-								data-halftone={halftoneMode(heroImage)}
-								data-morph-target
-								width={heroSize?.width}
-								height={heroSize?.height}
-								sizes="(min-width: 1280px) 1088px, 100vw"
-								loading="eager"
-								fetchpriority="high"
-								class="mx-auto h-auto w-full max-w-[856px]"
-							/>
-						)
-					)}
-					{captionText && (
-						<p class="masthead-caption">
-							<b>{home.name}</b> {captionText}
-						</p>
-					)}
-				</header>
+				<Masthead
+					title={title}
+					label={home.name}
+					caption={captionText}
+					heroImage={heroImage}
+					heroVideo={heroVideo}
+					heroAlt={heroAlt}
+					width={heroSize?.width}
+					height={heroSize?.height}
+					halftone={halftoneMode(heroVideo ?? heroImage ?? '')}
+				>
+					<MetaParts>
+						<span>
+							<FormattedDate date={date} />
+							{updatedDate && (
+								<>
+									{' '}
+									(Updated <FormattedDate date={updatedDate} />)
+								</>
+							)}
+						</span>{' '}
+						{readingTime && <span>{readingTime} min read</span>}{' '}
+						{categories &&
+							categories.map((cat) => (
+								<>
+									<a
+										href={`/blog/category/${categorySlug(cat)}/`}
+										class="text-pink hover:text-paper"
+									>
+										{cat}
+									</a>{' '}
+								</>
+							))}
+						{writtenFor && <WrittenFor employer={writtenFor} />}
+						<slot name="meta" />
+					</MetaParts>
+				</Masthead>
 				<div class="margin-column mx-auto max-w-(--reading-width)">
 					{/* Wide screens: "On this page" heads the right margin, over the citations */}
 					{showToc && <TableOfContents headings={tocHeadings} />}
