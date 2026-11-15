@@ -46,7 +46,7 @@ const ECHO_TITLE = 'Works on my machine';
 	full-height tap target -->
 	<nav
 		aria-label="Footer"
-		class="mt-8 flex flex-wrap gap-x-5 font-display text-xl whitespace-nowrap uppercase md:mt-10 md:gap-x-[1em] md:text-[clamp(15px,calc((100vw-64px)/33),22px)]"
+		class="mt-8 flex flex-wrap gap-x-5 font-display text-xl whitespace-nowrap uppercase md:mt-10 md:gap-x-[1em] md:text-[clamp(15px,calc((100vw-var(--spine-w)-64px)/33),22px)]"
 	>
 		{FOOTER_LINKS.map(({ href, label }) => (
 			<a

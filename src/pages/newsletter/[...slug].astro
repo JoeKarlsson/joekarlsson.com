@@ -1,5 +1,5 @@
 ---
-import { ARTICLE_TITLE, META, MORE_LINK, PAGE_CONTAINER, SIDEBAR_GRID } from '../../utils/ui';
+import { ARTICLE_TITLE, META, MORE_LINK, PAGE_CONTAINER } from '../../utils/ui';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BackLink from '../../components/BackLink.astro';
@@ -70,12 +70,7 @@ const relatedSlugs = rankRelatedPosts(
 	canonicalUrl={canonicalUrl}
 >
 	<div class={PAGE_CONTAINER}>
-		<div class={SIDEBAR_GRID}>
-			{tocHeadings.length >= 2 ? (
-				<TableOfContents headings={tocHeadings} />
-			) : (
-				<div class="hidden xl:block" />
-			)}
+		<div>
 			{/* The title lines up with the hero under it; below the hero, the text is
 			centered like a blog post's, with wide pictures and code at the hero's width
 			(the article is their @container) */}
@@ -108,7 +103,8 @@ const relatedSlugs = rankRelatedPosts(
 						since.
 					</p>
 				)}
-				<div class="mx-auto max-w-(--reading-width)">
+				<div class="margin-column mx-auto max-w-(--reading-width)">
+					{tocHeadings.length >= 2 && <TableOfContents headings={tocHeadings} />}
 					<div class="prose wide-media">
 						<Content />
 					</div>

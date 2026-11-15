@@ -24,7 +24,7 @@ import workThumbnailPlan from '../../scripts/work-thumbnail-plan.json';
 import { localImageSize } from '../utils/image-size.mjs';
 import { rankRelatedPosts } from '../utils/related-posts';
 import popularPosts from '../data/popular-posts.json';
-import { ARTICLE_TITLE, META, PAGE_CONTAINER, SIDEBAR_GRID } from '../utils/ui';
+import { ARTICLE_TITLE, META, PAGE_CONTAINER } from '../utils/ui';
 interface Props {
 	title: string;
 	shareTitle?: string;
@@ -142,6 +142,8 @@ const noticeHtml = noticeMessage
 	: null;
 
 const allPosts = await getCollection('blog');
+// The colophon numbers a blog post like a book in a series: the 1st post ever is No. 1
+const postNumber = allPosts.filter((p) => p.data.date <= date).length;
 // Keep reading suggests Joe's own posts, unless this post was written for an employer:
 // that reader came for employer posts, so those stay in the pool
 const publishedPosts = allPosts
@@ -203,6 +205,7 @@ const heroIsTaped =
 	canonicalUrl={canonicalUrl}
 	section={home}
 	videoObjects={videoObjects}
+	pageNumber={section === 'blog' ? `No. ${postNumber}` : undefined}
 >
 	{/* Phones show progress in the nav bar instead (reading-context.ts) */}
 	<div
@@ -212,10 +215,7 @@ const heroIsTaped =
 	></div>
 
 	<div class={PAGE_CONTAINER}>
-		<div class={SIDEBAR_GRID}>
-			{/* TOC sidebar */}
-			{showToc ? <TableOfContents headings={tocHeadings} /> : <div class="hidden xl:block" />}
-
+		<div>
 			{/* @container: wide pictures and code in the post size themselves to this column */}
 			<article
 				class="@container min-w-0"
@@ -268,7 +268,9 @@ const heroIsTaped =
 				)}
 				{/* Title, text and everything under it share one column centered under the
 				hero, so the text doesn't hug the hero's left edge and leave a dead strip right */}
-				<div class="mx-auto max-w-(--reading-width)">
+				<div class="margin-column mx-auto max-w-(--reading-width)">
+					{/* Wide screens: "On this page" heads the right margin, over the citations */}
+					{showToc && <TableOfContents headings={tocHeadings} />}
 					<div class="mb-8">
 						<h1 class={ARTICLE_TITLE}>{title}</h1>
 						<p class={META}>

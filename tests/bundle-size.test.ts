@@ -161,8 +161,8 @@ describe('Bundle Size', () => {
 	});
 });
 
-// The homepage's media: what a visitor pulls before scrolling (the montage, in the
-// first <source> a browser picks, plus its poster), and everything on the page if
+// The homepage's media: what a visitor pulls before scrolling (the featured post's
+// picture in the hero, the recent posts' pictures), and everything on the page if
 // they scroll to the end. Lazy clips (preload="none") count only toward the total.
 // Measured 2026-11-05: about 2.4MB first view, about 7MB in all.
 const HOME_MEDIA_BUDGET = {
@@ -192,8 +192,8 @@ describe('Homepage media budget', () => {
 	const html = readFileSync(join(DIST_DIR, 'index.html'), 'utf8');
 	const media = pageMedia(html).map((m) => ({ ...m, size: statSync(join(DIST_DIR, m.path)).size }));
 
-	it('finds the montage, its poster and the lazy clips', () => {
-		expect(media.some((m) => m.path.includes('montage') && m.eager)).toBe(true);
+	it("finds the hero's picture and the lazy clips", () => {
+		expect(media.some((m) => m.path.startsWith('/images/blog/') && m.eager)).toBe(true);
 		expect(media.filter((m) => !m.eager).length).toBeGreaterThan(5);
 	});
 

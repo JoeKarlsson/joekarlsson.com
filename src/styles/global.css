@@ -691,3 +691,251 @@ pre.astro-code {
 		@apply text-ink;
 	}
 }
+
+/* Art book layout (DECISIONS.md, 2026-11-14 round 2) ------------------------------------ */
+
+/* The spine: the section name runs up the left edge of every page, like a book's spine
+   (BaseLayout.astro). The page moves right to make room, so anything sized from 100vw
+   subtracts --spine-w. */
+:root {
+	--spine-w: 48px;
+}
+@media (width >= 48rem) {
+	:root {
+		--spine-w: 132px;
+	}
+}
+body {
+	padding-left: var(--spine-w);
+}
+.spine {
+	@apply fixed top-0 bottom-0 left-0 z-40 overflow-hidden border-r border-surface-3 bg-ink;
+	width: var(--spine-w);
+}
+.spine-label {
+	@apply block font-display leading-none font-normal whitespace-nowrap text-pink uppercase;
+	margin: 16px auto;
+	writing-mode: vertical-rl;
+	rotate: 180deg;
+	font-size: 44px;
+}
+@media (width >= 48rem) {
+	.spine-label {
+		/* Short windows shrink it, so "Joe Karlsson" still fits top to bottom */
+		font-size: min(118px, 14dvh);
+	}
+}
+
+/* Monograph margins: on wide screens a post's column gets a 15rem margin on its right.
+   "On this page" heads it and stays put while the page scrolls; citations sit beside the
+   paragraph they belong to (rehype-margin-notes.mjs) and pass over the contents as they
+   scroll by. Wide pictures and code still run across both, over the margin. */
+.margin-toc {
+	@apply sticky top-20;
+}
+.prose .margin-note,
+.prose .cite-num {
+	display: none;
+}
+@media (width >= 80rem) {
+	.margin-column {
+		--margin-col: 18rem;
+		display: flow-root;
+		max-width: calc(var(--reading-width) + var(--margin-col));
+		padding-right: var(--margin-col);
+	}
+	.margin-column > .margin-toc {
+		@apply z-10;
+		float: right;
+		width: 15rem;
+		margin-right: calc(-1 * var(--margin-col));
+	}
+	.prose .margin-note {
+		@apply relative z-20 block border-t border-surface-4 bg-ink pt-2 pb-2 font-sans text-sm leading-snug text-muted;
+		float: right;
+		clear: right;
+		width: 15rem;
+		margin: 0.35rem calc(-1 * var(--margin-col)) 1rem 0;
+	}
+	.prose .margin-note b {
+		@apply text-pink;
+	}
+	.prose .margin-note a {
+		@apply text-muted underline;
+		background: none; /* no highlighter sweep: out of the tab order, it never shows */
+	}
+	.prose .cite-text {
+		@apply sr-only;
+	}
+	.prose .cite-num {
+		@apply inline font-sans text-xs font-bold text-pink;
+	}
+	.margin-column .prose.wide-media > :is(pre, figure, table, .\@container) {
+		@apply relative z-20;
+		margin-inline: calc((100% + var(--margin-col) - 100cqw) / 2)
+			calc((100% - var(--margin-col) - 100cqw) / 2);
+	}
+	.margin-column .prose.wide-media > :is(p, p > a) > img.wide,
+	.margin-column .prose.wide-media > video {
+		@apply z-20;
+		left: calc(50% + var(--margin-col) / 2);
+	}
+	.margin-column .prose.wide-media > figure.portrait-video {
+		margin-right: calc((100% - var(--margin-col) - 100cqw) / 2);
+	}
+}
+
+/* Chapter openers: each big section of a long post opens with a giant outlined numeral,
+   its heading in Fraunces italic and sometimes an epigraph (rehype-chapters.mjs) */
+.prose .chapter {
+	@apply mt-16 mb-10 grid items-end gap-x-8 gap-y-3 border-t border-surface-3 pt-10;
+	grid-template-columns: auto 1fr;
+	min-height: min(440px, 60dvh);
+}
+.prose .chapter-num {
+	@apply font-display leading-[0.74] text-ink;
+	font-size: clamp(150px, 15vw, 240px);
+	-webkit-text-stroke: 2px theme('colors.pink');
+}
+.prose .chapter h2 {
+	@apply m-0 font-serif font-light italic normal-case;
+	font-size: clamp(2rem, 1.2rem + 2vw, 3.25rem);
+	line-height: 1.02;
+}
+.prose .chapter .epigraph {
+	@apply mt-6 mb-0 border-l-2 py-0 pl-4 text-muted;
+	font-size: 0.9em;
+}
+.prose .chapter .epigraph p {
+	@apply m-0;
+}
+.prose .chapter cite {
+	@apply mt-2 block font-sans text-sm not-italic;
+}
+@media (width < 40rem) {
+	.prose .chapter {
+		@apply grid-cols-1;
+		min-height: 0;
+	}
+	.prose .chapter-num {
+		font-size: 150px;
+	}
+}
+
+/* The homepage's New Wave collision (index.astro): every piece placed in % of the box */
+.collision {
+	@apply relative block overflow-hidden text-paper no-underline;
+	height: clamp(600px, 52vw, 680px);
+}
+.collision > * {
+	@apply absolute;
+}
+.collision-slab {
+	@apply bg-pink;
+	left: 5%;
+	top: 8%;
+	width: 40%;
+	height: 64%;
+}
+.collision-photo {
+	@apply overflow-hidden;
+	right: 5%;
+	top: 12%;
+	width: 52%;
+	rotate: -4deg;
+}
+.collision-photo img {
+	@apply block w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.3] motion-reduce:transition-none;
+	aspect-ratio: 4 / 3;
+	scale: 1.25;
+}
+.collision-rule {
+	@apply z-[1] h-[3px] bg-paper;
+	width: 46%;
+	left: 30%;
+	top: 80%;
+	rotate: -11deg;
+}
+.collision-title {
+	@apply z-[2] font-display text-ink uppercase;
+	left: 7%;
+	top: 15%;
+	font-size: clamp(60px, 8.6vw, 128px);
+	line-height: 0.8;
+}
+.collision-title > span {
+	@apply block;
+}
+.collision-title > span:nth-child(2) {
+	@apply text-paper;
+	margin-left: 1.1em;
+}
+.collision-title > span:nth-child(3) {
+	margin-left: 0.3em;
+}
+.collision-title > span:nth-child(4) {
+	@apply text-paper;
+	margin-left: 2.2em;
+}
+.collision-glyph {
+	@apply z-[3] font-display text-pink;
+	right: 3%;
+	bottom: -4%;
+	font-size: clamp(160px, 24vw, 340px);
+	line-height: 0.7;
+	rotate: 8deg;
+}
+.collision-meta {
+	@apply z-[4] font-sans text-[15px] font-bold;
+	left: 5%;
+	top: 77%;
+}
+.collision-meta b {
+	@apply mb-1 block font-display text-[22px] font-normal text-pink uppercase;
+}
+.collision-blurb {
+	@apply z-[4] border-l-[6px] border-pink bg-ink font-serif text-[15px] leading-[1.45];
+	left: 47%;
+	bottom: 9%;
+	width: 26%;
+	padding: 14px 16px;
+}
+.collision:focus-visible {
+	@apply outline-2 outline-offset-4 outline-pink;
+}
+@media (width < 56rem) {
+	.collision {
+		height: 600px;
+	}
+	.collision-slab {
+		width: 76%;
+		height: 48%;
+	}
+	.collision-photo {
+		width: 76%;
+		top: 44%;
+		right: 3%;
+	}
+	.collision-title {
+		left: 6%;
+		font-size: 10.5vw;
+	}
+	.collision-title > span:nth-child(4) {
+		margin-left: 0.6em;
+	}
+	.collision-glyph {
+		font-size: 160px;
+		top: 4%;
+		right: 2%;
+		bottom: auto;
+	}
+	.collision-rule,
+	.collision-meta {
+		display: none;
+	}
+	.collision-blurb {
+		left: 6%;
+		width: 80%;
+		bottom: 3%;
+	}
+}

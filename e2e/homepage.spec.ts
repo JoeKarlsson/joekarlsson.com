@@ -12,29 +12,14 @@ test.describe('Homepage', () => {
 		await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Joe\s*Karlsson/);
 	});
 
-	test('hero montage video is present and labeled', async ({ page }) => {
-		const video = page.locator('video[aria-label*="Montage"]');
-		await expect(video).toHaveAttribute('poster', /montage-poster/);
-		await expect(video.locator('source')).toHaveCount(4);
-		await expect(video.locator('source').first()).toHaveAttribute('type', 'video/webm');
-		// Desktop plays the full square cut (dated filename busts the 30-day cache), not montage-phone
-		expect(await video.evaluate((v: HTMLVideoElement) => v.currentSrc)).toMatch(
-			/\/montage(-\d{4}-\d{2}-\d{2})?\.(webm|mp4)$/,
-		);
+	test('the hero is the featured post, one link named for its full title', async ({ page }) => {
+		const hero = page.getByRole('region', { name: 'Featured post' }).getByRole('link');
+		await expect(hero).toHaveAccessibleName(/^Featured: Are English sentences getting shorter\?/);
+		await expect(hero).toHaveAttribute('href', '/blog/sentence-length-semicolons-punctuation/');
 	});
 
 	test('the rack caption carries the live container count', async ({ page }) => {
 		await expect(page.locator('body')).toContainText(/The rack: \d+ containers running right now/);
-	});
-
-	test('the hero panel leads with my name, then one line on what I do', async ({ page }) => {
-		const panel = page
-			.locator('h1')
-			.locator('xpath=ancestor::div[contains(@class,"bg-surface-1")][1]');
-		const nameTop = (await page.locator('h1').boundingBox())!.y;
-		const lead = panel.getByText('I run developer marketing');
-		expect((await lead.boundingBox())!.y).toBeGreaterThan(nameTop);
-		await expect(page.locator('body')).not.toContainText('15 years writing software');
 	});
 
 	test('every section heading links to its section page', async ({ page }) => {
@@ -92,14 +77,6 @@ test.describe('Homepage', () => {
 
 test.describe('Homepage - Mobile', () => {
 	test.use({ viewport: { width: 375, height: 667 }, hasTouch: true });
-
-	test('phones get the cropped montage', async ({ page }) => {
-		await page.goto('/');
-		const video = page.locator('video[aria-label*="Montage"]');
-		await expect
-			.poll(() => video.evaluate((v: HTMLVideoElement) => v.currentSrc))
-			.toMatch(/montage-phone/);
-	});
 
 	test('the drawing board lets touch scroll the page until drawing is on', async ({ page }) => {
 		await page.goto('/');

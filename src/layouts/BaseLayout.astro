@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import MarginDoodles from '../components/MarginDoodles.astro';
 import { BOXES, CHALK, RINGS } from '../data/scribbles';
 import { compactPath } from '../utils/compact-path';
+import { spineFor } from '../utils/spine';
 
 interface Props {
 	title: string;
@@ -26,6 +27,10 @@ interface Props {
 	// Joe's doodles down the side margins on wide screens; off where full-width
 	// sections already run through the margins (the homepage)
 	marginDoodles?: boolean;
+	/** The colophon's page number, in place of the section's (a post's "No. 157") */
+	pageNumber?: string;
+	/** The spine is the page's h1 (the homepage, where it's my name) */
+	spineIsTitle?: boolean;
 }
 
 const {
@@ -46,7 +51,11 @@ const {
 	section,
 	videoObjects,
 	marginDoodles = true,
+	pageNumber,
+	spineIsTitle = false,
 } = Astro.props;
+const spine = spineFor(Astro.url.pathname);
+const page = pageNumber ?? spine.page;
 ---
 
 <!doctype html>
@@ -79,6 +88,14 @@ const {
 		>
 			Skip to content
 		</a>
+		<!-- The spine: the section name up the left edge (global.css) -->
+		<div class="spine" aria-hidden={spineIsTitle ? undefined : 'true'}>
+			{spineIsTitle ? (
+				<h1 class="spine-label">{spine.label}</h1>
+			) : (
+				<span class="spine-label">{spine.label}</span>
+			)}
+		</div>
 		<!-- A page's opening hero, set above the nav, as on the homepage (phones move the nav
 		back above it: Header's max-md:order-first) -->
 		<slot name="hero" />
@@ -88,6 +105,16 @@ const {
 		<main id="main" tabindex="-1" class="relative flex-1 pb-16 focus:outline-none md:pb-20">
 			{marginDoodles && <MarginDoodles />}
 			<slot />
+			<div data-colophon class="mx-auto mt-16 max-w-6xl px-4 sm:px-7">
+				<div class="grid gap-2 border-t border-surface-3 pt-6 md:grid-cols-[auto_1fr_auto] md:items-baseline md:gap-7">
+					<h2 class="font-display text-[22px] leading-none text-paper uppercase">Colophon</h2>
+					<p class="max-w-[60ch] font-serif text-[15px] leading-normal text-muted">
+						Set in Anton, Hanken Grotesk and Fraunces. Built with Astro and served by Caddy from my
+						homelab.
+					</p>
+					{page && <p class="font-serif text-[15px] whitespace-nowrap text-muted italic">{page}</p>}
+				</div>
+			</div>
 		</main>
 		<Footer />
 

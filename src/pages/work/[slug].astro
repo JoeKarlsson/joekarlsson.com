@@ -7,7 +7,6 @@ import {
 	MORE_LINK,
 	PAGE_CONTAINER,
 	PRIMARY_BUTTON,
-	SIDEBAR_GRID,
 } from '../../utils/ui';
 import { Code } from 'astro:components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -129,13 +128,7 @@ const sections = [
 >
 	{/* The blog post's frame (BlogPost.astro): an "On this page" sidebar beside the article */}
 	<div class={PAGE_CONTAINER}>
-		<div class={SIDEBAR_GRID}>
-			{sections.length > 1 ? (
-				<TableOfContents headings={sections} />
-			) : (
-				<div class="hidden xl:block" />
-			)}
-
+		<div>
 			{/* @container: the wide blocks below size themselves to this column */}
 			<article class="@container min-w-0">
 				<BackLink href="/work/" label="Works" />
@@ -180,7 +173,8 @@ const sections = [
 				</div>
 
 				{/* Everything from here shares one column centered under the hero, as in a post */}
-				<div class="mx-auto max-w-(--reading-width)">
+				<div class="margin-column mx-auto max-w-(--reading-width)">
+					{sections.length > 1 && <TableOfContents headings={sections} />}
 					<header class="mb-8">
 						<h1 class={ARTICLE_TITLE}>{project.title}</h1>
 						<p class="mb-3 font-serif text-xl leading-snug text-paper">{page.tagline}</p>

@@ -8,6 +8,10 @@ categories: ['Web Dev']
 tags:
   ['punc', 'digital-humanities', 'data-analysis', 'punctuation', 'project-gutenberg', 'stylometry']
 tldr: "I stripped the words from 1,959 Project Gutenberg books and tested the 130-year-old claim that English sentences got shorter. Words between periods fell from 30 (1700-49) to 15 (1900-49). About 40% of that drop is periods taking over the job semicolons and colons used to do, and the rest survives every check I ran, even in narration with the dialogue taken out. Semicolons fell from 10 to 2 per 1,000 words, and a writer's birth year explains that about as well as the publication date does. Punctuation alone names the author 34% of the time where chance is under 1%, and Dickens gets 0 of 20. You can drop your own .txt on Punc's read page and check any of it."
+epigraphs:
+  - section: 'About 40% of the sentence length drop is punctuation'
+    quote: 'A shepherd has a great deal of leisure; a husbandman, in the rude state of husbandry, has some; an artificer or manufacturer has none at all.'
+    cite: 'Adam Smith, The Wealth of Nations, 1776'
 faq:
   - question: 'Are English sentences getting shorter?'
     answer: 'Yes, but by less than the famous numbers say. In 1,959 Project Gutenberg books, the median sentence fell from 30 words (1700-49) to 15 (1900-49) counting only periods, question marks and exclamation marks. Counting semicolons and colons as sentence ends too, it fell from 22 to 13, so about 40% of the drop is a change in punctuation and the rest is real shortening.'

@@ -1,7 +1,6 @@
 ---
 import { MORE_LINK, SECTION_HEADING, formatDate } from '../utils/ui';
 import DrawingBoard from '../components/DrawingBoard.astro';
-import FeaturedBand from '../components/FeaturedBand.astro';
 import HoverBox from '../components/HoverBox.astro';
 import IndexRow from '../components/IndexRow.astro';
 import Scribble from '../components/Scribble.astro';
@@ -10,7 +9,7 @@ import WrittenFor from '../components/WrittenFor.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE, SITE_DESCRIPTION } from '../consts';
 import { projects } from '../data/projects';
-import { ARROW, CHALK, COIL, HERO_COIL, MARKS } from '../data/scribbles';
+import { ARROW, CHALK, COIL, MARKS } from '../data/scribbles';
 import nowFeed from '../data/now-feed.json';
 import { getCategoryCounts } from '../utils/categories';
 import { getFeedPosts, getPinnedPost, isOwnPost } from '../utils/posts';
@@ -39,9 +38,15 @@ const homeProjects = HOME_PROJECTS.map((title) => {
 	return { title, href, meta: [project.date.slice(0, 4), ...project.tech.slice(0, 2)].join(', ') };
 });
 
-// The pink band in the hero pins the one piece I'm pushing; Recent posts below already
-// shows the newest
-const featuredPost = await getPinnedPost('doom-mcp-server');
+// The hero pins the one piece I'm pushing, set by hand: its title in short stepped lines,
+// the punctuation mark that crashes into it and one line on what it found
+const featuredPost = await getPinnedPost('sentence-length-semicolons-punctuation');
+const FEATURED = {
+	lines: ['Are', 'English', 'sentences', 'shorter?'],
+	glyph: ';',
+	blurb:
+		'In 1,959 Project Gutenberg books, about 40% of the drop in sentence length is punctuation.',
+};
 // The last repeats the first so the reel loops seamlessly (slot-roll in motion.css)
 const SLOT_WORDS = ['ugly pot', 'bad idea', 'ugly demo', 'weird idea', 'homelab', 'ugly pot'];
 
@@ -81,127 +86,41 @@ const AROUND_THE_HOUSE = [
 	schemaType="WebSite"
 
 	marginDoodles={false}
+	spineIsTitle
 >
-	<!-- A section with a name is a landmark, so screen-reader landmark jumps reach the
-	hero, which sits above the nav and outside <main> -->
-	<!-- max-w-[90rem]: the hero and sections fill a laptop as before, but stop growing
-	past 1440px, so a 2560px screen keeps the nav on its first screen -->
-	<section
-		slot="hero"
-		aria-label="Introduction"
-		class="mx-auto grid w-full max-w-[90rem] gap-4 p-4 md:grid-cols-2"
-	>
-		<!-- Phones: a 16:9 banner of Joe's face (montage-phone is that crop). Side by side: at least square, growing with a taller text panel so the
-		video never stops short. Only the video is clipped to the rounded box; the marks
-		sit above everything and spill across the text panel, the gutters and the nav. -->
-		<div class="relative z-10 aspect-video md:aspect-auto md:before:block md:before:aspect-square md:before:content-['']">
-			<div class="absolute inset-0 overflow-hidden rounded-xl">
-				<video
-					class="absolute inset-0 size-full object-cover object-[50%_25%] md:object-center"
-					poster="/images/home/montage-poster.webp"
-					data-halftone="dots"
-					data-autoplay-in-view
-					muted
-					loop
-					playsinline
-					preload="metadata"
-					aria-label="Montage of short halftone clips of Joe"
-				>
-					<!-- Plain color clips, each frame auto-leveled, so the live pink dots
-					(src/scripts/halftone.ts) stay sharp at any size and every shot matches the
-					poster's levels. Phones get their own 16:9 cut, already cropped to Joe's face.
-					VP9 is smaller; H.264 is the fallback. -->
-					<source
-						media="(max-width: 767px)"
-						src="/images/home/montage-phone-2026-11-10.webm"
-						type="video/webm"
-					/>
-					<source
-						media="(max-width: 767px)"
-						src="/images/home/montage-phone-2026-11-10.mp4"
-						type="video/mp4"
-					/>
-					<source src="/images/home/montage-2026-11-10.webm" type="video/webm" />
-					<source src="/images/home/montage-2026-11-10.mp4" type="video/mp4" />
-				</video>
-			</div>
-			<Scribble
-				path={COIL}
-				color={CHALK}
-				duration="10s"
-				delay="1s"
-				class="top-[52%] -left-[10%] h-[24%] w-[150%] max-md:top-[80%] max-md:left-[34%] max-md:h-[34%] max-md:w-[76%]"
-			/>
-			<!-- Phones: the 16:9 cut is all face, so the coil above drops to straddle the
-			clip's bottom-right edge instead of crossing it, and the lines below make room -->
-			<Scribble
-				{...MARKS.burst}
-				color={CHALK}
-				strokeWidth={6}
-				duration="8s"
-				delay="2.4s"
-				class="-top-[7%] -left-[7%] size-[22%]"
-			/>
-			<Scribble
-				{...MARKS.tally}
-				color={CHALK}
-				duration="9s"
-				delay="0.6s"
-				class="top-[3%] -right-[8%] h-[12%] w-[26%]"
-			/>
-			<Scribble
-				{...MARKS.lines}
-				color={CHALK}
-				duration="11s"
-				delay="1.8s"
-				class="-bottom-[9%] -left-[6%] h-[16%] w-[78%] max-md:hidden"
-			/>
-			<Scribble
-				{...MARKS.hatch}
-				color="#ff4fd8"
-				duration="8s"
-				delay="3.2s"
-				class="-right-[9%] -bottom-[12%] h-[13%] w-[24%]"
-			/>
-		</div>
-		<div class="grid min-w-0 grid-rows-[auto_1fr] gap-4">
-			<div class="flex flex-col justify-between gap-6 rounded-xl bg-surface-1 p-7">
-				<!-- My name first, then what I do underneath it -->
-				<div class="@container">
-					<h1 class="relative font-display text-[calc(100cqw/var(--name-ratio))] leading-[0.88] whitespace-nowrap text-paper uppercase [--name-ratio:3.8]">
-						<span class="block">Joe</span>
-						<Scribble
-							{...MARKS.rays}
-							color="#ff4fd8"
-							strokeWidth={10}
-							duration="6s"
-							delay="1.2s"
-							class="top-[2%] left-[42%] h-[30%] w-[22%]"
-						/>
-						<span class="block">Karlsson</span>
-						<Scribble
-							path={HERO_COIL}
-							color="#ff4fd8"
-							duration="9s"
-							delay="0.3s"
-							class="-bottom-[14%] -left-[4%] h-[85%] w-[104%]"
-						/>
-					</h1>
-				</div>
-				<p class="text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[1.15] font-semibold text-paper">
-					I run developer marketing at CData, and before that DevRel at CloudQuery, Tinybird,
-					SingleStore and MongoDB.
-				</p>
-			</div>
-			<!-- After the panel, so my name is read first; wider screens show it on top -->
-			<FeaturedBand
-				label="Featured"
-				title={featuredPost.data.title}
-				href={featuredPost.href}
-				meta={formatDate(featuredPost.data.date)}
-				class="md:order-first"
-			/>
-		</div>
+	<!-- The pinned post as a New Wave collision (art book round 2, pick 5A): stepped Anton
+	lines over a pink slab, its tilted picture and one giant punctuation mark. Above the nav
+	from md up; phones put the nav first (Header's max-md:order-first). -->
+	<section slot="hero" aria-label="Featured post" class="mx-auto w-full max-w-[90rem] p-4">
+		<a href={featuredPost.href} class="collision group">
+			<span class="sr-only">Featured: {featuredPost.data.title}</span>
+			<span class="collision-slab" aria-hidden="true"></span>
+			<span class="collision-photo" aria-hidden="true">
+				<img
+					src={featuredPost.data.heroImage || DEFAULT_HERO_IMAGE}
+					alt=""
+					data-halftone={cardHalftone(featuredPost.data.heroImage || DEFAULT_HERO_IMAGE)}
+					fetchpriority="high"
+					aria-hidden="true"
+				/>
+			</span>
+			<span class="collision-rule" aria-hidden="true"></span>
+			<span class="collision-title" aria-hidden="true">
+				{FEATURED.lines.map((line) => (
+					<span>{line}</span>
+				))}
+			</span>
+			<span class="collision-glyph" aria-hidden="true">
+				{FEATURED.glyph}
+			</span>
+			<span class="collision-meta" aria-hidden="true">
+				<b>Featured</b>
+				{formatDate(featuredPost.data.date)}
+			</span>
+			<span class="collision-blurb" aria-hidden="true">
+				{FEATURED.blurb}
+			</span>
+		</a>
 	</section>
 
 	<!-- Phones: the hero's own bottom padding (p-4) plus pt-8 makes the usual 48 -->

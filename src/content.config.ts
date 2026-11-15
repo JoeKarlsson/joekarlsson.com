@@ -41,6 +41,11 @@ const postSchema = z.object({
 	canonicalUrl: z.url().optional(),
 	contentNotice: z.union([z.string(), z.boolean()]).optional(),
 	tldr: z.string().optional(),
+	// A long post's chapter openers (rehype-chapters.mjs) can carry an epigraph: an exact
+	// quote from that section, keyed by the section's heading text
+	epigraphs: z
+		.array(z.object({ section: z.string(), quote: z.string(), cite: z.string() }))
+		.optional(),
 	faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
 	howToSteps: z.array(z.object({ name: z.string(), text: z.string() })).optional(),
 });
