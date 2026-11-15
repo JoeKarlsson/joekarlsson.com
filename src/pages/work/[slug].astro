@@ -92,8 +92,11 @@ if (madeDiagram && !diagram)
 	throw new Error(`${project.title}'s diagram ${madeDiagram.src} isn't in public/`);
 
 // Like a blog post (BlogPost.astro), text keeps to one centered reading column and
-// pictures, embeds and grids break out to the article's full width (prose wide-media)
-const WIDE = 'width: 100cqw; margin-inline: calc((100% - 100cqw) / 2)';
+// pictures, embeds and grids break out to the article's full width (prose wide-media). On
+// wide screens the column carries a right margin (--margin-col, global.css), so the
+// break-out centers on the column plus that margin, or it slides left under the spine
+const WIDE =
+	'width: 100cqw; margin-inline: calc((100% + var(--margin-col, 0px) - 100cqw) / 2) calc((100% - var(--margin-col, 0px) - 100cqw) / 2)';
 
 // The year and any collaborator; a page with a How it's made section lists its stack there
 const byline = [project.date.slice(0, 4), page.credit, !page.made && project.tech.join(', ')];

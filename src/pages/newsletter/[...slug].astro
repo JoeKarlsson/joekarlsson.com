@@ -13,6 +13,8 @@ import popularPosts from '../../data/popular-posts.json';
 import { isOwnPost } from '../../utils/posts';
 import { isSent } from '../../utils/sent';
 import { rankRelatedPosts } from '../../utils/related-posts';
+import { halftoneMode } from '../../utils/halftone';
+import { localImageSize } from '../../utils/image-size.mjs';
 
 export async function getStaticPaths() {
 	const issues = (await getCollection('newsletter')).sort(
@@ -30,8 +32,22 @@ interface Props {
 }
 
 const { issue, prev, next } = Astro.props;
-const { title, shareTitle, seoTitle, date, description, substackUrl, heroImage, heroAlt, recapOf } =
-	issue.data;
+const {
+	title,
+	shareTitle,
+	seoTitle,
+	date,
+	description,
+	substackUrl,
+	heroImage,
+	heroAlt,
+	cardPhoto,
+	cardPhotoAlt,
+	recapOf,
+} = issue.data;
+// The masthead shows the issue card's photo, not the card: the card repeats the title right
+// under the title. The card stays the share and email image; issues without a photo get none
+const photoSize = cardPhoto ? await localImageSize(cardPhoto) : undefined;
 // A recap condenses a blog post, so search engines should index the post instead.
 const canonicalUrl = recapOf ? new URL(`/blog/${recapOf}/`, Astro.site).href : undefined;
 const { Content, headings } = await render(issue);
@@ -81,11 +97,11 @@ const relatedSlugs = rankRelatedPosts(
 					title={title}
 					label="Newsletter"
 					caption={description}
-					heroImage={heroImage}
-					heroAlt={heroAlt}
-					width={1200}
-					height={630}
-					halftone="flat"
+					heroImage={cardPhoto}
+					heroAlt={cardPhotoAlt}
+					width={photoSize?.width}
+					height={photoSize?.height}
+					halftone={cardPhoto ? halftoneMode(cardPhoto) : undefined}
 				>
 					<FormattedDate date={date} />
 				</Masthead>

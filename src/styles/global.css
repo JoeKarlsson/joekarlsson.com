@@ -681,15 +681,26 @@ header nav .sticker {
 	.prose a:not(.heading-anchor, :has(img, picture, video)) {
 		background: linear-gradient(
 				100deg,
-				#ff4fd8 var(--highlight),
-				transparent calc(var(--highlight) + 2%)
+				#ff4fd8 calc(var(--highlight) - 2%),
+				transparent var(--highlight)
 			)
 			no-repeat;
 	}
+	/* At rest the pink ends below 0%, so no sliver shows before a hover */
 	.prose a:not(.heading-anchor, :has(img, picture, video)):hover {
-		--highlight: 102%;
+		--highlight: 104%;
 		@apply text-ink;
 	}
+}
+
+/* A live embed (a playable project in an iframe) is framed in pink with a label strip on top,
+   so it reads as a window into another page, not as part of this one (Joe, 2026-11-15) */
+:has(> iframe[data-embed-project]) {
+	@apply relative rounded-lg border-2 border-pink bg-pink pt-7;
+}
+:has(> iframe[data-embed-project])::before {
+	@apply absolute top-1.5 left-3 font-display text-sm leading-none text-ink uppercase;
+	content: 'Live: runs right here' / '';
 }
 
 /* Art book layout (DECISIONS.md, 2026-11-14 round 2) ------------------------------------ */
