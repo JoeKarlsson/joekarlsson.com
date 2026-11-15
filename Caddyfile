@@ -131,7 +131,10 @@
 	header @not_embeddable Cross-Origin-Resource-Policy same-site
 
 	# Astro's build output carries a content hash in every filename, so it can be cached forever
-	@hashed path /_astro/*
+	@hashed {
+		path /_astro/*
+		file
+	}
 	header @hashed Cache-Control "public, max-age=31536000, immutable"
 
 	# Everything else in public/ (images, video, audio, icons) keeps its name across edits,
@@ -140,6 +143,7 @@
 	@static {
 		path *.css *.js *.svg *.png *.jpg *.jpeg *.webp *.woff2 *.woff *.ttf *.gif *.mp4 *.webm *.mp3
 		not path /_astro/*
+		file
 	}
 	header @static Cache-Control "public, max-age=2592000"
 
