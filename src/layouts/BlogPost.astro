@@ -142,8 +142,6 @@ const noticeHtml = noticeMessage
 	: null;
 
 const allPosts = await getCollection('blog');
-// The colophon numbers a blog post like a book in a series: the 1st post ever is No. 1
-const postNumber = allPosts.filter((p) => p.data.date <= date).length;
 // Keep reading suggests Joe's own posts, unless this post was written for an employer:
 // that reader came for employer posts, so those stay in the pool
 const publishedPosts = allPosts
@@ -205,7 +203,6 @@ const heroIsTaped =
 	canonicalUrl={canonicalUrl}
 	section={home}
 	videoObjects={videoObjects}
-	pageNumber={section === 'blog' ? `No. ${postNumber}` : undefined}
 >
 	{/* Phones show progress in the nav bar instead (reading-context.ts) */}
 	<div

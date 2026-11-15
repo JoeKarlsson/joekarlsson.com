@@ -406,10 +406,10 @@ test.describe('Phone layout', () => {
 		expect(progress).toBeLessThan(50);
 	});
 
-	test('the footer follows close behind the colophon', async ({ page }) => {
+	test('the footer follows close behind the last section', async ({ page }) => {
 		await page.goto('/work/');
 		const gap = await page.evaluate(() => {
-			const nav = document.querySelector('[data-colophon]')!;
+			const nav = document.querySelector('nav[aria-labelledby="keep-exploring"]')!;
 			const footer = document.querySelector('footer')!;
 			return footer.getBoundingClientRect().top - nav.getBoundingClientRect().bottom;
 		});
