@@ -22,9 +22,20 @@ test.describe('Phone layout', () => {
 	test('the nav sits above the homepage hero', async ({ page }) => {
 		await page.goto('/');
 		const nav = await box(page, 'header nav[aria-label="Main"]');
-		const hero = await box(page, '.collision');
+		const hero = await box(page, 'video[aria-label*="Montage"]');
 		expect(nav.y).toBeLessThan(hero.y);
 		expect(nav.y).toBeLessThan(40);
+	});
+
+	test("the hero coil stays off Joe's face, down on the clip's bottom edge", async ({ page }) => {
+		await page.goto('/');
+		const hero = await box(page, 'video[aria-label*="Montage"]');
+		// The coil is the first scribble after the clip's rounded box
+		const coil = await page
+			.locator('video[aria-label*="Montage"]')
+			.locator('xpath=../following-sibling::*[name()="svg"][1]')
+			.boundingBox();
+		expect(coil!.y).toBeGreaterThan(hero.y + hero.height * 0.7);
 	});
 
 	test('pages start 16px under the nav and space sections on one scale', async ({ page }) => {
@@ -486,8 +497,10 @@ test.describe('Desktop keeps its layout', () => {
 	}) => {
 		await page.goto('/');
 		const nav = await box(page, 'header nav[aria-label="Main"]');
-		const hero = await box(page, '.collision');
+		const hero = await box(page, 'video[aria-label*="Montage"]');
 		expect(hero.y).toBeLessThan(nav.y);
+		// The pink ticker became the featured band (FeaturedBand.astro)
+		await expect(page.locator('[data-featured-band]').first()).toBeVisible();
 
 		await page.goto('/about/');
 		await expect(page.locator('details.now-fold')).toHaveAttribute('open');

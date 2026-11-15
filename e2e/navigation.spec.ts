@@ -197,11 +197,10 @@ test.describe('Page Navigation', () => {
 	});
 });
 
-test.describe('Homepage clips', () => {
-	test('start again after a pause the browser made', async ({ page }) => {
+test.describe('Homepage montage', () => {
+	test('starts again after a pause the browser made', async ({ page }) => {
 		await page.goto('/');
-		const montage = page.locator('video[data-autoplay-in-view]').first();
-		await montage.scrollIntoViewIfNeeded();
+		const montage = page.locator('video[aria-label^="Montage"]');
 		await expect.poll(() => montage.evaluate((v: HTMLVideoElement) => v.paused)).toBe(false);
 
 		// Chrome pauses muted video in a hidden tab; that isn't the viewer stopping it

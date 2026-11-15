@@ -76,7 +76,7 @@ test('a post opened from a link with no picture of it on screen gets no header m
 	page,
 }) => {
 	await page.goto('/');
-	const featured = page.locator('section[aria-label="Featured post"] a[href^="/blog/"]').first();
+	const featured = page.locator('section[aria-label="Introduction"] a[href^="/blog/"]').first();
 	const path = await featured.getAttribute('href');
 	await featured.click();
 	await page.waitForURL(`**${path}`);

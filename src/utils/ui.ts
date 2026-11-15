@@ -3,8 +3,8 @@
 /** Every page's column: the same width, gutters and top gap, so the left edge never jumps between pages. */
 export const PAGE_CONTAINER = 'relative mx-auto max-w-6xl px-4 pt-6 pb-10 sm:px-7 md:pt-10';
 
-/** The "On this page" sidebar beside one column (About, Uses, posts, projects, newsletter issues). */
-export const SIDEBAR_GRID = 'xl:grid xl:grid-cols-[200px_1fr] xl:gap-10';
+/** About's column with "On this page" on its right, where posts keep theirs (the left edge is the spine's). */
+export const SIDEBAR_GRID = 'xl:grid xl:grid-cols-[minmax(0,1fr)_15rem] xl:gap-10';
 
 /** The title of a post, project or newsletter issue. */
 export const ARTICLE_TITLE =

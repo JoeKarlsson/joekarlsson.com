@@ -34,7 +34,9 @@ const THRESHOLDS = {
 	// and the new-CSS round (DECISIONS.md) added 1KB, so 20KB restores ~2KB of headroom.
 	// A coverage run that day found no dead rules to cut (the unused share is spoilers, the
 	// lightbox, callouts and other states), and it's one stylesheet cached for a year.
-	maxTotalCssGzip: 20 * 1024,
+	// Raised to 22KB the same day (Joe's OK): the art book layout (spine, colophon, margin
+	// notes, chapter openers) took it to 20.1KB.
+	maxTotalCssGzip: 22 * 1024,
 	// Total dist folder (includes images). Raised from 200MB on 2026-11-05 for the
 	// redesign's pink halftone of every post hero (7.5MB) and the homepage video,
 	// when dist sat at 199MB. Those halftones are now drawn live in the browser
@@ -142,7 +144,7 @@ describe('Bundle Size', () => {
 	});
 
 	describe('CSS bundles', () => {
-		it('total CSS is under 20KB gzipped', () => {
+		it('total CSS is under 22KB gzipped', () => {
 			const cssFiles = getFilesWithExtension(ASTRO_DIR, '.css').map((f) => ({
 				name: f.name,
 				size: gzipSync(readFileSync(join(ASTRO_DIR, f.name))).length,
@@ -161,8 +163,8 @@ describe('Bundle Size', () => {
 	});
 });
 
-// The homepage's media: what a visitor pulls before scrolling (the featured post's
-// picture in the hero, the recent posts' pictures), and everything on the page if
+// The homepage's media: what a visitor pulls before scrolling (the montage, in the
+// first <source> a browser picks, plus its poster), and everything on the page if
 // they scroll to the end. Lazy clips (preload="none") count only toward the total.
 // Measured 2026-11-05: about 2.4MB first view, about 7MB in all.
 const HOME_MEDIA_BUDGET = {
@@ -192,8 +194,8 @@ describe('Homepage media budget', () => {
 	const html = readFileSync(join(DIST_DIR, 'index.html'), 'utf8');
 	const media = pageMedia(html).map((m) => ({ ...m, size: statSync(join(DIST_DIR, m.path)).size }));
 
-	it("finds the hero's picture and the lazy clips", () => {
-		expect(media.some((m) => m.path.startsWith('/images/blog/') && m.eager)).toBe(true);
+	it('finds the montage, its poster and the lazy clips', () => {
+		expect(media.some((m) => m.path.includes('montage') && m.eager)).toBe(true);
 		expect(media.filter((m) => !m.eager).length).toBeGreaterThan(5);
 	});
 

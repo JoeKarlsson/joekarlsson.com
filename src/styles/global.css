@@ -727,10 +727,11 @@ body {
 }
 
 /* Monograph margins: on wide screens a post's column gets a 15rem margin on its right.
-   "On this page" heads it and stays put while the page scrolls; citations sit beside the
-   paragraph they belong to (rehype-margin-notes.mjs) and slide under the contents as they
-   scroll by. Where there's a contents list, wide pictures and code keep to the text column,
-   as in the mockup, so nothing ever covers it; without one they run across the margin. */
+   "On this page" heads it like a book's contents and scrolls away with the opening, so the
+   citations below sit beside the paragraph they belong to (rehype-margin-notes.mjs) with
+   nothing covering them; About, with no notes, keeps its list in view. Where there's a
+   contents list, wide pictures and code keep to the text column, as in the mockup; without
+   one they run across the margin. */
 .margin-toc {
 	@apply sticky top-20 self-start;
 }
@@ -746,13 +747,13 @@ body {
 		padding-right: var(--margin-col);
 	}
 	.margin-column > .margin-toc {
-		@apply z-30 bg-ink;
+		position: static;
 		float: right;
 		width: 15rem;
 		margin-right: calc(-1 * var(--margin-col));
 	}
 	.prose .margin-note {
-		@apply relative z-20 block border-t border-surface-4 bg-ink pt-2 pb-2 font-sans text-sm leading-snug text-muted;
+		@apply block border-t border-surface-4 pt-2 pb-2 font-sans text-sm leading-snug text-muted;
 		float: right;
 		clear: right;
 		width: 15rem;
@@ -829,125 +830,5 @@ body {
 	}
 	.prose .chapter-num {
 		font-size: 150px;
-	}
-}
-
-/* The homepage's New Wave collision (index.astro): every piece placed in % of the box,
-   except the title, which stays in the flow so bigger text grows the box instead of clipping */
-.collision {
-	@apply relative block overflow-hidden text-paper no-underline;
-	min-height: clamp(600px, 52vw, 680px);
-}
-.collision > * {
-	@apply absolute;
-}
-.collision-slab {
-	@apply bg-pink;
-	left: 5%;
-	top: 8%;
-	width: 40%;
-	height: 64%;
-}
-.collision-photo {
-	@apply overflow-hidden;
-	right: 5%;
-	top: 12%;
-	width: 52%;
-	rotate: -4deg;
-}
-.collision-photo img {
-	@apply block w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.3] motion-reduce:transition-none;
-	aspect-ratio: 4 / 3;
-	scale: 1.25;
-}
-.collision-rule {
-	@apply z-[1] h-[3px] bg-paper;
-	width: 46%;
-	left: 30%;
-	top: 80%;
-	rotate: -11deg;
-}
-.collision-title {
-	@apply relative z-[2] block font-display text-ink uppercase;
-	margin-left: 7%;
-	padding-top: clamp(90px, 7.8vw, 102px);
-	font-size: clamp(60px, 8.6vw, 128px);
-	line-height: 0.8;
-}
-.collision-title > span {
-	@apply block;
-}
-.collision-title > span:nth-child(2) {
-	@apply text-paper;
-	margin-left: 1.1em;
-}
-.collision-title > span:nth-child(3) {
-	margin-left: 0.3em;
-}
-.collision-title > span:nth-child(4) {
-	@apply text-paper;
-	margin-left: 2.2em;
-}
-.collision-glyph {
-	@apply z-[3] font-display text-pink;
-	right: 3%;
-	bottom: -4%;
-	font-size: clamp(160px, 24vw, 340px);
-	line-height: 0.7;
-	rotate: 8deg;
-}
-.collision-meta {
-	@apply z-[4] font-sans text-[15px] font-bold;
-	left: 5%;
-	top: 77%;
-}
-.collision-meta b {
-	@apply mb-1 block font-display text-[22px] font-normal text-pink uppercase;
-}
-.collision-blurb {
-	@apply z-[4] border-l-[6px] border-pink bg-ink font-serif text-[15px] leading-[1.45];
-	left: 47%;
-	bottom: 9%;
-	width: 26%;
-	padding: 14px 16px;
-}
-.collision:focus-visible {
-	@apply outline-2 outline-offset-4 outline-pink;
-}
-@media (width < 56rem) {
-	.collision {
-		min-height: 600px;
-	}
-	.collision-slab {
-		width: 76%;
-		height: 48%;
-	}
-	.collision-photo {
-		width: 76%;
-		top: 44%;
-		right: 3%;
-	}
-	.collision-title {
-		margin-left: 6%;
-		padding-top: 60px;
-		font-size: clamp(2.25rem, 0.5rem + 8.5vw, 4.5rem);
-	}
-	.collision-title > span:nth-child(4) {
-		margin-left: 0.6em;
-	}
-	.collision-glyph {
-		font-size: 160px;
-		top: 4%;
-		right: 2%;
-		bottom: auto;
-	}
-	.collision-rule,
-	.collision-meta {
-		display: none;
-	}
-	.collision-blurb {
-		left: 6%;
-		width: 80%;
-		bottom: 3%;
 	}
 }
