@@ -13,7 +13,6 @@ import popularPosts from '../../data/popular-posts.json';
 import { isOwnPost } from '../../utils/posts';
 import { isSent } from '../../utils/sent';
 import { rankRelatedPosts } from '../../utils/related-posts';
-import { halftoneMode } from '../../utils/halftone';
 import { localImageSize } from '../../utils/image-size.mjs';
 
 export async function getStaticPaths() {
@@ -46,7 +45,8 @@ const {
 	recapOf,
 } = issue.data;
 // The masthead shows the issue card's photo, not the card: the card repeats the title right
-// under the title. The card stays the share and email image; issues without a photo get none
+// under the title. The card stays the share and email image; issues without a photo get none.
+// Flat pink and black, like the post thumbnails beside them in the feed
 const photoSize = cardPhoto ? await localImageSize(cardPhoto) : undefined;
 // A recap condenses a blog post, so search engines should index the post instead.
 const canonicalUrl = recapOf ? new URL(`/blog/${recapOf}/`, Astro.site).href : undefined;
@@ -101,7 +101,7 @@ const relatedSlugs = rankRelatedPosts(
 					heroAlt={cardPhotoAlt}
 					width={photoSize?.width}
 					height={photoSize?.height}
-					halftone={cardPhoto ? halftoneMode(cardPhoto) : undefined}
+					halftone="flat"
 				>
 					<FormattedDate date={date} />
 				</Masthead>
