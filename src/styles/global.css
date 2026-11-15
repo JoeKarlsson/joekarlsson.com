@@ -728,10 +728,11 @@ body {
 
 /* Monograph margins: on wide screens a post's column gets a 15rem margin on its right.
    "On this page" heads it and stays put while the page scrolls; citations sit beside the
-   paragraph they belong to (rehype-margin-notes.mjs) and pass over the contents as they
-   scroll by. Wide pictures and code still run across both, over the margin. */
+   paragraph they belong to (rehype-margin-notes.mjs) and slide under the contents as they
+   scroll by. Where there's a contents list, wide pictures and code keep to the text column,
+   as in the mockup, so nothing ever covers it; without one they run across the margin. */
 .margin-toc {
-	@apply sticky top-20;
+	@apply sticky top-20 self-start;
 }
 .prose .margin-note,
 .prose .cite-num {
@@ -745,7 +746,7 @@ body {
 		padding-right: var(--margin-col);
 	}
 	.margin-column > .margin-toc {
-		@apply z-10;
+		@apply z-30 bg-ink;
 		float: right;
 		width: 15rem;
 		margin-right: calc(-1 * var(--margin-col));
@@ -759,10 +760,6 @@ body {
 	}
 	.prose .margin-note b {
 		@apply text-pink;
-	}
-	.prose .margin-note a {
-		@apply text-muted underline;
-		background: none; /* no highlighter sweep: out of the tab order, it never shows */
 	}
 	.prose .cite-text {
 		@apply sr-only;
@@ -782,6 +779,19 @@ body {
 	}
 	.margin-column .prose.wide-media > figure.portrait-video {
 		margin-right: calc((100% - var(--margin-col) - 100cqw) / 2);
+	}
+	.margin-column:has(> .margin-toc) .prose.wide-media > :is(pre, figure, table, .\@container) {
+		width: 100%;
+		margin-inline: 0;
+	}
+	.margin-column:has(> .margin-toc) .prose.wide-media > :is(p, p > a) > img.wide,
+	.margin-column:has(> .margin-toc) .prose.wide-media > video {
+		left: 0;
+		translate: none;
+		max-width: 100%;
+	}
+	.margin-column:has(> .margin-toc) .prose.wide-media > figure.portrait-video {
+		margin-right: 0;
 	}
 }
 
@@ -822,10 +832,11 @@ body {
 	}
 }
 
-/* The homepage's New Wave collision (index.astro): every piece placed in % of the box */
+/* The homepage's New Wave collision (index.astro): every piece placed in % of the box,
+   except the title, which stays in the flow so bigger text grows the box instead of clipping */
 .collision {
 	@apply relative block overflow-hidden text-paper no-underline;
-	height: clamp(600px, 52vw, 680px);
+	min-height: clamp(600px, 52vw, 680px);
 }
 .collision > * {
 	@apply absolute;
@@ -857,9 +868,9 @@ body {
 	rotate: -11deg;
 }
 .collision-title {
-	@apply z-[2] font-display text-ink uppercase;
-	left: 7%;
-	top: 15%;
+	@apply relative z-[2] block font-display text-ink uppercase;
+	margin-left: 7%;
+	padding-top: clamp(90px, 7.8vw, 102px);
 	font-size: clamp(60px, 8.6vw, 128px);
 	line-height: 0.8;
 }
@@ -905,7 +916,7 @@ body {
 }
 @media (width < 56rem) {
 	.collision {
-		height: 600px;
+		min-height: 600px;
 	}
 	.collision-slab {
 		width: 76%;
@@ -917,8 +928,9 @@ body {
 		right: 3%;
 	}
 	.collision-title {
-		left: 6%;
-		font-size: 10.5vw;
+		margin-left: 6%;
+		padding-top: 60px;
+		font-size: clamp(2.25rem, 0.5rem + 8.5vw, 4.5rem);
 	}
 	.collision-title > span:nth-child(4) {
 		margin-left: 0.6em;

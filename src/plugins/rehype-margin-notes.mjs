@@ -5,14 +5,13 @@
  * Two kinds count:
  * - a bracketed citation link, `[[Oliver 2025]](https://...)`: on wide screens its text
  *   gives way to a pink superscript number, and the margin note carries the citation and
- *   the link's site. Narrower screens keep the bracketed text in the line and hide the note.
+ *   the site it links to. Narrower screens keep the bracketed text in the line and hide the note.
  * - a GFM footnote reference, `[^1]`: its note is the footnote's own text. The footnotes
  *   list at the end of the post stays, so nothing is lost where the margin is hidden.
  *
  * A margin note goes just before its paragraph, floated right into the margin, so it starts
- * level with the paragraph. It's aria-hidden: a screen reader already hears the citation
- * in the line, or the footnote at the end, and its link is out of the tab order for the
- * same reason.
+ * level with the paragraph. It's aria-hidden and links nowhere: a screen reader already hears
+ * the citation in the line, or the footnote at the end, and the line's own link goes there.
  */
 const BRACKETED = /^\[(.+)\]$/s;
 
@@ -93,15 +92,13 @@ export default function rehypeMarginNotes() {
 					}
 					node.properties.className = [...(node.properties.className ?? []), 'cite'];
 					node.children = [
+						// The number first, so its name holds the visible number on wide screens
+						el('sup', { className: ['cite-num'] }, [text(String(count))]),
 						el('span', { className: ['cite-text'] }, [text(`${lead}${textOf(node)}`)]),
-						el('sup', { className: ['cite-num'], ariaHidden: 'true' }, [text(String(count))]),
 					];
 					const site = siteOf(href);
 					notes.push(
-						marginNote(count, [
-							text(`${cited[1]}.`),
-							...(site ? [text(' '), el('a', { href, tabIndex: -1 }, [text(site)])] : []),
-						]),
+						marginNote(count, [text(`${cited[1]}.`), ...(site ? [text(` ${site}`)] : [])]),
 					);
 					return;
 				}

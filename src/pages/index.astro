@@ -18,8 +18,12 @@ import { cardHalftone, halftoneMode } from '../utils/halftone';
 // Live count from the snapshot scripts/update-now-feed.mjs writes on every deploy
 const { runningContainers } = nowFeed.homelab;
 
+const FEATURED_SLUG = 'sentence-length-semicolons-punctuation';
 const allPosts = await getFeedPosts();
-const recentPosts = allPosts.filter(isOwnPost).slice(0, 5);
+// The hero already shows the pinned post, so the list skips it
+const recentPosts = allPosts
+	.filter((p) => isOwnPost(p) && p.data.slug !== FEATURED_SLUG)
+	.slice(0, 5);
 // All six subject categories (BLOG_CATEGORIES), most posts first
 const topics = getCategoryCounts(allPosts.filter((p) => !p.isNewsletter));
 
@@ -40,7 +44,7 @@ const homeProjects = HOME_PROJECTS.map((title) => {
 
 // The hero pins the one piece I'm pushing, set by hand: its title in short stepped lines,
 // the punctuation mark that crashes into it and one line on what it found
-const featuredPost = await getPinnedPost('sentence-length-semicolons-punctuation');
+const featuredPost = await getPinnedPost(FEATURED_SLUG);
 const FEATURED = {
 	lines: ['Are', 'English', 'sentences', 'shorter?'],
 	glyph: ';',
@@ -93,7 +97,9 @@ const AROUND_THE_HOUSE = [
 	from md up; phones put the nav first (Header's max-md:order-first). -->
 	<section slot="hero" aria-label="Featured post" class="mx-auto w-full max-w-[90rem] p-4">
 		<a href={featuredPost.href} class="collision group">
-			<span class="sr-only">Featured: {featuredPost.data.title}</span>
+			<span class="sr-only">
+				Featured: {FEATURED.lines.join(' ')} {formatDate(featuredPost.data.date)}. {FEATURED.blurb}
+			</span>
 			<span class="collision-slab" aria-hidden="true"></span>
 			<span class="collision-photo" aria-hidden="true">
 				<img

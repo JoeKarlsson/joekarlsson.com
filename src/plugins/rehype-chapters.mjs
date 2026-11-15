@@ -55,7 +55,7 @@ export default function rehypeChapters() {
 					...(epigraph
 						? [
 								el('blockquote', { className: ['epigraph'] }, [
-									el('p', {}, [text(`"${epigraph.quote}"`)]),
+									el('p', {}, [text(`“${epigraph.quote}”`)]),
 									el('cite', {}, [text(epigraph.cite)]),
 								]),
 							]

@@ -95,7 +95,9 @@ const relatedSlugs = rankRelatedPosts(
 					<p class={META}>
 						<FormattedDate date={date} />
 					</p>
-					{description && <p class="mt-4 text-lg text-paper">{description}</p>}
+					{description && (
+						<p class="mt-4 max-w-(--reading-width) text-lg text-paper">{description}</p>
+					)}
 				</div>
 				{substackUrl && (
 					<p class="mb-6 text-sm text-muted" role="note">

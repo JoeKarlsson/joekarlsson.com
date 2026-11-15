@@ -14,7 +14,9 @@ test.describe('Homepage', () => {
 
 	test('the hero is the featured post, one link named for its full title', async ({ page }) => {
 		const hero = page.getByRole('region', { name: 'Featured post' }).getByRole('link');
-		await expect(hero).toHaveAccessibleName(/^Featured: Are English sentences getting shorter\?/);
+		await expect(hero).toHaveAccessibleName(
+			/^Featured: Are English sentences shorter\? Nov 10, 2026\. In 1,959/,
+		);
 		await expect(hero).toHaveAttribute('href', '/blog/sentence-length-semicolons-punctuation/');
 	});
 
