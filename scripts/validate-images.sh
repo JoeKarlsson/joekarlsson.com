@@ -224,7 +224,7 @@ while IFS= read -r video; do
     echo "ERROR: $video is ${SIZE_KB}KB, over its ${LIMIT}KB budget"
     VIDEO_PROBLEMS=$((VIDEO_PROBLEMS + 1))
   fi
-done < <(find "$IMAGE_DIR" -type f \( -name "*.mp4" -o -name "*.webm" \) -size +$(((HOME_LOOP_MAX_KB + 1) * 1024 - 1))c 2>/dev/null)
+done < <(find "$IMAGE_DIR" -type f \( -name "*.mp4" -o -name "*.webm" \) -size +$((((HOME_LOOP_MAX_KB < MAX_VIDEO_KB ? HOME_LOOP_MAX_KB : MAX_VIDEO_KB) + 1) * 1024 - 1))c 2>/dev/null)
 if [ "$VIDEO_PROBLEMS" -gt 0 ]; then
   echo "  Re-encode it smaller (see scripts/media/ and docs/redesign/PLAN.md, Phase 3)."
   ERRORS=$((ERRORS + VIDEO_PROBLEMS))
