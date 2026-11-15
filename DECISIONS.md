@@ -17,6 +17,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-14: The homepage stays as it was (montage, name panel, Featured band with the Doom post): "I didn't want the home page renovated. I want the old homepage back." Overrides 5A; the New Wave collision isn't used anywhere. The spine and colophon still run on the homepage too.
 - 2026-11-14: "On this page" sits on the right everywhere, About included: a left list on About next to the spine read as "super inconsistent". On posts it heads the margin and scrolls away, so the citation notes below it are never covered.
 - 2026-11-15: No colophon (Joe: "Remove the colophon"). The spine stays on every page.
+- 2026-11-15: Section pages (Blog, Reviews, Talks, Works) keep their headers: "I want the major pages to have consistent headers on them." Pages in the post layout (posts, reviews, talks) share one header style. The New Wave collision as that header (round 3, ~/mockups/joekarlsson-art-book/round3.html) was rejected: "I don't think I like this." Three more header ideas next.
 - 2026-11-12: Metadata lines (date, reading time, category) keep a visible separator between pieces; with no separator it wasn't clear where pieces start and stop. Of a pink slash, a gray bar and a pink dash, Joe picked the thin gray bar (MetaParts). No middle dots.
 
 ## Playful details
