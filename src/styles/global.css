@@ -788,6 +788,19 @@ header nav .sticker {
 	}
 }
 
+/* The crayon line under a section header (SectionRule) already divides the header from its
+   list, so the list's own grey top border would draw a second line just under it: off on
+   whatever comes right after the line, its first row, and a two-column list's second */
+.section-rule + *,
+.section-rule + * > :first-child {
+	border-top-width: 0;
+}
+@media (width >= 48rem) {
+	.section-rule + .md\:grid-cols-2 > :nth-child(2) {
+		border-top-width: 0;
+	}
+}
+
 /* A live embed (a playable project in an iframe) is framed in pink with a label strip on top,
    so it reads as a window into another page, not as part of this one (Joe, 2026-11-15) */
 :has(> iframe[data-embed-project]) {
