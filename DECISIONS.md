@@ -55,6 +55,8 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 - 2026-11-15: Homepage spacing: wide screens breathe (128px between sections, about 176px above and 128px below "Ship the ugly pot"; Joe: "cramped in a bad way"), phones stay tight (48px; "I still want it tight on mobile"). The TEDx talk clip is two thirds wide, not full bleed ("kind of too big"), with the other two talks stacked beside it.
 
+- 2026-11-15: Post enrichment brainstorm (15 ideas): Joe picked 1 (small pictures in the margin), 2 (an exact quote in a citation's margin note), 3 (research figures), 5 (archived snapshots), 6 (code with notes in the margin) and 7 (builders and calculators on Joe's real numbers). Passed on talk clips with start and end times, guess-before-the-answer, homelab charts, before/after slider, commit cards, further-reading shelf, build logs, audio and a newsletter sources section. 3, 5 and 7 went into /write-post's supporting materials pitch; 1, 2 and 6 change the post page, so they get mockups first (~/mockups/joekarlsson-margins).
+
 ## Playful details
 
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.
