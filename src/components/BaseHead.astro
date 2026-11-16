@@ -394,6 +394,7 @@ page's own scripts run. -->
 		const arrival = window.navigation && navigation.activation;
 		if (
 			arrival &&
+			arrival.from &&
 			arrival.navigationType === 'traverse' &&
 			arrival.entry.index < arrival.from.index &&
 			load('morph-to') === location.pathname &&
