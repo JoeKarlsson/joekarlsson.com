@@ -412,6 +412,16 @@ describe('main page head tags', () => {
 		expect(hasWidth).toBe(hasHeight);
 	});
 
+	it("a review's share card is its backdrop graded pink and black", async () => {
+		const html = readDist('reviews/kundun/index.html');
+		const card = new URL(meta(html, 'property', 'og:image') ?? '').pathname;
+		const [red, green, blue] = (await sharp(resolve(dist, card.slice(1))).stats()).channels;
+		// Pink: green well under red, blue near red (graded ~0.5 and ~0.9; Kundun's natural
+		// backdrop is 0.74 and 0.34)
+		expect(green.mean / red.mean).toBeLessThan(0.6);
+		expect(blue.mean / red.mean).toBeGreaterThan(0.8);
+	});
+
 	it('the homepage links a favicon, an apple touch icon and a manifest that exist', () => {
 		const html = readDist('index.html');
 		expect(link(html, 'icon')).toBeTruthy();
