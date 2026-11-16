@@ -24,12 +24,28 @@ test.describe("Joe's margin doodles", () => {
 		expect(overflowing).toBe(0);
 	});
 
-	test('stays off below 1600px and on the homepage', async ({ page }) => {
+	test('stays off below 1600px, and on the homepage below 2020px', async ({ page }) => {
 		await page.setViewportSize({ width: 1440, height: 900 });
 		await page.goto('/contact/');
 		await expect(page.locator('.margin-doodles')).toBeHidden();
 		await page.setViewportSize({ width: 1920, height: 1080 });
 		await page.goto('/');
-		await expect(page.locator('.margin-doodles')).toHaveCount(0);
+		await expect(page.locator('.margin-doodles')).toBeHidden();
+	});
+
+	test('the homepage keeps its doodles to the right and runs one line down the left', async ({
+		page,
+	}) => {
+		await page.setViewportSize({ width: 2560, height: 1440 });
+		await page.goto('/');
+		const layer = page.locator('.margin-doodles');
+		await expect(layer.locator('.margin-thread path')).toHaveCount(1);
+		const sides = await layer.evaluate((l) =>
+			[...l.children]
+				.filter((d) => d instanceof HTMLElement && d.style.top)
+				.map((d) => ((d as HTMLElement).style.left ? 'left' : 'right')),
+		);
+		expect(sides.length).toBeGreaterThan(0);
+		expect(new Set(sides)).toEqual(new Set(['right']));
 	});
 });

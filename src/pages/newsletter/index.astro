@@ -30,6 +30,7 @@ for (const issue of backIssues) {
 	const year = issue.data.date.getUTCFullYear();
 	byYear.set(year, [...(byYear.get(year) ?? []), issue]);
 }
+import SectionRule from '../../components/SectionRule.astro';
 ---
 
 <BaseLayout
@@ -147,6 +148,7 @@ for (const issue of backIssues) {
 		</PosterHero>
 
 		<h2 class={SECTION_HEADING}>Past issues</h2>
+		<SectionRule />
 		<ul class="mb-12 md:mb-20">
 			{posts.map((post, i) => (
 				<BlogCard
@@ -162,6 +164,8 @@ for (const issue of backIssues) {
 		</ul>
 
 		<h2 class={`${SECTION_HEADING} !mb-2`}>TL;DR in Tech</h2>
+		<!-- Close under the heading and over its one-line subtitle -->
+		<SectionRule class="mb-2" />
 		<p class="mb-8 text-muted">
 			The weekly link roundup this newsletter used to be, from 2021 to 2024.
 		</p>

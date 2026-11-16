@@ -43,6 +43,7 @@ const PLACES = [
 	{ href: '/uses/', label: 'Uses', meta: 'My gear and homelab' },
 	{ href: '/contact/', label: 'Contact', meta: 'Say hi' },
 ];
+import SectionRule from '../components/SectionRule.astro';
 ---
 
 <BaseLayout title="404 | Joe Karlsson" description="Page not found" noindex>
@@ -92,16 +93,8 @@ const PLACES = [
 		</PosterHero>
 
 		<section class="mb-12 md:mb-16">
-			<h2 class={`${SECTION_HEADING} mb-[0.6em]!`}>
-				Try one of these
-				<Scribble
-					{...MARKS.zigzag}
-					color={CHALK}
-					duration="8s"
-					delay="0.2s"
-					class="-bottom-[0.45em] left-0 h-[0.4em] w-full"
-				/>
-			</h2>
+			<h2 class={`${SECTION_HEADING} mb-[0.6em]!`}>Try one of these</h2>
+			<SectionRule />
 			{PLACES.map(({ href, label, meta }, i) => (
 				<IndexRow href={href} label={label} meta={meta} index={i} />
 			))}
@@ -119,6 +112,7 @@ const PLACES = [
 						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 					/>
 				</h2>
+				<SectionRule />
 				<ul>
 					{latestPosts.map((post) => (
 						<li class="border-t border-surface-4 py-1">
@@ -146,6 +140,7 @@ const PLACES = [
 						class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
 					/>
 				</h2>
+				<SectionRule />
 				<ul class="border-t border-surface-4 pt-3">
 					{topics.map(({ name, slug, count }) => (
 						<li>

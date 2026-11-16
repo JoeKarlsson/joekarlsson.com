@@ -959,3 +959,23 @@
 			color 0.3s var(--ease-enter); /* darkens with the fill, never ahead of it */
 	}
 }
+
+/* The homepage's long crayon line (margin-doodles.ts) draws as the page scrolls, like a pen
+   following the reader down. Without scroll timelines, or under reduced motion, it's just there. */
+@supports (animation-timeline: scroll()) {
+	@media (prefers-reduced-motion: no-preference) {
+		.margin-thread path {
+			stroke-dasharray: 1;
+			animation: thread-draw linear both;
+			animation-timeline: scroll(root);
+		}
+	}
+}
+@keyframes thread-draw {
+	from {
+		stroke-dashoffset: 1;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}

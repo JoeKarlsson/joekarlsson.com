@@ -1,5 +1,5 @@
 // Draws Joe's doodles down the side margins (the .margin-doodles layer from
-// src/components/MarginDoodles.astro) on screens 1600px and wider. A random walk
+// src/components/MarginDoodles.astro) on screens wide enough for them (its data-from). A random walk
 // seeded from the page's path places them, so each page has its own arrangement and
 // keeps it: uneven gaps, both sides, different sizes and tilts. Each draws in once
 // when it scrolls into view and stays (the .draw-once rules in motion.css). Doodles
@@ -97,8 +97,50 @@ function drawDoodle(mark: { viewBox: string; path: string }, color: string): SVG
 	return svg;
 }
 
+/** The homepage's one long crayon line down the left margin: a pen that wanders from the
+ * top of the page to its end without leaving the paper, drawn as the page scrolls
+ * (.margin-thread in motion.css). Plotted in real pixels, so the crayon grain isn't stretched. */
+function drawThread(layer: HTMLElement, random: () => number): SVGSVGElement {
+	const lane =
+		(layer.clientWidth - layer.querySelector<HTMLElement>('.margin-lane')!.clientWidth) / 2;
+	const height = layer.clientHeight - BOTTOM_CLEARANCE;
+	const x = () => MARGIN_INSET + random() * (lane - 2 * MARGIN_INSET);
+	let y = FIRST_TOP;
+	let from = x();
+	let d = `M${from.toFixed(1)},${y}`;
+	// Each bend leaves and arrives heading straight down, so the line flows instead of zigzagging
+	while (y < height - 200) {
+		const step = 220 + random() * 320;
+		const to = x();
+		const mid = (y + step / 2).toFixed(1);
+		d += ` C${from.toFixed(1)},${mid} ${to.toFixed(1)},${mid} ${to.toFixed(1)},${(y + step).toFixed(1)}`;
+		from = to;
+		y += step;
+	}
+	const svg = document.createElementNS(SVG, 'svg');
+	svg.setAttribute('class', 'margin-thread absolute top-0 left-0 overflow-visible');
+	svg.setAttribute('width', String(Math.round(lane)));
+	svg.setAttribute('height', String(Math.round(height)));
+	const path = document.createElementNS(SVG, 'path');
+	for (const [name, value] of Object.entries({
+		d,
+		pathLength: '1',
+		fill: 'none',
+		stroke: PINK,
+		'stroke-width': '5',
+		'stroke-linecap': 'round',
+		filter: 'url(#crayon)',
+	}))
+		path.setAttribute(name, value);
+	svg.append(path);
+	return svg;
+}
+
 const layer = document.querySelector<HTMLElement>('.margin-doodles');
-if (layer && matchMedia('(min-width: 1600px)').matches) {
+if (layer) {
+	const wide = matchMedia(`(min-width: ${layer.dataset.from}px)`);
+	const thread = layer.hasAttribute('data-thread');
+	layer.hidden = false;
 	const random = seededRandom(
 		[...location.pathname].reduce((sum, c) => (sum * 31 + c.charCodeAt(0)) | 0, 7),
 	);
@@ -128,7 +170,9 @@ if (layer && matchMedia('(min-width: 1600px)').matches) {
 		const h = Math.round((w * vbHeight) / vbWidth);
 		const tilt = Math.round((random() - 0.5) * 34);
 		const color = random() < 0.55 ? CHALK : PINK;
-		const side = random() < 0.5 ? 'left' : 'right';
+		// Drawn either way, so a page's layout doesn't change with the thread
+		const coin = random() < 0.5 ? 'left' : 'right';
+		const side = thread ? 'right' : coin;
 		const top = Math.max(cursor, nextFree[side]);
 		// Fraction of the margin's free width, from the window edge (0) to the text (1)
 		const across = random().toFixed(3);
@@ -136,7 +180,7 @@ if (layer && matchMedia('(min-width: 1600px)').matches) {
 		const doodle = document.createElement('div');
 		doodle.className = 'absolute';
 		doodle.dataset.bottom = String(Math.round(top + h));
-		doodle.style.cssText = `top:${Math.round(top)}px;${side}:calc(${MARGIN_INSET}px + ((100% - 72rem) / 2 - ${w + 2 * MARGIN_INSET}px) * ${across});width:${w}px;height:${h}px;transform:rotate(${tilt}deg)`;
+		doodle.style.cssText = `top:${Math.round(top)}px;${side}:calc(${MARGIN_INSET}px + ((100% - var(--doodle-column)) / 2 - ${w + 2 * MARGIN_INSET}px) * ${across});width:${w}px;height:${h}px;transform:rotate(${tilt}deg)`;
 		doodle.append(drawDoodle(mark, color));
 		layer.append(doodle);
 
@@ -144,6 +188,7 @@ if (layer && matchMedia('(min-width: 1600px)').matches) {
 		cursor += 90 + random() * 330;
 	}
 
+	const doodles = [...layer.children] as HTMLElement[];
 	// Hold each one until it's on screen, so it draws in as it scrolls into view
 	const setPlay = (doodle: Element, state: string) =>
 		doodle.querySelectorAll('path').forEach((path) => (path.style.animationPlayState = state));
@@ -154,15 +199,30 @@ if (layer && matchMedia('(min-width: 1600px)').matches) {
 			onScreen.unobserve(target);
 		}
 	});
-	for (const doodle of layer.children) {
+	for (const doodle of doodles) {
 		setPlay(doodle, 'paused');
 		onScreen.observe(doodle);
 	}
 
+	// A hidden width box: the thread measures its lane from the column's real width
+	if (thread) {
+		const lane = document.createElement('div');
+		lane.className = 'margin-lane invisible mx-auto';
+		lane.style.width = 'min(100%, var(--doodle-column))';
+		layer.append(lane);
+	}
+	const threadSeed = random() * 2 ** 32;
 	// From the markup, not offsetTop: a hidden doodle measures 0 and would flip back on
 	const fit = () => {
-		for (const doodle of layer.children as HTMLCollectionOf<HTMLElement>)
+		// Narrowed below where they fit: off, instead of over the text
+		layer.hidden = !wide.matches;
+		for (const doodle of doodles)
 			doodle.hidden = Number(doodle.dataset.bottom) > layer.clientHeight - BOTTOM_CLEARANCE;
+		if (thread && wide.matches) {
+			layer.querySelector('.margin-thread')?.remove();
+			// Same seed each time, so a resize redraws the same line at the new size
+			layer.append(drawThread(layer, seededRandom(threadSeed)));
+		}
 	};
 	fit();
 	new ResizeObserver(fit).observe(layer);

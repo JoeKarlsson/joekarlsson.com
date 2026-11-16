@@ -1,17 +1,30 @@
 ---
 // Joe's sketchbook doodles down the empty side margins of wide screens, like notes in
 // a notebook's margin. The page ships only this empty layer: src/scripts/margin-doodles.ts
-// draws them in the browser, from 1600px wide (margins of at least 224px beside the
-// 72rem column), so their paths live once in a cached script instead of in every
-// page's HTML. Decorative.
+// draws them in the browser once the window is `from` px wide (margins of at least 224px
+// beside the `column`), so their paths live once in a cached script instead of in every
+// page's HTML. `thread` (the homepage) also runs one long crayon line down the left
+// margin and keeps the doodles to the right one. Decorative.
+interface Props {
+	column?: string;
+	from?: number;
+	thread?: boolean;
+}
+const { column = '72rem', from = 1600, thread = false } = Astro.props;
 ---
 
 <div
-	class="margin-doodles pointer-events-none absolute inset-0 hidden overflow-hidden min-[1600px]:block"
+	class="margin-doodles pointer-events-none absolute inset-0 overflow-hidden"
+	style={`--doodle-column:${column}`}
+	data-from={from}
+	data-thread={thread || undefined}
 	aria-hidden="true"
+	hidden
 ></div>
 
 <script>
 	// Its own chunk, fetched only where the doodles draw: phones and laptops never use it
-	if (matchMedia('(min-width: 1600px)').matches) import('../scripts/margin-doodles');
+	const layer = document.querySelector<HTMLElement>('.margin-doodles');
+	if (layer && matchMedia(`(min-width: ${layer.dataset.from}px)`).matches)
+		import('../scripts/margin-doodles');
 </script>

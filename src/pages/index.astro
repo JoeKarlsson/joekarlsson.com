@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { formatDate } from '../utils/ui';
 import DrawingBoard from '../components/DrawingBoard.astro';
+import MarginDoodles from '../components/MarginDoodles.astro';
 import FeaturedBand from '../components/FeaturedBand.astro';
 import HoverBox from '../components/HoverBox.astro';
 import MetaParts from '../components/MetaParts.astro';
@@ -65,8 +66,7 @@ function work(title: string) {
 const dvd = work('DVD Screensaver');
 // Full width, so the spread plays the full-size clip, not the card copy
 const spreadWork = {
-	name: 'Nothing But',
-	accent: 'Corners',
+	name: 'Nothing But Corners',
 	...dvd,
 	clip: dvd.clip.replace('-card.mp4', '.mp4'),
 };
@@ -164,6 +164,9 @@ const terminal = terminalRuns(
 while (terminal.length && !terminal.at(-1)!.length) terminal.pop();
 
 // Phones stay tight; wide screens give each section room (Joe: cramped on desktop)
+// The link under each Odds & ends group, styled like SectionMasthead's header link
+const MORE_LINK =
+	'mt-4 inline-block self-start border-b-2 border-pink py-1.5 font-semibold text-paper no-underline hover:text-pink';
 const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 ---
 
@@ -176,17 +179,14 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 >
 	<!-- A section with a name is a landmark, so screen-reader landmark jumps reach the
 	hero, which sits above the nav and outside <main> -->
-	<!-- max-w-[90rem]: the hero and sections fill a laptop as before, but stop growing
-	past 1440px, so a 2560px screen keeps the nav on its first screen -->
-	<section
-		slot="hero"
-		aria-label="Introduction"
-		class="mx-auto grid w-full max-w-[90rem] gap-4 p-4 md:grid-cols-2"
-	>
+	<!-- The full width of the window, gutter and rounded panels kept (DECISIONS.md,
+	2026-11-16). The clip stops a little short of the window's height, so a 2560px
+	screen still shows the nav on its first screen -->
+	<section slot="hero" aria-label="Introduction" class="grid w-full gap-4 p-4 md:grid-cols-2">
 		<!-- Phones: a 16:9 banner of Joe's face (montage-phone is that crop). Side by side: at least square, growing with a taller text panel so the
 		video never stops short. Only the video is clipped to the rounded box; the marks
 		sit above everything and spill across the text panel, the gutters and the nav. -->
-		<div class="relative z-10 aspect-video md:aspect-auto md:before:block md:before:aspect-square md:before:content-['']">
+		<div class="relative z-10 aspect-video md:aspect-auto md:max-h-[calc(100svh-6rem)] md:before:block md:before:aspect-square md:before:content-['']">
 			<div class="absolute inset-0 overflow-hidden rounded-xl">
 				<video
 					class="absolute inset-0 size-full object-cover object-[50%_25%] md:object-center"
@@ -295,6 +295,10 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 			/>
 		</div>
 	</section>
+
+	<!-- The homepage's own doodle layer: its column is 90rem, not the layout's 72rem, so they
+	draw only from 2020px (224px margins), and a crayon line wanders down the left margin -->
+	<MarginDoodles column="90rem" from={2020} thread />
 
 	<section class={SECTION} aria-labelledby="writing">
 		<SectionMasthead id="writing" title="Writing" href="/blog/" linkLabel="All posts">
@@ -421,24 +425,13 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 	</figure>
 
 	<section class={SECTION} aria-labelledby="most-read">
-		<SectionMasthead id="most-read" title="Most" accent="read" />
+		<SectionMasthead id="most-read" title="Most read" />
 		<ol class="relative flex flex-col gap-5">
-			{mostRead.map(({ post, visitors }, i) => (
+			{mostRead.map(({ post, visitors }) => (
 				<li class="group">
 					<a href={post.href} class="block text-paper no-underline">
 						<span class="relative inline-block text-lg leading-snug font-semibold group-hover:text-pink md:text-xl">
 							{post.data.title}
-							{i === 0 && (
-								<Scribble
-									{...MARKS.oval}
-									stretch
-									once
-									color={CHALK}
-									strokeWidth={5}
-									duration="6s"
-									class="-top-[70%] -left-[8%] h-[240%] w-[116%] max-md:hidden"
-								/>
-							)}
 						</span>
 						<span
 							class="most-read-bar mt-2 block h-[22px] bg-pink group-hover:bg-paper"
@@ -531,8 +524,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 			</span>
 			<span class="relative z-10 mx-4 -mt-6 block w-fit max-w-[calc(100%-2rem)] bg-pink px-5 pt-3 pb-4 sm:mx-7">
 				<span class="block font-display text-[clamp(2.25rem,5.5vw,4.75rem)] leading-[0.9] uppercase">
-					{spreadWork.name}{' '}
-					<em class="font-serif font-semibold normal-case">{spreadWork.accent}</em>
+					{spreadWork.name}
 				</span>
 				<span class="mt-2 block max-w-[40ch] font-serif text-lg">{spreadWork.tagline}</span>
 			</span>
@@ -608,19 +600,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 				<span class="relative z-10 mx-4 -mt-10 block w-fit max-w-[calc(100%-2rem)] bg-ink px-5 pt-3 pb-4 sm:mx-7 md:-mt-12">
 					<span class="block text-sm font-semibold text-pink">{spreadTalk.kicker}</span>
 					<span class="block font-display text-[clamp(2.25rem,4.4vw,4rem)] leading-[0.9] text-paper uppercase group-hover:text-pink">
-						The Art of{' '}
-						<em class="relative font-serif font-semibold text-pink normal-case">
-							Computer Science
-							<Scribble
-								{...MARKS.oval}
-								stretch
-								once
-								color={CHALK}
-								strokeWidth={5}
-								duration="6s"
-								class="-top-[25%] -left-[6%] h-[150%] w-[112%] max-md:hidden"
-							/>
-						</em>
+						The Art of <span class="text-pink">Computer Science</span>
 					</span>
 				</span>
 			</a>
@@ -658,13 +638,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 	</section>
 
 	<section class={SECTION} aria-labelledby="odds">
-		<SectionMasthead
-			id="odds"
-			title="Odds &"
-			accent="ends"
-			href="/reviews/"
-			linkLabel="All reviews"
-		>
+		<SectionMasthead id="odds" title="Odds & ends">
 			<Scribble
 				{...MARKS.asterisk}
 				once
@@ -675,27 +649,32 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 			/>
 		</SectionMasthead>
 		<div class="grid gap-7 md:grid-cols-12 md:gap-12">
-			<ul class="grid grid-cols-2 gap-4 md:col-span-7 md:gap-5">
-				{HOME_SHORTS.map((s) => (
-					<li>
-						<YouTubeFacade
-							id={s.id}
-							title={s.title}
-							poster={shortPosterPath(s)}
-							hoverLoop={`/images/talks/shorts/${s.id}-montage.mp4`}
-							vertical
-						/>
-						<a
-							href={`https://www.youtube.com/shorts/${s.id}`}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="mt-3 block font-display text-[clamp(1.125rem,2.2vw,1.875rem)] leading-[0.95] text-balance text-paper uppercase no-underline hover:text-pink"
-						>
-							{s.title}
-						</a>
-					</li>
-				))}
-			</ul>
+			<div class="md:col-span-7">
+				<ul class="grid grid-cols-2 gap-4 md:gap-5">
+					{HOME_SHORTS.map((s) => (
+						<li>
+							<YouTubeFacade
+								id={s.id}
+								title={s.title}
+								poster={shortPosterPath(s)}
+								hoverLoop={`/images/talks/shorts/${s.id}-montage.mp4`}
+								vertical
+							/>
+							<a
+								href={`https://www.youtube.com/shorts/${s.id}`}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="mt-3 block font-display text-[clamp(1.125rem,2.2vw,1.875rem)] leading-[0.95] text-balance text-paper uppercase no-underline hover:text-pink"
+							>
+								{s.title}
+							</a>
+						</li>
+					))}
+				</ul>
+				<a href="/talks/#short-videos" class={MORE_LINK}>
+					All Shorts <span aria-hidden="true">→</span>
+				</a>
+			</div>
 			<div class="flex flex-col md:col-span-5">
 				<a
 					href={`/reviews/${newestReview.slug}/`}
@@ -756,6 +735,9 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 						</li>
 					))}
 				</ul>
+				<a href="/reviews/" class={MORE_LINK}>
+					All reviews <span aria-hidden="true">→</span>
+				</a>
 			</div>
 
 			<div class="torn relative bg-paper px-5 py-7 text-ink md:col-span-12 md:px-7">
@@ -826,6 +808,9 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 						</li>
 					))}
 				</ul>
+				<a href="/talks/?filter=podcast" class={MORE_LINK}>
+					All podcasts <span aria-hidden="true">→</span>
+				</a>
 			</div>
 			<div class="flex min-w-0 flex-col md:col-span-5">
 				<pre
@@ -854,8 +839,9 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 		</div>
 	</section>
 
-	<!-- In the 1440px column like the sections around it, so it doesn't run edge to edge at 2560 -->
-	<div class="mx-auto mt-20 max-w-[90rem] md:mt-32">
+	<!-- The full width like the hero, sitting right on the footer: the negative margin takes
+	back main's bottom padding (phones hide the board, so they keep it) -->
+	<div class="mt-20 md:mt-32 md:-mb-20">
 		<DrawingBoard />
 	</div>
 </BaseLayout>

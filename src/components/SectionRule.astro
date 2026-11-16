@@ -1,0 +1,27 @@
+---
+// The crayon line under every section header, drawn the full width of its column
+// (DECISIONS.md, 2026-11-16: pink Anton headers with a squiggle line all the way across).
+// Sits right after the heading; it draws in once and stays.
+import Scribble from './Scribble.astro';
+import { CHALK, double } from '../data/scribbles';
+
+// The two long strokes only: the mark's short tail strokes read as a stray dash at full width
+const path = double.path.split(/(?=M)/).slice(0, 2).join(' ');
+
+interface Props {
+	class?: string;
+}
+const { class: className = '-mt-3 mb-6' } = Astro.props;
+---
+
+<div class:list={['relative h-[22px]', className]} aria-hidden="true">
+	<Scribble
+		{...double}
+		path={path}
+		once
+		color={CHALK}
+		strokeWidth={14}
+		duration="6s"
+		class="inset-0 size-full"
+	/>
+</div>

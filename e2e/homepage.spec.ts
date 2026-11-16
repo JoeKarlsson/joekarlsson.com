@@ -42,7 +42,6 @@ test.describe('Homepage', () => {
 			['Writing', '/blog/'],
 			['Works', '/work/'],
 			['Talks', '/talks/'],
-			['Odds & ends', '/reviews/'],
 		];
 		for (const [name, href] of headings) {
 			const masthead = page.locator('header', {
@@ -50,6 +49,16 @@ test.describe('Homepage', () => {
 			});
 			await expect(masthead.getByRole('link')).toHaveAttribute('href', href);
 		}
+	});
+
+	test('Odds & ends links each group to its full list', async ({ page }) => {
+		const odds = page.locator('section[aria-labelledby="odds"]');
+		for (const [name, href] of [
+			['All Shorts', '/talks/#short-videos'],
+			['All reviews', '/reviews/'],
+			['All podcasts', '/talks/?filter=podcast'],
+		])
+			await expect(odds.getByRole('link', { name })).toHaveAttribute('href', href);
 	});
 
 	test('posts, works, talks and reviews all link into the site', async ({ page }) => {

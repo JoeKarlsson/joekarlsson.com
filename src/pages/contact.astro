@@ -23,6 +23,7 @@ if (!newestIssue) throw new Error('No newsletter issue for the featured band');
 // Each link reports its platform to Plausible as a "Contact Social Click" event
 const track = (platform: string) =>
 	`plausible-event-name=Contact+Social+Click plausible-event-platform=${platform.replace(/[^A-Za-z0-9.]+/g, '+')}`;
+import SectionRule from '../components/SectionRule.astro';
 ---
 
 <BaseLayout
@@ -102,18 +103,17 @@ const track = (platform: string) =>
 			<section class="relative mb-12 md:mb-16">
 				<h2 class={SECTION_HEADING}>
 					{heading}
-					<Scribble
-						{...(s ? MARKS.rays : MARKS.underline)}
-						color={s ? '#ff4fd8' : CHALK}
-						duration="8s"
-						delay={`${s * 0.6}s`}
-						class={
-							s
-								? '-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]'
-								: '-bottom-[0.32em] left-0 h-[0.3em] w-full'
-						}
-					/>
+					{s > 0 && (
+						<Scribble
+							{...MARKS.rays}
+							color="#ff4fd8"
+							duration="8s"
+							delay={`${s * 0.6}s`}
+							class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
+						/>
+					)}
 				</h2>
+				<SectionRule />
 				{links.map(({ label, meta, href }, i) => (
 					<IndexRow
 						href={href}

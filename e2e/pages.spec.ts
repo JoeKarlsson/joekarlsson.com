@@ -70,6 +70,18 @@ test.describe('Talks', () => {
 		const content = await page.locator('main').textContent();
 		expect(content?.length).toBeGreaterThan(200);
 	});
+
+	test('?filter=podcast opens with only podcasts showing', async ({ page }) => {
+		await page.goto('/talks/?filter=podcast');
+		await expect(page.locator('[data-talk-filter="podcast"]')).toHaveAttribute(
+			'aria-pressed',
+			'true',
+		);
+		const groups = await page
+			.locator('.talk-card:visible')
+			.evaluateAll((cards) => [...new Set(cards.map((c) => (c as HTMLElement).dataset.talkGroup))]);
+		expect(groups).toEqual(['podcast']);
+	});
 });
 
 test.describe('Privacy Policy', () => {

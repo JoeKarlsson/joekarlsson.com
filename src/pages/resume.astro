@@ -29,6 +29,7 @@ if (!resumePiece?.page)
 	throw new Error(`RESUME_PIECE "${RESUME_PIECE}" needs a /work/ page in projects.ts`);
 // Rows with a narrow left column (dates, labels) beside the content
 const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[11rem_1fr]';
+import SectionRule from '../components/SectionRule.astro';
 ---
 
 <BaseLayout
@@ -147,16 +148,8 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 			including a TEDx talk.
 		</p>
 
-		<h2 class={SECTION_HEADING}>
-			Experience
-			<Scribble
-				{...MARKS.underline}
-				color={CHALK}
-				duration="8s"
-				delay="0.2s"
-				class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
-			/>
-		</h2>
+		<h2 class={SECTION_HEADING}>Experience</h2>
+		<SectionRule />
 		<div class="mb-12 md:mb-16 space-y-8">
 			{roles.map((role) => (
 				<div class={ROW}>
@@ -222,6 +215,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 				class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 			/>
 		</h2>
+		<SectionRule />
 		<dl class="mb-12 md:mb-16 space-y-4">
 			{skills.map((group) => (
 				<div class={ROW}>
@@ -241,22 +235,15 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 				class="-top-[0.15em] -right-[0.8em] size-[0.6em]"
 			/>
 		</h2>
+		<SectionRule />
 		<ul class="mb-12 md:mb-16 list-disc space-y-2 pl-5 text-paper marker:text-pink">
 			{highlights.map((h) => (
 				<li>{h}</li>
 			))}
 		</ul>
 
-		<h2 class={SECTION_HEADING}>
-			Writing
-			<Scribble
-				{...MARKS.double}
-				color="#ff4fd8"
-				duration="9s"
-				delay="0.4s"
-				class="-bottom-[0.42em] left-0 h-[0.4em] w-full"
-			/>
-		</h2>
+		<h2 class={SECTION_HEADING}>Writing</h2>
+		<SectionRule />
 		<div class="mb-12 md:mb-16 space-y-8">
 			{writingSamples.map((group) => (
 				<div class={ROW}>
@@ -283,16 +270,8 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 			))}
 		</div>
 
-		<h2 class={SECTION_HEADING}>
-			Projects
-			<Scribble
-				{...MARKS.underline}
-				color={CHALK}
-				duration="8s"
-				delay="0.9s"
-				class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
-			/>
-		</h2>
+		<h2 class={SECTION_HEADING}>Projects</h2>
+		<SectionRule />
 		<ul class="mb-12 md:mb-16 grid gap-x-8 gap-y-6 md:grid-cols-2">
 			{openSource.map((project) => (
 				<li class="border-t border-surface-4 pt-5">
@@ -320,6 +299,7 @@ const ROW = 'grid gap-x-8 gap-y-2 border-t border-surface-4 pt-5 md:grid-cols-[1
 				class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 			/>
 		</h2>
+		<SectionRule />
 		<div class:list={[ROW, 'mb-12 md:mb-16']}>
 			<p class="text-sm text-muted">
 				{education.years}

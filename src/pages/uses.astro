@@ -118,6 +118,7 @@ const sections = USES_SECTIONS.map((section) => {
 		})),
 	};
 });
+import SectionRule from '../components/SectionRule.astro';
 ---
 
 <BaseLayout
@@ -184,16 +185,11 @@ const sections = USES_SECTIONS.map((section) => {
 				>
 					<h2 class={SECTION_HEADING}>
 						{section.name}
-						<Scribble
-							{...MARKS[si % 2 ? 'underline' : 'double']}
-							color={si % 2 ? CHALK : PINK}
-							duration={`${9 + si}s`}
-							class="-bottom-[0.34em] left-0 h-[0.3em] w-full"
-						/>
 						{marks.head.map((m) => (
 							<Scribble {...m} />
 						))}
 					</h2>
+					<SectionRule />
 					{section.introHtml && (
 						<p class="mb-6 max-w-[65ch] text-paper" set:html={html(section.introHtml)} />
 					)}

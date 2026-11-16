@@ -1,11 +1,9 @@
 ---
-// A section's masthead (the homepage, Works, Talks): the section's name huge in Anton, an optional second word
-// in pink Fraunces italic, a thick rule under it, and a plain link to the section's page on
-// the right. Marks passed as children sit in the header's box (absolute, from Scribble).
+// A section's masthead (the homepage, Works, Talks): the section's name huge in pink Anton, a plain
+// link to the section's page on the right, and a crayon line the full width under both
+// (SectionRule). Marks passed as children sit in the header's box (absolute, from Scribble).
 interface Props {
 	title: string;
-	// Set in pink Fraunces italic after the title ("Most *read*")
-	accent?: string;
 	// A link to the section's own page, when it has one
 	href?: string;
 	linkLabel?: string;
@@ -14,29 +12,21 @@ interface Props {
 	collapse?: boolean;
 }
 
-const { title, accent, href, linkLabel, id, collapse } = Astro.props;
+import SectionRule from './SectionRule.astro';
+
+const { title, href, linkLabel, id, collapse } = Astro.props;
 ---
 
-<header
-	class:list={[
-		'relative mb-7 flex items-end justify-between gap-6 border-b-8 border-paper pb-2.5',
-		// A folded era's label sits close under its own rule
-		collapse && 'max-md:mb-3',
-	]}
->
+<header class="relative flex items-end justify-between gap-6 pb-2">
 	<h2
 		id={id}
 		data-collapse-heading={collapse || undefined}
 		class:list={[
-			'relative font-display text-[clamp(3.25rem,9vw,7.5rem)] leading-[0.8] font-normal text-paper uppercase',
+			'relative font-display text-[clamp(3.25rem,9vw,7.5rem)] leading-[0.8] font-normal text-pink uppercase',
 			collapse && 'max-md:w-full',
 		]}
 	>
 		{title}
-		{accent && ' '}
-		{accent && (
-			<em class="font-serif text-[0.92em] font-semibold text-pink normal-case">{accent}</em>
-		)}
 		<slot />
 	</h2>
 	{href && (
@@ -50,3 +40,5 @@ const { title, accent, href, linkLabel, id, collapse } = Astro.props;
 		</a>
 	)}
 </header>
+<!-- A folded era's label sits close under its own line -->
+<SectionRule class:list={['mb-7', collapse && 'max-md:mb-3']} />

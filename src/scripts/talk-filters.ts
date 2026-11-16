@@ -36,4 +36,11 @@ export function initTalkFilters() {
 	for (const button of buttons) {
 		button.addEventListener('click', () => apply(button.dataset.talkFilter!));
 	}
+	// The homepage's "All podcasts" link opens the page with Podcasts on (?filter=podcast)
+	const fromLink = new URLSearchParams(location.search).get('filter');
+	// and scrolls to the row, which is hidden until now, so a #fragment can't land on it
+	if (buttons.some((button) => button.dataset.talkFilter === fromLink)) {
+		apply(fromLink!);
+		row.scrollIntoView();
+	}
 }
