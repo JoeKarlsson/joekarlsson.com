@@ -407,7 +407,7 @@ Blog posts need visual breaks. Walls of text kill engagement. Include:
 
 **Animated explainers:** the collage scenes approved in Phase 2c and any animated figures sit under the paragraph whose claim they show, as inline animated SVGs (`![alt](/images/blog/{slug}/<scene>.svg)`), never an MP4: Joe doesn't want a play bar on a post's animation (2026-11-10). Their finished frame is what reduced motion and the pause button get.
 
-**Margins** (Joe, 2026-11-15: "make sure that we're taking advantage of the margins"). On wide screens every post has a 15rem right margin (`.margin-column`, global.css) that `src/plugins/rehype-margin-notes.mjs` fills with notes beside the paragraph they belong to. Only 7 posts use it, so a new post with sources should fill it:
+**Margins** (Joe, 2026-11-15: "make sure that we're taking advantage of the margins"). On wide screens every post has a 15rem right margin (`.margin-column`, global.css) that `src/plugins/rehype-margin-notes.mjs` fills with notes beside the paragraph they belong to. Every post with something worth a note has them now (154 of 157, 2026-11-16), so a new post with sources should fill it too:
 
 - **Every source the post quotes, argues with or leans on for a fact gets a `cite:` title**: `[We mourn our craft](https://... "cite: Nolan Lawson, February 2026")`. The link keeps its words, gets a pink number, and the margin note gives author, date, the link's words and the site. Cite the primary source (the paper, the talk, the changelog, the author's own post), never a roundup that quotes it.
 - **Asides go in footnotes** (`[^1]`): the tangent, the "yes, I know about X" concession, the one-line definition of a term half the readers know. They sit in the margin on wide screens and in the list at the end everywhere else, so they keep the line moving without being lost.
@@ -416,6 +416,7 @@ Blog posts need visual breaks. Walls of text kill engagement. Include:
 - **Code comments** that explain why a line is the way it is go in the margin, level with the line and joined to it by a pink rule: start the comment with `[!margin]` (`[git_status]  # [!margin] git_status off: a full git status cost about 50 ms per prompt.`). On phones and in copied code it stays an ordinary comment. Keep each note under about 25 words. Notes on neighboring lines stack under each other, so a dense block reads as a list down the margin.
 - **Not a note:** product, docs and repo links stay plain links (DECISIONS.md, 2026-11-15). A short post with no sources keeps an empty margin; never invent citations to fill it.
 - The margin is hidden below 80rem, so a note never carries anything the paragraph needs.
+- **`marginNotes:` front matter** (quote, term, update, see; schema in `src/content.config.ts`) adds notes to a post that's already written. A note's `at` must be plain text in one paragraph or list item, outside links, code and the FAQ section (FAQ answers fold into toggles, and the build fails on an `at` it can't find).
 
 **Supporting materials pitch** (Joe, 2026-11-15, modeled on the film review skill's supporting-media list). Once the draft is written and humanized, and before the draft gate, pitch **10 supporting materials** for it, each tied to one paragraph. Draw them from what the site already does:
 
