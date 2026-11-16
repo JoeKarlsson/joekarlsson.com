@@ -45,7 +45,7 @@ It starts as a strange hangout movie and halfway through turns into something mu
 
 Nathan Fielder fans to the front. This is your movie, especially if you love [The Rehearsal](https://www.hbo.com/the-rehearsal). The reenactments, the obsessive control, the way he puts himself on the hook right next to his subjects: all of it gets pointed at the most famous liar in Silicon Valley, and the payoff is enormous if you know the body of work.
 
-![Nathan Fielder in headphones in a wood-paneled room.](/images/reviews/you-can-see-everything/fielder-headphones-then-rehearsal-monitors-1.webp) ![A man at a desk of monitors showing hidden-camera feeds from every room of a house.](/images/reviews/you-can-see-everything/fielder-headphones-then-rehearsal-monitors-2.webp)
+![Nathan Fielder in headphones in a wood-paneled room.](/images/reviews/you-can-see-everything/fielder-headphones-then-rehearsal-monitors-1.webp 'You Can See Everything · 2026') ![A man at a desk of monitors showing hidden-camera feeds from every room of a house.](/images/reviews/you-can-see-everything/fielder-headphones-then-rehearsal-monitors-2.webp 'The Rehearsal · 2022')
 
 _Fielder in A24's trailer, and The Rehearsal's control room in [HBO's trailer](https://www.youtube.com/watch?v=2fjPFt8cpic)._
 
