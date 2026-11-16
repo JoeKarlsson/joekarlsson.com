@@ -10,8 +10,10 @@ heroImage: '/images/blog/how-to-build-a-multi-cloud-asset-inventory/thumb-784631
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-build-a-multi-cloud-asset-inventory'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Colored pins stuck in a map'
-updatedDate: 2026-11-12
+updatedDate: 2026-11-16
 corrections:
+  - date: 2026-11-16
+    note: 'The "Analyze cross-cloud data transfer costs" section was a copy of the load balancer query, so it never showed data transfer costs. I removed it.'
   - date: 2026-11-12
     note: "Several queries used tables and columns that never existed: the cost columns, `azure_virtual_machines`, the load balancer tables, and Azure names in the GCP check. The dbt profile didn't match the database container."
 marginNotes:
@@ -278,9 +280,9 @@ docker run --platform linux/amd64 --name dbt_container \
 
 When you centralize your data from AWS, Azure, and GCP into a single database, you can enrich, compare, and analyze your assets using consistent tooling, like SQL, that you're already familiar with. This unified approach allows you to uncover insights that would be difficult, if not impossible, to achieve if your data was stuck within each cloud provider.
 
-With your multi-cloud asset inventory in one place, you can start answering critical questions about your infrastructure. For example, you can identify which instances cost you the most across all clouds, spot redundant resources that could be consolidated, and analyze cross-cloud data transfer costs to optimize your spending.
+With your multi-cloud asset inventory in one place, you can start answering critical questions about your infrastructure. For example, you can identify which instances cost you the most across all clouds and spot redundant resources that could be consolidated.
 
-To get you started, here are three example queries:
+To get you started, here are two example queries:
 
 ### Cross-cloud instance inventory
 
@@ -301,28 +303,6 @@ ORDER BY provider, instance_type;
 ### How to identify redundant load balancers across clouds
 
 This query identifies load balancers across AWS, Azure, and GCP with fewer than two associated instances, helping spot potentially redundant or underutilized load balancers.
-
-```sql
-SELECT lb_id, provider, region, associated_instances_count
-FROM (
- SELECT arn as lb_id, 'AWS' as provider, region, jsonb_array_length(COALESCE(instances, '[]'::jsonb)) as associated_instances_count
- FROM aws_elbv1_load_balancers
- UNION ALL
- SELECT id as lb_id, 'Azure' as provider, location as region,
-   (SELECT COUNT(*)
-    FROM jsonb_array_elements(COALESCE(properties->'backendAddressPools', '[]'::jsonb)) as pool,
-         jsonb_array_elements(COALESCE(pool->'properties'->'backendIPConfigurations', '[]'::jsonb))) as associated_instances_count
- FROM azure_network_load_balancers
- UNION ALL
- SELECT self_link as lb_id, 'GCP' as provider, regexp_replace(region, '.*/', '') as region, cardinality(COALESCE(instances, '{}')) as associated_instances_count
- FROM gcp_compute_target_pools
-) as cross_cloud_lbs
-WHERE associated_instances_count < 2;
-```
-
-### Analyze cross-cloud data transfer costs
-
-This query helps identify underutilized load balancers across AWS, Azure, and GCP by highlighting those with fewer than two associated instances, which can indicate inefficiency or potential cost savings.
 
 ```sql
 SELECT lb_id, provider, region, associated_instances_count

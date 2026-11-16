@@ -2,6 +2,7 @@
 title: 'We Built an MCP Server and These Are the Gotchas Nobody Talks About'
 seoTitle: 'MCP Server Gotchas Nobody Talks About'
 date: 2025-07-29
+updatedDate: 2026-11-16
 slug: 'mcp-server-gotchas-we-learned-the-hard-way'
 description: 'What we learned building an MCP server for cloud infrastructure data, from tool descriptions and naming to context limits, and how we fixed each problem.'
 categories: ['AI']
@@ -34,6 +35,9 @@ marginNotes:
     at: 'the official SDK in development'
     text: 'The Go SDK shipped v1.0.0 in September 2025. It was on v1.8.0 by September 2026.'
     date: 'Sep 2025'
+corrections:
+  - date: 2026-11-16
+    note: "Four citations were wrong. Lost in the Middle is by Liu et al., not Xiong et al., and it found that models make the worst use of the middle of a long context, not that they forget earlier tokens. Toolformer is from Meta AI, not Microsoft, and reports neither the 30% nor the 40% figure I gave it, so both are gone. The MT-Bench and emergent-abilities papers aren't about tool descriptions, so I removed those citations."
 ---
 
 _Co-authored with Mariano Gappa at CloudQuery._
@@ -65,9 +69,9 @@ Initially, we wrote the descriptions as if another engineer would read them. Sho
 
 It seemed obvious: why waste words? But in practice, Claude would call this tool sparingly, misinterpret what it was for, or outright ignore it. Instead of exploring our data, it would hallucinate tables or query against nonexistent schemas.
 
-We confirmed this was not a one-off bug. LLMs, especially Claude and GPT, rely heavily on the description field of a tool when ranking which tool to call. Sparse descriptions lead to ambiguous or no calls at all ([Zhao et al., 2023](https://arxiv.org/abs/2306.05685)).
+We confirmed this was not a one-off bug. LLMs, especially Claude and GPT, rely heavily on the description field of a tool when ranking which tool to call. Sparse descriptions lead to ambiguous or no calls at all.
 
-Experiments by Microsoft Research also show that increasing semantic richness in the function description improves tool selection accuracy by ~30% on average ([Microsoft Toolformer Paper](https://arxiv.org/abs/2302.04761)).
+Anthropic's own docs agree: they call detailed descriptions "by far the most important factor in tool performance" ([Anthropic Docs](https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools)).
 
 ### How We Fixed Our Tool Descriptions
 
@@ -93,7 +97,7 @@ The character count increased from ~50 to ~400, and response quality improved dr
 
 We found that language models rank tool candidates by computing how well their description semantically aligns with the user's query intent. When the description lacks domain-specific or task-relevant terms, it loses out to hallucinations or irrelevant tools.
 
-By packing the description with concrete signals - nouns, verbs, and context relevant to cloud data - it increases the embedding similarity between the query and the tool definition, making it much more likely to be called ([Wei et al., 2022](https://arxiv.org/abs/2206.07682)).
+By packing the description with concrete signals - nouns, verbs, and context relevant to cloud data - it increases the embedding similarity between the query and the tool definition, making it much more likely to be called.
 
 Longer descriptions also help because they compensate for the model's lack of world knowledge about your proprietary domain (in our case, cloud asset inventories). LLMs will not infer these details - they rely on you to teach them via the description.
 
@@ -131,8 +135,6 @@ It sat there, unused. Claude kept asking for help writing queries while complete
 
 On inspection, this isn't unique to our setup. LLMs don't "understand" what your tool does. Instead, they make probabilistic guesses based on how well the name and description match their current token context ([OpenAI Docs](https://platform.openai.com/docs/guides/function-calling)). When the name is vague (`example_queries`) and the description lacks strong cues, the model often prefers to hallucinate a response rather than risk calling an ambiguous tool.
 
-Studies on LLM tool use confirm that semantic disambiguation is critical: ambiguous names lower invocation frequency by >40% compared to explicit, task-oriented names ([Schick et al., 2023](https://arxiv.org/abs/2302.04761)).
-
 ### What We Changed
 
 We changed two things:
@@ -156,7 +158,7 @@ This added clear, task-specific signals like proven, working SQL, common analysi
 
 First, the new name aligned better with the user's intent. `known_good_queries` explicitly signals to the LLM that the tool contains vetted, high-quality SQL, which is a much stronger match to prompts like "give me a working query".
 
-Second, by using both intent (known good) and domain (SQL queries for CloudQuery), we reduced the cognitive gap between the model's understanding and the tool's purpose ([Zhao et al., 2023](https://arxiv.org/abs/2306.05685)).
+Second, by using both intent (known good) and domain (SQL queries for CloudQuery), we reduced the cognitive gap between the model's understanding and the tool's purpose.
 
 ## Context Window is Your Enemy
 
@@ -168,7 +170,7 @@ We learned this the hard way: a single raw CloudQuery schema dump can easily exc
 
 ![Meme showing the 'This is fine' dog sitting calmly in a room on fire. Caption added: 'Your LLM trying to process 50,000 tokens of raw schema.' Dog says 'This is fine'.](/images/blog/mcp-server-gotchas-we-learned-the-hard-way/image5.webp)
 
-Research shows that once the context window saturates, the model selectively forgets earlier tokens rather than gracefully degrading ([Xiong et al., 2023](https://arxiv.org/abs/2307.03172)). This means the model would ignore parts of our schema arbitrarily, which is not ideal.
+Research shows that models use information at the start and end of a long context much better than information in the middle ([Liu et al., 2023](https://arxiv.org/abs/2307.03172)). This means the model could miss whatever part of our schema landed in the middle, which is not ideal.
 
 ### How We Fixed Our Context Window Problem
 

@@ -11,10 +11,12 @@ heroImage: '/images/blog/building-secure-ai-powered-cloud-security-data-pipeline
 heroAlt: 'A radar operator watching his scope'
 canonicalUrl: https://www.cloudquery.io/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection
 contentNotice: 'This post was originally published on CloudQuery blog.'
-updatedDate: 2026-11-12
+updatedDate: 2026-11-16
 corrections:
   - date: 2026-11-12
     note: "The Python called `random.laplace`, which doesn't exist, and a class by the wrong name. The Istio policy used the wrong API group (`networking.istio.io`) and a condition key Istio doesn't have."
+  - date: 2026-11-16
+    note: "The references listed two research sources that don't say what they were credited with. The arXiv link goes to a test-time training paper, and the Google link goes to a quantum computing paper. I removed both. I also credited a 55% faster alert triage figure to industry research when it's IBM's own number, and cut a 48% figure I couldn't find in any IBM source."
 marginNotes:
   - type: 'see'
     at: 'production deployments often require self-hosted models'
@@ -783,7 +785,7 @@ AI-powered cloud security uses machine learning models to analyze cloud infrastr
 
 ### How much can AI-powered cloud security reduce security investigation time?
 
-According to industry research, AI-powered risk analysis can accelerate alert investigations and triage by an average of 55%. IBM reports that their AI-powered cybersecurity capabilities helped reduce alert investigation times by 48% for clients. Organizations using AI and automation extensively throughout their security operations save an average of $1.9 million in breach costs compared to those without AI implementation.
+[IBM says](https://newsroom.ibm.com/2023-04-24-IBM-Launches-New-QRadar-Security-Suite-to-Speed-Threat-Detection-and-Response) its AI-powered security tools sped up alert investigation and triage by 55% on average in the first year, based on its own managed security clients. Organizations using AI and automation extensively throughout their security operations save an average of $1.9 million in breach costs compared to those without AI implementation.
 
 ### What are the main challenges with multi-cloud security management?
 
@@ -874,12 +876,6 @@ Start with the open-source [Secure AI Data Pipelines Demo](https://github.com/cl
 - HashiCorp. "Vault: Secrets Management and Data Protection." <https://www.vaultproject.io/>
 
 - Splunk. "Machine Learning Toolkit." <https://splunkbase.splunk.com/app/2890/>
-
-**Academic and Research Sources:**
-
-- Research Paper. "AI Security in Production Environments." arXiv:2310.12345. <https://arxiv.org/abs/2310.12345>
-
-- Google Research. "Production Machine Learning Security Research." <https://research.google/pubs/pub50936/>
 
 ---
 

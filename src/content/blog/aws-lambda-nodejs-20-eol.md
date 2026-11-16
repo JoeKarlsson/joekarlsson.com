@@ -9,26 +9,20 @@ writtenFor: 'CloudQuery'
 tags: ['AWS', 'Tutorials', 'Cloud Infrastructure']
 heroImage: '/images/blog/aws-lambda-nodejs-20-eol/thumb-732a8dc0.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-lambda-nodejs-20-eol'
-contentNotice: 'This post was originally published on CloudQuery blog. All three Node.js 20 deadlines below have passed: Lambda now blocks creating and updating nodejs20.x functions. The next one is Node.js 22, which reaches end of support on April 30, 2027, and the same queries find it.'
+contentNotice: 'This post was originally published on CloudQuery blog. Node.js 20 was deprecated on April 30, 2026, but AWS pushed the blocks back: Lambda stops creating nodejs20.x functions on July 29, 2027 and stops updating them on August 31, 2027. The next one is Node.js 22, deprecated on May 30, 2027, and the same queries find it.'
 heroAlt: 'A rusted old car left in the woods'
-updatedDate: 2026-11-12
+updatedDate: 2026-11-16
 corrections:
   - date: 2026-11-12
     note: 'The queries used `cq_sync_time`. The column is `_cq_sync_time`.'
+  - date: 2026-11-16
+    note: "AWS moved the dates after I wrote this. Lambda blocks creating nodejs20.x functions on July 29, 2027 and updating them on August 31, 2027, not August 31 and September 30, 2026. Node.js 22 is deprecated May 30, 2027, not April 30. The schedule table now matches AWS's page."
 marginNotes:
-  - type: 'update'
-    at: 'You can no longer create new Lambda functions using the'
-    text: 'AWS pushed these blocks back. Its runtimes page now lists July 29, 2027 to block creating nodejs20.x functions and August 31, 2027 to block updating them.'
-    date: 'Nov 2026'
   - type: 'quote'
     at: 'Your functions continue to run and can be invoked'
     text: 'You can continue to invoke your functions indefinitely. However, we strongly recommend that you migrate to a supported runtime.'
     by: 'AWS Lambda docs, Runtime use after deprecation'
     url: 'https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html'
-  - type: 'update'
-    at: 'Its Lambda deprecation date is April 30, 2027'
-    text: 'AWS now lists May 30, 2027 for nodejs22.x, with creates blocked July 29, 2027 and updates blocked August 31, 2027.'
-    date: 'Nov 2026'
   - type: 'quote'
     at: 'introduces a significant Lambda-specific change'
     text: 'Starting with the Node.js 24 runtime, Lambda no longer supports the callback-based handler signature for asynchronous operations.'
@@ -48,22 +42,22 @@ This guide covers the full deprecation timeline, a step-by-step migration path f
 
 **Phase 1 (April 30, 2026): Security patches stop.** Lambda stops applying security patches to the `nodejs20.x` runtime. Functions using this runtime lose technical support eligibility. The runtime disappears from the AWS Console, though you can still create and update functions via the AWS CLI, CloudFormation, SAM, or CDK.
 
-**Phase 2 (August 31, 2026): Function creation blocked.** You can no longer create new Lambda functions using the `nodejs20.x` runtime through any method.
+**Phase 2 (July 29, 2027): Function creation blocked.** You can no longer create new Lambda functions using the `nodejs20.x` runtime through any method.
 
-**Phase 3 (September 30, 2026): Function updates blocked.** You can no longer update existing functions using the `nodejs20.x` runtime. This is the hard deadline for migration.
+**Phase 3 (August 31, 2027): Function updates blocked.** You can no longer update existing functions using the `nodejs20.x` runtime. This is the hard deadline for migration.
 
 Your functions continue to run and can be invoked after all three phases. AWS [does not block invocations of functions that use a deprecated runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). But running unpatched code in production creates security and compliance risk you should not accept.
 
 ## What Is the Full Lambda Node.js Runtime Deprecation Schedule?
 
-This table shows the deprecation timeline for every Node.js runtime on Lambda, based on the [AWS Lambda runtimes documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) as of February 2026:
+This table shows the deprecation timeline for every Node.js runtime on Lambda, based on the [AWS Lambda runtimes documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) as of November 2026:
 
 | Runtime      | Node.js EOL                                   | Lambda Phase 1 (Patches Stop) | Lambda Phase 2 (Block Create) | Lambda Phase 3 (Block Update) |
 | ------------ | --------------------------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
-| `nodejs16.x` | Sep 11, 2023                                  | Jun 12, 2024                  | Aug 31, 2026                  | Sep 30, 2026                  |
-| `nodejs18.x` | Apr 30, 2025                                  | Sep 1, 2025                   | Aug 31, 2026                  | Sep 30, 2026                  |
-| `nodejs20.x` | [Apr 30, 2026](https://endoflife.date/nodejs) | Apr 30, 2026                  | Aug 31, 2026                  | Sep 30, 2026                  |
-| `nodejs22.x` | [Apr 30, 2027](https://endoflife.date/nodejs) | Apr 30, 2027                  | Jun 1, 2027                   | Jul 1, 2027                   |
+| `nodejs16.x` | Sep 11, 2023                                  | Jun 12, 2024                  | Jul 29, 2027                  | Aug 31, 2027                  |
+| `nodejs18.x` | Apr 30, 2025                                  | Sep 1, 2025                   | Jul 29, 2027                  | Aug 31, 2027                  |
+| `nodejs20.x` | [Apr 30, 2026](https://endoflife.date/nodejs) | Apr 30, 2026                  | Jul 29, 2027                  | Aug 31, 2027                  |
+| `nodejs22.x` | [Apr 30, 2027](https://endoflife.date/nodejs) | May 30, 2027                  | Jul 29, 2027                  | Aug 31, 2027                  |
 | `nodejs24.x` | [Apr 30, 2028](https://endoflife.date/nodejs) | Apr 30, 2028                  | Jun 1, 2028                   | Jul 1, 2028                   |
 
 If you are still running `nodejs16.x` or `nodejs18.x` functions, those runtimes are already deprecated and should be upgraded immediately.
@@ -173,13 +167,13 @@ This gives your team a clear burn-down chart of remaining migrations.
 
 ## Should I Upgrade to Node.js 22 or Node.js 24?
 
-**Node.js 22 is the recommended target for most teams.** It entered [LTS (Long-Term Support) status in October 2024](https://nodejs.org/en/blog/release/v22.11.0) and has been [available in Lambda since November 2024](https://aws.amazon.com/about-aws/whats-new/2024/11/aws-lambda-support-nodejs-22/). Its Lambda deprecation date is April 30, 2027, giving you a full year of support after the Node.js 20 deadline.
+**Node.js 22 is the recommended target for most teams.** It entered [LTS (Long-Term Support) status in October 2024](https://nodejs.org/en/blog/release/v22.11.0) and has been [available in Lambda since November 2024](https://aws.amazon.com/about-aws/whats-new/2024/11/aws-lambda-support-nodejs-22/). Its Lambda deprecation date is May 30, 2027, giving you a full year of support after the Node.js 20 deadline.
 
 [Node.js 24 became available in Lambda in November 2025](https://aws.amazon.com/about-aws/whats-new/2025/11/aws-lambda-nodejs-24/) and has a deprecation date of April 30, 2028. However, Node.js 24 introduces a significant Lambda-specific change: [callback-based function handlers are no longer supported](https://aws.amazon.com/blogs/compute/node-js-24-runtime-now-available-in-aws-lambda/). If your functions use the `callback` parameter (e.g., `exports.handler = function(event, context, callback) {...}`), they will not work on Node.js 24 without rewriting them to use `async/await`. The `context.callbackWaitsForEmptyEventLoop`, `context.succeed`, `context.fail`, and `context.done` methods are also removed.
 
 |                          | Node.js 22                | Node.js 24                   |
 | ------------------------ | ------------------------- | ---------------------------- |
-| Lambda deprecation       | Apr 30, 2027              | Apr 30, 2028                 |
+| Lambda deprecation       | May 30, 2027              | Apr 30, 2028                 |
 | Callback handlers        | Supported                 | Not supported                |
 | Migration effort from 20 | Moderate                  | Higher                       |
 | LTS status               | Maintenance LTS           | Active LTS                   |
@@ -390,7 +384,7 @@ Work through your inventory from the [detection section above](#how-do-i-find-al
 ## The Migration Path Forward
 
 - **April 30, 2026** is the Phase 1 deadline: security patches stop for `nodejs20.x` on Lambda ([source](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html))
-- **September 30, 2026** is the hard deadline: function updates are blocked after this date
+- **August 31, 2027** is the hard deadline: function updates are blocked after this date
 - **Node.js 22** is the recommended upgrade target for most teams ([source](https://aws.amazon.com/about-aws/whats-new/2024/11/aws-lambda-support-nodejs-22/))
 - Test for [import assertion syntax changes](https://nodejs.org/en/blog/migrations/v20-to-v22), native module ABI mismatches, and CA certificate configuration before deploying
 - Use CloudQuery Platform to [find every affected function](https://www.cloudquery.io/docs/cli/getting-started) across all AWS accounts and regions with a single SQL query

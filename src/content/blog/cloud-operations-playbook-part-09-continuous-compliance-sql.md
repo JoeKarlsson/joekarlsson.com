@@ -12,8 +12,10 @@ heroImage: '/images/blog/cloud-operations-playbook-part-09-continuous-compliance
 heroAlt: 'The back of an equipment rack, every cable in place'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-09-continuous-compliance-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-updatedDate: 2026-11-12
+updatedDate: 2026-11-16
 corrections:
+  - date: 2026-11-16
+    note: 'I said unencrypted S3 buckets were an automatic audit finding. S3 has encrypted every new object by default since January 5, 2023. I also labeled the S3 check CIS 2.1.1, which it was only through v1.5; in the current benchmark 2.1.1 is the HTTPS-only bucket policy.'
   - date: 2026-11-12
     note: "The queries used tables and columns that don't exist: `aws_accounts`, `is_logging`, `logging_target_bucket`, `server_side_encryption_configuration`, and a root check on `user_name = 'root'`. They now use the real tables."
 marginNotes:
@@ -133,7 +135,7 @@ WHERE "user" = '<root_account>'
 
 If this query returns rows, you have a critical finding.
 
-**CIS AWS 2.1.1 - S3 Default Encryption**
+**S3 Default Encryption (CIS AWS 2.1.1 in v1.5 and earlier)**
 
 Every S3 bucket should have server-side encryption configured:
 
@@ -144,7 +146,7 @@ LEFT JOIN aws_s3_bucket_encryption_rules e ON e.bucket_arn = b.arn
 WHERE e.bucket_arn IS NULL;
 ```
 
-Unencrypted buckets in 2026 are an automatic audit finding. This query finds them in seconds across every account.
+Since January 5, 2023, S3 encrypts every new object with S3-managed keys (SSE-S3) by default, so this query should come back empty, and newer CIS versions dropped the check. What's still worth checking is objects uploaded before that date, which S3 didn't encrypt after the fact, and whether buckets that need your own KMS keys actually use them.
 
 **CIS AWS 3.1 - CloudTrail Enabled in All Regions**
 
@@ -210,7 +212,7 @@ Once your queries run on a schedule, you can build a view of your compliance pos
 | SOC 2     | CC6.7   | S3 access logging enabled         | Passing | Today        | 100%        |
 | SOC 2     | CC7.2   | CloudTrail active in all accounts | Passing | Today        | 100%        |
 | CIS       | 1.4     | Root account MFA enabled          | Passing | Today        | 100%        |
-| CIS       | 2.1.1   | S3 default encryption             | Passing | Today        | 98%         |
+| CIS       | 2.1.1   | S3 default encryption             | Passing | Today        | 100%        |
 | CIS       | 3.1     | Multi-region CloudTrail           | Passing | Today        | 100%        |
 
 That CC6.6 row is failing because someone opened a security group three days ago. You can see it, investigate it, and fix it before the next audit. Without this dashboard, you wouldn't discover the issue until audit prep began, weeks or months from now.

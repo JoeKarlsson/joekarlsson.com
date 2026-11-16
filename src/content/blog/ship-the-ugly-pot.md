@@ -18,7 +18,7 @@ faq:
     answer: 'A kiln tests work against reality and makes it better: automated tests, monitoring, real user feedback, retros. A gate adds latency and rewards safe, easy-to-approve proposals. Review can be either. Keep the kilns, remove the gates, and if a gate exists because the infrastructure is fragile, fix the infrastructure.'
   - question: 'What did the 2025 DORA report say about AI coding tools and quality?'
     answer: "AI adoption went with higher throughput and, on average, lower delivery stability. The report ties the difference to the basics teams already had in place, such as automated testing, mature version control, and fast feedback loops. AI makes more clay. It doesn't build the kiln."
-updatedDate: 2026-10-12
+updatedDate: 2026-11-16
 corrections:
   - date: 2026-10-12
     note: "I said the 2025 DORA report found delivery stability depended on a team's existing feedback setup. It found AI adoption went with higher throughput and, on average, lower stability."
@@ -26,6 +26,8 @@ corrections:
     note: "I told the ceramics class story as fact. It's an anecdote, and Orland has said it's based on Jerry Uelsmann's photography class."
   - date: 2026-10-12
     note: "I said Corita Kent chaired the art department in its most influential years and that the rules were her department's list. She chaired it from 1964 and popularized the Immaculate Heart College Art Department rules."
+  - date: 2026-11-16
+    note: "The link for Orland's account of the photography class went to a 2009 Kottke post that doesn't mention it. It now goes to Kottke's 2020 post, which quotes Orland's note in James Clear's Atomic Habits."
 marginNotes:
   - type: 'term'
     at: 'the lowest change failure rates'
@@ -45,7 +47,7 @@ Here's the story, from David Bayles and Ted Orland's [_Art & Fear_](https://www.
 
 > "The ceramics teacher announced on opening day that he was dividing the class into two groups. All those on the left side of the studio, he said, would be graded solely on the quantity of work they produced, all those on the right solely on its quality. His procedure was simple: on the final day of class he would bring in his bathroom scales and weigh the work of the 'quantity' group: fifty pounds of pots rated an 'A', forty pounds a 'B', and so on. Those being graded on 'quality', however, needed to produce only one pot - albeit a perfect one - to get an 'A'. Well, came grading time and a curious fact emerged: the works of highest quality were all produced by the group being graded for quantity. It seems that while the 'quantity' group was busily churning out piles of work - and learning from their mistakes - the 'quality' group had sat theorizing about perfection, and in the end had little more to show for their effort than grandiose theories and a pile of dead clay."
 
-It's an anecdote, not a controlled study. Orland [has said](https://kottke.org/09/02/art-and-fear 'cite: Kottke, February 2009') it's based on Jerry Uelsmann's photography class at the University of Florida, retold with ceramics.
+It's an anecdote, not a controlled study. Orland [has said](https://kottke.org/20/12/the-credibility-is-in-the-details 'cite: Orland, quoted by Kottke, December 2020') it's based on Jerry Uelsmann's photography class at the University of Florida, retold with ceramics.
 
 ![Squidward Window meme: Squidward, labeled 'Quality group, week 11 of the perfect pot design doc', stares out the window at SpongeBob and Patrick, labeled 'Quantity group, on pot #83'.](/images/blog/ship-the-ugly-pot/meme-squidward-window.webp)
 

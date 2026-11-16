@@ -13,8 +13,10 @@ heroImage: '/images/blog/cloud-centers-of-excellence-part-3-finops-cost-manageme
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'Meme image of a determined-looking toddler clenching his fist in success (known as "Success Kid"). The background is a blue and purple radial burst. Text at the top reads: "PUBLISHED QUARTERLY COE METRICS". Text at the bottom reads: "MANAGEMENT LOVED IT."'
-updatedDate: 2026-11-06
+updatedDate: 2026-11-16
 corrections:
+  - date: 2026-11-16
+    note: "I said cloud spend overtook security as the top challenge by 2022. Flexera's 2023 report was the first time it did. I also had security at 77%; it was 79%."
   - date: 2026-11-06
     note: "Flexera's 59% figure is from 2025, up from 51% in 2024. I had both years one year early."
 marginNotes:
@@ -53,7 +55,7 @@ As cloud usage scales, controlling cost and ensuring financial accountability be
 
 ### Cloud Cost Management as a Top Challenge
 
-Cloud costs can spiral without proper oversight, idle resources, over-provisioning, and a lack of visibility often lead to waste. Industry surveys over the past few years show this. [By 2022, managing cloud spend had surpassed security as the number one cloud challenge reported by enterprises](https://www.flexera.com/about-us/press-center/flexera-2023-state-of-the-cloud-report#:~:text=,62%20percent%20of%20all%20respondents). In [Flexera's 2023 survey, 82% of respondents cited cost management as a top challenge, edging out security (77%)](https://www.flexera.com/about-us/press-center/flexera-2023-state-of-the-cloud-report#:~:text=,62%20percent%20of%20all%20respondents). Correspondingly, _"[optimizing existing cloud use (cost savings) has been the top initiative for seven years running](https://www.flexera.com/about-us/press-center/flexera-2023-state-of-the-cloud-report#:~:text=challenge.%20,62%20percent%20of%20all%20respondents)"_ (reported by 62% of organizations in 2023). This shift has elevated FinOps from a niche practice to a mainstream component of cloud governance.
+Cloud costs can spiral without proper oversight, idle resources, over-provisioning, and a lack of visibility often lead to waste. Industry surveys over the past few years show this. [In 2023, for the first time in more than a decade, managing cloud spend surpassed security as the number one cloud challenge reported by enterprises](https://www.flexera.com/about-us/press-center/flexera-2023-state-of-the-cloud-report#:~:text=,62%20percent%20of%20all%20respondents). In [Flexera's 2023 survey, 82% of respondents cited cost management as a top challenge, edging out security (79%)](https://www.flexera.com/blog/finops/cloud-computing-trends-flexera-2023-state-of-the-cloud-report/). Correspondingly, _"[optimizing existing cloud use (cost savings) has been the top initiative for seven years running](https://www.flexera.com/about-us/press-center/flexera-2023-state-of-the-cloud-report#:~:text=challenge.%20,62%20percent%20of%20all%20respondents)"_ (reported by 62% of organizations in 2023). This shift has elevated FinOps from a niche practice to a mainstream component of cloud governance.
 
 The CCOE is often tasked to ensure cloud cost governance through FinOps. In some companies, this means the CCOE includes a [FinOps specialist or cost manager](https://www.infracost.io/glossary/cloud-center-of-excellence/#:~:text=1,cloud%20initiatives%20with%20business%20objectives), while in others, the CCOE works in partnership with a formal FinOps team. Either way, the objectives are to achieve cost visibility, optimize spending, and instill financial accountability for cloud consumption.
 

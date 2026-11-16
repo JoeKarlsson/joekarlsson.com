@@ -10,6 +10,10 @@ heroImage: '/images/blog/event-sourcing-with-kafka-a-practical-example/thumb-dad
 heroAlt: 'A chimpanzee typing at an old typewriter'
 tldr: 'I walk through event sourcing with Kafka using a banking app example, where you reconstruct account balances from a log of deposit and withdrawal events instead of storing state directly. Includes a practical tutorial with Kafka and Tinybird for snapshotting and serving state as an API.'
 contentNotice: "I wrote this for Tinybird Classic. In 2026 Tinybird made Tinybird Forward its main product, with a new CLI and deployment workflow, and moved Free and Developer plan workspaces off Classic. The ideas still hold, but the tb commands and UI steps below are Classic's. [Tinybird's migration notes](https://www.tinybird.co/blog/tinybird-classic-deprecation) cover what changed."
+updatedDate: 2026-11-16
+corrections:
+  - date: 2026-11-16
+    note: "I said Confluent discontinued ksqlDB in 2024. It didn't. ksqlDB is still supported on Confluent Cloud, but Confluent recommends Flink for new stream processing work."
 marginNotes:
   - type: 'quote'
     at: 'Event sourcing is a data design pattern'
@@ -141,7 +145,7 @@ As with most things involving large-scale distributed systems, implementing even
 
 First, the sheer velocity and volume of event data can overwhelm systems not designed for [real-time data processing](https://www.tinybird.co/blog-posts/real-time-data-processing). Arriving at eventual consistency when you’re streaming millions of events per second can be quite difficult.
 
-Systems like [ksqlDB](https://ksqldb.io/) (Note: ksqlDB was discontinued by Confluent in 2024) (SQL) or [Kafka Streams](https://kafka.apache.org/documentation/streams/) (Java/Python) that provide a layer of abstraction over the Kafka APIs offer stateful real-time transformation abilities, [but they can struggle when state grows or when dealing with high-cardinality columns](https://www.tinybird.co/blog-posts/ksqldb-alternative).
+Systems like [ksqlDB](https://ksqldb.io/) (Note: Confluent still supports ksqlDB but now recommends Flink for new work) (SQL) or [Kafka Streams](https://kafka.apache.org/documentation/streams/) (Java/Python) that provide a layer of abstraction over the Kafka APIs offer stateful real-time transformation abilities, [but they can struggle when state grows or when dealing with high-cardinality columns](https://www.tinybird.co/blog-posts/ksqldb-alternative).
 
 For example, if you wanted to run [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide) over event streams, calculate state using a simple SQL interface, or run queries across multiple data sources, you’ll probably need to look beyond the native Kafka ecosystem. [Apache Flink](https://flink.apache.org/), an open source stream processing engine, can handle massive scale for stream processing but can also come with a steep learning curve.
 

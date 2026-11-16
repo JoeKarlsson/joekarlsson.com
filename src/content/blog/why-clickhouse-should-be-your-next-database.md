@@ -8,6 +8,10 @@ writtenFor: 'Tinybird'
 heroImage: '/images/blog/why-clickhouse-should-be-your-next-database/thumb-5be2e70d.webp'
 heroAlt: 'Ancient Greek columns at sunset'
 tldr: 'ClickHouse is a column-oriented database built for real-time analytics on huge datasets. It loads data 23x faster than PostgreSQL, uses 8.5x less storage, and powers real-time analytics at companies like Cloudflare and Yandex.'
+updatedDate: 2026-11-16
+corrections:
+  - date: 2026-11-16
+    note: "I said Cloudflare's 6 million requests per second were DNS queries. That's its HTTP analytics pipeline. DNS was about 1.5 million a second."
 marginNotes:
   - type: 'quote'
     at: 'It stores values compactly, with no extra data alongside them'
@@ -79,7 +83,7 @@ Just to prove I’m not pulling your leg here, let’s look at some real-world u
 
 ### Cloudflare
 
-Yes, the folks who practically hold up half the internet [use ClickHouse for real-time query analytics on terabytes of data every single day](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/)! Cloudflare uses ClickHouse to manage real-time DNS query analytics for up to 6 million requests per second, which involves processing terabytes of data. From an architectural perspective, ClickHouse’s column-oriented database design plays a key role.
+Yes, the folks who practically hold up half the internet [use ClickHouse for real-time query analytics on terabytes of data every single day](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/)! Cloudflare uses ClickHouse to manage real-time HTTP analytics for up to 6 million requests per second, which involves processing terabytes of data. From an architectural perspective, ClickHouse’s column-oriented database design plays a key role.
 
 The new architecture includes:
 

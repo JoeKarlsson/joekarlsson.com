@@ -13,6 +13,10 @@ categories: ['Cloud']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/real-time-cloud-cmdb-ephemeral-infrastructure
 contentNotice: "This post was originally published on CloudQuery's blog."
+updatedDate: 2026-11-16
+corrections:
+  - date: 2026-11-16
+    note: "I gave Lambda cold starts as 400-700 ms. AWS says under 100 ms to over 1 second. I also cited Datadog's 2023 container report for most containers living minutes; it has no lifespan data. Datadog's 2019 report does: about a day on Kubernetes and ECS."
 heroAlt: "Chardin's painting of a boy blowing a soap bubble"
 marginNotes:
   - type: 'term'
@@ -34,7 +38,7 @@ Your Kubernetes pods live for 3 minutes. Your Lambda functions for 300 milliseco
 
 In traditional IT environments, infrastructure was measured in months and years. A server lived in the data center for 3-5 years. Network equipment lasted a decade. CMDBs were designed for this reality, where a weekly discovery scan was more than sufficient. Cloud changed that.
 
-Today, the majority of containers in production have [short lifespans](https://www.datadoghq.com/container-report/), often measured in minutes rather than hours or days. AWS Lambda functions execute in milliseconds and their instances are recycled after periods of inactivity. Kubernetes pods autoscale continuously, spawning and terminating hundreds of instances within minutes. Infrastructure has become ephemeral, and traditional discovery models have become obsolete.
+By 2019, [Datadog found](https://www.datadoghq.com/container-report-2019/) that a typical container on Kubernetes or ECS lived about a day, and an autoscaled pod can be gone in minutes. AWS Lambda functions execute in milliseconds and their instances are recycled after periods of inactivity. Kubernetes pods autoscale continuously, spawning and terminating hundreds of instances within minutes. Infrastructure has become ephemeral, and traditional discovery models have become obsolete.
 
 > **Note:** **TL;DR**
 >
@@ -42,13 +46,13 @@ Today, the majority of containers in production have [short lifespans](https://w
 
 ## The Ephemeral Reality: How Cloud Infrastructure Actually Behaves
 
-Cloud infrastructure operates on a completely different timescale than traditional IT. According to [Datadog's container research](https://www.datadoghq.com/container-report/), **the majority of containers in production have short lifespans**, often measured in minutes. That's by design: Kubernetes treats containers as disposable units of compute.
+Cloud infrastructure operates on a completely different timescale than traditional IT. According to [Datadog's 2019 container report](https://www.datadoghq.com/container-report-2019/), **containers on Kubernetes and ECS typically live about a day**, and autoscaled ones can last minutes. That's by design: Kubernetes treats containers as disposable units of compute.
 
 A typical autoscaling scenario: traffic spikes, the [Kubernetes Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) spawns 50 new pods, traffic subsides 10 minutes later, pods terminate. The entire lifecycle happens faster than most CMDB discovery scans run. A single microservice might cycle through hundreds of container instances daily.
 
 Serverless functions take ephemerality even further:
 
-- **Lambda cold starts:** [400-700 milliseconds](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html)
+- **Lambda cold starts:** [under 100 milliseconds to over 1 second](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html)
 - **Function execution:** Often completes in under 1 second
 - **Instance lifecycle:** [Recycled after minutes of inactivity](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html), depending on resource availability
 
@@ -250,7 +254,7 @@ A real-time cloud CMDB is a configuration management database that updates infra
 
 ### Why can't traditional CMDBs handle ephemeral infrastructure?
 
-Traditional CMDBs rely on scheduled discovery scans (daily or weekly intervals) that are too slow for cloud environments. With most containers living just minutes and Lambda functions executing in under one second, traditional discovery misses the vast majority of short-lived resources. These resources appear, execute, and vanish between scheduled scans, leaving security gaps, incomplete cost attribution, and missing audit trails.
+Traditional CMDBs rely on scheduled discovery scans (daily or weekly intervals) that are too slow for cloud environments. With containers living a day or less and Lambda functions executing in under one second, traditional discovery misses the vast majority of short-lived resources. These resources appear, execute, and vanish between scheduled scans, leaving security gaps, incomplete cost attribution, and missing audit trails.
 
 ### What is the difference between a cloud CMDB and a traditional CMDB?
 

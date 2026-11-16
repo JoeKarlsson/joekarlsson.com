@@ -10,6 +10,10 @@ heroImage: '/images/blog/how-to-add-machine-learning-predictions-with-singlestor
 heroAlt: 'Mind-reading prediction GIF'
 contentNotice: 'MindsDB Studio and its Predictors > Train New screen are gone. MindsDB now trains models in SQL with CREATE MODEL, so follow the [MindsDB docs](https://docs.mindsdb.com/) for that part.'
 tldr: 'I connect SingleStore to MindsDB to run machine learning predictions on health insurance data using just SQL. No separate ML pipeline needed - MindsDB trains the model directly on your existing tables.'
+updatedDate: 2026-11-16
+corrections:
+  - date: 2026-11-16
+    note: "The steps said to pick “smoker” as the column to predict. The model predicts BMI, so you pick “bmi” (the training screenshot has the wrong box ticked). And 46% is MindsDB's confidence score, not a confidence interval."
 marginNotes:
   - type: 'update'
     at: 'If you do not already have Sequel Pro downloaded'
@@ -116,7 +120,7 @@ Here’s the moment we’ve all been waiting for! We’re going to use our Singl
 
 ![Mind-reading prediction GIF](/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/psychic-woman.gif)
 
-Let’s create a new prediction by clicking on “Predictors” on the left and clicking “Train New” on the bottom right. For this example, we will try to predict BMI based on whether a person is a smoker. Select our SingleStore database as the data source, give it a name, I used “BMI Predictor,” and select the “smoker” as the column to be predicted.
+Let’s create a new prediction by clicking on “Predictors” on the left and clicking “Train New” on the bottom right. For this example, we will try to predict BMI based on whether a person is a smoker. Select our SingleStore database as the data source, give it a name, I used “BMI Predictor,” and select “bmi” as the column to be predicted.
 
 ![MindsDB train new predictor dialog selecting smoker column for BMI prediction](/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/img-train-new-predictor.webp)
 
@@ -124,7 +128,7 @@ Once the predictor has finished running, the data will be saved in an AI Table o
 
 ![MindsDB new query modal using BMI Predictor with smoker and children inputs](/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/img_new-query-modal.webp)
 
-Once you have done that, press “Run Query”. Your query results will show up on the screen. You will be able to see your prediction as well as prediction confidence, which normally depends on the length of your dataset. You can see here that the predicted BMI of a smoker is 25.12 with a 46% confidence interval based on our dataset.
+Once you have done that, press “Run Query”. Your query results will show up on the screen. You will be able to see your prediction as well as prediction confidence, which normally depends on the length of your dataset. You can see here that the predicted BMI of a smoker is 25.12 with 46% confidence based on our dataset.
 
 ![MindsDB prediction result showing BMI of 25.12 with 46% confidence](/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/img_predicted-bmi.webp)
 

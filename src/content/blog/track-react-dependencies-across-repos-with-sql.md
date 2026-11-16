@@ -12,10 +12,12 @@ heroAlt: 'A tangle of cables on the back of an equipment rack'
 canonicalUrl: 'https://www.cloudquery.io/blog/track-react-dependencies-across-repos-with-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'The Git Source Integration syncs package.json files into your database. Parse JSON with SQL to find React versions, track dependencies vs devDependencies, and identify repos needing upgrades.'
-updatedDate: 2026-11-12
+updatedDate: 2026-11-16
 corrections:
   - date: 2026-11-12
     note: 'The version filter had no parentheses around its `OR`s, so it matched any package on 16.x, not just React. The Git source config also used the wrong syntax.'
+  - date: 2026-11-16
+    note: "The FAQ said to wrap the cast in a TRY-CATCH block or check it with `jsonb_typeof()`. PostgreSQL SQL has no TRY-CATCH, and `jsonb_typeof()` runs after the cast, so it can't catch bad JSON. The check is `IS JSON` or `pg_input_is_valid()`."
 marginNotes:
   - type: 'quote'
     at: 'Flattens nested JSON into rows using LATERAL joins'
@@ -206,7 +208,7 @@ The `git_files` table includes last modified timestamp. Track when package.json 
 
 **What if package.json files are malformed?**
 
-The `::jsonb` cast will fail on invalid JSON. Wrap in a TRY-CATCH block or filter for valid JSON first using PostgreSQL's `jsonb_typeof()` function to validate before parsing.
+The `::jsonb` cast will fail on invalid JSON and stop the whole query. Filter those files out before the cast: on PostgreSQL 16 or later, add `WHERE convert_from(content, 'UTF8') IS JSON`, or use `pg_input_is_valid(convert_from(content, 'UTF8'), 'jsonb')`.
 
 **How do I find repos with security vulnerabilities in dependencies?**
 

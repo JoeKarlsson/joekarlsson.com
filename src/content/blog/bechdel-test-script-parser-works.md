@@ -1,6 +1,7 @@
 ---
 title: 'Bechdel Test Script Parser - How It Works'
 date: 2015-12-19
+updatedDate: 2026-11-16
 slug: 'bechdel-test-script-parser-works'
 description: 'How the Bechdel Test Script Parser works - the digital humanities tool my sister Laurel and I built to check whether film scripts pass the Bechdel Test.'
 categories: ['Web Dev']
@@ -18,6 +19,9 @@ marginNotes:
     text: 'I am pretty certain that my friend Liz Wallace, from whom I stole the idea in 1985, stole it herself from Virginia Woolf.'
     by: 'Alison Bechdel on where the test came from, Testy, 2013'
     url: 'https://dykestowatchoutfor.com/testy/'
+corrections:
+  - date: 2026-11-16
+    note: "I credited a 2011 paper by Murtagh, Ganz and Reddington for lines that came from Hoyt, Ponto and Roy's 2014 ScripThreads paper, and I'd copied several of their sentences nearly word for word. The credit now goes to them, and those sentences are in my own words."
 ---
 
 [The Bechdel Test Script Parser](https://bechdel.joekarlsson.com/) was a collaborative digital humanities project between myself and my sister, Laurel Karlsson. It is the product of a shared passion for film, feminism, and the creative potential of technology. By combining the talents and interests of myself, a software engineer, and my sister, an English Scholar, we’ve been able to create an innovative data mining tool for a film analysis that we hope to continue to work on and improve. You can check out the project on our website, and the open-source code can be viewed [here](https://github.com/JoeKarlsson/bechdel-test). I also gave a [talk about how we used JavaScript to help make film more inclusive](/talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/) with this project. In 2026 I [started it over as a static site](/blog/hackers-and-painters-ai-agents/).
@@ -26,13 +30,13 @@ This project was born when my sister reached out to me for advice on a few ide
 
 ## How It Works
 
-Of all narrative textual forms, the motion picture screenplay may be the most perfectly pre-disposed for computational analysis [[Murtagh, Ganz, and Reddington 2011]](http://www.digitalhumanities.org/dhq/vol/8/4/000190/000190.html). Screenplays contain capitalized character names, indented dialogue, and other formatting conventions that enable an algorithmic approach to analyzing and visualizing film narratives [Hoyt, Ponto, Roy]. Coupled with massive online movie databases, we can parse through movie scripts and collect insights on a level not yet seen before. In this blog post, I introduce our new web app, Bechdel Test Visualizer, which parses screenplays, outputs statistical gender values which can be analyzed, and offer four different types of visualization, each with its own utility. In this analysis, my sister and I use the Bechdel Test Visualizer to analyze the 2014 Oscar Best Picture Nominees.
+Screenplays are close to ideal material for a computer. Character names are in capitals, dialogue is indented, and the rest of the format follows strict conventions, so a program can work out who is on the page and when. [Eric Hoyt, Kevin Ponto and Carrie Roy](https://dhq.digitalhumanities.org/vol/8/4/000190/000190.html 'cite: Hoyt, Ponto, and Roy, 2014') make this case in their paper on ScripThreads, their screenplay visualization tool. Coupled with massive online movie databases, we can parse through movie scripts and collect insights on a level not yet seen before. In this blog post, I introduce our new web app, Bechdel Test Visualizer. It parses screenplays, puts out gender statistics you can analyze, and draws them as four different kinds of visualization. In this analysis, my sister and I use the Bechdel Test Visualizer to analyze the 2014 Oscar Best Picture Nominees.
 
 ## Building Process
 
-In the process of building this tool’s prototype, I have come to appreciate the many ways that a computer reads a screenplay differently from you or me. Humans gather insight from watching and experiencing the emotion, tension, and dynamics of a movie or screenplay. Rather than attempting to train a computer to understand a film in the exact same way I do, I would prefer to ask a computer to do tasks that it is designed to do well and that we humans struggle with. Humans have memory limitations with matters of sequential timing and the entrances and exits of dozens of characters. In contrast, computers are excellent at gathering and recording these sorts of details from structured texts [[Murtagh, Ganz, and Reddington 2011]](http://www.digitalhumanities.org/dhq/vol/8/4/000190/000190.html).
+Building the prototype showed me how differently a computer reads a screenplay than a person does. We watch a movie and take in its emotion, its tension and the way the characters play off each other. Instead of trying to teach a computer to watch a film the way I do, I'd rather give it the jobs it does well and we do badly. People lose track of timing, and of who enters and leaves, once a film has dozens of characters. A computer can log every one of those details from a structured text. Hoyt, Ponto and Roy [made the same point](https://dhq.digitalhumanities.org/vol/8/4/000190/000190.html 'cite: Hoyt, Ponto, and Roy, 2014') about ScripThreads.
 
-Lev Manovich has suggested that one of the most valuable things that come from combining computational analysis and the visualization of vast amounts of information in a single image is that it defamiliarizes our understanding of the works that we study in the Humanities [[Manovich 2012]](https://manovich.net/index.php/projects/cultural-analytics). As I hope to demonstrate, the Bechdel Test Visualizer is a powerful tool for defamiliarization, provoking new questions and gender and film, and producing new answers through the combined strengths of the human analyst and the computer.
+Lev Manovich argues that packing a huge amount of information into a single image makes the works we study in the humanities look unfamiliar again [[Manovich 2012]](https://manovich.net/index.php/projects/cultural-analytics). I hope the Bechdel Test Visualizer does that for film: it should raise new questions about gender and film, and answer some of them with what the human analyst and the computer each do best.
 
 Years later I came back to the same idea with Punc, which strips the words out of 1,959 books, and used it to [test whether English sentences got shorter](/blog/sentence-length-semicolons-punctuation/).
 

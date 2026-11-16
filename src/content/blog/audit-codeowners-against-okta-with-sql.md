@@ -12,10 +12,12 @@ heroAlt: 'A wall of apartment mailboxes'
 canonicalUrl: 'https://www.cloudquery.io/blog/audit-codeowners-against-okta-with-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'The Git Source Integration syncs CODEOWNERS files. Join with Okta and GitHub data to find orphaned code ownership - accounts that left the company but remain in CODEOWNERS.'
-updatedDate: 2026-11-12
+updatedDate: 2026-11-16
 corrections:
   - date: 2026-11-12
     note: "The Git source config used syntax the plugin doesn't take (`git_files: glob_patterns`). It's `table_options.git_files` with `glob`. `okta_users.email` is `profile->>'email'`."
+  - date: 2026-11-16
+    note: 'The FAQ said monorepos put CODEOWNERS files in subdirectories for per-package ownership. GitHub only reads CODEOWNERS from `.github/`, the root or `docs/`.'
 marginNotes:
   - type: 'quote'
     at: 'their GitHub handles remain in CODEOWNERS files'
@@ -200,7 +202,7 @@ Running monthly catches recently departed employees whose accounts were removed 
 
 **Can I check CODEOWNERS in subdirectories?**
 
-Yes. The glob pattern `*CODEOWNERS` matches CODEOWNERS files at any directory depth. monorepos often include CODEOWNERS files in subdirectories for per-package ownership.
+Yes. The glob pattern `*CODEOWNERS` matches CODEOWNERS files at any directory depth. But GitHub only reads CODEOWNERS from `.github/`, the repo root or `docs/`, and uses the first one it finds in that order. A CODEOWNERS file in a package folder assigns nobody, so per-package ownership in a monorepo goes in that one file as path patterns.
 
 **What if the same person appears in multiple CODEOWNERS files?**
 

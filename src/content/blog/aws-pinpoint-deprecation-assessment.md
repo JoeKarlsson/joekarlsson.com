@@ -11,10 +11,12 @@ heroImage: '/images/blog/aws-pinpoint-deprecation-assessment/thumb-91d0c6f0.webp
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-pinpoint-deprecation-assessment'
 contentNotice: 'This post was originally published on CloudQuery blog. Amazon Pinpoint reached end of support on October 30, 2026, after this was written, so read the dates as history. The steps for finding what used Pinpoint still apply.'
 heroAlt: 'A tower block collapsing in a controlled demolition'
-updatedDate: 2026-11-12
+updatedDate: 2026-11-16
 corrections:
   - date: 2026-11-12
     note: "The config shipped with a placeholder version, `VERSION_SOURCE_AWS`. It's now a real one."
+  - date: 2026-11-16
+    note: 'The FAQ said CloudQuery has eight Pinpoint tables, then listed nine. It has nine.'
 marginNotes:
   - type: 'quote'
     at: 'all continues under the'
@@ -410,7 +412,7 @@ If you only use Pinpoint's transactional SMS APIs, those continue as AWS End Use
 
 ### What CloudQuery tables are available for AWS Pinpoint?
 
-CloudQuery provides eight Pinpoint tables: `aws_pinpoint_apps`, `aws_pinpoint_campaigns`, `aws_pinpoint_campaign_versions`, `aws_pinpoint_segments`, `aws_pinpoint_templates`, `aws_pinpoint_template_versions`, `aws_pinpoint_export_jobs`, `aws_pinpoint_import_jobs`, and `aws_pinpoint_recommender_configurations`.
+CloudQuery provides nine Pinpoint tables: `aws_pinpoint_apps`, `aws_pinpoint_campaigns`, `aws_pinpoint_campaign_versions`, `aws_pinpoint_segments`, `aws_pinpoint_templates`, `aws_pinpoint_template_versions`, `aws_pinpoint_export_jobs`, `aws_pinpoint_import_jobs`, and `aws_pinpoint_recommender_configurations`.
 
 ### What AWS IAM permissions do I need to query Pinpoint resources?
 

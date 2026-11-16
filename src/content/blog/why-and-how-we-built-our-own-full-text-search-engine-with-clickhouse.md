@@ -11,6 +11,10 @@ heroImage: '/images/blog/why-and-how-we-built-our-own-full-text-search-engine-wi
 heroAlt: "Drake meme with two panels. Top panel shows Drake gesturing disapprovingly at 'Dedicated full-text search engine'. Bottom panel shows Drake smiling approvingly at 'Abusing ClickHouse harder'"
 canonicalUrl: 'https://www.cloudquery.io/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse'
 tldr: 'We built a full text search index directly in ClickHouse using ngrambf_v1 Bloom filter indices instead of adding Elasticsearch or Meilisearch. Our custom key-value flattening approach achieved sub-400ms queries across hundreds of millions of rows, with 10x faster performance on complex searches compared to naive JOIN approaches, without requiring additional infrastructure.'
+updatedDate: 2026-11-16
+corrections:
+  - date: 2026-11-16
+    note: "I said our 1024-byte Bloom filter was much smaller than Tinybird's pick of 8192 bytes. Tinybird's customer chose 1024 bytes too. Lessons Learned also said 1024 bits where it meant bytes."
 marginNotes:
   - type: 'update'
     at: 'Our implementation uses ClickHouse'
@@ -148,7 +152,7 @@ Where:
 
 Like Tinybird found in their testing, we had to carefully balance these parameters. Larger Bloom filters reduce false positives, but increase storage requirements. More hash functions can improve accuracy, but slow down insertions.
 
-Our testing showed that a Bloom filter size of `1024 bytes` with a single hash function provided the best balance of performance and storage overhead for our use case. This was significantly smaller than Tinybird's optimal configuration of `8192 bytes`, likely due to differences in our data characteristics and query patterns.
+Our testing showed that a Bloom filter size of `1024 bytes` with a single hash function provided the best balance of performance and storage overhead for our use case. Tinybird's customer settled on the same size and hash count, `ngrambf_v1(4, 1024, 1, 0)`.
 
 ### Query Processing and Relevance Ranking
 
@@ -266,7 +270,7 @@ The [**warm vs. cold state of your ClickHouse cluster makes a substantial differ
 
 An important optimization we discovered is that certain subconditions are merged during query compilation. For example, a query like `resource_type=aws_ec2_instances AND demo` contains one column-wise condition (`resource_type=aws_ec2_instances`, which filters on an indexed column) and one row-wise condition (`demo`, which searches key-value pairs). The column-wise conditions can be merged and efficiently evaluated using standard database indexes, while each separate row-wise condition requires separate evaluation. Understanding this distinction allows us to structure queries to maximize the use of column-wise filtering before applying more expensive row-wise operations.
 
-**Bloom filter tuning requires balancing multiple factors**. Larger filters reduce false positives but increase memory usage and insertion cost. We found that starting with moderate sizes (1024 bits) and measuring collision rates worked well, allowing us to adjust based on real-world performance.
+**Bloom filter tuning requires balancing multiple factors**. Larger filters reduce false positives but increase memory usage and insertion cost. We found that starting with moderate sizes (1024 bytes) and measuring collision rates worked well, allowing us to adjust based on real-world performance.
 
 **Operational patterns matter too**. Our approach of nightly offline rebuilds with atomic table swaps effectively hides the heavy insertion overhead from users. For workloads requiring near-real-time updates, incremental materialized views might be a better approach despite their added complexity.
 

@@ -2,6 +2,7 @@
 title: 'How to Use ChatGPT Dots with Salesforce, Jira, and More'
 seoTitle: 'How to Use ChatGPT Dots'
 date: 2026-10-15
+updatedDate: 2026-11-16
 slug: 'how-to-use-chatgpt-dots'
 description: 'How to use ChatGPT dots with Salesforce, Jira, QuickBooks, and more: connect your business apps in minutes, then ask across them and schedule checks.'
 categories: ['AI']
@@ -26,8 +27,11 @@ faq:
   - question: 'Can my dot change data in my business systems?'
     answer: "It can, on sources that support updates, if the Connect AI user it signs in with has write permission. ChatGPT reviews a dot's actions against your instructions and custom rules (OpenAI's dots controls). If a dot should never change a system, give its Connect AI user read-only permission on that connection, so the limit holds no matter how the dot is asked."
   - question: 'Which ChatGPT plans include dots?'
-    answer: 'As of October 1, 2026, dots are rolling out to ChatGPT Pro and Business Premium users in eligible markets. Enterprise workspaces get a beta that an admin must turn on (OpenAI). On ChatGPT Plus, you can still use the Connect AI plugin in regular ChatGPT, but not in a dot.'
+    answer: 'As of October 1, 2026, dots are rolling out to ChatGPT Pro and Business Premium users in eligible markets. In eligible Enterprise, Edu, and Healthcare workspaces, dots are generally available and on by default from November 18, 2026, unless the workspace opts out (OpenAI). On ChatGPT Plus, you can still use the Connect AI plugin in regular ChatGPT, but not in a dot.'
 tldr: "Connect ChatGPT dots to the business apps you already use, like Salesforce, Jira, Google Analytics, and NetSuite, in a few minutes and without code. Once it's connected, your dot can answer questions that span those apps, flag deals at risk, combine invoices from two accounting systems, and run a weekly check without being asked."
+corrections:
+  - date: 2026-11-16
+    note: 'I wrote that dots on Enterprise were a beta an admin had to turn on. OpenAI has since made them generally available in eligible Enterprise, Edu, and Healthcare workspaces, on by default from November 18, 2026.'
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/how-to-use-chatgpt-dots).'
 marginNotes:
   - type: 'see'
@@ -60,7 +64,7 @@ Why not install each app's own ChatGPT plugin? If you only need one app and it h
 **At a glance**
 
 - **What a dot is:** An always-on personal agent in ChatGPT, [launched September 29, 2026](https://openai.com/index/introducing-dots/), with its own cloud computer. You can reach it in ChatGPT, Slack, or Microsoft Teams.
-- **Who can use dots:** ChatGPT Pro and Business Premium users in eligible markets, plus Enterprise workspaces where an admin turns on the beta ([OpenAI's dots overview](https://learn.chatgpt.com/docs/dots))
+- **Who can use dots:** ChatGPT Pro and Business Premium users in eligible markets, plus eligible Enterprise, Edu, and Healthcare workspaces, where dots are on by default from November 18, 2026 unless the workspace opts out ([OpenAI's dots overview](https://learn.chatgpt.com/docs/dots))
 
 ## How to connect business apps to ChatGPT dots
 
@@ -70,7 +74,7 @@ A dot doesn't need its own integration. It can use the supported plugins you've 
 
 You need two things in ChatGPT. You'll create the Connect AI account in Part 1.
 
-**A plan that includes dots.** That's Pro or Business Premium, or Enterprise once your workspace admin enables it.
+**A plan that includes dots.** That's Pro or Business Premium, or an Enterprise, Edu, or Healthcare workspace that hasn't opted out.
 
 **A dot already created.** It appears as **Your dot** near the top of the ChatGPT sidebar. OpenAI asks you to [create it in the desktop app or a desktop browser](https://learn.chatgpt.com/docs/dots/getting-started), and after that the ChatGPT mobile app works too, once its update rolls out to you.
 
@@ -262,4 +266,4 @@ It can, on sources that support updates, if the Connect AI user it signs in with
 
 **Which ChatGPT plans include dots?**
 
-As of October 1, 2026, dots are rolling out to ChatGPT Pro and Business Premium users in eligible markets. Enterprise workspaces get a beta that an admin must turn on ([OpenAI](https://learn.chatgpt.com/docs/dots)). On ChatGPT Plus, you can still [use the Connect AI plugin in regular ChatGPT](https://docs.cloud.cdata.com/en/Clients/ChatGPT-Client), but not in a dot.
+As of October 1, 2026, dots are rolling out to ChatGPT Pro and Business Premium users in eligible markets. In eligible Enterprise, Edu, and Healthcare workspaces, dots are generally available and on by default from November 18, 2026, unless the workspace opts out ([OpenAI](https://learn.chatgpt.com/docs/dots)). On ChatGPT Plus, you can still [use the Connect AI plugin in regular ChatGPT](https://docs.cloud.cdata.com/en/Clients/ChatGPT-Client), but not in a dot.

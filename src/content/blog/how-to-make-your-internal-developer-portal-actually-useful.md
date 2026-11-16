@@ -96,20 +96,6 @@ Successful developer portal implementations adopt specific architectural pattern
 
 The financial services teams we spoke with consistently described developer portals as regulatory and risk management platforms first, with better developer experience as a side effect.
 
-## Financial services implementation patterns and regulatory compliance
-
-Through conversations with platform engineering teams at major financial institutions, we've identified unique implementation patterns that address the sector's complex regulatory and security requirements. These organizations face challenges that other industries rarely encounter, yet these same constraints create compelling business cases for inventory-driven portal implementations.
-
-**Regulatory compliance automation** represents a primary driver for developer portal adoption in financial services. Organizations must maintain continuous compliance with [frameworks including PCI DSS Level 1, SOC 2 Type II, GDPR](https://sprinto.com/blog/compliance-standards/), and banking-specific regulations like Dodd-Frank. Manual compliance processes don't scale to cloud environments with millions of dynamic resources.
-
-**Zero-trust security architectures** integrate naturally with [developer portal implementations](https://www.pingidentity.com/en/resources/blog/post/zero-trust-financial-services.html). Financial services organizations implement identity-centric security models with continuous verification, micro-segmentation, and risk-based authentication. Developer portals serve as the primary interface for these security controls, providing developers with appropriate access while maintaining audit trails and governance requirements.
-
-**Cloud onboarding acceleration** through developer portals addresses a critical business need in financial services. Traditional cloud onboarding processes requiring 6-month timelines create competitive disadvantages. Organizations [achieve 30-45 day implementations](https://www.port.io/guide/overview-of-internal-developer-portals) using template-based provisioning, automated workflows, and integrated compliance checking.
-
-**The implementation case study** from a major financial institution demonstrates quantifiable benefits. Their 120-person platform engineering team with a 20-member Center of Excellence, achieved [30% cost reduction through workforce optimization](https://www.port.io/guide/overview-of-internal-developer-portals) while maintaining regulatory compliance. The key success factor was implementing a complete asset inventory that enabled automated compliance monitoring and policy enforcement.
-
-**Specific compliance-by-design approaches** include [automated evidence gathering using AI-powered continuous audits](https://sprinto.com/blog/compliance-standards/), policy integration mapping 250+ regulatory frameworks to 1,250+ common controls, and real-time monitoring with automated reporting capabilities. These approaches transform compliance from periodic audit exercises to continuous, automated processes.
-
 ## Quantifiable business impact across industries
 
 The business value of inventory-driven developer portals extends far beyond theoretical productivity improvements, with documented case studies demonstrating significant, quantifiable benefits across multiple industries.

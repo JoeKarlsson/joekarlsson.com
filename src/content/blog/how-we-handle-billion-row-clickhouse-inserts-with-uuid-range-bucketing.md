@@ -11,6 +11,10 @@ heroImage: '/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-
 heroAlt: 'An old poster of a bill sticker with his paste bucket'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing'
 tldr: "ClickHouse loads entire working sets into memory before spilling to disk, and when you're inserting billions of rows, that means OvercommitTracker starts killing queries. Our solution? An algorithm we call Insert-Splitter with UUID range bucketing. It breaks big inserts into smaller, evenly distributed chunks that play nicely with ClickHouse's memory model, reducing peak memory usage by ~75%."
+updatedDate: 2026-11-16
+corrections:
+  - date: 2026-11-16
+    note: 'I called the `8`, `9`, `A` or `B` character the UUIDv4 version bit. Those are the variant bits. The version digit of a UUIDv4 is always `4`.'
 marginNotes:
   - type: 'see'
     at: 'ClickHouse is an amazing columnar database for analytical workloads'
@@ -137,7 +141,7 @@ The magic happens in the `generateEvenUUIDRanges` function. Since CloudQuery ass
 The actual implementation of the algorithm is probably too boring to mention here (you can probably ask your favourite AI to do it for you), but before you autocomplete away you should know about these two quirks we found:
 
 1. In ClickHouse UUIDs [are sorted by their second half](https://clickhouse.com/docs/sql-reference/data-types/uuid). This is important because the UUID ranges look unintuitive.
-2. Random UUIDs (UUIDv4) have a ["version bit"](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)>) that can only be one of `8`, `9`, `A` or `B`. This bit happens to be exactly at the beginning of the section that is used for sorting, which makes the ranging algorithm slightly trickier.
+2. Random UUIDs (UUIDv4) have ["variant bits"](https://en.wikipedia.org/wiki/Universally_unique_identifier#Variants) that make the first character of the fourth group one of `8`, `9`, `A` or `B`. That character happens to be exactly at the beginning of the section that is used for sorting, which makes the ranging algorithm slightly trickier.
 
 For example, with 4 buckets, our ranges would look like this:
 

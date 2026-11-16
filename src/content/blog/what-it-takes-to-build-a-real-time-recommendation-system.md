@@ -9,10 +9,12 @@ writtenFor: 'Tinybird'
 heroImage: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/thumb-121e2b3d.webp'
 heroAlt: 'A glowing jukebox'
 tldr: 'I break down the key components of real-time recommendation systems, from content-based and collaborative filtering to data storage and ML model selection. You can start with simple SQL heuristics and scale up to machine learning later.'
-updatedDate: 2026-11-12
+updatedDate: 2026-11-16
 corrections:
   - date: 2026-11-12
     note: 'The Tinybird template SQL was missing its `%` first line.'
+  - date: 2026-11-16
+    note: 'I wrote "k-means clustering (kNN)". kNN is k-nearest neighbors, which finds similar users or items. k-means clustering is a different algorithm.'
 marginNotes:
   - type: 'see'
     at: 'stored in a data warehouse like Snowflake'
@@ -161,7 +163,7 @@ One common approach to real-time data processing for a real-time recommendation 
 
 ### Machine Learning Algorithms
 
-While not every real-time recommendation engine will use them, machine learning algorithms can be used to predict user preferences based on the collected data. Common machine-learning models for recommendation algorithms include neural networks and k-means clustering (kNN).
+While not every real-time recommendation engine will use them, machine learning algorithms can be used to predict user preferences based on the collected data. Common machine-learning models for recommendation algorithms include neural networks and k-nearest neighbors (kNN).
 
 Keep in mind that real-time recommendation algorithms aren’t required to use machine learning to achieve their purpose. Some real-time recommendation algorithms can be developed based on known heuristics using simple query languages like SQL.
 

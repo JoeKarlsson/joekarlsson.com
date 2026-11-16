@@ -12,9 +12,13 @@ heroImage: '/images/blog/cloud-operations-playbook-part-02-cloud-operations-matu
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-02-cloud-operations-maturity-model
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: "A man measuring a boy's height against a wall"
+updatedDate: 2026-11-16
+corrections:
+  - date: 2026-11-16
+    note: "I said 55% of organizations were Reactive, 25% Visible, 12% Governed and 8% Automated, based on HashiCorp's 2024 survey. HashiCorp reports three tiers: 33% low, 59% medium, 8% high. The levels now use those numbers."
 marginNotes:
   - type: 'quote'
-    at: 'Most organizations are clustered at the bottom.'
+    at: 'Most organizations sit in the middle, and very few make it to the top.'
     text: 'Organizations that had not spread their use of even basic best practices were considered low maturity (33%)'
     by: "HashiCorp's 2024 survey, which put the other 59% at medium and 8% at high maturity"
     url: 'https://www.hashicorp.com/en/state-of-the-cloud'
@@ -24,7 +28,7 @@ marginNotes:
     term: 'Policy as code'
 ---
 
-> **Note:** **TL;DR:** Most cloud teams overestimate their operational maturity. We've built a six-dimension scoring model based on industry data from HashiCorp and Flexera that lets you self-assess in under five minutes. The four levels are Reactive, Visible, Governed, and Automated, and the distribution is heavily skewed: 55% of organizations are stuck in Reactive mode while only 8% reach Automated. Most teams we talk to score between 10 and 16 out of 30. This post gives you the full assessment, explains each maturity level, and helps you figure out where to focus first.
+> **Note:** **TL;DR:** Most cloud teams overestimate their operational maturity. We've built a six-dimension scoring model based on industry data from HashiCorp and Flexera that lets you self-assess in under five minutes. The four levels are Reactive, Visible, Governed, and Automated, and in HashiCorp's 2024 survey a third of organizations are at the bottom while only 8% reach the top. Most teams we talk to score between 10 and 16 out of 30. This post gives you the full assessment, explains each maturity level, and helps you figure out where to focus first.
 >
 > This post is adapted from the free [Cloud Operations Playbook](https://www.cloudquery.io/resources/cloud-operations-playbook), which includes a printable scorecard and dimension-by-dimension improvement guides.
 
@@ -38,18 +42,18 @@ We built this model by combining data from the [HashiCorp 2024 State of Cloud St
 
 ## The Four Maturity Levels
 
-Most organizations are clustered at the bottom.
+Most organizations sit in the middle, and very few make it to the top. HashiCorp's survey sorts organizations into three tiers (low, medium and high maturity), so its low tier maps to Reactive, its medium tier covers Visible and Governed together, and its high tier maps to Automated.
 
-| Level | Name      | % of Orgs | Primary Characteristic                                   | Typical Response to "What Changed?"          |
-| ----- | --------- | --------- | -------------------------------------------------------- | -------------------------------------------- |
-| 1     | Reactive  | 55%       | Firefighting mode. Problems found after impact.          | "Let me check... give me a few days."        |
-| 2     | Visible   | 25%       | Partial inventory exists but gaps remain.                | "We can see most of it, but not everything." |
-| 3     | Governed  | 12%       | Policies defined and enforced. Compliance is continuous. | "Here's the query. Results in seconds."      |
-| 4     | Automated | 8%        | Self-healing. Policy violations auto-remediated.         | "It was caught and fixed before you asked."  |
+| Level | Name      | % of Orgs          | Primary Characteristic                                   | Typical Response to "What Changed?"          |
+| ----- | --------- | ------------------ | -------------------------------------------------------- | -------------------------------------------- |
+| 1     | Reactive  | 33%                | Firefighting mode. Problems found after impact.          | "Let me check... give me a few days."        |
+| 2     | Visible   | 59% with Governed  | Partial inventory exists but gaps remain.                | "We can see most of it, but not everything." |
+| 3     | Governed  | counted in the 59% | Policies defined and enforced. Compliance is continuous. | "Here's the query. Results in seconds."      |
+| 4     | Automated | 8%                 | Self-healing. Policy violations auto-remediated.         | "It was caught and fixed before you asked."  |
 
-That 55% in Reactive isn't a failure of individual engineers. It's the natural outcome of cloud infrastructure growing faster than operational practices can keep up. Teams are too busy fighting fires to build the systems that would prevent them.
+That 33% in Reactive isn't a failure of individual engineers. It's the natural outcome of cloud infrastructure growing faster than operational practices can keep up. Teams are too busy fighting fires to build the systems that would prevent them.
 
-### Level 1: Reactive (55% of Organizations)
+### Level 1: Reactive (33% of Organizations)
 
 Reactive teams discover problems after they've already caused damage. A misconfigured security group gets found during an incident. Untagged resources surface when someone finally looks at the bill. Compliance gaps appear during the annual audit scramble.
 
@@ -57,13 +61,13 @@ Their defining trait is that questions about infrastructure state require manual
 
 At this level, toil dominates. Engineers spend significant portions of their week on repetitive infrastructure tasks - gathering data for reports, manually checking configurations, answering the same questions from security and compliance teams.
 
-### Level 2: Visible (25% of Organizations)
+### Level 2: Visible
 
 Visible teams have some form of inventory, but it's incomplete. Maybe they can see AWS resources but not GCP. Maybe `Terraform` state files cover 60% of infrastructure but the rest is invisible. They've got dashboards, but the dashboards show different numbers depending on which tool you're looking at.
 
 The jump from Reactive to Visible is the hardest one. It requires admitting that your current tooling isn't giving you the full picture, and committing to building a [unified asset inventory](https://www.cloudquery.io/product/cloud-asset-inventory) as a foundation.
 
-### Level 3: Governed (12% of Organizations)
+### Level 3: Governed
 
 Governed teams have moved from "we can see it" to "we enforce rules about it." [Policies](https://www.cloudquery.io/product/policies) are defined as code. Compliance evidence is generated continuously, not compiled before audits. [Security posture](https://www.cloudquery.io/solutions/cspm) is measured and tracked over time, not just scanned and forgotten.
 
@@ -205,7 +209,7 @@ Use the six-question self-assessment in this post. Score each dimension (Invento
 
 ### What Percentage of Organizations Are Cloud-Mature?
 
-According to the [HashiCorp 2024 State of Cloud Strategy Survey](https://www.hashicorp.com/en/state-of-the-cloud), only 8% of organizations qualify as "highly cloud-mature" (Automated level). 55% are still in Reactive mode, 25% have reached Visible, and 12% operate at the Governed level. Data from the [Flexera 2024 State of the Cloud Report](https://www.flexera.com/blog/finops/cloud-computing-trends-flexera-2024-state-of-the-cloud-report/) corroborates this skewed distribution.
+According to the [HashiCorp 2024 State of Cloud Strategy Survey](https://www.hashicorp.com/en/state-of-the-cloud), only 8% of organizations qualify as highly mature (Automated level). 33% are at low maturity (Reactive), and the other 59% are at medium maturity, which covers Visible and Governed.
 
 ### Why Do Teams Overestimate Their Cloud Maturity?
 

@@ -2,7 +2,7 @@
 title: 'Running DevRel in 2027 Means Owning Three Discovery Surfaces'
 seoTitle: 'Running DevRel in 2027'
 date: 2026-04-21
-updatedDate: 2026-11-09
+updatedDate: 2026-11-16
 updateNote: "Refreshed for 2027. The LLM surface now has a second half you can ship into (plugin marketplaces, docs MCP servers, the MCP Registry), and I added Seer Interactive's AI Overviews click data and Google's own guidance on AI files."
 slug: 'running-devrel'
 description: 'Running DevRel in 2027: developers find you through people, search, and LLMs. What breaks on each surface, how I measure it, and my first 90 days.'
@@ -43,12 +43,9 @@ corrections:
     note: 'I said ChatGPT, Claude and Perplexity all send trackable referral hits. Some assistants often send no referrer, so treat the count as a floor.'
   - date: 2026-10-12
     note: 'The CloudQuery PR breakdown (86 content, 44 SEO, 31 other) added up to 161, not 200. I took the breakdown out.'
+  - date: 2026-11-16
+    note: "I said FAQPage schema helps low-CTR posts recover. Since August 2023, Google only shows FAQ rich results for well-known government and health sites, so it won't change how a post looks in search."
 marginNotes:
-  - type: 'quote'
-    at: 'specifically FAQPage schema on posts'
-    text: 'Going forward, FAQ (from FAQPage structured data) rich results will only be shown for well-known, authoritative government and health websites.'
-    by: 'Google Search Central, August 2023'
-    url: 'https://developers.google.com/search/blog/2023/08/howto-faq-changes'
   - type: 'quote'
     at: "says you don't need new machine-readable files"
     text: "There's also no special schema.org structured data that you need to add."
@@ -109,7 +106,7 @@ Docs are where this matters most, and the work is fighting for how they get made
 
 Search is mostly a plumbing problem. Not "write SEO content," but technical site health: Core Web Vitals on the docs site, redirect chains from a subdomain migration nobody cleaned up, the blog and docs competing for the same queries, and a docs subdomain building authority on its own instead of for the main domain (it usually is, and it shouldn't be).
 
-The biggest ranking jumps I've seen didn't come from new content. They came from fixing what was already broken. One redirect chain cleanup sprint across 200+ pages moved keywords more than six months of publishing had. Orphan pages with zero internal links are invisible to Google, and adding contextual links from related posts changes their trajectory fast. Pages with lots of impressions and a low click-through rate recover well once they get structured data, specifically FAQPage schema on posts and TechArticle on docs.
+The biggest ranking jumps I've seen didn't come from new content. They came from fixing what was already broken. One redirect chain cleanup sprint across 200+ pages moved keywords more than six months of publishing had. Orphan pages with zero internal links are invisible to Google, and adding contextual links from related posts changes their trajectory fast. Pages with lots of impressions and a low click-through rate recover well once they get structured data, specifically TechArticle on docs. FAQPage schema won't do it for posts: since August 2023, Google only shows FAQ rich results for well-known government and health sites.
 
 At CloudQuery, where I ran DevRel, a three-month audit-first sprint produced 200 merged PRs across content and SEO fixes, organic traffic at an all-time high (Ahrefs estimated daily visits up 121% from the starting baseline), and 426 keywords in the top 10. "It asset management" went from position 43 to 7, and "cloud governance framework" went from 11 to 2. Trial signups rose 61% over the same period. That's one team over one quarter, so I treat it as a result, not a benchmark. I wrote up [the SEO side of that work](/blog/reversing-seo-traffic-decline-ai-overviews/) separately.
 

@@ -22,7 +22,7 @@ faq:
     answer: 'Check position alongside clicks, page by page. Position and impressions up with clicks flat points to AI Overviews absorbing clicks. Position and clicks both down points to a quality, authority, or technical problem. Each needs a different fix.'
   - question: 'What tools do I need for a weekly SEO audit?'
     answer: 'At minimum: Google Search Console (free) for impressions and clicks, and either Plausible or GA4 for actual visitor counts. Adding Ahrefs ($129/mo) unlocks keyword position tracking, redirect audits, and competitor gap analysis. Combining multiple sources is what makes the signal reliable.'
-updatedDate: 2026-11-13
+updatedDate: 2026-11-16
 corrections:
   - date: 2026-10-12
     note: "I said AI Overviews went from about 12% of queries in 2024 to roughly 58% by early 2026. I couldn't find a source for that, so it's gone."
@@ -34,6 +34,8 @@ corrections:
     note: "I said Google quietly added llms.txt to its developer docs. Google's docs say Search ignores it."
   - date: 2026-11-13
     note: "SparkToro found 374 clicks to the open web per 1,000 US Google searches. I'd written 360, which is the EU number."
+  - date: 2026-11-16
+    note: 'I called FAQ schema a rich result signal. Since August 2023, Google only shows FAQ rich results for well-known government and health sites.'
 marginNotes:
   - type: 'see'
     at: 'When an AI Overview appears on a query'
@@ -51,11 +53,6 @@ marginNotes:
     at: 'sort by URL Rating'
     text: "Ahrefs' 0 to 100 score for how strong a single page's backlink profile is."
     term: 'URL Rating'
-  - type: 'quote'
-    at: 'the highest-signal thing you can add is FAQ schema'
-    text: 'Going forward, FAQ (from FAQPage structured data) rich results will only be shown for well-known, authoritative government and health websites.'
-    by: 'Google Search Central, August 2023'
-    url: 'https://developers.google.com/search/blog/2023/08/howto-faq-changes'
 ---
 
 _A traffic decline usually has two failure modes that need different fixes. Once Claude Code made the fixes cheap, telling them apart became the hard part._
@@ -324,7 +321,7 @@ After the technical cleanup comes the high-impressions, low-CTR hit list from St
 
 On content strategy, the Learning Center articles behind those 8 of 9 top gainers are in-depth, definitional guides on topics our audience searches for, updated regularly, with original research where we can get it. I'm not saying stop blogging. Build the hub, link to it from everything, and keep it current.
 
-For GEO specifically, the highest-signal thing you can add is FAQ schema, especially on how-to and comparison pages. It's a traditional rich result signal, and it hands AI systems a clean question-and-answer pair to lift. I also use [a blog skill that bakes these SEO and LLM-citation checks into the writing workflow](/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation).
+For GEO specifically, the highest-signal thing you can add is FAQ schema, especially on how-to and comparison pages. It hands AI systems a clean question-and-answer pair to lift. Don't count on a rich result from it, though: since August 2023, Google only shows FAQ rich results for well-known government and health sites. I also use [a blog skill that bakes these SEO and LLM-citation checks into the writing workflow](/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation).
 
 !["I'm Something of a Scientist Myself" meme: Willem Dafoe smiling. Top: adds FAQ schema to one page. Bottom: you know, I'm something of an SEO myself](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-something-of-an-seo.webp)
 
