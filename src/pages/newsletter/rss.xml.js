@@ -1,7 +1,12 @@
 import rss from '@astrojs/rss';
 import { getSentIssues } from '../../utils/posts';
 import { NEWSLETTER } from '../../consts';
-import { diagramsAsImages, postersForFeeds, withoutLinkPreviews } from '../../utils/feed-html';
+import {
+	diagramsAsImages,
+	postersForFeeds,
+	withoutLinkPreviews,
+	withoutMarginCopies,
+} from '../../utils/feed-html';
 
 // The newsletter for feed readers: every issue, newest first, with the full text so a
 // reader never has to click through (the TL;DR in Tech back issues included).
@@ -24,7 +29,9 @@ export async function GET(context) {
 				link: `/newsletter/${issue.data.slug}/`,
 				content:
 					issue.rendered?.html &&
-					withoutLinkPreviews(postersForFeeds(diagramsAsImages(issue.rendered.html))),
+					withoutMarginCopies(
+						withoutLinkPreviews(postersForFeeds(diagramsAsImages(issue.rendered.html))),
+					),
 			})),
 	});
 }

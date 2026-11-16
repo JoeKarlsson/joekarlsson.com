@@ -28,7 +28,7 @@
  *   bracketed citation just `"quote: exact words"`.
  * - a picture alone in a paragraph with a `margin:` title, `![alt](/a.webp "margin: Adam
  *   Smith, the Muir portrait. Wikimedia Commons")`, becomes a small captioned figure in the
- *   margin beside the next paragraph.
+ *   margin beside the next paragraph; with no margin it floats small at the paragraph's right.
  * - a code comment starting `[!margin]` moves beside its line, joined to it by a pink rule
  *   (.code-noted, global.css). Where the margin is hidden, or anchor positioning is missing,
  *   it stays an ordinary comment in the code, so copying the code keeps it either way.
@@ -119,10 +119,9 @@ function marginPicture(block) {
 		String(img.properties.title ?? '').match(MARGIN_PICTURE);
 	if (!caption) return null;
 	delete img.properties.title;
-	// Shown at most 15rem wide and 11rem tall (global.css), so a portrait is narrower
+	// In the margin at most 15rem wide and 11rem tall, so a portrait is narrower; 7.5rem without one
 	const { width, height } = img.properties;
-	img.properties.sizes =
-		width && height ? `${Math.min(15, (11 * width) / height).toFixed(1)}rem` : '15rem';
+	img.properties.sizes = `(width >= 80rem) ${width && height ? Math.min(15, (11 * width) / height).toFixed(1) : 15}rem, 7.5rem`;
 	return el('figure', { className: ['margin-figure'] }, [
 		img,
 		el('figcaption', {}, [text(caption[1].trim())]),

@@ -1,5 +1,10 @@
 import rss from '@astrojs/rss';
-import { diagramsAsImages, postersForFeeds, withoutLinkPreviews } from '../utils/feed-html';
+import {
+	diagramsAsImages,
+	postersForFeeds,
+	withoutLinkPreviews,
+	withoutMarginCopies,
+} from '../utils/feed-html';
 import { getFeedPosts } from '../utils/posts';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
@@ -29,7 +34,9 @@ export async function GET(context) {
 			content:
 				i < FULL_CONTENT_ITEMS && post.html
 					? absolutizeUrls(
-							withoutLinkPreviews(postersForFeeds(diagramsAsImages(post.html))),
+							withoutMarginCopies(
+								withoutLinkPreviews(postersForFeeds(diagramsAsImages(post.html))),
+							),
 							context.site,
 						)
 					: undefined,

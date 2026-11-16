@@ -860,6 +860,20 @@ header nav .sticker {
 .margin-toc {
 	@apply sticky top-20 self-start;
 }
+/* With no margin, a margin picture floats small at the right of its paragraph instead */
+.prose figure.margin-figure {
+	float: right;
+	width: 7.5rem;
+	margin: 0.35rem 0 0.75rem 1rem;
+}
+.prose .margin-figure img {
+	width: 100%;
+	height: auto;
+	margin: 0;
+}
+.prose .margin-figure figcaption {
+	@apply mt-1.5 text-left font-serif text-[0.8rem] leading-snug text-muted italic;
+}
 /* A [!margin] comment left in the code (no margin) wraps rather than scrolling the block */
 .prose .code-margin-comment {
 	display: block;
@@ -867,7 +881,6 @@ header nav .sticker {
 }
 .prose .margin-note,
 .prose .cite-num,
-.prose .margin-figure,
 .prose .code-note,
 .prose .code-note-rule {
 	display: none;
@@ -914,9 +927,6 @@ header nav .sticker {
 		height: 11rem;
 		object-fit: contain;
 		margin: 0;
-	}
-	.prose .margin-figure figcaption {
-		@apply mt-1.5 text-left font-serif text-[0.8rem] leading-snug text-muted italic;
 	}
 	/* A code comment marked [!margin] sits level with its line, joined by a pink rule (pick
 	   6B, rehype-margin-notes.mjs). Without anchor positioning it stays a comment in the code. */

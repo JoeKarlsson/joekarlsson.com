@@ -18,3 +18,13 @@ export function postersForFeeds(html) {
 export function withoutLinkPreviews(html) {
 	return html.replace(/<span popover="hint"[^>]*class="link-peek"[^>]*>[\s\S]*?<\/span>/g, '');
 }
+
+// Feed readers have no margin, so a margin note (rehype-margin-notes.mjs) would repeat what the
+// line already says: its citation, footnote, quote or code comment, or a front-matter note's
+// phone copy (mn-narrow), which repeats the note kept in the feed. Note bodies hold no <div>.
+export function withoutMarginCopies(html) {
+	return html.replace(
+		/<aside class="(?:margin|code)-note"[^>]*>[\s\S]*?<\/aside>|<span class="code-note-rule"[^>]*><\/span>|<div role="note" class="[^"]*\bmn-narrow\b[^"]*"[^>]*>[\s\S]*?<\/div>/g,
+		'',
+	);
+}
