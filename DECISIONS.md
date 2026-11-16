@@ -40,6 +40,9 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 - 2026-11-15: No big numbers with a caption under them ("159 posts since 2015", "30 things I made", stat strips). Joe: "you still have like random numbers with random subtext on it. I hate when you do that. It feels very AI slop." Overrides the round 2 B "real number" in section headers; a header's right side carries a plain link to the section page instead.
 
+- 2026-11-15: Homepage mockup additions approved: Works opens with one full-bleed project spread over a smaller grid (like Talks' TEDx spread); the lead post headline overlaps its photo more (lead post only); the "Latest" talk line is cut; "Ship the ugly pot" sits right on the Works rule with no gap. Hot takes shows two films Joe rated far above the crowd and one far below (love over dunking, for optimism).
+- 2026-11-15: No explainer subtext. Joe on a line under "Ship the ugly pot": "We don't need like additional subtext explaining stuff. I think it works on its own." Lines and slogans stand alone; don't add captions that explain them.
+
 ## Playful details
 
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.
@@ -47,7 +50,15 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 ## Reviews
 
+<<<<<<< Updated upstream
+
 - 2026-11-15: Exception to one-picture-per-film: Mutiny's review gets a six-tile grid of Statham's other jobs (beekeeper, courier, hitman, armored-truck guard, foreman, shark diver) from their trailers, because the résumé joke is the point. Joe picked it from the enrichment list knowing it broke the rule. Other reviews keep the rule.
+  ||||||| Stash base
+  \=======
+- 2026-11-15: Review page design review (live /reviews/the-little-hours/): Joe approved every fix ("they all look good") and asked for a mockup first (~/mockups/joekarlsson-review-prestige): split the stitched two-frame pairs, square-cornered captioned frames with more air, a credits block from the front matter, the review's axis lined up, More reviews right after the review, a captioned hero, plus the lightbox mid-open close, poster-lift reduced motion and arrow pause fixes. Frame width (side by side across the full column vs today's text width) is decided on the mockup.
+
+> > > > > > > Stashed changes
+
 - 2026-11-15: Pictures and clips in a post's text sit at the text-column width on every page that has them (blog posts, newsletter issues, reviews), like a blog post with an "On this page" column (Joe: "my blog page is like the de facto standard for how I want them displayed"); nothing breaks out to the hero's width any more. Code, tables and embeds keep their breakout. Project pages' galleries are separate and unchanged. A short muted loop from the film is fair game when the point is motion (first: Bringing Out the Dead's rooftop speed-up).
 - 2026-11-15: No paste-down animation on a post's or review's first photo: it animated only one image per page, which Joe found annoying. Overrides the 2026-11-14 "one paste-down photo per post".
 - 2026-11-13: Review spoilers are hidden phrase by phrase, never a whole review or block, and show on hover (tap on phones), like Reddit. Of a gray bar, a blur and a pink crayon scribble, Joe picked the blur. A review that has spoilers gets a spoiler warning up top.
