@@ -24,7 +24,7 @@ description: '"Life Lessons" is about a man who never learns one.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/new-york-stories/'
 poster: '/images/reviews/new-york-stories/poster.webp'
 heroImage: '/images/reviews/new-york-stories/backdrop.webp'
-heroAlt: 'A still from New York Stories (1989)'
+heroAlt: "An old woman's giant face looking down from the clouds over the Manhattan skyline, a man watching from below."
 ---
 
 "Life Lessons" is about a man who never learns one.

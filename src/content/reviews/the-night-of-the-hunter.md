@@ -24,7 +24,7 @@ description: "A weird psychosexual religious allegorical nightmare. One of the m
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-night-of-the-hunter/'
 poster: '/images/reviews/the-night-of-the-hunter/poster.webp'
 heroImage: '/images/reviews/the-night-of-the-hunter/backdrop.webp'
-heroAlt: 'A still from The Night of the Hunter (1955)'
+heroAlt: 'Robert Mitchum in a black hat, his knuckles tattooed LOVE, resting on a fence post.'
 ---
 
 A weird psychosexual religious allegorical nightmare. One of the most beautiful films I've ever seen.

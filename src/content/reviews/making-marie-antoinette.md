@@ -24,7 +24,7 @@ description: 'Yes, Sofia Coppola is a nepo baby. Have you met her family?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/making-marie-antoinette/'
 poster: '/images/reviews/making-marie-antoinette/poster.webp'
 heroImage: '/images/reviews/making-marie-antoinette/backdrop.webp'
-heroAlt: 'A still from Making Marie Antoinette (2026)'
+heroAlt: 'Sofia Coppola slouched in a gilded chair on set, holding a red can.'
 ---
 
 Yes, Sofia Coppola is a nepo baby. Have you met her family?

@@ -23,7 +23,7 @@ description: "Gary Busey as a drunk uncle is the best casting I've ever heard of
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/silver-bullet/'
 poster: '/images/reviews/silver-bullet/poster.webp'
 heroImage: '/images/reviews/silver-bullet/backdrop.webp'
-heroAlt: 'A still from Silver Bullet (1985)'
+heroAlt: 'A boy on a souped-up motorized wheelchair in a park, with a man and a girl leaning in to talk to him.'
 ---
 
 Gary Busey as a drunk uncle is the best casting I've ever heard of in my entire life.

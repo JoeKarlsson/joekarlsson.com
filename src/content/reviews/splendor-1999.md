@@ -25,7 +25,7 @@ description: 'After a decade of gorgeous nihilism, Araki made a sunny little rom
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/splendor-1999/'
 poster: '/images/reviews/splendor-1999/poster.webp'
 heroImage: '/images/reviews/splendor-1999/backdrop.webp'
-heroAlt: 'A still from Splendor (1999)'
+heroAlt: 'Three young faces pressed together, smiling into the camera.'
 ---
 
 After a decade of gorgeous nihilism, Araki made a sunny little rom-com where a girl keeps both boyfriends and nobody has to die for wanting.

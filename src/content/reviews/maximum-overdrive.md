@@ -24,7 +24,7 @@ description: 'Cocaine-era Stephen King fans, this is our Super Bowl.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/maximum-overdrive/'
 poster: '/images/reviews/maximum-overdrive/poster.webp'
 heroImage: '/images/reviews/maximum-overdrive/backdrop.webp'
-heroAlt: 'A still from Maximum Overdrive (1986)'
+heroAlt: 'Poster art of a semi truck with a giant green goblin face on its grille, plowing through a burning truck stop.'
 ---
 
 Cocaine-era Stephen King fans, this is our Super Bowl.

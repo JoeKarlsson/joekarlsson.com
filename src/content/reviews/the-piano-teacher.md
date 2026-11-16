@@ -32,7 +32,7 @@ description: "The Piano Teacher is Michael Haneke's cruelest film and, improbabl
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-piano-teacher/'
 poster: '/images/reviews/the-piano-teacher/poster.webp'
 heroImage: '/images/reviews/the-piano-teacher/backdrop.webp'
-heroAlt: 'A still from The Piano Teacher (2001)'
+heroAlt: 'Isabelle Huppert watching a young man play the piano beside her.'
 ---
 
 The Piano Teacher is Michael Haneke's cruelest film and, improbably, his most tender, a study of repression so complete that it curdles into self-destruction.

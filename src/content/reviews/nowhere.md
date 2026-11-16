@@ -24,7 +24,7 @@ description: 'A bisexual fever dream on acid, and I finally get why queer kids w
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/nowhere/'
 poster: '/images/reviews/nowhere/poster.webp'
 heroImage: '/images/reviews/nowhere/backdrop.webp'
-heroAlt: 'A still from Nowhere (1997)'
+heroAlt: 'Three young women in red, blue and pink tops with heart sunglasses pushed up in their hair, looking alarmed.'
 ---
 
 A bisexual fever dream on acid, and I finally get why queer kids worship it.

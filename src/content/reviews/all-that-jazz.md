@@ -17,7 +17,7 @@ description: "All That Jazz is an autobiography where the author clearly can't s
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/all-that-jazz/'
 poster: '/images/reviews/all-that-jazz/poster.webp'
 heroImage: '/images/reviews/all-that-jazz/backdrop.webp'
-heroAlt: 'A still from All That Jazz (1979)'
+heroAlt: 'Roy Scheider in a sequined shirt, singing into a microphone with one arm thrown wide against blurred stage lights.'
 ---
 
 All That Jazz is an autobiography where the author clearly can't stand the main character.

@@ -24,7 +24,7 @@ description: "I've been scared to write this review, and frankly, I'm still proc
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-battle-of-algiers/'
 poster: '/images/reviews/the-battle-of-algiers/poster.webp'
 heroImage: '/images/reviews/the-battle-of-algiers/backdrop.webp'
-heroAlt: 'A still from The Battle of Algiers (1966)'
+heroAlt: 'Colonel Mathieu in sunglasses and a beret, leading paratroopers through a cheering crowd in black and white.'
 ---
 
 I've been scared to write this review, and frankly, I'm still processing a lot of my feelings around it.

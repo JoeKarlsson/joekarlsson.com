@@ -24,7 +24,7 @@ description: 'Horny cinema is back in 2026, and Gregg Araki showed up to persona
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/i-want-your-sex/'
 poster: '/images/reviews/i-want-your-sex/poster.webp'
 heroImage: '/images/reviews/i-want-your-sex/backdrop.webp'
-heroAlt: 'A still from I Want Your Sex (2026)'
+heroAlt: 'A blonde woman leaning in to kiss a man in a red blindfold, lit in blue.'
 ---
 
 Horny cinema is back in 2026, and Gregg Araki showed up to personally beg the kids to log off and fuck.

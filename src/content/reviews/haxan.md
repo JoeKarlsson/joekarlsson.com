@@ -25,7 +25,7 @@ description: "I've used Häxan as my go to Halloween party vibes movie for years
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/haxan/'
 poster: '/images/reviews/haxan/poster.webp'
 heroImage: '/images/reviews/haxan/backdrop.webp'
-heroAlt: 'A still from Häxan (1922)'
+heroAlt: 'A black-and-white tableau of a hooded old woman stirring a cauldron beside clay jugs.'
 ---
 
 I've used Häxan as my go to Halloween party vibes movie for years, and it turns out it's a proto-documentary lecture.

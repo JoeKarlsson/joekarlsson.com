@@ -24,7 +24,7 @@ description: 'Overstuffed, messy, horny, and somehow made just for me.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/teenage-sex-and-death-at-camp-miasma/'
 poster: '/images/reviews/teenage-sex-and-death-at-camp-miasma/poster.webp'
 heroImage: '/images/reviews/teenage-sex-and-death-at-camp-miasma/backdrop.webp'
-heroAlt: 'A still from Teenage Sex and Death at Camp Miasma (2026)'
+heroAlt: 'Two women, one in glasses, sitting close under red striped walls.'
 ---
 
 Overstuffed, messy, horny, and somehow made just for me.

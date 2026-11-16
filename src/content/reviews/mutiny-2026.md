@@ -24,7 +24,7 @@ description: "Mutiny is Under Siege with somehow more boring, worse writing, and
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mutiny-2026/'
 poster: '/images/reviews/mutiny-2026/poster.webp'
 heroImage: '/images/reviews/mutiny-2026/backdrop.webp'
-heroAlt: 'A still from Mutiny (2026)'
+heroAlt: 'Jason Statham in profile, holding a submachine gun upright.'
 ---
 
 Mutiny is [Under Siege](https://letterboxd.com/film/under-siege/) with somehow more boring, worse writing, and it's uglier to look at.

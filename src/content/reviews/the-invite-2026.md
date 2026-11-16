@@ -16,7 +16,7 @@ description: 'Most people watch this and see themselves in Seth Rogen. I watched
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-invite-2026/'
 poster: '/images/reviews/the-invite-2026/poster.webp'
 heroImage: '/images/reviews/the-invite-2026/backdrop.webp'
-heroAlt: 'A still from The Invite (2026)'
+heroAlt: 'Two women at a dinner table, one blonde with a wine glass, the other staring wide-eyed.'
 ---
 
 Most people watch this and see themselves in Seth Rogen. I watched it and wanted to move in upstairs.

@@ -17,7 +17,7 @@ description: 'A spiritual sequel to Close Encounters, minus the manic divorced d
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/disclosure-day/'
 poster: '/images/reviews/disclosure-day/poster.webp'
 heroImage: '/images/reviews/disclosure-day/backdrop.webp'
-heroAlt: 'A still from Disclosure Day (2026)'
+heroAlt: 'Emily Blunt and a young man holding hands as they walk past men in dark uniforms.'
 ---
 
 A spiritual sequel to Close Encounters, minus the manic divorced dad energy.

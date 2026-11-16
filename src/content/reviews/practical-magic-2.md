@@ -25,7 +25,7 @@ description: "A gorgeously messy nostalgia romp that's secretly about a represse
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/practical-magic-2/'
 poster: '/images/reviews/practical-magic-2/poster.webp'
 heroImage: '/images/reviews/practical-magic-2/backdrop.webp'
-heroAlt: 'A still from Practical Magic 2 (2026)'
+heroAlt: 'Nicole Kidman holding a black cat in a greenhouse full of plants and candles.'
 ---
 
 A gorgeously messy nostalgia romp that's secretly about a repressed mother handing her armor down to her daughters, with margaritas.

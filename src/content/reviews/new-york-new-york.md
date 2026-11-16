@@ -24,7 +24,7 @@ description: "A gorgeous musical that's secretly a horror movie about a monster,
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/new-york-new-york/'
 poster: '/images/reviews/new-york-new-york/poster.webp'
 heroImage: '/images/reviews/new-york-new-york/backdrop.webp'
-heroAlt: 'A still from New York, New York (1977)'
+heroAlt: 'Robert De Niro and Liza Minnelli in an embrace, lit in pale yellow.'
 ---
 
 A gorgeous musical that's secretly a horror movie about a monster, and Scorsese has the nerve to stage all of it in blinding Technicolor daylight.

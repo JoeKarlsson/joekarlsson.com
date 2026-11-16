@@ -24,7 +24,7 @@ description: 'Kevin Costner’s empty-headed monotone reading of the frontier so
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dances-with-wolves/'
 poster: '/images/reviews/dances-with-wolves/poster.webp'
 heroImage: '/images/reviews/dances-with-wolves/backdrop.webp'
-heroAlt: 'A still from Dances with Wolves (1990)'
+heroAlt: 'Kevin Costner in a cavalry uniform, holding an American flag on a pole.'
 ---
 
 Kevin Costner’s empty-headed monotone reading of the frontier somehow works for me, and I’m as shocked as anyone.

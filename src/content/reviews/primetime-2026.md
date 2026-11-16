@@ -24,7 +24,7 @@ description: "Robert Pattinson's 2026 has been one long argument that he's the b
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/primetime-2026/'
 poster: '/images/reviews/primetime-2026/poster.webp'
 heroImage: '/images/reviews/primetime-2026/backdrop.webp'
-heroAlt: 'A still from Primetime (2026)'
+heroAlt: 'A man in a kitchen looks up at another man standing on a staircase in warm evening light.'
 ---
 
 Robert Pattinson's 2026 has been one long argument that he's the best creep in Hollywood

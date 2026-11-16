@@ -33,7 +33,7 @@ description: 'I cried twice at a movie where Olivia Colman marries a basket.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wicker/'
 poster: '/images/reviews/wicker/poster.webp'
 heroImage: '/images/reviews/wicker/backdrop.webp'
-heroAlt: 'A still from Wicker (2026)'
+heroAlt: 'Olivia Colman as the Fisherwoman in a straw hat, by candlelight.'
 ---
 
 I cried twice at a movie where Olivia Colman marries a basket.

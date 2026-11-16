@@ -24,7 +24,7 @@ description: 'Odysseus is a war criminal, a murderer, easily distracted by pussy
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-odyssey-2026/'
 poster: '/images/reviews/the-odyssey-2026/poster.webp'
 heroImage: '/images/reviews/the-odyssey-2026/backdrop.webp'
-heroAlt: 'A still from The Odyssey (2026)'
+heroAlt: 'Soldiers in bronze helmets and capes charging through a misty pine forest.'
 ---
 
 Odysseus is a war criminal, a murderer, easily distracted by pussy. Unfortunately, he’s played by a ripped and charming Matt Damon, so idiots will idolize him.

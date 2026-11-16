@@ -24,7 +24,7 @@ description: 'This is the Wes Anderson movie that gets me every time.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-royal-tenenbaums/'
 poster: '/images/reviews/the-royal-tenenbaums/poster.webp'
 heroImage: '/images/reviews/the-royal-tenenbaums/backdrop.webp'
-heroAlt: 'A still from The Royal Tenenbaums (2001)'
+heroAlt: 'Gwyneth Paltrow as Margot in a fur coat, stepping off a bus.'
 ---
 
 This is the Wes Anderson movie that gets me every time.

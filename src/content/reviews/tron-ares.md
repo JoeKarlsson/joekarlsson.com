@@ -24,7 +24,7 @@ description: 'Listen, I am reluctantly a cyberpunk Tron guy. As a millennial who
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/tron-ares/'
 poster: '/images/reviews/tron-ares/poster.webp'
 heroImage: '/images/reviews/tron-ares/backdrop.webp'
-heroAlt: 'A still from TRON: Ares (2025)'
+heroAlt: 'A rider in a black suit and helmet among glowing red light trails.'
 ---
 
 Listen, I am reluctantly a cyberpunk Tron guy. As a millennial who came of age during an optimistic time in tech, the aesthetics of Tron Legacy hit hard when that came out in 2010. I was too stoned to remember the plot, but I played that Daft Punk soundtrack endlessly. Tron Legacy remains one of the coolest looking and sounding films of all time despite its horrible, terrible, boring flaws.

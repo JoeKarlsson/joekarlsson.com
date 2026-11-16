@@ -24,7 +24,7 @@ description: 'It’s like Kramer vs. Kramer with a little bit of tentacle hentai
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/possession/'
 poster: '/images/reviews/possession/poster.webp'
 heroImage: '/images/reviews/possession/backdrop.webp'
-heroAlt: 'A still from Possession (1981)'
+heroAlt: 'Isabelle Adjani in a blue blouse, gripping a knife.'
 ---
 
 It’s like Kramer vs. Kramer with a little bit of tentacle hentai sprinkled in for flavor.

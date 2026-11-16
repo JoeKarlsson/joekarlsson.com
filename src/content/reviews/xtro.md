@@ -24,7 +24,7 @@ description: "If David Lynch made E.T. for $60,000 in a London flat, it'd look l
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/xtro/'
 poster: '/images/reviews/xtro/poster.webp'
 heroImage: '/images/reviews/xtro/backdrop.webp'
-heroAlt: 'A still from Xtro (1982)'
+heroAlt: 'A pale, grinning alien creature crawling on all fours through a forest lit in blue.'
 ---
 
 If David Lynch made E.T. for [$60,000](https://en.wikipedia.org/wiki/Xtro) in a London flat, it'd look like this.

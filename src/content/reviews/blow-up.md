@@ -24,7 +24,7 @@ description: "Watching Blow-Up is like watching an idiot try to solve a crime. I
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/blow-up/'
 poster: '/images/reviews/blow-up/poster.webp'
 heroImage: '/images/reviews/blow-up/backdrop.webp'
-heroAlt: 'A still from Blow-Up (1966)'
+heroAlt: 'David Hemmings raising a camera among the bushes of a park.'
 ---
 
 Watching Blow-Up is like watching an idiot try to solve a crime. It's [The Big Lebowski](/reviews/the-big-lebowski/), but not funny.

@@ -24,7 +24,7 @@ description: 'Kundun made me furious at China, furious at Disney, and weirdly un
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/kundun/'
 poster: '/images/reviews/kundun/poster.webp'
 heroImage: '/images/reviews/kundun/backdrop.webp'
-heroAlt: 'A still from Kundun (1997)'
+heroAlt: 'The boy Dalai Lama in a gold robe and crown, a crowd behind him in a golden haze.'
 ---
 
 Kundun made me furious at China, furious at Disney, and weirdly unmoved by Kundun.

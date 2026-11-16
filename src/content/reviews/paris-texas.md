@@ -24,7 +24,7 @@ description: "I'm struggling with my thoughts on this film because it's genuinel
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/paris-texas/'
 poster: '/images/reviews/paris-texas/poster.webp'
 heroImage: '/images/reviews/paris-texas/backdrop.webp'
-heroAlt: 'A still from Paris, Texas (1984)'
+heroAlt: 'Nastassja Kinski in a pink mohair sweater, looking straight ahead in a pink room.'
 ---
 
 Paris, Texas is [The Searchers](/reviews/the-searchers/) ||if John Wayne decided at the end that actually, he's not equipped to bring anyone home, including himself||.

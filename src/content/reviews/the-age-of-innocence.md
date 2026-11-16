@@ -24,7 +24,7 @@ description: "If I were rich in Gilded Age New York, I wouldn't be at this dinne
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-age-of-innocence/'
 poster: '/images/reviews/the-age-of-innocence/poster.webp'
 heroImage: '/images/reviews/the-age-of-innocence/backdrop.webp'
-heroAlt: 'A still from The Age of Innocence (1993)'
+heroAlt: 'A couple in evening dress sitting among palm fronds at a ball, the woman holding flowers.'
 ---
 
 If I were rich in Gilded Age New York, I wouldn't be at this dinner. I'd be on an island watching movies.

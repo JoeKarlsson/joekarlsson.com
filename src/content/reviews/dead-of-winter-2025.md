@@ -33,7 +33,7 @@ description: "As a Minnesotan, I was legally required to see Dead of Winter in t
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dead-of-winter-2025/'
 poster: '/images/reviews/dead-of-winter-2025/poster.webp'
 heroImage: '/images/reviews/dead-of-winter-2025/backdrop.webp'
-heroAlt: 'A still from Dead of Winter (2025)'
+heroAlt: 'Emma Thompson in a knit hat and work jacket on a frozen lake, pine forest behind her.'
 ---
 
 As a Minnesotan, I was legally required to see Dead of Winter in theaters with some other Minnesotan friends. I didn't know it was actually filmed in Finland until the credits rolled and the insane Norwegian and Scandinavian names just kept coming. It really did look like northern Minnesota, which makes it a shame they didn't film it here - I'm sure there's some tax reason or whatever.

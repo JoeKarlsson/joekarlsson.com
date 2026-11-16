@@ -25,7 +25,7 @@ description: "Anyone who's ever had a corporate job and a conscience, this one's
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/michael-clayton/2/'
 poster: '/images/reviews/michael-clayton-2/poster.webp'
 heroImage: '/images/reviews/michael-clayton-2/backdrop.webp'
-heroAlt: 'A still from Michael Clayton (2007)'
+heroAlt: 'George Clooney in a suit, sitting with his chin on his hand in a police station office.'
 ---
 
 Anyone who's ever had a corporate job and a conscience, this one's for you.

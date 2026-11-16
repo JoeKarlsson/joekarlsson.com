@@ -24,7 +24,7 @@ description: 'Max Cady cackling through Problem Child with a lit cigar is the wo
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/cape-fear-1991/'
 poster: '/images/reviews/cape-fear-1991/poster.webp'
 heroImage: '/images/reviews/cape-fear-1991/backdrop.webp'
-heroAlt: 'A still from Cape Fear (1991)'
+heroAlt: 'A close-up of Robert De Niro, long-haired and sneering.'
 ---
 
 Max Cady cackling through Problem Child with a lit cigar is the worst movie date ever filmed.

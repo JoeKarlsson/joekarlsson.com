@@ -24,7 +24,7 @@ description: 'Working Girl is a cute 80s romance with a supremely hot Harrison F
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/working-girl/'
 poster: '/images/reviews/working-girl/poster.webp'
 heroImage: '/images/reviews/working-girl/backdrop.webp'
-heroAlt: 'A still from Working Girl (1988)'
+heroAlt: 'Harrison Ford, Melanie Griffith and Sigourney Weaver posing together in an office.'
 ---
 
 Working Girl is a cute 80s romance with a supremely hot Harrison Ford, and ||its "happy ending" ends with Melanie Griffith alone in an office||.

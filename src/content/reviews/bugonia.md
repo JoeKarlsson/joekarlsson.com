@@ -24,7 +24,7 @@ description: 'The scariest thing in Bugonia is realizing the paranoid people mig
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bugonia/'
 poster: '/images/reviews/bugonia/poster.webp'
 heroImage: '/images/reviews/bugonia/backdrop.webp'
-heroAlt: 'A still from Bugonia (2025)'
+heroAlt: 'Emma Stone in a dark suit walking through a glass-walled open-plan office.'
 ---
 
 The scariest thing in Bugonia is realizing the paranoid people might have a point.

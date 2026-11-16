@@ -24,7 +24,7 @@ description: 'Two boys in love who couldn’t outrun the prison of their own mas
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/y-tu-mama-tambien/'
 poster: '/images/reviews/y-tu-mama-tambien/poster.webp'
 heroImage: '/images/reviews/y-tu-mama-tambien/backdrop.webp'
-heroAlt: 'A still from Y Tu Mamá También (2001)'
+heroAlt: 'Three friends sitting on a beach with their backs to the camera, looking out at the sea.'
 ---
 
 Two boys in love who couldn’t outrun the prison of their own masculinity.

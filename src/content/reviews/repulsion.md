@@ -24,7 +24,7 @@ description: 'I did a “women be crazy” double feature with Possession, watch
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/repulsion/'
 poster: '/images/reviews/repulsion/poster.webp'
 heroImage: '/images/reviews/repulsion/backdrop.webp'
-heroAlt: 'A still from Repulsion (1965)'
+heroAlt: 'Catherine Deneuve in a nightgown, hand to her mouth, framed by doorways in a black-and-white apartment.'
 ---
 
 I did a “women be crazy” double feature with [Possession](/reviews/possession/), watching both back-to-back in my living room. Except calling it that feels wrong after actually watching these films, because both are really about why women should be terrified of men.

@@ -18,7 +18,7 @@ description: 'The Villages bills itself as the happiest place to retire in Ameri
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/some-kind-of-heaven/'
 poster: '/images/reviews/some-kind-of-heaven/poster.webp'
 heroImage: '/images/reviews/some-kind-of-heaven/backdrop.webp'
-heroAlt: 'A still from Some Kind of Heaven (2020)'
+heroAlt: 'An older man in a Hawaiian shirt and straw hat beside his van, under The Villages water tower.'
 ---
 
 The Villages bills itself as the happiest place to retire in America. Oppenheim points a perfectly still camera at it and waits for the smiles to fall.

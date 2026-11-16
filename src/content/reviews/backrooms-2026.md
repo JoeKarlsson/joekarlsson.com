@@ -24,7 +24,7 @@ description: 'Lynch for the Minecraft generation.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/backrooms-2026/'
 poster: '/images/reviews/backrooms-2026/poster.webp'
 heroImage: '/images/reviews/backrooms-2026/backdrop.webp'
-heroAlt: 'A still from Backrooms (2026)'
+heroAlt: 'A woman in a floral blouse staring up in alarm in an empty, yellow-walled room.'
 ---
 
 Lynch for the Minecraft generation.

@@ -17,7 +17,7 @@ description: 'I love that the nuns of Loudun need about four seconds of encourag
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-devils/'
 poster: '/images/reviews/the-devils/poster.webp'
 heroImage: '/images/reviews/the-devils/backdrop.webp'
-heroAlt: 'A still from The Devils (1971)'
+heroAlt: 'A bloodied man in a crown of thorns, a blonde woman pressed to his chest, a crowd of praying onlookers behind.'
 ---
 
 I love that the nuns of Loudun need about four seconds of encouragement to go completely feral.

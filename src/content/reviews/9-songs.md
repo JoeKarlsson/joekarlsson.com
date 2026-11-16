@@ -24,7 +24,7 @@ description: "9 Songs is 70 minutes of going to a show, going home and fucking, 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/9-songs/'
 poster: '/images/reviews/9-songs/poster.webp'
 heroImage: '/images/reviews/9-songs/backdrop.webp'
-heroAlt: 'A still from 9 Songs (2004)'
+heroAlt: 'A couple face to face in golden window light, her fingers on his chin.'
 ---
 
 9 Songs is 70 minutes of going to a show, going home and fucking, and it's the most honest movie I've seen about being in your 20s.

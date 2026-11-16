@@ -30,7 +30,7 @@ description: "Scorsese made two hours about Catholic guilt, and I'm the one who 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bringing-out-the-dead/'
 poster: '/images/reviews/bringing-out-the-dead/poster.webp'
 heroImage: '/images/reviews/bringing-out-the-dead/backdrop.webp'
-heroAlt: 'A still from Bringing Out the Dead (1999)'
+heroAlt: 'Nicolas Cage looking down, his face washed in teal and orange light.'
 ---
 
 Scorsese made two hours about Catholic guilt, and I'm the one who walked out feeling like I'd done penance.

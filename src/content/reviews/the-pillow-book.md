@@ -16,7 +16,7 @@ description: 'Never thought calligraphy could be erotic. I WAS WRONG.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-pillow-book/'
 poster: '/images/reviews/the-pillow-book/poster.webp'
 heroImage: '/images/reviews/the-pillow-book/backdrop.webp'
-heroAlt: 'A still from The Pillow Book (1995)'
+heroAlt: 'A woman lying on a bed while a man writes calligraphy across her bare back.'
 ---
 
 Never thought calligraphy could be erotic. I WAS WRONG.

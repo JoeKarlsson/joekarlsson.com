@@ -24,7 +24,7 @@ description: 'This is Pilgrim at Tinker Creek if Annie Dillard were stuck on a N
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-history-of-concrete/'
 poster: '/images/reviews/the-history-of-concrete/poster.webp'
 heroImage: '/images/reviews/the-history-of-concrete/backdrop.webp'
-heroAlt: 'A still from The History of Concrete (2026)'
+heroAlt: 'Two men talking beside a red-and-white striped cement mixer truck in a parking lot.'
 ---
 
 This is [Pilgrim at Tinker Creek](https://en.wikipedia.org/wiki/Pilgrim_at_Tinker_Creek) if Annie Dillard were stuck on a New York City sidewalk.
