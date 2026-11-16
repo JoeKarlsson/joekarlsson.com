@@ -40,7 +40,6 @@ test.describe('Homepage', () => {
 	test('every section heading links to its section page', async ({ page }) => {
 		const headings: [string, string][] = [
 			['Writing', '/blog/'],
-			['Most read', '/blog/'],
 			['Works', '/work/'],
 			['Talks', '/talks/'],
 			['Odds & ends', '/reviews/'],

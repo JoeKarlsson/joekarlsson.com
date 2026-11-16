@@ -117,8 +117,10 @@ const reviews = (await getCollection('reviews'))
 const [newestReview, ...moreReviews] = reviews.slice(0, 4);
 // Two films I rate far above Letterboxd's crowd and one far below: more love than dunking
 const { higher, lower } = reviewStats(reviews);
-const hotTakes = [...higher.slice(0, 2), lower[0]].map((film) =>
-	reviews.find((r) => r.slug === film.slug)!,
+// Clifford is the biggest gap, but Joe would rather show another
+const HOT_TAKE_SKIP = new Set(['clifford']);
+const hotTakes = [...higher.slice(0, 2), lower.find((film) => !HOT_TAKE_SKIP.has(film.slug))!].map(
+	(film) => reviews.find((r) => r.slug === film.slug)!,
 );
 
 const PODCASTS = [
@@ -294,7 +296,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 	</section>
 
 	<section class={SECTION} aria-labelledby="writing">
-		<SectionMasthead id="writing" title="Writing" href="/blog/" linkLabel="Every post">
+		<SectionMasthead id="writing" title="Writing" href="/blog/" linkLabel="All posts">
 			<Scribble
 				{...MARKS.rays}
 				once
@@ -308,7 +310,6 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 			aria-label="Topics"
 			class="-mt-3 mb-7 flex flex-wrap items-baseline gap-x-5 text-[0.9375rem]"
 		>
-			<span class="text-muted">Topics:</span>
 			{topics.map((topic) => (
 				<a
 					href={`/blog/category/${topic.slug}/`}
@@ -417,7 +418,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 	</figure>
 
 	<section class={SECTION} aria-labelledby="most-read">
-		<SectionMasthead id="most-read" title="Most" accent="read" href="/blog/" linkLabel="The blog" />
+		<SectionMasthead id="most-read" title="Most" accent="read" />
 		<ol class="relative flex flex-col gap-5">
 			{mostRead.map(({ post, visitors }, i) => (
 				<li class="group">
@@ -506,22 +507,25 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 		</SectionMasthead>
 		<a
 			href={spreadWork.href}
-			class="spread group relative -mx-4 block text-ink no-underline sm:-mx-7"
+			class="ring-host spread group relative -mx-4 block text-ink no-underline sm:-mx-7"
 		>
-			<video
-				class="block aspect-[16/8.3] w-full object-cover object-top"
-				src={spreadWork.clip}
-				data-poster={spreadWork.poster}
-				data-halftone="flat"
-				data-morph={spreadWork.href}
-				data-autoplay-in-view
-				data-phone-still
-				muted
-				loop
-				playsinline
-				preload="none"
-				aria-hidden="true"
-			></video>
+			<span class="relative block">
+				<video
+					class="block aspect-[16/8.3] w-full object-cover object-top"
+					src={spreadWork.clip}
+					data-poster={spreadWork.poster}
+					data-halftone="flat"
+					data-morph={spreadWork.href}
+					data-autoplay-in-view
+					data-phone-still
+					muted
+					loop
+					playsinline
+					preload="none"
+					aria-hidden="true"
+				></video>
+				<HoverBox index={0} featured />
+			</span>
 			<span class="relative z-10 mx-4 -mt-6 block w-fit max-w-[calc(100%-2rem)] bg-pink px-5 pt-3 pb-4 sm:mx-7">
 				<span class="block font-display text-[clamp(2.25rem,5.5vw,4.75rem)] leading-[0.9] uppercase">
 					{spreadWork.name}{' '}
@@ -531,23 +535,26 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 			</span>
 		</a>
 		<ul class="paste-wall mt-9 grid grid-cols-2 gap-7 lg:grid-cols-4" style="--wall:1">
-			{works.map((w) => (
+			{works.map((w, i) => (
 				<li>
-					<a href={w.href} class="group block text-paper no-underline">
-						<video
-							class="block aspect-video w-full object-cover"
-							src={w.clip}
-							data-poster={w.poster}
-							data-halftone="flat"
-							data-morph={w.href}
-							data-autoplay-in-view
-							data-phone-still
-							muted
-							loop
-							playsinline
-							preload="none"
-							aria-hidden="true"
-						></video>
+					<a href={w.href} class="ring-host group block text-paper no-underline">
+						<span class="relative block">
+							<video
+								class="block aspect-video w-full object-cover"
+								src={w.clip}
+								data-poster={w.poster}
+								data-halftone="flat"
+								data-morph={w.href}
+								data-autoplay-in-view
+								data-phone-still
+								muted
+								loop
+								playsinline
+								preload="none"
+								aria-hidden="true"
+							></video>
+							<HoverBox index={i} />
+						</span>
 						<span class="mt-3.5 block font-display text-[clamp(1.5rem,2.4vw,2.125rem)] leading-[0.92] text-balance uppercase group-hover:text-pink">
 							{w.title}
 						</span>
@@ -561,7 +568,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 	</section>
 
 	<section class={SECTION} aria-labelledby="talks">
-		<SectionMasthead id="talks" title="Talks" href="/talks/" linkLabel="Every talk">
+		<SectionMasthead id="talks" title="Talks" href="/talks/" linkLabel="All talks">
 			<Scribble
 				{...MARKS.hatch}
 				once
@@ -570,21 +577,27 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 				class="top-[20%] left-[calc(100%+0.3em)] h-[0.5em] w-[1.3em] max-md:hidden"
 			/>
 		</SectionMasthead>
-		<a href={spreadTalk.href} class="spread group relative -mx-4 block no-underline sm:-mx-7">
-			<video
-				class="block aspect-video w-full object-cover"
-				src={spreadTalk.clip}
-				data-poster={spreadTalk.poster}
-				data-halftone="flat"
-				data-morph={spreadTalk.href}
-				data-autoplay-in-view
-				data-phone-still
-				muted
-				loop
-				playsinline
-				preload="none"
-				aria-hidden="true"
-			></video>
+		<a
+			href={spreadTalk.href}
+			class="ring-host spread group relative -mx-4 block no-underline sm:-mx-7"
+		>
+			<span class="relative block">
+				<video
+					class="block aspect-video w-full object-cover"
+					src={spreadTalk.clip}
+					data-poster={spreadTalk.poster}
+					data-halftone="flat"
+					data-morph={spreadTalk.href}
+					data-autoplay-in-view
+					data-phone-still
+					muted
+					loop
+					playsinline
+					preload="none"
+					aria-hidden="true"
+				></video>
+				<HoverBox index={2} featured />
+			</span>
 			<span class="relative z-10 mx-4 -mt-10 block w-fit max-w-[calc(100%-2rem)] bg-ink px-5 pt-3 pb-4 sm:mx-7 md:-mt-16">
 				<span class="block text-sm font-semibold text-pink">{spreadTalk.kicker}</span>
 				<span class="block font-display text-[clamp(2.25rem,5.5vw,4.75rem)] leading-[0.9] text-paper uppercase group-hover:text-pink">
@@ -605,24 +618,27 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 			</span>
 		</a>
 		<ul class="paste-wall mt-9 grid gap-7 md:grid-cols-2" style="--wall:2">
-			{talkCards.map((t) => (
+			{talkCards.map((t, i) => (
 				<li>
-					<a href={t.href} class="group block no-underline">
-						<video
-							class="block aspect-video w-full rounded-lg object-cover"
-							src={t.clip}
-							data-poster={t.poster}
-							data-halftone="flat"
-							data-halftone-no-invert={t.noInvert || undefined}
-							data-morph={t.href}
-							data-autoplay-in-view
-							data-phone-still
-							muted
-							loop
-							playsinline
-							preload="none"
-							aria-hidden="true"
-						></video>
+					<a href={t.href} class="ring-host group block no-underline">
+						<span class="relative block">
+							<video
+								class="block aspect-video w-full rounded-lg object-cover"
+								src={t.clip}
+								data-poster={t.poster}
+								data-halftone="flat"
+								data-halftone-no-invert={t.noInvert || undefined}
+								data-morph={t.href}
+								data-autoplay-in-view
+								data-phone-still
+								muted
+								loop
+								playsinline
+								preload="none"
+								aria-hidden="true"
+							></video>
+							<HoverBox index={i + 1} />
+						</span>
 						<span class="mt-3 block text-sm font-semibold text-pink">{t.kicker}</span>
 						<span class="block font-display text-[clamp(1.5rem,2.6vw,2.25rem)] leading-[0.95] text-balance text-paper uppercase group-hover:text-pink">
 							{t.title}
@@ -639,7 +655,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 			title="Odds &"
 			accent="ends"
 			href="/reviews/"
-			linkLabel="All film reviews"
+			linkLabel="All reviews"
 		>
 			<Scribble
 				{...MARKS.asterisk}
@@ -654,7 +670,13 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 			<ul class="grid grid-cols-2 gap-4 md:col-span-7 md:gap-5">
 				{HOME_SHORTS.map((s) => (
 					<li>
-						<YouTubeFacade id={s.id} title={s.title} poster={shortPosterPath(s)} vertical />
+						<YouTubeFacade
+							id={s.id}
+							title={s.title}
+							poster={shortPosterPath(s)}
+							hoverLoop={`/images/talks/shorts/${s.id}-montage.mp4`}
+							vertical
+						/>
 						<a
 							href={`https://www.youtube.com/shorts/${s.id}`}
 							target="_blank"
@@ -667,16 +689,22 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 				))}
 			</ul>
 			<div class="flex flex-col md:col-span-5">
-				<a href={`/reviews/${newestReview.slug}/`} class="group block text-paper no-underline">
+				<a
+					href={`/reviews/${newestReview.slug}/`}
+					class="ring-host group block text-paper no-underline"
+				>
 					{newestReview.poster && (
-						<img
-							src={newestReview.poster}
-							alt=""
-							aria-hidden="true"
-							data-morph={`/reviews/${newestReview.slug}/`}
-							loading="lazy"
-							class="block aspect-[16/9] w-full object-cover object-[50%_12%]"
-						/>
+						<span class="relative block">
+							<img
+								src={newestReview.poster}
+								alt=""
+								aria-hidden="true"
+								data-morph={`/reviews/${newestReview.slug}/`}
+								loading="lazy"
+								class="block aspect-[16/9] w-full object-cover object-[50%_12%]"
+							/>
+							<HoverBox index={3} />
+						</span>
 					)}
 					<span class="mt-4 block font-display text-[clamp(2.25rem,4vw,3.25rem)] leading-[0.9] uppercase group-hover:text-pink">
 						{newestReview.title}
@@ -690,18 +718,24 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 					<span class="mt-2 block text-lg leading-snug">{oneLiner(newestReview)}</span>
 				</a>
 				<ul class="paste-wall mt-5 grid grid-cols-3 gap-3" style="--wall:3">
-					{moreReviews.map((r) => (
+					{moreReviews.map((r, i) => (
 						<li>
-							<a href={`/reviews/${r.slug}/`} class="group block text-sm text-paper no-underline">
+							<a
+								href={`/reviews/${r.slug}/`}
+								class="ring-host group block text-sm text-paper no-underline"
+							>
 								{r.poster && (
-									<img
-										src={r.poster}
-										alt=""
-										aria-hidden="true"
-										data-morph={`/reviews/${r.slug}/`}
-										loading="lazy"
-										class="block aspect-[2/3] w-full object-cover"
-									/>
+									<span class="relative block">
+										<img
+											src={r.poster}
+											alt=""
+											aria-hidden="true"
+											data-morph={`/reviews/${r.slug}/`}
+											loading="lazy"
+											class="block aspect-[2/3] w-full object-cover"
+										/>
+										<HoverBox index={i} />
+									</span>
 								)}
 								<span class="mt-1.5 block leading-snug group-hover:text-pink">{r.title}</span>
 								{r.rating && (
@@ -718,15 +752,14 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 
 			<div class="torn relative bg-paper px-5 py-7 text-ink md:col-span-12 md:px-7">
 				<h3 class="mb-5 font-display text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.05] font-normal text-ink uppercase">
-					Hot takes: where I part ways with{' '}
-					<em class="font-serif font-semibold text-[#c4009f] normal-case">Letterboxd</em>
+					Hot takes
 				</h3>
 				<ul class="paste-wall grid gap-6 md:grid-cols-3" style="--wall:4">
 					{hotTakes.map((r) => (
 						<li>
 							<a
 								href={`/reviews/${r.slug}/`}
-								class="grid grid-cols-[90px_1fr] gap-4 text-ink no-underline hover:text-[#c4009f]"
+								class="group grid grid-cols-[90px_1fr] gap-4 text-ink no-underline hover:text-[#c4009f]"
 							>
 								{r.poster && (
 									<img
@@ -734,7 +767,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 										alt=""
 										aria-hidden="true"
 										loading="lazy"
-										class="block aspect-[2/3] w-full object-cover"
+										class="block aspect-[2/3] w-full object-cover transition-transform duration-200 group-hover:-translate-y-1"
 									/>
 								)}
 								<span>
@@ -748,7 +781,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 											<span class="sr-only">{r.rating} out of 5</span>
 										</span>
 										<span>
-											Crowd{' '}
+											Letterboxd{' '}
 											<span class="font-display text-[1.75rem] font-normal">
 												{r.letterboxdAverage!.toFixed(1)}
 											</span>
@@ -763,17 +796,23 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 			</div>
 
 			<div class="md:col-span-4">
-				<h3 class="mb-2 text-sm font-semibold text-pink">I was a guest on</h3>
+				<h3 class="mb-2 text-sm font-semibold text-pink">Podcasts</h3>
 				<ul class="grid grid-cols-2 gap-2">
 					{PODCASTS.map((p) => (
 						<li>
-							<a href={p.url} target="_blank" rel="noopener noreferrer" class="block">
+							<a
+								href={p.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="group block"
+								aria-label={`${p.name} (opens in a new tab)`}
+							>
 								<img
 									src={p.image}
 									alt={p.name}
 									data-halftone="flat"
 									loading="lazy"
-									class="block aspect-square w-full object-cover"
+									class="block aspect-square w-full object-cover transition-transform duration-200 group-hover:-translate-y-1"
 								/>
 							</a>
 						</li>
@@ -781,8 +820,11 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 				</ul>
 			</div>
 			<div class="flex min-w-0 flex-col md:col-span-5">
-				<h3 class="mb-2 text-sm font-semibold text-pink">Try this in a terminal</h3>
-				<pre class="flex-1 overflow-x-auto max-md:whitespace-pre-wrap border-2 border-paper bg-[#0b0b0b] px-4 py-3.5 font-mono text-[11px] leading-[1.7] text-[#e6e6e6] md:text-[13px]"><span class="text-muted">$</span> curl -L joekarlsson.com/hi
+				<pre
+					tabindex="0"
+					aria-label="Sample output of curl -L joekarlsson.com/hi"
+					class="flex-1 overflow-x-auto max-md:whitespace-pre-wrap border-2 border-paper bg-[#0b0b0b] px-4 py-3.5 font-mono text-[11px] leading-[1.7] text-[#e6e6e6] md:text-[13px]"
+				><span class="text-muted">$</span> curl -L joekarlsson.com/hi
 {terminal.map((line) => <>{line.map((run) => <span class:list={[run.pink && 'text-pink', run.muted && 'text-muted', run.bold && 'font-bold']}>{run.text}</span>)}{'\n'}</>)}</pre>
 			</div>
 			<figure class="flex flex-col md:col-span-3">

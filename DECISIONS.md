@@ -50,6 +50,8 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 - 2026-11-15: No halftone dots anywhere on the site. Joe: "don't use the halftone. Just do pink... they should all be crystal clear... I don't even want it anywhere on the site." Every picture and clip gets the clear pink-and-black tone (the old `flat` look), darkening included ("The darkening, though, I don't mind as long as it's clear"). Overrides the 2026-11-05/10 light-dithering verdicts.
 
+- 2026-11-15: Homepage: everything clickable shows it on hover (Joe: "it's not super clear what's clickable... nothing happens when I hover"): every card and clip draws the crayon HoverBox and its title turns pink, posters lift. The Shorts play a short muted montage from the Short itself while hovered or focused (never under reduced motion or a pause). Hot takes skip Clifford. Labels cut to the bone (Joe: "over verbose"): no "Topics:", Most read has no link, "Hot takes" alone with "Letterboxd" by the score, "Podcasts", no label over the terminal, header links read "All posts/works/talks/reviews".
+
 ## Playful details
 
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.

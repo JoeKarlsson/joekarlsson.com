@@ -6,8 +6,9 @@ interface Props {
 	title: string;
 	// Set in pink Fraunces italic after the title ("Most *read*")
 	accent?: string;
-	href: string;
-	linkLabel: string;
+	// A link to the section's own page, when it has one
+	href?: string;
+	linkLabel?: string;
 	id?: string;
 }
 
@@ -26,12 +27,14 @@ const { title, accent, href, linkLabel, id } = Astro.props;
 		)}
 		<slot />
 	</h2>
-	<a
-		href={href}
-		class="shrink-0 border-b-2 border-pink py-3 text-base font-semibold text-paper no-underline hover:text-pink max-md:text-sm"
-	>
-		<span class="whitespace-nowrap">
-			{linkLabel} <span aria-hidden="true">→</span>
-		</span>
-	</a>
+	{href && (
+		<a
+			href={href}
+			class="shrink-0 border-b-2 border-pink py-3 text-base font-semibold text-paper no-underline hover:text-pink max-md:text-sm"
+		>
+			<span class="whitespace-nowrap">
+				{linkLabel} <span aria-hidden="true">→</span>
+			</span>
+		</a>
+	)}
 </header>
