@@ -23,6 +23,9 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-15: Live embeds sit in a pink frame with a "Live: runs right here" strip, so they read as another page inside this one. Newsletter issue mastheads show the card's photo, not the text card (which stays the share and email image).
 - 2026-11-12: Metadata lines (date, reading time, category) keep a visible separator between pieces; with no separator it wasn't clear where pieces start and stop. Of a pink slash, a gray bar and a pink dash, Joe picked the thin gray bar (MetaParts). No middle dots.
 
+- 2026-11-15: Zine round (~/mockups/joekarlsson-zine, 10 options): Joe picked only 5, pull-quote breaks (a full-width pink break in a list with one exact line from a post in huge Fraunces italic, picked by hand). Passed on the zine looks (issue covers, ransom-note titles, gig flyers, ticket stubs, paste-up board, stamps and label tape, picture inside the word, cut-out figures, stapled homepage spread): "less zine-inspired... more like graphic magazine, design magazine, high-end art magazine."
+- 2026-11-15: Stop iterating on headers. Joe: "I also want to look at the entire homepage, not just like the header part of it... it's really the rest of the page that I think needs work." Homepage proposals show the whole page below the hero.
+
 ## Playful details
 
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.
