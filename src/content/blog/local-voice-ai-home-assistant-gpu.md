@@ -16,6 +16,10 @@ corrections:
   - date: 2026-11-12
     note: '"Lights on" is two words, not three. Voice and subtitle generation share both GPUs, not one.'
 marginNotes:
+  - type: 'update'
+    at: 'takes over automatically'
+    date: 'Oct 2026'
+    text: 'Home Assistant reaches its model through a LiteLLM gateway on my cluster now. If the GPU box is off, the gateway falls back to a hosted model.'
   - type: 'term'
     at: 'medium-int8'
     text: "the model's weights stored as 8-bit integers instead of 16-bit numbers. About half the memory for a small accuracy cost. Mine holds about 2.1GB of VRAM."

@@ -159,7 +159,7 @@ _The nook from the corner, with the spotlight on its tripod in front._
 
 On the camera, I'm still experimenting, but right now it's in aperture priority, recording XAVC S 4K at 25p and 60 Mbps, with SteadyShot on. Aperture priority lets the camera pick the shutter speed and ISO, which is part of why underexposing went so badly: when there wasn't enough light, the camera made up the difference with gain.
 
-My footage also looks a little stuttery, and I think 25p is why. 25 frames a second doesn't divide evenly into the 30 and 60 fps that everything downstream of the camera runs at, so frames get repeated unevenly. At 25p the camera also tends to pick a 1/50 shutter, which can [flicker under 60Hz LED lighting](https://www.dvxuser.com/threads/25p-in-united-states-lighting-advice.340752/) here in the US. Next I'm switching the camera to NTSC and shooting 30p at 1/60, which I haven't tested yet.
+My footage also looks a little stuttery, and I think 25p is why. 25 frames a second doesn't divide evenly into the 30 and 60 fps that everything downstream of the camera runs at, so frames get repeated unevenly. At 25p the camera also tends to pick a 1/50 shutter, which can flicker under 60Hz LED lighting here in the US. Next I'm switching the camera to NTSC and shooting 30p at 1/60, which I haven't tested yet.
 
 In editing, I grade the camera track with a soft film LUT in [Screencast Director, the screen recorder I built that drafts the edit for me](/blog/screencast-director-screen-recorder/).
 

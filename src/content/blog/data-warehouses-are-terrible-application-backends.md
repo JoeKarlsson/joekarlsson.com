@@ -29,7 +29,7 @@ marginNotes:
     post: 'why-clickhouse-should-be-your-next-database'
 ---
 
-Developers have more data to work with than ever. According to [a report from Seagate](https://www.seagate.com/www-content/our-story/trends/files/Seagate-WP-DataAge2025-March-2017.pdf), by 2025 worldwide data will grow to 163 zettabytes, over 10 times the volume in 2016. More data should mean deeper insights and better user experiences, but it also leads to problems.
+Developers have more data to work with than ever. According to [an IDC report for Seagate](https://www.seagate.com/www-content/our-story/trends/files/Seagate-WP-DataAge2025-March-2017.pdf 'cite: Reinsel, Gantz and Rydning (IDC), November 2018'), worldwide data will grow from 33 zettabytes in 2018 to 175 zettabytes by 2025. More data should mean deeper insights and better user experiences, but it also leads to problems.
 
 For data-oriented developers, that cuts both ways. It's an opportunity to build user-facing features powered by data and using [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=data-warehouse-backend&utm_content=inline-mention). On the other hand, processing all that data with minimal latency and at high concurrency can be challenging with a typical modern data stack.
 

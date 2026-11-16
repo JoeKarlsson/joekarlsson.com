@@ -161,7 +161,7 @@ These alerts only fire when a sensor changes state, so a sensor that stops repor
 
 Local AI starts out useful in a boring way: rewriting text. My homelab's Alertmanager alerts are full of label names and metric values. A webhook sends each critical one to Home Assistant, the local model rewrites it into one plain-English push per outage, and the full details stay in a Home Assistant notification that clears itself when the outage resolves.
 
-The doorbell announcement works the same way. The model describes who's at the door ("A delivery driver in a brown uniform is holding a package"), and when Ollama is off or the model errors, the speakers fall back to a plain "someone is at the front door." Nothing here depends on what the model says, so a bad answer costs me nothing.
+The doorbell announcement works the same way. The model describes who's at the door ("A delivery driver in a brown uniform is holding a package"), and when the model errors, the speakers fall back to a plain "someone is at the front door." If my GPU box is off, my LiteLLM gateway hands the snapshot to a hosted model instead. Nothing here depends on what the model says, so a bad answer costs me nothing.
 
 ## Intermediate Home Assistant automations
 
@@ -357,7 +357,7 @@ Tuning it took a few rounds. Before "no other room is occupied" was an observati
 
 The basic version of local AI writes text that nothing depends on. The advanced version lets the answer change what the house does, and I think **that's where local AI is worth it: when it answers a yes-or-no question**.
 
-[Frigate 0.18](https://github.com/blakeblackshear/frigate/releases) runs object detection and face recognition on a Quadro RTX 4000. If you run Frigate, get on 0.18.2 or later: 0.18.1 and 0.18.2 fixed security bugs that let a viewer run commands as root. Ollama runs [`qwen3-vl:8b`](https://ollama.com/library/qwen3-vl) for vision on an RTX A4000. Home Assistant calls it through the [AI Task integration](https://www.home-assistant.io/integrations/ai_task/), which sends a camera snapshot to the model and gets structured data back. The AI automations talk to Ollama directly with no cloud fallback, so camera snapshots never leave my network. I wrote up the voice side of this stack in my post on a [fully local voice assistant on a GPU](/blog/local-voice-ai-home-assistant-gpu/), which I built after [replacing Alexa with Voice Preview Edition](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
+[Frigate 0.18](https://github.com/blakeblackshear/frigate/releases) runs object detection and face recognition on a Quadro RTX 4000. If you run Frigate, get on 0.18.2 or later: 0.18.1 and 0.18.2 fixed security bugs that let a viewer run commands as root. Ollama runs [`qwen3-vl:8b`](https://ollama.com/library/qwen3-vl) for vision on an RTX A4000. Home Assistant calls it through the [AI Task integration](https://www.home-assistant.io/integrations/ai_task/), which sends a camera snapshot to the model and gets structured data back. Since October 2026 Home Assistant reaches Ollama through my LiteLLM gateway, which falls back to a hosted model when the GPU box is down. So camera snapshots stay on my network unless that box is off. I wrote up the voice side of this stack in my post on a [fully local voice assistant on a GPU](/blog/local-voice-ai-home-assistant-gpu/), which I built after [replacing Alexa with Voice Preview Edition](/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/).
 
 These two earn their keep:
 

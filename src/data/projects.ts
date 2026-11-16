@@ -625,7 +625,7 @@ export const projects: Project[] = [
 			credit: 'with Ray Farias',
 			intro: [
 				'Most hackathons are sponsored by a company that wants something back: free development work, developers using its product, or new hires. A lot of them also run on the idea that four hackers and 48 hours can fix climate change or homelessness.',
-				'The Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon did the opposite. It was one day in Honolulu for projects with no value whatsoever, open to programmers, hardware hackers, artists, musicians and, according to the site, space whales. We stole the idea from the Stupid Hackathon in New York because we wanted to bring that hacker anarchist fun down to Hawaii. There were no corporate sponsors, and the prizes went to the stupidest ideas.',
+				'The Stupid Shit No One In Hawaii Needs and Terrible Ideas Hackathon did the opposite. It was one day in Honolulu for projects with no value whatsoever, open to programmers, hardware hackers, artists, musicians and, according to the site, space whales. We stole the idea from the Stupid Hackathon in New York because we wanted to bring that hacker anarchist fun down to Hawaii. GitHub and Front End Masters sponsored it anyway, and the prizes went to the stupidest ideas.',
 				"People built a Chrome extension that switches every font to Comic Sans and breaks every link, an Alexa that has had enough of your shit, a cardboard laptop and smartphone, a 3D-printed rubber duck keycap to talk to when you're stuck, and an official survey with the worst UX we could manage that never ends. Everyone there was building something for the fun of it.",
 			],
 			made: {

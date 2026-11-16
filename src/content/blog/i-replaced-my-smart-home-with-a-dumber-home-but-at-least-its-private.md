@@ -69,7 +69,7 @@ Our first problem was the wake word. My partner has been struggling terribly wit
 
 The system supports three wake words: “Okay Nabu,” “Hey Jarvis,” and “Hey Mycroft,” but none feel natural after years of established patterns. [[Home Assistant Community](https://community.home-assistant.io/t/home-assistant-voice-pe-wake-word/814502)] I know custom wake words are on the roadmap, but I wish they were available now. This seemingly small issue has become one of the biggest barriers to family adoption.
 
-The effective detection range compounds the problem. Unlike our old setup that worked reliably from across large rooms, the Voice Preview Edition often requires being within 1-2 meters and speaking clearly. [[Geeky Gadgets](https://www.geeky-gadgets.com/home-assistant-voice/)] My partner finds herself walking closer to the device and raising her voice, which feels unnatural compared to casual voice interactions we’d grown accustomed to.
+The effective detection range compounds the problem. Unlike our old setup that worked reliably from across large rooms, the Voice Preview Edition often requires being within 1-2 meters and speaking clearly. My partner finds herself walking closer to the device and raising her voice, which feels unnatural compared to casual voice interactions we’d grown accustomed to.
 
 ## Rebuilding every automation from scratch
 
@@ -152,7 +152,7 @@ Some users successfully connect Echo devices as external speakers by using the 3
 
 ## Performance
 
-Community testing shows average response times of 3.89 seconds for local processing compared to near-instantaneous responses from commercial assistants. [[Geeky Gadgets](https://www.geeky-gadgets.com/home-assistant-voice/)] Voice recognition accuracy rates of 37% locally and 58% with cloud processing create frustrating experiences requiring exact command syntax.
+In Michael Leen's side-by-side test, the Voice PE handled 5 of his 10 requests and took about 5 seconds to respond, against all 10 and about 2 seconds for an Echo Dot. [[Michael Leen](https://www.michaelsleen.com/voice-pe-sat1-echo/)] That gap pushes you toward exact command syntax.
 
 “Why do I have to say ‘turn on the lights’ exactly that way?” my partner asked after several failed attempts with natural variations. The system’s rigid command structure feels primitive compared to Alexa’s more forgiving interpretation.
 
