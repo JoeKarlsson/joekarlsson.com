@@ -169,14 +169,14 @@ describe('rehypeMarginNotes', async () => {
 	});
 });
 
-describe('rehypeMarginNotes enrichment', () => {
-	it("leads a citation's note with the quote in its title", () => {
+describe('rehypeMarginNotes enrichment', async () => {
+	it("leads a citation's note with the quote in its title", async () => {
 		const a = link('https://a.com/', 'A', 'cite: Ames, 2020 | quote: exact words here');
 		const cited = {
 			...link('https://b.com/', '[Bo 2021]'),
 			properties: { href: 'https://b.com/', title: 'quote: more words' },
 		};
-		const root = run(p(a, text(' and '), cited));
+		const root = await run(p(a, text(' and '), cited));
 		expect(notes(root)).toEqual([
 			'“exact words here”1 Ames, 2020. A. a.com',
 			'“more words”2 Bo 2021. b.com',
@@ -192,20 +192,20 @@ describe('rehypeMarginNotes enrichment', () => {
 				.map(textOf),
 		).toEqual([' (“exact words here”)', ' (“more words”)']);
 	});
-	it('turns a lone picture titled margin: into a captioned margin figure', () => {
+	it('turns a lone picture titled margin: into a captioned margin figure', async () => {
 		const img: HastNode = {
 			type: 'element',
 			tagName: 'img',
 			properties: { src: '/a.webp', alt: 'A', title: 'margin: Ames, a portrait' },
 			children: [],
 		};
-		const root = run(p(img), p(text('Next paragraph')));
+		const root = await run(p(img), p(text('Next paragraph')));
 		const figure = root.children![0];
 		expect(figure.tagName).toBe('figure');
 		expect(textOf(figure)).toBe('Ames, a portrait');
 		expect(img.properties!.title).toBeUndefined();
 	});
-	it('moves a [!margin] code comment beside its line and keeps it in the code', () => {
+	it('moves a [!margin] code comment beside its line and keeps it in the code', async () => {
 		const token = (value: string): HastNode => ({
 			type: 'element',
 			tagName: 'span',
@@ -224,7 +224,7 @@ describe('rehypeMarginNotes enrichment', () => {
 			properties: {},
 			children: [{ type: 'element', tagName: 'code', properties: {}, children: [line] }],
 		};
-		const root = run(pre);
+		const root = await run(pre);
 		const box = root.children![0];
 		expect(box.tagName).toBe('div');
 		expect(textOf(pre)).toBe('x = 1  # Why x is one.');

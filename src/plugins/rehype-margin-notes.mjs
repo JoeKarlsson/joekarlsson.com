@@ -33,7 +33,7 @@
  *   (.code-noted, global.css). Where the margin is hidden, or anchor positioning is missing,
  *   it stays an ordinary comment in the code, so copying the code keeps it either way.
  */
-import { cardHalftone } from '../utils/halftone.ts';
+import { halftoneMode } from '../utils/halftone.ts';
 import { localImageSize } from '../utils/image-size.mjs';
 import { readPost } from './rehype-post-previews.mjs';
 
@@ -250,7 +250,7 @@ function noteBody(note, number) {
 							src: post.image,
 							alt: '',
 							loading: 'lazy',
-							dataHalftone: cardHalftone(post.image),
+							dataHalftone: halftoneMode(post.image),
 						},
 						[],
 					),
@@ -271,7 +271,7 @@ function noteBody(note, number) {
 									src: note.image,
 									alt: note.alt,
 									loading: 'lazy',
-									dataHalftone: cardHalftone(note.image),
+									dataHalftone: halftoneMode(note.image),
 								},
 								[],
 							),
