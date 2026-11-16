@@ -54,7 +54,7 @@ export default function rehypeYouTubeEmbed() {
 				properties: {
 					type: 'button',
 					// Inline margin: a new utility class would cost every page's CSS
-					style: 'margin:1.5rem 0',
+					style: 'margin:3rem 0',
 					className: [
 						'youtube-facade',
 						'group',

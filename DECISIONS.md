@@ -63,6 +63,12 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 - 2026-11-16: Works and Talks take the homepage's magazine section headers (SectionMasthead) and 128px desktop spacing; phones stay tight. Talks drops its row of big stat numbers (94 talks, 30 podcasts...), per the no-stat-numbers rule (Joe: "Yeah, you can remove those numbers"). Blog and Reviews stay as they are (one list each, cards already hover). Masthead marks sit right of the title, hidden on phones, everywhere.
 
+- 2026-11-16: Consistency round (~/mockups/joekarlsson-consistency). Section headers on every page are pink Anton with a crayon line drawn the full width under them (Joe: "a combination of like A, B, and C"); no more mixed white Anton plus pink Fraunces italic word in a header ("Most _read_"), which reverses the 2026-11-15 accent verdict. Headers stay one font, one color.
+- 2026-11-16: The About page keeps its color: the "Previously at" logo strip, logos and pink emphasis words in the lead ("I build _weird things_ and _show my work_"). My flatter About proposal was rejected: "less visual and more flat, which I don't like." Only its section headers change.
+- 2026-11-16: Homepage hero and Make a mark go full width with the 16px gutter and rounded panels kept (option B over edge-to-edge A); Make a mark sits on the footer with no gap.
+- 2026-11-16: More hand-drawn marks on the homepage: the sketchbook margin doodles turn on there, plus one long crayon line that wanders down the page from section to section. No crayon circles around content: "they always cut stuff off and aren't centered right." Arrows and underlines on content are fine.
+- 2026-11-16: Odds & ends gets a link under each group (All Shorts to /talks/'s Shorts row, All reviews, All podcasts to /talks/ with Podcasts on), approved as mocked.
+
 ## Playful details
 
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.

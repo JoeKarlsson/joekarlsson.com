@@ -793,6 +793,10 @@ header nav .sticker {
 :has(> iframe[data-embed-project]) {
 	@apply relative rounded-lg border-2 border-pink bg-pink pt-7;
 }
+/* Same room above and below as a picture in a post (.prose img) */
+.prose > :has(> iframe[data-embed-project]) {
+	@apply my-12;
+}
 :has(> iframe[data-embed-project])::before {
 	@apply absolute top-1.5 left-3 font-display text-sm leading-none text-ink uppercase;
 	content: 'Live: runs right here' / '';
