@@ -364,7 +364,7 @@ export default function rehypeMarginNotes() {
 			// In a list, a note goes at the top of the innermost item holding its phrase, so it
 			// sits level with that item instead of the whole list
 			let notes = blockNotes;
-			const after = [];
+			let after = [];
 			const walk = (node, parent) => {
 				if (node.type === 'text') {
 					if (pending.length) wrapPhrases(node, parent, notes, after);
@@ -445,11 +445,13 @@ export default function rehypeMarginNotes() {
 				}
 				if (SKIP.has(node.tagName)) return;
 				if (node.tagName === 'li') {
-					const outer = notes;
+					const [outerNotes, outerAfter] = [notes, after];
 					notes = [];
+					after = [];
 					[...node.children].forEach((child) => walk(child, node));
 					node.children.unshift(...notes);
-					notes = outer;
+					node.children.push(...after);
+					[notes, after] = [outerNotes, outerAfter];
 					return;
 				}
 				// A copy: a citation's number goes in after it, and forEach stops at the old length

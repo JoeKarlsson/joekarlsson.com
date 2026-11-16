@@ -138,6 +138,35 @@ describe('rehypeMarginNotes', async () => {
 		expect(root.children!.map((n) => n.tagName)).toEqual(['ul']);
 		expect(second.children![0].properties?.id).toBe('mn-1');
 	});
+	it("matches a note's straight quotes against the curled ones markdown renders", async () => {
+		const block = p(text('Claude and Word don’t get along.'));
+		const root = await runWith([{ type: 'aside', at: "don't get along", text: 'x' }], block);
+		expect(textOf(block.children!.find((n) => n.properties?.id === 'mn-w-1')!)).toBe(
+			'don’t get along',
+		);
+		expect(notes(root)).toEqual(['1 x']);
+	});
+	it("repeats a list item's quote under that item on phones, not under the whole list", async () => {
+		const li = (...children: HastNode[]): HastNode => ({
+			type: 'element',
+			tagName: 'li',
+			properties: {},
+			children,
+		});
+		const first = li(text('It said no.'));
+		const list: HastNode = {
+			type: 'element',
+			tagName: 'ul',
+			properties: {},
+			children: [first, li(text('Later.'))],
+		};
+		const root = await runWith(
+			[{ type: 'quote', at: 'said no', text: 'No.', by: 'Someone' }],
+			list,
+		);
+		expect(root.children!.map((n) => n.tagName)).toEqual(['ul']);
+		expect(first.children!.at(-1)!.properties?.id).toBe('mn-1-narrow');
+	});
 });
 
 describe('rehypeMarginNotes enrichment', () => {
