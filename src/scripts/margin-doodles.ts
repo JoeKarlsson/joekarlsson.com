@@ -214,11 +214,9 @@ if (layer) {
 	const threadSeed = random() * 2 ** 32;
 	// From the markup, not offsetTop: a hidden doodle measures 0 and would flip back on
 	const fit = () => {
-		// Narrowed below where they fit: off, instead of over the text
-		layer.hidden = !wide.matches;
 		for (const doodle of doodles)
 			doodle.hidden = Number(doodle.dataset.bottom) > layer.clientHeight - BOTTOM_CLEARANCE;
-		if (thread && wide.matches) {
+		if (thread && !layer.hidden) {
 			layer.querySelector('.margin-thread')?.remove();
 			// Same seed each time, so a resize redraws the same line at the new size
 			layer.append(drawThread(layer, seededRandom(threadSeed)));
@@ -226,4 +224,10 @@ if (layer) {
 	};
 	fit();
 	new ResizeObserver(fit).observe(layer);
+	// Narrowed below where they fit: off, instead of over the text. Not in fit: hiding the
+	// layer inside its own ResizeObserver callback trips a ResizeObserver loop error
+	wide.addEventListener('change', () => {
+		layer.hidden = !wide.matches;
+		fit();
+	});
 }

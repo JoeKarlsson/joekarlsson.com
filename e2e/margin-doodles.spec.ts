@@ -48,4 +48,15 @@ test.describe("Joe's margin doodles", () => {
 		expect(sides.length).toBeGreaterThan(0);
 		expect(new Set(sides)).toEqual(new Set(['right']));
 	});
+
+	test('come back after the window narrows and widens again', async ({ page }) => {
+		await page.setViewportSize({ width: 1920, height: 1080 });
+		await page.goto('/contact/');
+		const layer = page.locator('.margin-doodles');
+		await expect(layer).toBeVisible();
+		await page.setViewportSize({ width: 1440, height: 900 });
+		await expect(layer).toBeHidden();
+		await page.setViewportSize({ width: 1920, height: 1080 });
+		await expect(layer).toBeVisible();
+	});
 });
