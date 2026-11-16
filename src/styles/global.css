@@ -1241,6 +1241,10 @@ header nav .sticker {
 	@apply mt-2 block font-sans text-sm not-italic;
 }
 @media (width < 40rem) {
+	/* The numeral stacks above the title here, so the jump leaves room for it too */
+	.prose .chapter h2 {
+		scroll-margin-top: 7.75rem;
+	}
 	.prose .chapter {
 		@apply grid-cols-1;
 		min-height: 0;
