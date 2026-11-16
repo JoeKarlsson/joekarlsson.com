@@ -9,6 +9,7 @@
 // film's own page for its poster, backdrop, director and the details /reviews/stats/ counts
 // (runtime, cast, countries, language, studios, Letterboxd's average).
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { format, resolveConfig } from 'prettier';
 import sharp from 'sharp';
 // 157 + the "..." truncateAtWord adds = the 160 characters search results show
 import { truncateAtWord } from './now-feed-parsing.mjs';
@@ -143,7 +144,9 @@ async function saveImage(url, path, width, { pink = false } = {}) {
 	await (pink ? gradePink(image) : image).webp({ quality: 72 }).toFile(path);
 }
 
-async function importReview(r) {
+/** One review ({ url, title, year, watched, rating, rewatch, spoilers, html }); exported so a
+ * review missing from a stale RSS feed can be imported straight from its live page */
+export async function importReview(r) {
 	const slug = slugFromReviewUrl(r.url);
 	const file = `${CONTENT}/${slug}.md`;
 	if (existsSync(file)) return false;
@@ -175,7 +178,9 @@ async function importReview(r) {
 		front.push(`heroImage: '/images/reviews/${slug}/backdrop.webp'`);
 		front.push(`heroAlt: ${yamlString(`A still from ${r.title} (${r.year})`)}`);
 	}
-	writeFileSync(file, `---\n${front.filter(Boolean).join('\n')}\n---\n\n${body}\n`);
+	const markdown = `---\n${front.filter(Boolean).join('\n')}\n---\n\n${body}\n`;
+	// Formatted like the rest of the repo, or the pre-push format check fails on it
+	writeFileSync(file, await format(markdown, { ...(await resolveConfig(file)), filepath: file }));
 	return true;
 }
 
