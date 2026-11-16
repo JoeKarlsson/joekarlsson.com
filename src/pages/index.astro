@@ -144,12 +144,12 @@ const terminal = terminalRuns(
 )
 	// Its sign-off and pink links are too wide for the column; the labels and text stay
 	.filter((line) => !line.some((run) => run.text.includes('get along')))
-	.map((line) => line.filter((run) => !(run.pink && run.text.startsWith('https://'))))
-	.filter(
-		(line, i, all) =>
-			line.some((run) => run.text.trim()) || !all[i - 1]?.every((run) => !run.text.trim()),
-	);
-while (!terminal.at(-1)?.length) terminal.pop();
+	.flatMap((line) => {
+		const kept = line.filter((run) => !(run.pink && run.text.startsWith('https://')));
+		// A line that held only a link is gone, not left as an empty gap
+		return kept.length < line.length && !kept.some((run) => run.text.trim()) ? [] : [kept];
+	});
+while (terminal.length && !terminal.at(-1)!.length) terminal.pop();
 
 const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 ---
@@ -324,6 +324,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 				<!-- The headline overlaps the bottom of the picture on a black slab, magazine style -->
 				<h3 class="relative -mt-[clamp(40px,8vw,118px)] w-fit max-w-[min(620px,92%)] bg-ink px-4 pt-3 font-display text-[clamp(2.75rem,7vw,6.5rem)] leading-[0.9] font-normal text-paper uppercase sm:px-7">
 					<a href={leadPost.href} class="text-paper no-underline hover:text-pink">
+						{/* A question headline stops at its question; the rest is the description below */}
 						{leadPost.data.title.split('?')[0]}
 						{leadPost.data.title.includes('?') && '?'}
 					</a>
