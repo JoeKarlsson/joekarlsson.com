@@ -1,4 +1,5 @@
 ---
+import { curlyApostrophes } from '../utils/curly-apostrophes.mjs';
 // The end of a page or post: a pink poster heading, a crayon arrow that swirls
 // right and turns down, and what it points at, picked for each page:
 // - `posts`: picture cards for these post slugs, the first one big under the arrow
@@ -123,7 +124,9 @@ const firstRandom = randomPool[0];
 								{post.data.title}
 							</span>
 							{lead && post.data.description && (
-								<span class="line-clamp-3 max-w-[60ch]">{post.data.description}</span>
+								<span class="line-clamp-3 max-w-[60ch]">
+									{curlyApostrophes(post.data.description)}
+								</span>
 							)}
 						</a>
 					</li>

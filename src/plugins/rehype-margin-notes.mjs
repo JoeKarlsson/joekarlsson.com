@@ -33,6 +33,7 @@
  *   (.code-noted, global.css). Where the margin is hidden, or anchor positioning is missing,
  *   it stays an ordinary comment in the code, so copying the code keeps it either way.
  */
+import { curlyApostrophes } from '../utils/curly-apostrophes.mjs';
 import { halftoneMode } from '../utils/halftone.ts';
 import { localImageSize } from '../utils/image-size.mjs';
 import { readPost } from './rehype-post-previews.mjs';
@@ -284,12 +285,20 @@ function noteBody(note, number) {
 	switch (note.type) {
 		case 'quote': {
 			const by = note.url ? el('a', { href: note.url }, [text(note.by)]) : text(note.by);
-			return [back, el('q', {}, [text(note.text)]), el('cite', {}, [by])];
+			return [back, el('q', {}, [text(curlyApostrophes(note.text))]), el('cite', {}, [by])];
 		}
 		case 'term':
-			return [back, el('dfn', {}, [text(note.term ?? note.at)]), text(`: ${note.text}`)];
+			return [
+				back,
+				el('dfn', {}, [text(note.term ?? note.at)]),
+				text(`: ${curlyApostrophes(note.text)}`),
+			];
 		case 'update':
-			return [back, el('span', { className: ['mn-stamp'] }, [text(note.date)]), text(note.text)];
+			return [
+				back,
+				el('span', { className: ['mn-stamp'] }, [text(note.date)]),
+				text(curlyApostrophes(note.text)),
+			];
 		case 'see': {
 			const post = readPost(note.post);
 			if (!post)
@@ -309,7 +318,7 @@ function noteBody(note, number) {
 						},
 						[],
 					),
-					el('span', {}, [el('strong', {}, [text(post.title)]), text(note.text)]),
+					el('span', {}, [el('strong', {}, [text(post.title)]), text(curlyApostrophes(note.text))]),
 				]),
 			];
 		}
@@ -332,10 +341,10 @@ function noteBody(note, number) {
 							),
 						]
 					: []),
-				text(note.text),
+				text(curlyApostrophes(note.text)),
 			];
 		default:
-			return [back, text(note.text)];
+			return [back, text(curlyApostrophes(note.text))];
 	}
 }
 

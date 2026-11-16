@@ -36,6 +36,10 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+	/* No one-word last lines, in post text and everywhere else (Firefox: rehype-no-widows) */
+	:is(p, li, blockquote, figcaption) {
+		text-wrap: pretty;
+	}
 	*,
 	::after,
 	::before,
@@ -203,9 +207,6 @@
 }
 .prose h4 {
 	@apply font-sans text-lg font-semibold text-paper mt-8 mb-2;
-}
-.prose :is(p, li, blockquote) {
-	text-wrap: pretty; /* no one-word last lines */
 }
 .prose p {
 	@apply mb-6;
@@ -875,7 +876,7 @@ header nav .sticker {
 }
 .masthead-caption {
 	/* about 60 characters: a caption in small italic reads best shorter than the text */
-	@apply mx-auto mt-2 max-w-[34em] font-serif text-[15px] leading-snug text-muted italic;
+	@apply mx-auto mt-2 max-w-[28em] font-serif text-[15px] leading-snug text-muted italic;
 }
 .masthead-caption b {
 	@apply mr-1.5 font-sans text-xs font-bold tracking-wider text-pink not-italic uppercase;

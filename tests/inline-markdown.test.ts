@@ -17,6 +17,9 @@ describe('inlineMarkdown', () => {
 	});
 
 	it('curls apostrophes, but not inside code', () => {
+		expect(inlineMarkdown("the hosts' racks, it's 'quoted'")).toBe(
+			"the hosts’ racks, it’s 'quoted’",
+		);
 		expect(inlineMarkdown("Proxmox doesn't ship `don't`")).toBe(
 			"Proxmox doesn’t ship <code>don't</code>",
 		);
