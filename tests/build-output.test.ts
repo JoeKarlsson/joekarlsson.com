@@ -1137,7 +1137,7 @@ describe('performance guards', () => {
 	it('every homepage clip gets the live pink treatment', () => {
 		const clips = [...readDist('index.html').matchAll(/<video[^>]*>/g)];
 		expect(clips.length).toBeGreaterThanOrEqual(9);
-		for (const [tag] of clips) expect(tag).toMatch(/data-halftone="(flat|dots)"/);
+		for (const [tag] of clips) expect(tag).toMatch(/data-halftone="flat"/);
 	});
 
 	it("a project's light poster is what its video waits on, and its share image stays full size", () => {

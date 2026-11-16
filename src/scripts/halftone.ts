@@ -1,17 +1,10 @@
 // Draws every img[data-halftone] and video[data-halftone] in the site's pink,
-// live, so stills and clips get exactly the same treatment at any size: a
-// pre-dithered file's dots shrink with the file, and pre-dithered video doesn't
-// compress (a field of dots runs 10-40x the original). The page ships plain
-// originals; this draws over each one on a canvas.
+// live, so stills and clips get exactly the same treatment at any size. The page
+// ships plain originals; this draws over each one on a canvas.
 //
-// Two looks, picked at build time by halftoneMode() (src/utils/halftone.ts):
-// - data-halftone="dots": dots on a 45-degree grid sized by brightness, over a
-//   soft pink duotone. For photos.
-// - data-halftone="flat": just black and pink, no dots. Every post and project
-//   card uses it, and so does anything with text in it
-//   (src/data/images-with-text.json), which dots make unreadable.
-// Both lift dark footage and invert mostly white images (diagrams), so the
-// ground stays black.
+// One look: black to pink, clear, with no halftone dots (Joe dropped the dots
+// site-wide, DECISIONS.md 2026-11-15). It lifts dark footage and inverts mostly
+// white images (diagrams), so the ground stays black.
 // A bright photo (a sunny sky) can trip the invert too; data-halftone-no-invert
 // keeps it the right way round.
 //
@@ -27,7 +20,6 @@
 
 import { retryImageLoadOnce } from './retry-image';
 
-const CELL_CSS_PX = 3;
 const INK = [1, 0x4f / 255, 0xd8 / 255]; // #ff4fd8
 // Mean brightness (0-1) above which an image is inverted, like halftone.py's --invert-light
 const LIGHT_IMAGE_MEAN = 140 / 255;
@@ -42,20 +34,9 @@ uniform sampler2D source;
 uniform vec2 canvasSize;   // device pixels
 uniform vec2 fitScale;     // object-fit (cover or contain), as a UV scale
 uniform vec2 fitOffset;    // object-position: where the scaled picture sits
-uniform float cell;        // dot spacing, device pixels
 uniform float invert;      // 1.0 flips a light image
 uniform vec2 levels;       // the image's darkest and brightest tones, stretched to black and full pink
-uniform float noDots;      // 1.0 draws the duotone without dots
 uniform vec3 ink;
-
-const float CONTRAST = 1.15;
-const float DOTS_OVER_DUOTONE = 0.5;
-const float GAMMA = 0.7;
-const mat2 ROTATE = mat2(0.70710678, 0.70710678, -0.70710678, 0.70710678);
-
-// Grid space back to pixels. GLSL ES 1.0 has no transpose(), and a rotation's
-// inverse is its transpose
-vec2 unrotate(vec2 p) { return vec2(dot(p, ROTATE[0]), dot(p, ROTATE[1])); }
 
 // Source brightness, flipped for a light image; black outside the picture
 // (the bars around an object-fit: contain clip)
@@ -67,31 +48,11 @@ float luma(vec2 pixel) {
 	return mix(value, 1.0 - value, invert);
 }
 
-float brightness(vec2 pixel) {
-	return clamp((pow(luma(pixel), GAMMA) - 0.5) * CONTRAST + 0.5, 0.0, 1.0);
-}
-
 void main() {
 	vec2 pixel = vec2(gl_FragCoord.x, canvasSize.y - gl_FragCoord.y);
-	if (noDots > 0.5) {
-		// Black to pink, straight from the auto-leveled brightness: a steep cutoff
-		// blew out highlights and turned busy images to speckle
-		gl_FragColor = vec4(ink * luma(pixel), 1.0);
-		return;
-	}
-	vec3 tone = ink * brightness(pixel);
-	vec2 grid = ROTATE * pixel / cell;
-	// Bright dots outgrow their cell, so check the neighbors too
-	float dots = 0.0;
-	for (int dx = -1; dx <= 1; dx++) {
-		for (int dy = -1; dy <= 1; dy++) {
-			vec2 center = floor(grid) + 0.5 + vec2(dx, dy);
-			float radius = 0.5 * 1.25 * sqrt(brightness(unrotate(center) * cell));
-			float gap = length(grid - center) * cell;
-			dots = max(dots, smoothstep(radius * cell + 0.75, radius * cell - 0.75, gap));
-		}
-	}
-	gl_FragColor = vec4(mix(tone, ink * dots, DOTS_OVER_DUOTONE), 1.0);
+	// Black to pink, straight from the auto-leveled brightness: a steep cutoff
+	// blew out highlights and turned busy images to speckle
+	gl_FragColor = vec4(ink * luma(pixel), 1.0);
 }`;
 
 type Source = HTMLImageElement | HTMLVideoElement;
@@ -101,7 +62,6 @@ interface Look {
 	// Darkest and brightest tones (0-1), like halftone.py's autocontrast
 	low: number;
 	high: number;
-	flat: boolean;
 	// object-fit: contain rather than cover
 	contain: boolean;
 	// object-position as fractions (0.5, 0.5 is centered), read on resize
@@ -127,7 +87,7 @@ const SOFTWARE_RENDERER = /swiftshader|llvmpipe|softpipe|software/i;
 
 function createRenderer(): Draw | null {
 	const glCanvas = document.createElement('canvas');
-	// No software WebGL: there a dots frame takes ~100ms, so clips starved the page
+	// No software WebGL: there a frame takes ~100ms, so clips starved the page
 	// (its load event never fired on a GPU-less CI runner). Those visitors get the originals.
 	const gl = glCanvas.getContext('webgl', {
 		antialias: false,
@@ -165,9 +125,7 @@ function createRenderer(): Draw | null {
 			canvasSize: uniform('canvasSize'),
 			fitScale: uniform('fitScale'),
 			fitOffset: uniform('fitOffset'),
-			cell: uniform('cell'),
 			invert: uniform('invert'),
-			noDots: uniform('noDots'),
 			levels: uniform('levels'),
 		};
 	};
@@ -188,7 +146,7 @@ function createRenderer(): Draw | null {
 
 	return (source, target, look) => {
 		if (gl.isContextLost()) return;
-		const { canvasSize, fitScale, fitOffset, cell, invert, noDots, levels } = uniforms;
+		const { canvasSize, fitScale, fitOffset, invert, levels } = uniforms;
 		const { width, height } = target;
 		const sourceAspect =
 			source instanceof HTMLVideoElement
@@ -206,9 +164,7 @@ function createRenderer(): Draw | null {
 		gl.uniform2f(fitScale, scaleX, scaleY);
 		// Same rule as CSS object-position: the leftover space splits by the percentage
 		gl.uniform2f(fitOffset, (1 - scaleX) * look.position[0], (1 - scaleY) * look.position[1]);
-		gl.uniform1f(cell, CELL_CSS_PX * (window.devicePixelRatio || 1));
 		gl.uniform1f(invert, look.invert ? 1 : 0);
-		gl.uniform1f(noDots, look.flat ? 1 : 0);
 		gl.uniform2f(levels, look.low, look.high);
 		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, source);
 		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
@@ -259,7 +215,6 @@ function attach(element: Source, draw: Draw): void {
 		invert: false,
 		low: 0,
 		high: 1,
-		flat: element.dataset.halftone === 'flat',
 		contain: getComputedStyle(element).objectFit === 'contain',
 		position: objectPosition(element),
 	};

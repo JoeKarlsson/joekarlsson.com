@@ -3,24 +3,21 @@ import { existsSync, statSync } from 'fs';
 import { join } from 'path';
 import { projects } from '../src/data/projects';
 import imagesWithText from '../src/data/images-with-text.json';
-import { cardClip, cardHalftone, halftoneMode, isPretreatedThumbnail } from '../src/utils/halftone';
+import { cardClip, cardHalftone, halftoneMode } from '../src/utils/halftone';
 
 // /work autoplays every card clip in view; together they must fit its 1.5MB page budget
 const MAX_CARD_CLIP_BYTES = 450 * 1024;
 
 describe('halftoneMode', () => {
-	it('draws images with text flat, everything else in dots', () => {
-		// A pretreated card on the list is skipped (undefined), so test with one that isn't
-		const textImage = imagesWithText.find((src) => !isPretreatedThumbnail(src))!;
-		expect(halftoneMode(textImage)).toBe('flat');
-		expect(halftoneMode('/images/not-in-the-list.webp')).toBe('dots');
+	it('draws every picture in the clear pink tone, never dots', () => {
+		expect(halftoneMode('/images/not-in-the-list.webp')).toBe('flat');
 	});
 
 	it('leaves generated work-post thumbnails alone, everywhere', () => {
 		expect(halftoneMode('/images/blog/soc2/thumb-0a1b2c3d.webp')).toBeUndefined();
 		expect(cardHalftone('/images/blog/soc2/thumb-0a1b2c3d.webp')).toBeUndefined();
 		expect(cardHalftone('/images/blog/soc2/thumbnail.webp')).toBe('flat');
-		expect(halftoneMode('/images/blog/soc2/nested/thumb-0a1b2c3d.webp')).toBe('dots');
+		expect(halftoneMode('/images/blog/soc2/nested/thumb-0a1b2c3d.webp')).toBe('flat');
 		// Boiling diagram cards for projects are animated; a live canvas copy would freeze them
 		expect(cardHalftone('/images/projects/data-structures/thumb-0a1b2c3d.webp')).toBeUndefined();
 		expect(cardHalftone('/images/projects/data-structures.webp')).toBe('flat');
@@ -29,8 +26,8 @@ describe('halftoneMode', () => {
 	it("leaves /talks/' pre-graded covers and posters alone, but not other video posters", () => {
 		expect(halftoneMode('/images/talks/events/confoo-2020.webp')).toBeUndefined();
 		expect(halftoneMode('/images/talks/posters/12IppjSDVCQ.webp')).toBeUndefined();
-		expect(halftoneMode('/images/youtube/12IppjSDVCQ.webp')).toBe('dots');
-		expect(halftoneMode('/images/talks/tedx-art-of-computer-science-still.webp')).toBe('dots');
+		expect(halftoneMode('/images/youtube/12IppjSDVCQ.webp')).toBe('flat');
+		expect(halftoneMode('/images/talks/tedx-art-of-computer-science-still.webp')).toBe('flat');
 	});
 
 	it('lists only files that exist (re-run npm run media:text after moving one)', () => {

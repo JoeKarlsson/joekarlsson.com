@@ -48,6 +48,8 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 - 2026-11-15: The MongoDB Schema Design talk card on the homepage gets a moving clip from that talk's recording, like the other talk cards. Next step for the homepage: build the preview from the real site code in a worktree (not the standalone mockup, which kept drifting from the live look: hero not pink, headings the wrong color and size).
 
+- 2026-11-15: No halftone dots anywhere on the site. Joe: "don't use the halftone. Just do pink... they should all be crystal clear... I don't even want it anywhere on the site." Every picture and clip gets the clear pink-and-black tone (the old `flat` look), darkening included ("The darkening, though, I don't mind as long as it's clear"). Overrides the 2026-11-05/10 light-dithering verdicts.
+
 ## Playful details
 
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.

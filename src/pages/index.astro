@@ -62,7 +62,14 @@ function work(title: string) {
 		clip: cardClip(project.video),
 	};
 }
-const spreadWork = { name: 'Nothing But', accent: 'Corners', ...work('DVD Screensaver') };
+const dvd = work('DVD Screensaver');
+// Full width, so the spread plays the full-size clip, not the card copy
+const spreadWork = {
+	name: 'Nothing But',
+	accent: 'Corners',
+	...dvd,
+	clip: dvd.clip.replace('-card.mp4', '.mp4'),
+};
 const works = ['PixelPane', 'Connect AI × DOOM', 'Punc', 'Screencast Director'].map((title) => ({
 	title,
 	...work(title),
@@ -178,7 +185,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 				<video
 					class="absolute inset-0 size-full object-cover object-[50%_25%] md:object-center"
 					poster="/images/home/montage-poster.webp"
-					data-halftone="dots"
+					data-halftone="flat"
 					data-autoplay-in-view
 					muted
 					loop
@@ -186,7 +193,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 					preload="metadata"
 					aria-label="Montage of short halftone clips of Joe"
 				>
-					<!-- Plain color clips, each frame auto-leveled, so the live pink dots
+					<!-- Plain color clips, each frame auto-leveled, so the live pink
 					(src/scripts/halftone.ts) stay sharp at any size and every shot matches the
 					poster's levels. Phones get their own 16:9 cut, already cropped to Joe's face.
 					VP9 is smaller; H.264 is the fallback. -->
@@ -499,7 +506,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 			class="spread group relative -mx-4 block text-ink no-underline sm:-mx-7"
 		>
 			<video
-				class="block aspect-[4/3] w-full object-cover object-[70%_40%] md:aspect-[16/7]"
+				class="block aspect-video w-full object-cover"
 				src={spreadWork.clip}
 				data-poster={spreadWork.poster}
 				data-halftone="flat"
@@ -512,7 +519,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 				preload="none"
 				aria-hidden="true"
 			></video>
-			<span class="absolute bottom-6 left-4 bg-pink px-5 pt-3 pb-4 z-10 sm:left-7 max-md:relative max-md:inset-auto max-md:mx-4 max-md:-mt-8 max-md:block">
+			<span class="relative z-10 mx-4 -mt-10 block w-fit max-w-[calc(100%-2rem)] bg-pink px-5 pt-3 pb-4 sm:mx-7 md:-mt-16">
 				<span class="block font-display text-[clamp(2.25rem,5.5vw,4.75rem)] leading-[0.9] uppercase">
 					{spreadWork.name}{' '}
 					<em class="font-serif font-semibold normal-case">{spreadWork.accent}</em>
@@ -562,10 +569,10 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 		</SectionMasthead>
 		<a href={spreadTalk.href} class="spread group relative -mx-4 block no-underline sm:-mx-7">
 			<video
-				class="block aspect-[4/3] w-full object-cover object-[50%_0%] md:aspect-[21/9]"
+				class="block aspect-video w-full object-cover"
 				src={spreadTalk.clip}
 				data-poster={spreadTalk.poster}
-				data-halftone="dots"
+				data-halftone="flat"
 				data-morph={spreadTalk.href}
 				data-autoplay-in-view
 				data-phone-still
@@ -575,7 +582,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 				preload="none"
 				aria-hidden="true"
 			></video>
-			<span class="absolute bottom-6 left-4 bg-ink px-5 pt-3 pb-4 sm:left-7 max-md:static max-md:block">
+			<span class="relative z-10 mx-4 -mt-10 block w-fit max-w-[calc(100%-2rem)] bg-ink px-5 pt-3 pb-4 sm:mx-7 md:-mt-16">
 				<span class="block text-sm font-semibold text-pink">{spreadTalk.kicker}</span>
 				<span class="block font-display text-[clamp(2.25rem,5.5vw,4.75rem)] leading-[0.9] text-paper uppercase group-hover:text-pink">
 					The Art of{' '}
@@ -602,7 +609,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 							class="block aspect-video w-full rounded-lg object-cover"
 							src={t.clip}
 							data-poster={t.poster}
-							data-halftone="dots"
+							data-halftone="flat"
 							data-morph={t.href}
 							data-autoplay-in-view
 							data-phone-still
@@ -779,7 +786,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 					class="block min-h-[220px] w-full flex-1 object-cover"
 					src="/images/home/cat-wide.mp4"
 					data-poster="/images/home/cat-wide-poster.webp"
-					data-halftone="dots"
+					data-halftone="flat"
 					data-autoplay-in-view
 					data-phone-still
 					muted
