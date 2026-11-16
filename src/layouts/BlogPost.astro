@@ -210,8 +210,8 @@ const captionText =
 				data-post-category={categories?.[0]}
 				data-reading-time={readingTime}
 			>
-				<BackLink href={home.path} label={home.name} />
 				<div class="post-axis">
+					<BackLink href={home.path} label={home.name} />
 					<Masthead
 						title={title}
 						label={home.name}
@@ -251,7 +251,7 @@ const captionText =
 					</Masthead>
 				</div>
 				<div class="margin-column mx-auto max-w-(--reading-width)">
-					{/* Wide screens: "On this page" heads the right margin, over the citations */}
+					{/* Wide screens: "On this page" sticks in the left gutter (1600px+) or heads the right margin */}
 					{showToc && <TableOfContents headings={tocHeadings} />}
 					<slot name="margin" />
 					{updateNote && updatedDate && (

@@ -64,6 +64,22 @@ test.describe('Halftone', () => {
 		const label = (await video.getAttribute('aria-label'))!;
 		await expect(page.getByLabel(label, { exact: true })).toBeAttached();
 	});
+	test('a post masthead canvas spans the column like its picture, not the 856px cap', async ({
+		page,
+	}) => {
+		await stubRenderer(page, 'ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)');
+		await page.setViewportSize({ width: 1600, height: 1000 });
+		await page.goto('/blog/doom-mcp-server/');
+		const image = page.locator('.masthead img[data-halftone]');
+		const canvas = image.locator('xpath=following-sibling::canvas[1]');
+		await expect(canvas).toBeAttached();
+		const [imageBox, canvasBox] = [await image.boundingBox(), await canvas.boundingBox()];
+		expect(imageBox!.width).toBeGreaterThan(856);
+		// within a pixel: the canvas is placed from offsetTop, which rounds
+		for (const key of ['x', 'y', 'width', 'height'] as const)
+			expect(Math.abs(canvasBox![key] - imageBox![key])).toBeLessThan(1);
+	});
+
 	test('a lost WebGL context shows the originals, and pink comes back with it', async ({
 		page,
 	}) => {

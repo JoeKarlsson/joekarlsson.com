@@ -5,9 +5,9 @@ interface Props {
 const { headings } = Astro.props;
 ---
 
-<!-- Wide screens only: floated into the right margin of its .margin-column (global.css),
-where it heads the margin and scrolls away so the notes below show (About keeps it in view).
-Narrower screens get the folded list in the text. -->
+<!-- Wide screens only (global.css): from 1600px it sticks in the left gutter beside its
+.margin-column the whole way down; from 1280px it heads the right margin and scrolls away so
+the notes below show. About keeps it in its sidebar. Narrower screens get the folded list. -->
 <div class="margin-toc hidden xl:block">
 	<nav class="text-sm" id="toc-nav" aria-label="Table of contents">
 		<p class="mb-3 font-display text-xl text-paper uppercase">On this page</p>
@@ -59,6 +59,22 @@ Narrower screens get the folded list in the text. -->
 
 		let currentActive = -1;
 
+		// A long list in the sticky left-gutter nav (global.css) scrolls inside itself: bring
+		// the current section into its view. Not scrollIntoView, which can scroll the page too
+		const nav = document.getElementById('toc-nav');
+		const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+		function keepInView(link: HTMLAnchorElement) {
+			if (!nav || nav.scrollHeight <= nav.clientHeight) return;
+			const top =
+				link.getBoundingClientRect().top - nav.getBoundingClientRect().top + nav.scrollTop;
+			if (top >= nav.scrollTop && top + link.offsetHeight <= nav.scrollTop + nav.clientHeight)
+				return;
+			nav.scrollTo({
+				top: top - nav.clientHeight / 3,
+				behavior: reduceMotion.matches ? 'instant' : 'smooth',
+			});
+		}
+
 		function setActive(index: number) {
 			if (index === currentActive) return;
 
@@ -77,6 +93,7 @@ Narrower screens get the folded list in the text. -->
 				links[index].parentElement?.classList.add('border-pink');
 				// Screen readers get the "you are here" the pink shows
 				links[index].setAttribute('aria-current', 'location');
+				keepInView(links[index]);
 			}
 
 			currentActive = index;

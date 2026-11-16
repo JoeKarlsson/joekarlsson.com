@@ -141,6 +141,8 @@ const layer = document.querySelector<HTMLElement>('.margin-doodles');
 if (layer) {
 	const wide = matchMedia(`(min-width: ${layer.dataset.from}px)`);
 	const thread = layer.hasAttribute('data-thread');
+	// "On this page" follows the reader down the left gutter (global.css), so doodles keep right
+	const leftToc = document.querySelector('.margin-column > .margin-toc') !== null;
 	layer.hidden = false;
 	const random = seededRandom(
 		[...location.pathname].reduce((sum, c) => (sum * 31 + c.charCodeAt(0)) | 0, 7),
@@ -173,7 +175,7 @@ if (layer) {
 		const color = random() < 0.55 ? CHALK : PINK;
 		// Drawn either way, so a page's layout doesn't change with the thread
 		const coin = random() < 0.5 ? 'left' : 'right';
-		const side = thread ? 'right' : coin;
+		const side = thread || leftToc ? 'right' : coin;
 		const top = Math.max(cursor, nextFree[side]);
 		// Fraction of the margin's free width, from the window edge (0) to the text (1)
 		const across = random().toFixed(3);

@@ -95,8 +95,7 @@ if (madeDiagram && !diagram)
 // pictures, embeds and grids break out to the article's full width (prose wide-media). On
 // wide screens the column carries a right margin (--margin-col, global.css), so the
 // break-out centers on the column plus that margin, or it slides left under the spine
-const WIDE =
-	'width: 100cqw; margin-inline: calc((100% + var(--margin-col, 0px) - 100cqw) / 2) calc((100% - var(--margin-col, 0px) - 100cqw) / 2)';
+// (.work-wide, global.css)
 
 // The year and any collaborator; a page with a How it's made section lists its stack there
 const byline = [project.date.slice(0, 4), page.credit, !page.made && project.tech.join(', ')];
@@ -269,7 +268,7 @@ const sections = [
 									Open it full screen &rarr;
 								</a>
 							</p>
-							<div style={WIDE}>
+							<div class="work-wide">
 								{/* Phones get the still, linking to the full-screen version: scaled to a phone's
 								width an embed's text can't be read, and the games want a keyboard and mouse.
 								A light embed that reads at phone size sets embedOnPhones and plays there too */}
@@ -381,8 +380,11 @@ const sections = [
 								<p class="mb-5 text-paper" set:html={inlineMarkdown(page.galleryNote)} />
 							)}
 							<div
-								class={square ? 'grid gap-5' : 'grid gap-x-6 gap-y-8 sm:grid-cols-2'}
-								style={`${WIDE}${gridStyle ? `; ${gridStyle}` : ''}`}
+								class:list={[
+									'work-wide',
+									square ? 'grid gap-5' : 'grid gap-x-6 gap-y-8 sm:grid-cols-2',
+								]}
+								style={gridStyle}
 							>
 								{page.gallery.map((clip) => (
 									<figure class="m-0">
@@ -428,7 +430,7 @@ const sections = [
 							<h2 id="screenshots" class={ARTICLE_HEADING}>
 								{page.screenshotsTitle ?? 'Screenshots'}
 							</h2>
-							<div class="grid gap-4" style={WIDE}>
+							<div class="work-wide grid gap-4">
 								{page.screenshots.map((shot) => (
 									<figure class="m-0">
 										<img

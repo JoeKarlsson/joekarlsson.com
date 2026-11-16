@@ -838,13 +838,19 @@ header nav .sticker {
 		@apply fixed top-0 bottom-0 left-0 z-40 block overflow-hidden border-r border-surface-3 bg-ink;
 		width: var(--spine-w);
 	}
+	/* The letters sit the same distance from the top and both sides of the rail. Anton's
+	   capitals fill 0.873em of the 1em line, 0.06em in from one side and with 0.025em of
+	   bearing before the first letter, so it's the ink that gets centered, not the box
+	   (measured in Firefox, Chromium and WebKit) */
 	.spine-label {
 		@apply block font-display leading-none font-normal whitespace-nowrap text-pink uppercase;
-		margin: 16px auto;
 		writing-mode: vertical-rl;
 		rotate: 180deg;
 		/* Short windows shrink it, so "Joe Karlsson" still fits top to bottom */
 		font-size: min(118px, 14dvh);
+		--spine-gap: calc((var(--spine-w) - 1px - 0.873em) / 2);
+		margin-top: calc(var(--spine-gap) - 0.025em);
+		margin-left: calc(var(--spine-gap) - 0.06em);
 	}
 }
 
@@ -922,6 +928,55 @@ header nav .sticker {
 		width: 15rem;
 		margin-right: calc(-1 * var(--margin-col));
 	}
+}
+/* A project page's pictures, embeds and grids break out to the article's full width (work/[slug]) */
+.work-wide {
+	width: 100cqw;
+	margin-inline: calc((100% + var(--margin-col, 0px) - 100cqw) / 2)
+		calc((100% - var(--margin-col, 0px) - 100cqw) / 2);
+}
+/* Where the left gutter has room for it (2026-11-16, Joe: "stick to where you are as you
+   scroll... keep the notation on the right"), "On this page" moves left of the text and
+   follows you down the whole page; the margin notes keep the right side to themselves.
+   The box spans the column so the list inside can stick from top to bottom */
+@media (width >= 100rem) {
+	.margin-column {
+		position: relative;
+	}
+	.margin-column > .margin-toc {
+		position: absolute;
+		inset-block: 0;
+		/* the base rule's self-start would keep it content height */
+		align-self: stretch;
+		float: none;
+		width: 12rem;
+		margin: 0;
+		left: -14.5rem;
+	}
+	/* Beside it, a project's wide pictures start at the text's edge and run into the right
+	   margin instead, so they don't slide under the list */
+	.margin-column:has(> .margin-toc) .work-wide {
+		width: calc(100% + var(--margin-col));
+		margin-inline: 0;
+	}
+	.margin-column > .margin-toc > nav {
+		position: sticky;
+		top: 6rem;
+		max-height: calc(100dvh - 7rem);
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		/* room for the focus ring, which a scroll box would clip */
+		padding: 4px;
+	}
+	/* A long list scrolls under its heading, which stays put (the -4px undoes the padding) */
+	.margin-column > .margin-toc > nav > p:first-child {
+		position: sticky;
+		top: -4px;
+		z-index: 1;
+		background: theme('colors.ink');
+	}
+}
+@media (width >= 80rem) {
 	.prose .margin-note {
 		@apply block border-t border-surface-4 pt-2 pb-2 font-sans text-sm leading-snug text-muted;
 		float: right;
@@ -1136,7 +1191,7 @@ header nav .sticker {
 		max-width: calc(var(--reading-width) + 18rem);
 		margin-inline: auto;
 	}
-	.post-axis .masthead :is(img, video) {
+	.post-axis .masthead :is(img, video, canvas) {
 		max-width: none;
 	}
 	/* The caption keeps the text's measure, on the shared left edge */
