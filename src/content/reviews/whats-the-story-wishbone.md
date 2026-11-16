@@ -26,9 +26,11 @@ poster: '/images/reviews/whats-the-story-wishbone/poster.webp'
 
 A warm documentary about a show that deserved a slightly more searching and intersting one.
 
-The show was my entry point to the Western canon - Don Quixote, The Odyssey, Dickens - before I had any idea why those books mattered or who had decided they did. Wishbone made them feel like adventures, and I've been slowly catching up with the originals since.
+[The show](<https://en.wikipedia.org/wiki/Wishbone_(TV_series)>) was my entry point to the Western canon - Don Quixote, The Odyssey, Dickens - before I had any idea why those books mattered or who had decided they did. Wishbone made them feel like adventures, and I've been slowly catching up with the originals since.
 
 The film is warm and it moves along, but 89 minutes is a lot when everyone's having a good time and nobody has any regrets. I skipped around. It handles everything gently.
+
+![Soccer, the Jack Russell who played Wishbone, sits in costume and a straw hat on a sack in a dirt courtyard set while a camera crew shoots him and a tennis ball on a pole hangs above the scene.](/images/reviews/whats-the-story-wishbone/soccer-on-set-tennis-ball.webp)
 
 What I kept thinking about wasn't the documentary at all. It was what I would look like without those early exposures to books, which shows planted seeds I didn't notice until much later. Wishbone is one of them. Probably more than one.
 

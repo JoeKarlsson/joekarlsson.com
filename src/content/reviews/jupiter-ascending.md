@@ -35,13 +35,13 @@ heroAlt: 'Poster art of Channing Tatum and Mila Kunis standing on a futuristic c
 
 Channing Tatum plays a shirtless wolf man on roller skates and Eddie Redmayne whisper-screams about bureaucracy. This should be perfect but it's just... fine.
 
-I want to respect this film and there are parts I really admire. This is an audacious, wildly expensive, ambitious sci-fi opera made by some of the most creative sci-fi visionaries of our lifetime - and yet it still feels boring and drags in places. That shouldn't be possible, but here we are.
+I want to respect this film and there are parts I really admire. This is an audacious, wildly expensive, ambitious sci-fi opera made by some of the most creative [sci-fi visionaries](/reviews/the-matrix/) of our lifetime - and yet it still feels boring and drags in places. That shouldn't be possible, but here we are.
 
-I know they filmed a lot of this practically. That famous Chicago gravity-surfing sequence? They spent six months capturing real light and real locations to make it feel tangible. And that effort does not translate to the final product at all. It looks like CGI nonsense that could have been filmed entirely in a green screen studio. All that work and care, completely invisible. That's heartbreaking.
+I know they filmed a lot of this practically. That famous Chicago gravity-surfing sequence? They spent six months capturing real light and real locations to make it feel tangible. Double Negative's David Vickery remembers flying helicopter camera rigs over Chicago before sunrise, ["waiting for that perfect 30 minutes of light."](https://www.fxguide.com/fxfeatured/shooting-and-stitching-making-jupiter-ascendings-chicago-chase/) And that effort does not translate to the final product at all. It looks like CGI nonsense that could have been filmed entirely in a green screen studio. All that work and care, completely invisible. That's heartbreaking.
 
-This is like Star Wars but with way, way, way more exposition. Characters stop every five minutes to explain the universe-building, the economics of immortality, the genetic hierarchies. It grinds the momentum to a halt. I probably would have loved this when I was 9 years old - the spectacle and world-building would have blown my mind. But as an adult, it doesn't grab my attention the way it should.
+This is like [Star Wars](https://letterboxd.com/film/star-wars/) but with way, way, way more exposition. Characters stop every five minutes to explain the universe-building, the economics of immortality, the genetic hierarchies. It grinds the momentum to a halt. I probably would have loved this when I was 9 years old - the spectacle and world-building would have blown my mind. But as an adult, it doesn't grab my attention the way it should.
 
-I do love some of the underlying themes though. The Wachowskis are always interested in togetherness, empathy, and connection across humanity, and that's present here.
+I do love some of the underlying themes though. [The Wachowskis](/reviews/speed-racer-1/) are always interested in togetherness, empathy, and connection across humanity, and that's present here.
 
 Okay, let's talk about the performances. Mila Kunis is a bit dry. She's playing the audience surrogate - the normal person thrown into this insane universe - and she never quite sells the wonder or terror of it. I didn't love her here.
 

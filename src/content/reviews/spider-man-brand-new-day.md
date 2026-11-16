@@ -21,11 +21,25 @@ heroAlt: 'Spider-Man leaping between skyscrapers on a web line, with a masked fi
 
 Was anyone else confused that Max from Stranger Things spent this whole movie looking for V-Max?
 
-Finally, a sad Spider-Man without tons of crazy Tony Stark tech. I like my Spider-Man broke, lonely, and stuck somewhere in the middle of puberty, and Brand New Day gets him back there.
+![Sadie Sink, sweaty and wide-eyed, in front of a blur of glowing machinery, with the subtitle "Tell me what V-Max is."](/images/reviews/spider-man-brand-new-day/tell-me-what-v-max-is.webp)
 
-Peter is fighting crime full time in a city that doesn't remember him, watching MJ and Ned move on without him. That's the Spider-Man I want. Holland is good at sad.
+Finally, a sad Spider-Man without tons of crazy Tony Stark tech.
+
+![Spider-Man in the gold-trimmed Iron Spider suit with glowing eyes, sitting between NYPD officers.](/images/reviews/spider-man-brand-new-day/iron-spider-then-homemade-suit-1.webp) ![Spider-Man in a plain red and blue suit on a rooftop at sunset by the Queensboro Bridge.](/images/reviews/spider-man-brand-new-day/iron-spider-then-homemade-suit-2.webp)
+
+_The Iron Spider suit in Sony Pictures' trailer for Spider-Man: Far From Home, and the homemade suit here._
+
+I like my Spider-Man broke, lonely, and stuck somewhere in the middle of puberty, and Brand New Day gets him back there.
+
+Peter is fighting crime full time in a city that doesn't remember him, watching MJ and Ned move on without him.
+
+![Peter in a hoodie looking across a crowded house party.](/images/reviews/spider-man-brand-new-day/peter-watches-mj-and-ned-at-the-party-1.webp) ![MJ, her back to the camera, and Ned laughing in the kitchen with other friends.](/images/reviews/spider-man-brand-new-day/peter-watches-mj-and-ned-at-the-party-2.webp)
+
+That's the Spider-Man I want. Holland is good at sad.
 
 The action is the best of the Tom Holland Spider-Man movies. Destin Daniel Cretton made Shang-Chi, and he stages these fights like Hong Kong action, which suits a hero whose whole deal is flipping around people in tight spaces.
+
+![Spider-Man kicks and flips through a crowd of red-hooded fighters in a prison cell block.](/images/reviews/spider-man-brand-new-day/spider-man-fights-in-the-prison-block.webp)
 
 The weird part is how fake the whole thing looks. Almost every scene seemed like it was shot on a green screen. Then I watched the behind-the-scenes footage and a lot of it wasn't, which I still can't wrap my head around. Real sets, and somehow it looks like a render.
 
