@@ -15,7 +15,7 @@ heroAlt: "A souvenir postcard from the 1939 World's Fair"
 updatedDate: 2026-11-16
 corrections:
   - date: 2026-11-16
-    note: 'I quoted Pluralsight as saying "full fluency - get everybody speaking cloud." The article doesn''t say that. The quote is now its actual sentence.'
+    note: 'I quoted Pluralsight as saying "full fluency - get everybody speaking cloud." The article doesn''t say that. The line now paraphrases what it does say.'
 marginNotes:
   - type: 'see'
     at: 'to eliminate manual gates'
@@ -64,7 +64,7 @@ The model is shifting from CoE as a committee to CoE as a platform/product team 
 
 A continual challenge noted is [the lack of skilled cloud talent in many organizations](https://www.pluralsight.com/resources/blog/cloud/why-central-cloud-teams-fail-and-how-to-save-yours). Early on, CCOEs were often a small group of the few experts available. The trend has been for CoEs to function as talent multipliers, training more staff to be cloud-proficient.
 
-Many companies have launched internal "Cloud Academy" programs under the auspices of the CoE. [Pluralsight's advice resonates strongly: "The only way I know of to save the central cloud team's sanity and speed up cloud adoption is comprehensive fluency."](https://www.pluralsight.com/resources/blog/cloud/why-central-cloud-teams-fail-and-how-to-save-yours)
+Many companies have launched internal "Cloud Academy" programs under the auspices of the CoE. [Pluralsight argues that the only way to keep a central cloud team sane and speed up adoption is to get everyone fluent in cloud.](https://www.pluralsight.com/resources/blog/cloud/why-central-cloud-teams-fail-and-how-to-save-yours)
 
 Techniques like [rotating CoE experts through product teams (embedding for a few months) and requiring baseline certifications for all engineers are increasingly common](https://www.pluralsight.com/resources/blog/cloud/why-central-cloud-teams-fail-and-how-to-save-yours). This trend reflects a broader shift: rather than central cloud gurus doing all the work, organizations want **cloud knowledge democratized**.
 
