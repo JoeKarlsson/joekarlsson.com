@@ -29,6 +29,8 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 - 2026-11-15: Homepage round 2 (~/mockups/joekarlsson-zine/round2.html): Joe picked B, Loud graphic (each section opens with a giant Anton word and a real number over a thick rule; lead post plus sidebar; works grid with one-liners; topics as a bar chart), over A Quiet monograph and C Image-first. Film reviews and talks are separate sections, never mixed in one "On screen" block. By topic is open to rethinking.
 
+- 2026-11-15: Homepage round 3 (~/mockups/joekarlsson-zine/round3.html): Joe approved all seven changes to B: topics as a link row in the Writing header; By topic replaced by Most read (bar chart of readers from the Plausible popular-posts data); newsletter moved up after the writing and pull quote; "Ship the ugly pot" leads straight into Works; Talks as its own section (stats strip, the three Start here picks, latest talk); Reviews as its own section led by the newest review's one-liner; the page ends Reviews, Make a mark, Around the house. Around the house is being rethought as an odds-and-ends section.
+
 ## Playful details
 
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.
