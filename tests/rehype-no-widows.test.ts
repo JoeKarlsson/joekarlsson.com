@@ -12,6 +12,7 @@ const render = async (markdown: string) => (await processor.render(markdown)).co
 describe('rehype-no-widows', () => {
 	it('joins a short last word to the one before it', async () => {
 		expect(await render('It got cheaper.')).toBe(`<p>It got${NBSP}cheaper.</p>`);
+		expect(await render('It got\ncheaper.')).toBe(`<p>It got${NBSP}cheaper.</p>`);
 	});
 
 	it('reaches the last text inside a link, and leaves long words and code alone', async () => {

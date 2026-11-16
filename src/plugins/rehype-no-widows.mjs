@@ -30,7 +30,7 @@ function lastText(node) {
 }
 
 export function joinLastWord(text) {
-	const match = /^([\s\S]*\S)[ ]+(\S+\s*)$/.exec(text);
+	const match = /^([\s\S]*\S)[ \t\n]+(\S+\s*)$/.exec(text);
 	if (!match || match[2].trim().length >= LONGEST_WORD) return text;
 	return `${match[1]}\u00A0${match[2]}`;
 }
