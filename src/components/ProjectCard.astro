@@ -1,6 +1,6 @@
 ---
 import type { Project } from '../data/projects';
-import { cardClip, cardHalftone } from '../utils/halftone';
+import { cardClip, halftoneMode } from '../utils/halftone';
 import HoverBox from './HoverBox.astro';
 import MetaParts from './MetaParts.astro';
 
@@ -77,7 +77,7 @@ const metaLine = [
 					src={still.src}
 					alt={still.alt}
 					data-morph={morph}
-					data-halftone={cardHalftone(still.src)}
+					data-halftone={halftoneMode(still.src)}
 					width="560"
 					height="315"
 					sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 112px"

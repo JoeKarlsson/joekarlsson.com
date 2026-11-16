@@ -13,7 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { parse } from 'yaml';
 import { DEFAULT_HERO_IMAGE } from '../consts.ts';
-import { cardHalftone } from '../utils/halftone.ts';
+import { halftoneMode } from '../utils/halftone.ts';
 import { localImageSize } from '../utils/image-size.mjs';
 
 const BLOG_DIR = path.resolve('src/content/blog');
@@ -71,7 +71,7 @@ function previewCard(id, post) {
 					loading: 'lazy',
 					sizes: '16rem',
 					// the same pink pass as the post's card in a list
-					dataHalftone: cardHalftone(post.image),
+					dataHalftone: halftoneMode(post.image),
 				},
 				children: [],
 			},

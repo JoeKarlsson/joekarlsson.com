@@ -19,7 +19,7 @@ import nowFeed from '../data/now-feed.json';
 import popularPosts from '../data/popular-posts.json';
 import { getCategoryCounts } from '../utils/categories';
 import { getFeedPosts, getPinnedPost, isOwnPost } from '../utils/posts';
-import { cardClip, cardHalftone } from '../utils/halftone';
+import { cardClip, halftoneMode } from '../utils/halftone';
 import { oneLiner, reviewStats } from '../utils/review-stats';
 import { terminalCard, terminalRuns } from '../utils/terminal-card';
 import { stars } from '../../scripts/update-reviews.mjs';
@@ -327,7 +327,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 						data-morph={leadPost.href}
 						src={leadPost.data.heroImage || DEFAULT_HERO_IMAGE}
 						alt=""
-						data-halftone={cardHalftone(leadPost.data.heroImage || DEFAULT_HERO_IMAGE)}
+						data-halftone={halftoneMode(leadPost.data.heroImage || DEFAULT_HERO_IMAGE)}
 						sizes="(min-width: 768px) 60vw, 100vw"
 						decoding="async"
 						class="block aspect-[16/10] w-full object-cover"
@@ -375,7 +375,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 									data-morph={post.href}
 									src={post.data.heroImage || DEFAULT_HERO_IMAGE}
 									alt=""
-									data-halftone={cardHalftone(post.data.heroImage || DEFAULT_HERO_IMAGE)}
+									data-halftone={halftoneMode(post.data.heroImage || DEFAULT_HERO_IMAGE)}
 									sizes="(min-width: 768px) 30vw, 100vw"
 									loading="lazy"
 									decoding="async"

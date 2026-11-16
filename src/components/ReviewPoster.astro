@@ -1,7 +1,7 @@
 ---
 // One film on a poster wall: poster, stars, title and year, linking to its review.
 import type { CollectionEntry } from 'astro:content';
-import { cardHalftone } from '../utils/halftone';
+import { halftoneMode } from '../utils/halftone';
 import { stars } from '../../scripts/update-reviews.mjs';
 
 interface Props {
@@ -30,7 +30,7 @@ const { title, year, rating, poster, slug } = Astro.props.review.data;
 				src={poster}
 				alt=""
 				aria-hidden="true"
-				data-halftone={cardHalftone(poster)}
+				data-halftone={halftoneMode(poster)}
 				width="400"
 				height="600"
 				loading="lazy"

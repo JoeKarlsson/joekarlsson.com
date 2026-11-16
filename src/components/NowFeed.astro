@@ -11,7 +11,7 @@ import { antonWidthInEm } from '../utils/anton-width';
 import nowFeed from '../data/now-feed.json';
 import { getCollection } from 'astro:content';
 import { truncateAtWord } from '../../scripts/now-feed-parsing.mjs';
-import { cardHalftone } from '../utils/halftone';
+import { halftoneMode } from '../utils/halftone';
 import { stripDayLabels } from '../utils/strip-days';
 
 const { updatedAt, shippingWindowDays, shippedRepos, podcastEpisodes } = nowFeed;
@@ -146,7 +146,7 @@ function ratingStars(rating: number) {
 							width="200"
 							height="300"
 							loading="lazy"
-							data-halftone={cardHalftone(film.poster)}
+							data-halftone={halftoneMode(film.poster)}
 							class="block w-full rounded-lg"
 						/>
 						<HoverBox index={i} />

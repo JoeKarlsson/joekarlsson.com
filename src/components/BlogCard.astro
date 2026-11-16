@@ -7,7 +7,7 @@
 // as many posts.
 import { DEFAULT_HERO_IMAGE } from '../consts';
 import { formatDate } from '../utils/ui';
-import { cardHalftone } from '../utils/halftone';
+import { halftoneMode } from '../utils/halftone';
 import { CHALK, MARKS } from '../data/scribbles';
 import HoverBox from './HoverBox.astro';
 import Scribble from './Scribble.astro';
@@ -75,7 +75,7 @@ const formattedDate = formatDate(date);
 			src={image}
 			alt=""
 			aria-hidden="true"
-			data-halftone={cardHalftone(image)}
+			data-halftone={halftoneMode(image)}
 			width="560"
 			height="315"
 			sizes="(min-width: 640px) 280px, 112px"

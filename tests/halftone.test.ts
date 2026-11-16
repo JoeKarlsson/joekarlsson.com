@@ -3,7 +3,7 @@ import { existsSync, statSync } from 'fs';
 import { join } from 'path';
 import { projects } from '../src/data/projects';
 import imagesWithText from '../src/data/images-with-text.json';
-import { cardClip, cardHalftone, halftoneMode } from '../src/utils/halftone';
+import { cardClip, halftoneMode } from '../src/utils/halftone';
 
 // /work autoplays every card clip in view; together they must fit its 1.5MB page budget
 const MAX_CARD_CLIP_BYTES = 450 * 1024;
@@ -15,12 +15,11 @@ describe('halftoneMode', () => {
 
 	it('leaves generated work-post thumbnails alone, everywhere', () => {
 		expect(halftoneMode('/images/blog/soc2/thumb-0a1b2c3d.webp')).toBeUndefined();
-		expect(cardHalftone('/images/blog/soc2/thumb-0a1b2c3d.webp')).toBeUndefined();
-		expect(cardHalftone('/images/blog/soc2/thumbnail.webp')).toBe('flat');
+		expect(halftoneMode('/images/blog/soc2/thumbnail.webp')).toBe('flat');
 		expect(halftoneMode('/images/blog/soc2/nested/thumb-0a1b2c3d.webp')).toBe('flat');
 		// Boiling diagram cards for projects are animated; a live canvas copy would freeze them
-		expect(cardHalftone('/images/projects/data-structures/thumb-0a1b2c3d.webp')).toBeUndefined();
-		expect(cardHalftone('/images/projects/data-structures.webp')).toBe('flat');
+		expect(halftoneMode('/images/projects/data-structures/thumb-0a1b2c3d.webp')).toBeUndefined();
+		expect(halftoneMode('/images/projects/data-structures.webp')).toBe('flat');
 	});
 
 	it("leaves /talks/' pre-graded covers and posters alone, but not other video posters", () => {

@@ -17,7 +17,7 @@ import {
 	TEXT_LINK,
 } from '../utils/ui';
 import { SOCIAL_LINKS } from '../consts';
-import { cardClip, cardHalftone } from '../utils/halftone';
+import { cardClip, halftoneMode } from '../utils/halftone';
 
 const selected = SELECTED_WORKS.map((title) => {
 	const project = projects.find((p) => p.title === title);
@@ -139,7 +139,7 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 									<img
 										src={project.card?.src ?? project.image}
 										alt={project.card?.alt ?? project.imageAlt}
-										data-halftone={cardHalftone(project.card?.src ?? project.image)}
+										data-halftone={halftoneMode(project.card?.src ?? project.image)}
 										width="1120"
 										height="630"
 										class="block aspect-video w-full object-cover"

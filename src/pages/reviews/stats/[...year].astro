@@ -26,7 +26,7 @@ import {
 	PAGE_CONTAINER,
 	formatDate,
 } from '../../../utils/ui';
-import { cardHalftone } from '../../../utils/halftone';
+import { halftoneMode } from '../../../utils/halftone';
 import { jsonForScript } from '../../../utils/json-for-script';
 import { oneLiner, reviewStats, reviewYears, type StatsReview } from '../../../utils/review-stats';
 import { stars } from '../../../../scripts/update-reviews.mjs';
@@ -135,7 +135,7 @@ const milestones = [
 						src={hero.heroImage ?? hero.poster}
 						alt=""
 						aria-hidden="true"
-						data-halftone={cardHalftone((hero.heroImage ?? hero.poster)!)}
+						data-halftone={halftoneMode((hero.heroImage ?? hero.poster)!)}
 						width="1200"
 						height="675"
 						sizes="(min-width: 768px) 50vw, 100vw"

@@ -9,7 +9,7 @@ import HoverBox from '../../components/HoverBox.astro';
 import Scribble from '../../components/Scribble.astro';
 import { CHALK, MARKS } from '../../data/scribbles';
 import { HERO_LEAD, MORE_LINK, PAGE_CONTAINER, formatDate } from '../../utils/ui';
-import { cardHalftone } from '../../utils/halftone';
+import { halftoneMode } from '../../utils/halftone';
 import { stars } from '../../../scripts/update-reviews.mjs';
 
 const reviews = (await getCollection('reviews')).sort(
@@ -47,7 +47,7 @@ const firstYear = Math.min(...reviews.map((r) => r.data.date.getUTCFullYear()));
 						src={newest.data.heroImage}
 						alt=""
 						aria-hidden="true"
-						data-halftone={cardHalftone(newest.data.heroImage!)}
+						data-halftone={halftoneMode(newest.data.heroImage!)}
 						width="1200"
 						height="675"
 						sizes="(min-width: 768px) 50vw, 100vw"
