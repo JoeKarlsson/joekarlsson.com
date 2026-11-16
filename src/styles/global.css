@@ -158,8 +158,7 @@
 		@apply top-auto right-auto bottom-full left-0 mr-0;
 	}
 }
-.prose .heading-group:hover .heading-anchor,
-.prose .heading-anchor:focus-visible {
+.prose .heading-group:hover .heading-anchor {
 	@apply opacity-100 text-pink;
 }
 .prose h1,
@@ -1094,17 +1093,20 @@ header nav .sticker {
    pseudo-element doesn't count, with negative margins so the line doesn't move */
 .prose :is(.margin-note b, .mn-num) a {
 	display: inline-block;
+	box-sizing: border-box;
 	min-width: 24px;
 	min-height: 24px;
-	margin-block: -4px;
-	margin-inline: -6px;
-	line-height: 24px;
+	padding: 4px 6px;
+	margin: -4px -6px;
 	text-align: center;
-	vertical-align: middle;
+	vertical-align: baseline;
 }
-/* A lit or held note's number turns into a pink chip, a change every kind of note shows */
-.prose .margin-note.is-lit b a {
-	@apply bg-pink px-0.5 text-ink;
+/* A lit or held note's number turns into a pink chip, a change every kind of note shows;
+   the chip hugs the digit, not the whole 24px target */
+.prose .margin-note.is-lit b a,
+.prose .mn-num a.is-lit {
+	@apply bg-pink text-ink;
+	background-clip: content-box;
 }
 .prose .mn-quote {
 	@apply border-t-2 border-pink;

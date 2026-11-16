@@ -141,8 +141,9 @@ const layer = document.querySelector<HTMLElement>('.margin-doodles');
 if (layer) {
 	const wide = matchMedia(`(min-width: ${layer.dataset.from}px)`);
 	const thread = layer.hasAttribute('data-thread');
-	// "On this page" follows the reader down the left gutter (global.css), so doodles keep right
-	const leftToc = document.querySelector('.margin-column > .margin-toc') !== null;
+	// Where doodles draw (1600px+), "On this page" is on the left: in the gutter on posts and
+	// project pages, in the grid's left column on About. So doodles keep right
+	const leftToc = document.querySelector('.margin-toc') !== null;
 	layer.hidden = false;
 	const random = seededRandom(
 		[...location.pathname].reduce((sum, c) => (sum * 31 + c.charCodeAt(0)) | 0, 7),
