@@ -5,7 +5,6 @@ import sharp from 'sharp';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import rehypeImageDimensions, {
 	POST_IMAGE_SIZES,
-	WIDE_IMAGE_SIZES,
 } from '../src/plugins/rehype-image-dimensions.mjs';
 
 type HastNode = {
@@ -63,18 +62,10 @@ describe('rehype-image-dimensions', () => {
 		expect(sized).toEqual({ src: '/photo%20one.webp', width: '300', sizes: POST_IMAGE_SIZES });
 	});
 
-	it('marks only big 16:9-ish images wide, so a picture is never in between', async () => {
-		const [wide, narrowShape, tooSmall, portrait] = await run(
-			img({ src: '/photo%20one.webp', width: 1600, height: 900 }),
-			img({ src: '/photo%20one.webp', width: 1600, height: 1000 }),
-			img({ src: '/photo%20one.webp' }),
-			img({ src: '/photo%20one.webp', width: 900, height: 1600 }),
-		);
-		expect(wide).toMatchObject({ className: ['wide'], sizes: WIDE_IMAGE_SIZES });
-		for (const props of [narrowShape, tooSmall, portrait]) {
-			expect(props.className).toBeUndefined();
-			expect(props.sizes).toBe(POST_IMAGE_SIZES);
-		}
+	it('gives a wide picture the column width too, since none shows wider', async () => {
+		const [wide] = await run(img({ src: '/photo%20one.webp', width: 1600, height: 900 }));
+		expect(wide.className).toBeUndefined();
+		expect(wide.sizes).toBe(POST_IMAGE_SIZES);
 	});
 
 	it('fails the build on a local image that does not exist', async () => {

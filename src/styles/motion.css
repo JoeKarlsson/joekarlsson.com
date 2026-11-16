@@ -945,28 +945,4 @@ footer:has(.newsletter-signup:focus-within) .echo > span {
 			--highlight 0.3s var(--ease-enter),
 			color 0.3s var(--ease-enter); /* darkens with the fill, never ahead of it */
 	}
-
-	/* A post's first photo pastes down onto the page as it scrolls in: it drops from a lifted,
-	   turned position into place. Scroll-linked, so scrolling back lifts it off again. Wide
-	   screens only, never while motion is paused */
-	@supports (animation-timeline: view()) {
-		@media (width >= 48rem) {
-			html:not(.motion-paused) .prose > :nth-child(1 of p:has(> img)) > img {
-				/* Longhands: LightningCSS folds a timeline into the shorthand, which browsers drop */
-				animation-name: paste-down;
-				animation-timing-function: linear;
-				animation-fill-mode: both;
-				animation-timeline: view();
-				animation-range: entry 5% entry 90%;
-			}
-		}
-	}
-	@keyframes paste-down {
-		from {
-			opacity: var(--fade-from);
-			translate: 24px 0;
-			rotate: 8deg;
-			scale: 1.08;
-		}
-	}
 }
