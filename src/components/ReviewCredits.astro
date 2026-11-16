@@ -1,0 +1,68 @@
+---
+// A film's credits beside its review, from the Letterboxd data the import saved
+// (scripts/update-reviews.mjs): poster, stars beside Letterboxd's average, director, cast,
+// running time, country and studios. reviews/[slug].astro puts one in the right margin on
+// wide screens and one after the review below that (global.css .review-credits).
+import type { CollectionEntry } from 'astro:content';
+import { stars } from '../../scripts/update-reviews.mjs';
+
+interface Props {
+	review: CollectionEntry<'reviews'>;
+	placement: 'margin' | 'end';
+}
+
+const { review, placement } = Astro.props;
+const {
+	title,
+	year,
+	rating,
+	letterboxdAverage,
+	director,
+	cast,
+	runtime,
+	countries,
+	language,
+	studios,
+	poster,
+	letterboxdUrl,
+} = review.data;
+const hours = runtime ? Math.floor(runtime / 60) : 0;
+const credits = [
+	['Directed by', director],
+	['Cast', cast.slice(0, 4).join(', ')],
+	['Running time', runtime && (hours ? `${hours} hr ${runtime % 60} min` : `${runtime} min`)],
+	['Country', [countries.join(', '), language].filter(Boolean).join(' · ')],
+	['Studios', studios.slice(0, 2).join(', ')],
+].filter(([, value]) => value);
+---
+
+<aside class={`review-credits review-credits-${placement}`} aria-label={`${title} credits`}>
+	{poster && <img src={poster} alt="" width="400" height="600" loading="lazy" decoding="async" />}
+	<div>
+		<p class="review-credits-title">
+			{title} <span>{year}</span>
+		</p>
+		{(rating || letterboxdAverage) && (
+			<p class="review-credits-stars">
+				{rating && (
+					<span class="text-pink">
+						<span aria-hidden="true">{stars(rating)}</span>
+						<span class="sr-only">My rating: {rating} out of 5.</span>
+					</span>
+				)}
+				{letterboxdAverage && <span>Letterboxd average {letterboxdAverage.toFixed(1)}</span>}
+			</p>
+		)}
+		<dl>
+			{credits.map(([label, value]) => (
+				<>
+					<dt>{label}</dt>
+					<dd>{value}</dd>
+				</>
+			))}
+		</dl>
+		<a href={letterboxdUrl} class="review-credits-link">
+			On Letterboxd &rarr;
+		</a>
+	</div>
+</aside>

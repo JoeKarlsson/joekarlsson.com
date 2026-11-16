@@ -31,7 +31,7 @@ If David Lynch made E.T. for [$60,000](https://en.wikipedia.org/wiki/Xtro) in a 
 
 It's [Close Encounters](https://letterboxd.com/film/close-encounters-of-the-third-kind/) for horny moms and dads. Dad gets sucked up by a bright light, then comes back three years later to find his wife living with a new boyfriend.
 
-![Two frames: a father and his young son in the garden at night, shielding their eyes from a light off screen, then a column of white light coming down onto a country road at night.](/images/reviews/xtro/abduction-light-then-close-encounters.webp)
+![A father and his young son in the garden at night, shielding their eyes from a light off screen.](/images/reviews/xtro/abduction-light-then-close-encounters-1.webp 'Xtro · 1982') ![A column of white light coming down onto a country road at night.](/images/reviews/xtro/abduction-light-then-close-encounters-2.webp 'Close Encounters of the Third Kind · 1977')
 
 _Xtro's garden abduction, next to the light on the road in Close Encounters of the Third Kind from Sony Pictures' official trailer._
 

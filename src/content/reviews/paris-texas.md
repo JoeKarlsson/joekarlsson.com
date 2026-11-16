@@ -29,7 +29,7 @@ heroAlt: 'A still from Paris, Texas (1984)'
 
 Paris, Texas is [The Searchers](/reviews/the-searchers/) ||if John Wayne decided at the end that actually, he's not equipped to bring anyone home, including himself||.
 
-![Two frames: John Wayne's Ethan Edwards seen through a dark doorway, walking away into the desert at the end of The Searchers, and Travis alone beside his truck on a green-lit parking garage roof at the end of Paris, Texas.](/images/reviews/paris-texas/walking-away.webp 'spoiler')
+![John Wayne's Ethan Edwards seen through a dark doorway, walking away into the desert at the end of The Searchers.](/images/reviews/paris-texas/walking-away-1.webp 'spoiler') ![Travis alone beside his truck on a green-lit parking garage roof at the end of Paris, Texas.](/images/reviews/paris-texas/walking-away-2.webp 'spoiler')
 
 _||Ethan's last shot, and Travis's.||_
 

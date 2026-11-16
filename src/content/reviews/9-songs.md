@@ -45,7 +45,7 @@ It's also a movie about loneliness, even inside a relationship. The concerts loo
 
 Then the film cuts to Matt in Antarctica, telling the story later over miles of empty ice.
 
-![Two frames: hands clapping in silhouette over the Franz Ferdinand crowd, then the next shot after a beat of black, wind blowing snow across an empty Antarctic slope.](/images/reviews/9-songs/crowd-then-ice.webp)
+![Hands clapping in silhouette over the Franz Ferdinand crowd.](/images/reviews/9-songs/crowd-then-ice-1.webp) ![The next shot after a beat of black: wind blowing snow across an empty Antarctic slope.](/images/reviews/9-songs/crowd-then-ice-2.webp)
 
 At one point he says claustrophobia and agoraphobia live in the same place, like two people in a bed.
 

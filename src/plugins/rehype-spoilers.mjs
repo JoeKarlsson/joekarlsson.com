@@ -50,8 +50,7 @@ const isSpoilerFrame = (child) =>
 	child.properties?.title === SPOILER_FRAME_TITLE;
 
 function markSpoilerFrame(paragraph) {
-	const frame = paragraph.children.find(isSpoilerFrame);
-	delete frame.properties.title;
+	for (const frame of paragraph.children.filter(isSpoilerFrame)) delete frame.properties.title;
 	paragraph.properties = {
 		...paragraph.properties,
 		className: [...(paragraph.properties?.className ?? []), 'spoiler-frame'],

@@ -6,6 +6,7 @@
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 import ReviewPoster from '../../components/ReviewPoster.astro';
+import ReviewCredits from '../../components/ReviewCredits.astro';
 import Scribble from '../../components/Scribble.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { MARKS } from '../../data/scribbles';
@@ -34,6 +35,7 @@ const {
 	slug,
 	heroImage,
 	heroAlt,
+	heroCaption,
 	letterboxdUrl,
 	spoilers,
 } = review.data;
@@ -103,6 +105,7 @@ const mentions =
 	slug={slug}
 	heroImage={heroImage}
 	heroAlt={heroAlt}
+	heroCaption={heroCaption}
 	readingTime={words > 250 ? Math.ceil(words / 250) : undefined}
 	wordCount={words}
 	body={review.body}
@@ -121,13 +124,9 @@ const mentions =
 			Contains spoilers
 		</span>
 	)}
+	<ReviewCredits slot="margin" review={review} placement="margin" />
 	<Content />
-	<p class="mt-10 border-t border-surface-2 pt-4 text-sm text-muted">
-		Also on{' '}
-		<a href={letterboxdUrl} class="text-pink underline">
-			Letterboxd
-		</a>
-	</p>
+	<ReviewCredits review={review} placement="end" />
 
 	<nav slot="related" class="mt-12 md:mt-20" aria-labelledby="more-reviews">
 		{sameFilm.length > 0 && (

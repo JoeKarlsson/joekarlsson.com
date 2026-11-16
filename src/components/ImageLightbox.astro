@@ -66,6 +66,22 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 				return Promise.resolve();
 			}
 			const root = document.documentElement;
+			// Closed mid-open: play the grow backwards from where it is, rather than a new
+			// transition that snaps it fully open first and shrinks back from there
+			if (closing && !root.classList.contains('lightbox-closing')) {
+				const growing = document
+					.getAnimations()
+					.filter((a) =>
+						(a.effect as KeyframeEffect | null)?.pseudoElement?.startsWith('::view-transition'),
+					);
+				if (growing.length) {
+					root.classList.add('lightbox-closing');
+					growing.forEach((a) => a.reverse());
+					// Shut the dialog as the grow lands back in the post, before that frame paints:
+					// shutting it now would drop the enlarged picture and cancel the transition
+					return Promise.all(growing.map((a) => a.finished)).then(update);
+				}
+			}
 			root.classList.toggle('lightbox-closing', closing);
 			dialog.toggleAttribute('data-morph', true);
 			name(closing ? shown : source, true);

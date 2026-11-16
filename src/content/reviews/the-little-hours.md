@@ -27,7 +27,8 @@ description: 'I will watch any movie where nuns get horny, and in 2026 I watched
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-little-hours/'
 poster: '/images/reviews/the-little-hours/poster.webp'
 heroImage: '/images/reviews/the-little-hours/backdrop.webp'
-heroAlt: 'A still from The Little Hours (2017)'
+heroAlt: 'Kate Micucci, Alison Brie and Aubrey Plaza as three nuns walking a lane, one with a basket and one with a sack.'
+heroCaption: 'Kate Micucci, Alison Brie and Aubrey Plaza as the three sisters.'
 ---
 
 I will watch any movie where nuns get horny, and in 2026 I watched five.
@@ -36,11 +37,15 @@ And yes, this movie has one joke. Isn't it funny that old-timey nuns are horny a
 
 ![Two nuns in habits outside a stone wall, one grimacing and one wide-eyed next to a donkey, with the subtitle burned in at the bottom.](/images/reviews/the-little-hours/dont-talk-to-us.webp)
 
+_Two of the sisters at the convent wall, and the donkey._
+
 But you know what? It's funny, and I love seeing horny nuns. Aubrey Plaza, Alison Brie and Kate Micucci play three sisters in a 14th-century Italian convent who talk like they're stuck at a boring brunch in 2017 and swear like it too.
 
 I was in when I saw the cast, though. Add John C. Reilly as the convent's priest, Molly Shannon as the abbess, Nick Offerman as a lord with a grudge and Fred Armisen as a bishop, and it's stacked.
 
-![Two frames: John C. Reilly as the priest, bearded and mid-sentence in the woods, then Molly Shannon as the abbess at a desk of books, looking pained.](/images/reviews/the-little-hours/reilly-and-shannon.webp)
+![John C. Reilly as the priest, bearded and mid-sentence in the woods.](/images/reviews/the-little-hours/reilly-and-shannon-1.webp) ![Molly Shannon as the abbess at a desk of books, looking pained.](/images/reviews/the-little-hours/reilly-and-shannon-2.webp)
+
+_John C. Reilly and Molly Shannon, running the convent._
 
 Most of the dialogue was improvised, and everyone's giving it their all.
 
@@ -48,23 +53,27 @@ Dave Franco is the punching bag. He plays Massetto, a servant on the run who hid
 
 ![Aubrey Plaza in her habit, bent over Dave Franco as he sits slumped against a white wall, eyes closed.](/images/reviews/the-little-hours/fernanda-and-massetto.webp)
 
+_Aubrey Plaza and Dave Franco._
+
 Here the nuns do all the wanting, and the man can't complain without blowing his cover.
 
 You can tell this is a small-budget comedy. It looks like it was filmed in Bulgaria or something.
 
 ![A nun leading a donkey across an open field under bare trees, hills behind them.](/images/reviews/the-little-hours/tuscany-not-bulgaria.webp)
 
+_Tuscany, where it was actually shot._
+
 It was actually shot in Tuscany, where it's set, which somehow makes it funnier. But God bless them. They're trying their best.
 
 My five, for the record: The Devils, Benedetta, Häxan, Mermaids, and now The Little Hours. Most of the others use all that bottled-up want to say something about the church and who gets to aim it.
 
-![Two frames: a nun in The Devils clutching her head under her veil, rows of nuns blurred behind her, then three sisters in The Little Hours yelling over a stone wall.](/images/reviews/the-little-hours/devils-then-little-hours.webp)
+![A nun in The Devils clutching her head under her veil, rows of nuns blurred behind her.](/images/reviews/the-little-hours/devils-then-little-hours-1.webp 'The Devils · 1971') ![Three sisters in The Little Hours yelling over a stone wall.](/images/reviews/the-little-hours/devils-then-little-hours-2.webp 'The Little Hours · 2017')
 
 _A nun in Warner Bros.' trailer for The Devils' restored director's cut, and three sisters here._
 
 The Devils plays a convent full of repressed nuns as a nightmare. Benedetta plays it as politics.
 
-![Two frames: a papal envoy confronting the abbess in Benedetta, with the subtitle "You'd bring the fury of God upon us?", then Kate Micucci, Alison Brie and Aubrey Plaza in a field holding a basket and a sack.](/images/reviews/the-little-hours/benedetta-then-little-hours.webp)
+![A papal envoy confronting the abbess in Benedetta, with the subtitle "You'd bring the fury of God upon us?"](/images/reviews/the-little-hours/benedetta-then-little-hours-1.webp 'Benedetta · 2021') ![Kate Micucci, Alison Brie and Aubrey Plaza in a field holding a basket and a sack.](/images/reviews/the-little-hours/benedetta-then-little-hours-2.webp 'The Little Hours · 2017')
 
 _Lambert Wilson and Charlotte Rampling in IFC Films' trailer for Benedetta, and the three sisters here._
 

@@ -39,11 +39,11 @@ You can tell Martin Scorsese is having a blast adapting [Edith Wharton](https://
 
 He even fades whole scenes out to a solid color. Ellen smiles at a vase of yellow roses, and the frame floods yellow.
 
-![Two frames: Ellen smiling beside a vase of yellow roses, then the whole frame gone solid yellow.](/images/reviews/the-age-of-innocence/ellen-fades-to-yellow.webp)
+![Ellen smiling beside a vase of yellow roses.](/images/reviews/the-age-of-innocence/ellen-fades-to-yellow-1.webp) ![The whole frame gone solid yellow.](/images/reviews/the-age-of-innocence/ellen-fades-to-yellow-2.webp)
 
 [Winona Ryder is incredible](https://en.wikipedia.org/wiki/The_Age_of_Innocence_%281993_film%29#Accolades) as May, the right girl. She plays the sweetest person in the movie and never loses a fight. At Newport she wins the archery contest in a white dress and smiles about it.
 
-![Two frames: two arrows stuck in the gold center of an archery target, then May in white with a long bow, smiling after her shot.](/images/reviews/the-age-of-innocence/may-hits-the-bullseye.webp)
+![Two arrows stuck in the gold center of an archery target.](/images/reviews/the-age-of-innocence/may-hits-the-bullseye-1.webp) ![May in white with a long bow, smiling after her shot.](/images/reviews/the-age-of-innocence/may-hits-the-bullseye-2.webp)
 
 She tells Ellen she's pregnant before she's even sure, and that one conversation ends an affair nobody has said out loud. ||Years later, Newland's son tells him May knew all along||. It's a wonderful character study, and I was quite moved by parts of it.
 

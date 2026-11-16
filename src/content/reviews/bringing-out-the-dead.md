@@ -39,7 +39,7 @@ I came to this one straight from [Kundun](/reviews/kundun/). The whiplash was wi
 
 Bringing Out the Dead is a super Catholic movie. Even the hospital is named for the Virgin Mary.
 
-![Two frames: Nicolas Cage's face lit red in the dark, then the hospital's sign, Our Lady of Perpetual Mercy Hospital.](/images/reviews/bringing-out-the-dead/our-lady-of-perpetual-mercy.webp)
+![Nicolas Cage's face lit red in the dark.](/images/reviews/bringing-out-the-dead/our-lady-of-perpetual-mercy-1.webp) ![The hospital's sign, Our Lady of Perpetual Mercy Hospital.](/images/reviews/bringing-out-the-dead/our-lady-of-perpetual-mercy-2.webp)
 
 Nicolas Cage plays Frank Pierce, a burned-out paramedic working three night shifts, haunted by a girl he couldn't save and desperate for someone to forgive him, and every call plays like another station of the cross.
 
@@ -49,7 +49,7 @@ Faith and guilt are the parts of Scorsese I've always struggled to connect with,
 
 Take away the guilt and the night is just [After Hours](/reviews/after-hours/) again. Same manic, New-York-as-purgatory energy, same guy who can't get out of the city until morning, but longer, more repetitive, less funny, and missing the existential philosophy of After Hours that I fucking loved.
 
-![Two frames: Griffin Dunne soaked and lost on a rainy street in After Hours, then Nicolas Cage behind a rain-streaked ambulance window.](/images/reviews/bringing-out-the-dead/after-hours-again.webp)
+![Griffin Dunne soaked and lost on a rainy street in After Hours.](/images/reviews/bringing-out-the-dead/after-hours-again-1.webp 'After Hours · 1985') ![Nicolas Cage behind a rain-streaked ambulance window.](/images/reviews/bringing-out-the-dead/after-hours-again-2.webp 'Bringing Out the Dead · 1999')
 
 _Griffin Dunne in Park Circus's 4K restoration trailer for After Hours, and Cage here._
 
@@ -59,7 +59,7 @@ Frank works three night shifts, and they blur into one long, repetitive one. Sam
 
 I was confused about the tone the whole way through. Scorsese is clearly showing a horrible night with horrible people, and he lays a rip-roaring Scorsese rock and roll soundtrack over it, plus a weird bit of jazz that sounded like New Orleans to me, in a movie set in New York. I kept asking myself whether a scene was supposed to be funny. Is this a joke? It just didn't work for me. John Goodman and Ving Rhames, as two of Frank's partners, are the only times I knew for sure, and they're the standouts. They bring some levity to it.
 
-![Two frames: John Goodman talking at the wheel of the ambulance, then Ving Rhames leading a crowd in a nightclub.](/images/reviews/bringing-out-the-dead/goodman-and-rhames.webp)
+![John Goodman talking at the wheel of the ambulance.](/images/reviews/bringing-out-the-dead/goodman-and-rhames-1.webp) ![Ving Rhames leading a crowd in a nightclub.](/images/reviews/bringing-out-the-dead/goodman-and-rhames-2.webp)
 
 Cage is manic, but still restrained by Nicolas Cage standards, which says a lot. He's also the least attractive I've ever seen him. It is a dank, wet, purple performance.
 

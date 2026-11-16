@@ -29,7 +29,7 @@ heroAlt: 'A still from Mutiny (2026)'
 
 Mutiny is [Under Siege](https://letterboxd.com/film/under-siege/) with somehow more boring, worse writing, and it's uglier to look at.
 
-![Two frames: an aerial shot down the gray deck of the battleship USS Missouri, its gun turrets cutting through rough water, and a man standing alone on top of stacked shipping containers on Mutiny's cargo ship, seen from the bridge](/images/reviews/mutiny-2026/under-siege-missouri-then-mutiny-cargo-deck.webp)
+![An aerial shot down the gray deck of the battleship USS Missouri, its gun turrets cutting through rough water.](/images/reviews/mutiny-2026/under-siege-missouri-then-mutiny-cargo-deck-1.webp 'Under Siege · 1992') ![A man standing alone on top of stacked shipping containers on Mutiny's cargo ship, seen from the bridge.](/images/reviews/mutiny-2026/under-siege-missouri-then-mutiny-cargo-deck-2.webp 'Mutiny · 2026')
 
 _The USS Missouri in the [Under Siege trailer](https://www.youtube.com/watch?v=JcpyOMIUdYQ), and the cargo ship in Mutiny._
 
@@ -51,7 +51,7 @@ When I turn one of these on, I really expect a few more poorly choreographed fig
 
 I have to say, though, Jason Statham does have more rizz than Steven Seagal. He's the only thing on that ship I wanted to look at.
 
-![Two frames: a close-up of Statham in Mutiny, stubbled and staring straight ahead in a dim, warm-lit room, and Steven Seagal in Under Siege in a green tank top and dog tags, talking in a dark cabin](/images/reviews/mutiny-2026/statham-in-mutiny-then-seagal-in-under-siege.webp)
+![A close-up of Statham in Mutiny, stubbled and staring straight ahead in a dim, warm-lit room.](/images/reviews/mutiny-2026/statham-in-mutiny-then-seagal-in-under-siege-1.webp 'Mutiny · 2026') ![Steven Seagal in Under Siege in a green tank top and dog tags, talking in a dark cabin.](/images/reviews/mutiny-2026/statham-in-mutiny-then-seagal-in-under-siege-2.webp 'Under Siege · 1992')
 
 _Statham in Mutiny, and Seagal in the same Under Siege trailer._
 

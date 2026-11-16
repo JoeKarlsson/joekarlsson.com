@@ -13,6 +13,7 @@ import rehypeChapters from './src/plugins/rehype-chapters.mjs';
 import rehypeCollapsibleToc from './src/plugins/rehype-collapsible-toc.mjs';
 import rehypeEmptyCornerCell from './src/plugins/rehype-empty-corner-cell.mjs';
 import rehypeFaqDetails from './src/plugins/rehype-faq-details.mjs';
+import rehypeFrames from './src/plugins/rehype-frames.mjs';
 import rehypeGifVideo from './src/plugins/rehype-gif-video.mjs';
 import rehypeImageDimensions from './src/plugins/rehype-image-dimensions.mjs';
 import rehypeInlineDiagrams from './src/plugins/rehype-inline-diagrams.mjs';
@@ -20,6 +21,7 @@ import rehypeMarginNotes from './src/plugins/rehype-margin-notes.mjs';
 import rehypeLazyImages from './src/plugins/rehype-lazy-images.mjs';
 import rehypePostPreviews from './src/plugins/rehype-post-previews.mjs';
 import rehypeSpoilers from './src/plugins/rehype-spoilers.mjs';
+import rehypeStrayThoughts from './src/plugins/rehype-stray-thoughts.mjs';
 import rehypeYouTubeEmbed from './src/plugins/rehype-youtube-embed.mjs';
 import externalLinks from './src/integrations/external-links.mjs';
 import markdownPages from './src/integrations/markdown-pages.mjs';
@@ -142,6 +144,9 @@ export default defineConfig({
 				rehypeFaqDetails,
 				rehypeAmazonAffiliate,
 				rehypeSpoilers,
+				// After spoilers: a spoiler picture's paragraph becomes its figure
+				rehypeFrames,
+				rehypeStrayThoughts,
 				rehypePostPreviews,
 				rehypeSlug,
 				[

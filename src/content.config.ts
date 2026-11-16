@@ -125,6 +125,8 @@ const reviews = defineCollection({
 		poster: z.string().optional(),
 		heroImage: z.string().optional(),
 		heroAlt: z.string().optional(),
+		// Who the backdrop shows, as its caption (written by hand; the import has no names)
+		heroCaption: z.string().optional(),
 	}),
 });
 

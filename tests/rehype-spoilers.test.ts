@@ -57,6 +57,21 @@ describe('rehype-spoilers', () => {
 		expect(textOf(p)).toBe('Spoiler picture: ');
 	});
 
+	it('clears the title from both pictures of a spoiler pair', () => {
+		const frame = (src: string): HastNode => ({
+			type: 'element',
+			tagName: 'img',
+			properties: { src, alt: 'A frame', title: 'spoiler' },
+			children: [],
+		});
+		const pair = [frame('/a.webp'), frame('/b.webp')];
+		run(el('root', el('p', pair[0], text(' '), pair[1])));
+		expect(pair.map((img) => img.properties)).toEqual([
+			{ src: '/a.webp', alt: 'A frame' },
+			{ src: '/b.webp', alt: 'A frame' },
+		]);
+	});
+
 	it('leaves a picture with any other title alone', () => {
 		const img: HastNode = {
 			type: 'element',

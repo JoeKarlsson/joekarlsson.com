@@ -37,7 +37,7 @@ We've been afraid of machines taking over forever, and King is clearly trying to
 
 The movie opens with King in a cameo, getting called an asshole by an ATM. Only a man on cocaine writes himself into his own movie so a cash machine can insult him, and the movie is at its best when it's that petty and that inventive. The arcade cabinets electrocute Giancarlo Esposito. A soda machine takes out a Little League coach. There are so many machines in the world and so many ways to show them, and most of the movie is unmanned trucks circling a truck stop. It gets repetitive.
 
-![Two frames: Stephen King in a white suit and hat at a Money Man II cash machine, then the machine's screen reading YOU ARE AN ASSHOLE.](/images/reviews/maximum-overdrive/you-are-an-asshole.webp)
+![Stephen King in a white suit and hat at a Money Man II cash machine.](/images/reviews/maximum-overdrive/you-are-an-asshole-1.webp) ![The machine's screen reading YOU ARE AN ASSHOLE.](/images/reviews/maximum-overdrive/you-are-an-asshole-2.webp)
 
 _Stephen King, writer, director and cameo._
 

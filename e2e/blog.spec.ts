@@ -176,34 +176,32 @@ test.describe('Individual Blog Post', () => {
 		await expect(lightbox).toBeHidden();
 	});
 
-	test('closing the lightbox while it opens still shrinks the picture back', async ({ page }) => {
+	test('closing the lightbox while it opens plays the grow backwards', async ({ page }) => {
 		await page.goto('/blog/why-clickhouse-should-be-your-next-database/');
 		const picture = page.locator('.prose img.cursor-zoom-in').first();
 		await picture.scrollIntoViewIfNeeded();
 		await picture.click();
-		// Close it during the 250ms grow: the picture should still shrink back into the
-		// post (the morph group), not cut to a page fade. Waits on the animations, not a
-		// fixed delay: on a slow machine the dialog isn't open yet 100ms after the click.
-		const morphs = await page.evaluate(async () => {
-			const morphing = () =>
+		// Close it partway through the 250ms grow: the same morph should run backwards from
+		// there, not snap fully open and start a new shrink. Waits on the animation's own
+		// clock, not a fixed delay, so a slow machine still closes mid-grow.
+		const reversed = await page.evaluate(async () => {
+			const group = () =>
 				document
 					.getAnimations()
-					.filter(
+					.find(
 						(a) =>
 							(a.effect as KeyframeEffect).pseudoElement ===
 							'::view-transition-group(lightbox-morph)',
-					).length;
+					);
 			const frame = () => new Promise((resolve) => requestAnimationFrame(resolve));
-			while (!morphing()) await frame();
+			while (!(Number(group()?.currentTime) >= 100)) await frame();
+			const growing = group()!;
 			document.querySelector<HTMLButtonElement>('#image-lightbox button')!.click();
-			// The grow is skipped at once; the shrink starts a frame or more later
-			for (const until = performance.now() + 2000; performance.now() < until;) {
-				await frame();
-				if (morphing()) return morphing();
-			}
-			return 0;
+			await frame();
+			return { sameAnimation: group() === growing, playbackRate: growing.playbackRate };
 		});
-		expect(morphs).toBeGreaterThan(0);
+		expect(reversed).toEqual({ sameAnimation: true, playbackRate: -1 });
+		await expect(page.locator('#image-lightbox')).toBeHidden();
 	});
 
 	test('an enlarged collage gets its own ids, so its shadows still point at its own filters', async ({

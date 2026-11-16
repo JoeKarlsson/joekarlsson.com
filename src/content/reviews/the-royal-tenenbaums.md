@@ -39,7 +39,7 @@ I really resonated with Chas this time. I think he's the heart of the movie, and
 
 You can see where that anger went. The boy who ran a business out of his bedroom in a suit grows up to put his sons in matching red tracksuits and time their fire drills with a stopwatch.
 
-![Two frames: young Chas in a gray suit and tie, on the phone behind a desk with a computer and a coffee maker, then grown Chas in a red tracksuit hauling silver suitcases and sleeping bags, one of his sons beside him in the same tracksuit.](/images/reviews/the-royal-tenenbaums/young-chas-suit-then-red-tracksuits.webp)
+![Young Chas in a gray suit and tie, on the phone behind a desk with a computer and a coffee maker.](/images/reviews/the-royal-tenenbaums/young-chas-suit-then-red-tracksuits-1.webp) ![Grown Chas in a red tracksuit hauling silver suitcases and sleeping bags, one of his sons beside him in the same tracksuit.](/images/reviews/the-royal-tenenbaums/young-chas-suit-then-red-tracksuits-2.webp)
 
 ![Chas in a red tracksuit stands between his two sons in pajamas on a dark street at night, holding a stopwatch.](/images/reviews/the-royal-tenenbaums/chas-fire-drill.webp)
 
@@ -55,7 +55,7 @@ I think the apology lands because Royal is a real son of a bitch, and that's Gen
 
 The prologue tours the house room by room, each one labeled by floor like a dollhouse, and Hackman walks right out of a shot lined up on his son's trophies.
 
-![Two frames: an open door with a UPS pick-up sign under the title Chas' Room (2nd Floor), then Royal blurring out the right side of a shot framed on a wall of trophies.](/images/reviews/the-royal-tenenbaums/dollhouse-room-then-royal-out-of-frame.webp)
+![An open door with a UPS pick-up sign under the title Chas' Room (2nd Floor).](/images/reviews/the-royal-tenenbaums/dollhouse-room-then-royal-out-of-frame-1.webp) ![Royal blurring out the right side of a shot framed on a wall of trophies.](/images/reviews/the-royal-tenenbaums/dollhouse-room-then-royal-out-of-frame-2.webp)
 
 When he finally gets the grandsons out of that house, they ride the back of a garbage truck.
 

@@ -37,7 +37,7 @@ The most fun anyone has in this movie happens out on that floor. The scene I lau
 
 There's one image I can't get out of my head. Tess calls her best friend Cyn (Joan Cusack) from her new office, and Cusack is ecstatic, screaming and yelling the news across the bullpen while the women around her cheer. ||Then the camera slowly pulls back from Tess, alone at the window of her empty office||, until she's one lit square in a skyline full of them.
 
-![Two frames: Tess on the phone in her lit office window, then the camera pulled back so her window is one of hundreds in the building's grid.](/images/reviews/working-girl/one-lit-window.webp 'spoiler')
+![Tess on the phone in her lit office window.](/images/reviews/working-girl/one-lit-window-1.webp 'spoiler') ![The camera pulled back so her window is one of hundreds in the building's grid.](/images/reviews/working-girl/one-lit-window-2.webp 'spoiler')
 
 _||One window, then hundreds.||_
 

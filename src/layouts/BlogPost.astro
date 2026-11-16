@@ -37,6 +37,8 @@ interface Props {
 	updateNote?: string;
 	heroImage?: string;
 	heroAlt?: string;
+	/** Who or what the hero shows, in place of the description as its caption */
+	heroCaption?: string;
 	heroVideo?: string;
 	categories?: string[];
 	// The employer this post was written for; none for a personal post
@@ -73,6 +75,7 @@ const {
 	corrections,
 	heroImage,
 	heroAlt,
+	heroCaption,
 	heroVideo,
 	categories,
 	writtenFor,
@@ -169,9 +172,10 @@ const relatedSlugs =
 // The description is the masthead's caption, unless the text opens with it (a review's
 // description is its first lines), which would say the same thing twice in a row
 const captionText =
-	description && !(body ?? '').replace(/\s+/g, ' ').includes(description.slice(0, 60))
+	heroCaption ??
+	(description && !(body ?? '').replace(/\s+/g, ' ').includes(description.slice(0, 60))
 		? description
-		: undefined;
+		: undefined);
 ---
 
 <BaseLayout
@@ -207,46 +211,49 @@ const captionText =
 				data-reading-time={readingTime}
 			>
 				<BackLink href={home.path} label={home.name} />
-				<Masthead
-					title={title}
-					label={home.name}
-					caption={captionText}
-					heroImage={heroImage}
-					heroVideo={heroVideo}
-					heroAlt={heroAlt}
-					width={heroSize?.width}
-					height={heroSize?.height}
-					halftone={halftoneMode(heroVideo ?? heroImage ?? '')}
-				>
-					<MetaParts>
-						<span>
-							<FormattedDate date={date} />
-							{updatedDate && (
-								<>
-									{' '}
-									(Updated <FormattedDate date={updatedDate} />)
-								</>
-							)}
-						</span>{' '}
-						{readingTime && <span>{readingTime} min read</span>}{' '}
-						{categories &&
-							categories.map((cat) => (
-								<>
-									<a
-										href={`/blog/category/${categorySlug(cat)}/`}
-										class="text-pink hover:text-paper"
-									>
-										{cat}
-									</a>{' '}
-								</>
-							))}
-						{writtenFor && <WrittenFor employer={writtenFor} />}
-						<slot name="meta" />
-					</MetaParts>
-				</Masthead>
+				<div class="post-axis">
+					<Masthead
+						title={title}
+						label={home.name}
+						caption={captionText}
+						heroImage={heroImage}
+						heroVideo={heroVideo}
+						heroAlt={heroAlt}
+						width={heroSize?.width}
+						height={heroSize?.height}
+						halftone={halftoneMode(heroVideo ?? heroImage ?? '')}
+					>
+						<MetaParts>
+							<span>
+								<FormattedDate date={date} />
+								{updatedDate && (
+									<>
+										{' '}
+										(Updated <FormattedDate date={updatedDate} />)
+									</>
+								)}
+							</span>{' '}
+							{readingTime && <span>{readingTime} min read</span>}{' '}
+							{categories &&
+								categories.map((cat) => (
+									<>
+										<a
+											href={`/blog/category/${categorySlug(cat)}/`}
+											class="text-pink hover:text-paper"
+										>
+											{cat}
+										</a>{' '}
+									</>
+								))}
+							{writtenFor && <WrittenFor employer={writtenFor} />}
+							<slot name="meta" />
+						</MetaParts>
+					</Masthead>
+				</div>
 				<div class="margin-column mx-auto max-w-(--reading-width)">
 					{/* Wide screens: "On this page" heads the right margin, over the citations */}
 					{showToc && <TableOfContents headings={tocHeadings} />}
+					<slot name="margin" />
 					{updateNote && updatedDate && (
 						<p class="mb-6 border border-pink px-4 py-3 text-sm text-paper" role="note">
 							<strong class="text-pink">
@@ -485,6 +492,9 @@ const captionText =
 						})();
 					</script>
 
+					{/* A review's more reviews come first: a reader who came for a film wants another */}
+					<slot name="related" />
+
 					{/* The ask sits where a reader finishes, not only in the footer below the bio
 					    and related posts, where 1,120 finished reads a month made 9 signups */}
 					<section class="mt-12" aria-labelledby="post-newsletter-heading">
@@ -512,8 +522,6 @@ const captionText =
 					/>
 
 					<AuthorBio />
-
-					<slot name="related" />
 
 					{relatedSlugs.length > 0 && (
 						<KeepExploring

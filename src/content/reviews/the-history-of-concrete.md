@@ -47,7 +47,7 @@ The standout for me is the GumBusters guy, who has the Sisyphean task of removin
 
 Even in the shot where he steams one blob away, there are more waiting on the same slab. The city will never run out of gum, and he seems joyful doing it anyway. Truly a character from a [Camus novel](https://en.wikipedia.org/wiki/The_Myth_of_Sisyphus).
 
-![Two frames: the GumBusters owner smiling in a gray GumBusters T-shirt in front of his company van, then Titian's painting of Sisyphus hunched under a huge boulder.](/images/reviews/the-history-of-concrete/gumbusters-and-titians-sisyphus.webp)
+![The GumBusters owner smiling in a gray GumBusters T-shirt in front of his company van.](/images/reviews/the-history-of-concrete/gumbusters-and-titians-sisyphus-1.webp 'The History of Concrete · 2026') ![Titian's painting of Sisyphus hunched under a huge boulder.](/images/reviews/the-history-of-concrete/gumbusters-and-titians-sisyphus-2.webp 'Titian, Sisyphus · 1548–49')
 
 _The GumBusters owner, and Titian's Sisyphus (1548–49), Museo del Prado. Painting: Titian, [public domain](https://commons.wikimedia.org/wiki/File:Titian_-_Sisyphus_-_Madrid_-_Prado.jpg)._
 

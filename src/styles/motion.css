@@ -227,6 +227,12 @@ footer:has(.newsletter-signup:focus-within) .echo > span {
 	animation-play-state: paused;
 }
 
+/* The crayon arrow over More reviews holds still while someone hovers or tabs through the
+   posters under it, so it isn't erasing itself beside the one they're choosing */
+[aria-labelledby='more-reviews']:has(ul :is(:hover, :focus-visible)) .redraw-strokes path {
+	animation-play-state: paused;
+}
+
 @keyframes echo {
 	0%,
 	19% {

@@ -45,17 +45,17 @@ It's also the least Scorsese-like movie I've ever seen. It's impressionistic and
 
 The worst of the invasion comes to him in a dream. He stands distraught in a red circle of dead Tibetans, and the camera pulls up and away until there are too many bodies to count and they stop looking like people.
 
-![Two frames: the Dalai Lama standing among the bodies of monks in red robes, then the camera high above a field of red that runs past the edge of the frame.](/images/reviews/kundun/red-circle-of-dead-monks.webp)
+![The Dalai Lama standing among the bodies of monks in red robes.](/images/reviews/kundun/red-circle-of-dead-monks-1.webp) ![The camera high above a field of red that runs past the edge of the frame.](/images/reviews/kundun/red-circle-of-dead-monks-2.webp)
 
 The colors and the sheer number of extras reminded me of Kurosawa's [Ran](/reviews/ran/). In Ran the red is banners on an army that's still alive. In Kundun it's robes on the dead.
 
-![Two frames: a burning castle in Ran above an army of red and yellow banners, then the field of dead monks in Kundun.](/images/reviews/kundun/ran-then-kundun-in-red.webp)
+![A burning castle in Ran above an army of red and yellow banners.](/images/reviews/kundun/ran-then-kundun-in-red-1.webp 'Ran · 1985') ![The field of dead monks in Kundun.](/images/reviews/kundun/ran-then-kundun-in-red-2.webp 'Kundun · 1997')
 
 _Ran's burning castle, from Rialto Pictures' 4K restoration trailer, next to Kundun's field of dead monks._
 
 It does rhyme with [The Last Temptation of Christ](/reviews/the-last-temptation-of-christ/), though. Both take a spiritual leader and show a man instead of a god, struggling with human feelings and a political situation way too complicated for anyone to win. But Willem Dafoe plays Jesus manic, like a man fighting his own mind. Tenzin Thuthob Tsarong plays a monk, and he rarely lets an emotion out.
 
-![Two frames: Willem Dafoe as Jesus, wide-eyed and shouting at the sky in a crowd, then Tenzin Thuthob Tsarong as the Dalai Lama, eyes lowered, face still.](/images/reviews/kundun/dafoe-manic-tsarong-still.webp)
+![Willem Dafoe as Jesus, wide-eyed and shouting at the sky in a crowd.](/images/reviews/kundun/dafoe-manic-tsarong-still-1.webp 'The Last Temptation of Christ · 1988') ![Tenzin Thuthob Tsarong as the Dalai Lama, eyes lowered, face still.](/images/reviews/kundun/dafoe-manic-tsarong-still-2.webp 'Kundun · 1997')
 
 _Dafoe in the temple in The Last Temptation of Christ, and Tsarong in Kundun._
 
@@ -67,7 +67,7 @@ It doesn't help that the Dalai Lama is physically kept away from what's happenin
 
 Which means it isn't for ours either. Scorsese keeps putting a telescope in his hands. As a boy he watches Lhasa through one from the Potala roof, and what he sees is guards with rifles on a wall, too far off to hear. ||In the last scene he's still looking through one, at the mountains between him and home.||
 
-![Two frames: the boy Dalai Lama at a brass telescope on the Potala roof, then what he sees through it, guards with rifles on a prison wall far below.](/images/reviews/kundun/telescope-from-the-potala.webp)
+![The boy Dalai Lama at a brass telescope on the Potala roof.](/images/reviews/kundun/telescope-from-the-potala-1.webp) ![What he sees through it: guards with rifles on a prison wall far below.](/images/reviews/kundun/telescope-from-the-potala-2.webp)
 
 We get glimpses in dreams and on the news, filtered through a man who is held at a distance, so I was held at a distance too. By the time he flees across the border into India, I was open to it, and it didn't hit super hard.
 

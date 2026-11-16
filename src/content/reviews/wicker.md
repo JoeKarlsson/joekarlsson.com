@@ -70,7 +70,7 @@ It's a simple fairy tale, a very funny, sweet, charming popcorn film, and it's e
 
 I've been trying to think of another film like this one, and I can't. The closest I get is [Twilight](/reviews/the-twilight-saga-new-moon/), and in that kind of monster romance the woman must be punished for wanting pleasure. Bella's half-vampire pregnancy nearly kills her. In Wicker, society judges the Fisherwoman for wanting him, and Colman plays her as an older horny woman with something missing inside of her, unibrow and all. The movie never punishes her for it. The punishment goes to the Butcher, who keeps his young wife locked in the basement, wins the blackthorn bride of his own.
 
-![Two frames: a gaunt, hollow-eyed Bella propped up in bed next to an IV drip in Breaking Dawn Part 1, then the Fisherwoman at a village dance, eyes closed and smiling up at the sky, with the Wicker Husband's woven hand on her head.](/images/reviews/wicker/bella-breaking-dawn-then-fisherwoman.webp 'spoiler')
+![A gaunt, hollow-eyed Bella propped up in bed next to an IV drip in Breaking Dawn Part 1.](/images/reviews/wicker/bella-breaking-dawn-then-fisherwoman-1.webp 'spoiler') ![The Fisherwoman at a village dance, eyes closed and smiling up at the sky, with the Wicker Husband's woven hand on her head.](/images/reviews/wicker/bella-breaking-dawn-then-fisherwoman-2.webp 'spoiler')
 
 _Breaking Dawn Part 1, from the official trailer, next to Wicker, from Black Bear's final trailer._
 

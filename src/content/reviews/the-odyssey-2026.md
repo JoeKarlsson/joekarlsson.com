@@ -39,7 +39,7 @@ _Inception, Interstellar, Dunkirk._
 
 And now that he's finally adapting it directly, the feminist reading feels almost unavoidable. This is a story about men being absolute monsters - pigs, sociopaths, murderers - taking advantage of women over and over while defining the rules of society to bend in their favor. The women are forced to bear it. Penelope tells Telemachus she's not allowed to make the rules because she's a woman. Circe, transforming Odysseus's men back from pigs, says something like " return to your disguise” which is commenting directly about masculinity as performance. As disguise.
 
-![Two frames from Circe's house: Odysseus's men lying as pigs, then one of them climbing back out of a pig's body as a man.](/images/reviews/the-odyssey-2026/circe-pigs-to-men.webp)
+![Odysseus's men lying as pigs in Circe's house.](/images/reviews/the-odyssey-2026/circe-pigs-to-men-1.webp) ![One of them climbing back out of a pig's body as a man.](/images/reviews/the-odyssey-2026/circe-pigs-to-men-2.webp)
 _Circe singing the men back out of the pigs._
 
 Odysseus is a war criminal. Easily distracted. Responsible for the fall of peaceful Greek life. Unfortunately, he's played by the charming and handsome and ripped Matt Damon, and he goes out swinging like John Wick after watching his dog die. A lot of men are going to valorize this. See his hubris against the gods as valorous. Wolf of Wall Street all over again - people missing that Belfort is the villain, wanting to be him instead. Damon might be too likable for the role. I don't know who I'd cast instead, but someone you can hate more easily, maybe Oscar Isaac???
