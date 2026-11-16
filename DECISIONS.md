@@ -36,6 +36,8 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-15: The site's goal, in Joe's words: convey "smarts, taste, vision, optimism, punk attitude", artistic. Judge design proposals against that.
 - 2026-11-15: Full homepage mockup (~/mockups/joekarlsson-zine/full.html): Joe approved all six recommendations: crayon marks back in every new section (one per section, crossing a heading or photo); the approved hand-pasted tilt on talk picks, small review posters and hot-take posters; the pink word in section titles set in Fraunces italic against Anton; the Writing lead photo breaks the grid out to the spine with the headline overlapping it; Works cells get project pictures (reverses the Nov 5 "no project images on the homepage"); dark thumbnails get fixed or Most read drops them.
 
+- 2026-11-15: No exact visitor numbers anywhere public. Joe: "I kind of feel uncomfortable sharing my stats publicly like that." Most read shows the ranked posts and relative bars only, no reader counts and no total.
+
 ## Playful details
 
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.
