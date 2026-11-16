@@ -95,7 +95,7 @@ Then this came in from a customer on a first sales call:
 
 That quote did more for the content budget than any dashboard I'd built, but I needed the dashboard to get the meeting.
 
-One pattern to watch for in Google Search Console is impressions up, position up, and clicks flat. That's AI Overviews answering informational queries on the results page. The SEO work is fine; fewer people click through. [Seer Interactive tracked 53 brands](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-2026-update) from January 2025 through February 2026: organic click-through on queries that showed an AI Overview bottomed out at 1.31% in December 2025 and climbed back to 2.36% by February, against 3.82% on queries without one. Explain that distinction to leadership before you show them the numbers, or it looks like the program is stalling.
+One pattern to watch for in Google Search Console is impressions up, position up, and clicks flat. That's AI Overviews answering informational queries on the results page. The SEO work is fine; fewer people click through. [Seer Interactive tracked 53 brands](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-2026-update 'cite: Seer Interactive, April 2026') from January 2025 through February 2026: organic click-through on queries that showed an AI Overview bottomed out at 1.31% in December 2025 and climbed back to 2.36% by February, against 3.82% on queries without one. Explain that distinction to leadership before you show them the numbers, or it looks like the program is stalling.
 
 [Google's own guidance](https://developers.google.com/search/docs/appearance/ai-features) says you don't need new machine-readable files, AI text files, or markup to show up in AI Overviews or AI Mode, so the site-health work above covers those too.
 
@@ -129,7 +129,7 @@ When DevRel struggles to get headcount or leadership attention, it's almost neve
 
 The first time I brought a dashboard to a leadership review instead of a list of things I'd done, the conversation changed. A dashboard forces you to make claims that can be checked, and checked claims build credibility faster than storytelling. Later I [got CRM access and tied my content to conversions](/blog/proving-my-work-mattered/), which changed my 1:1s more than anything else I've done.
 
-[Tessa Kriesel's DevRel playbook](https://www.builtfor.dev/blog/devrel-playbook) at builtfor.dev is the framework I lean on for structure. It maps the developer journey to five stages (Discover, Evaluate, Learn, Build, Scale) and argues that DevRel is a revenue function, not a marketing expense. Its most useful move is forcing you to ask which stage is broken before you decide what to build, instead of counting tutorials published and events attended.
+[Tessa Kriesel's DevRel playbook](https://www.builtfor.dev/blog/devrel-playbook 'cite: Kriesel, March 2026') at builtfor.dev is the framework I lean on for structure. It maps the developer journey to five stages (Discover, Evaluate, Learn, Build, Scale) and argues that DevRel is a revenue function, not a marketing expense. Its most useful move is forcing you to ask which stage is broken before you decide what to build, instead of counting tutorials published and events attended.
 
 For open source tools, downloads are the lagging indicator. These are the leading indicators I track:
 
@@ -215,12 +215,12 @@ The answer tells you most of what you need to know. If it's clearly a product pr
 
 ## Sources and further reading
 
-- [The builtfor.dev DevRel Playbook](https://www.builtfor.dev/blog/devrel-playbook) by Tessa Kriesel - the Discover/Evaluate/Learn/Build/Scale framework and the "DevRel is a revenue function" thesis
-- [DevRel Metrics and Why They Matter](https://thefalc.com/2020/12/devrel-metrics-and-why-they-matter/) by Sean Falconer - North Star metrics and how to connect DevRel activity to business outcomes
-- [Developer Relations at GitLab: What We've Learned](https://web.archive.org/web/20250614065339/https://about.gitlab.com/blog/2024/03/13/developer-relations-at-gitlab-what-weve-learned-since-our-start/) by John Coghlan - five years of evolving a DevRel program through attention, active users, and revenue phases
-- [The Future of DevRel: Six Shifts Reshaping Developer Engagement in 2026](https://blog.stateshift.com/future-of-devrel-2026/) by Mindy Faieta at Stateshift - the 2026 forecast, especially on LLM discovery and time to value
+- [The builtfor.dev DevRel Playbook](https://www.builtfor.dev/blog/devrel-playbook 'cite: Kriesel, March 2026') by Tessa Kriesel - the Discover/Evaluate/Learn/Build/Scale framework and the "DevRel is a revenue function" thesis
+- [DevRel Metrics and Why They Matter](https://thefalc.com/2020/12/devrel-metrics-and-why-they-matter/ 'cite: Falconer, December 2020') by Sean Falconer - North Star metrics and how to connect DevRel activity to business outcomes
+- [Developer Relations at GitLab: What We've Learned](https://web.archive.org/web/20250614065339/https://about.gitlab.com/blog/2024/03/13/developer-relations-at-gitlab-what-weve-learned-since-our-start/ 'cite: Coghlan, March 2024') by John Coghlan - five years of evolving a DevRel program through attention, active users, and revenue phases
+- [The Future of DevRel: Six Shifts Reshaping Developer Engagement in 2026](https://blog.stateshift.com/future-of-devrel-2026/ 'cite: Faieta, January 2026') by Mindy Faieta at Stateshift - the 2026 forecast, especially on LLM discovery and time to value
 - [State of Developer Relations 2024](https://www.stateofdeveloperrelations.com/2024devrelreport) - source of the 60.7% "proving impact with data" figure; the latest edition I could find
-- [AIO Impact on Google CTR: 2026 Update](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-2026-update) by Seer Interactive - click-through with and without AI Overviews, January 2025 to February 2026
+- [AIO Impact on Google CTR: 2026 Update](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-2026-update 'cite: Seer Interactive, April 2026') by Seer Interactive - click-through with and without AI Overviews, January 2025 to February 2026
 - [AI features and your website](https://developers.google.com/search/docs/appearance/ai-features) from Google Search Central - no special files or markup needed for AI Overviews
 - [The MCP Registry](https://modelcontextprotocol.io/registry/about) - what it is, who it's for, and why it's still in preview
 

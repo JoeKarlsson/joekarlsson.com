@@ -32,11 +32,11 @@ Ship the ugly pot. Ship it before it's good and before you're proud of it, becau
 
 That sounds like an argument for volume, but the pottery story everyone quotes from _Art & Fear_ is about feedback. Artists have known this for a long time, and I think most of tech is still relearning it one DevOps report at a time.
 
-Here's the story, from David Bayles and Ted Orland's [_Art & Fear_](https://www.amazon.com/Art-Fear-Observations-Rewards-Artmaking/dp/0961454733):
+Here's the story, from David Bayles and Ted Orland's [_Art & Fear_](https://www.amazon.com/Art-Fear-Observations-Rewards-Artmaking/dp/0961454733 'cite: Bayles and Orland, 1993'):
 
 > "The ceramics teacher announced on opening day that he was dividing the class into two groups. All those on the left side of the studio, he said, would be graded solely on the quantity of work they produced, all those on the right solely on its quality. His procedure was simple: on the final day of class he would bring in his bathroom scales and weigh the work of the 'quantity' group: fifty pounds of pots rated an 'A', forty pounds a 'B', and so on. Those being graded on 'quality', however, needed to produce only one pot - albeit a perfect one - to get an 'A'. Well, came grading time and a curious fact emerged: the works of highest quality were all produced by the group being graded for quantity. It seems that while the 'quantity' group was busily churning out piles of work - and learning from their mistakes - the 'quality' group had sat theorizing about perfection, and in the end had little more to show for their effort than grandiose theories and a pile of dead clay."
 
-It's an anecdote, not a controlled study. Orland [has said](https://kottke.org/09/02/art-and-fear) it's based on Jerry Uelsmann's photography class at the University of Florida, retold with ceramics.
+It's an anecdote, not a controlled study. Orland [has said](https://kottke.org/09/02/art-and-fear 'cite: Kottke, February 2009') it's based on Jerry Uelsmann's photography class at the University of Florida, retold with ceramics.
 
 ![Squidward Window meme: Squidward, labeled 'Quality group, week 11 of the perfect pot design doc', stares out the window at SpongeBob and Patrick, labeled 'Quantity group, on pot #83'.](/images/blog/ship-the-ugly-pot/meme-squidward-window.webp)
 
@@ -56,7 +56,7 @@ Get changes in front of real users instead of letting them sit in staging, behin
 
 ## What the DORA data shows
 
-The DORA research behind [_Accelerate_](https://www.amazon.com/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339) (Nicole Forsgren, Jez Humble, and Gene Kim, 2018) is built on years of State of DevOps survey data. The top-performing teams in that data deployed on demand, often several times a day, and also had the lowest change failure rates and the fastest recovery times. [DORA's own metrics guide](https://dora.dev/guides/dora-metrics/) puts it plainly: speed and stability aren't tradeoffs.
+The DORA research behind [_Accelerate_](https://www.amazon.com/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339 'cite: Forsgren, Humble and Kim, 2018') (Nicole Forsgren, Jez Humble, and Gene Kim, 2018) is built on years of State of DevOps survey data. The top-performing teams in that data deployed on demand, often several times a day, and also had the lowest change failure rates and the fastest recovery times. [DORA's own metrics guide](https://dora.dev/guides/dora-metrics/) puts it plainly: speed and stability aren't tradeoffs.
 
 <div class="pull-quote">
 
@@ -66,7 +66,7 @@ In DORA's data, the teams that deploy most often also break things the least.
 
 The teams that ship most often are in a faster feedback cycle with production, and small batches mean a small blast radius when something goes wrong. DORA says the same thing about software that the pottery class said about pots, with survey data instead of bathroom scales.
 
-Maybe elite teams deploy often _because_ they're already good at testing and monitoring, and not the other way around. DORA is survey data, so it can't rule that out. But the [2025 DORA report](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) points the same direction as the kiln. AI adoption went with higher throughput and, on average, lower delivery stability. The teams that avoided the instability had strong automated testing, mature version control, and fast feedback loops. More clay without a kiln made things worse.
+Maybe elite teams deploy often _because_ they're already good at testing and monitoring, and not the other way around. DORA is survey data, so it can't rule that out. But the [2025 DORA report](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report 'cite: Harvey and DeBellis, September 2025') points the same direction as the kiln. AI adoption went with higher throughput and, on average, lower delivery stability. The teams that avoided the instability had strong automated testing, mature version control, and fast feedback loops. More clay without a kiln made things worse.
 
 <div class="callout">
 
@@ -112,7 +112,7 @@ I've been reading [_The Artist's Way_](https://www.amazon.com/Artists-Way-25th-A
 
 There's a lot we could take from the softer disciplines, and I think this is the most transferable thing. Paul Graham made a version of this case in 2003, and I [reread Hackers and Painters as a painter who codes with AI agents](/blog/hackers-and-painters-ai-agents/).
 
-It shows up outside art too. A [2010 study of 1,258 psychology professors](https://www.sciencedaily.com/releases/2010/11/101112094532.htm) in the _Canadian Journal of Behavioural Science_ found perfectionism went with fewer publications, fewer citations, and lower-impact journals. It's a correlation, but it points the same way.
+It shows up outside art too. A [2010 study of 1,258 psychology professors](https://www.sciencedaily.com/releases/2010/11/101112094532.htm 'cite: Dalhousie University, November 2010') in the _Canadian Journal of Behavioural Science_ found perfectionism went with fewer publications, fewer citations, and lower-impact journals. It's a correlation, but it points the same way.
 
 Sister Corita Kent taught at Immaculate Heart College in Los Angeles from 1947 to 1968 and [chaired its art department](https://en.wikipedia.org/wiki/Corita_Kent) from 1964. Rule 7 from the [Immaculate Heart College Art Department rules](https://www.corita.org/tenrules) she popularized is the bluntest version of this I've found:
 

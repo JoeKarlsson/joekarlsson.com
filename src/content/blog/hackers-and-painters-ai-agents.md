@@ -17,7 +17,7 @@ faq:
 heroAlt: "An X-ray of Vermeer's A Maid Asleep, showing the sleeping maid, a jug on the table, and the shapes Vermeer painted over in the doorway behind her"
 ---
 
-In 2003 Paul Graham turned a Harvard guest lecture into an essay called [Hackers and Painters](https://www.paulgraham.com/hp.html). He'd finished grad school in computer science and then gone to art school to study painting, and people kept acting surprised that one person would want both. His answer was that hackers and painters are both makers: "what hackers and painters are trying to do is make good things."
+In 2003 Paul Graham turned a Harvard guest lecture into an essay called [Hackers and Painters](https://www.paulgraham.com/hp.html 'cite: Graham, May 2003'). He'd finished grad school in computer science and then gone to art school to study painting, and people kept acting surprised that one person would want both. His answer was that hackers and painters are both makers: "what hackers and painters are trying to do is make good things."
 
 I paint and I write code too. I do digital art, oil pastel, watercolor and large color field pieces, some of it subconscious, abstract expressionist work, and I wrote about why I care about both on [my Works page](/work/#statement) and talked about it in my TEDx talk, [The Art of Computer Science](/talks/the-art-of-computer-science/). Since AI coding agents came along, programming has started to feel more like painting to me, not less. It's easier to explore ideas quickly and iteratively.
 
@@ -25,7 +25,7 @@ I paint and I write code too. I do digital art, oil pastel, watercolor and large
 
 _A collage and a watercolor sketch, from [my newsletter about taste](/newsletter/taste-matters-more-with-ai/)._
 
-That might be a hot take, because most of what I read this year went the other way. Nolan Lawson wrote [We mourn our craft](https://nolanlawson.com/2026/02/07/we-mourn-our-craft/), and six weeks later, in [The diminished art of coding](https://nolanlawson.com/2026/03/22/the-diminished-art-of-coding/), he gave this advice: "if you're looking for art in coding: stop looking. If you've never taken an interest in poetry, or painting, or dance, or whatever, now would be a good time." Glyph's [Programming Isn't Special](https://blog.glyph.im/2026/10/programming-isnt-special.html) carries the subtitle "Artists understand that AI is bad for art. Why don't programmers understand that we are artists?"
+That might be a hot take, because most of what I read this year went the other way. Nolan Lawson wrote [We mourn our craft](https://nolanlawson.com/2026/02/07/we-mourn-our-craft/ 'cite: Lawson, February 2026'), and six weeks later, in [The diminished art of coding](https://nolanlawson.com/2026/03/22/the-diminished-art-of-coding/ 'cite: Lawson, March 2026'), he gave this advice: "if you're looking for art in coding: stop looking. If you've never taken an interest in poetry, or painting, or dance, or whatever, now would be a good time." Glyph's [Programming Isn't Special](https://blog.glyph.im/2026/10/programming-isnt-special.html 'cite: Glyph, October 2026') carries the subtitle "Artists understand that AI is bad for art. Why don't programmers understand that we are artists?"
 
 Lawson even guessed at what I'm describing, and doubted it: "maybe I'll be surprised and there will be an artist-in-residence somewhere wielding agent orchestrators like a paintbrush! But I kind of doubt it."
 
@@ -72,7 +72,7 @@ Restructuring it and doing data analysis on it felt like painting, like seeing t
 
 ## Ceglowski's objection
 
-Not everyone bought Graham's analogy. In 2005 Maciej Ceglowski, who had painted oils full time and also wrote code, answered him with [Dabblers and Blowhards](https://idlewords.com/2005/04/dabblers_and_blowhards.htm): "So let me say it simply - hackers are nothing like painters." He went after the sketching story too. Fifteenth-century painting, he wrote, had "a superprecise underdrawing and underpainting that were covered with thin glazes of color." That's not spewing broken code and beating it into shape.
+Not everyone bought Graham's analogy. In 2005 Maciej Ceglowski, who had painted oils full time and also wrote code, answered him with [Dabblers and Blowhards](https://idlewords.com/2005/04/dabblers_and_blowhards.htm 'cite: Cegłowski, April 2005'): "So let me say it simply - hackers are nothing like painters." He went after the sketching story too. Fifteenth-century painting, he wrote, had "a superprecise underdrawing and underpainting that were covered with thin glazes of color." That's not spewing broken code and beating it into shape.
 
 Ceglowski is describing how fifteenth-century painters worked, and that isn't how I paint. As I wrote in [my newsletter](/newsletter/taste-matters-more-with-ai/), I paint mostly by feel, going by what feels right and looks right, and a lot of the time I keep going until I overwork a piece, just to find out where the limit is.
 
@@ -86,7 +86,7 @@ I do plan when I start a new project, but usually at a high level. Scaffolding i
 
 Graham's sketching argument came with a jab at static typing. He wanted "a language that lets us scribble and smudge and smear, not a language where you have to sit with a teacup of types balanced on your knee and make polite conversation with a strict old aunt of a compiler."
 
-In August 2025 TypeScript became the most-used language on GitHub by monthly contributors, and [GitHub's Octoverse report](https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/) tied that to agents: developers are "shifting toward typed languages that make agent-assisted coding more reliable in production." In the [2026 Python typing survey](https://engineering.fb.com/2026/10/27/developer-tools/python-typing-survey-2026-ai-tools-checker-landscape/), the share of respondents who said type hints make AI-generated code more accurate or reliable went from 18.5% to 38.4% in a year.
+In August 2025 TypeScript became the most-used language on GitHub by monthly contributors, and [GitHub's Octoverse report](https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/ 'cite: GitHub, October 2025') tied that to agents: developers are "shifting toward typed languages that make agent-assisted coding more reliable in production." In the [2026 Python typing survey](https://engineering.fb.com/2026/10/27/developer-tools/python-typing-survey-2026-ai-tools-checker-landscape/ 'cite: Meta, October 2026'), the share of respondents who said type hints make AI-generated code more accurate or reliable went from 18.5% to 38.4% in a year.
 
 ![The function signature makeTape(template, film: any). A pencil scribbles out the word any and writes ShelfFilm above it, one letter at a time. Then it clears and starts again.](/images/blog/hackers-and-painters-ai-agents/any-becomes-a-type.svg)
 

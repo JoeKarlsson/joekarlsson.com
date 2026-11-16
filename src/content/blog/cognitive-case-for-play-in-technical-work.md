@@ -21,11 +21,11 @@ I've written about what that process looked like - the [SEO work](https://www.jo
 
 Most organizations treat creative and technical work like a construction project: specify everything upfront, build to spec, review at the end. The software industry spent a decade learning this doesn't work. We call the failure mode waterfall.
 
-The problem isn't review. It's that planning-first changes the cognitive frame before anything has been tried. When you know your output will be evaluated, you optimize for the evaluation. You take the safe path. You narrow toward what will pass rather than what will work. [Teresa Amabile's research at Harvard](https://www.hbs.edu/ris/Publication%20Files/12-096.pdf) showed this effect is measurable. She described the principle directly:
+The problem isn't review. It's that planning-first changes the cognitive frame before anything has been tried. When you know your output will be evaluated, you optimize for the evaluation. You take the safe path. You narrow toward what will pass rather than what will work. [Teresa Amabile's research at Harvard](https://www.hbs.edu/ris/Publication%20Files/12-096.pdf 'cite: Amabile, April 2012') showed this effect is measurable. She described the principle directly:
 
 > "People will be most creative when they're motivated primarily by the interest, enjoyment, satisfaction, and personal challenge of the work itself, and not by external pressures or external motivators."
 >
-> From [Teresa Amabile](https://fuelingcreativitypodcast.com/extrinsic-and-intrinsic-motivation-in-the-classroom-with-dr-teresa-amabile-part-one)
+> From [Teresa Amabile](https://fuelingcreativitypodcast.com/extrinsic-and-intrinsic-motivation-in-the-classroom-with-dr-teresa-amabile-part-one 'cite: Fueling Creativity in Education, May 2025')
 
 People who expect external evaluation before creative work produce less creative output. They aren't trying less; their attention is on the evaluation.
 
@@ -43,7 +43,7 @@ To be clear: this isn't about carving out a separate "play time" alongside real 
 
 > "Play isn't the enemy of learning, it's learning's partner. Play is like fertilizer for brain growth. It's crazy not to use it."
 >
-> From [Stuart Brown, _Play_](https://parentotheca.com/2022/11/18/play-stuart-brown-book-summary/)
+> From [Stuart Brown, _Play_](https://parentotheca.com/2022/11/18/play-stuart-brown-book-summary/ 'cite: Parentotheca, November 2022')
 
 Environments that eliminate the conditions for play don't produce safer, more predictable output. They produce worse output, more slowly.
 
@@ -51,7 +51,7 @@ Every serious creative discipline has figured this out. Writing workshops separa
 
 ## Why organizations default to the opposite
 
-[James March's 1991 paper "Exploration and Exploitation in Organizational Learning"](https://pubsonline.informs.org/doi/10.1287/orsc.2.1.71) is one of the most cited in organizational theory. His argument: organizations face a constant tradeoff between exploitation (refining what already works) and exploration (experimenting toward what might work better). Exploitation produces near-term returns. Exploration is uncertain but necessary long-term.
+[James March's 1991 paper "Exploration and Exploitation in Organizational Learning"](https://pubsonline.informs.org/doi/10.1287/orsc.2.1.71 'cite: March, February 1991') is one of the most cited in organizational theory. His argument: organizations face a constant tradeoff between exploitation (refining what already works) and exploration (experimenting toward what might work better). Exploitation produces near-term returns. Exploration is uncertain but necessary long-term.
 
 The trap is that adaptive processes naturally favor exploitation. Review cycles, approval structures, KPI gates: these are exploitation machinery. Good at refining a known thing. Applied to work that first needs to be discovered, they're the wrong tool entirely. March predicted that organizations over-indexed on exploitation would be "effective in the short run but self-destructive in the long run." Heavy planning structures don't just slow exploratory work. They apply the wrong logic to it.
 
@@ -65,11 +65,11 @@ I've watched this exact dynamic play out. Teams that had been genuinely creative
 >
 > From [Amy Edmondson](https://en.wikipedia.org/wiki/Psychological_safety)
 
-That's the other half of what play requires: believing errors won't be penalized. Edmondson's work, [later validated by Google's Project Aristotle](https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness), showed psychological safety is the single most important factor in team performance. In practice, it means teams where:
+That's the other half of what play requires: believing errors won't be penalized. Edmondson's work, [later validated by Google's Project Aristotle](https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness 'cite: Google re:Work, 2015'), showed psychological safety is the single most important factor in team performance. In practice, it means teams where:
 
 > "No one on the team will embarrass or punish anyone else for admitting a mistake, asking a question, or offering a new idea."
 >
-> From [Google re:Work, Project Aristotle](https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness)
+> From [Google re:Work, Project Aristotle](https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness 'cite: Google re:Work, 2015')
 
 Teams with it experiment more, learn faster, produce better work.
 
@@ -107,7 +107,7 @@ The [SEO work I described here](https://www.joekarlsson.com/blog/reversing-seo-t
 
 > "Flow is a state of transient downregulation of the highest cognitive hierarchical component, the prefrontal cortices." People in flow "become so absorbed in the activity that they do not have any attention to spare to become distracted by anything else."
 >
-> From [Frontiers in Psychology, flow states research](https://pmc.ncbi.nlm.nih.gov/articles/PMC7551835/)
+> From [Frontiers in Psychology, flow states research](https://pmc.ncbi.nlm.nih.gov/articles/PMC7551835/ 'cite: Gold, September 2020')
 
 Anything that triggers self-evaluation re-activates exactly the circuitry the flow state had quieted, so you lose the state along with the time. Protect blocks of uninterrupted work the way you'd protect a production deployment.
 
@@ -115,11 +115,11 @@ Anything that triggers self-evaluation re-activates exactly the circuitry the fl
 
 ## Play and accountability aren't opposites
 
-[Amabile's research](https://www.hbs.edu/ris/Publication%20Files/12-096.pdf) distinguishes between two kinds of measurement: controlling (you must do it this way, here's how it'll be judged) and informational (here's what happened, here's what we learned). She described the mechanism:
+[Amabile's research](https://www.hbs.edu/ris/Publication%20Files/12-096.pdf 'cite: Amabile, April 2012') distinguishes between two kinds of measurement: controlling (you must do it this way, here's how it'll be judged) and informational (here's what happened, here's what we learned). She described the mechanism:
 
 > "By putting people under conditions where they expected external evaluation of what they were doing... all each of those conditions and related conditions led to a decrease in creativity."
 >
-> From [Teresa Amabile](https://fuelingcreativitypodcast.com/extrinsic-and-intrinsic-motivation-in-the-classroom-with-dr-teresa-amabile-part-one)
+> From [Teresa Amabile](https://fuelingcreativitypodcast.com/extrinsic-and-intrinsic-motivation-in-the-classroom-with-dr-teresa-amabile-part-one 'cite: Fueling Creativity in Education, May 2025')
 
 The first kills creative output. The second can enhance it. So keep the accountability and move it to where it's useful: after the experiment.
 
@@ -137,7 +137,7 @@ Does this require experience? Yes. Play without enough context to hold a coheren
 Play, in the context of creative and technical work, is a state of engaged experimentation where process matters more than any single outcome, errors are cheap and informative, and the primary driver is curiosity rather than compliance. It's a quality of engagement with the work itself, not a separate activity alongside it.
 
 **Why does upfront planning hurt creative work?**
-When you know work will be evaluated before you start, you optimize for what will pass rather than what will work. [Teresa Amabile's research](https://www.hbs.edu/ris/Publication%20Files/12-096.pdf) showed this measurably reduces creative output. The issue isn't planning itself. It's that planning-first installs an evaluative frame before exploration has happened.
+When you know work will be evaluated before you start, you optimize for what will pass rather than what will work. [Teresa Amabile's research](https://www.hbs.edu/ris/Publication%20Files/12-096.pdf 'cite: Amabile, April 2012') showed this measurably reduces creative output. The issue isn't planning itself. It's that planning-first installs an evaluative frame before exploration has happened.
 
 **How is this different from agile development?**
 Agile is the closest institutional analogue, and the underlying insight is the same: complex systems reveal themselves through iteration, not specification. But agile is a project management framework. This is about individual cognitive state - the quality of engagement during the work itself, not just how the work is organized at the team level.

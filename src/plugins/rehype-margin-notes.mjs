@@ -6,6 +6,9 @@
  * - a bracketed citation link, `[[Oliver 2025]](https://...)`: on wide screens its text
  *   gives way to a pink superscript number, and the margin note carries the citation and
  *   the site it links to. Narrower screens keep the bracketed text in the line and hide the note.
+ * - a source link marked with a `cite:` title, `[We mourn our craft](https://... "cite: Lawson,
+ *   February 2026")`: the link keeps its words and gets a pink number after it, and the note
+ *   gives the author and date, the link's words and the site (DECISIONS.md, round 5 B).
  * - a GFM footnote reference, `[^1]`: its note is the footnote's own text. The footnotes
  *   list at the end of the post stays, so nothing is lost where the margin is hidden.
  *
@@ -14,6 +17,7 @@
  * the citation in the line, or the footnote at the end, and the line's own link goes there.
  */
 const BRACKETED = /^\[(.+)\]$/s;
+const CITE_TITLE = /^cite:\s*(.+)$/s;
 
 function textOf(node) {
 	if (node.type === 'text') return node.value;
@@ -62,6 +66,8 @@ export default function rehypeMarginNotes() {
 	return (tree) => {
 		const footnotes = footnoteTexts(tree);
 		let count = 0;
+		// A source cited again keeps its first number and adds no second note, as in a book
+		const numberOf = new Map();
 
 		// Only the post's top-level blocks get notes beside them; the footnotes list itself
 		// and anything inside a table or a <details> stay as they are
@@ -77,6 +83,30 @@ export default function rehypeMarginNotes() {
 				if (node.tagName === 'a' && node.properties?.dataFootnoteRef !== undefined) {
 					const note = footnotes.get(href);
 					if (note) notes.push(marginNote(textOf(node).trim(), [text(note)]));
+					return;
+				}
+				const source =
+					node.tagName === 'a' && String(node.properties?.title ?? '').match(CITE_TITLE);
+				if (source && /^https?:/.test(href)) {
+					const repeat = numberOf.get(href);
+					const number = repeat ?? ++count;
+					numberOf.set(href, number);
+					delete node.properties.title;
+					const at = parent.children.indexOf(node);
+					// After the link, not in it: the link's name stays its own words
+					parent.children.splice(
+						at + 1,
+						0,
+						el('sup', { className: ['cite-num'], ariaHidden: 'true' }, [text(String(number))]),
+					);
+					if (repeat) return;
+					const site = siteOf(href);
+					notes.push(
+						marginNote(number, [
+							text(`${source[1].trim()}. ${textOf(node).trim()}.`),
+							...(site ? [text(` ${site}`)] : []),
+						]),
+					);
 					return;
 				}
 				const cited = node.tagName === 'a' && textOf(node).match(BRACKETED);
@@ -102,9 +132,10 @@ export default function rehypeMarginNotes() {
 					);
 					return;
 				}
-				node.children?.forEach((child) => walk(child, node));
+				// A copy: a citation's number goes in after it, and forEach stops at the old length
+				[...(node.children ?? [])].forEach((child) => walk(child, node));
 			};
-			block.children.forEach((child) => walk(child, block));
+			[...block.children].forEach((child) => walk(child, block));
 			if (notes.length) {
 				tree.children.splice(i, 0, ...notes);
 				i += notes.length;
