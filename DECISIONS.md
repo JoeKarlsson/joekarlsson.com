@@ -31,6 +31,8 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 - 2026-11-15: Homepage round 3 (~/mockups/joekarlsson-zine/round3.html): Joe approved all seven changes to B: topics as a link row in the Writing header; By topic replaced by Most read (bar chart of readers from the Plausible popular-posts data); newsletter moved up after the writing and pull quote; "Ship the ugly pot" leads straight into Works; Talks as its own section (stats strip, the three Start here picks, latest talk); Reviews as its own section led by the newest review's one-liner; the page ends Reviews, Make a mark, Around the house. Around the house is being rethought as an odds-and-ends section.
 
+- 2026-11-15: Homepage Odds & ends (rounds 4-6, ~/mockups/joekarlsson-zine/round6.html) replaces Around the house and absorbs Reviews (no separate Reviews section). Joe: drop the Kindle (it showed up twice), one or two Shorts, add film reviews. Shorts lead and are bigger than the newest review ("my shorts are more important than my latest review... just an extra thing I like to do for fun"). Podcast guest covers get the pink treatment like every picture. The terminal card shows sample output of `curl -L joekarlsson.com/hi`, no caption. Cards have no empty space under them.
+
 ## Playful details
 
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.
