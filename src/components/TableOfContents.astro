@@ -10,7 +10,7 @@ const { headings } = Astro.props;
 the notes below show. About keeps it in its sidebar. Narrower screens get the folded list. -->
 <div class="margin-toc hidden xl:block">
 	<nav class="text-sm" id="toc-nav" aria-label="Table of contents">
-		<p class="mb-3 font-display text-xl text-paper uppercase">On this page</p>
+		<p class="mb-3 font-display text-xl tracking-[0.04em] text-paper uppercase">On this page</p>
 		<ul class="border-l border-surface-3">
 			{headings.map((h) => (
 				<li class="-ml-px border-l-2 border-transparent pl-3 transition-colors duration-150">
@@ -20,7 +20,7 @@ the notes below show. About keeps it in its sidebar. Narrower screens get the fo
 						class={[
 							'toc-link block min-h-6 py-0.5 leading-snug no-underline transition-colors duration-150',
 							h.depth === 3
-								? 'pl-3 text-xs text-muted hover:text-paper'
+								? 'pl-3 text-[13px] text-muted hover:text-paper'
 								: 'text-paper hover:text-paper',
 						].join(' ')}
 					>

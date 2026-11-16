@@ -57,6 +57,8 @@
 	   bold onto any Anton heading that doesn't reset its weight */
 	html {
 		font-synthesis-weight: none;
+		/* Tabbing back up the page stops below the floating nav, not under it (WCAG 2.4.11) */
+		scroll-padding-top: 6rem;
 	}
 
 	body {
@@ -118,7 +120,9 @@
 
 /* Prose styles for blog content: Fraunces for reading, Anton for headings, Hanken Grotesk for code labels, captions and tables. */
 .prose {
-	@apply font-serif text-paper;
+	/* A step down from the paper white: long light text on pure black glows (halation).
+	   Still about 14:1 */
+	@apply font-serif text-[#d8d8d8];
 	font-size: var(--prose-font-size);
 	line-height: 1.65;
 	max-width: var(--reading-width);
@@ -407,7 +411,7 @@ pre.astro-code {
 	max-height: none;
 }
 .prose .frame-label {
-	@apply mt-1.5 block font-display text-sm leading-none text-paper uppercase;
+	@apply mt-1.5 block font-display text-sm leading-none tracking-[0.04em] text-paper uppercase;
 }
 .prose .frame-pair-cell:last-child .frame-label {
 	@apply text-pink;
@@ -498,6 +502,8 @@ pre.astro-code {
 }
 .prose td {
 	@apply p-2 border-b border-surface-3;
+	/* same-width digits, so numbers line up down a column */
+	font-variant-numeric: tabular-nums;
 }
 
 /* Touch screens: every tap target at least 44px, Apple's and WCAG AAA's minimum */
@@ -858,7 +864,7 @@ header nav .sticker {
    pink rule and a thin one, the title fitted to the column (its font size comes from
    utils/masthead.ts in cqi of the article), then the picture and an italic caption */
 .masthead-kicker {
-	@apply border-t-4 border-b border-t-pink border-b-surface-4 py-2 font-display text-base leading-tight text-paper uppercase;
+	@apply border-t-4 border-b border-t-pink border-b-surface-4 py-2 font-display text-base leading-tight tracking-[0.04em] text-paper uppercase;
 }
 .masthead-title {
 	@apply my-5 font-display leading-[0.95] font-normal text-paper uppercase;
@@ -868,7 +874,8 @@ header nav .sticker {
 	@apply block;
 }
 .masthead-caption {
-	@apply mx-auto mt-2 max-w-(--reading-width) font-serif text-[15px] leading-snug text-muted italic;
+	/* about 60 characters: a caption in small italic reads best shorter than the text */
+	@apply mx-auto mt-2 max-w-[34em] font-serif text-[15px] leading-snug text-muted italic;
 }
 .masthead-caption b {
 	@apply mr-1.5 font-sans text-xs font-bold tracking-wider text-pink not-italic uppercase;
@@ -1194,9 +1201,8 @@ header nav .sticker {
 	.post-axis .masthead :is(img, video, canvas) {
 		max-width: none;
 	}
-	/* The caption keeps the text's measure, on the shared left edge */
+	/* The caption sits on the shared left edge */
 	.post-axis .masthead-caption {
-		max-width: var(--reading-width);
 		margin-inline: 0;
 	}
 }

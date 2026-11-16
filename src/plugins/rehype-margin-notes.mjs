@@ -64,9 +64,14 @@ function textOf(node) {
 
 const el = (tagName, properties, children) => ({ type: 'element', tagName, properties, children });
 const text = (value) => ({ type: 'text', value });
-// Markdown curls quotes on the way in; a note's `at` is matched with them straightened
-// (one character for one, so positions line up)
-const straight = (s) => s.replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
+// Markdown curls quotes on the way in, and rehype-no-widows ties each block's last two
+// words with a no-break space; a note's `at` is matched with both undone (one character
+// for one, so positions line up)
+const straight = (s) =>
+	s
+		.replace(/[‘’]/g, "'")
+		.replace(/[“”]/g, '"')
+		.replace(/\u00A0/g, ' ');
 
 function siteOf(href) {
 	try {

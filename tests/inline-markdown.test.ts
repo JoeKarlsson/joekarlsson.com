@@ -16,6 +16,12 @@ describe('inlineMarkdown', () => {
 		);
 	});
 
+	it('curls apostrophes, but not inside code', () => {
+		expect(inlineMarkdown("Proxmox doesn't ship `don't`")).toBe(
+			"Proxmox doesn’t ship <code>don't</code>",
+		);
+	});
+
 	it('leaves brackets that are not links alone', () => {
 		expect(inlineMarkdown('[draft] (soon)')).toBe('[draft] (soon)');
 	});

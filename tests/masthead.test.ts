@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { mastheadFontSize, mastheadLines } from '../src/utils/masthead';
+import { mastheadFontSize, mastheadLineInset, mastheadLines } from '../src/utils/masthead';
 
 describe('mastheadLines', () => {
 	it('keeps a short title on one line', () => {
@@ -21,5 +21,13 @@ describe('mastheadLines', () => {
 describe('mastheadFontSize', () => {
 	it('sizes to the longest line, between 2.25rem (a post h2) and 150px, so zoom still enlarges it', () => {
 		expect(mastheadFontSize(['ab', 'abcd'])).toBe('clamp(2.25rem, 50.00cqi, 9.375rem)');
+	});
+});
+
+describe('mastheadLineInset', () => {
+	it("pulls a line left by its first letter's side bearing", () => {
+		expect(mastheadLineInset('How to build')).toBe('-0.038em');
+		expect(mastheadLineInset('the little hours')).toBe('-0.01em');
+		expect(mastheadLineInset('¿Qué?')).toBe('-0.03em');
 	});
 });

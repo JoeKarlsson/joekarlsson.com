@@ -3,7 +3,8 @@
 // issues (DECISIONS.md, round 4 C). A kicker line between a pink rule and a thin one (the
 // default slot, usually MetaParts), the title fitted to the column (utils/masthead.ts), then
 // the picture or video with no tilt or tape, and the description as its italic caption.
-import { mastheadFontSize, mastheadLines } from '../utils/masthead';
+import { curlyApostrophes } from '../utils/inline-markdown';
+import { mastheadFontSize, mastheadLineInset, mastheadLines } from '../utils/masthead';
 
 interface Props {
 	title: string;
@@ -30,7 +31,7 @@ const lines = mastheadLines(title);
 	<h1 class="masthead-title" style={`font-size:${mastheadFontSize(lines)}`}>
 		{lines.map((line) => (
 			<>
-				<span>{line}</span>{' '}
+				<span style={`margin-inline-start:${mastheadLineInset(line)}`}>{line}</span>{' '}
 			</>
 		))}
 	</h1>
@@ -72,7 +73,7 @@ const lines = mastheadLines(title);
 	)}
 	{caption && (
 		<p class="masthead-caption">
-			<b>{label}</b> {caption}
+			<b>{label}</b> {curlyApostrophes(caption)}
 		</p>
 	)}
 </header>

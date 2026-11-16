@@ -23,7 +23,7 @@ import { halftoneMode } from '../utils/halftone';
 import { localImageSize } from '../utils/image-size.mjs';
 import { rankRelatedPosts } from '../utils/related-posts';
 import popularPosts from '../data/popular-posts.json';
-import { PAGE_CONTAINER } from '../utils/ui';
+import { PAGE_CONTAINER, SECTION_HEADING } from '../utils/ui';
 interface Props {
 	title: string;
 	shareTitle?: string;
@@ -498,20 +498,18 @@ const captionText =
 					{/* The ask sits where a reader finishes, not only in the footer below the bio
 					    and related posts, where 1,120 finished reads a month made 9 signups */}
 					<section class="mt-12" aria-labelledby="post-newsletter-heading">
-						<h2
-							id="post-newsletter-heading"
-							class="font-display text-[clamp(2rem,3.2vw,2.75rem)] leading-none text-paper uppercase"
-						>
-							Works on <span class="text-pink">My Machine</span>
+						{/* Same heading as Keep reading below it: one header style (DECISIONS.md) */}
+						<h2 id="post-newsletter-heading" class={SECTION_HEADING}>
+							Works on My Machine
 						</h2>
-						<p class="mt-3 mb-5 text-lg text-paper">
+						<p class="mb-5 text-lg text-paper">
 							{section === 'reviews'
 								? 'If you read this far for a movie review, you might like the rest of what I write: homelab builds, AI tools and open source, by email when I have something to say.'
 								: 'Get the next post by email. My newsletter covers homelab builds, AI tools and open source, and it goes out when I have something to say.'}
 						</p>
 						<NewsletterSignup location="post-end" />
 						<p class="mt-3 text-sm text-muted">
-							It's free, and you can unsubscribe anytime. You'll get an email to confirm first.
+							It’s free, and you can unsubscribe anytime. You’ll get an email to confirm first.
 						</p>
 					</section>
 

@@ -18,6 +18,7 @@ import rehypeGifVideo from './src/plugins/rehype-gif-video.mjs';
 import rehypeImageDimensions from './src/plugins/rehype-image-dimensions.mjs';
 import rehypeInlineDiagrams from './src/plugins/rehype-inline-diagrams.mjs';
 import rehypeMarginNotes from './src/plugins/rehype-margin-notes.mjs';
+import rehypeNoWidows from './src/plugins/rehype-no-widows.mjs';
 import rehypeLazyImages from './src/plugins/rehype-lazy-images.mjs';
 import rehypePostPreviews from './src/plugins/rehype-post-previews.mjs';
 import rehypeSpoilers from './src/plugins/rehype-spoilers.mjs';
@@ -63,8 +64,8 @@ export default defineConfig({
 	devToolbar: { enabled: process.env.ASTRO_E2E !== '1' },
 	// Self-hosted at build time, each with a fallback sized to its metrics, so text
 	// doesn't reflow when the font arrives (that shift cost /work/ and /uses/ their
-	// Lighthouse score). Fraunces stays on Google Fonts in BaseHead: Astro can't
-	// request its optical-size axis.
+	// Lighthouse score). Fraunces loads its real italic too: captions, chapter titles and
+	// quotes are set in it, and without it the browser slanted the roman.
 	fonts: [
 		{
 			provider: fontProviders.google(),
@@ -92,8 +93,9 @@ export default defineConfig({
 			provider: fontProviders.google(),
 			name: 'Fraunces',
 			cssVariable: '--font-fraunces',
-			weights: ['400 700'],
-			styles: ['normal'],
+			// 300 for the chapter titles' font-light
+			weights: ['300 700'],
+			styles: ['normal', 'italic'],
 			subsets: ['latin', 'latin-ext'],
 			fallbacks: ['Georgia', 'serif'],
 			// Keeps the optical-size axis, so big serif lines get Fraunces's display cut
@@ -148,6 +150,7 @@ export default defineConfig({
 				rehypeFrames,
 				rehypeStrayThoughts,
 				rehypePostPreviews,
+				rehypeNoWidows,
 				rehypeSlug,
 				[
 					rehypeAutolinkHeadings,
