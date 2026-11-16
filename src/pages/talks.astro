@@ -13,20 +13,16 @@ import TalkSeriesCard from '../components/TalkSeriesCard.astro';
 import { CHALK, MARKS } from '../data/scribbles';
 import {
 	TALK_ERAS,
-	TALK_GROUPS,
 	countByGroup,
 	foldSeries,
 	formatTalkDate,
-	groupOf,
 	newestLinkedTalk,
-	talks,
 } from '../data/talks';
 import {
 	FILTER_ACTIVE,
 	FILTER_INACTIVE,
 	FILTER_ROW,
 	HERO_LEAD,
-	META,
 	PAGE_CONTAINER,
 	TEXT_LINK,
 } from '../utils/ui';
@@ -34,18 +30,6 @@ import {
 const eras = TALK_ERAS.filter((era) => era.talks.length > 0);
 // The pink band pushes the newest one
 const newest = newestLinkedTalk();
-
-// The totals: how much, all in, without a per-year comparison
-const firstYear = Math.min(...talks.map((t) => Number(t.date.slice(0, 4))));
-const GROUP_NAMES = ['Talks', 'Podcasts', 'Livestreams', 'Demos'];
-const totals = [
-	...TALK_GROUPS.map((group, g) => ({
-		n: talks.filter((t) => groupOf(t) === group).length,
-		label: GROUP_NAMES[g],
-	})),
-	{ n: eras.length, label: 'Companies' },
-	{ n: firstYear, label: 'Since' },
-];
 
 // Three talks I wrote up in full, shown first, each on its own /talks/ page
 const FEATURED = [
@@ -136,16 +120,6 @@ const FILTERS = [
 				.
 			</p>
 		</PosterHero>
-
-		<!-- The totals, all in: big numbers, no per-year comparison -->
-		<dl class="mb-12 grid grid-cols-3 gap-x-6 gap-y-6 md:mb-16 md:grid-cols-6">
-			{totals.map((t) => (
-				<div class="border-t border-surface-4 pt-3">
-					<dt class={META}>{t.label}</dt>
-					<dd class="font-display text-[clamp(3rem,7vw,6.5rem)] leading-none text-pink">{t.n}</dd>
-				</div>
-			))}
-		</dl>
 
 		<section id="featured" class="relative mb-12 scroll-mt-24 md:mb-32">
 			<SectionMasthead title="Start" accent="here" />
