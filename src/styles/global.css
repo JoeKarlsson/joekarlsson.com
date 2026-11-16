@@ -845,7 +845,7 @@ header nav .sticker {
 	@apply block;
 }
 .masthead-caption {
-	@apply mx-auto mt-2 max-w-[856px] font-serif text-[15px] leading-snug text-muted italic;
+	@apply mx-auto mt-2 max-w-(--reading-width) font-serif text-[15px] leading-snug text-muted italic;
 }
 .masthead-caption b {
 	@apply mr-1.5 font-sans text-xs font-bold tracking-wider text-pink not-italic uppercase;

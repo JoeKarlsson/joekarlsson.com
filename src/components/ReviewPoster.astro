@@ -18,8 +18,11 @@ const { title, year, rating, poster, slug } = Astro.props.review.data;
 	>
 		{/* No poster from Letterboxd: the title, set like one */}
 		{!poster && (
-			<span class="flex size-full items-end p-3 font-display text-2xl leading-none text-paper uppercase">
-				{title}
+			<span
+				aria-hidden="true"
+				class="flex size-full items-end p-3 font-display text-xl leading-none text-paper uppercase hyphens-auto [overflow-wrap:anywhere] sm:text-2xl"
+			>
+				<span class="line-clamp-5">{title}</span>
 			</span>
 		)}
 		{poster && (
@@ -35,14 +38,18 @@ const { title, year, rating, poster, slug } = Astro.props.review.data;
 			/>
 		)}
 	</span>
-	{rating && (
-		<span class="mt-2 block text-sm text-pink">
-			<span aria-hidden="true">{stars(rating)}</span>
-			<span class="sr-only">Rated {rating} out of 5</span>
-		</span>
-	)}
-	{/* Two lines at most, so one long title doesn't push its row out of line */}
-	<span class="line-clamp-2 leading-snug text-paper group-hover:text-pink">
-		{title} <span class="text-muted">{year}</span>
+	{/* The year rides on the stars line, so the title clamp never hides it */}
+	<span class="mt-2 flex justify-between gap-2 text-sm">
+		{rating ? (
+			<span class="text-pink">
+				<span aria-hidden="true">{stars(rating)}</span>
+				<span class="sr-only">Rated {rating} out of 5</span>
+			</span>
+		) : (
+			<span />
+		)}
+		<span class="text-muted">{year}</span>
 	</span>
+	{/* Two lines at most, so one long title doesn't push its row out of line */}
+	<span class="line-clamp-2 leading-snug text-paper group-hover:text-pink">{title}</span>
 </a>
