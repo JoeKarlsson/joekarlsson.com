@@ -221,9 +221,16 @@
 	animation-delay: calc(var(--echo-index, 0) * -0.6s);
 }
 
-/* The echo sits just above the subscribe form (in the footer, or up the homepage): it
-   holds still while someone is typing there, so nothing blinks beside the field in use */
-.newsletter-band:has(.newsletter-signup:focus-within) .echo > span {
+/* The echo sits just above the subscribe form (in the footer, or up the homepage): it,
+   the band's marks and the homepage's slot reel just below hold still while someone is
+   typing there, so nothing moves beside the field in use */
+:root:has(.newsletter-band .newsletter-signup:focus-within)
+	:is(
+		.newsletter-band .echo > span,
+		.newsletter-band :is(.redraw, .redraw-strokes) path,
+		.slot-reel,
+		.ugly-pot :is(.redraw, .redraw-strokes) path
+	) {
 	animation-play-state: paused;
 }
 

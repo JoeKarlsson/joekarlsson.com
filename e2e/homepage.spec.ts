@@ -70,6 +70,18 @@ test.describe('Homepage', () => {
 		expect(await list.innerText()).not.toMatch(/\d,\d{3}|visitors|readers/i);
 	});
 
+	test('typing in the newsletter field holds the echo and the slot reel still', async ({
+		page,
+	}) => {
+		const reel = page.locator('.slot-reel');
+		await expect(reel).toHaveCSS('animation-play-state', 'running');
+		await page.locator('main .newsletter-band input[type="email"]').focus();
+		await expect(reel).toHaveCSS('animation-play-state', 'paused');
+		await expect(
+			page.locator('.newsletter-band .echo > span[aria-hidden="true"]').first(),
+		).toHaveCSS('animation-play-state', 'paused');
+	});
+
 	test('the newsletter sits up the page, and the footer leaves it out', async ({ page }) => {
 		await expect(page.locator('main .newsletter-band form.newsletter-signup')).toHaveCount(1);
 		await expect(page.locator('footer form.newsletter-signup')).toHaveCount(0);
