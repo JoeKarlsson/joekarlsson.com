@@ -79,3 +79,66 @@ describe('rehypeMarginNotes', () => {
 		expect(numbers(block)).toEqual([]);
 	});
 });
+
+describe('rehypeMarginNotes enrichment', () => {
+	it("leads a citation's note with the quote in its title", () => {
+		const a = link('https://a.com/', 'A', 'cite: Ames, 2020 | quote: exact words here');
+		const cited = {
+			...link('https://b.com/', '[Bo 2021]'),
+			properties: { href: 'https://b.com/', title: 'quote: more words' },
+		};
+		const root = run(p(a, text(' and '), cited));
+		expect(notes(root)).toEqual([
+			'“exact words here”1 Ames, 2020. A. a.com',
+			'“more words”2 Bo 2021. b.com',
+		]);
+		expect(cited.properties.title).toBeUndefined();
+		// Screen readers hear each quote in the sentence, since the note is aria-hidden
+		expect(
+			root
+				.children!.at(-1)!
+				.children!.filter((n) => n.properties?.className?.includes('sr-only'))
+				.map(textOf),
+		).toEqual([' (“exact words here”)', ' (“more words”)']);
+	});
+	it('turns a lone picture titled margin: into a captioned margin figure', () => {
+		const img: HastNode = {
+			type: 'element',
+			tagName: 'img',
+			properties: { src: '/a.webp', alt: 'A', title: 'margin: Ames, a portrait' },
+			children: [],
+		};
+		const root = run(p(img), p(text('Next paragraph')));
+		const figure = root.children![0];
+		expect(figure.tagName).toBe('figure');
+		expect(textOf(figure)).toBe('Ames, a portrait');
+		expect(img.properties!.title).toBeUndefined();
+	});
+	it('moves a [!margin] code comment beside its line and keeps it in the code', () => {
+		const token = (value: string): HastNode => ({
+			type: 'element',
+			tagName: 'span',
+			properties: {},
+			children: [text(value)],
+		});
+		const line: HastNode = {
+			type: 'element',
+			tagName: 'span',
+			properties: { class: 'line' },
+			children: [token('x = 1  '), token('# [!margin] Why x is one.')],
+		};
+		const pre: HastNode = {
+			type: 'element',
+			tagName: 'pre',
+			properties: {},
+			children: [{ type: 'element', tagName: 'code', properties: {}, children: [line] }],
+		};
+		const root = run(pre);
+		const box = root.children![0];
+		expect(box.tagName).toBe('div');
+		expect(textOf(pre)).toBe('x = 1  # Why x is one.');
+		expect(box.children!.filter((n) => n.tagName === 'aside').map(textOf)).toEqual([
+			'Why x is one.',
+		]);
+	});
+});

@@ -230,14 +230,10 @@ I use the catppuccin-powerline preset with two things turned off: git status cou
 <summary>Show what I trimmed from the Starship preset</summary>
 
 ```toml
-# catppuccin-powerline preset, trimmed for speed:
-#  - git_status off: a full `git status` every prompt cost ~50 ms in repos
-#    (branch alone ~8 ms)
-#  - language version segment removed: each module launches its runtime
-#    (node --version ~65 ms)
+# catppuccin-powerline preset, trimmed for speed  # [!margin] Language version segment removed: each one launched its runtime before every prompt (node --version, about 65 ms).
 palette = 'catppuccin_mocha'
 
-[git_status]
+[git_status]  # [!margin] git_status off: a full git status cost about 50 ms per prompt in a repo; the branch name alone is about 8 ms.
 disabled = true
 ```
 

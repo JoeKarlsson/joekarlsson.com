@@ -56,6 +56,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-15: Homepage spacing: wide screens breathe (128px between sections, about 176px above and 128px below "Ship the ugly pot"; Joe: "cramped in a bad way"), phones stay tight (48px; "I still want it tight on mobile"). The TEDx talk clip is two thirds wide, not full bleed ("kind of too big"), with the other two talks stacked beside it.
 
 - 2026-11-15: Post enrichment brainstorm (15 ideas): Joe picked 1 (small pictures in the margin), 2 (an exact quote in a citation's margin note), 3 (research figures), 5 (archived snapshots), 6 (code with notes in the margin) and 7 (builders and calculators on Joe's real numbers). Passed on talk clips with start and end times, guess-before-the-answer, homelab charts, before/after slider, commit cards, further-reading shelf, build logs, audio and a newsletter sources section. 3, 5 and 7 went into /write-post's supporting materials pitch; 1, 2 and 6 change the post page, so they get mockups first (~/mockups/joekarlsson-margins).
+- 2026-11-15: Margin mockup verdicts (~/mockups/joekarlsson-margins): 1A, a margin picture stands alone above the notes with an italic caption (over 1B, inside the citation note); 2B, a quote leads its citation's note behind a pink rule (over 2A, quote under the citation, which I'd recommended); 6B, a code note sits level with its line joined by a thin pink rule, no numbers (over 6A, pink numbers, which I'd recommended).
 
 ## Playful details
 

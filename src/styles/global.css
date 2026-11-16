@@ -319,7 +319,7 @@ pre.astro-code {
    standard), except a pair of frames side by side (rehype-frames.mjs). A picture
    centers itself rather than widening its paragraph, so a caption written in the
    same paragraph stays in the text column */
-.prose.wide-media > :is(pre, figure:not(.frame, .frame-pair), table, .\@container) {
+.prose.wide-media > :is(pre, figure:not(.frame, .frame-pair, .margin-figure), table, .\@container) {
 	width: 100cqw;
 	max-width: none;
 	margin-inline: calc((100% - 100cqw) / 2);
@@ -860,8 +860,16 @@ header nav .sticker {
 .margin-toc {
 	@apply sticky top-20 self-start;
 }
+/* A [!margin] comment left in the code (no margin) wraps rather than scrolling the block */
+.prose .code-margin-comment {
+	display: block;
+	white-space: pre-wrap;
+}
 .prose .margin-note,
-.prose .cite-num {
+.prose .cite-num,
+.prose .margin-figure,
+.prose .code-note,
+.prose .code-note-rule {
 	display: none;
 }
 @media (width >= 80rem) {
@@ -887,6 +895,63 @@ header nav .sticker {
 	.prose .margin-note b {
 		@apply text-pink;
 	}
+	/* A quote from the source leads its note, behind a pink rule (enrichment pick 2B) */
+	.prose .margin-quote {
+		@apply mb-2 block border-l-[3px] border-pink pl-3 font-serif text-[1.05rem] leading-snug text-paper italic;
+	}
+	/* A small captioned picture beside the paragraph after it (pick 1A) */
+	.prose figure.margin-figure {
+		display: block;
+		float: right;
+		clear: right;
+		width: 15rem;
+		margin: 0.35rem calc(-1 * var(--margin-col)) 1rem 0;
+	}
+	.prose .margin-figure img {
+		width: auto;
+		max-width: 100%;
+		/* A set height, so the attributes' ratio reserves the space before it loads */
+		height: 11rem;
+		object-fit: contain;
+		margin: 0;
+	}
+	.prose .margin-figure figcaption {
+		@apply mt-1.5 text-left font-serif text-[0.8rem] leading-snug text-muted italic;
+	}
+	/* A code comment marked [!margin] sits level with its line, joined by a pink rule (pick
+	   6B, rehype-margin-notes.mjs). Without anchor positioning it stays a comment in the code. */
+	@supports (anchor-name: --a) {
+		.code-noted {
+			position: relative;
+		}
+		/* Only sideways, so the open animation still clips the growing height */
+		details[open]:has(.code-noted)::details-content {
+			overflow-x: visible;
+		}
+		.prose .code-margin-comment {
+			@apply sr-only;
+		}
+		/* An empty anchor counts as hidden, and Safari then hides what's placed on it */
+		.prose :is(.code-note, .code-note-rule) {
+			position-visibility: always;
+		}
+		.prose .code-note {
+			@apply block font-sans text-sm leading-snug text-muted;
+			position: absolute;
+			top: calc(anchor(center) - 0.5lh);
+			left: calc(100% + var(--margin-col) - 15rem);
+			width: 15rem;
+			margin: 0;
+		}
+		.prose .code-note-rule {
+			@apply block border-t border-pink;
+			position: absolute;
+			/* Whole pixels, or the 1px rule smears across two rows and reads grey */
+			top: round(down, anchor(center), 1px);
+			left: calc(anchor(right) + 1rem);
+			right: calc(15rem - var(--margin-col) + 0.5rem);
+		}
+	}
 	.prose .cite-text {
 		@apply sr-only;
 	}
@@ -895,7 +960,7 @@ header nav .sticker {
 	}
 	.margin-column
 		.prose.wide-media
-		> :is(pre, figure:not(.frame, .frame-pair), table, .\@container) {
+		> :is(pre, figure:not(.frame, .frame-pair, .margin-figure), table, .\@container) {
 		@apply relative z-20;
 		margin-inline: calc((100% + var(--margin-col) - 100cqw) / 2)
 			calc((100% - var(--margin-col) - 100cqw) / 2);
@@ -905,7 +970,7 @@ header nav .sticker {
 	}
 	.margin-column:has(> .margin-toc)
 		.prose.wide-media
-		> :is(pre, figure:not(.frame, .frame-pair), table, .\@container) {
+		> :is(pre, figure:not(.frame, .frame-pair, .margin-figure), table, .\@container) {
 		width: 100%;
 		margin-inline: 0;
 	}
