@@ -83,7 +83,7 @@ A couple of smaller things borrow a GPU too, like a [subtitle generator I built 
 
 ## The two cards
 
-The [Quadro RTX 4000](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-datasheet.pdf) is a Turing card from 2018 with 8GB of VRAM and 416 GB/s of memory bandwidth. The [RTX A4000](https://www.nvidia.com/content/dam/en-zz/Solutions/gtcs21/rtx-a4000/nvidia-rtx-a4000-datasheet.pdf) is Ampere, from 2021, with 16GB and 448 GB/s. They're both single-slot blower cards, which is the whole reason I bought workstation cards: most gaming GPUs don't physically fit in a 2U server, and they can't push heat out the back of a chassis designed for front-to-back airflow. I paid about $400 for the Quadro used.
+The [Quadro RTX 4000](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-datasheet.pdf) is a Turing card from 2018 with 8GB of VRAM and 416 GB/s of memory bandwidth. The [RTX A4000](https://www.nvidia.com/content/dam/en-zz/Solutions/gtcs21/rtx-a4000/nvidia-rtx-a4000-datasheet.pdf) is Ampere, from 2021, with 16GB and 448 GB/s. They're both single-slot blower cards, which is the whole reason I bought workstation cards: most gaming GPUs don't physically fit in a 2U server, and they can't push heat out the back of a chassis designed for front-to-back airflow. I paid $230 for the Quadro on eBay.
 
 For LLMs, the bandwidth number matters more than the age. Generating each token means reading the whole model out of VRAM, so two cards with similar bandwidth generate at similar speeds, as long as the model fits.
 
