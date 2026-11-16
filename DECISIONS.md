@@ -43,6 +43,9 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-15: Homepage mockup additions approved: Works opens with one full-bleed project spread over a smaller grid (like Talks' TEDx spread); the lead post headline overlaps its photo more (lead post only); the "Latest" talk line is cut; "Ship the ugly pot" sits right on the Works rule with no gap. Hot takes shows two films Joe rated far above the crowd and one far below (love over dunking, for optimism).
 - 2026-11-15: No explainer subtext. Joe on a line under "Ship the ugly pot": "We don't need like additional subtext explaining stuff. I think it works on its own." Lines and slogans stand alone; don't add captions that explain them.
 
+- 2026-11-15: Homepage hero bio: option C, "I think technology should be weird and personal. I write about AI and homelabs, and I build the things I write about." Replaces the employer list.
+- 2026-11-15: Homepage pictures are moving clips wherever a clip exists (Joe: "All these should be animated if possible"): the Talks spread plays the TEDx montage from /talks (never a still frame), Works plays each project's card clip, the cat clip loops. Stills only where no clip exists. Phones, reduced motion and slow connections still get the still (standing motion rules).
+
 ## Playful details
 
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.
