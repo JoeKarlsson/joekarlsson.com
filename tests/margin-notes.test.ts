@@ -97,7 +97,9 @@ describe('rehypeMarginNotes enrichment', () => {
 		expect(
 			root
 				.children!.at(-1)!
-				.children!.filter((n) => n.properties?.className?.includes('sr-only'))
+				.children!.filter((n) =>
+					(n.properties?.className as string[] | undefined)?.includes('sr-only'),
+				)
 				.map(textOf),
 		).toEqual([' (“exact words here”)', ' (“more words”)']);
 	});
