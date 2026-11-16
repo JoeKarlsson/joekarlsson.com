@@ -29,10 +29,26 @@ heroAlt: 'A still from The Age of Innocence (1993)'
 
 If I were rich in Gilded Age New York, I wouldn't be at this dinner. I'd be on an island watching movies.
 
+![A long dinner table under a crystal chandelier, crowded with candelabras and a tower of red and yellow flowers, guests in evening dress on both sides and Ellen in red at the far left.](/images/reviews/the-age-of-innocence/van-der-luyden-dinner-table.webp)
+
 ALso - I need to say this up top. I really struggle with costume dramas. They're so talky, and this one is mostly people at dinner parties talking around things. But parts of it got to me anyway. I went to a small liberal arts college in a small town in southern Minnesota, and everyone knowing each other's business felt suffocating. Old New York in the 1870s is that campus with better hats. I think both things can be true at the same time: this is a beautiful, underrated Scorsese, and it's a movie I had to push my way through.
 
-You can tell Martin Scorsese is having a blast adapting Edith Wharton and making his first drawing-room costume drama. The camera work is gorgeous, and Saul and Elaine Bass's opening titles are beautiful before anyone has said a word.
+You can tell Martin Scorsese is having a blast adapting [Edith Wharton](https://en.wikipedia.org/wiki/The_Age_of_Innocence) and making his first drawing-room costume drama. The camera work is gorgeous, and Saul and Elaine Bass's opening titles are beautiful before anyone has said a word.
 
-Winona Ryder is incredible as May, the right girl. She plays the sweetest person in the movie and never loses a fight. She tells Ellen she's pregnant before she's even sure, and that one conversation ends an affair nobody has said out loud. ||Years later, Newland's son tells him May knew all along||. It's a wonderful character study, and I was quite moved by parts of it.
+![A red flower opening behind a layer of lace in the opening titles, then dissolving into a yellow tulip.](/images/reviews/the-age-of-innocence/title-flowers-through-lace.webp)
 
-The suffocation that makes it work is the same thing that made it a slog for me. These people are fucked up. The family sends Newland, the guy in love with Ellen, to talk her out of the divorce, and he does it. What the hell was going on in the Gilded Age? I know we're in a modern Gilded Age, but Jesus Christ, those rules are so suffocating, man.
+He even fades whole scenes out to a solid color. Ellen smiles at a vase of yellow roses, and the frame floods yellow.
+
+![Two frames: Ellen smiling beside a vase of yellow roses, then the whole frame gone solid yellow.](/images/reviews/the-age-of-innocence/ellen-fades-to-yellow.webp)
+
+[Winona Ryder is incredible](https://en.wikipedia.org/wiki/The_Age_of_Innocence_%281993_film%29#Accolades) as May, the right girl. She plays the sweetest person in the movie and never loses a fight. At Newport she wins the archery contest in a white dress and smiles about it.
+
+![Two frames: two arrows stuck in the gold center of an archery target, then May in white with a long bow, smiling after her shot.](/images/reviews/the-age-of-innocence/may-hits-the-bullseye.webp)
+
+She tells Ellen she's pregnant before she's even sure, and that one conversation ends an affair nobody has said out loud. ||Years later, Newland's son tells him May knew all along||. It's a wonderful character study, and I was quite moved by parts of it.
+
+The suffocation that makes it work is the same thing that made it a slog for me. These people are fucked up. The family sends Newland, the guy in love with Ellen, to talk her out of the divorce, and he does it.
+
+![Newland, seen from behind in shadow, faces Ellen in her dim parlor as she looks up at him.](/images/reviews/the-age-of-innocence/ellen-agrees-to-drop-the-divorce.webp)
+
+What the hell was going on in the Gilded Age? I know we're in a modern Gilded Age, but Jesus Christ, those rules are so suffocating, man.

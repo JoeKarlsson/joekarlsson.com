@@ -47,6 +47,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 ## Reviews
 
+- 2026-11-15: Exception to one-picture-per-film: Mutiny's review gets a six-tile grid of Statham's other jobs (beekeeper, courier, hitman, armored-truck guard, foreman, shark diver) from their trailers, because the résumé joke is the point. Joe picked it from the enrichment list knowing it broke the rule. Other reviews keep the rule.
 - 2026-11-15: Pictures and clips in a post's text sit at the text-column width on every page that has them (blog posts, newsletter issues, reviews), like a blog post with an "On this page" column (Joe: "my blog page is like the de facto standard for how I want them displayed"); nothing breaks out to the hero's width any more. Code, tables and embeds keep their breakout. Project pages' galleries are separate and unchanged. A short muted loop from the film is fair game when the point is motion (first: Bringing Out the Dead's rooftop speed-up).
 - 2026-11-15: No paste-down animation on a post's or review's first photo: it animated only one image per page, which Joe found annoying. Overrides the 2026-11-14 "one paste-down photo per post".
 - 2026-11-13: Review spoilers are hidden phrase by phrase, never a whole review or block, and show on hover (tap on phones), like Reddit. Of a gray bar, a blur and a pink crayon scribble, Joe picked the blur. A review that has spoilers gets a spoiler warning up top.
