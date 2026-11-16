@@ -33,6 +33,9 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 - 2026-11-15: Homepage Odds & ends (rounds 4-6, ~/mockups/joekarlsson-zine/round6.html) replaces Around the house and absorbs Reviews (no separate Reviews section). Joe: drop the Kindle (it showed up twice), one or two Shorts, add film reviews. Shorts lead and are bigger than the newest review ("my shorts are more important than my latest review... just an extra thing I like to do for fun"). Podcast guest covers get the pink treatment like every picture. The terminal card shows sample output of `curl -L joekarlsson.com/hi`, no caption. Cards have no empty space under them.
 
+- 2026-11-15: The site's goal, in Joe's words: convey "smarts, taste, vision, optimism, punk attitude", artistic. Judge design proposals against that.
+- 2026-11-15: Full homepage mockup (~/mockups/joekarlsson-zine/full.html): Joe approved all six recommendations: crayon marks back in every new section (one per section, crossing a heading or photo); the approved hand-pasted tilt on talk picks, small review posters and hot-take posters; the pink word in section titles set in Fraunces italic against Anton; the Writing lead photo breaks the grid out to the spine with the headline overlapping it; Works cells get project pictures (reverses the Nov 5 "no project images on the homepage"); dark thumbnails get fixed or Most read drops them.
+
 ## Playful details
 
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.
