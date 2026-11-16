@@ -61,7 +61,8 @@
 	   bold onto any Anton heading that doesn't reset its weight */
 	html {
 		font-synthesis-weight: none;
-		/* Tabbing back up the page stops below the floating nav, not under it (WCAG 2.4.11) */
+		/* Jumps to a heading and tabbing back up the page stop below the floating nav, not
+		   under it (WCAG 2.4.11); nothing else adds its own scroll margin */
 		scroll-padding-top: 6rem;
 	}
 
@@ -136,6 +137,10 @@
 .prose h3,
 .prose h4 {
 	@apply relative;
+}
+/* A jump to a chapter lands with its big numeral clear of the nav too (html scroll-padding-top
+   covers every other heading) */
+.prose .chapter h2 {
 	scroll-margin-top: 6rem;
 }
 /* A heading and its # permalink (astro.config.mjs). The # sits in the margin to the left of

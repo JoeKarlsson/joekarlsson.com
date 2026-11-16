@@ -130,7 +130,7 @@ import SectionRule from '../../components/SectionRule.astro';
 				something to say.
 			</p>
 			<div class="mt-6">
-				<div id="subscribe" class="scroll-mt-24">
+				<div id="subscribe">
 					<NewsletterSignup location="newsletter-page" />
 				</div>
 				<p class="mt-3 text-sm text-muted">
@@ -175,7 +175,7 @@ import SectionRule from '../../components/SectionRule.astro';
 		lands inside it -->
 		<div class="border-b border-surface-4">
 			{[...byYear.entries()].map(([year, list], i) => (
-				<details id={String(year)} open={i === 0} class="tldr-year group/year scroll-mt-24">
+				<details id={String(year)} open={i === 0} class="tldr-year group/year">
 					<summary class="flex cursor-pointer list-none items-baseline justify-between gap-4 border-t border-surface-4 py-3 [&::-webkit-details-marker]:hidden">
 						<h3 class="font-display text-[clamp(2.25rem,4vw,3.5rem)] leading-none font-normal text-pink">
 							{year}

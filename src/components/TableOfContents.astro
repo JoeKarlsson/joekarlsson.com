@@ -100,7 +100,8 @@ the notes below show. About keeps it in its sidebar. Narrower screens get the fo
 		}
 
 		function getActiveIndex(): number {
-			const offset = 120;
+			// Past where a jump lands: 96px (html scroll-padding-top), 192px for a chapter opener
+			const offset = 200;
 			let active = 0;
 
 			for (let i = 0; i < headingEls.length; i++) {

@@ -121,7 +121,7 @@ const FILTERS = [
 			</p>
 		</PosterHero>
 
-		<section id="featured" class="relative mb-12 scroll-mt-24 md:mb-32">
+		<section id="featured" class="relative mb-12 md:mb-32">
 			<SectionMasthead title="Start here" />
 			<div class="grid gap-x-8 gap-y-10 md:grid-cols-3">
 				{featured.map((post, i) => (
@@ -171,7 +171,7 @@ const FILTERS = [
 		<!-- Hidden until talk-filter's script runs: without JavaScript everything shows -->
 		<div
 			id="talk-filters"
-			class={`mb-8 scroll-mt-24 ${FILTER_ROW}`}
+			class={`mb-8 ${FILTER_ROW}`}
 			role="group"
 			aria-label="Show"
 			data-talk-filters
@@ -193,7 +193,7 @@ const FILTERS = [
 		{eras.map((era, i) => (
 			<section
 				id={era.slug}
-				class="talk-era relative mb-12 scroll-mt-24 md:mb-32"
+				class="talk-era relative mb-12 md:mb-32"
 				data-phone-collapse={i < 2 ? 'open' : ''}
 			>
 				<SectionMasthead title={era.years} collapse>

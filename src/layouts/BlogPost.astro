@@ -10,6 +10,7 @@ import AuthorBio from '../components/AuthorBio.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 import MetaParts from '../components/MetaParts.astro';
 import Masthead from '../components/Masthead.astro';
+import { curlyApostrophes } from '../utils/curly-apostrophes.mjs';
 import { inlineMarkdown } from '../utils/inline-markdown';
 import WrittenFor from '../components/WrittenFor.astro';
 import TableOfContents from '../components/TableOfContents.astro';
@@ -259,7 +260,7 @@ const captionText =
 							<strong class="text-pink">
 								Updated <FormattedDate date={updatedDate} />:
 							</strong>{' '}
-							{updateNote}
+							{curlyApostrophes(updateNote)}
 						</p>
 					)}
 					{corrections && corrections.length > 0 && (
@@ -299,7 +300,7 @@ const captionText =
 					)}
 					{showInlineToc && (
 						<details class="group/toc mb-10 xl:hidden">
-							<summary class="flex min-h-11 cursor-pointer list-none items-center gap-2 font-display text-xl text-paper uppercase [&::-webkit-details-marker]:hidden">
+							<summary class="flex min-h-11 cursor-pointer list-none items-center gap-2 font-display text-xl tracking-[0.04em] text-paper uppercase [&::-webkit-details-marker]:hidden">
 								On this page
 								<span
 									aria-hidden="true"

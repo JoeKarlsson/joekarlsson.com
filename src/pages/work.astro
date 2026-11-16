@@ -38,7 +38,7 @@ const newestPieceMonth = new Date(`${newestPiece.date}-01T00:00:00Z`).toLocaleDa
 const pieces = (n: number) => `${n} ${n === 1 ? 'piece' : 'pieces'}`;
 const reelPieces = selected.map((p) => ({ title: p.title, href: workUrl(p) }));
 // Phones tight, wide screens with room between sections, like the homepage
-const SECTION = 'relative mb-12 scroll-mt-24 md:mb-32';
+const SECTION = 'relative mb-12 md:mb-32';
 ---
 
 <BaseLayout

@@ -29,4 +29,24 @@ test.describe('On this page', () => {
 		await page.evaluate(() => scrollTo(0, document.body.scrollHeight * 0.85));
 		await expect(page.locator('#toc-nav [aria-current="location"]')).toBeInViewport();
 	});
+
+	test('a jump from the list lands below the nav and lights up that section', async ({ page }) => {
+		await page.setViewportSize({ width: 1960, height: 1100 });
+		await page.goto('/blog/how-to-get-started-building-a-homelab-server/');
+		// A plain h3, not a chapter opener (those land lower, clear of their big numeral)
+		const index = await page
+			.locator('#toc-nav .toc-link')
+			.evaluateAll((links) =>
+				links.findIndex(
+					(l) => document.getElementById((l as HTMLElement).dataset.tocSlug!)?.tagName === 'H3',
+				),
+			);
+		const link = page.locator('#toc-nav .toc-link').nth(index);
+		await link.click();
+		await expect(link).toHaveAttribute('aria-current', 'location');
+		const slug = (await link.getAttribute('data-toc-slug'))!;
+		const top = await page.locator(`[id="${slug}"]`).evaluate((h) => h.getBoundingClientRect().top);
+		expect(top).toBeGreaterThan(80);
+		expect(top).toBeLessThan(110);
+	});
 });
