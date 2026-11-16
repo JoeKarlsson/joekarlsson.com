@@ -133,7 +133,7 @@ A ClickHouse MV attaches to a source table and, on every insert into the source,
 
 ![A ClickHouse materialized view: on every insert into the source table (columns A, B and C), it runs SELECT A, MAX(B) AS D, AVG(C) AS E FROM source GROUP BY A, and writes the result into the target table, whose columns are A, D and E.](/images/blog/six-months-with-clickhouse-at-cloudquery/materialized-view.svg)
 
-First, **MVs operate asynchronously** relative to the statement that creates or inserts data into them. This meant two significant operational headaches:
+First, **with our inserts, MVs ran asynchronously** relative to the statement that inserted the data. We used asynchronous inserts, so the MV did its work after the INSERT had already returned (on a plain synchronous insert, ClickHouse runs an incremental MV as part of the insert). This meant two significant operational headaches:
 
 - **Lack of visibility into failures:** Since MV processing happens independently, detecting failures reliably became challenging. If an MV insert failed silently, we wouldn't immediately know, causing potential inconsistencies.
 
