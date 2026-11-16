@@ -1,5 +1,5 @@
 ---
-// A homepage section's masthead: the section's name huge in Anton, an optional second word
+// A section's masthead (the homepage, Works, Talks): the section's name huge in Anton, an optional second word
 // in pink Fraunces italic, a thick rule under it, and a plain link to the section's page on
 // the right. Marks passed as children sit in the header's box (absolute, from Scribble).
 interface Props {
@@ -10,15 +10,21 @@ interface Props {
 	href?: string;
 	linkLabel?: string;
 	id?: string;
+	// Talks' eras fold behind a +/- on phones (src/scripts/phone-collapse.ts)
+	collapse?: boolean;
 }
 
-const { title, accent, href, linkLabel, id } = Astro.props;
+const { title, accent, href, linkLabel, id, collapse } = Astro.props;
 ---
 
 <header class="relative mb-7 flex items-end justify-between gap-6 border-b-8 border-paper pb-2.5">
 	<h2
 		id={id}
-		class="relative font-display text-[clamp(3.25rem,9vw,7.5rem)] leading-[0.8] font-normal text-paper uppercase"
+		data-collapse-heading={collapse || undefined}
+		class:list={[
+			'relative font-display text-[clamp(3.25rem,9vw,7.5rem)] leading-[0.8] font-normal text-paper uppercase',
+			collapse && 'max-md:w-full',
+		]}
 	>
 		{title}
 		{accent && ' '}

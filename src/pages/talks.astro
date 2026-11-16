@@ -1,4 +1,5 @@
 ---
+import SectionMasthead from '../components/SectionMasthead.astro';
 import { getCollection } from 'astro:content';
 import HoverBox from '../components/HoverBox.astro';
 import IndexRow from '../components/IndexRow.astro';
@@ -27,7 +28,6 @@ import {
 	HERO_LEAD,
 	META,
 	PAGE_CONTAINER,
-	SECTION_HEADING,
 	TEXT_LINK,
 } from '../utils/ui';
 
@@ -147,16 +147,8 @@ const FILTERS = [
 			))}
 		</dl>
 
-		<section id="featured" class="relative mb-12 scroll-mt-24 md:mb-16">
-			<h2 class={`${SECTION_HEADING} mb-[0.6em]!`}>
-				Start here
-				<Scribble
-					{...MARKS.stitches}
-					color={CHALK}
-					duration="8s"
-					class="-bottom-[0.42em] left-0 h-[0.35em] w-full"
-				/>
-			</h2>
+		<section id="featured" class="relative mb-12 scroll-mt-24 md:mb-32">
+			<SectionMasthead title="Start" accent="here" />
 			<div class="grid gap-x-8 gap-y-10 md:grid-cols-3">
 				{featured.map((post, i) => (
 					<a href={post.href} class="ring-host group block no-underline">
@@ -189,7 +181,7 @@ const FILTERS = [
 		<ShortVideos />
 
 		<!-- A quick index of the eras below, two columns like /work/'s -->
-		<nav aria-label="Eras" class="mb-12 grid gap-x-10 md:mb-16 md:grid-cols-2">
+		<nav aria-label="Eras" class="mb-12 grid gap-x-10 md:mb-32 md:grid-cols-2">
 			{eras.map((era, i) => (
 				<IndexRow
 					href={`#${era.slug}`}
@@ -220,11 +212,10 @@ const FILTERS = [
 		{eras.map((era, i) => (
 			<section
 				id={era.slug}
-				class="talk-era relative mb-12 scroll-mt-24 max-md:mb-8 md:mb-16"
+				class="talk-era relative mb-12 scroll-mt-24 max-md:mb-8 md:mb-32"
 				data-phone-collapse={i < 2 ? 'open' : ''}
 			>
-				<h2 data-collapse-heading class={`${SECTION_HEADING} max-md:w-full`}>
-					{era.years}
+				<SectionMasthead title={era.years} collapse>
 					<Scribble
 						{...MARKS.rays}
 						color={i % 2 ? '#ff4fd8' : CHALK}
@@ -232,7 +223,7 @@ const FILTERS = [
 						delay={`${i * 0.4}s`}
 						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 					/>
-				</h2>
+				</SectionMasthead>
 				<p class={`mb-8 max-md:mb-0 ${HERO_LEAD}`}>{era.label}</p>
 				{/* Phones keep the gap above and below the cards inside the fold, so nothing
 				jumps as it opens or closes */}

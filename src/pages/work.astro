@@ -1,4 +1,5 @@
 ---
+import SectionMasthead from '../components/SectionMasthead.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HoverBox from '../components/HoverBox.astro';
 import IndexRow from '../components/IndexRow.astro';
@@ -8,14 +9,7 @@ import ProjectCard from '../components/ProjectCard.astro';
 import Scribble from '../components/Scribble.astro';
 import { ERAS, REEL_SLICE_SECONDS, REEL_VIDEO, SELECTED_WORKS, projects } from '../data/projects';
 import { CHALK, MARKS } from '../data/scribbles';
-import {
-	HERO_LEAD,
-	META,
-	MORE_LINK,
-	PAGE_CONTAINER,
-	SECTION_HEADING,
-	TEXT_LINK,
-} from '../utils/ui';
+import { HERO_LEAD, META, MORE_LINK, PAGE_CONTAINER, TEXT_LINK } from '../utils/ui';
 import { SOCIAL_LINKS } from '../consts';
 import { cardClip, halftoneMode } from '../utils/halftone';
 
@@ -43,7 +37,8 @@ const newestPieceMonth = new Date(`${newestPiece.date}-01T00:00:00Z`).toLocaleDa
 });
 const pieces = (n: number) => `${n} ${n === 1 ? 'piece' : 'pieces'}`;
 const reelPieces = selected.map((p) => ({ title: p.title, href: workUrl(p) }));
-const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
+// Phones tight, wide screens with room between sections, like the homepage
+const SECTION = 'relative mb-12 scroll-mt-24 md:mb-32';
 ---
 
 <BaseLayout
@@ -99,15 +94,14 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 		</PosterHero>
 
 		<section id="selected" class={SECTION}>
-			<h2 class={SECTION_HEADING}>
-				Selected works
+			<SectionMasthead title="Selected" accent="works">
 				<Scribble
 					{...MARKS.rays}
 					color="#ff4fd8"
 					duration="8s"
 					class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 				/>
-			</h2>
+			</SectionMasthead>
 			<!-- Big rows, the clip alternating sides from md up -->
 			<div class="grid gap-y-12 md:gap-y-16">
 				{selected.map((project, i) => (
@@ -164,15 +158,7 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 		</section>
 
 		<section id="statement" class={SECTION}>
-			<h2 class={SECTION_HEADING}>
-				Artist statement
-				<Scribble
-					{...MARKS.underline}
-					color={CHALK}
-					duration="8s"
-					class="-bottom-[0.32em] left-0 h-[0.3em] w-full"
-				/>
-			</h2>
+			<SectionMasthead title="Artist" accent="statement" />
 			<!-- Phones get one short paragraph of the same argument; the Markdown copy skips it
 			(data-phone-copy) since the full statement is there -->
 			<div class="prose md:hidden" data-phone-copy>
@@ -234,7 +220,7 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 		</section>
 
 		<!-- A quick index of the eras below, two columns like /about/'s Follow me -->
-		<nav aria-label="Eras" class="mb-12 grid gap-x-10 md:mb-16 md:grid-cols-2">
+		<nav aria-label="Eras" class="mb-12 grid gap-x-10 md:mb-32 md:grid-cols-2">
 			{eras.map((era, i) => (
 				<IndexRow
 					href={`#${era.slug}`}
@@ -248,8 +234,7 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 
 		{eras.map((era, i) => (
 			<section id={era.slug} class={SECTION}>
-				<h2 class={SECTION_HEADING}>
-					{era.years}
+				<SectionMasthead title={era.years}>
 					<Scribble
 						{...MARKS.rays}
 						color={i % 2 ? '#ff4fd8' : CHALK}
@@ -257,7 +242,7 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-16';
 						delay={`${i * 0.4}s`}
 						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
 					/>
-				</h2>
+				</SectionMasthead>
 				<p class={`mb-8 ${HERO_LEAD}`}>{era.label}</p>
 				{era.note && <p class={`mb-8 max-w-[40em] ${META}`}>{era.note}</p>}
 				{/* Phones: one column of compact rows (ProjectCard), so the gap between them tightens */}
