@@ -1,0 +1,34 @@
+---
+// "On this page" folded into the text, for screens without room for TableOfContents in a
+// margin (below 1280px). Shown when there are three or more sections to jump between.
+interface Props {
+	headings: { slug: string; text: string }[];
+}
+const { headings } = Astro.props;
+---
+
+{headings.length >= 3 && (
+	<details class="group/toc mb-10 xl:hidden">
+		<summary class="flex min-h-11 cursor-pointer list-none items-center gap-2 font-display text-xl tracking-[0.04em] text-paper uppercase [&::-webkit-details-marker]:hidden">
+			On this page
+			<span
+				aria-hidden="true"
+				class="text-pink transition-transform duration-150 group-open/toc:rotate-90 motion-reduce:transition-none"
+			>
+				&rarr;
+			</span>
+		</summary>
+		<ol class="mt-1 border-l border-surface-3">
+			{headings.map((h) => (
+				<li>
+					<a
+						href={`#${h.slug}`}
+						class="block py-3 pl-4 leading-snug text-paper no-underline hover:text-pink"
+					>
+						{h.text}
+					</a>
+				</li>
+			))}
+		</ol>
+	</details>
+)}

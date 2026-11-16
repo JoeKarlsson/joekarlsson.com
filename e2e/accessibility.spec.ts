@@ -168,4 +168,32 @@ test.describe('ARIA Attributes', () => {
 		// Should have footer
 		await expect(page.locator('body > footer, footer').first()).toBeVisible();
 	});
+
+	test('margin-note numbers are 24px tap targets and heading #s stay out of the Tab order', async ({
+		page,
+	}) => {
+		await page.setViewportSize({ width: 1440, height: 900 });
+		await page.goto('/blog/homelab-two-years-later/');
+		const back = page.locator('.prose .margin-note b a').first();
+		const box = (await back.boundingBox())!;
+		expect(box.width).toBeGreaterThanOrEqual(24);
+		expect(box.height).toBeGreaterThanOrEqual(24);
+		await expect(page.locator('.prose .heading-anchor').first()).toHaveAttribute('tabindex', '-1');
+	});
+
+	test('keyboard focus on a tall card never sits under the floating nav', async ({ page }) => {
+		await page.setViewportSize({ width: 1280, height: 800 });
+		await page.goto('/blog/doom-mcp-server/');
+		const card = page.locator('a:has(img)').last();
+		// Park the card with its top behind the nav, then reach it from the keyboard
+		await card.evaluate((el) => scrollBy(0, el.getBoundingClientRect().top - 20));
+		await page.keyboard.press('Shift+Tab');
+		// preventScroll: the browser's own scroll skips a card that's already partly on screen
+		await card.evaluate((el) => (el as HTMLElement).focus({ preventScroll: true }));
+		const navBottom = await page
+			.locator('header nav[aria-label="Main"]')
+			.evaluate((nav) => nav.getBoundingClientRect().bottom);
+		const top = await card.evaluate((el) => el.getBoundingClientRect().top);
+		expect(top).toBeGreaterThan(navBottom);
+	});
 });

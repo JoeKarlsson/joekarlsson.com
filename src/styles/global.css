@@ -1090,10 +1090,17 @@ header nav .sticker {
 .prose :is(.margin-note b, .mn-num) a:is(:hover, :focus-visible) {
 	@apply text-pink;
 }
-/* A 24px tap target round a one-digit number, without moving the line */
-.prose :is(.margin-note b, .mn-num) a::after {
-	content: '';
-	@apply absolute -inset-x-2.5 -inset-y-1;
+/* A 24px tap target round a one-digit number (WCAG 2.5.8): the link's own box, since a
+   pseudo-element doesn't count, with negative margins so the line doesn't move */
+.prose :is(.margin-note b, .mn-num) a {
+	display: inline-block;
+	min-width: 24px;
+	min-height: 24px;
+	margin-block: -4px;
+	margin-inline: -6px;
+	line-height: 24px;
+	text-align: center;
+	vertical-align: middle;
 }
 /* A lit or held note's number turns into a pink chip, a change every kind of note shows */
 .prose .margin-note.is-lit b a {

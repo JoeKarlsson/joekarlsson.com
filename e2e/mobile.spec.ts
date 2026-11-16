@@ -19,6 +19,16 @@ const box = async (page: Page, selector: string) => {
 test.describe('Phone layout', () => {
 	test.use(PHONE);
 
+	test('newsletter issues and project pages fold an On this page list into the text', async ({
+		page,
+	}) => {
+		for (const path of ['/work/adult-swim-bumper/', '/newsletter/taste-matters-more-with-ai/']) {
+			await page.goto(path);
+			const summary = page.locator('details summary', { hasText: 'On this page' });
+			await expect(summary, path).toBeVisible();
+		}
+	});
+
 	test('the nav sits above the homepage hero', async ({ page }) => {
 		await page.goto('/');
 		const nav = await box(page, 'header nav[aria-label="Main"]');

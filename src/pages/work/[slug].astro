@@ -11,6 +11,7 @@ import {
 import { Code } from 'astro:components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BackLink from '../../components/BackLink.astro';
+import InlineToc from '../../components/InlineToc.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import Scribble from '../../components/Scribble.astro';
 import ShareLinks from '../../components/ShareLinks.astro';
@@ -222,6 +223,8 @@ const sections = [
 							</a>
 						)}
 					</div>
+
+					<InlineToc headings={sections} />
 
 					{page.introHeading && (
 						<h2 id="statement" class={ARTICLE_HEADING}>

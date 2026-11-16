@@ -228,6 +228,22 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 	const menuToggle = nav?.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
 	if (nav) initReadingContext(nav);
 
+	// Tabbing back up the page: the browser doesn't scroll to a tall card that's already partly
+	// on screen, so its top can sit under this bar. Bring it out (WCAG 2.4.11, 2.4.12)
+	addEventListener('focusin', (event) => {
+		const target = event.target as HTMLElement;
+		if (
+			!nav ||
+			nav.contains(target) ||
+			target.closest('dialog') ||
+			!target.matches(':focus-visible')
+		)
+			return;
+		const clearance = nav.getBoundingClientRect().bottom + 16;
+		const { top } = target.getBoundingClientRect();
+		if (top < clearance) scrollBy({ top: top - clearance, behavior: 'instant' });
+	});
+
 	// A nav link whose page hasn't arrived 300ms after the click gets a squiggle under it,
 	// so a slow connection doesn't look like a dead click. A page restored by Back drops it.
 	nav?.addEventListener('click', (event) => {

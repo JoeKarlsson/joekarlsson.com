@@ -27,6 +27,7 @@ Headless only: never open a visible browser window. Write scripts and screenshot
 Viewports: 390x844 (phone), 1280x800, 1600x1000, 1960x1150, 2560x1440.
 
 Measure from rendered pages, not from source:
+- **Real faces, not fakes:** list `document.fonts` (family, style, weight, status) and compare it with every `font-style: italic` and `font-weight` in use per family. Italic or bold text in a family with no loaded face for it is a browser-slanted or smeared fake: High (the 2026-11-16 audit found every Fraunces italic was a slanted roman). Note faces with no italic at all (Hanken), where `em` is a fake by design.
 - **Measure (R1-):** characters per line of body paragraphs. Count real lines: wrap a Range per line, or divide a paragraph's text length by its line count. Report the range per template and viewport.
 - **Size and leading:** computed font-size and line-height of body, captions, notes, lists, table text, code; ratio and absolute values.
 - **Paragraph and heading spacing:** margins above and below each h2/h3 in px and in lines of body leading. Space above should exceed space below (proximity).
@@ -34,8 +35,8 @@ Measure from rendered pages, not from source:
 - **Tracking:** computed letter-spacing on all-caps text (kicker, labels, nav, buttons, headings) versus size.
 - **Edges:** left edges of masthead rule, kicker, title ink, picture, caption, first paragraph, TOC, back link. Measure title *ink* with a canvas `measureText` (`actualBoundingBoxLeft`) or by scanning screenshot pixels, not the box. Flag misalignments over 2px, and say whether the gap is box or ink.
 - **Ink spacing in frames:** for the spine word, the nav pill and buttons, measure ink to frame on each side from screenshot pixels. Unequal optical padding over 3px is a finding.
-- **Rag, widows, orphans:** single-word last lines in paragraphs, headings and captions; `text-wrap` values in use.
-- **Punctuation:** straight quotes `"` `'` in rendered body text (smart quotes expected), `--`, spaced hyphens used as dashes in non-Joe text, `...` versus an ellipsis, numerals in tables (tabular?).
+- **Rag, widows, orphans:** single-word last lines in paragraphs, headings and captions; `text-wrap` values in use. Check text outside post bodies too (masthead captions, component strings, About, cards): the rehype-no-widows step only covers markdown, and Firefox ignores `text-wrap: pretty`.
+- **Punctuation:** straight quotes `"` `'` in rendered text, including front matter shown on the page (captions, update notes, margin notes, card descriptions), which skips markdown's smart quotes (`src/utils/curly-apostrophes.mjs` is the fix), `--`, spaced hyphens used as dashes in non-Joe text, `...` versus an ellipsis, numerals in tables (tabular?).
 - **On black:** body weight and color contrast; large light text on pure black.
 - **Phones:** heading sizes that overflow or hyphenate badly, measure under 30 characters.
 

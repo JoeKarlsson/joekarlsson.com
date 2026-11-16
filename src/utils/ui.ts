@@ -4,7 +4,9 @@
 export const PAGE_CONTAINER = 'relative mx-auto max-w-6xl px-4 pt-6 pb-10 sm:px-7 md:pt-10';
 
 /** About's column with "On this page" on its right, where posts keep theirs (the left edge is the spine's). */
-export const SIDEBAR_GRID = 'xl:grid xl:grid-cols-[minmax(0,1fr)_15rem] xl:gap-10';
+// From 1600px the sidebar (About's "On this page") moves to the left, as on posts
+export const SIDEBAR_GRID =
+	'xl:grid xl:grid-cols-[minmax(0,1fr)_15rem] xl:gap-10 min-[100rem]:grid-cols-[15rem_minmax(0,1fr)]';
 
 /** The title of a post, project or newsletter issue. */
 export const ARTICLE_TITLE =

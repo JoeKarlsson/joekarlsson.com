@@ -24,6 +24,13 @@ export default defineConfig({
 			name: 'chromium',
 			use: { ...devices['Desktop Chrome'] },
 		},
+		// Joe reads the site in Firefox, where the halftone runs headless and text-wrap: pretty
+		// doesn't: a hero that stopped 70px short only showed there. Layout specs run in both
+		{
+			name: 'firefox',
+			use: { ...devices['Desktop Firefox'] },
+			testMatch: ['halftone.spec.ts', 'table-of-contents.spec.ts', 'typography.spec.ts'],
+		},
 	],
 	webServer: {
 		// --ignore-lock keeps it in the foreground: Astro 7 backgrounds `astro dev` when it

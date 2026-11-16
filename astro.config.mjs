@@ -180,6 +180,9 @@ export default defineConfig({
 						properties: (/** @type {HastNode} */ heading) => ({
 							className: ['heading-anchor'],
 							ariaLabel: `Link to section: ${textOf(heading)}`,
+							// Out of the Tab order: a long post had ~30 stops on #s that only show on hover.
+							// Screen readers still list them, and each heading's id still deep-links
+							tabIndex: -1,
 						}),
 						content: {
 							type: 'element',

@@ -3,6 +3,7 @@ import { MORE_LINK, PAGE_CONTAINER } from '../../utils/ui';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BackLink from '../../components/BackLink.astro';
+import InlineToc from '../../components/InlineToc.astro';
 import Masthead from '../../components/Masthead.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
@@ -115,6 +116,7 @@ const relatedSlugs = rankRelatedPosts(
 							since.
 						</p>
 					)}
+					<InlineToc headings={tocHeadings.filter((h) => h.depth === 2)} />
 					<div class="prose wide-media">
 						<Content />
 					</div>

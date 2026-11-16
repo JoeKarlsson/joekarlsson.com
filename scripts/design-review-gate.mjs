@@ -19,7 +19,7 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const DESIGN_PATH = /^src\/(layouts|components|styles)\/|^src\/pages\/.*\.astro$/;
-const REVIEWERS = ['design-reviewer', 'design-critic', 'design-evidence'];
+const REVIEWERS = ['design-reviewer', 'design-critic', 'design-evidence', 'typography-reviewer'];
 const MAX_BLOCKS = 3;
 const MAX_WAIVERS = 5;
 
