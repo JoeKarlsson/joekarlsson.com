@@ -38,6 +38,8 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 - 2026-11-15: No exact visitor numbers anywhere public. Joe: "I kind of feel uncomfortable sharing my stats publicly like that." Most read shows the ranked posts and relative bars only, no reader counts and no total.
 
+- 2026-11-15: No big numbers with a caption under them ("159 posts since 2015", "30 things I made", stat strips). Joe: "you still have like random numbers with random subtext on it. I hate when you do that. It feels very AI slop." Overrides the round 2 B "real number" in section headers; a header's right side carries a plain link to the section page instead.
+
 ## Playful details
 
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.
