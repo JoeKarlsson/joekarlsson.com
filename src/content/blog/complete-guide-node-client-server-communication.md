@@ -13,6 +13,24 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The `ws` package has no `end` event; it's `close`. Several string literals had a raw line break inside the quotes, a syntax error."
+marginNotes:
+  - type: 'update'
+    at: 'I was inspired to implement all of the client-server'
+    text: "The chimera.labs link now lands on O'Reilly's home page. Grigorik's book is free to read at hpbn.co."
+    date: 'Nov 2026'
+  - type: 'update'
+    at: 'until the Streams API is available'
+    text: 'It is now. Fetch can stream a response body through the Streams API, and every major browser has supported it since January 2019.'
+    date: 'Nov 2026'
+  - type: 'quote'
+    at: 'continuous full-duplex connection stream'
+    text: 'The WebSocket Protocol enables two-way communication between a client running untrusted code in a controlled environment to a remote host that has opted-in to communications from that code.'
+    by: 'RFC 6455, December 2011'
+    url: 'https://www.rfc-editor.org/rfc/rfc6455'
+  - type: 'update'
+    at: 'HTTP/2 is the future of Client-Server communication'
+    text: 'HTTP/3 became a standard in June 2022 (RFC 9114). It carries HTTP over QUIC, which runs on UDP instead of TCP.'
+    date: 'Nov 2026'
 ---
 
 > **Note:** This post was written in 2016. The core concepts of client-server communication (WebSockets, SSE, XHR) are still relevant, but the code examples use outdated patterns (CommonJS `require()`, `var`). For modern Node.js, use ES modules and the Fetch API.

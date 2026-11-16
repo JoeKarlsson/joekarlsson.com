@@ -13,6 +13,15 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'The sample output showed `"acknowledged": 1` and inserted IDs 2-9. It''s `true` and 1-8.'
+marginNotes:
+  - type: 'update'
+    at: 'Starter clusters include the M0, M2, and M5 cluster tiers'
+    text: 'Atlas stopped creating M2 and M5 clusters in February 2025, and on January 22, 2026 it moved the remaining ones to Flex clusters.'
+    date: 'Nov 2026'
+  - type: 'see'
+    at: 'Aggregation pipelines consist of'
+    text: 'If you think in SQL, I mapped each pipeline stage to the SQL clause it replaces.'
+    post: 'mongodb-aggregation-pipeline-queries-vs-sql-queries'
 ---
 
 To make developers more productive when working with MongoDB, we built [MongoDB for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode), an extension that allows you to quickly connect to MongoDB and [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and work with your data to build applications right inside your code editor. With the MongoDB Visual Studio Code Plugin, you can:

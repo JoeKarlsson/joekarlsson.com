@@ -16,6 +16,19 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "`git_commits` has no `sha` or `author_email` columns. It's `hash` and `author->>'Email'`. The config was missing its registry and providers, and `okta_users.email` is `profile->>'email'`."
+marginNotes:
+  - type: 'see'
+    at: 'Find commits authored by inactive Okta users'
+    text: 'The same Okta join works on CODEOWNERS files, to find code still owned by people who left.'
+    post: 'audit-codeowners-against-okta-with-sql'
+  - type: 'see'
+    at: 'Generate a report for SOC 2 or security audits'
+    text: "I wrote an explainer on what a SOC 2 audit covers: the AICPA's five trust service categories."
+    post: 'soc2'
+  - type: 'term'
+    at: 'import into your GRC platform'
+    text: "governance, risk and compliance. GRC software tracks a company's controls, risks and audit evidence in one place."
+    term: 'GRC'
 ---
 
 An engineer leaves your company. Their access gets revoked, their laptop returned. But their commits remain across dozens of repositories. For compliance audits, security reviews, or understanding code ownership, you need to identify which code was authored by former employees. The manual approach: export HR data, clone repos, run `git log`, correlate email addresses, compile spreadsheets. Repeat quarterly.

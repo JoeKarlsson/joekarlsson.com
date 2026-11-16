@@ -8,6 +8,15 @@ heroImage: '/images/blog/how-to-pass-coding-interview/thumb-9cdd1790.webp'
 heroAlt: 'A student at a desk while a teacher works a math problem on the chalkboard behind her'
 contentNotice: false
 tldr: 'My five-step plan for passing coding interviews: master a language, read Cracking the Coding Interview, grind LeetCode, do 30-40 mock interviews on Pramp, then validate on interviewing.io.'
+marginNotes:
+  - type: 'term'
+    at: 'how to calculate complexity'
+    text: 'usually Big O notation: how an algorithm’s running time or memory grows as its input grows.'
+    term: 'Complexity'
+  - type: 'update'
+    at: 'do at least 30-40 mock interviews on'
+    text: 'Since July 2024, new Pramp sessions run on Aced Practice. It is still free.'
+    date: 'Jul 2024'
 ---
 
 The question I most frequently get from developers is how to pass a coding interview. What follows is what I think will be sufficient for a person to be well prepared.

@@ -25,6 +25,19 @@ faq:
     answer: 'The March 2026 release added two capabilities relevant to enterprise deployments: SCIM 2.0 identity lifecycle management, which syncs provisioning and deprovisioning from Okta, Microsoft Entra ID, and Ping Identity automatically, and Custom OAuth Applications, which lets organizations register Connect AI using their own OAuth credentials for environments with strict third-party OAuth policies.'
 tldr: 'Teams are building three things on a governed AI gateway: Slack bots that answer questions from live data, scheduled monitors, and a shared data layer that every internal agent goes through. Passthrough identity means the source system enforces its own permissions. Start read-only and add writes last.'
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/ai-gateway-for-developers).'
+marginNotes:
+  - type: 'see'
+    at: 'build a custom access layer per agent'
+    text: 'The companion post covers what that access layer has to handle: schema resolution, permission passthrough and a per-query audit log.'
+    post: 'ai-gateway-data-access-layer'
+  - type: 'term'
+    at: 'Salesforce enforces its Sharing Rules'
+    text: "Salesforce's rules that open records to chosen groups of users beyond the org-wide default. They only widen access, never narrow it."
+    term: 'Sharing rules'
+  - type: 'term'
+    at: 'SCIM 2.0 lifecycle sync with Okta'
+    text: 'System for Cross-domain Identity Management, a standard API an identity provider uses to create, update and remove user accounts in other apps. Offboard someone in Okta and their access goes with them.'
+    term: 'SCIM'
 ---
 
 Developer teams are connecting AI agents to production data, and what gets built on top of that access is already taking shape. With the launch of Connect AI's AI gateway, that architecture has a managed home.

@@ -17,6 +17,28 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The config used syntax the plugin doesn't take (`glob_patterns`, a top-level `repositories`), and the GitHub Action was missing the `setup-cloudquery` step and the API key."
+marginNotes:
+  - type: 'quote'
+    at: 'You need to find which Dockerfiles still use Node 18'
+    text: 'Node.js 18 and all earlier versions are End-Of-Life. They are now completely unsupported, meaning they receive no updates, including security patches.'
+    by: 'Matteo Collina on the Node.js blog, June 2025'
+    url: 'https://nodejs.org/en/blog/announcements/node-18-eol-support'
+  - type: 'see'
+    at: 'Or which repos are missing a LICENSE file'
+    text: 'The step-by-step version of the LICENSE check.'
+    post: 'find-repos-missing-license-files-with-sql'
+  - type: 'see'
+    at: 'Which repos have React as a dependency?'
+    text: 'The full walkthrough for React versions across repos.'
+    post: 'track-react-dependencies-across-repos-with-sql'
+  - type: 'see'
+    at: "CODEOWNERS files don't update themselves"
+    text: 'The full CODEOWNERS-to-Okta query, step by step.'
+    post: 'audit-codeowners-against-okta-with-sql'
+  - type: 'see'
+    at: 'track code changes by employment status'
+    text: 'How to match commit authors against your identity provider to find work by people who left.'
+    post: 'find-commits-by-departed-employees-with-sql'
 ---
 
 You need to find which Dockerfiles still use Node 18 (now EOL). Or which repos are missing a LICENSE file. Or maybe you need to audit CODEOWNERS against your actual employee roster. The typical approach is to clone hundreds of repos, write bash scripts to parse files, export to spreadsheets, and maintain the script as repos change. It's 2025, and we're still doing this.

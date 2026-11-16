@@ -10,6 +10,29 @@ heroImage: '/images/blog/event-sourcing-with-kafka-a-practical-example/thumb-dad
 heroAlt: 'A chimpanzee typing at an old typewriter'
 tldr: 'I walk through event sourcing with Kafka using a banking app example, where you reconstruct account balances from a log of deposit and withdrawal events instead of storing state directly. Includes a practical tutorial with Kafka and Tinybird for snapshotting and serving state as an API.'
 contentNotice: "I wrote this for Tinybird Classic. In 2026 Tinybird made Tinybird Forward its main product, with a new CLI and deployment workflow, and moved Free and Developer plan workspaces off Classic. The ideas still hold, but the tb commands and UI steps below are Classic's. [Tinybird's migration notes](https://www.tinybird.co/blog/tinybird-classic-deprecation) cover what changed."
+marginNotes:
+  - type: 'quote'
+    at: 'Event sourcing is a data design pattern'
+    text: 'Capture all changes to an application state as a sequence of events.'
+    by: 'Martin Fowler, Event Sourcing, December 2005'
+    url: 'https://martinfowler.com/eaaDev/EventSourcing.html'
+  - type: 'quote'
+    at: 'Kafka guarantees that events are written in order'
+    text: 'Kafka guarantees that any consumer of a given topic-partition will always read that partition’s events in exactly the same order as they were written.'
+    by: "Apache Kafka's introduction. The order holds within a partition, not across a whole topic"
+    url: 'https://kafka.apache.org/intro'
+  - type: 'term'
+    at: 'Kafka provides native support for idempotent producers'
+    text: "a producer setting that lets the broker drop a duplicate when a send is retried, so a network retry doesn't write the same event twice."
+    term: 'Idempotent producer'
+  - type: 'see'
+    at: 'Tinybird uses an online analytical processing (OLAP)'
+    text: 'My rundown of real-time databases covers MongoDB, Postgres, ClickHouse, Tinybird, Pinot, Druid and Snowflake.'
+    post: 'real-time-databases-what-developers-need-to-know'
+  - type: 'update'
+    at: 'First, set up a Kafka topic using a Kafka service'
+    text: 'Upstash stopped taking new Kafka users in September 2024 and said it would end support for Upstash Kafka six months later.'
+    date: 'Nov 2026'
 ---
 
 Imagine you’re building banking software, and you’ve been asked to figure out one of the most fundamental tasks in fintech: determining the current balance of every customer in your system. Traditionally, you might store the balance in a transactional database, a single source of truth, such that the current balance for each user is just an SQL query away. But what happens if that value gets accidentally (or nefariously) changed, and there’s no transaction history to back it up?

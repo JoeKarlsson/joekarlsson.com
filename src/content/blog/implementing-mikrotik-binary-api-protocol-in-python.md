@@ -14,6 +14,25 @@ corrections:
     note: 'I said my scripts query DHCP leases and manage firewall rules. They change bond settings.'
   - date: 2026-11-12
     note: '`sock.recv(n)` can return fewer bytes than asked for. The reader now loops until it has them all.'
+marginNotes:
+  - type: 'see'
+    at: 'runs a MikroTik CRS317 as the 10G backbone switch'
+    text: 'Where the switch sits in the rack and how the hosts plug into it is in my two-year homelab post.'
+    post: 'homelab-two-years-later'
+  - type: 'term'
+    at: 'handling LACP bonds'
+    text: 'Link Aggregation Control Protocol. It bundles several network links into one logical link, for more bandwidth and failover if one cable dies.'
+    term: 'LACP'
+  - type: 'quote'
+    at: 'terminated by a null byte'
+    text: 'the end of the sentence is marked by a zero-length word.'
+    by: "MikroTik's API docs. A zero-length word is a single 0x00 length byte"
+    url: 'https://help.mikrotik.com/docs/spaces/ROS/pages/47579160/API'
+  - type: 'quote'
+    at: 'There are no tokens or session cookies'
+    text: 'Now the client sends a username and password in the first message. Password is sent in plain text.'
+    by: "MikroTik's API docs, on the login method after RouterOS 6.43"
+    url: 'https://help.mikrotik.com/docs/spaces/ROS/pages/47579160/API'
 ---
 
 My [homelab](/blog/how-to-get-started-building-a-homelab-server/) runs a MikroTik CRS317 as the 10G backbone switch, handling LACP bonds to two Proxmox hosts and a failover bond to a UniFi switch. When I started managing bonding configurations, I wanted to do it programmatically - not by SSHing in and typing commands interactively.

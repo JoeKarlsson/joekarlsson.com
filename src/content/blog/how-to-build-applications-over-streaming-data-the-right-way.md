@@ -13,6 +13,28 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The Kafka command had a stray `bash`, en dashes and `--bootstrap_servers`. It's `--bootstrap-servers`."
+marginNotes:
+  - type: 'see'
+    at: 'Fraudsters are continually evolving their tactics'
+    text: 'I built this one end to end, from an event stream to a fraud score in seconds.'
+    post: 'how-to-build-a-real-time-fraud-detection-system'
+  - type: 'see'
+    at: 'Personalizing user experiences based on real-time behavior'
+    text: 'What a real-time recommendation system needs, piece by piece.'
+    post: 'what-it-takes-to-build-a-real-time-recommendation-system'
+  - type: 'quote'
+    at: 'stream processing engine that can handle'
+    text: 'Apache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams.'
+    by: "Apache Flink's docs"
+    url: 'https://flink.apache.org/what-is-flink/flink-architecture/'
+  - type: 'see'
+    at: 'serves as a fast and scalable storage system'
+    text: 'My case for ClickHouse as the storage layer here.'
+    post: 'why-clickhouse-should-be-your-next-database'
+  - type: 'update'
+    at: 'connect to a Kafka topic with a simple command'
+    text: 'This command is from what Tinybird now calls Tinybird Classic. Tinybird Forward, with a new CLI, became the default in March 2025, and Free and Developer workspaces had to move to it by September 15, 2026.'
+    date: 'Jul 2026'
 ---
 
 In modern data ecosystems, streaming data flows like traffic on a busy highway. Each packet of data has a specific destination. Some are on a leisurely ride to a data lake for historical analysis, while others are zipping toward [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=apps-over-streaming-data) engines, where they will be used to power automation, user-facing features and real-time operational intelligence. This post shows how to build applications over streaming data the right way.

@@ -16,6 +16,12 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'The version filter had no parentheses around its `OR`s, so it matched any package on 16.x, not just React. The Git source config also used the wrong syntax.'
+marginNotes:
+  - type: 'quote'
+    at: 'Flattens nested JSON into rows using LATERAL joins'
+    text: 'This allows them to reference columns provided by preceding FROM items.'
+    by: 'The PostgreSQL docs on LATERAL'
+    url: 'https://www.postgresql.org/docs/current/queries-table-expressions.html'
 ---
 
 You need to upgrade React across 50 repositories. Which repos use React? Which versions? Are they using React 16, 17, or 18? What about `devDependencies` vs `dependencies`? The manual approach: clone repos, grep package.json files, parse JSON, compile spreadsheets, track progress. And that spreadsheet is outdated the moment someone merges a dependency update.

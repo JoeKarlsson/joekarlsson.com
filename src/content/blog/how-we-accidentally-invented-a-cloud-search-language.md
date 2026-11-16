@@ -11,6 +11,20 @@ heroImage: '/images/blog/how-we-accidentally-invented-a-cloud-search-language/th
 heroAlt: 'Visitors looking at a cast of the Rosetta Stone'
 canonicalUrl: 'https://www.cloudquery.io/blog/we-built-a-search-language-for-cloudquery'
 tldr: 'A "simple" search bar turned into a full domain-specific language (DSL) for cloud queries. Regex melted. Peggy rescued us. Along the way we learned more about Chomsky, compilers, and a few surprises about UX.'
+marginNotes:
+  - type: 'see'
+    at: 'support full-text search (FTS) and logical expressions'
+    text: 'The full-text search behind this bar runs on ClickHouse. We wrote up how we built it the next day.'
+    post: 'why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse'
+  - type: 'term'
+    at: 'Parsing Expression Grammars (PEGs)'
+    text: 'a grammar where alternatives are tried in order and the first match wins, so every input has at most one parse.'
+    term: 'PEG'
+  - type: 'quote'
+    at: 'We jumped from Type 3 (regex) to Type 2 (PEG.js)'
+    text: 'Peggy is the successor of PEG.js.'
+    by: "Peggy's README. PEG.js hasn't had a release since 2016"
+    url: 'https://github.com/peggyjs/peggy'
 ---
 
 _Co-authored with Christopher Duflo at CloudQuery._

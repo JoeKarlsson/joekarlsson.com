@@ -16,6 +16,20 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The MFA check read `aws_iam_users.mfa_active`, which lives on `aws_iam_credential_reports`, and the security group query used a table that doesn't exist (`aws_ec2_security_group_ip_permissions`). It's `aws_ec2_security_group_rules`."
+marginNotes:
+  - type: 'term'
+    at: 'they had OPA or Sentinel wired into Terraform'
+    text: 'Open Policy Agent, a general-purpose policy engine and a graduated CNCF project. Its policies are written in Rego.'
+    term: 'OPA'
+  - type: 'see'
+    at: "Drift is particularly insidious because it's silent."
+    text: 'My homelab runs plan in every OpenTofu service directory every six hours to catch this. It still missed drift on the Proxmox hosts, which no service directory covers.'
+    post: 'opentofu-proxmox-immutable-homelab'
+  - type: 'quote'
+    at: 'AWS might change the default encryption setting for a service'
+    text: 'Starting January 5, 2023, all new object uploads to Amazon S3 are automatically encrypted at no additional cost and with no impact on performance.'
+    by: "Amazon S3's docs, on a default AWS changed for every bucket at once"
+    url: 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html'
 ---
 
 > **Note:** CI/CD policy checks only catch violations at deploy time. But infrastructure changes through console clicks, configuration drift, and cloud provider updates without ever touching a pipeline. Continuous governance runs the same SQL-based policies at deploy time, on a schedule, and historically so nothing slips through. If your governance only runs when code ships, you're blind to most of the changes that actually cause incidents.

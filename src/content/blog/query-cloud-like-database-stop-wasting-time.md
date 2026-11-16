@@ -15,6 +15,19 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The old-snapshots query filtered on `instance_create_time`. It's `snapshot_create_time`."
+marginNotes:
+  - type: 'term'
+    at: 'running with outdated AMIs'
+    text: 'Amazon Machine Image: the template, OS and software included, that an EC2 instance boots from.'
+    term: 'AMI'
+  - type: 'see'
+    at: "it's ridiculously fast"
+    text: "Six months after we made ClickHouse CloudQuery's default backend, I wrote up what it taught us about JOINs, sorting keys and benchmarks."
+    post: 'six-months-with-clickhouse-at-cloudquery'
+  - type: 'update'
+    at: 'check which certificates are about to expire'
+    text: 'In April 2025 the CA/Browser Forum voted to cut the maximum life of a public TLS certificate from 398 days to 47, in steps from March 2026 to March 2029. Expiry checks matter more every year.'
+    date: 'Apr 2025'
 ---
 
 Managing cloud infrastructure shouldn't feel like looking for a lost sock in the laundry - except the laundry is on fire, and the sock is in another house. Yet, that's exactly how it feels when you're trying to track down misconfigured resources, security risks, or compliance violations across cloud providers like, AWS, GCP, Azure, and Kubernetes.

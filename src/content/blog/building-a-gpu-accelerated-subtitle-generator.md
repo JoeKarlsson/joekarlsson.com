@@ -31,6 +31,25 @@ corrections:
     note: "It needs Python 3.9+, not 3.8+. The retry checks every 60 seconds and gives up after an hour; it isn't exponential backoff. The scheduler runs two jobs from midnight to 4 PM and one in the evening."
   - date: 2026-11-12
     note: 'The stale-lock check read `$owner_info` and `$waited` without setting them, so it never worked.'
+marginNotes:
+  - type: 'quote'
+    at: 'a CTranslate2-based reimplementation of'
+    text: 'This implementation is up to 4 times faster than openai/whisper for the same accuracy while using less memory.'
+    by: "faster-whisper's README"
+    url: 'https://github.com/SYSTRAN/faster-whisper'
+  - type: 'term'
+    at: 'VAD filtering'
+    text: 'voice activity detection. A small model marks which stretches of audio hold speech, so Whisper transcribes those and skips the silence and music.'
+    term: 'VAD'
+  - type: 'quote'
+    at: 'Whisper at scale knows about hallucinations'
+    text: 'the predictions may include texts that are not actually spoken in the audio input (i.e. hallucination).'
+    by: "OpenAI's Whisper model card"
+    url: 'https://github.com/openai/whisper/blob/main/model-card.md'
+  - type: 'see'
+    at: 'Whisper hallucinations are predictable'
+    text: 'Later I benchmarked five Whisper models on a Mac for FollowSpot, my voice-following teleprompter.'
+    post: 'followspot-local-whisper-teleprompter'
 ---
 
 I have a large video library. Thousands of files across dozens of languages, and most of them don't have subtitles. Buying subtitle files isn't an option at this scale, and the cloud transcription services that exist are either expensive or painfully slow. So I did what any reasonable person with two NVIDIA GPUs in their homelab would do: I built my own.

@@ -11,6 +11,15 @@ heroImage: '/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operatio
 heroAlt: 'A cloverleaf highway interchange from above'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+marginNotes:
+  - type: 'see'
+    at: 'Daily syncs are the minimum'
+    text: 'If a full sync is too slow to run hourly, my sync performance guide shows how to find the expensive tables.'
+    post: 'cloudquery-sync-performance-guide'
+  - type: 'term'
+    at: 'Rank by risk and blast radius'
+    text: 'how much breaks or gets exposed if this one resource fails or is compromised.'
+    term: 'Blast radius'
 ---
 
 > **Note:** You don't need a year-long initiative to fix cloud operations. This post lays out a 90-day roadmap in three phases: Foundation (see everything), Governance (set the rules), and Optimization (make it better). Each phase has weekly milestones, concrete deliverables, and a key metric to prove progress. By day 90, you should be able to answer any infrastructure question in seconds, generate compliance evidence in under an hour, and show measurable toil reduction to leadership.

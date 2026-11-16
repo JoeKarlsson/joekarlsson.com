@@ -11,6 +11,24 @@ heroImage: '/images/blog/python-39-lambda-deprecation/thumb-72b58e49.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/python-39-lambda-deprecation'
 contentNotice: 'This post was originally published on CloudQuery blog. The Python 3.9 deadlines below passed in 2026, so Lambda now blocks creating and updating python3.9 functions. The same queries find the next runtime on its way out.'
 heroAlt: 'A python curled up asleep'
+marginNotes:
+  - type: 'see'
+    at: "And Python 3.9 isn't the only one."
+    text: 'Node.js 20 on Lambda reached end of life on April 30, 2026. Same queries, same approach.'
+    post: 'aws-lambda-nodejs-20-eol'
+  - type: 'see'
+    at: 'you probably have stragglers from older deprecations too'
+    text: "My post on CloudQuery's End-of-Life integration, which flags expired runtimes across AWS, Azure and GCP without a hardcoded list."
+    post: 'what-we-learned-querying-cloud-infra-for-expired-dependencies'
+  - type: 'quote'
+    at: 'return Unicode characters directly instead of escaped sequences'
+    text: 'you must either add code to the returning function to escape the Unicode manually, or adjust the caller to handle the Unicode return.'
+    by: 'AWS Compute Blog, Python 3.12 runtime launch, December 2023'
+    url: 'https://aws.amazon.com/blogs/compute/python-3-12-runtime-now-available-in-aws-lambda/'
+  - type: 'term'
+    at: 'a persistent detective control'
+    text: 'a check that finds a problem after it exists. A preventive control blocks it up front.'
+    term: 'Detective control'
 ---
 
 > **TL;DR**

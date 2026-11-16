@@ -12,6 +12,24 @@ writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/ai-for-analyzing-your-cloud-asset-inventory
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: "Caravaggio's painting of a fortune teller reading a young man's palm"
+marginNotes:
+  - type: 'update'
+    at: 'CloudQuery already makes it easy for you'
+    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
+    date: 'Mar 2026'
+  - type: 'quote'
+    at: 'Model Context Protocol (MCP) server to fix this gap'
+    text: 'MCP (Model Context Protocol) is an open-source standard for connecting AI applications to external systems.'
+    by: "The MCP project's introduction"
+    url: 'https://modelcontextprotocol.io/docs/getting-started/intro'
+  - type: 'term'
+    at: 'overflowing your context window'
+    text: 'how much text a model can read at once. Everything in the prompt counts against it, including a pasted export.'
+    term: 'Context window'
+  - type: 'see'
+    at: 'Since we released the MCP server'
+    text: 'Four weeks later I wrote up what we got wrong building it: tool descriptions, naming and context limits, and the fix for each.'
+    post: 'mcp-server-gotchas-we-learned-the-hard-way'
 ---
 
 > **Note:** **TL;DR:**

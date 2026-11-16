@@ -29,6 +29,20 @@ updatedDate: 2026-09-30
 corrections:
   - date: 2026-09-30
     note: 'The decision table gave "cost visibility and token budget enforcement at the model layer" to CData Connect AI. That''s LiteLLM''s job.'
+marginNotes:
+  - type: 'quote'
+    at: 'supports semantic caching via Redis, Qdrant, and Valkey'
+    text: 'Semantic caches embed the prompt and serve the closest match above a similarity threshold, which suits single-shot prompts and goes badly wrong on agentic traffic'
+    by: "LiteLLM's caching docs"
+    url: 'https://docs.litellm.ai/docs/proxy/caching'
+  - type: 'see'
+    at: "What it doesn't do: federate the caller's identity"
+    text: "The official MCP roadmap's identity work covers the hop from agent to server. This hop, from server to data source, stays outside it. I went through that split in my roadmap post."
+    post: 'official-mcp-roadmap-explained'
+  - type: 'term'
+    at: 'Row-level security, field-level permissions'
+    text: 'a database rule that filters which rows each user can read, so two people running the same query get different results.'
+    term: 'Row-level security'
 ---
 
 Building enterprise AI infrastructure usually starts the same way: LiteLLM goes on the shortlist. It's open source, MIT-licensed, routes to 100+ model providers behind one OpenAI-compatible endpoint and deploys to Docker or Kubernetes in an afternoon. It has real enterprise deployments at Netflix, NASA, Ramp, and Okta and one of the most active contributor bases in open-source LLM tooling.

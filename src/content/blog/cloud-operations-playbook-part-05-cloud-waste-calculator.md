@@ -12,6 +12,20 @@ heroImage: '/images/blog/cloud-operations-playbook-part-05-cloud-waste-calculato
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-05-cloud-waste-calculator
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Workers bent over a factory assembly line'
+marginNotes:
+  - type: 'quote'
+    at: 'their teams spend too much time on operational toil'
+    text: 'Toil is the kind of work tied to running a production service that tends to be manual, repetitive, automatable, tactical, devoid of enduring value, and that scales linearly as a service grows.'
+    by: "Google's Site Reliability Engineering book"
+    url: 'https://sre.google/sre-book/eliminating-toil/'
+  - type: 'term'
+    at: 'the spreadsheets that finance needs for chargeback'
+    text: "billing each team's budget for the cloud resources it used. Showback reports the same numbers without moving any money."
+    term: 'Chargeback'
+  - type: 'update'
+    at: 'Average cloud waste sits between 27% and 35%'
+    text: "Flexera's 2026 report, out in March, puts wasted cloud spend at 29%. It's the first rise in five years, and Flexera ties it to AI workloads."
+    date: 'Mar 2026'
 ---
 
 > **Note:** **TL;DR:** Fragmented cloud visibility doesn't just slow teams down, it bleeds money. A mid-size engineering team of 10 people loses roughly 26 hours per week to infrastructure toil: investigating security alerts, gathering compliance evidence, tracking down cost attribution, answering inventory questions, and pulling incident context from scattered systems. That's $117,600/year in direct costs. Factor in the opportunity cost of senior engineers not building automation or reducing tech debt, and the real number lands between $47K and $90K per engineer per year. This post breaks down each category of toil and gives you the math to calculate it for your own team.

@@ -13,6 +13,23 @@ heroImage: '/images/blog/cloud-centers-of-excellence-part-1-building-effective-c
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'A tiny carved wooden orchestra on a plate'
+marginNotes:
+  - type: 'see'
+    at: 'One of the core mandates of a Cloud Center of Excellence'
+    text: 'I broke cloud governance into six pillars, with how to put each one in place, in a later post.'
+    post: 'what-is-cloud-governance'
+  - type: 'see'
+    at: 'In the financial sector, CCOEs help meet'
+    text: 'For EU banks, DORA has since added an ICT asset register to that list. I wrote up how its first year went.'
+    post: 'dora-ict-asset-register'
+  - type: 'update'
+    at: 'Failing to do so can be costly'
+    text: "That fine was Amazon's, issued in 2021 by Luxembourg's data protection regulator, the CNPD. A Luxembourg court annulled it in March 2026 and sent the case back to the CNPD."
+    date: 'Mar 2026'
+  - type: 'see'
+    at: 'By embedding compliance checks into CI/CD pipelines'
+    text: 'One way to do it: map SOC 2 and CIS controls to SQL queries that run every day. The playbook has the queries.'
+    post: 'cloud-operations-playbook-part-09-continuous-compliance-sql'
 ---
 
 **About This Series:** This is Part 1 of our full 5-part series on Cloud Centers of Excellence (CCOEs). Over the next few weeks, we'll cover how to build and run cloud governance through a CCOE. Here's what's coming:

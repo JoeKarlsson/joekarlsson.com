@@ -12,6 +12,24 @@ heroImage: '/images/blog/how-to-get-started-with-home-assistant/thumb-85b24e1e.w
 heroAlt: 'Two men marking up a player piano roll by hand'
 contentNotice: false
 tldr: 'I started with Alexa and Google Home but eventually landed on Home Assistant for the customization and local control. Here is how I got started and a bunch of automation ideas to try, from simple motion-triggered lights to full security setups. Updated for 2027: the Marketplace replaced HACS, add-ons are now called Apps, and the sentence-style triggers are the default.'
+marginNotes:
+  - type: 'term'
+    at: 'a cheap ESPHome IR blaster can run old TVs'
+    text: 'firmware for cheap ESP32 boards that you set up in YAML. The board then shows up in Home Assistant on its own.'
+    term: 'ESPHome'
+  - type: 'term'
+    at: 'The USB radio for Zigbee or Thread'
+    text: 'low-power mesh radio protocols for sensors, plugs and bulbs. Thread is the network under most Matter devices.'
+    term: 'Zigbee and Thread'
+  - type: 'quote'
+    at: 'Yellow went out of production in October 2025'
+    text: 'Rest assured, it will continue to receive software support far into the future.'
+    by: 'Carl Albertsson, Nabu Casa, October 15, 2025'
+    url: 'https://www.home-assistant.io/blog/2025/10/15/yellow-end-of-life/'
+  - type: 'see'
+    at: "Add Assist, Home Assistant's own voice assistant"
+    text: 'I run Assist on a GPU in my rack, with faster-whisper, Piper and Ollama.'
+    post: 'local-voice-ai-home-assistant-gpu'
 ---
 
 I started on Alexa and ended up on [Home Assistant](https://www.home-assistant.io/). This is what I'd tell someone starting now.

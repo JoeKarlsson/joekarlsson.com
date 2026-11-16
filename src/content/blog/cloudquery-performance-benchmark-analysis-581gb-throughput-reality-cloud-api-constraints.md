@@ -12,6 +12,34 @@ heroImage: '/images/blog/cloudquery-performance-benchmark-analysis-581gb-through
 canonicalUrl: 'https://www.cloudquery.io/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Cars launching down a drag strip at dusk'
+marginNotes:
+  - type: 'update'
+    at: "establish CloudQuery's throughput characteristics"
+    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand, with CloudQuery founder Yevgeny Pats as CTO.'
+    date: 'Mar 2026'
+  - type: 'see'
+    at: 'Testing was conducted on Apple M4 Pro systems'
+    text: 'A few weeks earlier I ran a smaller version of this test: 1 million rows synced in 2 seconds on a MacBook.'
+    post: 'etl-benchmark-1-million-rows-2-seconds-macbook'
+  - type: 'quote'
+    at: 'due to different API rate limiting policies'
+    text: 'Amazon EC2 uses the token bucket algorithm to implement API throttling.'
+    by: "AWS's EC2 API reference"
+    url: 'https://docs.aws.amazon.com/AWSEC2/latest/APIReference/throttling.html'
+  - type: 'quote'
+    at: 'consuming approximately 2KB of stack space'
+    text: 'the default starting size for a goroutine’s stack in 1.4 has been reduced from 8192 bytes to 2048 bytes.'
+    by: 'The Go 1.4 release notes, 2014'
+    url: 'https://go.dev/doc/go1.4'
+  - type: 'quote'
+    at: 'SIMD operations on 64-byte column buffers'
+    text: 'In other words, we can load the entire 64-byte buffer into a 512-bit wide SIMD register and get data-level parallelism…'
+    by: 'The Apache Arrow columnar format spec'
+    url: 'https://arrow.apache.org/docs/format/Columnar.html'
+  - type: 'see'
+    at: 'Performance optimization in production environments focuses primarily'
+    text: 'When a real sync runs slower than these numbers, my troubleshooting guide covers the usual causes, starting with expensive tables.'
+    post: 'cloudquery-sync-performance-guide'
 ---
 
 > **Executive Summary:**

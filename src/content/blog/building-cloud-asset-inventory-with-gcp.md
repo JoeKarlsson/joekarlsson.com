@@ -17,6 +17,29 @@ corrections:
     note: "I called GCP a Microsoft service and linked the Azure plugin docs. It's Google Cloud, and the link goes to the GCP docs."
   - date: 2026-11-12
     note: 'The YAML had a stray `c` and `tables: [*]`, the connection string was mangled, and the check query used Azure names (`GCP_storage_accounts`, `enable_https_traffic_only`). It now checks `gcp_storage_buckets` for uniform bucket-level access.'
+marginNotes:
+  - type: 'see'
+    at: 'Managing assets in cloud environments such as GCP'
+    text: 'Tempus runs this kind of sync nightly across 1000+ GCP projects and 80+ AWS accounts. I wrote up how they built it.'
+    post: 'tempus-multi-cloud-asset-inventory'
+  - type: 'update'
+    at: 'You might be interested in trying out the CloudQuery Platform'
+    text: 'The wait list is gone: the CloudQuery Platform launched in early 2025 and opened self-service signup in June 2026. CloudQuery merged with env zero in March 2026, and the combined company runs under the env zero name.'
+    date: 'Nov 2026'
+  - type: 'quote'
+    at: 'long-lived keys are a security risk'
+    text: 'Service account keys can become a security risk if not managed carefully. You should choose a more secure alternative for authentication whenever possible.'
+    by: "Google Cloud's IAM docs"
+    url: 'https://cloud.google.com/iam/docs/best-practices-for-managing-service-account-keys'
+  - type: 'see'
+    at: 'If you are interested in building a multi-cloud asset inventory'
+    text: 'The multi-cloud version, with AWS and GCP synced into the same PostgreSQL database, is its own walkthrough.'
+    post: 'complete-guide-building-multi-cloud-asset-inventory'
+  - type: 'quote'
+    at: 'uniform bucket-level access turned on'
+    text: 'When you enable uniform bucket-level access on a bucket, Access Control Lists (ACLs) are disabled, and only bucket-level Identity and Access Management (IAM) permissions grant access to that bucket and the objects it contains.'
+    by: "Google Cloud's Cloud Storage docs"
+    url: 'https://cloud.google.com/storage/docs/uniform-bucket-level-access'
 ---
 
 If you're struggling to keep track of your Google Cloud Platform (GCP) assets, stay compliant, and keep things secure, a cloud asset inventory can help.

@@ -16,6 +16,15 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The query read `'isPublic'`; the key is `'IsPublic'`. The destination config was missing its connection string."
+marginNotes:
+  - type: 'see'
+    at: 'keeping track of resources becomes critical for operations and security'
+    text: 'I wrote up why and when a team needs an asset inventory in the first place, with the four things a good one does.'
+    post: 'what-is-cloud-asset-inventory'
+  - type: 'see'
+    at: 'we can repeat this process for GCP'
+    text: 'The GCP side in more depth, with dbt models that clean up the synced data before you query it.'
+    post: 'building-cloud-asset-inventory-with-gcp'
 ---
 
 Managing assets across multiple cloud providers like AWS and GCP can be challenging, especially when you are trying to keep track of everything in one place. In this live coding session, we'll centralize that data and make it easy to query. Using **CloudQuery**, we'll demonstrate how to pull cloud asset data from [**AWS**](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/docs) and [**GCP**](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/docs) and store it in a [**PostgreSQL**](https://www.cloudquery.io/hub/plugins/destination/cloudquery/postgresql/latest/docs) database for easy access and analysis.

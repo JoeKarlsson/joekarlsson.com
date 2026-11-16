@@ -15,6 +15,20 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'The query read `password_enabled` and `create_date` from `aws_iam_users`. They live on `aws_iam_credential_reports`. The access-key join is on `arn`, not `id`.'
+marginNotes:
+  - type: 'quote'
+    at: 'against creating IAM users for human access'
+    text: 'IAM best practices recommend that you require human users to use federation with an identity provider to access AWS using temporary credentials instead of using IAM users with long-term credentials.'
+    by: 'AWS IAM User Guide, IAM users'
+    url: 'https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html'
+  - type: 'term'
+    at: 'IAM roles with instance profiles or OIDC federation'
+    text: 'a CI system such as GitHub Actions proves who it is with a signed token, and AWS trades that token for short-lived role credentials. No access keys are stored anywhere.'
+    term: 'OIDC federation'
+  - type: 'see'
+    at: 'These queries form the basis of access reviews'
+    text: 'My SOC 2 explainer covers the audit these access reviews feed into.'
+    post: 'soc2'
 ---
 
 > **TL;DR:** AWS IAM Identity Center is the recommended way to manage human access to multiple AWS accounts without static access keys. It connects to your identity provider (Okta, Entra ID, Google Workspace), handles token refresh automatically, and has no additional AWS charge. This guide covers setup from scratch, CLI configuration, permission sets, and auditing access across all your accounts with SQL.

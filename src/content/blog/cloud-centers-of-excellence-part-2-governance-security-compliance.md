@@ -13,6 +13,16 @@ heroImage: '/images/blog/cloud-centers-of-excellence-part-2-governance-security-
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-2-governance-security-compliance
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'A crossing guard holding up a stop sign'
+marginNotes:
+  - type: 'quote'
+    at: 'a poorly implemented CCOE can become a bottleneck'
+    text: 'centralized cloud teams do not scale.'
+    by: 'Forrest Brazeal, who worked on one, in Why central cloud teams fail, Pluralsight, June 2023'
+    url: 'https://www.pluralsight.com/resources/blog/cloud/why-central-cloud-teams-fail-and-how-to-save-yours'
+  - type: 'see'
+    at: 'If every cloud change requires CCOE approval'
+    text: 'I wrote about telling a kiln, review that makes the work better, from a gate that only adds time.'
+    post: 'ship-the-ugly-pot'
 ---
 
 **About This Series:** This is Part 2 of our 5-part series on Cloud Centers of Excellence (CCOEs). If you missed it, start with **Part 1: Introduction and Organizational Structure** to understand the foundational concepts.

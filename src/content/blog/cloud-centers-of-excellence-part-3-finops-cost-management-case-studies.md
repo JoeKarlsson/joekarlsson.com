@@ -17,6 +17,25 @@ updatedDate: 2026-11-06
 corrections:
   - date: 2026-11-06
     note: "Flexera's 59% figure is from 2025, up from 51% in 2024. I had both years one year early."
+marginNotes:
+  - type: 'quote'
+    at: 'giving rise to FinOps (Cloud Financial Operations)'
+    text: 'FinOps is an operational framework and cultural practice which maximizes the business value of technology, enables timely data-driven decision making, and creates financial accountability through collaboration between engineering, finance, and business teams.'
+    by: "The FinOps Foundation's definition"
+    url: 'https://www.finops.org/introduction/what-is-finops/'
+  - type: 'quote'
+    at: 'This shift has elevated FinOps from a niche practice'
+    text: 'This year marks the first time in more than a decade that managing cloud spend has overtaken security as the top challenge facing organizations.'
+    by: "Flexera's 2023 State of the Cloud press release"
+    url: 'https://www.flexera.com/about-us/press-center/flexera-2023-state-of-the-cloud-report'
+  - type: 'term'
+    at: 'committed use discounts'
+    text: "a lower rate in exchange for committing to a set amount of usage or spend for one or three years. It's Google Cloud's name; AWS sells the same idea as Savings Plans and Reserved Instances."
+    term: 'Committed use discounts'
+  - type: 'see'
+    at: 'A capable CCOE/FinOps effort targets that waste'
+    text: 'Idle resources are one kind of waste. Engineering time lost to scattered cloud data is another, and I built a calculator to measure it.'
+    post: 'cloud-operations-playbook-part-05-cloud-waste-calculator'
 ---
 
 **About This Series:** This is Part 3 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:

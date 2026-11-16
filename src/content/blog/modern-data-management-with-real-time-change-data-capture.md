@@ -9,6 +9,20 @@ writtenFor: 'Tinybird'
 heroImage: '/images/blog/modern-data-management-with-real-time-change-data-capture/thumb-d32c7948.webp'
 heroAlt: 'An old seismograph'
 tldr: 'Change Data Capture (CDC) watches your database transaction log and streams every insert, update, and delete to downstream systems in real time. I cover how it works, when to use it over batch ETL, and what to watch out for.'
+marginNotes:
+  - type: 'quote'
+    at: 'known as the Write Ahead Log or WAL'
+    text: 'changes to data files (where tables and indexes reside) must be written only after those changes have been logged'
+    by: "PostgreSQL's docs on write-ahead logging"
+    url: 'https://www.postgresql.org/docs/current/wal-intro.html'
+  - type: 'see'
+    at: 'Kafka serves as a buffer to handle individual events'
+    text: 'Once change events land in Kafka, you can join them with dimension tables before they reach the target. I walked through that with Snowflake dimensions.'
+    post: 'the-engineers-guide-to-enriching-streams-and-dimensions'
+  - type: 'term'
+    at: 'applying a graveyard flag to deleted rows'
+    text: 'a column that marks a row as deleted instead of removing it. Queries filter those rows out, and the target keeps the history.'
+    term: 'Soft delete'
 ---
 
 Data engineers are grappling with surging data volumes while stakeholders increasingly demand real-time decision-making and user-facing features powered by data. This raises a fundamental question: How do you efficiently and quickly track and manage changes in your databases during periods of intense growth? One answer can be found in Change Data Capture (CDC), a technique that captures and routes changes made to a database in real time and sends them to a downstream system.

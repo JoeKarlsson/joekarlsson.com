@@ -15,6 +15,12 @@ corrections:
     note: 'I said the schema map could go in your Go source code. This is a Node.js tutorial; it goes in your Node.js code.'
   - date: 2026-11-12
     note: "The code didn't run as shown: the file was labeled `clients.js` but required as `./helpers`, it called `getRegularClient` and `ensureUniqueIndexOnKeyVault` without defining them, and it never showed `./config` or created the master key file."
+marginNotes:
+  - type: 'quote'
+    at: 'is only responsible for supporting automatic client-side field level encryption'
+    text: 'Starting in MongoDB 9.0, mongocryptd is deprecated. Use the Automatic Encryption Shared Library instead.'
+    by: "MongoDB's CSFLE docs"
+    url: 'https://www.mongodb.com/docs/manual/core/csfle/reference/install-library/'
 ---
 
 Have you ever had to develop an application that stored sensitive data, like credit card numbers or social security numbers? This is a super common use case for databases, and it can be a pain to save this data securely. In this post, you will learn how to encrypt document fields client-side in Node.js with MongoDB client-side field-level encryption (CSFLE).

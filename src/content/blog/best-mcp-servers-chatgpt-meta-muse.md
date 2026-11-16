@@ -30,6 +30,20 @@ faq:
     answer: 'Only as many as cover the work. Each server adds a sign-in, a permission model, and a log to manage. Use built-ins first, add a vendor server for a single important app, and use one gateway for the rest rather than a server per system.'
 tldr: 'Most best-MCP-server lists rank tools for developers. This one sorts the options for ChatGPT, ChatGPT dots, and Meta Muse by what a business team needs: built-in connectors, single-vendor servers like Salesforce and Atlassian, automation platforms, warehouse servers, and governed gateways like CData Connect AI. In my tests, a dot with its plugin set to read-only tools still created an Asana task when I asked, so if a system must stay read-only, enforce that at the connection layer.'
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/best-mcp-servers-chatgpt-meta-muse).'
+marginNotes:
+  - type: 'quote'
+    at: 'MCP is the open standard both ChatGPT and Muse use'
+    text: 'Model Context Protocol (MCP) is an open protocol that enables seamless integration between LLM applications and external data sources and tools.'
+    by: 'The MCP specification'
+    url: 'https://modelcontextprotocol.io/specification/latest'
+  - type: 'see'
+    at: "it can only do what the server's tools allow"
+    text: "What a server's tools allow comes down to how they're named and described. We learned that the hard way building an MCP server at CloudQuery."
+    post: 'mcp-server-gotchas-we-learned-the-hard-way'
+  - type: 'see'
+    at: 'Several vendors now sell MCP gateways'
+    text: 'I compared one of the developer-focused ones, LiteLLM, with Connect AI on MCP governance and data access.'
+    post: 'litellm-vs-cdata-connect-ai'
 ---
 
 ChatGPT and Meta Muse can both draft an email or summarize a meeting. Ask either one which renewals are at risk this quarter, though, and the answer depends on whether it can access the customer relationship management (CRM) system, the support desk, and the finance system that hold that information. Both assistants connect to those systems through Model Context Protocol (MCP) servers, new ones show up every week, and they don't all solve the same problem. This guide sorts the best MCP servers for ChatGPT and Muse by what each one is good at, starting with the questions a business team should ask before approving one.

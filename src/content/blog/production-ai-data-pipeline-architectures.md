@@ -11,6 +11,24 @@ writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/production-ai-data-pipeline-architectures
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'A pipeline running past a danger sign'
+marginNotes:
+  - type: 'term'
+    at: 'RAG pipelines and AI agents need near real-time data'
+    text: 'retrieval-augmented generation. The system looks up relevant documents first and hands them to the model along with the question.'
+    term: 'RAG'
+  - type: 'term'
+    at: 'Output to PostgreSQL with pgvector'
+    text: 'a Postgres extension that stores embeddings in a column and finds the nearest ones to a query.'
+    term: 'pgvector'
+  - type: 'see'
+    at: 'Stream cloud configuration data across multi-cloud environments'
+    text: 'The next step I wrote about: an MCP server that lets an AI agent query the same cloud inventory in plain English.'
+    post: 'ai-for-analyzing-your-cloud-asset-inventory'
+  - type: 'quote'
+    at: '46% of developers distrust AI tools'
+    text: 'More developers actively distrust the accuracy of AI tools (46%) than trust it (33%), and only a fraction (3%) report "highly trusting" the output.'
+    by: 'Stack Overflow Developer Survey, 2025'
+    url: 'https://survey.stackoverflow.co/2025/ai'
 ---
 
 > **Note:** **TL;DR:**

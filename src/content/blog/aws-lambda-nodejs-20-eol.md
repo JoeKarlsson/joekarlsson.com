@@ -15,6 +15,29 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'The queries used `cq_sync_time`. The column is `_cq_sync_time`.'
+marginNotes:
+  - type: 'update'
+    at: 'You can no longer create new Lambda functions using the'
+    text: 'AWS pushed these blocks back. Its runtimes page now lists July 29, 2027 to block creating nodejs20.x functions and August 31, 2027 to block updating them.'
+    date: 'Nov 2026'
+  - type: 'quote'
+    at: 'Your functions continue to run and can be invoked'
+    text: 'You can continue to invoke your functions indefinitely. However, we strongly recommend that you migrate to a supported runtime.'
+    by: 'AWS Lambda docs, Runtime use after deprecation'
+    url: 'https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html'
+  - type: 'update'
+    at: 'Its Lambda deprecation date is April 30, 2027'
+    text: 'AWS now lists May 30, 2027 for nodejs22.x, with creates blocked July 29, 2027 and updates blocked August 31, 2027.'
+    date: 'Nov 2026'
+  - type: 'quote'
+    at: 'introduces a significant Lambda-specific change'
+    text: 'Starting with the Node.js 24 runtime, Lambda no longer supports the callback-based handler signature for asynchronous operations.'
+    by: 'AWS Compute Blog, Node.js 24 runtime now available in AWS Lambda'
+    url: 'https://aws.amazon.com/blogs/compute/node-js-24-runtime-now-available-in-aws-lambda/'
+  - type: 'update'
+    at: 'When you manage dozens of accounts across multiple regions'
+    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
+    date: 'Mar 2026'
 ---
 
 > **TL;DR:** AWS Lambda Node.js 20.x reaches end-of-life on April 30, 2026, after which security patches stop and you progressively lose the ability to create or update functions on this runtime. Upgrade to Node.js 22, test for import assertion syntax changes, native module ABI mismatches, and CA certificate configuration, and use CloudQuery Platform to find every affected function across all your AWS accounts with a single SQL query.

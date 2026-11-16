@@ -11,6 +11,20 @@ heroImage: '/images/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-l
 heroAlt: 'Rows of wooden library card catalog drawers'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer'
 contentNotice: 'This post was originally published on CloudQuery blog.'
+marginNotes:
+  - type: 'see'
+    at: 'The AI translates that into SQL'
+    text: 'We built this at CloudQuery as an MCP server in Go, so Claude and Cursor could query the cloud inventory from inside the IDE.'
+    post: 'how-we-made-our-ides-data-aware-with-a-go-mcp-server'
+  - type: 'see'
+    at: 'You can inspect the generated query before trusting the results'
+    text: 'What we had to fix before an LLM used those tools well, from tool descriptions to context limits, is in my MCP gotchas post.'
+    post: 'mcp-server-gotchas-we-learned-the-hard-way'
+  - type: 'quote'
+    at: 'That makes predictive cost optimization more important than ever'
+    text: 'In 2026, GenAI surged to the third most widely used public cloud service, rising to 58% from 50%.'
+    by: "Flexera's 2026 State of the Cloud Report, March 2026"
+    url: 'https://www.flexera.com/blog/finops/cloud-computing-trends-flexera-2024-state-of-the-cloud-report/'
 ---
 
 > **Note:** Every vendor is pitching AI for cloud operations: AI-powered security, AI cost optimization, AIOps. But AI is only as good as the data you feed it. Most organizations' cloud data is fragmented across a dozen tools, which means no AI system can see the full picture. The unified data layer we've been building throughout this series is good for governance, and it's also the foundation that makes AI-powered cloud operations work.

@@ -11,6 +11,15 @@ heroImage: '/images/blog/best-way-keep-cloud-inventory-up-to-date/thumb-e6d6d806
 canonicalUrl: 'https://www.cloudquery.io/blog/best-way-keep-cloud-inventory-up-to-date'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Meme of the I Have No Idea What I Am Doing Dog, with text that says, "Parsing AWS, GCP, and Azure logs like... Yep, looks good to me!"'
+marginNotes:
+  - type: 'see'
+    at: 'or hitting rate limits'
+    text: "When I benchmarked CloudQuery, local files synced at 581 GB an hour. AWS's API rate limits held the same engine to 13 GB an hour."
+    post: 'cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints'
+  - type: 'update'
+    at: 'Our team can walk you through a tailored demo'
+    text: 'CloudQuery merged with env zero in March 2026, and the combined company runs under the env zero name.'
+    date: 'Mar 2026'
 ---
 
 Cloud environments change constantly. New resources spin up, policies shift, and security risks emerge. Keeping cloud asset data accurate and up to date is a challenge, especially when working across multiple providers. For years, keeping cloud asset data up to date has meant:

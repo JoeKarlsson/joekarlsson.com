@@ -15,6 +15,19 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'Same fixes as part 7 (MFA from `aws_iam_credential_reports`, rules from `aws_ec2_security_group_rules`), and GCP bucket IAM comes from `gcp_storage_bucket_policies`, not an `iam_policy` column.'
+marginNotes:
+  - type: 'term'
+    at: 'built an entirely custom DSL'
+    text: "domain-specific language: a small language made for one job, like a scanner's rule syntax."
+    term: 'DSL'
+  - type: 'see'
+    at: 'that question becomes a SQL query'
+    text: 'Steampipe gets to SQL another way: it queries the cloud APIs live instead of syncing them into a database. I compared the two designs.'
+    post: 'steampipe-vs-cloudquery'
+  - type: 'see'
+    at: 'One query returns both providers in the same result set'
+    text: 'I wrote the same kind of cross-cloud check for databases open to the internet across AWS, Azure and GCP.'
+    post: 'detect-public-databases-across-aws-azure-gcp'
 ---
 
 > **Note:** Traditional CSPM tools force you to learn proprietary policy languages like Rego or vendor-specific DSLs. But if your cloud asset data lives in a database, you can write security checks in SQL instead. Your security team writes checks that engineering can actually read. Your checks live in version control next to your infrastructure code. And the same query that finds a misconfiguration can serve as compliance evidence, investigation tool, and automated policy check all at once.

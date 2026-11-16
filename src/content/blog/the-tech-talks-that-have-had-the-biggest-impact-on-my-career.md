@@ -10,6 +10,21 @@ heroImage: '/images/blog/the-tech-talks-that-have-had-the-biggest-impact-on-my-c
 heroAlt: 'A speaker standing before a packed auditorium'
 contentNotice: false
 tldr: 'My personal list of the tech talks that changed how I think about programming, teamwork, and career growth, with links to every one of them.'
+marginNotes:
+  - type: 'update'
+    at: 'feel free to tweet it to me'
+    text: "Twitter became X in July 2023. I'm easier to reach on Bluesky or LinkedIn now."
+    date: 'Jul 2023'
+  - type: 'quote'
+    at: 'while many choose easiness when programming'
+    text: 'The meaning of simple means unentangled, not twisted together with something else.'
+    by: 'Rich Hickey, Simple Made Easy, Strange Loop 2011'
+    url: 'https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/SimpleMadeEasy.md'
+  - type: 'quote'
+    at: 'a first-person perspective about the thought processes'
+    text: "If you do not work on an important problem, it's unlikely you'll do important work."
+    by: 'Richard Hamming, first given at Bellcore on March 7, 1986'
+    url: 'https://www.cs.virginia.edu/~robins/YouAndYourResearch.html'
 ---
 
 It’s not that often that I go to a conference or watch a talk on YouTube that truly changes the way I think about programming or software development. Even though I’m someone who does frontend development for a living, most of the talks that were most illuminating for me are talks that are either language-agnostic or unrelated to my daily work. These are the tech talks that have had the biggest impact on my career and my life.

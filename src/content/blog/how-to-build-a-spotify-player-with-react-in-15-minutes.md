@@ -28,6 +28,21 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'The authorize URL was missing its `?`, `hash` was declared twice, the JSX was cut off, and the progress bar read `this.progress_ms` instead of `this.state.progress_ms`, so it never moved.'
+marginNotes:
+  - type: 'update'
+    at: 'start by creating a Spotify user account'
+    text: 'Since February 2026, an app in Development Mode needs its developer to have Spotify Premium, and each Client ID gets up to five authorized users.'
+    date: 'Feb 2026'
+  - type: 'quote'
+    at: 'Spotify no longer accepts'
+    text: 'localhost is not allowed as redirect URI. Use HTTPS for your redirect URI, unless you are using a loopback address, when HTTP is permitted.'
+    by: "Spotify's redirect URI docs"
+    url: 'https://developer.spotify.com/documentation/web-api/concepts/redirect_uri'
+  - type: 'quote'
+    at: 'the flow Spotify recommends for apps'
+    text: 'The authorization code flow with PKCE is the recommended authorization flow if you’re implementing authorization in a mobile app, single page web apps, or any other type of application where the client secret can’t be safely stored.'
+    by: "Spotify's PKCE tutorial"
+    url: 'https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow'
 ---
 
 Have you ever wanted to build a Spotify player for your app or website? Adding personalized music to any application is super easy with the Spotify Developer API. Personally, I have been playing around with the Spotify API with an IoT project I have been building in my free time.

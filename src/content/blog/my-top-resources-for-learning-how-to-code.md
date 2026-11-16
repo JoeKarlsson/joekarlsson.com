@@ -8,6 +8,15 @@ categories: ['Career']
 heroImage: '/images/blog/my-top-resources-for-learning-how-to-code/thumb-e1e31476.webp'
 heroAlt: 'Programmers setting up the ENIAC at its control panels'
 tldr: 'My big list of favorite books, podcasts, courses, YouTube channels, and conferences for learning to code, plus advice on picking a programming language and getting started.'
+marginNotes:
+  - type: 'term'
+    at: 'fully grokked a subject'
+    text: "to understand something completely. The word comes from Robert Heinlein's 1961 novel Stranger in a Strange Land."
+    term: 'Grok'
+  - type: 'update'
+    at: 'to follow people you like, discover what they do'
+    text: 'Twitter renamed itself X in July 2023.'
+    date: 'Jul 2023'
 ---
 
 So, you want to learn how to code? Here’s What You Need To Know to get started. This is a list of my favorite programming books, talks, podcasts, newsletters, websites, and general tips for learning more about programming. HMU if you have any additions you want to make to my list!

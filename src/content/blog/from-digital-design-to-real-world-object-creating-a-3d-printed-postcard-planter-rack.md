@@ -10,6 +10,11 @@ categories: ['Homelab']
 heroImage: '/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/thumb-af923799.webp'
 heroAlt: 'The postcard rack planter, its pockets full of 3D-printed pots and plants'
 tldr: 'I filled a secondhand wire postcard rack with 3D-printed pots I designed in Tinkercad. Each pot drains into the one below, so I water the top and the whole tower gets it. Three-plus years in, the ABS is holding up and the succulents gave way to spider plants. The STL is free on Thingiverse.'
+marginNotes:
+  - type: 'term'
+    at: 'I printed them in black ABS'
+    text: 'a tough plastic, the same one LEGO bricks are made of. It takes heat and moisture better than PLA, the usual hobby filament.'
+    term: 'ABS'
 ---
 
 I bought a wire postcard rack secondhand with no idea what to do with it. It's a gold wire tower of little pockets, each one sized for a stack of postcards, and it sat around my house for a while.

@@ -17,6 +17,15 @@ corrections:
     note: "This Azure tutorial said it pulled asset data from AWS and GCP, and that the config synced API Gateway, IAM and RDS. It's Azure throughout now, syncing `azure_compute_virtual_machines`."
   - date: 2026-11-12
     note: "The check query read `azure_storage_accounts`, which the config never synced, and used a column that doesn't exist (`enable_https_traffic_only`). psql was missing `-d asset_inventory`, and the dbt host `db` didn't exist."
+marginNotes:
+  - type: 'see'
+    at: 'Looking to build a Cloud Asset Inventory for your AWS data'
+    text: 'I wrote the AWS version of this tutorial too.'
+    post: 'building-cloud-asset-inventory-with-aws'
+  - type: 'term'
+    at: 'CIS, and Foundational Security Best Practices'
+    text: 'the CIS Benchmarks, secure configuration checklists for each cloud and operating system from the Center for Internet Security.'
+    term: 'CIS'
 ---
 
 If you're struggling to keep track of your Azure assets, stay compliant, and keep things secure, a cloud asset inventory can help.

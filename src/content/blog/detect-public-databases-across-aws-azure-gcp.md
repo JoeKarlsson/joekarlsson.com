@@ -17,6 +17,20 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'The RDS table is `aws_rds_instances`, not `aws_rds_db_instances`. Cosmos DB public access lives on `azure_cosmos_database_accounts`, not the per-API tables I queried, so the count is 7 database types (five on Azure), not 9 (seven).'
+marginNotes:
+  - type: 'term'
+    at: 'Policies are detective controls.'
+    text: 'a control that finds a problem after it exists. A preventive control, like a deploy check, stops it from happening.'
+    term: 'Detective control'
+  - type: 'quote'
+    at: 'so no JSON parsing is needed'
+    text: "If DBSubnetGroup isn't specified, PubliclyAccessible defaults to false for Aurora instances and true for non-Aurora instances."
+    by: 'AWS RDS API reference, CreateDBInstance'
+    url: 'https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html'
+  - type: 'see'
+    at: 'multi-cloud database security policy that detects databases'
+    text: 'Five more security checks written as plain SQL, covering public buckets, MFA and encryption.'
+    post: 'cloud-operations-playbook-part-08-cloud-security-posture-sql'
 ---
 
 CloudQuery Policies let you write ClickHouse SQL queries that flag infrastructure violations across all your cloud providers. We [recently launched this feature](https://www.cloudquery.io/blog/introducing-cloudquery-platform-policies), and this post shows how to put it to work.

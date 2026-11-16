@@ -8,6 +8,16 @@ heroImage: '/images/blog/bechdel-test-script-parser-works/thumb-e6b013c5.webp'
 heroAlt: 'A film editing room with reels, splicers and shelves of cans'
 contentNotice: false
 tldr: "My sister and I built a tool that parses movie screenplays and tests them against the Bechdel Test using JavaScript and Node.js. Here's how the script parsing actually works under the hood."
+marginNotes:
+  - type: 'term'
+    at: 'collaborative digital humanities project'
+    text: 'using computers to study literature, film, history and art, often by counting and charting patterns across many works at once.'
+    term: 'Digital humanities'
+  - type: 'quote'
+    at: 'shared passion for film, feminism'
+    text: 'I am pretty certain that my friend Liz Wallace, from whom I stole the idea in 1985, stole it herself from Virginia Woolf.'
+    by: 'Alison Bechdel on where the test came from, Testy, 2013'
+    url: 'https://dykestowatchoutfor.com/testy/'
 ---
 
 [The Bechdel Test Script Parser](https://bechdel.joekarlsson.com/) was a collaborative digital humanities project between myself and my sister, Laurel Karlsson. It is the product of a shared passion for film, feminism, and the creative potential of technology. By combining the talents and interests of myself, a software engineer, and my sister, an English Scholar, we’ve been able to create an innovative data mining tool for a film analysis that we hope to continue to work on and improve. You can check out the project on our website, and the open-source code can be viewed [here](https://github.com/JoeKarlsson/bechdel-test). I also gave a [talk about how we used JavaScript to help make film more inclusive](/talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/) with this project. In 2026 I [started it over as a static site](/blog/hackers-and-painters-ai-agents/).

@@ -13,6 +13,24 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'The Tinybird template SQL was missing its `%` first line.'
+marginNotes:
+  - type: 'see'
+    at: 'stored in a data warehouse like Snowflake'
+    text: "Keep the warehouse for the history. Here's why I wouldn't serve recommendations straight out of it."
+    post: 'data-warehouses-are-terrible-application-backends'
+  - type: 'quote'
+    at: 'is what drives TikTok'
+    text: 'In this paper, we present Monolith, a system tailored for online training.'
+    by: 'Zhuoran Liu et al., the Monolith paper, 2022'
+    url: 'https://arxiv.org/abs/2209.07663'
+  - type: 'update'
+    at: 'Twitter recently open sourced its'
+    text: 'Twitter rebranded as X in July 2023. The twitter/the-algorithm repo is still public on GitHub.'
+    date: 'Jul 2023'
+  - type: 'see'
+    at: 'have become popular for their ability'
+    text: 'My comparison of real-time databases, including ClickHouse, Tinybird, Pinot and Druid.'
+    post: 'real-time-databases-what-developers-need-to-know'
 ---
 
 Real-time, personalized recommendations are all over the internet, from streaming services suggesting our next binge-worthy TV series to e-commerce platforms offering tailored product recommendations. They shape how we discover and engage with content and products.

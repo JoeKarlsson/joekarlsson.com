@@ -18,6 +18,24 @@ corrections:
     note: "I removed stats I couldn't source (67% faster remediation, a 73% MTTD cut, 68% fewer audit findings, 63% to 97% label compliance). The Google SRE line is now a real quote from the SRE book."
   - date: 2026-11-12
     note: "The queries used MySQL and BigQuery JSON functions on a Postgres database, columns that don't exist (`spec`, `status`, `aws_eks_cluster_security_groups`), a bare `WITH` and the wrong GCP prefix (`google://` instead of `gce://`)."
+marginNotes:
+  - type: 'quote'
+    at: 'uses admission controllers to enforce these standards'
+    text: 'An admission controller is a piece of code that intercepts requests to the Kubernetes API server prior to persistence of the resource, but after the request is authenticated and authorized.'
+    by: 'The Kubernetes docs'
+    url: 'https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/'
+  - type: 'see'
+    at: 'Some organizations deploy monitoring agents within each Kubernetes cluster'
+    text: 'The longer case against agents for discovery, with containers and serverless as the breaking points.'
+    post: 'death-of-agent-based-discovery'
+  - type: 'see'
+    at: 'is an open-source developer portal from Spotify'
+    text: 'Backstage case studies from Spotify, Toyota and finance teams, and why a portal is only as good as its inventory.'
+    post: 'how-to-make-your-internal-developer-portal-actually-useful'
+  - type: 'term'
+    at: 'Identifying workloads stuck in CrashLoopBackOff'
+    text: 'a pod whose container keeps crashing. Kubernetes keeps restarting it and waits longer between each try.'
+    term: 'CrashLoopBackOff'
 ---
 
 > **TL;DR:**

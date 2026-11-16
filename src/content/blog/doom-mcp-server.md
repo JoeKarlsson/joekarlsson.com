@@ -39,6 +39,29 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "I called it the world's first Doom level built from MCP data. That's as far as I can find, and the post now says so."
+marginNotes:
+  - type: 'term'
+    at: 'Doom runs at 35 tics a second'
+    text: "one step of Doom's game logic. The engine moves monsters, checks hits and updates the world once per tic."
+    term: 'Tic'
+  - type: 'quote'
+    at: 'the best model completed 0.48% of the benchmark'
+    text: 'We find inference latency to be a major limitation of frontier models in the real-time setting'
+    by: 'Zhang et al., VideoGameBench, 2025'
+    url: 'https://arxiv.org/abs/2505.18134'
+  - type: 'term'
+    at: 'teach Doom to speak JSON-RPC'
+    text: 'the message format MCP uses: a JSON object that names a method and its parameters, answered by a result or an error.'
+    term: 'JSON-RPC'
+  - type: 'quote'
+    at: 'the Doom fork where monsters are Unix processes'
+    text: 'the author modified a popular computer game, Doom, to perform useful work.'
+    by: 'Dennis Chao, Doom as an Interface for Process Management, CHI 2001. psDooM started here'
+    url: 'http://www.cs.unm.edu/~dlchao/flake/doom/chi/chi.html'
+  - type: 'see'
+    at: 'is stateless and drops it'
+    text: 'I went through the 2026-07-28 release change by change, including what going stateless means for servers like this one.'
+    post: 'mcp-2026-07-28-release-explained'
 ---
 
 I wired Doom to two Model Context Protocol (MCP) servers. One is a Doom MCP server inside the game, so Claude can play it. The other is an MCP data source: when Claude connects to your apps to answer a question, the game builds the level out of what it finds. Each app from the MCP server becomes a room and each record becomes a monster, so asking what you worked on yesterday would get you a level full of Jira tickets, pull requests, and Slack threads. As far as I can find, it's the first Doom level built out of MCP data. I've been calling it DooMCP.

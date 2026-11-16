@@ -13,6 +13,28 @@ heroImage: '/images/blog/cloud-centers-of-excellence-part-4-implementation-best-
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'Meme image of a man tapping his temple and smiling knowingly (known as the "Roll Safe" meme). The overlaid text reads: "CAN''T ARGUE THE COE ISN''T VALUABLE... IF YOU MEASURE EVERYTHING."'
+marginNotes:
+  - type: 'see'
+    at: 'This means developing concrete policies and technical controls'
+    text: 'Policies and controls are two of the six cloud governance pillars I cover in a separate post.'
+    post: 'what-is-cloud-governance'
+  - type: 'quote'
+    at: 'Many organizations use Infrastructure-as-Code (IaC) to define this'
+    text: "A landing zone is a well-architected, multi-account environment that's based on security and compliance best practices."
+    by: "AWS Control Tower's docs"
+    url: 'https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html'
+  - type: 'update'
+    at: 'a landing zone could be a management group and subscription blueprint'
+    text: 'Microsoft is retiring Azure Blueprints on January 31, 2027, in phases that began July 31, 2026. Its docs point to Deployment Stacks and Template Specs instead.'
+    date: 'Jul 2026'
+  - type: 'see'
+    at: 'Every CCOE needs metrics, but not all metrics'
+    text: 'My one-page scorecard for cloud operations covers five metric categories that leadership actually reads.'
+    post: 'cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard'
+  - type: 'term'
+    at: 'Run game days or simulations'
+    text: 'a scheduled drill where a team breaks something on purpose, like failing over a database, to practice recovering before a real outage.'
+    term: 'Game day'
 ---
 
 **About This Series:** This is Part 4 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:

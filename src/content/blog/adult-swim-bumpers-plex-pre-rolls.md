@@ -9,6 +9,17 @@ heroImage: '/images/blog/adult-swim-bumpers-plex-pre-rolls/hero.webp'
 heroVideo: '/images/blog/adult-swim-bumpers-plex-pre-rolls/hero.mp4'
 heroAlt: 'A jellyfish drifting in dark blue water while white text cards read "no ads." then "no algorithm." then "no idea what you should watch." and finally "[joeflix]"'
 tldr: 'I built a small CLI that turns a few lines of YAML into Adult Swim-style bumpers, loaded 121 of them into NeXroll, and now every movie on my Plex server Joeflix opens with one.'
+marginNotes:
+  - type: 'quote'
+    at: 'will play a pre-roll video before every movie'
+    text: 'This can be used to add a “THX Sound” clip, a “please silence your phones” message, or similar.'
+    by: "Plex's support article on the Movie pre-roll video setting"
+    url: 'https://support.plex.tv/articles/202920803-extras/'
+  - type: 'quote'
+    at: 'Plex only plays pre-rolls before movies'
+    text: 'In order to have the “pre-roll” video(s) played, users will need to have the Cinema Trailers feature enabled in their Plex App.'
+    by: "Plex's support article on Extras"
+    url: 'https://support.plex.tv/articles/202920803-extras/'
 ---
 
 I grew up on Toonami after school, and later on staying up way too late for Adult Swim, which was the first TV I ever watched that seemed like weirdos made it for other weirdos. I loved it. The bumpers stuck with me longer than most of the shows did.

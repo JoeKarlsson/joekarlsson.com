@@ -16,6 +16,16 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The Git source config used syntax the plugin doesn't take. I also said `**/LICENSE*` matches the British `LICENCE`. It doesn't."
+marginNotes:
+  - type: 'quote'
+    at: 'Your legal team needs a list of repositories without LICENSE files'
+    text: 'without a license, the default copyright laws apply, meaning that you retain all rights to your source code and no one may reproduce, distribute, or create derivative works from your work.'
+    by: "GitHub's docs on licensing a repository"
+    url: 'https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository'
+  - type: 'see'
+    at: 'The GitHub UI shows license status one repo at a time'
+    text: 'My overview of the Git source has more queries like this one, for Dockerfiles and CODEOWNERS.'
+    post: 'introducing-the-git-source-plugin'
 ---
 
 Your legal team needs a list of repositories without LICENSE files. The GitHub UI shows license status one repo at a time. The API requires pagination and filtering. Writing a script means handling authentication, rate limits, and data aggregation. And you'll need to maintain that script every time requirements change.

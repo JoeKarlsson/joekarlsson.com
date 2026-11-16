@@ -30,6 +30,28 @@ corrections:
     note: 'The 8GB Raspberry Pi 5 costs about $175 after the April 2026 price increase, not $125.'
   - date: 2026-11-12
     note: "The commands for the Proxmox host used `sudo`, which Proxmox doesn't ship."
+marginNotes:
+  - type: 'term'
+    at: "You don't need ECC RAM"
+    text: 'error-correcting memory. It finds and fixes single-bit errors, which servers want and most homelabs can live without.'
+    term: 'ECC RAM'
+  - type: 'term'
+    at: 'Proxmox has tight ZFS integration'
+    text: 'a filesystem and volume manager in one. It checksums every block so it can catch silent corruption, and it handles RAID itself.'
+    term: 'ZFS'
+  - type: 'term'
+    at: 'then bind-mount it into each container'
+    text: 'a folder that already exists on the host shows up at a path inside the container, so both see the same files.'
+    term: 'Bind mount'
+  - type: 'quote'
+    at: 'Unprivileged containers map their users to different IDs'
+    text: 'The root UID 0 inside the container is mapped to an unprivileged user outside the container.'
+    by: 'Proxmox VE docs'
+    url: 'https://pve.proxmox.com/wiki/Linux_Container'
+  - type: 'see'
+    at: 'want to run a gaming VM'
+    text: 'I now share two GPUs, an 8GB Quadro RTX 4000 and a 16GB RTX A4000, across seven services in LXC containers.'
+    post: 'proxmox-gpu-passthrough-multi-service'
 ---
 
 Look, if you've been lurking on r/homelab or watching YouTube videos of people with full server racks in their basements, I get it. It looks intimidating and expensive, like you need an IT degree and a dedicated room in your house just to get started.

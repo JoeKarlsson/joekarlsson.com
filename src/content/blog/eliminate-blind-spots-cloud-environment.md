@@ -11,6 +11,16 @@ heroImage: '/images/blog/eliminate-blind-spots-cloud-environment/thumb-083b10aa.
 canonicalUrl: 'https://www.cloudquery.io/blog/eliminate-blind-spots-cloud-environment'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A meme showing cowboys on horseback attempting to herd a massive clowder of cats. The text reads, "HOW IT FEELS TO KEEP YOUR CLOUD ASSETS UNDER CONTROL."'
+marginNotes:
+  - type: 'see'
+    at: 'Cloud governance teams deal with incomplete, inconsistent cloud data'
+    text: 'What cloud governance covers, its six pillars, and how platform teams put it in place.'
+    post: 'what-is-cloud-governance'
+  - type: 'quote'
+    at: 'Leading organizations are shifting to a horizontal security approach'
+    text: 'code, pipeline, and cloud risks can be correlated back to a single issue and owner.'
+    by: "Wiz's 2025 cloud security predictions"
+    url: 'https://www.wiz.io/blog/2025-cloud-security-predictions'
 ---
 
 > **Note:** It's now even easier to monitor your assets across multiple cloud platforms using our [Multi-Cloud Asset Inventory Report](https://www.cloudquery.io/hub/reports/multi-cloud-asset-inventory). Want to see it in action? Try our [free online demo](https://www.cloudquery.io/contact-us) now.

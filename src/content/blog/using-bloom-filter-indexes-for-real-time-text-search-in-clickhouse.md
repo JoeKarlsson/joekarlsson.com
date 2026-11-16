@@ -14,6 +14,24 @@ updatedDate: 2026-11-06
 corrections:
   - date: 2026-11-06
     note: 'Two numbers in the tables are typos: `ngrambf_v1(4, 4096, 1, 0)` is 46.3x faster, not 49.3x, and the `ngrambf_v1(4, 1024, 1, 0)` index is 247.8 MB, not 2477.5 MB.'
+marginNotes:
+  - type: 'see'
+    at: 'Efficient text search is one of the hardest problems'
+    text: 'A year later at CloudQuery, we built search across every cloud resource on these ngrambf_v1 indexes.'
+    post: 'why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse'
+  - type: 'update'
+    at: 'ClickHouse currently offers two ways to do this'
+    text: 'ClickHouse 26.2 made its text index, an inverted index built for full-text search, generally available. The docs now list ngrambf_v1 and tokenbf_v1 as deprecated.'
+    date: 'Nov 2026'
+  - type: 'quote'
+    at: 'each entry of the index has data from 1 granule'
+    text: 'A granule is the smallest indivisible data set that ClickHouse reads when selecting data.'
+    by: "ClickHouse's MergeTree docs"
+    url: 'https://clickhouse.com/docs/engines/table-engines/mergetree-family/mergetree'
+  - type: 'update'
+    at: 'However, we did enable them for this Enterprise customer'
+    text: "Tinybird's datasource files now take an INDEXES block, so you can define data skipping indexes, Bloom filters included, yourself."
+    date: 'Nov 2026'
 ---
 
 Efficient text search is one of the hardest problems in data engineering. Text-based data presents a unique set of problems, especially when you need to check if the text is contained within some text (and you need to do this in real-time!). The contents of this blog post describe an exploration our team did that was born out of a challenging use case presented by one of our customers. They had billions of rows of log-based text data and wanted to know how they might scour through this data without having to do a full scan every time.

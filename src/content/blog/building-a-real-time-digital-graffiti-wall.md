@@ -15,6 +15,16 @@ corrections:
     note: 'The TL;DR said Realm synced pixels between clients in real time. Realm stored them; every client polled the grid every 5 seconds.'
   - date: 2026-11-12
     note: "`cell.id.split(' ')` passed the coordinates on as strings. It now maps them to numbers."
+marginNotes:
+  - type: 'term'
+    at: 'arranged in a serpentine pattern'
+    text: 'the LED strip snakes back and forth across the panel, so every other row runs right to left and the code has to flip x on those rows.'
+    term: 'Serpentine wiring'
+  - type: 'quote'
+    at: 'instead of MongoDB change streams'
+    text: 'Change streams allow applications to access real-time data changes without the prior complexity and risk of manually tailing the oplog.'
+    by: "MongoDB's manual"
+    url: 'https://www.mongodb.com/docs/manual/changeStreams/'
 ---
 
 <!-- vale JoeKarlsson.BannedWords = NO -->

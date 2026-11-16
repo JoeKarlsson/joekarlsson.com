@@ -18,6 +18,28 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The queries used columns and tables that don't exist (`state_name`, `bucket_name`, `aws_ebs_volumes`, `cloudquery_sync_log`) and `ANY()` on a JSON column, and the config had no destination."
+marginNotes:
+  - type: 'quote'
+    at: 'returns current EC2 state in under a second'
+    text: 'The Amazon EC2 API follows an eventual consistency model, due to the distributed nature of the system supporting the API.'
+    by: "AWS's EC2 developer guide"
+    url: 'https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html'
+  - type: 'term'
+    at: 'A reconciliation engine deduplicates'
+    text: 'the CMDB step that decides when records from different discovery sources describe the same item, merges them, and picks which source wins for each field.'
+    term: 'Reconciliation'
+  - type: 'see'
+    at: 'You install agents on every server'
+    text: 'A few days later I went deeper on why agents break down with containers, serverless and managed services.'
+    post: 'death-of-agent-based-discovery'
+  - type: 'see'
+    at: 'Each instance lives 30-60 seconds'
+    text: 'My follow-up covers how often a cloud CMDB should sync each kind of resource, from every 15 minutes to daily, and what that costs.'
+    post: 'real-time-cloud-cmdb-ephemeral-infrastructure'
+  - type: 'update'
+    at: 'Call APIs directly using tools like CloudQuery'
+    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand, with CloudQuery founder Yevgeny Pats as CTO.'
+    date: 'Mar 2026'
 ---
 
 Traditional CMDBs were built for a world where servers had names. In 2026, your infrastructure doesn't even exist until someone invokes it.

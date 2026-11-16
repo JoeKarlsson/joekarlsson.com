@@ -34,6 +34,28 @@ corrections:
     note: "I said Google quietly added llms.txt to its developer docs. Google's docs say Search ignores it."
   - date: 2026-11-13
     note: "SparkToro found 374 clicks to the open web per 1,000 US Google searches. I'd written 360, which is the EU number."
+marginNotes:
+  - type: 'see'
+    at: 'When an AI Overview appears on a query'
+    text: "Seer's April 2026 update shows click-through on AI Overview queries bottoming out in December 2025 and partly recovering. I went through it in my DevRel post."
+    post: 'running-devrel'
+  - type: 'term'
+    at: 'were about content E-E-A-T and authority building'
+    text: "experience, expertise, authoritativeness and trustworthiness: the qualities Google's search quality rater guidelines ask human raters to look for in a page."
+    term: 'E-E-A-T'
+  - type: 'term'
+    at: 'wastes link equity'
+    text: 'the ranking value a link passes to the page it points at. A link to a 404 passes it to nothing.'
+    term: 'Link equity'
+  - type: 'term'
+    at: 'sort by URL Rating'
+    text: "Ahrefs' 0 to 100 score for how strong a single page's backlink profile is."
+    term: 'URL Rating'
+  - type: 'quote'
+    at: 'the highest-signal thing you can add is FAQ schema'
+    text: 'Going forward, FAQ (from FAQPage structured data) rich results will only be shown for well-known, authoritative government and health websites.'
+    by: 'Google Search Central, August 2023'
+    url: 'https://developers.google.com/search/blog/2023/08/howto-faq-changes'
 ---
 
 _A traffic decline usually has two failure modes that need different fixes. Once Claude Code made the fixes cheap, telling them apart became the hard part._

@@ -17,6 +17,24 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "I removed two stats I couldn't source: 99.7% accuracy in the bank example and a 40% efficiency gain in the manufacturer example."
+marginNotes:
+  - type: 'update'
+    at: 'Managed AI models need vast amounts'
+    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
+    date: 'Mar 2026'
+  - type: 'quote'
+    at: 'establish memory leakage as a real threat'
+    text: 'Large language models (LMs) have been shown to memorize parts of their training data, and when prompted appropriately, they will emit the memorized training data verbatim.'
+    by: 'Carlini et al., Quantifying Memorization Across Neural Language Models, 2022'
+    url: 'https://arxiv.org/abs/2202.07646'
+  - type: 'see'
+    at: 'run AI models on your own infrastructure'
+    text: 'I do this at home too: a fully local voice assistant for Home Assistant on a GPU, with faster-whisper, Piper and Ollama.'
+    post: 'local-voice-ai-home-assistant-gpu'
+  - type: 'update'
+    at: 'TensorFlow Serving or TorchServe'
+    text: "TorchServe's GitHub repo is now archived. Its README says the project is no longer actively maintained and gets no bug fixes or security patches."
+    date: 'Nov 2026'
 ---
 
 > **Note:** **TL;DR:**

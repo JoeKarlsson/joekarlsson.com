@@ -13,6 +13,20 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The code had a `catch` with no `try`, called `console.err`, which doesn't exist, left out `intToString` and `readOne`, and never awaited or called its functions."
+marginNotes:
+  - type: 'update'
+    at: 'SingleStoreDB Cloud is the easiest way to try SingleStore'
+    text: "SingleStore's managed cloud service is now called SingleStore Helios."
+    date: 'Nov 2026'
+  - type: 'quote'
+    at: 'we need to make sure we are selecting the in-memory row store'
+    text: 'data in a rowstore is also written to the transaction log on disk so that it can be recovered when SingleStore Helios is restarted.'
+    by: "SingleStore's docs on choosing a table type"
+    url: 'https://docs.singlestore.com/cloud/create-a-database/choosing-a-table-storage-type/'
+  - type: 'see'
+    at: 'If you want a complete tutorial on how to connect'
+    text: 'That Node.js tutorial is on this site too, with the full CRUD walkthrough.'
+    post: 'how-to-use-singlestore-and-node-js'
 ---
 
 Key-value stores are perhaps one of the most popular databases on the market today - and with good reason! They are fast, scalable and super easy to use. But did you know you can get all the advantages of a key-value store, without needing to spin up a separate database dedicated to just that singular purpose? In this post, I will show you how you can create a key-value store in SingleStore, using just SQL.

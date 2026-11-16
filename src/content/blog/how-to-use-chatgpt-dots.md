@@ -29,6 +29,16 @@ faq:
     answer: 'As of October 1, 2026, dots are rolling out to ChatGPT Pro and Business Premium users in eligible markets. Enterprise workspaces get a beta that an admin must turn on (OpenAI). On ChatGPT Plus, you can still use the Connect AI plugin in regular ChatGPT, but not in a dot.'
 tldr: "Connect ChatGPT dots to the business apps you already use, like Salesforce, Jira, Google Analytics, and NetSuite, in a few minutes and without code. Once it's connected, your dot can answer questions that span those apps, flag deals at risk, combine invoices from two accounting systems, and run a weekly check without being asked."
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/how-to-use-chatgpt-dots).'
+marginNotes:
+  - type: 'see'
+    at: "Why not install each app's own ChatGPT plugin?"
+    text: 'I compared the MCP servers worth approving for ChatGPT, dots and Meta Muse.'
+    post: 'best-mcp-servers-chatgpt-meta-muse'
+  - type: 'quote'
+    at: 'An always-on personal agent in ChatGPT'
+    text: 'Your dot is an always-on agent that keeps work moving across your tools and projects.'
+    by: "OpenAI's dots overview"
+    url: 'https://learn.chatgpt.com/docs/dots'
 ---
 
 OpenAI launched [ChatGPT dots](https://chatgpt.com/features/dots/) on September 29, 2026, and [the setup flow](https://learn.chatgpt.com/docs/dots/getting-started) suggests connecting email, calendar, and files first. The systems a sales manager, marketer, or operations lead works in every day live somewhere else: [Salesforce](https://www.cdata.com/ai/connect/salesforce/), [Jira](https://www.cdata.com/ai/connect/jira/), [Google Analytics](https://www.cdata.com/ai/connect/ganalytics/), [NetSuite](https://www.cdata.com/ai/connect/netsuite/), and older line-of-business apps that may never get a ChatGPT plugin of their own. To use ChatGPT dots with all your work apps, you connect them to [CData Connect AI](https://www.cdata.com/ai/) and install one plugin. You don't need a Connect AI account yet to follow along.

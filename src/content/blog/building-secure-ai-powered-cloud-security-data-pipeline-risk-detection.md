@@ -15,6 +15,33 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The Python called `random.laplace`, which doesn't exist, and a class by the wrong name. The Istio policy used the wrong API group (`networking.istio.io`) and a condition key Istio doesn't have."
+marginNotes:
+  - type: 'see'
+    at: 'production deployments often require self-hosted models'
+    text: 'I covered running the AI on your own infrastructure, so the data never leaves it, in an earlier post.'
+    post: 'ai-without-exposing-your-data'
+  - type: 'quote'
+    at: 'The validator analyzes incoming prompts'
+    text: "A Prompt Injection Vulnerability occurs when user prompts alter the LLM's behavior or output in unintended ways."
+    by: 'OWASP Top 10 for LLM Applications, LLM01:2025'
+    url: 'https://genai.owasp.org/llmrisk/llm01-prompt-injection/'
+  - type: 'quote'
+    at: 'which provides authenticated encryption'
+    text: 'Fernet guarantees that a message encrypted using it cannot be manipulated or read without the key.'
+    by: "The cryptography library's docs"
+    url: 'https://cryptography.io/en/latest/fernet/'
+  - type: 'see'
+    at: 'CloudQuery serves as the data foundation'
+    text: 'The pipeline architectures behind this, from 50+ sources into vector databases and training pipelines, are in a companion post.'
+    post: 'production-ai-data-pipeline-architectures'
+  - type: 'term'
+    at: 'attackers exploit for lateral movement'
+    text: 'an attacker spreading from the first resource they compromise to others, using the access that first foothold gives them.'
+    term: 'Lateral movement'
+  - type: 'update'
+    at: 'try CloudQuery today'
+    text: 'CloudQuery merged with env zero in March 2026, and the combined company runs under the env zero name.'
+    date: 'Mar 2026'
 ---
 
 > **Note:** I built an open source demo that shows you how to build secure AI data pipelines for cloud infrastructure security. It processes your actual cloud data, applies machine learning to detect risks, and generates actionable remediation steps. Everything is on GitHub - you can have it running in 10 minutes. In this post, you will learn about data sanitization techniques that preserve security context, GDPR-compliant AI implementation, cross-cloud attack path detection, model governance patterns, production deployment architectures with zero-trust networking, and integration strategies for existing security tools. The complete working demo is available on [GitHub](https://github.com/cloudquery/secure-ai-data-pipelines-demo).

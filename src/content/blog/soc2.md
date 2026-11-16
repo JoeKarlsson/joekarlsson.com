@@ -11,6 +11,16 @@ canonicalUrl: https://www.cloudquery.io/blog/soc2
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroImage: '/images/blog/soc2/thumb-b5b9090a.webp'
 heroAlt: 'A hand ticking boxes on a clipboard checklist'
+marginNotes:
+  - type: 'quote'
+    at: 'Service Organization Control 2'
+    text: 'System and Organization Controls (SOC) is a suite of service offerings CPAs may provide'
+    by: "The AICPA's own name for SOC"
+    url: 'https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2'
+  - type: 'term'
+    at: 'developed by the AICPA'
+    text: 'the American Institute of Certified Public Accountants. An independent CPA firm runs the SOC 2 audit against its criteria.'
+    term: 'AICPA'
 ---
 
 SOC2 (Service Organization Control 2) compliance is a set of auditing standards that measures how well a company manages and protects its customers' data. The SOC2 compliance framework was developed by the AICPA to provide a standardized way to assess and report on a company's data security practices.

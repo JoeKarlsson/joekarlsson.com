@@ -13,6 +13,21 @@ updatedDate: 2026-09-22
 corrections:
   - date: 2026-09-22
     note: "Step 3 told you to get a Let's Encrypt certificate for `magic.mirror`. Let's Encrypt only signs real public domains, so that couldn't work. Step 3 now uses a DNS-01 wildcard on a domain you own, or mkcert."
+marginNotes:
+  - type: 'update'
+    at: 'use a real top-level domain'
+    text: 'ICANN reserved .internal for private networks on July 29, 2024. It will never be delegated on the public internet, so a name like magic.internal is safe from future collisions.'
+    date: 'Jul 2024'
+  - type: 'quote'
+    at: 'using the DNS-01 challenge'
+    text: 'This challenge asks you to prove that you control the DNS for your domain name by putting a specific value in a TXT record under that domain name.'
+    by: "Let's Encrypt, Challenge Types"
+    url: 'https://letsencrypt.org/docs/challenge-types/'
+  - type: 'quote'
+    at: 'signs certs for whatever hostnames you want'
+    text: 'mkcert is a simple tool for making locally-trusted development certificates. It requires no configuration.'
+    by: "mkcert's README"
+    url: 'https://github.com/FiloSottile/mkcert'
 ---
 
 **Update (September 2026):** A reader pointed out that my original SSL steps couldn't work, and they're right. I've rewritten Step 3; Steps 1 and 2 are unchanged.

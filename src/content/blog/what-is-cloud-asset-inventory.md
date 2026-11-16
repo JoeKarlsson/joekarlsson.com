@@ -12,6 +12,12 @@ canonicalUrl: 'https://www.cloudquery.io/blog/what-is-cloud-asset-inventory'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: "You need a cloud asset inventory when you can't answer basic questions about your AWS resources - what exists, where it is, who owns it, and what it costs. Organizations need inventories to solve three critical challenges: security governance (you can't secure what you can't see), cost optimization (you can't optimize spending on resources you don't know exist), and operational excellence (you can't adapt to change without understanding your current state). When resource counts exceed manual tracking, when multi-account complexity increases, or when compliance requirements demand visibility - that's when you need a cloud asset inventory."
 heroAlt: 'A census taker traveling by dog sled'
+marginNotes:
+  - type: 'quote'
+    at: 'Unassociated Elastic IPs'
+    text: 'Effective February 1, 2024 there will be a charge of $0.005 per IP per hour for all public IPv4 addresses, whether attached to a service or not'
+    by: 'Jeff Barr, AWS News Blog, July 2023'
+    url: 'https://aws.amazon.com/blogs/aws/new-aws-public-ipv4-address-charge-public-ip-insights/'
 ---
 
 You probably have 847 different AWS resources running across six accounts right now. Or maybe it's 1,200 resources across nine accounts.

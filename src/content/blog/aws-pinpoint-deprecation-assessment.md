@@ -15,6 +15,25 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The config shipped with a placeholder version, `VERSION_SOURCE_AWS`. It's now a real one."
+marginNotes:
+  - type: 'quote'
+    at: 'all continues under the'
+    text: 'Push notifications, OTP, and phone number validation continue to operate for all customers. SMS, voice, and email sending continue for existing customers only.'
+    by: "AWS's Amazon Pinpoint end of support guide"
+    url: 'https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html'
+  - type: 'quote'
+    at: 'similar Handlebars templating engine'
+    text: 'Templates in Connect Customer use the same message rendering engine (Handlebars) as Amazon Pinpoint. However, the attribute placeholders are represented differently.'
+    by: "AWS's Amazon Pinpoint end of support guide"
+    url: 'https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html'
+  - type: 'update'
+    at: 'Journey support in Amazon Connect is still limited'
+    text: "AWS's migration guide now says journeys are supported in Amazon Connect outbound campaigns, and links a guide for recreating Pinpoint journeys there."
+    date: 'Nov 2026'
+  - type: 'see'
+    at: 'Some teams adopted Pinpoint years ago'
+    text: 'Same approach for another AWS deadline: finding every Lambda function still on Node.js 20 across all your accounts.'
+    post: 'aws-lambda-nodejs-20-eol'
 ---
 
 AWS announced that [Amazon Pinpoint is reaching end of support on October 30, 2026](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html). New customers have been locked out since May 2025, and existing customers lose console access after the cutoff. What trips people up is that not everything is going away.

@@ -10,6 +10,15 @@ tags: ['Cloud Asset Inventory']
 heroImage: '/images/blog/getting-started-with-cloud-asset-inventory/thumb-e3ddf506.webp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'An old general store with every shelf stocked'
+marginNotes:
+  - type: 'see'
+    at: 'SOC 2 compliance involves performing a thorough inventory'
+    text: "I wrote an explainer on what a SOC 2 audit covers: the AICPA's five trust service categories."
+    post: 'soc2'
+  - type: 'see'
+    at: 'For a comparison, explore our guide on building multi-cloud asset inventories'
+    text: 'That guide is on this site too. It syncs AWS, GCP and Azure into one PostgreSQL database.'
+    post: 'how-to-build-a-multi-cloud-asset-inventory'
 ---
 
 > **Note:** It's now even easier to get started by using our [Multi-Cloud Asset Inventory Report](https://www.cloudquery.io/hub/reports/multi-cloud-asset-inventory). Want to see it in action? Try our [free online demo](https://www.cloudquery.io/contact-us) now.

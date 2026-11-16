@@ -14,6 +14,15 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "Several queries used tables and columns that never existed: the cost columns, `azure_virtual_machines`, the load balancer tables, and Azure names in the GCP check. The dbt profile didn't match the database container."
+marginNotes:
+  - type: 'see'
+    at: 'Each cloud provider has its own set of tools'
+    text: 'Tempus runs this kind of inventory nightly across 80+ AWS accounts and 1000+ GCP projects.'
+    post: 'tempus-multi-cloud-asset-inventory'
+  - type: 'term'
+    at: 'uniform bucket-level access turned on'
+    text: 'a Cloud Storage setting that turns off per-object ACLs, so IAM alone decides who can read what in a bucket.'
+    term: 'Uniform bucket-level access'
 ---
 
 Managing multi-cloud environments can overwhelm even experienced cloud architects. Each cloud provider has its own set of tools, APIs, and management practices, leading to fragmented visibility and control. Without a unified view, identifying and managing cloud assets across AWS, Azure, GCP, and other providers becomes daunting.

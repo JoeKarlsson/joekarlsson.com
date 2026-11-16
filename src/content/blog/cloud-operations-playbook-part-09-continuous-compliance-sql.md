@@ -16,6 +16,20 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The queries used tables and columns that don't exist: `aws_accounts`, `is_logging`, `logging_target_bucket`, `server_side_encryption_configuration`, and a root check on `user_name = 'root'`. They now use the real tables."
+marginNotes:
+  - type: 'term'
+    at: 'CIS Benchmarks are more prescriptive than SOC 2'
+    text: 'hardening guides from the Center for Internet Security, one per product, where each numbered recommendation comes with an audit step and a fix.'
+    term: 'CIS Benchmarks'
+  - type: 'quote'
+    at: 'Every S3 bucket should have server-side encryption configured'
+    text: 'You can no longer disable encryption for new object uploads.'
+    by: 'The Amazon S3 default encryption FAQ. S3 has encrypted every new object since January 5, 2023'
+    url: 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html'
+  - type: 'see'
+    at: 'DORA requires financial services firms'
+    text: 'A year after DORA took effect, I looked at what worked for the ICT asset register it requires.'
+    post: 'dora-ict-asset-register'
 ---
 
 > **Note:** Compliance frameworks like SOC 2 and CIS Benchmarks map directly to SQL queries against your cloud infrastructure data. Instead of scrambling before audits to prove compliance at one point in time, you can run those queries daily and generate evidence continuously. This post shows how to map specific compliance controls to build a continuous compliance loop, and shift from audit panic to always-on proof.

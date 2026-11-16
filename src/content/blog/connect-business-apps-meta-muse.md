@@ -27,6 +27,20 @@ faq:
     answer: 'Yes. Connect AI exposes your configured data sources through one MCP endpoint. After you add the connector in Muse, your agent can query any of them without needing a separate custom connector for each source.'
 tldr: 'Muse has no built-in connectors for Salesforce, HubSpot, NetSuite, or ServiceNow, but it accepts custom connectors. Add CData Connect AI as one with a Base64 Basic auth key built from your email and a personal access token, and Muse can query every source you set up in Connect AI. It takes about 10 minutes and no code.'
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/muse).'
+marginNotes:
+  - type: 'see'
+    at: "Muse's built-in connector list targets personal use by design."
+    text: 'I compared MCP servers for ChatGPT, dots and Muse by use case, with the checks IT teams run before they approve one.'
+    post: 'best-mcp-servers-chatgpt-meta-muse'
+  - type: 'term'
+    at: 'and more) through one MCP endpoint'
+    text: 'the Model Context Protocol, an open standard for connecting AI agents to tools and data. Anthropic open-sourced it in November 2024.'
+    term: 'MCP'
+  - type: 'quote'
+    at: 'the word Basic, a space, then your email'
+    text: 'This document defines the "Basic" Hypertext Transfer Protocol (HTTP) authentication scheme, which transmits credentials as user-id/password pairs, encoded using Base64.'
+    by: 'RFC 7617, September 2015'
+    url: 'https://www.rfc-editor.org/rfc/rfc7617'
 ---
 
 If you've been using [Meta Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) as your personal AI agent and you want it to actually reach your work systems ([Salesforce](https://www.cdata.com/drivers/salesforce/), [NetSuite](https://www.cdata.com/drivers/netsuite/), [HubSpot](https://www.cdata.com/drivers/hubspot/), [ServiceNow](https://www.cdata.com/drivers/servicenow/)), this post is for you. By the end, you'll have Muse connected to your enterprise data so you can ask it questions about your pipeline, your customers, or your open support tickets and get answers without switching apps. It takes about 10 minutes and doesn't require any technical background.

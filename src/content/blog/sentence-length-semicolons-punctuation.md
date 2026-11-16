@@ -27,6 +27,19 @@ faq:
     answer: 'Open the read page on punc.joekarlsson.com and drop in a .txt file. It runs in your browser, nothing is uploaded, and it shows the punctuation in reading order along with counts per 1,000 words and words per sentence. Punc is also an open-source TypeScript library and command line tool.'
 heroImage: '/images/blog/sentence-length-semicolons-punctuation/thumb-0fe6b69b.webp'
 heroAlt: "A compositor's hand holding a composing stick with a line of metal type set in it, loose pieces of type scattered on the table below (Groningen, 1965)"
+marginNotes:
+  - type: 'term'
+    at: "Cohen's kappa 0.89"
+    text: "a score for how often two coders agree, after taking out the agreement you'd expect by chance. 1 is perfect and 0 is chance."
+    term: "Cohen's kappa"
+  - type: 'term'
+    at: 'trip over the long s'
+    text: 'ſ, the tall s that printers used at the start and in the middle of words until around 1800. It looks like an f, and OCR often reads it as one.'
+    term: 'Long s'
+  - type: 'term'
+    at: 'uses the Hellinger distance between'
+    text: "a measure of how far apart two distributions are, from 0 (identical) to 1 (no overlap). Here it compares two books' mixes of the ten marks."
+    term: 'Hellinger distance'
 ---
 
 In his 1894 history of the English paragraph, Edwin Lewis wrote that "the English sentence has decreased in average length at least one-half in three hundred years." People have been repeating some version of it ever since: English sentences are getting shorter.

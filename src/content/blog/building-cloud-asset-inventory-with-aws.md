@@ -14,6 +14,24 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "Most of the queries used tables and columns that don't exist: `public_access`, `aws_ec2_volumes`, `last_login`, `aws_tagging_resources`, `cpu_utilization` and an `aws_rds_metrics` table. They now use the real CloudQuery tables."
+marginNotes:
+  - type: 'see'
+    at: 'You may have heard that AWS Config is great'
+    text: 'I compared AWS Config, Systems Manager and CloudQuery for building an AWS inventory in a separate post.'
+    post: 'what-is-an-aws-cloud-asset-inventory'
+  - type: 'quote'
+    at: 'AWS Config charges you per rule, per change'
+    text: 'With AWS Config, you are charged based on the number of configuration items recorded, the number of active AWS Config rule evaluations, and the number of conformance pack evaluations in your account.'
+    by: "AWS Config's pricing page"
+    url: 'https://aws.amazon.com/config/pricing/'
+  - type: 'term'
+    at: 'find and kill zombie resources'
+    text: 'resources that keep running, and billing, after the project that needed them is gone.'
+    term: 'Zombie resources'
+  - type: 'update'
+    at: 'Our team can walk you through a tailored demo'
+    text: 'CloudQuery merged with env zero in March 2026, and the combined company runs under the env zero name.'
+    date: 'Mar 2026'
 ---
 
 AWS is vast. Like, "wandering through a grocery store you've never been to before, with 87 aisles, and you're looking for _one_ specific brand of peanut butter" vast (Come on, you know what I'm talking about, right?). Well, in my opinion, keeping track of your AWS cloud assets? Even worse. If you've ever thought, "Do we actually need all these instances, or did someone just forget to turn them off in 2017?", then you probably need a Cloud Asset Management Tool. Welcome. You're in the right place.

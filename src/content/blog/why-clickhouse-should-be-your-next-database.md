@@ -8,6 +8,25 @@ writtenFor: 'Tinybird'
 heroImage: '/images/blog/why-clickhouse-should-be-your-next-database/thumb-5be2e70d.webp'
 heroAlt: 'Ancient Greek columns at sunset'
 tldr: 'ClickHouse is a column-oriented database built for real-time analytics on huge datasets. It loads data 23x faster than PostgreSQL, uses 8.5x less storage, and powers real-time analytics at companies like Cloudflare and Yandex.'
+marginNotes:
+  - type: 'quote'
+    at: 'It stores values compactly, with no extra data alongside them'
+    text: 'In a real column-oriented DBMS, no extra data is stored with the values.'
+    by: "ClickHouse's docs"
+    url: 'https://clickhouse.com/docs/about-us/distinctive-features'
+  - type: 'term'
+    at: 'Processing data by vectors enhances CPU efficiency'
+    text: 'the engine works through a column in batches of values instead of one row at a time, which cuts the overhead per value.'
+    term: 'Vectorized execution'
+  - type: 'quote'
+    at: 'up to 6 million requests per second'
+    text: 'It started off processing under 1M requests per second and grew to current levels of 6M requests per second.'
+    by: 'Alex Bocharov, Cloudflare, March 2018'
+    url: 'https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/'
+  - type: 'see'
+    at: 'ClickHouse is your best bet'
+    text: 'A year later I was running ClickHouse in production at CloudQuery. This is what the first six months taught us.'
+    post: 'six-months-with-clickhouse-at-cloudquery'
 ---
 
 Today, we’re jumping into databases. Now, I can hear you sigh: “Another database to learn? Seriously?” But before you sprint for the hills, allow me to introduce you to [ClickHouse](https://thenewstack.io/clickhouse-rapidly-rivals-other-open-source-databases-in-active-contributors/), the Sonic the Hedgehog of the database multiverse.

@@ -12,6 +12,15 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'The code declared `singleStoreConnection` and then used `conn`, never showed `readAll`, and needed `"type": "module"` to run.'
+marginNotes:
+  - type: 'term'
+    at: 'SingleStore is wire-compatible with MySQL'
+    text: 'it speaks the same network protocol as MySQL, so MySQL drivers and clients connect to it without changes.'
+    term: 'Wire-compatible'
+  - type: 'update'
+    at: 'This is the easy way to try SingleStore'
+    text: "SingleStore's managed cloud service is now called SingleStore Helios."
+    date: 'Nov 2026'
 ---
 
 Do you need to get a basic SingleStore application setup quickly using Node.js? Well, this guide’s got you covered. We will be covering how to use SingleStore and Node.js by setting up a database, connecting to that database using Node.js, and then performing CRUD (create, read, update, delete) operations on that database using Node.js.

@@ -12,6 +12,19 @@ heroImage: '/images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-01-cloud-operations-gap
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'The Manhattan Bridge under construction, its middle span still missing'
+marginNotes:
+  - type: 'update'
+    at: 'Security findings are in Wiz, Prisma Cloud, or AWS Security Hub'
+    text: 'Google closed its $32 billion purchase of Wiz in March 2026. Wiz kept its name and still covers AWS, Azure and Oracle Cloud.'
+    date: 'Mar 2026'
+  - type: 'term'
+    at: 'NIS2 in Europe, DORA for financial services'
+    text: 'two EU rules. NIS2 sets cybersecurity duties for essential and important companies. DORA, the Digital Operational Resilience Act, covers banks, insurers and their ICT suppliers and has applied since January 2025.'
+    term: 'NIS2 and DORA'
+  - type: 'term'
+    at: 'Configuration drift is silent and constant'
+    text: "a resource's live settings no longer match its code or baseline, usually after a manual fix that never made it back into the code."
+    term: 'Configuration drift'
 ---
 
 > **Note:** **TL;DR:** The "Cloud Operations Gap" is the distance between what leadership thinks they know about cloud infrastructure and what's actually running. 89% of organizations now operate across multiple clouds, yet only 8% qualify as highly cloud-mature. Fragmented tooling traps critical context in silos, making basic questions like "how many S3 buckets do we have?" surprisingly hard to answer. This post explains why the gap exists, why it's getting worse, and how to start measuring it.

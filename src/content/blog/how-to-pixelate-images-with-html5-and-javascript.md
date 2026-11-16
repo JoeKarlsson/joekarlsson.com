@@ -13,6 +13,16 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "`window.onload = firstDraw();` ran the function right away. It's `window.onload = firstDraw;`."
+marginNotes:
+  - type: 'update'
+    at: 'based on color hashtags from Instagram'
+    text: 'Instagram turned off the last of its Legacy API on June 29, 2020.'
+    date: 'Jun 2020'
+  - type: 'quote'
+    at: 'we turn off browser image smoothing'
+    text: 'This property is useful for games and other apps that use pixel art.'
+    by: 'MDN, on imageSmoothingEnabled'
+    url: 'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled'
 ---
 
 > **Note:** This post was written in 2015. The code uses patterns like `var`, `window.onload`, and browser-prefixed APIs (`mozImageSmoothingEnabled`) that are outdated. The pixelation technique still works, but modern JavaScript would use `let`/`const` and `imageSmoothingEnabled` is now standard without prefixes.

@@ -22,6 +22,20 @@ faq:
     answer: 'The Home Assistant Voice Preview Edition is made by the Home Assistant team and runs voice locally. Aqara leak sensors work over Zigbee, and the Aranet4 CO2 monitor has a built-in Home Assistant integration over Bluetooth. A Home Assistant Link subscription ($65 a year, formerly Home Assistant Cloud) helps pay for Home Assistant development.'
 heroImage: '/images/blog/homelab-gift-ideas-2026/thumb-132c6701.webp'
 heroAlt: 'A boy in a cap and overcoat studying the Christmas toys in a shop window, a drum and a toy wagon behind the glass'
+marginNotes:
+  - type: 'see'
+    at: 'about 70 self-hosted services'
+    text: 'Each one is defined in OpenTofu and rebuilt from code. I wrote up how that works.'
+    post: 'opentofu-proxmox-immutable-homelab'
+  - type: 'see'
+    at: 'plays from my own music server'
+    text: "My music server setup, and what still doesn't work about it, has its own post."
+    post: 'self-hosted-music-still-sucks-in-2026'
+  - type: 'quote'
+    at: 'one Pi is the tiebreaker vote'
+    text: 'For smaller 2-node clusters, the QDevice can be used to provide a 3rd vote.'
+    by: "Proxmox VE's cluster docs"
+    url: 'https://pve.proxmox.com/wiki/Cluster_Manager'
 ---
 
 These are my homelab gift ideas for 2026, for software engineers, homelabbers and anyone who works at a computer all day.

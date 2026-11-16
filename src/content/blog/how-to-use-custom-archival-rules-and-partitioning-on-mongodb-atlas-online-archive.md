@@ -11,6 +11,16 @@ heroImage: '/images/blog/how-to-use-custom-archival-rules-and-partitioning-on-mo
 heroAlt: 'Shelves of labeled archive boxes'
 contentNotice: false
 tldr: 'Goes beyond basic date-based archiving to show how to set up custom query-based archival rules in MongoDB Atlas Online Archive (like archiving inactive users) and how to partition your archived data for faster queries.'
+marginNotes:
+  - type: 'quote'
+    at: 'custom rules for archiving your cold data'
+    text: 'Online Archive helps by relocating cold data to a cheaper cloud object storage while keeping it accessible through queries.'
+    by: "MongoDB's Online Archive docs"
+    url: 'https://www.mongodb.com/docs/atlas/online-archive/overview/'
+  - type: 'see'
+    at: 'create partitions in your online archive'
+    text: 'Partitioning splits one dataset into smaller pieces. I compared it with sharding, which spreads those pieces across servers, the same year.'
+    post: 'database-sharding-vs-partitioning-whats-the-difference'
 ---
 
 Okay, so you’ve set up a simple MongoDB Atlas Online Archive, and now you might be wondering, “What’s next?” In this post, we will cover some more advanced Online Archive use cases, including setting up custom archival rules for MongoDB and how to improve query performance through partitioning.

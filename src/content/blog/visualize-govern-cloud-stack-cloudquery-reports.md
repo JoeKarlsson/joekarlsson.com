@@ -11,6 +11,23 @@ heroImage: '/images/blog/visualize-govern-cloud-stack-cloudquery-reports/thumb-6
 canonicalUrl: 'https://www.cloudquery.io/blog/visualize-govern-cloud-stack-cloudquery-reports'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'The dashboard of an old car'
+marginNotes:
+  - type: 'update'
+    at: 'We built Reports to help teams'
+    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
+    date: 'Mar 2026'
+  - type: 'see'
+    at: 'Get a complete inventory of assets'
+    text: 'How to build that inventory yourself across AWS, GCP and Azure, step by step.'
+    post: 'how-to-build-a-multi-cloud-asset-inventory'
+  - type: 'see'
+    at: 'Track assets nearing end of life'
+    text: 'The month before, I wrote up the SQL behind this: EKS clusters, RDS databases and Lambda runtimes that are losing support.'
+    post: 'what-we-learned-querying-cloud-infra-for-expired-dependencies'
+  - type: 'see'
+    at: 'Strengthen your attack surface management for Azure'
+    text: 'What attack surface management covers, and how it differs from CSPM and vulnerability management.'
+    post: 'what-is-attack-surface-management'
 ---
 
 > **TL;DR:**

@@ -16,6 +16,20 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The Git source config used syntax the plugin doesn't take (`git_files: glob_patterns`). It's `table_options.git_files` with `glob`. `okta_users.email` is `profile->>'email'`."
+marginNotes:
+  - type: 'update'
+    at: 'CODEOWNERS files assign code responsibility'
+    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
+    date: 'Mar 2026'
+  - type: 'quote'
+    at: 'their GitHub handles remain in CODEOWNERS files'
+    text: 'The people you choose as code owners must have write permissions for the repository.'
+    by: "GitHub's docs, About code owners"
+    url: 'https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners'
+  - type: 'see'
+    at: 'Tracking this manually means comparing'
+    text: 'The same join works on commit history: find code changes by people who have left, matched against your identity provider.'
+    post: 'find-commits-by-departed-employees-with-sql'
 ---
 
 CODEOWNERS files assign code responsibility to specific GitHub users. When engineers leave the company, their GitHub handles remain in CODEOWNERS files. Pull requests still notify non-existent accounts. Code ownership documentation decays. Tracking this manually means comparing CODEOWNERS files across hundreds of repos against your identity provider, then creating tickets to update each stale entry.

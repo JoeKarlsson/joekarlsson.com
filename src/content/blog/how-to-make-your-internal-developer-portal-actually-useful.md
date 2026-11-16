@@ -11,6 +11,29 @@ heroImage: '/images/blog/how-to-make-your-internal-developer-portal-actually-use
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-make-your-internal-developer-portal-actually-useful'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A busy railway station hall with its departure board'
+marginNotes:
+  - type: 'quote'
+    at: 'particularly those built on frameworks like'
+    text: 'Backstage is an open source framework for building developer portals. Powered by a centralized software catalog, Backstage restores order to your microservices and infrastructure'
+    by: "Backstage's docs"
+    url: 'https://backstage.io/docs/overview/what-is-backstage/'
+  - type: 'quote'
+    at: 'After they adopted Backstage'
+    text: 'As we built Backstage, our north star metric was reducing that onboarding time. And it fell quickly to less than 20 days for a new joiner to merge their 10th PR.'
+    by: 'Spotify, How Spotify measures the value of Backstage'
+    url: 'https://backstage.spotify.com/blog/measuring-backstage-success-at-spotify/'
+  - type: 'see'
+    at: 'requiring careful architectural consideration'
+    text: 'I compared agent-based CMDB discovery with API-based discovery in a separate post.'
+    post: 'cloud-cmdb-vs-traditional-cmdb-2026'
+  - type: 'term'
+    at: 'accurate chargeback mechanism'
+    text: 'billing each team for the cloud resources it uses, worked out from the owner and cost-center tags on each resource.'
+    term: 'Chargeback'
+  - type: 'see'
+    at: 'while maintaining 5-10x query performance advantages'
+    text: 'What six months of ClickHouse as CloudQuery’s default backend taught us about JOINs, sorting keys and benchmarks.'
+    post: 'six-months-with-clickhouse-at-cloudquery'
 ---
 
 > **TL;DR:**

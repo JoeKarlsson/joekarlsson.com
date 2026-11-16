@@ -15,6 +15,15 @@ faq:
   - question: 'Will AI kill programming?'
     answer: 'I don''t think so. In a footnote to "Hackers and Painters," Paul Graham wrote that the greatest damage photography did to painting may be that "it killed the best day job," since most great painters paid their bills with portraits. Photography didn''t kill painting, and I don''t think AI is going to kill programming, or the art of making beautiful code, either.'
 heroAlt: "An X-ray of Vermeer's A Maid Asleep, showing the sleeping maid, a jug on the table, and the shapes Vermeer painted over in the doorway behind her"
+marginNotes:
+  - type: 'term'
+    at: 'large color field pieces'
+    text: 'painting built from big areas of flat color that cover most of the canvas, as in Mark Rothko and Barnett Newman.'
+    term: 'Color field'
+  - type: 'term'
+    at: 'The painter changed their mind on the canvas'
+    text: "an earlier version that shows through after a painter changed their mind and painted over it. The x-ray at the top of this post shows the ones in Vermeer's A Maid Asleep."
+    term: 'Pentimento'
 ---
 
 In 2003 Paul Graham turned a Harvard guest lecture into an essay called [Hackers and Painters](https://www.paulgraham.com/hp.html 'cite: Graham, May 2003'). He'd finished grad school in computer science and then gone to art school to study painting, and people kept acting surprised that one person would want both. His answer was that hackers and painters are both makers: "what hackers and painters are trying to do is make good things."

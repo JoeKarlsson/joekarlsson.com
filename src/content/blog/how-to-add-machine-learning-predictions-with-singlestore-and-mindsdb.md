@@ -10,6 +10,15 @@ heroImage: '/images/blog/how-to-add-machine-learning-predictions-with-singlestor
 heroAlt: 'Mind-reading prediction GIF'
 contentNotice: 'MindsDB Studio and its Predictors > Train New screen are gone. MindsDB now trains models in SQL with CREATE MODEL, so follow the [MindsDB docs](https://docs.mindsdb.com/) for that part.'
 tldr: 'I connect SingleStore to MindsDB to run machine learning predictions on health insurance data using just SQL. No separate ML pipeline needed - MindsDB trains the model directly on your existing tables.'
+marginNotes:
+  - type: 'update'
+    at: 'If you do not already have Sequel Pro downloaded'
+    text: "Sequel Pro's last release was 1.1.2 in April 2016, and its website is gone. Sequel Ace, a fork, is the maintained version."
+    date: 'Nov 2026'
+  - type: 'term'
+    at: 'saved in an AI Table'
+    text: "MindsDB's name for a trained model you query like a table: SELECT from it with the inputs in WHERE, and the prediction comes back as a column."
+    term: 'AI Table'
 ---
 
 Personally, I know this used to be massively complicated. It usually involved needing to write application code to connect a third-party machine learning system, and then connecting the output of the model back into your application. This is how I usually feel when setting up a new machine learning project. But now, with SingleStore and [MindsDB](https://mindsdb.com/), setting up a modern machine learning model has never been easier.

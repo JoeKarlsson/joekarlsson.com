@@ -14,6 +14,24 @@ writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/real-time-cloud-cmdb-ephemeral-infrastructure
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: "Chardin's painting of a boy blowing a soap bubble"
+marginNotes:
+  - type: 'term'
+    at: 'Your CMDB updates weekly'
+    text: 'configuration management database: the IT system of record that lists every server, app and network device and how they depend on each other.'
+    term: 'CMDB'
+  - type: 'quote'
+    at: 'An API Gateway triggering a Lambda that queries DynamoDB'
+    text: 'Cold starts typically occur in under 1% of invocations. The duration of a cold start varies from under 100 ms to over 1 second.'
+    by: "AWS Lambda's docs"
+    url: 'https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html'
+  - type: 'see'
+    at: "One-size-fits-all sync schedules don't work"
+    text: 'Tiered sync is one of six practices in my cloud CMDB guide for platform engineers.'
+    post: 'cloud-cmdb-best-practices-platform-engineers'
+  - type: 'update'
+    at: 'provides a modern approach to building cloud CMDBs'
+    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
+    date: 'Mar 2026'
 ---
 
 Your Kubernetes pods live for 3 minutes. Your Lambda functions for 300 milliseconds. Your CMDB updates weekly. See the problem?

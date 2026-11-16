@@ -15,6 +15,19 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The queries used `state_name` and `metadata_options_http_tokens`, which don't exist. They're `state->>'Name'` and `metadata_options->>'HttpTokens'`."
+marginNotes:
+  - type: 'term'
+    at: 'CIS benchmark checks for OS configuration'
+    text: 'configuration guides from the Center for Internet Security, agreed on by security practitioners, with one benchmark per product family.'
+    term: 'CIS Benchmarks'
+  - type: 'term'
+    at: 'EC2 instances still running IMDSv1'
+    text: "version 1 of the EC2 instance metadata service, which answers plain GET requests. IMDSv2 asks for a session token first, which makes it much harder for a server-side request forgery bug to read the instance's credentials."
+    term: 'IMDSv1'
+  - type: 'see'
+    at: 'SQL rules that run on every sync and alert when violations appear'
+    text: 'A full walkthrough of one policy, finding public databases across AWS, Azure and GCP, from the SQL to the alerts.'
+    post: 'detect-public-databases-across-aws-azure-gcp'
 ---
 
 > **Note:** CWPP protects what's running inside your cloud workloads at runtime, catching malware, unexpected process execution, and container escape attempts. CNAPP bundles CWPP with CSPM and CIEM into one platform and adds cross-domain correlation (attack path analysis) that no single point solution can see across the full attack chain. Whether to buy one or the other depends on whether you're filling a specific runtime gap or building a cloud security program from scratch.

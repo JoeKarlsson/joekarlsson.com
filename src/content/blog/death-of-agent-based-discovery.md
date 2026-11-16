@@ -17,6 +17,29 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'I removed an unattributed quote about pulling 10,000 agents and saving $40K a year.'
+marginNotes:
+  - type: 'see'
+    at: 'Your container lives for 45 seconds before Kubernetes kills it'
+    text: 'The other half of this: how a cloud CMDB keeps up with containers that live for minutes, and what each sync interval costs.'
+    post: 'real-time-cloud-cmdb-ephemeral-infrastructure'
+  - type: 'term'
+    at: "but CMDBs didn't adjust"
+    text: "a configuration management database, the system of record for every IT asset, how it's configured and what depends on it."
+    term: 'CMDB'
+  - type: 'quote'
+    at: 'Now every pod runs two containers instead of one'
+    text: 'Sidecar containers are the secondary containers that run along with the main application container within the same Pod.'
+    by: 'The Kubernetes docs'
+    url: 'https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/'
+  - type: 'quote'
+    at: 'DaemonSet that discovers containers from the host'
+    text: 'A DaemonSet ensures that all (or some) Nodes run a copy of a Pod.'
+    by: 'The Kubernetes docs'
+    url: 'https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/'
+  - type: 'see'
+    at: 'provides live API queries without data synchronization'
+    text: 'I compared the two approaches, live queries against a synced inventory, and when each one fits.'
+    post: 'steampipe-vs-cloudquery'
 ---
 
 We spent 20 years deploying agents on servers. Then AWS gave us APIs. Why are we still installing agents?

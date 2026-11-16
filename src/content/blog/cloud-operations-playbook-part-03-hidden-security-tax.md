@@ -12,6 +12,23 @@ heroImage: '/images/blog/cloud-operations-playbook-part-03-hidden-security-tax/t
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-03-hidden-security-tax
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A red fire alarm box on a brick wall'
+marginNotes:
+  - type: 'term'
+    at: 'The CSPM market alone grew 45%'
+    text: 'cloud security posture management: tools that scan cloud accounts for misconfigurations against a rule set and raise findings.'
+    term: 'CSPM'
+  - type: 'term'
+    at: 'dig through CloudTrail logs to find the'
+    text: "AWS's log of the API calls made in an account: who called what, when, and from where."
+    term: 'CloudTrail'
+  - type: 'see'
+    at: 'A CNAPP that combines multiple capabilities'
+    text: 'A CNAPP bundles CSPM with workload protection and identity checks. I compared it with CWPP, the workload half, in a later post.'
+    post: 'cwpp-vs-cnapp'
+  - type: 'term'
+    at: 'Your SIEM still aggregates'
+    text: 'security information and event management: the system that collects logs and security events from across the company and alerts on them.'
+    term: 'SIEM'
 ---
 
 > **Note:** **TL;DR:** Your security team spends more time gathering context than fixing problems. A single misconfiguration alert triggers a 45-minute investigation across five tools and four teams, and that's before anyone decides whether it's actually a problem. misconfigurations are the leading cause of cloud security incidents, organizations are spending billions on CSPM tooling, yet the bottleneck is investigation. The fix is a unified data layer that gives your team the full picture in minutes instead of hours.

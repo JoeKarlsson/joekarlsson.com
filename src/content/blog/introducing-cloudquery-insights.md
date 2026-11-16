@@ -11,6 +11,15 @@ canonicalUrl: 'https://www.cloudquery.io/blog/introducing-cloudquery-insights'
 tldr: 'CloudQuery Insights correlates security findings, cost data, policy violations, and audit events across your cloud inventory automatically - so you stop spending hours assembling context and start acting on it.'
 heroImage: '/images/blog/introducing-cloudquery-insights/thumb-3de0e701.webp'
 heroAlt: 'An observatory telescope pointed at the sky'
+marginNotes:
+  - type: 'term'
+    at: 'Security findings live in CSPMs'
+    text: 'Cloud Security Posture Management: tools that scan cloud accounts for misconfigurations and compliance gaps.'
+    term: 'CSPM'
+  - type: 'see'
+    at: 'monitoring your complete asset inventory'
+    text: 'What a cloud asset inventory is and why a team needs one.'
+    post: 'what-is-cloud-asset-inventory'
 ---
 
 Your cloud inventory is expanding faster than teams can manage it, driven by rapid development and AI-enabled engineering practices.

@@ -12,6 +12,16 @@ heroImage: '/images/blog/cloud-operations-playbook-part-02-cloud-operations-matu
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-02-cloud-operations-maturity-model
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: "A man measuring a boy's height against a wall"
+marginNotes:
+  - type: 'quote'
+    at: 'Most organizations are clustered at the bottom.'
+    text: 'Organizations that had not spread their use of even basic best practices were considered low maturity (33%)'
+    by: "HashiCorp's 2024 survey, which put the other 59% at medium and 8% at high maturity"
+    url: 'https://www.hashicorp.com/en/state-of-the-cloud'
+  - type: 'term'
+    at: 'are defined as code'
+    text: 'rules kept as files in version control and checked by a tool on every change or on a schedule, reviewed like any other code.'
+    term: 'Policy as code'
 ---
 
 > **Note:** **TL;DR:** Most cloud teams overestimate their operational maturity. We've built a six-dimension scoring model based on industry data from HashiCorp and Flexera that lets you self-assess in under five minutes. The four levels are Reactive, Visible, Governed, and Automated, and the distribution is heavily skewed: 55% of organizations are stuck in Reactive mode while only 8% reach Automated. Most teams we talk to score between 10 and 16 out of 30. This post gives you the full assessment, explains each maturity level, and helps you figure out where to focus first.

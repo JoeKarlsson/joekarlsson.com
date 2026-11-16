@@ -8,6 +8,15 @@ categories: ['Web Dev']
 heroImage: '/images/blog/databases-and-devops-how-to-usesinglestore-with-github-actions/thumb-9d46ba05.webp'
 heroAlt: 'Workers along an early Ford assembly line'
 tldr: 'Most teams skip the database in their CI/CD pipeline, and that is a mistake. I walk through best practices for database DevOps and show you how to set up SingleStore with GitHub Actions so your database deployments are automated on every push.'
+marginNotes:
+  - type: 'term'
+    at: 'all changes are performed using migrations'
+    text: 'a small, versioned script that changes the schema. Migrations live in git and run in order, so any database can be rebuilt to the same state.'
+    term: 'Migration'
+  - type: 'update'
+    at: 'This license allows you to run up to 4 nodes up to 32 gigs'
+    text: 'The SingleStore Dev Image now runs without a license on a machine with up to 8 cores and 64 GB of RAM.'
+    date: 'Nov 2026'
 ---
 
 Databases are frequently not included when transforming an application and engineering culture toward a DevOps, or continuous deployment engineering organization. And, you could be forgiven for this because setting up repeatable, fast, and up-to-date database environments for an application is hard!

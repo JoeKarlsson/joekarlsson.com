@@ -15,6 +15,30 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "`--tables-metrics-location` writes a plain-text table, not JSON, so the `jq` step couldn't work and my description of the output was wrong."
+marginNotes:
+  - type: 'term'
+    at: 'new nested tables were added'
+    text: "a child table that the plugin fills from its parent, with one API call per parent row. On a big parent table that's thousands of calls."
+    term: 'Nested table'
+  - type: 'quote'
+    at: 'enforces per-service throttling that accumulates'
+    text: 'Amazon EC2 uses the token bucket algorithm to implement API throttling.'
+    by: "AWS's EC2 API reference"
+    url: 'https://docs.aws.amazon.com/AWSEC2/latest/APIReference/throttling.html'
+  - type: 'see'
+    at: 'CloudQuery processes data as fast as your hardware allows'
+    text: 'The benchmark itself: 581 GB an hour from local files on consumer hardware, and what cloud API limits did to that number.'
+    post: 'cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints'
+  - type: 'quote'
+    at: "most teams don't need all of them"
+    text: 'Syncing all tables can be slow on some integrations (e.g. AWS, GCP, Azure).'
+    by: "CloudQuery's source configuration docs"
+    url: 'https://www.cloudquery.io/docs/cli/integrations/sources'
+  - type: 'quote'
+    at: 'child tables are only included if their parent table is explicitly listed'
+    text: 'Prior to CLI version v6.0.0, matched tables would also sync all their descendant tables, unless these were skipped in skip_tables.'
+    by: "CloudQuery's source configuration docs, on why the default changed"
+    url: 'https://www.cloudquery.io/docs/cli/integrations/sources'
 ---
 
 > **TL;DR:** Slow syncs typically come from one of two places: cloud provider API rate limits (a hard ceiling you can work around but not eliminate) and syncing more tables than you need, which is what `tables: ["*"]` does by default. The one-liner below generates an explicit table list from your existing configuration, scoped to your plugin version and skip rules, so you can replace the wildcard safely.

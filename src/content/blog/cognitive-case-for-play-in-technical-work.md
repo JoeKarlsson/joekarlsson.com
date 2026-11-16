@@ -7,6 +7,12 @@ categories: ['Career']
 heroImage: '/images/blog/cognitive-case-for-play-in-technical-work/hero.webp'
 heroAlt: 'Abstract 3D render of cartoon hands gripping a cylindrical object, with organic blob shapes floating on a dark blue background'
 tldr: "The conditions that produce your best iterative work look a lot like play: autonomy to experiment, cheap errors, and uninterrupted time to hold the system in your head. Research on creativity, flow states, and psychological safety all converge on the same conditions. Here's what that means in practice."
+marginNotes:
+  - type: 'quote'
+    at: 'the single most important factor in team performance'
+    text: 'The researchers found that what really mattered was less about who is on the team, and more about how the team worked together.'
+    by: 'Google re:Work, on Project Aristotle'
+    url: 'https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness'
 ---
 
 The best work I've ever done felt like play.

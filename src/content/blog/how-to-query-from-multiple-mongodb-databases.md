@@ -9,6 +9,19 @@ heroImage: '/images/blog/how-to-query-from-multiple-mongodb-databases/thumb-3ff6
 heroAlt: 'MongoDB Atlas Data Lake design graphic showing a lake with JSON brackets for waves and a sample data overlay.'
 tldr: 'I walk through setting up MongoDB Atlas Data Lake to run a single aggregation query across two separate databases hosted on different cloud providers. Federated queries make it feel like all your data lives in one place.'
 contentNotice: "Atlas Data Lake's query feature is now called Atlas Data Federation, and MongoDB deprecated the separate Atlas Data Lake storage product in 2024. The federated queries below live under Data Federation today."
+marginNotes:
+  - type: 'update'
+    at: '$lookup performs a left outer join to an unsharded collection'
+    text: 'Since MongoDB 5.1, $lookup can join sharded collections too. Both collections still have to be in the same database.'
+    date: 'Nov 2021'
+  - type: 'see'
+    at: 'You can run operations using the MongoDB Query Language'
+    text: 'If you think in SQL, I lined up common SQL queries next to their aggregation pipeline versions.'
+    post: 'mongodb-aggregation-pipeline-queries-vs-sql-queries'
+  - type: 'see'
+    at: 'even in different formats, including S3 blob storage'
+    text: 'Online Archive uses the same idea to move old documents to cheap object storage and still query them from one endpoint.'
+    post: 'how-to-manage-mongodb-data-at-scale'
 ---
 
 Have you ever needed to make queries across databases, clusters, data centers, or even mix it with data stored in an AWS S3 blob? You probably haven’t had to do all of these at once, but I’m guessing you’ve needed to do at least one of these at some point in your career. I’ll also bet that you didn’t know that this is possible (and easy) to do with MongoDB federated queries on a MongoDB Atlas Data Lake! These allow you to configure multiple remote MongoDB deployments, and enable federated queries across all the configured deployments.

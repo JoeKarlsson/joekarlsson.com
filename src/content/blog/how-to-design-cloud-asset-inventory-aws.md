@@ -11,6 +11,19 @@ canonicalUrl: 'https://www.cloudquery.io/blog/how-to-design-cloud-asset-inventor
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: "Designing an effective cloud asset inventory isn't a technical problem - it's a decision-making problem. Learn the five design principles (freshness, completeness, normalization, queryability, extensibility) and maturity stages that separate systems delivering sub-five-minute response times from those taking days to answer critical security questions. The gap between containing a breach and watching it spread often comes down to inventory architecture."
 heroAlt: 'An old drafting room full of desks'
+marginNotes:
+  - type: 'see'
+    at: 'Daily snapshots for security monitoring'
+    text: 'How often to sync each kind of resource, from every 15 minutes to daily, and what each tier costs.'
+    post: 'real-time-cloud-cmdb-ephemeral-infrastructure'
+  - type: 'term'
+    at: 'often at re:Invent and throughout the year'
+    text: "AWS's yearly conference in Las Vegas, where many new services are announced."
+    term: 're:Invent'
+  - type: 'see'
+    at: 'Solutions like AWS Config, CloudQuery'
+    text: 'I compared AWS Config, Systems Manager and CloudQuery as AWS inventory options.'
+    post: 'what-is-an-aws-cloud-asset-inventory'
 ---
 
 Your security team discovers a critical vulnerability affecting unencrypted databases. How long does it take you to identify and remediate all affected systems?

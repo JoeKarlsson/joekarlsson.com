@@ -12,6 +12,23 @@ heroImage: '/images/blog/aws-google-cloud-networking-partnership/thumb-4fb25f68.
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-google-cloud-networking-partnership'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Telephone switchboard operators patching calls'
+marginNotes:
+  - type: 'update'
+    at: 'During preview, you get 1 Gbps connections'
+    text: 'AWS Interconnect - multicloud went GA on April 14, 2026, with Google Cloud as the first partner. AWS said Azure and Oracle Cloud would follow later in 2026.'
+    date: 'Apr 2026'
+  - type: 'term'
+    at: 'MACsec encryption is mandatory'
+    text: 'IEEE 802.1AE, encryption at the Ethernet layer, applied hop by hop between two directly connected devices.'
+    term: 'MACsec'
+  - type: 'update'
+    at: 'This is where cloud asset inventory approaches come in'
+    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
+    date: 'Mar 2026'
+  - type: 'see'
+    at: 'is a unified view of resources across cloud providers'
+    text: 'My longer guide builds one for AWS and GCP, synced into PostgreSQL and queried with SQL.'
+    post: 'complete-guide-building-multi-cloud-asset-inventory'
 ---
 
 In November 2025, AWS and Google Cloud [announced](https://cloud.google.com/blog/products/networking/aws-and-google-cloud-collaborate-on-multicloud-networking) something that would have seemed impossible a few years ago: a jointly-engineered multicloud networking partnership. AWS Interconnect - multicloud and Google Cross-Cloud Interconnect now let you provision private, high-speed connections between clouds in minutes instead of weeks.

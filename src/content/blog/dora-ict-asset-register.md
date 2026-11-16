@@ -15,6 +15,25 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The Azure query read a `vm_size` column that doesn't exist. It's inside `properties->'hardwareProfile'`."
+marginNotes:
+  - type: 'quote'
+    at: 'Register of Information on ICT third-party arrangements'
+    text: 'financial entities shall maintain and update … a register of information in relation to all contractual arrangements on the use of ICT services provided by ICT third-party service providers.'
+    by: 'DORA, Article 28(3)'
+    url: 'https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng'
+  - type: 'quote'
+    at: 'identify, classify, and document all ICT assets'
+    text: 'Financial entities shall identify all information assets and ICT assets, including those on remote sites, network resources and hardware equipment, and shall map those considered critical.'
+    by: 'DORA, Article 8(4)'
+    url: 'https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng'
+  - type: 'term'
+    at: 'following consultations with the ESAs'
+    text: 'the European Supervisory Authorities: the EBA for banks, EIOPA for insurance and pensions, and ESMA for securities markets.'
+    term: 'ESAs'
+  - type: 'see'
+    at: 'Those relying on spreadsheets needed weeks of consolidation'
+    text: 'Why audit prep still takes weeks at most companies, and what it looks like when the answers are already queryable.'
+    post: 'cloud-operations-playbook-part-04-cost-of-compliance-scrambles'
 ---
 
 > **Note:** One year into DORA enforcement, the April 2025 Register of Information submission revealed a clear divide: organizations with automated, queryable asset inventories submitted in hours, while those relying on spreadsheets scrambled for weeks. With BaFin signaling stricter enforcement for 2026, the playbook is clear: treat cloud infrastructure as queryable data, not documentation to maintain.

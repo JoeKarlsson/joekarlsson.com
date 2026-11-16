@@ -11,6 +11,15 @@ canonicalUrl: 'https://www.cloudquery.io/blog/introduction-to-cloudquery-aws'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'CloudQuery transforms cloud visibility from fragmented dashboards and siloed tools into unified, queryable infrastructure intelligence. Connect AWS accounts with read-only IAM roles, sync data from 240+ services plus external SaaS platforms, normalize everything into consistent schemas, and query across your entire technology stack. No agents, no infrastructure changes - just full visibility that drives security, cost optimization, and operational excellence.'
 heroAlt: 'An ornate green front door'
+marginNotes:
+  - type: 'see'
+    at: 'as a cloud asset inventory for AWS'
+    text: 'What a cloud asset inventory is and when you need one, written alongside this video.'
+    post: 'what-is-cloud-asset-inventory'
+  - type: 'term'
+    at: 'FinOps teams discover cost optimization opportunities'
+    text: 'the practice of making engineering, finance and product teams share responsibility for cloud spend.'
+    term: 'FinOps'
 ---
 
 Quick questions: How many cloud resources in your AWS environment are publicly accessible? How many are currently unencrypted? Which ones cost the most?

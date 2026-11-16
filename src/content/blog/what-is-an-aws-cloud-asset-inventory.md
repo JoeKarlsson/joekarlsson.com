@@ -15,6 +15,28 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'The sync command pointed at `aws_to_postgresql.yml`. `cloudquery init` writes `.yaml`.'
+marginNotes:
+  - type: 'update'
+    at: 'Glacier for long-term archival'
+    text: 'The original vault-based Amazon Glacier service stopped taking new customers in December 2025. AWS now points new archives to the S3 Glacier storage classes.'
+    date: 'Dec 2025'
+  - type: 'quote'
+    at: 'costs $0.003 per configuration item'
+    text: 'A configuration item represents a point-in-time view of the various attributes of a supported AWS resource that exists in your account.'
+    by: 'AWS Config Developer Guide'
+    url: 'https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html'
+  - type: 'see'
+    at: 'Organizations can develop custom inventory systems'
+    text: "If you build your own, these are the five design principles I'd start from."
+    post: 'how-to-design-cloud-asset-inventory-aws'
+  - type: 'update'
+    at: 'CloudQuery is a full solution'
+    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
+    date: 'Mar 2026'
+  - type: 'see'
+    at: 'Execute the sync to populate your asset inventory'
+    text: 'A longer build of the same setup, with dbt models and Grafana dashboards on top.'
+    post: 'building-cloud-asset-inventory-with-aws'
 ---
 
 An AWS Cloud Asset Inventory refers to a centralized record of all resources and services deployed and used within an organization's Amazon Web Services (AWS) environment. This inventory provides a detailed overview of various cloud assets, including but not limited to:

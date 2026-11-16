@@ -10,6 +10,19 @@ canonicalUrl: 'https://www.cloudquery.io/blog/query-ipinfo-with-cloudquery'
 tldr: 'ipinfo.io gives you geolocation, ASN, and privacy detection for any IP. Joined against CloudQuery inventory data, you can flag EC2 instances geolocating outside expected regions, IPs routing through unexpected ASNs, and data residency violations - all in plain SQL.'
 heroImage: '/images/blog/query-ipinfo-with-cloudquery/thumb-51150377.webp'
 heroAlt: 'Postal clerks sorting a cart of mail'
+marginNotes:
+  - type: 'term'
+    at: 'resolves to a different ASN'
+    text: "autonomous system number: the ID of the network that announces an IP range to the rest of the internet. Amazon's main one is AS16509."
+    term: 'ASN'
+  - type: 'see'
+    at: 'identifies whether an IP associates with a VPN exit node'
+    text: 'The same join works for abuse history. I did it with AbuseIPDB scores the same week.'
+    post: 'integrate-abuseipdb-with-cloudquery'
+  - type: 'update'
+    at: 'The free tier covers 50,000 requests per month'
+    text: 'A week after this post, IPinfo launched IPinfo Lite: free, unlimited API requests for country-level geolocation and ASN data.'
+    date: 'May 2025'
 ---
 
 ipinfo.io delivers geolocation, ASN, and privacy detection data for IP addresses. When integrated with CloudQuery's cloud inventory, teams can connect IP intelligence with their infrastructure to identify resources in unexpected geographic locations or those routing through unrecognized VPN nodes and hosting providers.

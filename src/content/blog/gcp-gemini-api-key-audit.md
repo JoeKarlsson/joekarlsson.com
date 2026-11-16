@@ -15,6 +15,16 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The query read `restrictions->>'apiTargets'`. The key is `api_targets`, so every key looked unrestricted."
+marginNotes:
+  - type: 'quote'
+    at: 'now authenticate to the Gemini API when that service is enabled'
+    text: 'A key that was deployed years ago for a completely benign purpose had silently gained full access to a sensitive API without any developer intervention.'
+    by: 'Joe Leon, Truffle Security, February 2026'
+    url: 'https://trufflesecurity.com/blog/google-api-keys-werent-secrets-but-then-gemini-changed-the-rules'
+  - type: 'see'
+    at: 'This is the same approach used for'
+    text: 'Part 8 of my cloud operations playbook has more security posture checks written as SQL.'
+    post: 'cloud-operations-playbook-part-08-cloud-security-posture-sql'
 ---
 
 Google spent years telling developers that API keys aren't secrets - you could embed them in client-side JavaScript, ship them in mobile apps, commit them to public repos. That was the design. Keys for services like Google Maps have always been intended for public environments, scoped only by referrer restrictions or usage quotas.

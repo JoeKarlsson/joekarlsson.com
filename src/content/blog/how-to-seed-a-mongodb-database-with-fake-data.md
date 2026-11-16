@@ -13,6 +13,16 @@ tldr: 'A quick Node.js script using faker.js to generate thousands of fake docum
 corrections:
   - date: 2026-11-09
     note: 'The script closed the client without waiting for `insertMany`, so it could quit before the insert finished.'
+marginNotes:
+  - type: 'see'
+    at: 'single collection of fake IoT data'
+    text: 'I used data like this for my Online Archive demo, moving old IoT readings to cheap storage.'
+    post: 'how-to-manage-mongodb-data-at-scale'
+  - type: 'quote'
+    at: 'The original faker package was deleted by its author'
+    text: 'We’re a group of engineers who were using Faker in prod when the main package was deleted.'
+    by: 'The Faker team, January 14, 2022'
+    url: 'https://fakerjs.dev/about/announcements/2022-01-14.html'
 ---
 
 Have you ever worked on a MongoDB project and needed to seed your database with fake data in order to provide initial values for lookups, demo purposes, proof of concepts, etc.? I’m biased, but I’ve had to seed a MongoDB database countless times.

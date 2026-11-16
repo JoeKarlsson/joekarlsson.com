@@ -15,6 +15,24 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The queries used tables and columns that don't exist: `state_name`, `aws_accounts` and `is_logging`."
+marginNotes:
+  - type: 'see'
+    at: 'Cloud governance typically involves multiple teams'
+    text: 'My Cloud Center of Excellence series covers how to put those teams together, starting with structure and roles.'
+    post: 'cloud-centers-of-excellence-part-1-building-effective-cloud-governance'
+  - type: 'term'
+    at: 'backup policies with defined RPO/RTO'
+    text: 'recovery point objective and recovery time objective: how much data you can afford to lose, and how long you can afford to be down.'
+    term: 'RPO and RTO'
+  - type: 'quote'
+    at: 'AWS Service Control Policies at the organizational level'
+    text: 'SCPs offer central control over the maximum available permissions for the IAM users and IAM roles in your organization.'
+    by: 'AWS Organizations User Guide'
+    url: 'https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html'
+  - type: 'see'
+    at: 'Detective controls catch what preventive controls miss'
+    text: 'More on why deploy-time checks miss console changes and drift, and what continuous checks catch.'
+    post: 'cloud-operations-playbook-part-07-continuous-cloud-governance'
 ---
 
 > **Note:** Cloud governance is the framework of policies, processes, and controls that keeps cloud environments from accumulating technical debt at scale. Without it, untagged resources, orphaned databases, and misconfigured services pile up until the cleanup cost exceeds the original problem. This guide covers the six pillars, essential framework components, and how to enforce policies continuously using SQL.

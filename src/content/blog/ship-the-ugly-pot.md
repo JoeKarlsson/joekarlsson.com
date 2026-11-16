@@ -26,6 +26,15 @@ corrections:
     note: "I told the ceramics class story as fact. It's an anecdote, and Orland has said it's based on Jerry Uelsmann's photography class."
   - date: 2026-10-12
     note: "I said Corita Kent chaired the art department in its most influential years and that the rules were her department's list. She chaired it from 1964 and popularized the Immaculate Heart College Art Department rules."
+marginNotes:
+  - type: 'term'
+    at: 'the lowest change failure rates'
+    text: "DORA's measure of the share of deployments that need immediate intervention afterward, such as a rollback or a hotfix."
+    term: 'Change failure rate'
+  - type: 'term'
+    at: 'hardware-in-the-loop testing'
+    text: 'running control software on its real hardware, wired to a simulator that fakes everything else, so a flight computer can fly a simulated plane.'
+    term: 'Hardware-in-the-loop'
 ---
 
 Ship the ugly pot. Ship it before it's good and before you're proud of it, because the way to good work runs through a pile of bad work, not around it.

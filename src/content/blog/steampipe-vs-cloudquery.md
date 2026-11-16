@@ -11,6 +11,24 @@ canonicalUrl: 'https://www.cloudquery.io/blog/steampipe-vs-cloudquery'
 tldr: 'Steampipe queries cloud APIs in real time from the terminal. CloudQuery syncs cloud configuration into a persistent inventory with policy enforcement, automations, and team collaboration. Choose Steampipe for ad hoc investigations; choose CloudQuery when you need ongoing governance across teams.'
 heroImage: '/images/blog/steampipe-vs-cloudquery/thumb-fd1f2531.webp'
 heroAlt: 'A steam locomotive pulling red cars across a bridge'
+marginNotes:
+  - type: 'quote'
+    at: 'model means you always see the current state'
+    text: 'Steampipe provides zero-ETL tools for fetching data directly from APIs and services.'
+    by: "Steampipe's docs"
+    url: 'https://steampipe.io/docs'
+  - type: 'update'
+    at: 'is a cloud asset inventory and governance platform'
+    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
+    date: 'Mar 2026'
+  - type: 'see'
+    at: 'Run queries without hitting API rate limits'
+    text: 'When I benchmarked CloudQuery, rate limits set the pace: 13 GB an hour from AWS APIs against 581 GB an hour from local files.'
+    post: 'cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints'
+  - type: 'term'
+    at: 'open-source under the AGPLv3 license'
+    text: 'a copyleft license. If you change the code and let people use it over a network, you have to share your changes.'
+    term: 'AGPLv3'
 ---
 
 ## What Is Steampipe?

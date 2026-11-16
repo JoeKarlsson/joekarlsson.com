@@ -15,6 +15,23 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The commands had en dashes where `--` belongs (`tb auth --interactive`), the JSON had curly quotes, the Tinybird SQL was missing its `%` first line, and the post told you to pick App Router and then edit `src/pages/index.js`. It's `src/app/page.js`."
+marginNotes:
+  - type: 'update'
+    at: 'components for the data visualization'
+    text: "Vercel bought Tremor in January 2025. Tremor's paid product, Tremor Blocks, went free and open source under the MIT license."
+    date: 'Jan 2025'
+  - type: 'see'
+    at: 'batch ETLs or change data capture'
+    text: 'I wrote a separate explainer on change data capture: how it tracks database changes as they happen and sends them downstream.'
+    post: 'modern-data-management-with-real-time-change-data-capture'
+  - type: 'see'
+    at: 'query engine is built to execute complex'
+    text: 'Tinybird runs on ClickHouse. I wrote up why ClickHouse is fast at analytical queries a week after this post.'
+    post: 'why-clickhouse-should-be-your-next-database'
+  - type: 'term'
+    at: 'fine-tuned indexes, Materialized Views'
+    text: 'a table that stores the result of a query and updates as new rows arrive, so the dashboard reads numbers already computed instead of scanning raw events.'
+    term: 'Materialized view'
 ---
 
 Can you imagine shipping a new user-facing dashboard only to have your users met with a visualization that takes several seconds or even _minutes_ to load? No way, right? Your users would get frustrated by the opportunities missed, efficiencies destroyed, and decisions delayed based on outdated information and a horrible user experience.

@@ -14,6 +14,16 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The `$filter` condition used `'$item.plays'`; it's `'$$item.plays'`. The MongoDB sample data didn't match the SQL data."
+marginNotes:
+  - type: 'quote'
+    at: 'think of the aggregation pipeline as a very similar concept'
+    text: 'We should have some ways of connecting programs like garden hose--screw in another segment'
+    by: 'Doug McIlroy, Bell Labs memo, 1964. He later got pipes added to Unix'
+    url: 'https://web.archive.org/web/20201229210155/https://www.bell-labs.com/usr/dmr/www/mdmpipe.html'
+  - type: 'see'
+    at: 'How To Use The MongoDB Visual Studio Code Plugin'
+    text: 'Here it is: connecting to Atlas, browsing collections and running queries in a Playground.'
+    post: 'how-to-use-the-mongodb-visual-studio-code-plugin'
 ---
 
 Many devs coming to MongoDB are joining the community with a strong background in SQL. I would personally include myself in this subset of MongoDB devs. I think it’s useful to map terms and concepts you might be familiar with in SQL to help “[translate](https://docs.mongodb.com/manual/reference/sql-comparison/)” your work into MongoDB Query Language (MQL). More specifically, in this post, I will be walking through translating the MongoDB Aggregation Pipeline Queries vs SQL Queries.

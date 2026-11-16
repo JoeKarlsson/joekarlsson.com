@@ -11,6 +11,29 @@ heroImage: '/images/blog/mcp-server-gotchas-we-learned-the-hard-way/thumb-74ac09
 heroAlt: "Meme showing the 'This is fine' dog sitting calmly in a room on fire. Caption added: 'Your LLM trying to process 50,000 tokens of raw schema.' Dog says 'This is fine'."
 canonicalUrl: 'https://www.cloudquery.io/blog/mcp-server-gotchas-we-learned-the-hard-way'
 tldr: 'We built an MCP server in Go to let Claude and Cursor query our cloud infrastructure database directly. Short, vague tool descriptions confused the model - longer, domain-specific ones fixed it. Ambiguous tool names kept tools unused - renaming them to match intent made them indispensable. Raw schemas overwhelmed the context window - we filtered them down to high-signal columns. Even at temperature=0, LLMs showed non-determinism and selective attention.'
+marginNotes:
+  - type: 'see'
+    at: 'We built an MCP server in Go'
+    text: 'The same server from the other side: what changed for our team once our IDEs could query the database.'
+    post: 'how-we-made-our-ides-data-aware-with-a-go-mcp-server'
+  - type: 'update'
+    at: 'anywhere between ~8K-200K tokens'
+    text: "Anthropic's docs now list context windows of up to 1M tokens, depending on the model."
+    date: 'Nov 2026'
+  - type: 'quote'
+    at: 'Claude sometimes chose different tools or wrote slightly different SQL'
+    text: 'the primary reason nearly all LLM inference endpoints are nondeterministic is that the load (and thus batch-size) nondeterministically varies!'
+    by: 'Horace He, Thinking Machines Lab, September 2025'
+    url: 'https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/'
+  - type: 'quote'
+    at: 'it would confidently pick 2-3 while ignoring the rest'
+    text: 'performance is often highest when relevant information occurs at the beginning or end of the input context'
+    by: 'Nelson F. Liu et al., Lost in the Middle, 2023'
+    url: 'https://arxiv.org/abs/2307.03172'
+  - type: 'update'
+    at: 'the official SDK in development'
+    text: 'The Go SDK shipped v1.0.0 in September 2025. It was on v1.8.0 by September 2026.'
+    date: 'Sep 2025'
 ---
 
 _Co-authored with Mariano Gappa at CloudQuery._

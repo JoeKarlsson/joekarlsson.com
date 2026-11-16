@@ -12,6 +12,15 @@ heroImage: '/images/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-gett
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: "A souvenir postcard from the 1939 World's Fair"
+marginNotes:
+  - type: 'see'
+    at: 'to eliminate manual gates'
+    text: 'Gates only add time. In Ship the Ugly Pot I argue for kilns instead: checks that make the work better.'
+    post: 'ship-the-ugly-pot'
+  - type: 'see'
+    at: 'This has aligned CCOEs closely with the'
+    text: "A platform team's self-service usually lands in an internal developer portal. I looked at how Spotify and Toyota made theirs useful."
+    post: 'how-to-make-your-internal-developer-portal-actually-useful'
 ---
 
 **About This Series:** This is Part 5 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:

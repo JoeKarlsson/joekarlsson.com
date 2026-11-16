@@ -8,6 +8,25 @@ categories: ['AI']
 heroImage: '/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/thumb-3595dc72.webp'
 heroAlt: 'Compositors setting type at wooden type cases'
 tldr: 'I built a Claude Code slash command that turns blog post creation into a repeatable, enforceable workflow with brand voice checks, Vale linting, image generation, and automatic PR submission. It unblocked our marketing team from depending on me as the content quality bottleneck.'
+marginNotes:
+  - type: 'see'
+    at: 'Claude Code became my primary interface for getting work done'
+    text: "Later I tried OpenCode with open models in its place. It wasn't a one-to-one swap."
+    post: 'breaking-up-with-claude-code'
+  - type: 'quote'
+    at: 'built a Claude Code skill to systematize it'
+    text: 'Create a skill when you keep pasting the same instructions, checklist, or multi-step procedure into chat, or when a section of CLAUDE.md has grown into a procedure rather than a fact.'
+    by: "Claude Code's docs on skills"
+    url: 'https://code.claude.com/docs/en/skills'
+  - type: 'quote'
+    at: 'it runs Vale linting'
+    text: "Vale brings code-like linting to prose. Turn a team's style guide, a house voice, or a journal's author guidelines into checks that run in your editor and alongside your code."
+    by: "Vale's homepage"
+    url: 'https://vale.sh/'
+  - type: 'see'
+    at: 'producing more content than we were before'
+    text: 'More content was the easy number to show. Whether any of it turned into customers took CRM data, and I wrote up what that data showed.'
+    post: 'proving-my-work-mattered'
 ---
 
 I live in the terminal. Like, I mean it.

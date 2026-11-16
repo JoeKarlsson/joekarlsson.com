@@ -11,6 +11,23 @@ heroImage: '/images/blog/what-is-attack-surface-management/thumb-2df6f9a3.webp'
 heroAlt: 'A star-shaped fort from above, built so no stretch of wall is out of sight'
 canonicalUrl: https://www.cloudquery.io/blog/what-is-attack-surface-management
 contentNotice: 'This post was originally published on CloudQuery blog.'
+marginNotes:
+  - type: 'term'
+    at: 'it finds known CVEs in software'
+    text: 'Common Vulnerabilities and Exposures, a public ID for one known flaw. Log4Shell, for example, is CVE-2021-44228.'
+    term: 'CVE'
+  - type: 'see'
+    at: 'someone flipped to publicly accessible'
+    text: 'The full walkthrough for public databases across AWS RDS, Azure and GCP Cloud SQL, with Policies you can copy.'
+    post: 'detect-public-databases-across-aws-azure-gcp'
+  - type: 'see'
+    at: 'bundled into broader CNAPP platforms'
+    text: 'What a CNAPP bundles (CWPP, CSPM and CIEM), and when a standalone tool makes more sense.'
+    post: 'cwpp-vs-cnapp'
+  - type: 'term'
+    at: 'certificate transparency logs'
+    text: "public, append-only logs of the TLS certificates that certificate authorities issue. Anyone can search them for a company's hostnames."
+    term: 'Certificate Transparency'
 ---
 
 > **Note:** Attack surface management finds what attackers can reach, including resources your security team doesn't know exist. Unlike CSPM (which audits known configurations) or vulnerability management (which scans for CVEs), ASM starts from the attacker's perspective and asks what's reachable from outside. CloudQuery gives cloud teams a continuously updated attack surface inventory across AWS, GCP, and Azure, queryable in SQL.

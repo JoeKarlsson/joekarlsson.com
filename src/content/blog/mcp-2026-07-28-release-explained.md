@@ -12,6 +12,15 @@ heroAlt: 'A ship sliding down the slipway at its launch'
 canonicalUrl: 'https://www.cdata.com/blog/mcp-2026-07-28-release'
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/mcp-2026-07-28-release).'
 tldr: 'Stateless protocol, formal extensions (MCP Apps + Tasks), stricter auth validation, full JSON Schema 2020-12. The big one is stateless - it finally makes MCP servers deployable like normal web services. Roots, Sampling, and Logging start deprecation with a ~12-month runway.'
+marginNotes:
+  - type: 'term'
+    at: 'aligned with RFC 9728 and RFC 9207'
+    text: 'two OAuth standards. RFC 9728 lets a protected resource, here the MCP server, publish metadata that names its authorization servers. RFC 9207 puts the issuer in the authorization response, which blocks mix-up attacks.'
+    term: 'RFC 9728 and RFC 9207'
+  - type: 'see'
+    at: 'The protocol is maturing in the direction'
+    text: 'The maintainers published the next roadmap in August. I went through which of its five priorities need migration work and which you can watch from a distance.'
+    post: 'official-mcp-roadmap-explained'
 ---
 
 The Model Context Protocol just shipped its largest revision since launch.

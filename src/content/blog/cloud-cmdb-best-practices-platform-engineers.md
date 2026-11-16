@@ -18,6 +18,23 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'The queries used a table and column that never existed (`cloudwatch_rds_metrics`, `estimated_monthly_cost`) and `sync_time` for `_cq_sync_time`.'
+marginNotes:
+  - type: 'see'
+    at: 'Traditional CMDBs were built for servers that lived 3-5 years'
+    text: 'I compared cloud and traditional CMDBs, agent scans against API discovery, in a 2026 post.'
+    post: 'cloud-cmdb-vs-traditional-cmdb-2026'
+  - type: 'see'
+    at: 'Not all resources need the same sync frequency'
+    text: 'What each tier costs, from 15-minute syncs to daily ones, is in my post on ephemeral infrastructure.'
+    post: 'real-time-cloud-cmdb-ephemeral-infrastructure'
+  - type: 'see'
+    at: 'choose your technical approach'
+    text: 'Steampipe queries cloud APIs live, and CloudQuery keeps a synced copy. I wrote up when to use each.'
+    post: 'steampipe-vs-cloudquery'
+  - type: 'update'
+    at: 'Managed scheduling via UI (no CronJob management)'
+    text: 'CloudQuery merged with env zero in March 2026, and the combined company runs under the env zero name.'
+    date: 'Mar 2026'
 ---
 
 > **Note:** **6 Cloud CMDB Best Practices:**

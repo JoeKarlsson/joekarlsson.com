@@ -11,6 +11,20 @@ heroImage: '/images/blog/why-and-how-we-built-our-own-full-text-search-engine-wi
 heroAlt: "Drake meme with two panels. Top panel shows Drake gesturing disapprovingly at 'Dedicated full-text search engine'. Bottom panel shows Drake smiling approvingly at 'Abusing ClickHouse harder'"
 canonicalUrl: 'https://www.cloudquery.io/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse'
 tldr: 'We built a full text search index directly in ClickHouse using ngrambf_v1 Bloom filter indices instead of adding Elasticsearch or Meilisearch. Our custom key-value flattening approach achieved sub-400ms queries across hundreds of millions of rows, with 10x faster performance on complex searches compared to naive JOIN approaches, without requiring additional infrastructure.'
+marginNotes:
+  - type: 'update'
+    at: 'Our implementation uses ClickHouse'
+    text: 'ClickHouse 26.2 made its text index, an inverted index built for full-text search, generally available. The docs now list ngrambf_v1 and tokenbf_v1 as deprecated.'
+    date: 'Nov 2026'
+  - type: 'see'
+    at: 'The team at Tinybird wrote an'
+    text: "I wrote that Tinybird post. It's on this site too, with two typos in its benchmark tables fixed."
+    post: 'using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse'
+  - type: 'quote'
+    at: 'yielded a modest'
+    text: 'lazy materialization, which delays reading column data until it’s actually needed.'
+    by: 'Tom Schreiber, ClickHouse blog, April 2025'
+    url: 'https://clickhouse.com/blog/clickhouse-gets-lazier-and-faster-introducing-lazy-materialization'
 ---
 
 _Co-authored with James Riley at CloudQuery._

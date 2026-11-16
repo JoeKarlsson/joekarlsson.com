@@ -16,6 +16,20 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The Git source config used syntax the plugin doesn't take. It's `table_options.git_files` with `glob`."
+marginNotes:
+  - type: 'see'
+    at: 'syncs Dockerfile content into your data warehouse'
+    text: 'The launch post for the Git source integration, with the CODEOWNERS and package.json queries too.'
+    post: 'introducing-the-git-source-plugin'
+  - type: 'see'
+    at: 'identify repo owners and create tracking issues'
+    text: 'Owners go stale too. I joined CODEOWNERS files with identity provider data to find entries for people who already left.'
+    post: 'audit-codeowners-against-okta-with-sql'
+  - type: 'quote'
+    at: 'Modify the query to find other EOL images'
+    text: 'We have decided that January 1, 2020, was the day that we sunset Python 2.'
+    by: 'Python Software Foundation'
+    url: 'https://www.python.org/doc/sunset-python-2/'
 ---
 
 [Node 18 reached end-of-life in April 2025](https://github.com/nodejs/release#release-schedule). You need to find which Dockerfiles across your organization still reference `node:18` base images. The manual approach: clone every repo, grep for Dockerfiles, parse the FROM lines, compile results, email teams, track remediation. Multiply that across hundreds of repos and multiple EOL versions.

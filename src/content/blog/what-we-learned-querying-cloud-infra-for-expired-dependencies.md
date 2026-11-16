@@ -15,6 +15,25 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'The EKS upgrade command had no values, the RDS query read the version catalog instead of your instances, and the Lambda and runtime joins never matched (`python3.9` against `3.9`).'
+marginNotes:
+  - type: 'update'
+    at: 'CloudQuery lets you pull in data from multiple cloud providers'
+    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
+    date: 'Mar 2026'
+  - type: 'quote'
+    at: 'which comes with extra charges per vCPU per hour'
+    text: 'You will incur charges for all engines enrolled in RDS Extended Support beginning the day after the RDS end of standard support date.'
+    by: 'Amazon RDS User Guide'
+    url: 'https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support-charges.html'
+  - type: 'quote'
+    at: 'there are no more security patches'
+    text: "Lambda doesn't apply security patches to programming language runtimes after they reach their end of support date."
+    by: 'AWS Lambda Developer Guide'
+    url: 'https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html'
+  - type: 'see'
+    at: 'If your Lambda functions are running Python 3.8 or older'
+    text: 'Python 3.9 lost its Lambda security patches in December 2025. I wrote up how to find those functions across every account.'
+    post: 'python-39-lambda-deprecation'
 ---
 
 Every cloud engineer has, at some point, found themselves frantically searching for unsupported software lurking in their environment. Maybe it's an _EKS cluster running an ancient Kubernetes version_, or a _Lambda function still clinging to Python 3.7_ like it's 2019. Whatever it is, finding it is always a pain, especially when you have multiple cloud providers in the mix.

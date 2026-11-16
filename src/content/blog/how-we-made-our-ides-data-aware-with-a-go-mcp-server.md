@@ -15,6 +15,20 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The Go didn't compile: a map literal had no type, `s.Serve(...)` isn't an mcp-go call (it's `server.ServeStdio(s)`), and `handleListTables` was never defined."
+marginNotes:
+  - type: 'quote'
+    at: 'When Anthropic dropped the Model Context Protocol in November'
+    text: 'The Model Context Protocol is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools.'
+    by: 'Anthropic, November 2024'
+    url: 'https://www.anthropic.com/news/model-context-protocol'
+  - type: 'update'
+    at: "since Anthropic doesn't have an official Go SDK yet"
+    text: 'The official Go SDK shipped v1.0.0 on September 30, 2025. It is maintained in collaboration with Google.'
+    date: 'Nov 2026'
+  - type: 'see'
+    at: 'the technical gotchas nobody talks about'
+    text: 'The gotchas got their own post: tool descriptions, naming, context limits and how we fixed each one.'
+    post: 'mcp-server-gotchas-we-learned-the-hard-way'
 ---
 
 _Co-authored with Mariano Gappa at CloudQuery._

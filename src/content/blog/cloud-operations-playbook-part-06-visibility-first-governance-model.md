@@ -16,6 +16,20 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The GCP query read `access_configs->>'natIP'` as a top-level column. It sits inside `network_interfaces`."
+marginNotes:
+  - type: 'quote'
+    at: 'Rego. Sentinel. Custom DSLs.'
+    text: 'Rego was inspired by Datalog and extends it to support structured document models such as JSON.'
+    by: 'The Open Policy Agent docs'
+    url: 'https://www.openpolicyagent.org/docs/policy-language'
+  - type: 'term'
+    at: 'Policies written in Rego or Sentinel create a bottleneck'
+    text: "HashiCorp's policy-as-code language. It runs inside HCP Terraform, Terraform Enterprise and HashiCorp's other enterprise products."
+    term: 'Sentinel'
+  - type: 'term'
+    at: 'Automatically restrict to the VPN CIDR range'
+    text: 'an IP range written as a base address and a prefix length. 10.8.0.0/16 covers every address from 10.8.0.0 to 10.8.255.255.'
+    term: 'CIDR range'
 ---
 
 > **Note:** **TL;DR:** Traditional governance starts with policies and tries to enforce them. This fails because you can't enforce rules about infrastructure you can't see. The Visibility-First Governance Model inverts the process: build a unified inventory first, write policies in SQL against that inventory, monitor continuously, then automate responses. The result is governance that actually works across multi-cloud environments because it's grounded in real infrastructure data, not assumptions about what should exist.

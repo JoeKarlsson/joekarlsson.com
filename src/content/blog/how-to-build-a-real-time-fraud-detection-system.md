@@ -14,6 +14,27 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'The SQL said `>` where the text says "two or more", the declined-transactions query never filtered on `is_declined`, the high-risk IP query filtered the wrong column, and the amount sort ran on a string.'
+marginNotes:
+  - type: 'see'
+    at: 'capturing relevant details like user information'
+    text: 'Joining each transaction to user and account data is its own step. I covered it in my guide to enriching streams.'
+    post: 'the-engineers-guide-to-enriching-streams-and-dimensions'
+  - type: 'term'
+    at: 'reducing the risk of chargebacks'
+    text: 'a card payment the bank reverses after the cardholder disputes it. The merchant pays the money back, usually plus a fee.'
+    term: 'Chargeback'
+  - type: 'term'
+    at: 'account takeover fraud'
+    text: "someone logs in to a real customer's account, usually with stolen credentials, and spends from it."
+    term: 'Account takeover'
+  - type: 'see'
+    at: 'Apache Kafka is the de facto standard for streaming data'
+    text: 'I used Kafka the same way in my event sourcing example, rebuilding bank balances from deposit and withdrawal events.'
+    post: 'event-sourcing-with-kafka-a-practical-example'
+  - type: 'see'
+    at: 'store analyzed fraud data in a data warehouse'
+    text: "That works for long-term trends. I wrote about why a warehouse shouldn't be what answers each transaction in real time."
+    post: 'data-warehouses-are-terrible-application-backends'
 ---
 
 Financial fraud is a growing concern as more payments move online. According to a [report by PwC](https://www.pwc.com/fraudsurvey), almost half of the surveyed organizations experienced fraud in the past 2 years. For online payments, the situation is no different. As eCommerce continues to surge, so do attempts by cybercriminals to exploit vulnerabilities and commit fraud.

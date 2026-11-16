@@ -27,6 +27,20 @@ faq:
     answer: 'The March roadmap had four priorities: transport evolution and scalability, agent communication, governance maturation, and enterprise readiness. The August version reorganizes to five, with SDK developer experience elevated to its own area and agent identity given a more specific definition (DPoP, Workload Identity Federation, WIMSE engagement) rather than the broader "enterprise readiness" framing from March (previous roadmap). The substance was there in March; August names it more precisely.'
 tldr: 'The Aug. 22, 2026 MCP roadmap lists five priorities: agentic messaging, HTTP-native transport, agent identity and security, better primitives, and SDK developer experience. Agent identity carries the highest migration cost, so audit your auth first. Transport matters if you run stdio servers. The rest is mostly watch-and-wait.'
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/official-mcp-roadmap-explained).'
+marginNotes:
+  - type: 'quote'
+    at: 'DPoP binds a token to a specific cryptographic key'
+    text: 'This mechanism allows for the detection of replay attacks with access and refresh tokens.'
+    by: 'RFC 9449, September 2023'
+    url: 'https://www.rfc-editor.org/rfc/rfc9449'
+  - type: 'see'
+    at: 'context budget fills'
+    text: 'We hit this at CloudQuery. One raw schema dump could pass 50,000 tokens, so we trimmed columns before the model ever saw them.'
+    post: 'mcp-server-gotchas-we-learned-the-hard-way'
+  - type: 'see'
+    at: "Source-system RBAC doesn't flow through an MCP server"
+    text: "I compared two ways of handling this: LiteLLM's MCP proxy, where the source sees a service account, and Connect AI, which passes the caller's identity through."
+    post: 'litellm-vs-cdata-connect-ai'
 ---
 
 The model context protocol (MCP) core maintainers published their updated roadmap on Aug. 22, 2026 ([The New MCP Roadmap](https://blog.modelcontextprotocol.io/posts/mcp-roadmap/)). If you're an engineering or AI lead managing MCP servers for a large team or enterprise deployment, this covers what you need to know: what each of the five priorities means in practice, which ones require migration work and which you can safely watch from a distance, and where the gaps stay even after all five ship. The point that shapes every planning call in this post is that the agent identity work solves which workload is calling your MCP server, using standards for proving a workload's identity without storing long-lived credentials. It doesn't touch what that server hands to Salesforce, SQL Server, or your data warehouse to open the connection behind it. Those are two different auth problems, and the roadmap takes on only the first.
