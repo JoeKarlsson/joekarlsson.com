@@ -93,12 +93,15 @@ const talkCards = [
 		kicker: 'Conf42 JavaScript',
 		clip: '/images/talks/mongodb-schema-design-montage.mp4',
 		poster: '/images/talks/mongodb-schema-design-still.webp',
+		// Its poster is the one white slide; the rest are dark, so never flip it to a negative
+		noInvert: true,
 	},
 	{
 		...talk('an-introduction-to-iot-internet-of-toilets'),
 		kicker: 'My most-given talk',
 		clip: '/images/blog/an-introduction-to-iot-internet-of-toilets/stop_motion_intro-1024x683.mp4',
 		poster: '/images/blog/an-introduction-to-iot-internet-of-toilets/thumb-ec97a203.webp',
+		noInvert: false,
 	},
 ];
 
@@ -191,7 +194,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 					loop
 					playsinline
 					preload="metadata"
-					aria-label="Montage of short halftone clips of Joe"
+					aria-label="Montage of short clips of Joe in pink"
 				>
 					<!-- Plain color clips, each frame auto-leveled, so the live pink
 					(src/scripts/halftone.ts) stay sharp at any size and every shot matches the
@@ -506,7 +509,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 			class="spread group relative -mx-4 block text-ink no-underline sm:-mx-7"
 		>
 			<video
-				class="block aspect-video w-full object-cover"
+				class="block aspect-[16/8.3] w-full object-cover object-top"
 				src={spreadWork.clip}
 				data-poster={spreadWork.poster}
 				data-halftone="flat"
@@ -519,7 +522,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 				preload="none"
 				aria-hidden="true"
 			></video>
-			<span class="relative z-10 mx-4 -mt-10 block w-fit max-w-[calc(100%-2rem)] bg-pink px-5 pt-3 pb-4 sm:mx-7 md:-mt-16">
+			<span class="relative z-10 mx-4 -mt-6 block w-fit max-w-[calc(100%-2rem)] bg-pink px-5 pt-3 pb-4 sm:mx-7">
 				<span class="block font-display text-[clamp(2.25rem,5.5vw,4.75rem)] leading-[0.9] uppercase">
 					{spreadWork.name}{' '}
 					<em class="font-serif font-semibold normal-case">{spreadWork.accent}</em>
@@ -610,6 +613,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 							src={t.clip}
 							data-poster={t.poster}
 							data-halftone="flat"
+							data-halftone-no-invert={t.noInvert || undefined}
 							data-morph={t.href}
 							data-autoplay-in-view
 							data-phone-still
