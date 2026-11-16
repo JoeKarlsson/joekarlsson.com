@@ -71,7 +71,27 @@ test.describe('Talks', () => {
 		expect(content?.length).toBeGreaterThan(200);
 	});
 
-	test('?filter=podcast opens with only podcasts showing', async ({ page }) => {
+	test('?filter=podcast opens with only podcasts showing, without shifting the cards', async ({
+		page,
+	}) => {
+		// Only shifts of the talk cards count: the page title fitting its font can shift on a
+		// busy machine, which has nothing to do with the filter
+		await page.addInitScript(() => {
+			const w = window as unknown as { cardShift: number };
+			w.cardShift = 0;
+			new PerformanceObserver((list) => {
+				for (const entry of list.getEntries() as unknown as {
+					value: number;
+					hadRecentInput: boolean;
+					sources: { node?: Node }[];
+				}[])
+					if (
+						!entry.hadRecentInput &&
+						entry.sources.some((s) => s.node instanceof Element && s.node.closest('.talk-era'))
+					)
+						w.cardShift += entry.value;
+			}).observe({ type: 'layout-shift', buffered: true });
+		});
 		await page.goto('/talks/?filter=podcast');
 		await expect(page.locator('[data-talk-filter="podcast"]')).toHaveAttribute(
 			'aria-pressed',
@@ -81,6 +101,11 @@ test.describe('Talks', () => {
 			.locator('.talk-card:visible')
 			.evaluateAll((cards) => [...new Set(cards.map((c) => (c as HTMLElement).dataset.talkGroup))]);
 		expect(groups).toEqual(['podcast']);
+		// Hiding the cards and scrolling in one frame once scored 0.58
+		await expect(page.locator('[data-talk-filter="podcast"]')).toBeFocused();
+		expect(
+			await page.evaluate(() => (window as unknown as { cardShift: number }).cardShift),
+		).toBeLessThan(0.1);
 	});
 });
 

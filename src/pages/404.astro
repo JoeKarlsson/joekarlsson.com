@@ -93,7 +93,7 @@ import SectionRule from '../components/SectionRule.astro';
 		</PosterHero>
 
 		<section class="mb-12 md:mb-16">
-			<h2 class={`${SECTION_HEADING} mb-[0.6em]!`}>Try one of these</h2>
+			<h2 class={SECTION_HEADING}>Try one of these</h2>
 			<SectionRule />
 			{PLACES.map(({ href, label, meta }, i) => (
 				<IndexRow href={href} label={label} meta={meta} index={i} />

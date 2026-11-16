@@ -249,6 +249,10 @@ test.describe('Phone layout', () => {
 		await page.goto('/');
 		// Each homepage section's link to its page ("Every post →")
 		await tall('main section > header a');
+		// and the links under each Odds & ends group (All Shorts, All reviews, All podcasts)
+		await tall(
+			'section[aria-labelledby="odds"] a[href="/reviews/"], section[aria-labelledby="odds"] a[href^="/talks/"]',
+		);
 		await page.goto('/work/');
 		// The filter chips are gone; the era index and each project's Source/Demo/Blog links remain
 		await tall('nav[aria-label="Eras"] a');

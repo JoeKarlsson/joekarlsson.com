@@ -68,6 +68,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-16: Homepage hero and Make a mark go full width with the 16px gutter and rounded panels kept (option B over edge-to-edge A); Make a mark sits on the footer with no gap.
 - 2026-11-16: More hand-drawn marks on the homepage: the sketchbook margin doodles turn on there, plus one long crayon line that wanders down the page from section to section. No crayon circles around content: "they always cut stuff off and aren't centered right." Arrows and underlines on content are fine.
 - 2026-11-16: Odds & ends gets a link under each group (All Shorts to /talks/'s Shorts row, All reviews, All podcasts to /talks/ with Podcasts on), approved as mocked.
+- 2026-11-16: Joe approved the built preview of the consistency round (pink Anton headers over a full-width crayon line on every page, full-width homepage hero and board, homepage doodles on the right from 2020px with the scroll-drawn line down the left, Odds & ends links, circles removed): "y" to ship once the design and web-standards reviews pass.
 
 ## Playful details
 

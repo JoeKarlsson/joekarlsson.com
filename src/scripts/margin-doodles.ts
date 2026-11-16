@@ -99,7 +99,7 @@ function drawDoodle(mark: { viewBox: string; path: string }, color: string): SVG
 
 /** The homepage's one long crayon line down the left margin: a pen that wanders from the
  * top of the page to its end without leaving the paper, drawn as the page scrolls
- * (.margin-thread in motion.css). Plotted in real pixels, so the crayon grain isn't stretched. */
+ * (.margin-thread in motion.css). Plotted in real pixels, so its curves keep their shape. */
 function drawThread(layer: HTMLElement, random: () => number): SVGSVGElement {
 	const lane =
 		(layer.clientWidth - layer.querySelector<HTMLElement>('.margin-lane')!.clientWidth) / 2;
@@ -117,6 +117,8 @@ function drawThread(layer: HTMLElement, random: () => number): SVGSVGElement {
 		from = to;
 		y += step;
 	}
+	// No crayon filter here, unlike the doodles: over a page-tall SVG it made every scroll
+	// frame in WebKit 10x slower, and tiling the SVG didn't help
 	const svg = document.createElementNS(SVG, 'svg');
 	svg.setAttribute('class', 'margin-thread absolute top-0 left-0 overflow-visible');
 	svg.setAttribute('width', String(Math.round(lane)));
@@ -129,7 +131,6 @@ function drawThread(layer: HTMLElement, random: () => number): SVGSVGElement {
 		stroke: PINK,
 		'stroke-width': '5',
 		'stroke-linecap': 'round',
-		filter: 'url(#crayon)',
 	}))
 		path.setAttribute(name, value);
 	svg.append(path);

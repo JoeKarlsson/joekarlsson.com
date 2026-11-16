@@ -38,9 +38,19 @@ export function initTalkFilters() {
 	}
 	// The homepage's "All podcasts" link opens the page with Podcasts on (?filter=podcast)
 	const fromLink = new URLSearchParams(location.search).get('filter');
-	// and scrolls to the row, which is hidden until now, so a #fragment can't land on it
+	// and scrolls to the row, which is hidden until now, so a #fragment can't land on it.
+	// The scroll waits until the hidden cards have painted (two frames: one alone runs before
+	// that paint): hiding and scrolling in one frame counted as a big layout shift. Focus
+	// follows, so Tab carries on from the row.
 	if (buttons.some((button) => button.dataset.talkFilter === fromLink)) {
 		apply(fromLink!);
-		row.scrollIntoView();
+		requestAnimationFrame(() =>
+			requestAnimationFrame(() => {
+				row.scrollIntoView();
+				buttons
+					.find((button) => button.dataset.talkFilter === fromLink)!
+					.focus({ preventScroll: true });
+			}),
+		);
 	}
 }

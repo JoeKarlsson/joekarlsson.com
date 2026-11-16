@@ -39,7 +39,12 @@ test.describe("Joe's margin doodles", () => {
 		await page.setViewportSize({ width: 2560, height: 1440 });
 		await page.goto('/');
 		const layer = page.locator('.margin-doodles');
-		await expect(layer.locator('.margin-thread path')).toHaveCount(1);
+		const thread = layer.locator('.margin-thread path');
+		await expect(thread.first()).toBeAttached();
+		// Drawn by scroll; a minified shorthand once dropped the animation without a trace
+		expect(await thread.first().evaluate((p) => getComputedStyle(p).animationName)).toBe(
+			'thread-draw',
+		);
 		const sides = await layer.evaluate((l) =>
 			[...l.children]
 				.filter((d) => d instanceof HTMLElement && d.style.top)

@@ -966,7 +966,12 @@
 	@media (prefers-reduced-motion: no-preference) {
 		.margin-thread path {
 			stroke-dasharray: 1;
-			animation: thread-draw linear both;
+			/* Longhands: the minifier folds a shorthand plus animation-timeline into one
+			   shorthand with the timeline inside, which browsers throw away */
+			animation-name: thread-draw;
+			animation-duration: auto;
+			animation-timing-function: linear;
+			animation-fill-mode: both;
 			animation-timeline: scroll(root);
 		}
 	}
