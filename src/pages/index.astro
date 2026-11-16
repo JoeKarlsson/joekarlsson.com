@@ -302,7 +302,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 			{topics.map((topic) => (
 				<a
 					href={`/blog/category/${topic.slug}/`}
-					class="min-w-11 py-2.5 text-center font-semibold text-paper underline decoration-pink decoration-2 underline-offset-[6px] hover:text-pink md:min-w-0"
+					class="min-h-11 min-w-11 py-2.5 text-center font-semibold text-paper underline decoration-pink decoration-2 underline-offset-[6px] hover:text-pink md:min-w-0"
 				>
 					{topic.name}
 				</a>
@@ -346,7 +346,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 						{leadPost.data.categories[0] && <span>{leadPost.data.categories[0]}</span>}
 					</MetaParts>
 					<p class="mt-3 max-w-[52ch] font-serif text-[1.1875rem] leading-normal text-paper">
-						{leadPost.data.description}
+						{leadPost.data.description.replace(/^[^?]*\?\s*/, '')}
 					</p>
 				</div>
 			</article>
@@ -384,10 +384,11 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 		</div>
 	</section>
 
-	<figure class="quote-band torn relative mx-auto mt-20 max-w-[90rem] bg-pink px-4 py-16 text-ink sm:px-7 md:py-20">
+	<!-- Pink bands run edge to edge; their content stays in the 1440px column -->
+	<figure class="quote-band torn relative mt-20 bg-pink px-[max(1rem,calc((100%-90rem)/2+1.75rem))] py-16 text-ink md:py-20">
 		<span
 			aria-hidden="true"
-			class="block font-display text-[clamp(7rem,14vw,15rem)] leading-[0.6] text-ink md:absolute md:top-8 md:left-7"
+			class="block font-display text-[clamp(7rem,14vw,15rem)] leading-[0.6] text-ink md:absolute md:top-14 md:left-[max(1rem,calc((100%-90rem)/2+1.75rem))]"
 		>
 			“
 		</span>
@@ -421,7 +422,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 									color={CHALK}
 									strokeWidth={5}
 									duration="6s"
-									class="-top-[70%] -left-[5%] h-[240%] w-[110%] max-md:hidden"
+									class="-top-[70%] -left-[8%] h-[240%] w-[116%] max-md:hidden"
 								/>
 							)}
 						</span>
@@ -445,7 +446,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 
 	<section
 		aria-label="Newsletter"
-		class="relative mx-auto mt-20 max-w-[90rem] bg-pink px-4 pt-11 pb-12 text-ink sm:px-7 [&_:focus-visible]:outline-ink"
+		class="relative mt-20 bg-pink px-[max(1rem,calc((100%-90rem)/2+1.75rem))] pt-11 pb-12 text-ink [&_:focus-visible]:outline-ink"
 	>
 		<NewsletterBand />
 	</section>
@@ -511,7 +512,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 				preload="none"
 				aria-hidden="true"
 			></video>
-			<span class="absolute bottom-6 left-4 bg-pink px-5 pt-3 pb-4 z-10 sm:left-7 max-md:relative max-md:mx-4 max-md:-mt-8 max-md:block">
+			<span class="absolute bottom-6 left-4 bg-pink px-5 pt-3 pb-4 z-10 sm:left-7 max-md:relative max-md:inset-auto max-md:mx-4 max-md:-mt-8 max-md:block">
 				<span class="block font-display text-[clamp(2.25rem,5.5vw,4.75rem)] leading-[0.9] uppercase">
 					{spreadWork.name}{' '}
 					<em class="font-serif font-semibold normal-case">{spreadWork.accent}</em>
@@ -770,7 +771,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 			</div>
 			<div class="flex min-w-0 flex-col md:col-span-5">
 				<h3 class="mb-2 text-sm font-semibold text-pink">Try this in a terminal</h3>
-				<pre class="flex-1 overflow-x-auto border-2 border-paper bg-[#0b0b0b] px-4 py-3.5 font-mono text-[11px] leading-[1.7] text-[#e6e6e6] md:text-[13px]"><span class="text-muted">$</span> curl -L joekarlsson.com/hi
+				<pre class="flex-1 overflow-x-auto max-md:whitespace-pre-wrap border-2 border-paper bg-[#0b0b0b] px-4 py-3.5 font-mono text-[11px] leading-[1.7] text-[#e6e6e6] md:text-[13px]"><span class="text-muted">$</span> curl -L joekarlsson.com/hi
 {terminal.map((line) => <>{line.map((run) => <span class:list={[run.pink && 'text-pink', run.muted && 'text-muted', run.bold && 'font-bold']}>{run.text}</span>)}{'\n'}</>)}</pre>
 			</div>
 			<figure class="flex flex-col md:col-span-3">
