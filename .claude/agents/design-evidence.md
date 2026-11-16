@@ -39,6 +39,7 @@ Known false positives and deliberate choices, from the first scan (2026-11-10). 
 - `broken-image` on the `<img>` in `src/components/ImageLightbox.astro`: its src is set by script when the lightbox opens. False positive.
 - `overused-font` on `src/pages/resume-pdf.astro`: Helvetica in a print-only resume PDF. Deliberate.
 - `side-tab` on `.prose blockquote` and `.prose .callout` in `src/styles/global.css`: a pink rule on quotes, which Joe's rules don't ban. Deliberate.
+- `bounce-easing` (`cubic-bezier(0.34, 1.56, 0.64, 1)`) in `src/styles/motion.css`: the `.sticker` peel and the drawing-board crayon peel, both inside `prefers-reduced-motion: no-preference`; everyday UI has no overshoot. Deliberate.
 
 ## Return
 
