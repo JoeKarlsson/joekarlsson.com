@@ -24,7 +24,7 @@ description: 'As a Minnesotan, I’m legally required to discuss the Minnesota r
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/kumiko-the-treasure-hunter/'
 poster: '/images/reviews/kumiko-the-treasure-hunter/poster.webp'
 heroImage: '/images/reviews/kumiko-the-treasure-hunter/backdrop.webp'
-heroAlt: 'A still from Kumiko, the Treasure Hunter (2014)'
+heroAlt: 'Rinko Kikuchi in a snow-covered red hood, looking up through falling snow.'
 ---
 
 As a Minnesotan, I’m legally required to discuss the Minnesota representation. It’s pretty accurate.

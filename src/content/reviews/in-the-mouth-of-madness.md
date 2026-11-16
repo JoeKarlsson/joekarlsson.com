@@ -17,7 +17,7 @@ description: 'This is the best adaptation of Lovecraftian horror ever committed 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/in-the-mouth-of-madness/'
 poster: '/images/reviews/in-the-mouth-of-madness/poster.webp'
 heroImage: '/images/reviews/in-the-mouth-of-madness/backdrop.webp'
-heroAlt: 'A still from In the Mouth of Madness (1994)'
+heroAlt: 'Sam Neill with wild hair, in a hospital gown, held by two orderlies in white.'
 ---
 
 This is the best adaptation of Lovecraftian horror ever committed to film?

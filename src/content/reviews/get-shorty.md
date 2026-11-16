@@ -17,7 +17,7 @@ description: 'A crime comedy this tight would be a miracle today. In 1995 it was
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/get-shorty/'
 poster: '/images/reviews/get-shorty/poster.webp'
 heroImage: '/images/reviews/get-shorty/backdrop.webp'
-heroAlt: 'A still from Get Shorty (1995)'
+heroAlt: 'John Travolta smiling with a cigarette beside Rene Russo at a restaurant table.'
 ---
 
 A crime comedy this tight would be a miracle today. In 1995 it was just Tuesday.

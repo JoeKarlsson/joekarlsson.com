@@ -17,7 +17,7 @@ description: "It took 3 days, but I finished Lawrence of Arabia. Definitely grea
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/lawrence-of-arabia/'
 poster: '/images/reviews/lawrence-of-arabia/poster.webp'
 heroImage: '/images/reviews/lawrence-of-arabia/backdrop.webp'
-heroAlt: 'A still from Lawrence of Arabia (1962)'
+heroAlt: "Peter O'Toole in white Arab robes and headdress, seated between two men in dark headdresses under a blue desert sky."
 ---
 
 It took 3 days, but I finished Lawrence of Arabia. Definitely great, probably not worth 4 hours though. The cinematography was gorgeous and it's definitely inspired a ton of filmmakers.

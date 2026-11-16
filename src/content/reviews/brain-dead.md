@@ -24,7 +24,7 @@ description: 'The VHS cover haunted me at Blockbuster as a child.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/brain-dead/'
 poster: '/images/reviews/brain-dead/poster.webp'
 heroImage: '/images/reviews/brain-dead/backdrop.webp'
-heroAlt: 'A still from Brain Dead (1990)'
+heroAlt: 'A red-haired woman and two children sitting barefoot on boulders, all splashed with blood, beside a rock smeared with red paint.'
 ---
 
 The VHS cover haunted me at Blockbuster as a child.

@@ -24,7 +24,7 @@ description: "Philip Glass's score made this Black Mirror episode feel inspirati
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-truman-show/'
 poster: '/images/reviews/the-truman-show/poster.webp'
 heroImage: '/images/reviews/the-truman-show/backdrop.webp'
-heroAlt: 'A still from The Truman Show (1998)'
+heroAlt: 'Jim Carrey resting his chin on his hand and gazing up, against a blue sky and pink flowers.'
 ---
 
 Philip Glass's score made this Black Mirror episode feel inspirational.

@@ -24,7 +24,7 @@ description: 'Do you think Tim Burton ever saw this movie?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-cabinet-of-dr-caligari-1920/'
 poster: '/images/reviews/the-cabinet-of-dr-caligari-1920/poster.webp'
 heroImage: '/images/reviews/the-cabinet-of-dr-caligari-1920/backdrop.webp'
-heroAlt: 'A still from The Cabinet of Dr. Caligari (1920)'
+heroAlt: 'Werner Krauss in a top hat and cape leaning on a cane in a street of jagged, painted walls, in black and white.'
 ---
 
 Do you think Tim Burton ever saw this movie?

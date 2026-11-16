@@ -24,7 +24,7 @@ description: 'Been rewatching a ton of Christopher Guest movies recently. I LOVE
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/this-is-spinal-tap/'
 poster: '/images/reviews/this-is-spinal-tap/poster.webp'
 heroImage: '/images/reviews/this-is-spinal-tap/backdrop.webp'
-heroAlt: 'A still from This Is Spinal Tap (1984)'
+heroAlt: 'Harry Shearer, Michael McKean and Christopher Guest as a heavy metal band posed under lightning.'
 ---
 
 Been rewatching a ton of Christopher Guest movies recently. I LOVED this movie when i was in HS and today i see the influence on the Guitar Hero franchise. 🎸

@@ -24,7 +24,7 @@ description: 'I still like Titan A.E. more, but Treasure Planet makes me nostalg
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/treasure-planet/'
 poster: '/images/reviews/treasure-planet/poster.webp'
 heroImage: '/images/reviews/treasure-planet/backdrop.webp'
-heroAlt: 'A still from Treasure Planet (2002)'
+heroAlt: 'An animated boy standing on the bow of a sailing ship above a planet, looking out at a glowing nebula.'
 ---
 
 I still like Titan A.E. more, but Treasure Planet makes me nostalgic for when Disney took wild swings with animated sci-fi.

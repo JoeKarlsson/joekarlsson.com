@@ -24,7 +24,7 @@ description: 'The only character growth in this movie is that Mando let Grogu pu
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-mandalorian-and-grogu/'
 poster: '/images/reviews/the-mandalorian-and-grogu/poster.webp'
 heroImage: '/images/reviews/the-mandalorian-and-grogu/backdrop.webp'
-heroAlt: 'A still from The Mandalorian and Grogu (2026)'
+heroAlt: 'A Mandalorian in a silver helmet with Grogu peeking over his shoulder under a stormy sky.'
 ---
 
 The only character growth in this movie is that Mando let Grogu push the hyperspace button. Who cares??? This felt like the Seinfeld of Star Wars movies - nothing happens, nobody changes.

@@ -24,7 +24,7 @@ description: 'If you’ve ever wondered what A Simple Plan would look like if it
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-ice-harvest/'
 poster: '/images/reviews/the-ice-harvest/poster.webp'
 heroImage: '/images/reviews/the-ice-harvest/backdrop.webp'
-heroAlt: 'A still from The Ice Harvest (2005)'
+heroAlt: "John Cusack smiling at Connie Nielsen across a bar strung with Christmas lights and New Year's party signs."
 ---
 
 If you’ve ever wondered what A Simple Plan would look like if it was directed by Harold Ramis, this is probably as close as you’re gonna get

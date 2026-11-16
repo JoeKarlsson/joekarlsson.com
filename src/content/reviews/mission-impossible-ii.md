@@ -29,7 +29,7 @@ description: "I love TC's hair and the doves and the motorcycle. I don't care fo
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mission-impossible-ii/'
 poster: '/images/reviews/mission-impossible-ii/poster.webp'
 heroImage: '/images/reviews/mission-impossible-ii/backdrop.webp'
-heroAlt: 'A still from Mission: Impossible II (2000)'
+heroAlt: 'Tom Cruise in sunglasses riding a motorcycle straight through a wall of flames.'
 ---
 
 I love TC's hair and the doves and the motorcycle. I don't care for anything else.

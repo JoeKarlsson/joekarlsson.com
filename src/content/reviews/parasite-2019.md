@@ -17,7 +17,7 @@ description: 'Just finished Parasite. I really liked its themes of the impact of
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/parasite-2019/'
 poster: '/images/reviews/parasite-2019/poster.webp'
 heroImage: '/images/reviews/parasite-2019/backdrop.webp'
-heroAlt: 'A still from Parasite (2019)'
+heroAlt: 'Song Kang-ho sitting on the floor of a cramped apartment beside a woman in a tank top.'
 ---
 
 Just finished Parasite. I really liked its themes of the impact of climate change and the impact of the wealth gap. I got big Us vibes from this film. Both are about wealth inequality and use doubles.

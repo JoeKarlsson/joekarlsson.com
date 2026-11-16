@@ -17,7 +17,7 @@ description: 'What a big beautiful boring movie. It’s clear Mann and Lewis rea
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-last-of-the-mohicans-1992/'
 poster: '/images/reviews/the-last-of-the-mohicans-1992/poster.webp'
 heroImage: '/images/reviews/the-last-of-the-mohicans-1992/backdrop.webp'
-heroAlt: 'A still from The Last of the Mohicans (1992)'
+heroAlt: 'Daniel Day-Lewis with long dark hair walking among British redcoat soldiers carrying muskets through a forest.'
 ---
 
 What a big beautiful boring movie. It’s clear Mann and Lewis really put their whole pussies in this movie but it is just a boring slog for me.

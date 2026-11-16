@@ -24,7 +24,7 @@ description: 'I was promised a girl named Friday. There is no girl named Friday.
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/his-girl-friday/'
 poster: '/images/reviews/his-girl-friday/poster.webp'
 heroImage: '/images/reviews/his-girl-friday/backdrop.webp'
-heroAlt: 'A still from His Girl Friday (1940)'
+heroAlt: 'Cary Grant holding two telephones beside Rosalind Russell at a typewriter, in black and white.'
 ---
 
 I was promised a girl named Friday. There is no girl named Friday. I felt lied to, but I forgive them.

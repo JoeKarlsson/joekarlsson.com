@@ -16,7 +16,7 @@ description: 'I have a major soft spot in my heart for early 2000s digital docum
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-smashing-machine/'
 poster: '/images/reviews/the-smashing-machine/poster.webp'
 heroImage: '/images/reviews/the-smashing-machine/backdrop.webp'
-heroAlt: 'A still from The Smashing Machine (2002)'
+heroAlt: 'Mark Kerr, shirtless and sweaty, wearing a gold medal under a string of lights.'
 ---
 
 I have a major soft spot in my heart for early 2000s digital documentaries. You can tell the recording technology was not quite there yet, but it adds an intimacy and rawness to the footage that I deeply appreciate.

@@ -17,7 +17,7 @@ description: 'I had a blast watching this movie. Legit super fun.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dolemite/'
 poster: '/images/reviews/dolemite/poster.webp'
 heroImage: '/images/reviews/dolemite/backdrop.webp'
-heroAlt: 'A still from Dolemite (1975)'
+heroAlt: 'Rudy Ray Moore in a cream suit with purple trim and a wide-brimmed hat, standing among a group of men on a street.'
 ---
 
 I had a blast watching this movie. Legit super fun.

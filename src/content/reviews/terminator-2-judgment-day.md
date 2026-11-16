@@ -24,7 +24,7 @@ description: 'A yearn to be as good as a father as the Terminator.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/terminator-2-judgment-day/'
 poster: '/images/reviews/terminator-2-judgment-day/poster.webp'
 heroImage: '/images/reviews/terminator-2-judgment-day/backdrop.webp'
-heroAlt: 'A still from Terminator 2: Judgment Day (1991)'
+heroAlt: 'Arnold Schwarzenegger in dark sunglasses and a leather jacket on a motorcycle, a shotgun raised beside him in blue light.'
 ---
 
 A yearn to be as good as a father as the Terminator.

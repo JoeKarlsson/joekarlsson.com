@@ -25,7 +25,7 @@ description: 'Y Tu Mamá También with neon, road rage, and a body count.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-doom-generation/'
 poster: '/images/reviews/the-doom-generation/poster.webp'
 heroImage: '/images/reviews/the-doom-generation/backdrop.webp'
-heroAlt: 'A still from The Doom Generation (1995)'
+heroAlt: 'Rose McGowan reclining on a bed with a red and black checkered pattern, bathed in red light.'
 ---
 
 [Y Tu Mamá También](/reviews/y-tu-mama-tambien/) with neon, road rage, and a body count.

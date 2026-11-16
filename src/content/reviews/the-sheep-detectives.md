@@ -24,7 +24,7 @@ description: 'Paddington fans, assemble.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-sheep-detectives/'
 poster: '/images/reviews/the-sheep-detectives/poster.webp'
 heroImage: '/images/reviews/the-sheep-detectives/backdrop.webp'
-heroAlt: 'A still from The Sheep Detectives (2026)'
+heroAlt: "Hugh Jackman kneeling in a grassy field to stroke a sheep's head."
 ---
 
 Paddington fans, assemble.

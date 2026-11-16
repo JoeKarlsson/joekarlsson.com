@@ -24,7 +24,7 @@ description: "I love Vince Vaughn's later-career pivot to embracing how massive 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/freaky/'
 poster: '/images/reviews/freaky/poster.webp'
 heroImage: '/images/reviews/freaky/backdrop.webp'
-heroAlt: 'A still from Freaky (2020)'
+heroAlt: 'Kathryn Newton in a red leather jacket walking down a crowded school hallway with three friends.'
 ---
 
 I love Vince Vaughn's later-career pivot to embracing how massive his body is and how physically intimidating he can be. Brawl in Cell Block 99 is a great example of that energy, but Freaky lets him thread an even more impressive needle - being physically terrifying while simultaneously playing a cute teenage girl trapped in his enormous frame.

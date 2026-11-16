@@ -17,7 +17,7 @@ description: 'Honestly, a sweet little romance that is animated so incredibly we
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/chainsaw-man-the-movie-reze-arc/'
 poster: '/images/reviews/chainsaw-man-the-movie-reze-arc/poster.webp'
 heroImage: '/images/reviews/chainsaw-man-the-movie-reze-arc/backdrop.webp'
-heroAlt: 'A still from Chainsaw Man – The Movie: Reze Arc (2025)'
+heroAlt: 'An anime hero with a chainsaw for a head and chainsaws for arms riding a large shark through orange sparks.'
 ---
 
 Honestly, a sweet little romance that is animated so incredibly well.

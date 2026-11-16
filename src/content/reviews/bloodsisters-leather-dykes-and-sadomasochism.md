@@ -23,7 +23,7 @@ description: "Liberation that only covers the respectable parts of queer life do
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bloodsisters-leather-dykes-and-sadomasochism/'
 poster: '/images/reviews/bloodsisters-leather-dykes-and-sadomasochism/poster.webp'
 heroImage: '/images/reviews/bloodsisters-leather-dykes-and-sadomasochism/backdrop.webp'
-heroAlt: 'A still from BloodSisters: Leather, Dykes, and Sadomasochism (1995)'
+heroAlt: 'A shirtless person with short hair, an earring and a chain necklace, a bandana-wrapped strap held against their mouth, lit in deep blue.'
 ---
 
 Liberation that only covers the respectable parts of queer life doesn't count, and BloodSisters is 69 minutes of proof.

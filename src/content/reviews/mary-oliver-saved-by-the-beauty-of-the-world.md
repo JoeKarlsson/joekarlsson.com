@@ -24,7 +24,7 @@ description: 'Here is a film about a woman who taught a whole country how to kne
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mary-oliver-saved-by-the-beauty-of-the-world/'
 poster: '/images/reviews/mary-oliver-saved-by-the-beauty-of-the-world/poster.webp'
 heroImage: '/images/reviews/mary-oliver-saved-by-the-beauty-of-the-world/backdrop.webp'
-heroAlt: 'A still from Mary Oliver: Saved by the Beauty of the World (2026)'
+heroAlt: 'A smiling young woman in a white shirt and jeans sitting in a striped hammock in a leafy yard, holding a book.'
 ---
 
 Here is a film about a woman

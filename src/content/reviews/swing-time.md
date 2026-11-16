@@ -24,7 +24,7 @@ description: 'Fun and funny film with sharp dancing. The black face dance number
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/swing-time/'
 poster: '/images/reviews/swing-time/poster.webp'
 heroImage: '/images/reviews/swing-time/backdrop.webp'
-heroAlt: 'A still from Swing Time (1936)'
+heroAlt: 'Ginger Rogers in a feathered hat and Fred Astaire with a white carnation, both grinning, in black and white.'
 ---
 
 Fun and funny film with sharp dancing. The black face dance number at the end really killed my vibe though.

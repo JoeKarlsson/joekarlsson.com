@@ -24,7 +24,7 @@ description: 'The third act of this film is unhinged, and so dark. But I really 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/heavyweights/'
 poster: '/images/reviews/heavyweights/poster.webp'
 heroImage: '/images/reviews/heavyweights/backdrop.webp'
-heroAlt: 'A still from Heavyweights (1995)'
+heroAlt: 'Boys in a wooden summer-camp cabin crowding around a counselor holding a handheld game, one leaning from a top bunk.'
 ---
 
 The third act of this film is unhinged, and so dark. But I really do love the first two acts of this film. It’s a fun summer camp movie! That third act is why it’s a two.

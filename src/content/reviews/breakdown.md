@@ -17,7 +17,7 @@ description: "Super taut, underrated and action-packed thriller. It's minimalist
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/breakdown/'
 poster: '/images/reviews/breakdown/poster.webp'
 heroImage: '/images/reviews/breakdown/backdrop.webp'
-heroAlt: 'A still from Breakdown (1997)'
+heroAlt: 'Kurt Russell clinging with both hands to the side of a moving truck, grimacing.'
 ---
 
 Super taut, underrated and action-packed thriller. It's minimalist and fun and reminded me so much of Spielberg's debut, Duel. Russell's great in it. They don't make these city slicker anxiety movies like they used to. Like Deliverance, you know what I'm talking about.

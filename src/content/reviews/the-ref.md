@@ -24,7 +24,7 @@ description: 'What if Home Alone and The Birdcage had a baby?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-ref/'
 poster: '/images/reviews/the-ref/poster.webp'
 heroImage: '/images/reviews/the-ref/backdrop.webp'
-heroAlt: 'A still from The Ref (1994)'
+heroAlt: 'Denis Leary pointing a pistol at a man and a woman tied with scarves and rope to a four-poster bed.'
 ---
 
 What if Home Alone and The Birdcage had a baby?

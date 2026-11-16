@@ -24,7 +24,7 @@ description: 'Can someone explain that Bear Furry blowing that guy please?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-shining/'
 poster: '/images/reviews/the-shining/poster.webp'
 heroImage: '/images/reviews/the-shining/backdrop.webp'
-heroAlt: 'A still from The Shining (1980)'
+heroAlt: 'Danny Lloyd playing with toy cars on an orange and red hexagon-patterned carpet, seen from above.'
 ---
 
 Can someone explain that Bear Furry blowing that guy please?

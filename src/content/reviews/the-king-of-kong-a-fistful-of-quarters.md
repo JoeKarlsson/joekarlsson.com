@@ -16,7 +16,7 @@ description: '"Hey guys, Donkey Kong kill screen coming up..."'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-king-of-kong-a-fistful-of-quarters/'
 poster: '/images/reviews/the-king-of-kong-a-fistful-of-quarters/poster.webp'
 heroImage: '/images/reviews/the-king-of-kong-a-fistful-of-quarters/backdrop.webp'
-heroAlt: 'A still from The King of Kong: A Fistful of Quarters (2007)'
+heroAlt: 'Steve Wiebe drawing on the screen of a Donkey Kong Junior arcade cabinet with a marker.'
 ---
 
 "Hey guys, Donkey Kong kill screen coming up..."

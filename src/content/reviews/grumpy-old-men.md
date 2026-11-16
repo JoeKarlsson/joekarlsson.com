@@ -24,7 +24,7 @@ description: 'Wabasha representation. Saint Paul representation. Sauna represent
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/grumpy-old-men/'
 poster: '/images/reviews/grumpy-old-men/poster.webp'
 heroImage: '/images/reviews/grumpy-old-men/backdrop.webp'
-heroAlt: 'A still from Grumpy Old Men (1993)'
+heroAlt: 'Jack Lemmon in a knit cap and Walter Matthau in a plaid hunting cap standing outside in the snow.'
 ---
 
 Wabasha representation. Saint Paul representation. Sauna representation.

@@ -24,7 +24,7 @@ description: 'I watched every film on the AFI top 100, and can confirm, This Is 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/citizen-kane/'
 poster: '/images/reviews/citizen-kane/poster.webp'
 heroImage: '/images/reviews/citizen-kane/backdrop.webp'
-heroAlt: 'A still from Citizen Kane (1941)'
+heroAlt: 'Orson Welles in a pinstripe suit and hat standing among piles of bundled newspapers, in black and white.'
 ---
 
 I watched every film on the AFI top 100, and can confirm, This Is The best film on that list

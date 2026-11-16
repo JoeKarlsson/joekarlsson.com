@@ -16,7 +16,7 @@ description: 'The scandal of The Last Temptation of Christ is that it takes the 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-last-temptation-of-christ/'
 poster: '/images/reviews/the-last-temptation-of-christ/poster.webp'
 heroImage: '/images/reviews/the-last-temptation-of-christ/backdrop.webp'
-heroAlt: 'A still from The Last Temptation of Christ (1988)'
+heroAlt: 'Willem Dafoe looking up in a crowd of bearded men, with Harvey Keitel at his side.'
 ---
 
 The scandal of The Last Temptation of Christ is that it takes the creed at its word: fully God, and also fully a man.

@@ -31,7 +31,7 @@ description: 'Stagecoach for former political prisoners.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/it-was-just-an-accident/'
 poster: '/images/reviews/it-was-just-an-accident/poster.webp'
 heroImage: '/images/reviews/it-was-just-an-accident/backdrop.webp'
-heroAlt: 'A still from It Was Just an Accident (2025)'
+heroAlt: 'A man in a blue T-shirt standing near a man and a bride in a white gown seated at the back of an open van in the desert.'
 ---
 
 Stagecoach for former political prisoners.

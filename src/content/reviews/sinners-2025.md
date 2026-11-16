@@ -24,7 +24,7 @@ description: 'The juke scene moved me to tears. I loved the lore and I’m still
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sinners-2025/'
 poster: '/images/reviews/sinners-2025/poster.webp'
 heroImage: '/images/reviews/sinners-2025/backdrop.webp'
-heroAlt: 'A still from Sinners (2025)'
+heroAlt: 'Two men in hats seen in silhouette against a dark, cloudy sky as the sun sets low on the horizon.'
 ---
 
 The juke scene moved me to tears. I loved the lore and I’m still chewing on the themes days later. Loved it.

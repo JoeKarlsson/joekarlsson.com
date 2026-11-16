@@ -18,7 +18,7 @@ description: 'The jokes that I laughed at while watching this movie are between 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scary-movie-2000/'
 poster: '/images/reviews/scary-movie-2000/poster.webp'
 heroImage: '/images/reviews/scary-movie-2000/backdrop.webp'
-heroAlt: 'A still from Scary Movie (2000)'
+heroAlt: 'Regina Hall, a red-haired woman in a blue floral top and Anna Faris posing arm in arm on crowded campus steps.'
 ---
 
 The jokes that I laughed at while watching this movie are between me and God. I will never reveal this information to anyone ever.

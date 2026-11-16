@@ -24,7 +24,7 @@ description: "What incredible ending. If you're not sold on Timmy after watching
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dune-part-two/'
 poster: '/images/reviews/dune-part-two/poster.webp'
 heroImage: '/images/reviews/dune-part-two/backdrop.webp'
-heroAlt: 'A still from Dune: Part Two (2024)'
+heroAlt: 'Poster art of Timothée Chalamet, Zendaya and the cast stacked over a blazing orange desert, with a sandworm in the dust below.'
 ---
 
 What incredible ending. If you're not sold on Timmy after watching this movie, I don't know what to tell you.

@@ -24,7 +24,7 @@ description: 'The Age of Disclosure discloses nothing.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-age-of-disclosure/'
 poster: '/images/reviews/the-age-of-disclosure/poster.webp'
 heroImage: '/images/reviews/the-age-of-disclosure/backdrop.webp'
-heroAlt: 'A still from The Age of Disclosure (2025)'
+heroAlt: "Silhouetted sailors in an aircraft carrier's hangar bay, with a propeller plane and a fighter jet parked outside against a dim sky."
 ---
 
 The Age of Disclosure discloses nothing.

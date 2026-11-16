@@ -25,7 +25,7 @@ description: 'Peak 90s irony.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-brady-bunch-movie/'
 poster: '/images/reviews/the-brady-bunch-movie/poster.webp'
 heroImage: '/images/reviews/the-brady-bunch-movie/backdrop.webp'
-heroAlt: 'A still from The Brady Bunch Movie (1995)'
+heroAlt: 'Six kids in 1970s clothes sitting in a row on a floral couch in a wood-paneled living room.'
 ---
 
 Peak 90s irony.

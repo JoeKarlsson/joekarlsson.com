@@ -24,7 +24,7 @@ description: "Catherine O'Hara carries the emotional weight of this entire film.
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/a-mighty-wind/'
 poster: '/images/reviews/a-mighty-wind/poster.webp'
 heroImage: '/images/reviews/a-mighty-wind/backdrop.webp'
-heroAlt: 'A still from A Mighty Wind (2003)'
+heroAlt: 'Four folk singers in matching blue and yellow outfits singing at microphones on a stage, holding guitars and a mandolin.'
 ---
 
 Catherine O'Hara carries the emotional weight of this entire film. Of course she does.

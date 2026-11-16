@@ -16,7 +16,7 @@ description: "Features the hot priest from Fleabag along with a brand new hot pr
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wake-up-dead-man/'
 poster: '/images/reviews/wake-up-dead-man/poster.webp'
 heroImage: '/images/reviews/wake-up-dead-man/backdrop.webp'
-heroAlt: 'A still from Wake Up Dead Man (2025)'
+heroAlt: "Josh O'Connor and Daniel Craig sitting in the front seat of a car at night."
 ---
 
 Features the hot priest from Fleabag along with a brand new hot priest. That's incredible hot priest value!

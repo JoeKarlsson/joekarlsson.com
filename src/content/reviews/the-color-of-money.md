@@ -24,7 +24,7 @@ description: 'Answers the question, what if John Wick and Marty Supreme had a ba
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-color-of-money/'
 poster: '/images/reviews/the-color-of-money/poster.webp'
 heroImage: '/images/reviews/the-color-of-money/backdrop.webp'
-heroAlt: 'A still from The Color of Money (1986)'
+heroAlt: 'Tom Cruise holding a pool cue and Paul Newman in a grey suit sitting side by side in a dim pool hall.'
 ---
 
 Answers the question, what if John Wick and [Marty Supreme](/reviews/marty-supreme/) had a baby?

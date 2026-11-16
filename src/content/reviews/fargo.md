@@ -24,7 +24,7 @@ description: 'I’m from Minnesota. Of course I think this is a perfect movie'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/fargo/'
 poster: '/images/reviews/fargo/poster.webp'
 heroImage: '/images/reviews/fargo/backdrop.webp'
-heroAlt: 'A still from Fargo (1996)'
+heroAlt: 'Frances McDormand in a fur police hat and parka, aiming a pistol in snowy woods beside a frozen lake.'
 ---
 
 I’m from Minnesota. Of course I think this is a perfect movie

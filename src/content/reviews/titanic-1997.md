@@ -31,7 +31,7 @@ description: 'When I was seven, I thought this movie was dumb and for girls. I w
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/titanic-1997/'
 poster: '/images/reviews/titanic-1997/poster.webp'
 heroImage: '/images/reviews/titanic-1997/backdrop.webp'
-heroAlt: 'A still from Titanic (1997)'
+heroAlt: 'The Titanic steaming across the sea with its lights on under an orange sunset.'
 ---
 
 When I was seven, I thought this movie was dumb and for girls. I was so wrong. This is a masta piece. Did you know this movie was really really good guys?

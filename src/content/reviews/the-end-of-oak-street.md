@@ -24,7 +24,7 @@ description: 'David Robert Mitchell went from It Follows to Under the Silver Lak
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-end-of-oak-street/'
 poster: '/images/reviews/the-end-of-oak-street/poster.webp'
 heroImage: '/images/reviews/the-end-of-oak-street/backdrop.webp'
-heroAlt: 'A still from The End of Oak Street (2026)'
+heroAlt: 'Ewan McGregor and Anne Hathaway in the front seat of an old car, two children squeezed between them, staring ahead.'
 ---
 
 David Robert Mitchell went from It Follows to Under the Silver Lake to brontosaurus sex, and honestly, good for him.

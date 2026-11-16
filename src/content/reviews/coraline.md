@@ -24,7 +24,7 @@ description: 'I wish I could see this in 3D for real'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/coraline/'
 poster: '/images/reviews/coraline/poster.webp'
 heroImage: '/images/reviews/coraline/backdrop.webp'
-heroAlt: 'A still from Coraline (2009)'
+heroAlt: 'A stop-motion girl with blue hair, a green sweater and gloves standing in a garden of pink blossom trees.'
 ---
 
 I wish I could see this in 3D for real

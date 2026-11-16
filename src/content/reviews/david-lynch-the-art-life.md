@@ -16,7 +16,7 @@ description: 'A documentary about becoming an artist through pain, struggle, and
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/david-lynch-the-art-life/'
 poster: '/images/reviews/david-lynch-the-art-life/poster.webp'
 heroImage: '/images/reviews/david-lynch-the-art-life/backdrop.webp'
-heroAlt: 'A still from David Lynch: The Art Life (2016)'
+heroAlt: 'David Lynch with white hair smoking a cigarette in a cluttered art studio.'
 ---
 
 A documentary about becoming an artist through pain, struggle, and dead animals.

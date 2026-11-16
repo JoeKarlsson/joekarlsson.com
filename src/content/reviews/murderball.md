@@ -16,7 +16,7 @@ description: 'Joe is one of the most interesting documentary subjects ever.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/murderball/'
 poster: '/images/reviews/murderball/poster.webp'
 heroImage: '/images/reviews/murderball/backdrop.webp'
-heroAlt: 'A still from Murderball (2005)'
+heroAlt: 'Mark Zupan leaning forward in a wheelchair rugby chair with a ball in his lap, other players closing in on a gym court.'
 ---
 
 Joe is one of the most interesting documentary subjects ever.

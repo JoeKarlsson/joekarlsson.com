@@ -24,7 +24,7 @@ description: 'Now I understand where that Fatboy slim sample from “Right here,
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/strange-days/'
 poster: '/images/reviews/strange-days/poster.webp'
 heroImage: '/images/reviews/strange-days/backdrop.webp'
-heroAlt: 'A still from Strange Days (1995)'
+heroAlt: 'Angela Bassett holding up a wounded Ralph Fiennes in front of a painted sign reading "Open 10".'
 ---
 
 Now I understand where that Fatboy slim sample from “Right here, right now” comes from!!

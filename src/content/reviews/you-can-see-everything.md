@@ -24,7 +24,7 @@ description: 'Nathan Fielder fans, this is our Super Bowl.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/you-can-see-everything/'
 poster: '/images/reviews/you-can-see-everything/poster.webp'
 heroImage: '/images/reviews/you-can-see-everything/backdrop.webp'
-heroAlt: 'A still from You Can See Everything (2026)'
+heroAlt: 'A smiling woman opens a package in a kitchen as a child and a man look on.'
 ---
 
 Nathan Fielder fans, this is our Super Bowl.

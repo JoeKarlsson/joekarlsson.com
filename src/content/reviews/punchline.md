@@ -16,7 +16,7 @@ description: 'Sally Field putting together dinner is funnier than every comedy m
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/punchline/'
 poster: '/images/reviews/punchline/poster.webp'
 heroImage: '/images/reviews/punchline/backdrop.webp'
-heroAlt: 'A still from Punchline (1988)'
+heroAlt: 'Sally Field and Tom Hanks talking face to face on a city sidewalk under elevated train stairs.'
 ---
 
 Sally Field putting together dinner is funnier than every comedy montage in this film combined.

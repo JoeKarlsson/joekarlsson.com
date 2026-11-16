@@ -22,7 +22,7 @@ description: 'I cried when the roadrunner said, "beep beep." 🥹'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/coyote-vs-acme/'
 poster: '/images/reviews/coyote-vs-acme/poster.webp'
 heroImage: '/images/reviews/coyote-vs-acme/backdrop.webp'
-heroAlt: 'A still from Coyote vs. Acme (2026)'
+heroAlt: 'Lana Condor and Will Forte sitting in a red car with the cartoon Wile E. Coyote squeezed between them.'
 ---
 
 I cried when the roadrunner said, "beep beep." 🥹

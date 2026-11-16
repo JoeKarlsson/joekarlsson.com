@@ -17,7 +17,7 @@ description: "Super funny and cute. I'll for sure be showing this delightful fil
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wallace-gromit-vengeance-most-fowl/'
 poster: '/images/reviews/wallace-gromit-vengeance-most-fowl/poster.webp'
 heroImage: '/images/reviews/wallace-gromit-vengeance-most-fowl/backdrop.webp'
-heroAlt: 'A still from Wallace & Gromit: Vengeance Most Fowl (2024)'
+heroAlt: 'Wallace holding a flashlight with Gromit and a garden gnome robot outside a building marked "MUSEUM" at night.'
 ---
 
 Super funny and cute. I'll for sure be showing this delightful film to the kids in my life

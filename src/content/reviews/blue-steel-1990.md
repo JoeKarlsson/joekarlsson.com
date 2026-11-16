@@ -24,7 +24,7 @@ description: 'ACAB includes Jamie Lee Curtis in Blue Steel.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/blue-steel-1990/'
 poster: '/images/reviews/blue-steel-1990/poster.webp'
 heroImage: '/images/reviews/blue-steel-1990/backdrop.webp'
-heroAlt: 'A still from Blue Steel (1990)'
+heroAlt: 'Jamie Lee Curtis in a police cap and uniform raising a white-gloved hand to take an oath beside other cadets.'
 ---
 
 ACAB includes Jamie Lee Curtis in Blue Steel.

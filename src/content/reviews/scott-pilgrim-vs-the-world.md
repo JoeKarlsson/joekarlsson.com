@@ -24,7 +24,7 @@ description: "Unfortunately, this movie captures what it's like to date in your 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scott-pilgrim-vs-the-world/'
 poster: '/images/reviews/scott-pilgrim-vs-the-world/poster.webp'
 heroImage: '/images/reviews/scott-pilgrim-vs-the-world/backdrop.webp'
-heroAlt: 'A still from Scott Pilgrim vs. the World (2010)'
+heroAlt: 'Michael Cera in a red T-shirt with arms crossed, surrounded by Mary Elizabeth Winstead with pink hair and five posing rivals in slanted panels.'
 ---
 
 Unfortunately, this movie captures what it's like to date in your 20s.

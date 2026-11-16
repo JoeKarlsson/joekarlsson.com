@@ -24,7 +24,7 @@ description: "They don't let kids be mean in movies anymore and we are worse for
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-bad-news-bears/'
 poster: '/images/reviews/the-bad-news-bears/poster.webp'
 heroImage: '/images/reviews/the-bad-news-bears/backdrop.webp'
-heroAlt: 'A still from The Bad News Bears (1976)'
+heroAlt: 'Walter Matthau and young players in Bears uniforms yelling from behind a chain-link dugout fence.'
 ---
 
 They don't let kids be mean in movies anymore and we are worse for it.

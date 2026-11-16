@@ -24,7 +24,7 @@ description: 'So stressful and so much fun!'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/uncut-gems/'
 poster: '/images/reviews/uncut-gems/poster.webp'
 heroImage: '/images/reviews/uncut-gems/backdrop.webp'
-heroAlt: 'A still from Uncut Gems (2019)'
+heroAlt: 'Adam Sandler in a leather jacket and glasses gesturing on a busy city street.'
 ---
 
 So stressful and so much fun!

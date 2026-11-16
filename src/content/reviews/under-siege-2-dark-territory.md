@@ -25,7 +25,7 @@ description: 'Super fun dumb 90s action movie that does not quite hit the highs 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/under-siege-2-dark-territory/'
 poster: '/images/reviews/under-siege-2-dark-territory/poster.webp'
 heroImage: '/images/reviews/under-siege-2-dark-territory/backdrop.webp'
-heroAlt: 'A still from Under Siege 2: Dark Territory (1995)'
+heroAlt: 'Steven Seagal and a young woman sitting in an ornate train car among other passengers.'
 ---
 
 Super fun dumb 90s action movie that does not quite hit the highs of the best Steven Seagal movie.

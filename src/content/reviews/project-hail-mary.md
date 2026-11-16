@@ -24,7 +24,7 @@ description: 'Big beautiful dad movie. I laughed. I cried. I cheered.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/project-hail-mary/'
 poster: '/images/reviews/project-hail-mary/poster.webp'
 heroImage: '/images/reviews/project-hail-mary/backdrop.webp'
-heroAlt: 'A still from Project Hail Mary (2026)'
+heroAlt: 'Ryan Gosling in a "Horse Shoe Bend" T-shirt floating near a round window inside a spacecraft, looking up.'
 ---
 
 Big beautiful dad movie. I laughed. I cried. I cheered.

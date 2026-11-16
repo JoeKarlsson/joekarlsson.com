@@ -24,7 +24,7 @@ description: "I put this on because I'm a native Minnesotan who's been to Northf
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-great-northfield-minnesota-raid/'
 poster: '/images/reviews/the-great-northfield-minnesota-raid/poster.webp'
 heroImage: '/images/reviews/the-great-northfield-minnesota-raid/backdrop.webp'
-heroAlt: 'A still from The Great Northfield Minnesota Raid (1972)'
+heroAlt: 'Four outlaws in dusters and hats riding horses down a muddy small-town street hung with flags.'
 ---
 
 I put this on because I'm a native Minnesotan who's been to Northfield many times, even for Jesse James Days, which are documented in this film. But honestly? I just don't love 70s auteur filmmaking, and this might be a perfect example of the insane amount of freedom these directors were given in that era - and then did absolutely nothing with it.

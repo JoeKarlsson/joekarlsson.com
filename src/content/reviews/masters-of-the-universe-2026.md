@@ -24,7 +24,7 @@ description: 'The Barbie movie for boys.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/masters-of-the-universe-2026/'
 poster: '/images/reviews/masters-of-the-universe-2026/poster.webp'
 heroImage: '/images/reviews/masters-of-the-universe-2026/backdrop.webp'
-heroAlt: 'A still from Masters of the Universe (2026)'
+heroAlt: 'A muscular, bare-chested warrior in a leather bracer gripping the hilt of a huge silver sword in the dark.'
 ---
 
 The Barbie movie for boys.

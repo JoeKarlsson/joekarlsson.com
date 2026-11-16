@@ -24,7 +24,7 @@ description: 'Glinda and Elpheba friends? Friends of Dorothy maybe'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wicked-for-good/'
 poster: '/images/reviews/wicked-for-good/poster.webp'
 heroImage: '/images/reviews/wicked-for-good/backdrop.webp'
-heroAlt: 'A still from Wicked: For Good (2025)'
+heroAlt: 'Cynthia Erivo as a green-skinned witch, Ariana Grande in a pale blue gown and others posed in an emerald city.'
 ---
 
 Glinda and Elpheba friends? Friends of Dorothy maybe

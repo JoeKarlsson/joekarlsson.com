@@ -16,7 +16,7 @@ description: 'Bonnie and Clyde for the gays. Made in the year AIDS became the nu
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-living-end/'
 poster: '/images/reviews/the-living-end/poster.webp'
 heroImage: '/images/reviews/the-living-end/backdrop.webp'
-heroAlt: 'A still from The Living End (1992)'
+heroAlt: 'Two men seen from behind, sitting close together on a desert hill at sunset.'
 ---
 
 Bonnie and Clyde for the gays. Made in the year AIDS became the number one killer of young American men.

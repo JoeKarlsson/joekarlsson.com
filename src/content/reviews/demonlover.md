@@ -34,7 +34,7 @@ description: 'Hentai Cyberpunk Michael Clayton.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/demonlover/'
 poster: '/images/reviews/demonlover/poster.webp'
 heroImage: '/images/reviews/demonlover/backdrop.webp'
-heroAlt: 'A still from Demonlover (2002)'
+heroAlt: 'Connie Nielsen with short dark hair looking warily toward the camera.'
 ---
 
 Hentai Cyberpunk [Michael Clayton](/reviews/michael-clayton-2/).

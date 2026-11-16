@@ -25,7 +25,7 @@ description: 'George Bluth Sr: “And that’s why you ALWAYS fight strangers on
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/exit-8/'
 poster: '/images/reviews/exit-8/poster.webp'
 heroImage: '/images/reviews/exit-8/backdrop.webp'
-heroAlt: 'A still from Exit 8 (2025)'
+heroAlt: 'A smiling man in a white shirt standing in a white-tiled subway corridor under a yellow "Exit 8" sign.'
 ---
 
 George Bluth Sr: “And that’s why you ALWAYS fight strangers on the Subway”

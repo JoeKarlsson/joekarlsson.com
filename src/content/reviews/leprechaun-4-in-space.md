@@ -24,7 +24,7 @@ description: "Oh yeah, it was so bad it's good. Definitely self aware though. If
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/leprechaun-4-in-space/'
 poster: '/images/reviews/leprechaun-4-in-space/poster.webp'
 heroImage: '/images/reviews/leprechaun-4-in-space/backdrop.webp'
-heroAlt: 'A still from Leprechaun 4: In Space (1996)'
+heroAlt: 'The leprechaun in a green top hat leaning over a woman lying unconscious on a lab table aboard a spaceship.'
 ---
 
 Oh yeah, it was so bad it's good. Definitely self aware though. If you're into campy horror it's a 10/10

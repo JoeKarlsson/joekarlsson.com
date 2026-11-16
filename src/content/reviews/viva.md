@@ -17,7 +17,7 @@ description: 'The women in my life have better taste than me. Anna Biller is exh
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/viva/'
 poster: '/images/reviews/viva/poster.webp'
 heroImage: '/images/reviews/viva/backdrop.webp'
-heroAlt: 'A still from Viva (2007)'
+heroAlt: 'A man in an orange shirt photographing a woman posing in a red, 1970s-style room hung with paintings.'
 ---
 
 The women in my life have better taste than me. Anna Biller is exhibit A.

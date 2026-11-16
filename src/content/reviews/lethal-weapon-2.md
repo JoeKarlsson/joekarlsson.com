@@ -17,7 +17,7 @@ description: 'This is definitely a sequel to one of the best buddy cop films of 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/lethal-weapon-2/'
 poster: '/images/reviews/lethal-weapon-2/poster.webp'
 heroImage: '/images/reviews/lethal-weapon-2/backdrop.webp'
-heroAlt: 'A still from Lethal Weapon 2 (1989)'
+heroAlt: 'Mel Gibson and Danny Glover aiming pistols side by side outdoors.'
 ---
 
 This is definitely a sequel to one of the best buddy cop films of all time. Definitely. Definitely.

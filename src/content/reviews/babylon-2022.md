@@ -23,7 +23,7 @@ description: 'I initially avoided Babylon when it came out because I heard terri
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/babylon-2022/'
 poster: '/images/reviews/babylon-2022/poster.webp'
 heroImage: '/images/reviews/babylon-2022/backdrop.webp'
-heroAlt: 'A still from Babylon (2022)'
+heroAlt: 'Margot Robbie in a red dress with a cigarette in her mouth, arms spread, leaning back against a large ornate disc.'
 ---
 
 I initially avoided Babylon when it came out because I heard terrible things about it. But having finally watched it for the first time, I deeply regret not seeing this in IMAX.

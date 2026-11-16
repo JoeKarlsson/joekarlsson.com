@@ -16,7 +16,7 @@ description: 'The theme for kids (and adults): get off your fucking iPads and ge
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/toy-story-5/'
 poster: '/images/reviews/toy-story-5/poster.webp'
 heroImage: '/images/reviews/toy-story-5/backdrop.webp'
-heroAlt: 'A still from Toy Story 5 (2026)'
+heroAlt: 'Jessie, Buzz Lightyear and Woody standing together in front of shelves of toys.'
 ---
 
 The theme for kids (and adults): get off your fucking iPads and get outside.

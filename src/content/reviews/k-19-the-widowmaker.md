@@ -34,7 +34,7 @@ description: "This movie was boring and slightly derivative (they basically did 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/k-19-the-widowmaker/'
 poster: '/images/reviews/k-19-the-widowmaker/poster.webp'
 heroImage: '/images/reviews/k-19-the-widowmaker/backdrop.webp'
-heroAlt: 'A still from K-19: The Widowmaker (2002)'
+heroAlt: 'Liam Neeson in a dark jacket among sailors crowded into a cramped submarine compartment.'
 ---
 
 This movie was boring and slightly derivative (they basically did the ending of Schindler's list here), but I do commend Bigelow for creating a big budget. Hollywood film about the heroes of the Soviet Union in 2002. That's impressive and I commend her for that. However, it's hard to get past it being a boring slog.

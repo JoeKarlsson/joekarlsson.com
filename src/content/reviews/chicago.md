@@ -24,7 +24,7 @@ description: 'This movie is trying to say something about how the modern judicia
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/chicago/'
 poster: '/images/reviews/chicago/poster.webp'
 heroImage: '/images/reviews/chicago/backdrop.webp'
-heroAlt: 'A still from Chicago (2002)'
+heroAlt: 'Catherine Zeta-Jones with a black bob dancing on stage between a man in a fedora and a woman with matching hair.'
 ---
 
 This movie is trying to say something about how the modern judicial system is just a series of smoke and mirrors meant to entertain the masses. I think along the way it kind of just says, “forget it let’s just have fun,” and honestly, it was fun.

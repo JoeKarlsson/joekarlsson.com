@@ -24,7 +24,7 @@ description: "A film about a lonely movie nerd who snaps and goes on a killing s
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/fade-to-black/'
 poster: '/images/reviews/fade-to-black/poster.webp'
 heroImage: '/images/reviews/fade-to-black/backdrop.webp'
-heroAlt: 'A still from Fade to Black (1980)'
+heroAlt: 'A row of overlapping faces that turns a young man into a mummy, a vampire and other classic movie monsters.'
 ---
 
 A film about a lonely movie nerd who snaps and goes on a killing spree dressed as classic Hollywood icons. I've never felt more seen. Minus the murders.

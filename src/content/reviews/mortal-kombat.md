@@ -24,7 +24,7 @@ description: 'That Halcyon On and On needle drop. So fucking good.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mortal-kombat/'
 poster: '/images/reviews/mortal-kombat/poster.webp'
 heroImage: '/images/reviews/mortal-kombat/backdrop.webp'
-heroAlt: 'A still from Mortal Kombat (1995)'
+heroAlt: 'Robin Shou facing a fighter in a blue ninja suit and mask in a fighting stance amid thick fog.'
 ---
 
 That Halcyon On and On needle drop. So fucking good.

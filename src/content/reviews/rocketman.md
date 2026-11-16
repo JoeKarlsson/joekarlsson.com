@@ -24,7 +24,7 @@ description: 'This wasn’t the absolute comedy legend I remembered as a kid, bu
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/rocketman/'
 poster: '/images/reviews/rocketman/poster.webp'
 heroImage: '/images/reviews/rocketman/backdrop.webp'
-heroAlt: 'A still from RocketMan (1997)'
+heroAlt: 'Harland Williams in a NASA flight suit with a tube in his mouth, eyes wide.'
 ---
 
 This wasn’t the absolute comedy legend I remembered as a kid, but it’s still got a couple laughs out of me isn’t a full grown 35-year-old adult man

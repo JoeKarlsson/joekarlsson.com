@@ -24,7 +24,7 @@ description: "Ran, don't walk to the cinema to watch this one!"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/ran/'
 poster: '/images/reviews/ran/poster.webp'
 heroImage: '/images/reviews/ran/backdrop.webp'
-heroAlt: 'A still from Ran (1985)'
+heroAlt: 'Samurai on horseback with tall banners charging past a castle gate, fallen soldiers on the ground.'
 ---
 
 Ran, don't walk to the cinema to watch this one!

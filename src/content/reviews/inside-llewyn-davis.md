@@ -24,7 +24,7 @@ description: 'Inside Llewyn Davis captures something true about loser men who mi
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/inside-llewyn-davis/'
 poster: '/images/reviews/inside-llewyn-davis/poster.webp'
 heroImage: '/images/reviews/inside-llewyn-davis/backdrop.webp'
-heroAlt: 'A still from Inside Llewyn Davis (2013)'
+heroAlt: 'Oscar Isaac playing an acoustic guitar into a vintage microphone on a dark stage.'
 ---
 
 Inside Llewyn Davis captures something true about loser men who mistake their self-sabotage for artistic integrity.

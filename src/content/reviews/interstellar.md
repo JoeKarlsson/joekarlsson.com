@@ -24,7 +24,7 @@ description: 'A beautiful audacious film. This worked so much better for me the 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/interstellar/'
 poster: '/images/reviews/interstellar/poster.webp'
 heroImage: '/images/reviews/interstellar/backdrop.webp'
-heroAlt: 'A still from Interstellar (2014)'
+heroAlt: 'Matthew McConaughey in a spacesuit helmet, looking up inside a dark spacecraft.'
 ---
 
 A beautiful audacious film. This worked so much better for me the second time re-watching this film. Also, Matt Damon fulfilled his destiny of being the most punch people on earth.

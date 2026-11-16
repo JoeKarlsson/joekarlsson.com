@@ -17,7 +17,7 @@ description: 'Running on Empty is a surprisingly gentle film given its radical s
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/running-on-empty-1988/'
 poster: '/images/reviews/running-on-empty-1988/poster.webp'
 heroImage: '/images/reviews/running-on-empty-1988/backdrop.webp'
-heroAlt: 'A still from Running on Empty (1988)'
+heroAlt: 'River Phoenix looking down while a man rests a hand on his shoulder.'
 ---
 
 Running on Empty is a surprisingly gentle film given its radical setup. I watched this shortly after [One Battle After Another](/reviews/one-battle-after-another/) and honestly expected something a little more propulsive - but what I got was interesting in a different way.

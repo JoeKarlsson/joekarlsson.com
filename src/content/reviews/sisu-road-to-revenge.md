@@ -17,7 +17,7 @@ description: 'Sisu 2: Fury Road.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sisu-road-to-revenge/'
 poster: '/images/reviews/sisu-road-to-revenge/poster.webp'
 heroImage: '/images/reviews/sisu-road-to-revenge/backdrop.webp'
-heroAlt: 'A still from Sisu: Road to Revenge (2025)'
+heroAlt: 'Jorma Tommila, grey-bearded and grimy, gripping a steering wheel behind a windshield cracked by bullet holes.'
 ---
 
 Sisu 2: Fury Road.

@@ -24,7 +24,7 @@ description: 'A neoliberal nightmare wrapped in gorgeous animation and a Shakira
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/zootopia-2/'
 poster: '/images/reviews/zootopia-2/poster.webp'
 heroImage: '/images/reviews/zootopia-2/backdrop.webp'
-heroAlt: 'A still from Zootopia 2 (2025)'
+heroAlt: 'A fox, a rabbit and a grinning blue snake posing on a wooden boardwalk in a marsh.'
 ---
 
 A neoliberal nightmare wrapped in gorgeous animation and a Shakira bop.

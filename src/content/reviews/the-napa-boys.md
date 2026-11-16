@@ -24,7 +24,7 @@ description: "Stupid in the way I want and rough in the way I don't."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-napa-boys/'
 poster: '/images/reviews/the-napa-boys/poster.webp'
 heroImage: '/images/reviews/the-napa-boys/backdrop.webp'
-heroAlt: 'A still from The Napa Boys (2025)'
+heroAlt: 'A man in a loud shirt walks ahead of an SUV piled with purple grapes on a road lined with white fences.'
 ---
 
 Stupid in the way I want and rough in the way I don't.

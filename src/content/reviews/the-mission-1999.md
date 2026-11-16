@@ -24,7 +24,7 @@ description: 'Just guys being dudes'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-mission-1999/'
 poster: '/images/reviews/the-mission-1999/poster.webp'
 heroImage: '/images/reviews/the-mission-1999/backdrop.webp'
-heroAlt: 'A still from The Mission (1999)'
+heroAlt: 'Five men in a row aiming pistols at a firing range.'
 ---
 
 Just guys being dudes

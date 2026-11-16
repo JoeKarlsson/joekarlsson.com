@@ -30,7 +30,7 @@ description: 'Mid level entertainment - the perfect plane movie.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/draft-day/'
 poster: '/images/reviews/draft-day/poster.webp'
 heroImage: '/images/reviews/draft-day/backdrop.webp'
-heroAlt: 'A still from Draft Day (2014)'
+heroAlt: 'Kevin Costner in a gray suit and tie standing before blurred screens showing NFL and draft logos.'
 ---
 
 Mid level entertainment - the perfect plane movie.

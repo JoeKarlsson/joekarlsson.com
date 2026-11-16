@@ -39,7 +39,7 @@ description: 'Emilia Pérez was bad and self serious and boring. If it held the 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/emilia-perez/'
 poster: '/images/reviews/emilia-perez/poster.webp'
 heroImage: '/images/reviews/emilia-perez/backdrop.webp'
-heroAlt: 'A still from Emilia Pérez (2024)'
+heroAlt: 'Zoe Saldaña in a red suit dancing beside a table of seated dinner guests in a dark room.'
 ---
 
 Emilia Pérez was bad and self serious and boring. If it held the energy of the penis to vagina song for two hours, it would have been an instant camp classic for me.

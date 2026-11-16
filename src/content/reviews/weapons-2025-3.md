@@ -32,7 +32,7 @@ description: 'I was surprised by the amount of Shark Tank in this film.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/weapons-2025/3/'
 poster: '/images/reviews/weapons-2025-3/poster.webp'
 heroImage: '/images/reviews/weapons-2025-3/backdrop.webp'
-heroAlt: 'A still from Weapons (2025)'
+heroAlt: 'Julia Garner lying on a patterned pillow in the dark, staring upward.'
 ---
 
 I was surprised by the amount of Shark Tank in this film.

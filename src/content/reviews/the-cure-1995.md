@@ -24,7 +24,7 @@ description: 'This was filmed near where I grew up (Stillwater, MN), so I was re
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-cure-1995/'
 poster: '/images/reviews/the-cure-1995/poster.webp'
 heroImage: '/images/reviews/the-cure-1995/backdrop.webp'
-heroAlt: 'A still from The Cure (1995)'
+heroAlt: 'Brad Renfro and Joseph Mazzello sitting barefoot on a small raft on a river beside an inflatable alligator.'
 ---
 
 This was filmed near where I grew up (Stillwater, MN), so I was required by law to watch this film.

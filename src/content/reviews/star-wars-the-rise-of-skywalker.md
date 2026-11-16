@@ -16,7 +16,7 @@ description: 'I have nothing original to add to the Star Wars discussion. I thou
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/star-wars-the-rise-of-skywalker/'
 poster: '/images/reviews/star-wars-the-rise-of-skywalker/poster.webp'
 heroImage: '/images/reviews/star-wars-the-rise-of-skywalker/backdrop.webp'
-heroAlt: 'A still from Star Wars: The Rise of Skywalker (2019)'
+heroAlt: 'A figure in a black helmet laced with red cracks and a young woman with her hair in buns crossing red and blue lightsabers.'
 ---
 
 I have nothing original to add to the Star Wars discussion. I thought it was fun, but totally bloated.

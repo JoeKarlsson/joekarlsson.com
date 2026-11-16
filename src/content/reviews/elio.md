@@ -17,7 +17,7 @@ description: 'First Pixar movie I did not cry at!'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/elio/'
 poster: '/images/reviews/elio/poster.webp'
 heroImage: '/images/reviews/elio/backdrop.webp'
-heroAlt: 'A still from Elio (2025)'
+heroAlt: 'An animated boy with an eye patch sitting beside a purple toothy alien and a small glowing creature in a sparkling space city.'
 ---
 
 First Pixar movie I did not cry at!

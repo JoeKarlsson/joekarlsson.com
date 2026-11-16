@@ -24,7 +24,7 @@ description: 'I will defend this movie to the bitter end'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hackers/'
 poster: '/images/reviews/hackers/poster.webp'
 heroImage: '/images/reviews/hackers/backdrop.webp'
-heroAlt: 'A still from Hackers (1995)'
+heroAlt: 'Angelina Jolie with a short pixie haircut, speaking in a dim purple-lit room.'
 ---
 
 I will defend this movie to the bitter end

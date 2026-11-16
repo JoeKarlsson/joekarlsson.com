@@ -16,7 +16,7 @@ description: 'This is single-handedly the best and biggest Muppets crossover eve
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/a-muppet-family-christmas/'
 poster: '/images/reviews/a-muppet-family-christmas/poster.webp'
 heroImage: '/images/reviews/a-muppet-family-christmas/backdrop.webp'
-heroAlt: 'A still from A Muppet Family Christmas (1987)'
+heroAlt: 'Fozzie Bear in a plaid scarf and brown hat standing beside a snowman in a striped scarf in a snowy forest.'
 ---
 
 This is single-handedly the best and biggest Muppets crossover event of all time. And might be the most Swedish chef forward adventure in their entire repertoire.

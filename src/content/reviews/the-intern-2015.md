@@ -24,7 +24,7 @@ description: 'This movie was 100% for sure produced during the 2014 girl boss er
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-intern-2015/'
 poster: '/images/reviews/the-intern-2015/poster.webp'
 heroImage: '/images/reviews/the-intern-2015/backdrop.webp'
-heroAlt: 'A still from The Intern (2015)'
+heroAlt: 'Robert De Niro in a suit and Anne Hathaway in a red dress standing in a bright open-plan office.'
 ---
 
 This movie was 100% for sure produced during the 2014 girl boss era.

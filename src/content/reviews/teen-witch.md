@@ -24,7 +24,7 @@ description: 'This movie has a good message, that you too can be popular if you 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/teen-witch/'
 poster: '/images/reviews/teen-witch/poster.webp'
 heroImage: '/images/reviews/teen-witch/backdrop.webp'
-heroAlt: 'A still from Teen Witch (1989)'
+heroAlt: 'Robyn Lively holding a magazine photo of a dark-haired woman up beside her face.'
 ---
 
 This movie has a good message, that you too can be popular if you worship our dark lord, Satan.

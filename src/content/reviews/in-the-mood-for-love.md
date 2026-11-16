@@ -24,7 +24,7 @@ description: "Two attractive people in tight quarters with incredible chemistry 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/in-the-mood-for-love/'
 poster: '/images/reviews/in-the-mood-for-love/poster.webp'
 heroImage: '/images/reviews/in-the-mood-for-love/backdrop.webp'
-heroAlt: 'A still from In the Mood for Love (2000)'
+heroAlt: 'Maggie Cheung in a green patterned qipao leaning on a poster-covered wall near Tony Leung in a dark suit, in amber light.'
 ---
 
 Two attractive people in tight quarters with incredible chemistry spend 90 minutes not fucking, and it's one of cinema's greatest romances.

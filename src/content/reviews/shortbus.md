@@ -17,7 +17,7 @@ description: 'The most 2006 thing about this film is when the Twee Marching Band
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/shortbus/'
 poster: '/images/reviews/shortbus/poster.webp'
 heroImage: '/images/reviews/shortbus/backdrop.webp'
-heroAlt: 'A still from Shortbus (2006)'
+heroAlt: 'A crowd of laughing people lying piled together on a white floor, seen from directly above.'
 ---
 
 The most 2006 thing about this film is when the Twee Marching Band shows up to the orgy.

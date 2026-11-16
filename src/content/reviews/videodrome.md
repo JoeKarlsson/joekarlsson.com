@@ -17,7 +17,7 @@ description: 'Long live the flesh or whatever'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/videodrome/'
 poster: '/images/reviews/videodrome/poster.webp'
 heroImage: '/images/reviews/videodrome/backdrop.webp'
-heroAlt: 'A still from Videodrome (1983)'
+heroAlt: 'James Woods kneeling beside a television showing a pair of lips in a dark apartment.'
 ---
 
 Long live the flesh or whatever

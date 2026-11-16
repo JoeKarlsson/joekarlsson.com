@@ -16,7 +16,7 @@ description: 'Who knew the dinosaur supervisor from Jurassic Park do stop motion
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mad-god/'
 poster: '/images/reviews/mad-god/poster.webp'
 heroImage: '/images/reviews/mad-god/backdrop.webp'
-heroAlt: 'A still from Mad God (2021)'
+heroAlt: 'Hulking stop-motion monsters with metal grille faces and red eyes looming in a smoky gloom.'
 ---
 
 Who knew the dinosaur supervisor from Jurassic Park do stop motion animation so well?

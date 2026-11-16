@@ -17,7 +17,7 @@ description: 'A tough watch. Still love DL though'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/twin-peaks-fire-walk-with-me/'
 poster: '/images/reviews/twin-peaks-fire-walk-with-me/poster.webp'
 heroImage: '/images/reviews/twin-peaks-fire-walk-with-me/backdrop.webp'
-heroAlt: 'A still from Twin Peaks: Fire Walk with Me (1992)'
+heroAlt: 'Sheryl Lee in a black dress seated in a red-curtained room beside a man in a dark suit and a white statue.'
 ---
 
 A tough watch. Still love DL though

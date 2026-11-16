@@ -17,7 +17,7 @@ description: 'A classic kids movie about obsolescence, abandonment, and mortalit
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/toy-story-2/'
 poster: '/images/reviews/toy-story-2/poster.webp'
 heroImage: '/images/reviews/toy-story-2/backdrop.webp'
-heroAlt: 'A still from Toy Story 2 (1999)'
+heroAlt: 'Woody, Buzz Lightyear, Jessie and the rest of the toys gathered on a bedroom floor.'
 ---
 
 A classic kids movie about obsolescence, abandonment, and mortality.

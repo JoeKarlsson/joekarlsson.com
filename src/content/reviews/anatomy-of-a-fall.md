@@ -25,7 +25,7 @@ description: 'Give that damn dog an Oscar already'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/anatomy-of-a-fall/'
 poster: '/images/reviews/anatomy-of-a-fall/poster.webp'
 heroImage: '/images/reviews/anatomy-of-a-fall/backdrop.webp'
-heroAlt: 'A still from Anatomy of a Fall (2023)'
+heroAlt: 'Sandra Hüller in a gray suit standing in a wood-paneled courtroom, framed between the blurred heads of onlookers.'
 ---
 
 Give that damn dog an Oscar already

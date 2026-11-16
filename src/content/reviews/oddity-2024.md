@@ -17,7 +17,7 @@ description: 'Impressive filmmaking but honestly wasn’t my cup of tea. It’s 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/oddity-2024/'
 poster: '/images/reviews/oddity-2024/poster.webp'
 heroImage: '/images/reviews/oddity-2024/backdrop.webp'
-heroAlt: 'A still from Oddity (2024)'
+heroAlt: 'A pale woman with short white hair reaching over a dark, mirror-like floor, her reflection showing a wooden mannequin.'
 ---
 
 Impressive filmmaking but honestly wasn’t my cup of tea. It’s a bit too slow for my taste.

@@ -24,7 +24,7 @@ description: 'Best heist movie of the year'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/how-to-blow-up-a-pipeline/'
 poster: '/images/reviews/how-to-blow-up-a-pipeline/poster.webp'
 heroImage: '/images/reviews/how-to-blow-up-a-pipeline/backdrop.webp'
-heroAlt: 'A still from How to Blow Up a Pipeline (2022)'
+heroAlt: 'Two young women pressing their foreheads together at sunset in the desert, power lines behind them.'
 ---
 
 Best heist movie of the year

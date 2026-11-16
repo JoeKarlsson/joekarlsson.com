@@ -24,7 +24,7 @@ description: 'Shadows. Practical stunts. A vulnerable hero. We used to have it a
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/spider-man-2/'
 poster: '/images/reviews/spider-man-2/poster.webp'
 heroImage: '/images/reviews/spider-man-2/backdrop.webp'
-heroAlt: 'A still from Spider-Man 2 (2004)'
+heroAlt: 'Spider-Man crouching above the Manhattan skyline, lit gold by a low sun.'
 ---
 
 Shadows. Practical stunts. A vulnerable hero. We used to have it all.

@@ -24,7 +24,7 @@ description: "Vin Diesel takes his shirt off and grunts a lot. Plus he's got a d
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/riddick/'
 poster: '/images/reviews/riddick/poster.webp'
 heroImage: '/images/reviews/riddick/backdrop.webp'
-heroAlt: 'A still from Riddick (2013)'
+heroAlt: 'Vin Diesel grabbing a man by the collar of his armor and glaring.'
 ---
 
 Vin Diesel takes his shirt off and grunts a lot. Plus he's got a dog.

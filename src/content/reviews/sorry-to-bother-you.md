@@ -24,7 +24,7 @@ description: 'I love this movie - and i want to know about HOW and WHO allowed B
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sorry-to-bother-you/'
 poster: '/images/reviews/sorry-to-bother-you/poster.webp'
 heroImage: '/images/reviews/sorry-to-bother-you/backdrop.webp'
-heroAlt: 'A still from Sorry to Bother You (2018)'
+heroAlt: 'Tessa Thompson and LaKeith Stanfield standing in a crowd, staring straight at the camera.'
 ---
 
 I love this movie - and i want to know about HOW and WHO allowed Boots to make this movie. Is audacious and hilarious. The third act works for me and i love the sci fi absurdism.

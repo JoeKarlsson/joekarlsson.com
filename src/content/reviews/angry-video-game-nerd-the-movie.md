@@ -24,7 +24,7 @@ description: 'What a shit load of fuck'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/angry-video-game-nerd-the-movie/'
 poster: '/images/reviews/angry-video-game-nerd-the-movie/poster.webp'
 heroImage: '/images/reviews/angry-video-game-nerd-the-movie/backdrop.webp'
-heroAlt: 'A still from Angry Video Game Nerd: The Movie (2014)'
+heroAlt: 'James Rolfe in glasses and a white shirt holding a cocktail in a spacecraft cockpit next to a big-toothed green frog creature.'
 ---
 
 What a shit load of fuck

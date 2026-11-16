@@ -24,7 +24,7 @@ description: "I've been on an absolute Jerry Bruckheimer tear the last couple we
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/con-air/'
 poster: '/images/reviews/con-air/poster.webp'
 heroImage: '/images/reviews/con-air/backdrop.webp'
-heroAlt: 'A still from Con Air (1997)'
+heroAlt: 'John Cusack, Nicolas Cage in a sweaty tank top and John Malkovich standing in front of a wall of flames.'
 ---
 
 I've been on an absolute Jerry Bruckheimer tear the last couple weeks, and after binging his entire catalog consecutively, the formula is crystal clear: you need a kind, weird, misunderstood white guy who gets prosecuted and becomes the underdog. But he's also secretly a terminator who's incredibly smart, funny, strong, and ultimately wins the day in the most patriotic way possible. Every. Single. Time.

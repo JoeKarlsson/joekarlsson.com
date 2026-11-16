@@ -24,7 +24,7 @@ description: 'Buddy says the creepy part about Barney out loud.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/buddy-2026/'
 poster: '/images/reviews/buddy-2026/poster.webp'
 heroImage: '/images/reviews/buddy-2026/backdrop.webp'
-heroAlt: 'A still from Buddy (2026)'
+heroAlt: 'A person in a red unicorn costume carrying a red axe through a misty forest.'
 ---
 
 Buddy says the creepy part about Barney out loud.

@@ -24,7 +24,7 @@ description: "This movie presupposes that Dolly Parton is too slutty for heaven.
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/unlikely-angel/'
 poster: '/images/reviews/unlikely-angel/poster.webp'
 heroImage: '/images/reviews/unlikely-angel/backdrop.webp'
-heroAlt: 'A still from Unlikely Angel (1996)'
+heroAlt: 'Dolly Parton in a leopard-print jacket smiling beside a man in a trench coat.'
 ---
 
 This movie presupposes that Dolly Parton is too slutty for heaven. Absolutely unhinged premise. It's a terrible movie, but frankly, I don't care. It's Dolly.

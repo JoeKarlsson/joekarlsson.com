@@ -24,7 +24,7 @@ description: 'Not as funny as the first one. But dumb and fun as hell'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-naked-gun-2-the-smell-of-fear/'
 poster: '/images/reviews/the-naked-gun-2-the-smell-of-fear/poster.webp'
 heroImage: '/images/reviews/the-naked-gun-2-the-smell-of-fear/backdrop.webp'
-heroAlt: 'A still from The Naked Gun 2½: The Smell of Fear (1991)'
+heroAlt: "Leslie Nielsen at a banquet table holding a lobster, with a woman's legs kicking up behind him."
 ---
 
 Not as funny as the first one. But dumb and fun as hell

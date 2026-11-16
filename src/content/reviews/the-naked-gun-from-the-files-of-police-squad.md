@@ -25,7 +25,7 @@ description: "This movie is so funny. I'm sorry I've seen it 1 million times and
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-naked-gun-from-the-files-of-police-squad/'
 poster: '/images/reviews/the-naked-gun-from-the-files-of-police-squad/poster.webp'
 heroImage: '/images/reviews/the-naked-gun-from-the-files-of-police-squad/backdrop.webp'
-heroAlt: 'A still from The Naked Gun: From the Files of Police Squad! (1988)'
+heroAlt: 'Leslie Nielsen holding up a revolver as he peers around a hotel doorway.'
 ---
 
 This movie is so funny. I'm sorry I've seen it 1 million times and I will probably watch it another million times before I die.

@@ -18,7 +18,7 @@ description: "Hornier, dumber, funnier, and more gorgeous than expected. A mixed
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wuthering-heights-2026/'
 poster: '/images/reviews/wuthering-heights-2026/poster.webp'
 heroImage: '/images/reviews/wuthering-heights-2026/backdrop.webp'
-heroAlt: 'A still from Wuthering Heights (2026)'
+heroAlt: 'Margot Robbie and Jacob Elordi embracing under a stormy sky split by lightning.'
 ---
 
 Hornier, dumber, funnier, and more gorgeous than expected. A mixed bag I enjoyed. I had fun with it, even if it didn't fully land.

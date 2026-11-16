@@ -24,7 +24,7 @@ description: 'I don’t think a movie like this will ever get created ever again
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/walker/'
 poster: '/images/reviews/walker/poster.webp'
 heroImage: '/images/reviews/walker/backdrop.webp'
-heroAlt: 'A still from Walker (1987)'
+heroAlt: 'Ed Harris in a wide-brimmed black hat and high collar against an orange sunset sea.'
 ---
 
 I don’t think a movie like this will ever get created ever again. If you hate Ronald Reagan, this is the movie for you. This is a big studio film that’s angry, surreal, and violent.

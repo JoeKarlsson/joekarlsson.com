@@ -25,7 +25,7 @@ description: 'After watching this again - I can confirm this is still a masterpi
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/one-battle-after-another/1/'
 poster: '/images/reviews/one-battle-after-another-1/poster.webp'
 heroImage: '/images/reviews/one-battle-after-another-1/backdrop.webp'
-heroAlt: 'A still from One Battle After Another (2025)'
+heroAlt: 'Leonardo DiCaprio in a beanie, dark glasses and plaid robe talking on a pay phone against a tan wall.'
 ---
 
 After watching this again - I can confirm this is still a masterpiece

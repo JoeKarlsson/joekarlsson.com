@@ -24,7 +24,7 @@ description: 'Be sure to take your epilepsy medication before watching this film
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-moment-2026/'
 poster: '/images/reviews/the-moment-2026/poster.webp'
 heroImage: '/images/reviews/the-moment-2026/backdrop.webp'
-heroAlt: 'A still from The Moment (2026)'
+heroAlt: 'Charli xcx in a green puffer jacket and sunglasses walking down a dark corridor with a woman behind her.'
 ---
 
 Be sure to take your epilepsy medication before watching this film.

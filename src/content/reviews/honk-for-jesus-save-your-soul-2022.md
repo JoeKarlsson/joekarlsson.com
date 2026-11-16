@@ -32,7 +32,7 @@ description: 'Regina Hall is unsurprisingly the star of this movie. She’s the 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/honk-for-jesus-save-your-soul-2022/'
 poster: '/images/reviews/honk-for-jesus-save-your-soul-2022/poster.webp'
 heroImage: '/images/reviews/honk-for-jesus-save-your-soul-2022/backdrop.webp'
-heroAlt: 'A still from Honk for Jesus. Save Your Soul. (2022)'
+heroAlt: 'Regina Hall in white and Sterling K. Brown in a plaid suit sitting on gold thrones in an empty church.'
 ---
 
 Regina Hall is unsurprisingly the star of this movie. She’s the best.

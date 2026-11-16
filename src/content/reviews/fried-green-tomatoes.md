@@ -30,7 +30,7 @@ description: 'Contains spoilers.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/fried-green-tomatoes/'
 poster: '/images/reviews/fried-green-tomatoes/poster.webp'
 heroImage: '/images/reviews/fried-green-tomatoes/backdrop.webp'
-heroAlt: 'A still from Fried Green Tomatoes (1991)'
+heroAlt: 'Three people with a red parasol walking along the top of a dam as water pours over it into a rocky river.'
 ---
 
 ||I did not expect there to be cannibalism in this movie!|| 🙃

@@ -24,7 +24,7 @@ description: 'I felt so sad for Kelly McGillis when she handed Harrison Ford a t
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/witness/'
 poster: '/images/reviews/witness/poster.webp'
 heroImage: '/images/reviews/witness/backdrop.webp'
-heroAlt: 'A still from Witness (1985)'
+heroAlt: 'A boy in a black hat and black coat standing in a train station.'
 ---
 
 I felt so sad for Kelly McGillis when she handed Harrison Ford a tall glass of homemade lemonade, and he chugged it all at once without even enjoying it. He didn't even appreciate all that she put into it for him.

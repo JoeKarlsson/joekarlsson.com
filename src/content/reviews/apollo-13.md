@@ -16,7 +16,7 @@ description: 'Is this Ron Howard’s best film?… Yeah probably.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/apollo-13/'
 poster: '/images/reviews/apollo-13/poster.webp'
 heroImage: '/images/reviews/apollo-13/backdrop.webp'
-heroAlt: 'A still from Apollo 13 (1995)'
+heroAlt: 'Bill Paxton, Kevin Bacon and Tom Hanks in white flight suits crowded together inside a spacecraft cabin.'
 ---
 
 Is this Ron Howard’s best film?… Yeah probably.

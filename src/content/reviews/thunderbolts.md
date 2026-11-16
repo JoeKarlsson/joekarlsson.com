@@ -24,7 +24,7 @@ description: 'It’s alright I guess'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/thunderbolts/'
 poster: '/images/reviews/thunderbolts/poster.webp'
 heroImage: '/images/reviews/thunderbolts/backdrop.webp'
-heroAlt: 'A still from Thunderbolts* (2025)'
+heroAlt: 'Florence Pugh, Sebastian Stan and David Harbour stand with other costumed fighters in a ruined city.'
 ---
 
 It’s alright I guess

@@ -24,7 +24,7 @@ description: 'Damn - Doug Jones really has been doing this shit for a long ass t
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hocus-pocus/'
 poster: '/images/reviews/hocus-pocus/poster.webp'
 heroImage: '/images/reviews/hocus-pocus/backdrop.webp'
-heroAlt: 'A still from Hocus Pocus (1993)'
+heroAlt: 'Kathy Najimy, Bette Midler and Sarah Jessica Parker as three witches singing on a smoky stage.'
 ---
 
 Damn - Doug Jones really has been doing this shit for a long ass time.

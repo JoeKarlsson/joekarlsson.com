@@ -24,7 +24,7 @@ description: 'The sex scenes in this movie really make me wonder what the hell w
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/basic-instinct/'
 poster: '/images/reviews/basic-instinct/poster.webp'
 heroImage: '/images/reviews/basic-instinct/backdrop.webp'
-heroAlt: 'A still from Basic Instinct (1992)'
+heroAlt: 'Michael Douglas and Sharon Stone face to face, about to kiss, against a warmly lit wall.'
 ---
 
 The sex scenes in this movie really make me wonder what the hell went wrong with the pool scene in Showgirls.

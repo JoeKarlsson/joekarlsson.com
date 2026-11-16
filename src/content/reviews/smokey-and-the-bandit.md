@@ -16,7 +16,7 @@ description: "The Muppet Movie, except they're running Coors."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/smokey-and-the-bandit/'
 poster: '/images/reviews/smokey-and-the-bandit/poster.webp'
 heroImage: '/images/reviews/smokey-and-the-bandit/backdrop.webp'
-heroAlt: 'A still from Smokey and the Bandit (1977)'
+heroAlt: 'A man in a cowboy hat and mustache driving a black convertible beside a young woman with curly brown hair.'
 ---
 
 The Muppet Movie, except they're running Coors.

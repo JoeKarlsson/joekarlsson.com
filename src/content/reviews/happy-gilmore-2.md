@@ -24,7 +24,7 @@ description: 'For a comedy - this movie spends a lot of time just sitting in a c
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/happy-gilmore-2/'
 poster: '/images/reviews/happy-gilmore-2/poster.webp'
 heroImage: '/images/reviews/happy-gilmore-2/backdrop.webp'
-heroAlt: 'A still from Happy Gilmore 2 (2025)'
+heroAlt: 'Adam Sandler in a Boston Bruins hockey jersey holding a driver on a tournament tee, with photographers and sponsor boards behind him.'
 ---
 
 For a comedy - this movie spends a lot of time just sitting in a cemetery. It was a surreal and strange way to build a legacy sequel.

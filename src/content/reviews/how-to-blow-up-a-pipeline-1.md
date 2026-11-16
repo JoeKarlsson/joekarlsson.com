@@ -25,7 +25,7 @@ description: "How to Blow Up a Pipeline is Ocean's Eleven for people who think r
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/how-to-blow-up-a-pipeline/1/'
 poster: '/images/reviews/how-to-blow-up-a-pipeline-1/poster.webp'
 heroImage: '/images/reviews/how-to-blow-up-a-pipeline-1/backdrop.webp'
-heroAlt: 'A still from How to Blow Up a Pipeline (2022)'
+heroAlt: 'Two young women pressing their foreheads together at sunset in the desert, power lines behind them.'
 ---
 
 How to Blow Up a Pipeline is Ocean's Eleven for people who think reformism is a dead end, and it actually works.

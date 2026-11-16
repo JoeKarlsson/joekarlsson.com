@@ -24,7 +24,7 @@ description: 'The body remembers'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-zone-of-interest/'
 poster: '/images/reviews/the-zone-of-interest/poster.webp'
 heroImage: '/images/reviews/the-zone-of-interest/backdrop.webp'
-heroAlt: 'A still from The Zone of Interest (2023)'
+heroAlt: 'A family relaxing on the grassy bank of a river with wooded hills behind.'
 ---
 
 The body remembers

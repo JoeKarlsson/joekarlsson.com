@@ -17,7 +17,7 @@ description: 'Did that wall just cum on Finks hand?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/barton-fink/'
 poster: '/images/reviews/barton-fink/poster.webp'
 heroImage: '/images/reviews/barton-fink/backdrop.webp'
-heroAlt: 'A still from Barton Fink (1991)'
+heroAlt: 'A man in a hat walking toward bright light at the far end of a long hotel hallway with leaf-patterned wallpaper.'
 ---
 
 Did that wall just cum on Finks hand?

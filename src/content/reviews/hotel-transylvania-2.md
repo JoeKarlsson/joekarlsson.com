@@ -17,7 +17,7 @@ description: 'I typed "hotel trans" into the search bar to find this movie. That
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hotel-transylvania-2/'
 poster: '/images/reviews/hotel-transylvania-2/poster.webp'
 heroImage: '/images/reviews/hotel-transylvania-2/backdrop.webp'
-heroAlt: 'A still from Hotel Transylvania 2 (2015)'
+heroAlt: "Animated Dracula, Frankenstein's monster, a mummy, a werewolf, a green blob and a small red-haired boy gathered outside a carriage at night."
 ---
 
 I typed "hotel trans" into the search bar to find this movie. That was a risky search.

@@ -16,7 +16,7 @@ description: "They don't make movies like this anymore. Super fun mid budget bud
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/one-of-them-days/'
 poster: '/images/reviews/one-of-them-days/poster.webp'
 heroImage: '/images/reviews/one-of-them-days/backdrop.webp'
-heroAlt: 'A still from One of Them Days (2025)'
+heroAlt: 'SZA and Keke Palmer leaning on a stair railing wrapped in colored Christmas lights, smiling.'
 ---
 
 They don't make movies like this anymore. Super fun mid budget buddy comedy. I had more fun watching this than [Paddington in Peru](/reviews/paddington-in-peru/).

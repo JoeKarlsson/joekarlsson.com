@@ -17,7 +17,7 @@ description: 'How is Annabelle still a major threat? I really do not understand.
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-conjuring-last-rites/'
 poster: '/images/reviews/the-conjuring-last-rites/poster.webp'
 heroImage: '/images/reviews/the-conjuring-last-rites/backdrop.webp'
-heroAlt: 'A still from The Conjuring: Last Rites (2025)'
+heroAlt: 'Patrick Wilson shouting with one hand thrust out while a frightened Vera Farmiga huddles behind him in the dark.'
 ---
 
 How is Annabelle still a major threat? I really do not understand. I did not like this movie, but I do like the leads. They got the juice.

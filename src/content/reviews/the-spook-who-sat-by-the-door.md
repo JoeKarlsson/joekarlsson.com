@@ -16,7 +16,7 @@ description: "Watched this as prep for One Battle After Another and haven't gott
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-spook-who-sat-by-the-door/'
 poster: '/images/reviews/the-spook-who-sat-by-the-door/poster.webp'
 heroImage: '/images/reviews/the-spook-who-sat-by-the-door/backdrop.webp'
-heroAlt: 'A still from The Spook Who Sat by the Door (1973)'
+heroAlt: 'A man in a denim jacket holding a cue at a pool table while another man lines up a shot.'
 ---
 
 Watched this as prep for [One Battle After Another](/reviews/one-battle-after-another/) and haven't gotten there yet, but The Spook Who Sat by the Door got me completely energized. It's astonishing how revolutionary this still feels, and crystal clear why it was suppressed for decades.

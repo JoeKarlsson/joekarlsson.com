@@ -16,7 +16,7 @@ description: 'David Wain just gets me.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-ten/'
 poster: '/images/reviews/the-ten/poster.webp'
 heroImage: '/images/reviews/the-ten/backdrop.webp'
-heroAlt: 'A still from The Ten (2007)'
+heroAlt: 'Adam Brody stuck waist-deep in a patterned rug on a lawn next to a yellow sign reading "Goin'' Nowhe".'
 ---
 
 David Wain just gets me.

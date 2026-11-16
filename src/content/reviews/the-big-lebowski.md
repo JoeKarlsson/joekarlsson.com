@@ -24,7 +24,7 @@ description: "I'm a dude. She's a dude. We're all dudes. Yah!"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-big-lebowski/'
 poster: '/images/reviews/the-big-lebowski/poster.webp'
 heroImage: '/images/reviews/the-big-lebowski/backdrop.webp'
-heroAlt: 'A still from The Big Lebowski (1998)'
+heroAlt: 'Jeff Bridges, Steve Buscemi and John Goodman lounging in the seats of a bowling alley.'
 ---
 
 I'm a dude. She's a dude. We're all dudes. Yah!

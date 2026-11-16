@@ -16,7 +16,7 @@ description: 'This is basically Hotel Transylvania but without Adam Sandler, wit
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mad-monster-party/'
 poster: '/images/reviews/mad-monster-party/poster.webp'
 heroImage: '/images/reviews/mad-monster-party/backdrop.webp'
-heroAlt: 'A still from Mad Monster Party? (1967)'
+heroAlt: 'A stop-motion puppet of an old scientist talking with a red-haired puppet woman holding papers in a gray lab.'
 ---
 
 I couldn't believe ||this movie ended with a nuclear holocaust on an escaped zoo animal||, but it really did. What a choice.

@@ -24,7 +24,7 @@ description: 'Well - it’s not the worst one! So Sidney had her kid in 2002 - w
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scream-7/'
 poster: '/images/reviews/scream-7/poster.webp'
 heroImage: '/images/reviews/scream-7/backdrop.webp'
-heroAlt: 'A still from Scream 7 (2026)'
+heroAlt: 'Ghostface in a black hooded robe and white mask holding a knife on a dark brick street at night.'
 ---
 
 Well - it’s not the worst one! So Sidney had her kid in 2002 - where the hell was this kid in all the other movie?

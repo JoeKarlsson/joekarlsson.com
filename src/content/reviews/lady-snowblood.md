@@ -24,7 +24,7 @@ description: 'Kill Bill is a cover song. This is the original.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/lady-snowblood/'
 poster: '/images/reviews/lady-snowblood/poster.webp'
 heroImage: '/images/reviews/lady-snowblood/backdrop.webp'
-heroAlt: 'A still from Lady Snowblood (1973)'
+heroAlt: 'Meiko Kaji in a white kimono raising a blade behind a black paper umbrella in falling snow.'
 ---
 
 Kill Bill is a cover song. This is the original.

@@ -24,7 +24,7 @@ description: 'I have an unusually high bar for slow-build dread-based horror. I 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/undertone-2025/'
 poster: '/images/reviews/undertone-2025/poster.webp'
 heroImage: '/images/reviews/undertone-2025/backdrop.webp'
-heroAlt: 'A still from undertone (2025)'
+heroAlt: 'A woman in headphones sitting at a lamp-lit dining table with a microphone and laptop.'
 ---
 
 I have an unusually high bar for slow-build dread-based horror. I left this feeling underwhelmed.

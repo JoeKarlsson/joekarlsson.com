@@ -24,7 +24,7 @@ description: 'I love John Goodman, and I love a good slabs versus knobs movie, b
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/king-ralph/'
 poster: '/images/reviews/king-ralph/poster.webp'
 heroImage: '/images/reviews/king-ralph/backdrop.webp'
-heroAlt: 'A still from King Ralph (1991)'
+heroAlt: 'John Goodman in a white shirt pounding a piano with one leg up on it as formally dressed guests watch in a palace ballroom.'
 ---
 
 I love John Goodman, and I love a good slabs versus knobs movie, but it was mostly just Peter O’Toole and Goodman talking in fancy rooms

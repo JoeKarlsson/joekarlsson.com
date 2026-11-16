@@ -24,7 +24,7 @@ description: 'Contains spoilers.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/avatar-the-way-of-water/'
 poster: '/images/reviews/avatar-the-way-of-water/poster.webp'
 heroImage: '/images/reviews/avatar-the-way-of-water/backdrop.webp'
-heroAlt: 'A still from Avatar: The Way of Water (2022)'
+heroAlt: "Three blue Na'vi with long braided hair and yellow eyes standing close together outdoors."
 ---
 
 I screamed when ||the harpoon guy lost his arm||

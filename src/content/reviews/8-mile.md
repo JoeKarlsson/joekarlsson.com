@@ -17,7 +17,7 @@ description: 'Coming to 8 Mile in 2025 hits different when you’ve spent your e
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/8-mile/'
 poster: '/images/reviews/8-mile/poster.webp'
 heroImage: '/images/reviews/8-mile/backdrop.webp'
-heroAlt: 'A still from 8 Mile (2002)'
+heroAlt: 'Eminem rapping into a microphone at a man in a white tank top in front of a packed crowd.'
 ---
 
 Coming to 8 Mile in 2025 hits different when you’ve spent your entire life marinating in its cultural residue without ever actually watching it. The film is a time capsule of 2002 Detroit rap culture - baggy hoodies, Timberlands, that specific grimy aesthetic - and watching it now, at a remove of over two decades, I can see how much of that DNA seeped into everything around me when I was 12.

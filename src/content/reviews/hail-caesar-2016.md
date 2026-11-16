@@ -24,7 +24,7 @@ description: "First time rewatching Hail, Caesar! since it came out in theaters,
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hail-caesar-2016/'
 poster: '/images/reviews/hail-caesar-2016/poster.webp'
 heroImage: '/images/reviews/hail-caesar-2016/backdrop.webp'
-heroAlt: 'A still from Hail, Caesar! (2016)'
+heroAlt: 'Scarlett Johansson with blonde curls, a black hat and a cigarette, leaning forward in warm low light.'
 ---
 
 First time rewatching Hail, Caesar! since it came out in theaters, and I still don't think I understand what this movie's trying to say.

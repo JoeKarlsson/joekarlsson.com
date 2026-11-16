@@ -24,7 +24,7 @@ description: 'As a 90s kid growing up watching adventures of Pete and Pete this 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/i-saw-the-tv-glow/'
 poster: '/images/reviews/i-saw-the-tv-glow/poster.webp'
 heroImage: '/images/reviews/i-saw-the-tv-glow/backdrop.webp'
-heroAlt: 'A still from I Saw the TV Glow (2024)'
+heroAlt: 'Justice Smith and a young woman with long hair sitting on a couch in blue light, staring at something off screen.'
 ---
 
 As a 90s kid growing up watching adventures of Pete and Pete this movie worked for me

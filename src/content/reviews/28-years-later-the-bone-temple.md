@@ -24,7 +24,7 @@ description: "Alex Garland has a lot to say about society, religion, and healing
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/28-years-later-the-bone-temple/'
 poster: '/images/reviews/28-years-later-the-bone-temple/poster.webp'
 heroImage: '/images/reviews/28-years-later-the-bone-temple/backdrop.webp'
-heroAlt: 'A still from 28 Years Later: The Bone Temple (2026)'
+heroAlt: 'A gaunt, shirtless figure with a skull-like face screams with arms spread in front of tall carved bone pillars, with fire burning along the ground.'
 ---
 
 Alex Garland has a lot to say about society, religion, and healing. Also there's a lot of gore.

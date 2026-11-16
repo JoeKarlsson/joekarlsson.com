@@ -24,7 +24,7 @@ description: 'This movie has no plot and it’s probably 30 minutes too long but
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/desperado/'
 poster: '/images/reviews/desperado/poster.webp'
 heroImage: '/images/reviews/desperado/backdrop.webp'
-heroAlt: 'A still from Desperado (1995)'
+heroAlt: 'Salma Hayek with a pistol and Antonio Banderas with a guitar case walking away from a huge fiery explosion.'
 ---
 
 This movie has no plot and it’s probably 30 minutes too long but goddamnit Selma and Antonio sure look good fucking.

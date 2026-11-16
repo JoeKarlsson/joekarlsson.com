@@ -16,7 +16,7 @@ description: 'This movie is the exact same and also the complete opposite as Lyn
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-furious/'
 poster: '/images/reviews/the-furious/poster.webp'
 heroImage: '/images/reviews/the-furious/backdrop.webp'
-heroAlt: 'A still from The Furious (2025)'
+heroAlt: 'A bald, tattooed man and a man with an afro wrestling a younger man in a headlock in a tiled kitchen.'
 ---
 
 This movie is the exact same and also the complete opposite as Lynne Ramsay’s [You Were Never Really Here](/reviews/you-were-never-really-here/). And, I’m obsessed with both.

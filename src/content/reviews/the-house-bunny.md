@@ -18,7 +18,7 @@ description: 'Anna Faris is so funny. They need to start making more 90-minute H
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-house-bunny/'
 poster: '/images/reviews/the-house-bunny/poster.webp'
 heroImage: '/images/reviews/the-house-bunny/backdrop.webp'
-heroAlt: 'A still from The House Bunny (2008)'
+heroAlt: 'Anna Faris walking arm in arm with seven young women in bright outfits down a sunny campus street.'
 ---
 
 Anna Faris is so funny. They need to start making more 90-minute Hollywood comedies just to give Anna Faris more films to do.

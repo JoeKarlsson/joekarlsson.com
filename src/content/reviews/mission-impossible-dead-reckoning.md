@@ -17,7 +17,7 @@ description: 'This is the exact moment the series started to lose me...'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mission-impossible-dead-reckoning/'
 poster: '/images/reviews/mission-impossible-dead-reckoning/poster.webp'
 heroImage: '/images/reviews/mission-impossible-dead-reckoning/backdrop.webp'
-heroAlt: 'A still from Mission: Impossible – Dead Reckoning (2023)'
+heroAlt: 'A rider and a motorcycle falling apart in midair beside a sheer cliff, seen from below against the sky.'
 ---
 
 This is the exact moment the series started to lose me...

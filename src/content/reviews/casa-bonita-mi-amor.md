@@ -24,7 +24,7 @@ description: 'I immediately had to go out and get some Midwestern Mexican food'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/casa-bonita-mi-amor/'
 poster: '/images/reviews/casa-bonita-mi-amor/poster.webp'
 heroImage: '/images/reviews/casa-bonita-mi-amor/backdrop.webp'
-heroAlt: 'A still from ¡Casa Bonita Mi Amor! (2024)'
+heroAlt: 'The pink "Casa Bonita" building with its ornate bell tower and a fountain in a sunny courtyard framed by trees.'
 ---
 
 I immediately had to go out and get some Midwestern Mexican food

@@ -24,7 +24,7 @@ description: 'Great winter hangout movie 🍿'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/misery/'
 poster: '/images/reviews/misery/poster.webp'
 heroImage: '/images/reviews/misery/backdrop.webp'
-heroAlt: 'A still from Misery (1990)'
+heroAlt: 'Kathy Bates leaning over James Caan, who lies strapped into a bed in a plaid shirt.'
 ---
 
 Great winter hangout movie 🍿

@@ -24,7 +24,7 @@ description: 'We need more movies with sensitive, handsome - but not traditional
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sex-lies-and-videotape/'
 poster: '/images/reviews/sex-lies-and-videotape/poster.webp'
 heroImage: '/images/reviews/sex-lies-and-videotape/backdrop.webp'
-heroAlt: 'A still from sex, lies, and videotape (1989)'
+heroAlt: 'Laura San Giacomo in big black glasses talking on a white phone in a painting studio.'
 ---
 
 We need more movies with sensitive, handsome - but not traditionally super handsome - leads being super horny. James Spader delivers exactly that here.

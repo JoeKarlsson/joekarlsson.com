@@ -31,7 +31,7 @@ description: 'I swear the special effects gore team has to be the same one as th
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/final-destination-bloodlines/'
 poster: '/images/reviews/final-destination-bloodlines/poster.webp'
 heroImage: '/images/reviews/final-destination-bloodlines/backdrop.webp'
-heroAlt: 'A still from Final Destination Bloodlines (2025)'
+heroAlt: 'A bald older man in a shirt, tie and suspenders sitting with folded hands in a dim workshop.'
 ---
 
 I swear the special effects gore team has to be the same one as the one that worked The Boys.

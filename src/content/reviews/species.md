@@ -24,7 +24,7 @@ description: 'Okay, so I just watched Species (1995) with my girlfriend, and we 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/species/'
 poster: '/images/reviews/species/poster.webp'
 heroImage: '/images/reviews/species/backdrop.webp'
-heroAlt: 'A still from Species (1995)'
+heroAlt: 'Natasha Henstridge with long blonde hair, her chest covered by a ridged alien shell, against a glowing green background.'
 ---
 
 Okay, so I just watched Species (1995) with my girlfriend, and we had a great time watching this. There’s some wild performances, some very unsexy boobs, and wonderful creature designed from HR Geiger (but a very bad rubber suit).

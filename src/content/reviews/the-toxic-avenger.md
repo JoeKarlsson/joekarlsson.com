@@ -24,7 +24,7 @@ description: 'A horny, dirty, violent teenagers, wet dream.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-toxic-avenger/'
 poster: '/images/reviews/the-toxic-avenger/poster.webp'
 heroImage: '/images/reviews/the-toxic-avenger/backdrop.webp'
-heroAlt: 'A still from The Toxic Avenger (1984)'
+heroAlt: 'A close-up of a frizzy-haired young man in a blue shirt, gasping in shock.'
 ---
 
 A horny, dirty, violent teenagers, wet dream.

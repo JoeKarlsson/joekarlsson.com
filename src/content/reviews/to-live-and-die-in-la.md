@@ -24,7 +24,7 @@ description: 'ACAB: The Movie'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/to-live-and-die-in-la/'
 poster: '/images/reviews/to-live-and-die-in-la/poster.webp'
 heroImage: '/images/reviews/to-live-and-die-in-la/backdrop.webp'
-heroAlt: 'A still from To Live and Die in L.A. (1985)'
+heroAlt: 'William L. Petersen aiming a pistol in front of a blue tiled wall.'
 ---
 
 ACAB: The Movie

@@ -17,7 +17,7 @@ description: 'It’s insane how such a schlocky premise could be imbued with suc
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/robocop/'
 poster: '/images/reviews/robocop/poster.webp'
 heroImage: '/images/reviews/robocop/backdrop.webp'
-heroAlt: 'A still from RoboCop (1987)'
+heroAlt: 'Ronny Cox in a three-piece suit standing in front of a huge armed police robot.'
 ---
 
 It’s insane how such a schlocky premise could be imbued with such depth.

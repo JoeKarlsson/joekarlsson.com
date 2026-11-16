@@ -17,7 +17,7 @@ description: 'This is the ultimate Dad movie.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-hunt-for-red-october/'
 poster: '/images/reviews/the-hunt-for-red-october/poster.webp'
 heroImage: '/images/reviews/the-hunt-for-red-october/backdrop.webp'
-heroAlt: 'A still from The Hunt for Red October (1990)'
+heroAlt: 'Sean Connery in a Soviet naval uniform, one hand raised, lit by blue control-room light.'
 ---
 
 This is the ultimate Dad movie.

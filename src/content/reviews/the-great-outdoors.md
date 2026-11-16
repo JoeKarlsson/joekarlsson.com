@@ -17,7 +17,7 @@ description: 'Someone who loves the northern Woods, I was so disappointed. Love 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-great-outdoors/'
 poster: '/images/reviews/the-great-outdoors/poster.webp'
 heroImage: '/images/reviews/the-great-outdoors/backdrop.webp'
-heroAlt: 'A still from The Great Outdoors (1988)'
+heroAlt: 'Dan Aykroyd and John Candy in fishing gear standing on a sunny, wooded hillside.'
 ---
 
 Someone who loves the northern Woods, I was so disappointed. Love John candy and I love the warmth you brought this movie, but I didn’t laugh a single time.

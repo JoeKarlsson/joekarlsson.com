@@ -16,7 +16,7 @@ description: 'Was anyone else confused that Max from Stranger Things spent this 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/spider-man-brand-new-day/'
 poster: '/images/reviews/spider-man-brand-new-day/poster.webp'
 heroImage: '/images/reviews/spider-man-brand-new-day/backdrop.webp'
-heroAlt: 'A still from Spider-Man: Brand New Day (2026)'
+heroAlt: 'Spider-Man leaping between skyscrapers on a web line, with a masked figure on a rooftop far below.'
 ---
 
 Was anyone else confused that Max from Stranger Things spent this whole movie looking for V-Max?

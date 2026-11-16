@@ -17,7 +17,7 @@ description: "If Dude Where's My Car and Evil Dead 2 had a baby. This might be t
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/idle-hands/'
 poster: '/images/reviews/idle-hands/poster.webp'
 heroImage: '/images/reviews/idle-hands/backdrop.webp'
-heroAlt: 'A still from Idle Hands (1999)'
+heroAlt: 'Four young men at night, one in KISS face paint and a bloodied T-shirt, another sticking out his tongue.'
 ---
 
 If Dude Where's My Car and Evil Dead 2 had a baby. This might be the most 90s movie ever made.

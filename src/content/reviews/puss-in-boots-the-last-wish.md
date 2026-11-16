@@ -25,7 +25,7 @@ description: 'I just needed another hit of this movie. It’s in my top three mo
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/puss-in-boots-the-last-wish/'
 poster: '/images/reviews/puss-in-boots-the-last-wish/poster.webp'
 heroImage: '/images/reviews/puss-in-boots-the-last-wish/backdrop.webp'
-heroAlt: 'A still from Puss in Boots: The Last Wish (2022)'
+heroAlt: 'The animated cat Puss in Boots in a feathered hat, grinning beside a black bomb skewered on the tip of his sword.'
 ---
 
 I just needed another hit of this movie. It’s in my top three movies that have inspired me to be a better man.

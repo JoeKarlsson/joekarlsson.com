@@ -24,7 +24,7 @@ description: "A cyberpunk hellscape that felt like fiction. Now it's just news."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/ghost-in-the-shell/'
 poster: '/images/reviews/ghost-in-the-shell/poster.webp'
 heroImage: '/images/reviews/ghost-in-the-shell/backdrop.webp'
-heroAlt: 'A still from Ghost in the Shell (1995)'
+heroAlt: 'An anime woman with short dark hair looking down over a city of tall towers glowing green at night.'
 ---
 
 A cyberpunk hellscape that felt like fiction. Now it's just news.

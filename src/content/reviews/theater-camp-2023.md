@@ -16,7 +16,7 @@ description: 'How do you say, this movie really snuck up on me. I had super low 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/theater-camp-2023/'
 poster: '/images/reviews/theater-camp-2023/poster.webp'
 heroImage: '/images/reviews/theater-camp-2023/backdrop.webp'
-heroAlt: 'A still from Theater Camp (2023)'
+heroAlt: 'Two adults seen from behind watching a row of kids lined up on a small stage.'
 ---
 
 How do you say, this movie really snuck up on me. I had super low expectations going in, but I honestly cried during the final song. It’s impossible not to compare this to a certain Christopher Guest documentary, but I thought it held its own.

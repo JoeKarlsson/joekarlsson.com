@@ -24,7 +24,7 @@ description: 'I think of that lawnmower every time I cut the lawn'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/braindead-1992/'
 poster: '/images/reviews/braindead-1992/poster.webp'
 heroImage: '/images/reviews/braindead-1992/backdrop.webp'
-heroAlt: 'A still from Braindead (1992)'
+heroAlt: 'A blood-soaked young man in a torn shirt surrounded by grasping zombies.'
 ---
 
 I think of that lawnmower every time I cut the lawn

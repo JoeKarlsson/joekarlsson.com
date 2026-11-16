@@ -25,7 +25,7 @@ description: 'Watching this after the Epstein files hit different.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/you-were-never-really-here/'
 poster: '/images/reviews/you-were-never-really-here/poster.webp'
 heroImage: '/images/reviews/you-were-never-really-here/backdrop.webp'
-heroAlt: 'A still from You Were Never Really Here (2017)'
+heroAlt: 'Joaquin Phoenix with long hair and a beard, in profile beside a doorway.'
 ---
 
 Watching this after the Epstein files hit different.

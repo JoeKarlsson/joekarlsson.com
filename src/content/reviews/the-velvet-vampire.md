@@ -24,7 +24,7 @@ description: 'If you love The Love Witch, go find this immediately.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-velvet-vampire/'
 poster: '/images/reviews/the-velvet-vampire/poster.webp'
 heroImage: '/images/reviews/the-velvet-vampire/backdrop.webp'
-heroAlt: 'A still from The Velvet Vampire (1971)'
+heroAlt: 'A dark-haired woman in a black hat and red sweater in the desert.'
 ---
 
 If you love The Love Witch, go find this immediately.

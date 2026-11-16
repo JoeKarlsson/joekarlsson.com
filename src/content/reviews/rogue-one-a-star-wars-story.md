@@ -16,7 +16,7 @@ description: 'Battle of Algiers does this better. For Star Wars, this is extreme
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/rogue-one-a-star-wars-story/'
 poster: '/images/reviews/rogue-one-a-star-wars-story/poster.webp'
 heroImage: '/images/reviews/rogue-one-a-star-wars-story/backdrop.webp'
-heroAlt: 'A still from Rogue One: A Star Wars Story (2016)'
+heroAlt: 'Poster art of rebel fighters charging with blasters and a staff beneath an Imperial walker and TIE fighters in a stormy sky.'
 ---
 
 Battle of Algiers does this better. For Star Wars, this is extremely mature.

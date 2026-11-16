@@ -16,7 +16,7 @@ description: 'A hangout movie with billionaire casino gangsters. Three hours fle
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/casino/'
 poster: '/images/reviews/casino/poster.webp'
 heroImage: '/images/reviews/casino/backdrop.webp'
-heroAlt: 'A still from Casino (1995)'
+heroAlt: 'Robert De Niro in a dark suit and tie standing under the bright marquee lights of a casino.'
 ---
 
 A hangout movie with billionaire casino gangsters. Three hours flew by.

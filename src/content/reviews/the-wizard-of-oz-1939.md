@@ -16,7 +16,7 @@ description: 'I loved the part when the scarecrow has a gun for one scene.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-wizard-of-oz-1939/'
 poster: '/images/reviews/the-wizard-of-oz-1939/poster.webp'
 heroImage: '/images/reviews/the-wizard-of-oz-1939/backdrop.webp'
-heroAlt: 'A still from The Wizard of Oz (1939)'
+heroAlt: 'Painted art of Ray Bolger, Jack Haley, Judy Garland and Bert Lahr walking arm in arm down a yellow brick road through poppies.'
 ---
 
 I loved the part when the scarecrow has a gun for one scene.

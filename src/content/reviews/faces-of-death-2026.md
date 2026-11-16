@@ -24,7 +24,7 @@ description: 'Silence of the Lambs but for Kick streamers.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/faces-of-death-2026/'
 poster: '/images/reviews/faces-of-death-2026/poster.webp'
 heroImage: '/images/reviews/faces-of-death-2026/backdrop.webp'
-heroAlt: 'A still from Faces of Death (2026)'
+heroAlt: 'A man with bloodshot red eyes pressing his hands against his temples.'
 ---
 
 Silence of the Lambs but for Kick streamers.

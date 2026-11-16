@@ -24,7 +24,7 @@ description: "Allie Fox would have voted for Trump. I can't explain it, but it's
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-mosquito-coast/'
 poster: '/images/reviews/the-mosquito-coast/poster.webp'
 heroImage: '/images/reviews/the-mosquito-coast/backdrop.webp'
-heroAlt: 'A still from The Mosquito Coast (1986)'
+heroAlt: 'Harrison Ford in a cap and glasses gesturing among villagers in a jungle, a boy watching behind him.'
 ---
 
 Allie Fox would have voted for Trump. I can't explain it, but it's true.

@@ -30,7 +30,7 @@ description: 'Super fun slasher. I really enjoyed myself'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/friday-the-13th-the-final-chapter/'
 poster: '/images/reviews/friday-the-13th-the-final-chapter/poster.webp'
 heroImage: '/images/reviews/friday-the-13th-the-final-chapter/backdrop.webp'
-heroAlt: 'A still from Friday the 13th: The Final Chapter (1984)'
+heroAlt: 'A frightened young woman with curly hair pressing her hands to her mouth in the dark.'
 ---
 
 Super fun slasher. I really enjoyed myself

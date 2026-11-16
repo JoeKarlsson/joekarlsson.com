@@ -24,7 +24,7 @@ description: 'I am not surprised that James Cameron is really good at channeling
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/true-lies/'
 poster: '/images/reviews/true-lies/poster.webp'
 heroImage: '/images/reviews/true-lies/backdrop.webp'
-heroAlt: 'A still from True Lies (1994)'
+heroAlt: 'Jamie Lee Curtis leaning on Arnold Schwarzenegger, who wears a white tuxedo and holds a pistol.'
 ---
 
 I am not surprised that James Cameron is really good at channeling divorced dad energy for his male leads

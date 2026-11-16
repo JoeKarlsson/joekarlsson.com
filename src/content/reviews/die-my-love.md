@@ -24,7 +24,7 @@ description: 'Another feel-good summer romance from Lynne Ramsay /s'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/die-my-love/'
 poster: '/images/reviews/die-my-love/poster.webp'
 heroImage: '/images/reviews/die-my-love/backdrop.webp'
-heroAlt: 'A still from Die My Love (2025)'
+heroAlt: 'Jennifer Lawrence in a strapless dress, held from behind by Robert Pattinson on a crowded dance floor.'
 ---
 
 Another feel-good summer romance from Lynne Ramsay /s

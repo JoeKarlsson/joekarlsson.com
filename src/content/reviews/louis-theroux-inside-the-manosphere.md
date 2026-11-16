@@ -16,7 +16,7 @@ description: 'Louis Theroux does what he does best - lets them hang themselves.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/louis-theroux-inside-the-manosphere/'
 poster: '/images/reviews/louis-theroux-inside-the-manosphere/poster.webp'
 heroImage: '/images/reviews/louis-theroux-inside-the-manosphere/backdrop.webp'
-heroAlt: 'A still from Louis Theroux: Inside the Manosphere (2026)'
+heroAlt: "Louis Theroux in glasses, held in a headlock by a muscular man's arm against a teal background."
 ---
 
 Louis Theroux does what he does best - lets them hang themselves.

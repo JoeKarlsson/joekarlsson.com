@@ -23,7 +23,7 @@ description: 'Emily Blunt should have been the biggest action star in the world 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/edge-of-tomorrow/'
 poster: '/images/reviews/edge-of-tomorrow/poster.webp'
 heroImage: '/images/reviews/edge-of-tomorrow/backdrop.webp'
-heroAlt: 'A still from Edge of Tomorrow (2014)'
+heroAlt: 'Tom Cruise and Emily Blunt in mechanical battle exoskeletons, she carrying a large blade, with fire streaking over a smoky city.'
 ---
 
 Emily Blunt should have been the biggest action star in the world after this.

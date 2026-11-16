@@ -17,7 +17,7 @@ description: 'This movie proves that the real horror was always just being a dog
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/good-boy-2025/'
 poster: '/images/reviews/good-boy-2025/poster.webp'
 heroImage: '/images/reviews/good-boy-2025/backdrop.webp'
-heroAlt: 'A still from Good Boy (2025)'
+heroAlt: 'Indy, a reddish-brown retriever, sitting in a gloomy forest while a shadowy figure stands among the trees behind him.'
 ---
 
 This movie proves that the real horror was always just being a dog with separation anxiety in a household with unclear boundaries.

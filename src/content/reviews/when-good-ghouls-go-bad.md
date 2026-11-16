@@ -30,7 +30,7 @@ description: 'This was a surprisingly tight, well-paced, well-executed TV movie 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/when-good-ghouls-go-bad/'
 poster: '/images/reviews/when-good-ghouls-go-bad/poster.webp'
 heroImage: '/images/reviews/when-good-ghouls-go-bad/backdrop.webp'
-heroAlt: 'A still from When Good Ghouls Go Bad (2001)'
+heroAlt: 'Christopher Lloyd in pale ghoul makeup leaning close to a man.'
 ---
 
 This was a surprisingly tight, well-paced, well-executed TV movie and one of my favorite cozy Halloween watches of the year.

@@ -26,7 +26,7 @@ description: "Here's the text I sent my Dad about this movie - I hope this count
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/greyhound/'
 poster: '/images/reviews/greyhound/poster.webp'
 heroImage: '/images/reviews/greyhound/backdrop.webp'
-heroAlt: 'A still from Greyhound (2020)'
+heroAlt: "Tom Hanks in a naval officer's cap, seen through a shattered porthole."
 ---
 
 Here's the text I sent my Dad about this movie - I hope this counts as a review:

@@ -24,7 +24,7 @@ description: 'This Steven guy is really good at making movies'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jaws/'
 poster: '/images/reviews/jaws/poster.webp'
 heroImage: '/images/reviews/jaws/backdrop.webp'
-heroAlt: 'A still from Jaws (1975)'
+heroAlt: 'Robert Shaw, Roy Scheider and Richard Dreyfuss leaning over the side of a boat, staring at the sea.'
 ---
 
 This Steven guy is really good at making movies

@@ -30,7 +30,7 @@ description: 'Jean-Claude Van Damme saves the Stanley Cup Finals from terrorists
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sudden-death/'
 poster: '/images/reviews/sudden-death/poster.webp'
 heroImage: '/images/reviews/sudden-death/backdrop.webp'
-heroAlt: 'A still from Sudden Death (1995)'
+heroAlt: 'Jean-Claude Van Damme in a blue work shirt, his face cut and bloodied, glaring in close-up.'
 ---
 
 Jean-Claude Van Damme saves the Stanley Cup Finals from terrorists in the emptiest arena in sports history.

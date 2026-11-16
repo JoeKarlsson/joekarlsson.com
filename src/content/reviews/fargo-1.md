@@ -25,7 +25,7 @@ description: 'Watch this in a local dive bar in the middle of January with a bun
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/fargo/1/'
 poster: '/images/reviews/fargo-1/poster.webp'
 heroImage: '/images/reviews/fargo-1/backdrop.webp'
-heroAlt: 'A still from Fargo (1996)'
+heroAlt: 'Frances McDormand in a fur police hat and parka, aiming a pistol in snowy woods beside a frozen lake.'
 ---
 
 Watch this in a local dive bar in the middle of January with a bunch of Minnesotans. This played like gangbusters.

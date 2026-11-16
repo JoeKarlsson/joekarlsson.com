@@ -26,7 +26,7 @@ description: 'I loved the message of this film, and I appreciated the surreal na
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-secret-life-of-walter-mitty-2013/'
 poster: '/images/reviews/the-secret-life-of-walter-mitty-2013/poster.webp'
 heroImage: '/images/reviews/the-secret-life-of-walter-mitty-2013/backdrop.webp'
-heroAlt: 'A still from The Secret Life of Walter Mitty (2013)'
+heroAlt: 'Ben Stiller walking down a busy city sidewalk carrying a briefcase.'
 ---
 
 I loved the message of this film, and I appreciated the surreal nature of the story. Still seemed hammy though

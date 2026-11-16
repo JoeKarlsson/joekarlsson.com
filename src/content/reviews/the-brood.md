@@ -25,7 +25,7 @@ description: 'I thought Art Hindle was Topher Grace.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-brood/'
 poster: '/images/reviews/the-brood/poster.webp'
 heroImage: '/images/reviews/the-brood/backdrop.webp'
-heroAlt: 'A still from The Brood (1979)'
+heroAlt: 'A small blonde girl with bangs in a red floral pinafore and white blouse, looking down with a blank face.'
 ---
 
 I thought Art Hindle was Topher Grace.

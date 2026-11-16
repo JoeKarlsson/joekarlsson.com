@@ -17,7 +17,7 @@ description: 'This is what a biopic should be: not the facts of a life but the f
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/caravaggio/'
 poster: '/images/reviews/caravaggio/poster.webp'
 heroImage: '/images/reviews/caravaggio/backdrop.webp'
-heroAlt: 'A still from Caravaggio (1986)'
+heroAlt: 'Sean Bean holding a knife while a dark-haired, mustached man embraces him from behind against a plaster wall.'
 ---
 
 This is what a biopic should be: not the facts of a life but the fever of one.

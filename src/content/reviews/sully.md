@@ -25,7 +25,7 @@ description: 'I cried a lot'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sully/'
 poster: '/images/reviews/sully/poster.webp'
 heroImage: '/images/reviews/sully/backdrop.webp'
-heroAlt: 'A still from Sully (2016)'
+heroAlt: 'Passengers standing on the wings of an airliner floating in a river, with a city skyline behind them.'
 ---
 
 I cried a lot

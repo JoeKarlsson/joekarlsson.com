@@ -25,7 +25,7 @@ description: "This movie is in the running to be the sweatiest 90's action movie
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/predator-2/'
 poster: '/images/reviews/predator-2/poster.webp'
 heroImage: '/images/reviews/predator-2/backdrop.webp'
-heroAlt: 'A still from Predator 2 (1990)'
+heroAlt: 'Painted art of the Predator raising a spine trophy and a spear above city towers under a red sky.'
 ---
 
 This movie is in the running to be the sweatiest 90's action movie - and that's saying something.

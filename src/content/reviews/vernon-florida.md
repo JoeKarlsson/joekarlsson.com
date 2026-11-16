@@ -16,7 +16,7 @@ description: 'I’m starting to think that these people don’t actually know ho
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/vernon-florida/'
 poster: '/images/reviews/vernon-florida/poster.webp'
 heroImage: '/images/reviews/vernon-florida/backdrop.webp'
-heroAlt: 'A still from Vernon, Florida (1981)'
+heroAlt: 'Three elderly men in hats sitting together on a bench outside a storefront.'
 ---
 
 I’m starting to think that these people don’t actually know how to hunt turkeys or what “therefore” actually means… 🤔

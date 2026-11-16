@@ -24,7 +24,7 @@ description: "Elevated horror for sure - it definitely felt like a Danny Boyle a
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/28-years-later/'
 poster: '/images/reviews/28-years-later/poster.webp'
 heroImage: '/images/reviews/28-years-later/backdrop.webp'
-heroAlt: 'A still from 28 Years Later (2025)'
+heroAlt: 'Jodie Comer standing in a dark forest with a hand on her chest, beside a red-lit figure crouched by a small fire.'
 ---
 
 Elevated horror for sure - it definitely felt like a Danny Boyle and Alex Garland film. It wasn't what I expected, and it was a bit too British for my American tastes.

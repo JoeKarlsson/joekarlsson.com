@@ -24,7 +24,7 @@ description: "$POSITIONS understands the thing most anxiety movies miss, which i
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/positions-2025/'
 poster: '/images/reviews/positions-2025/poster.webp'
 heroImage: '/images/reviews/positions-2025/backdrop.webp'
-heroAlt: 'A still from $POSITIONS (2025)'
+heroAlt: 'Three men crowded around a computer screen in a dark room, one in a tank top splattered with blood.'
 ---
 
 $POSITIONS understands the thing most anxiety movies miss, which is that the panic isn't the point, the trap is.

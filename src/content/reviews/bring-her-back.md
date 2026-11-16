@@ -31,7 +31,7 @@ description: 'Give that kid an Oscar'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bring-her-back/'
 poster: '/images/reviews/bring-her-back/poster.webp'
 heroImage: '/images/reviews/bring-her-back/backdrop.webp'
-heroAlt: 'A still from Bring Her Back (2025)'
+heroAlt: 'A child with a shaved head and a white tank top standing by a stained concrete wall with a red smear on it.'
 ---
 
 Give that kid an Oscar

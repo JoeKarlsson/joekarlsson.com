@@ -24,7 +24,7 @@ description: 'Good god. This movie is much funnier than I expected it to be.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-day-the-earth-blew-up-a-looney-tunes-movie/'
 poster: '/images/reviews/the-day-the-earth-blew-up-a-looney-tunes-movie/poster.webp'
 heroImage: '/images/reviews/the-day-the-earth-blew-up-a-looney-tunes-movie/backdrop.webp'
-heroAlt: 'A still from The Day the Earth Blew Up: A Looney Tunes Movie (2024)'
+heroAlt: 'Daffy Duck and Porky Pig having breakfast at a small table in a messy cartoon kitchen, with little birds on the floor.'
 ---
 
 Good god. This movie is much funnier than I expected it to be.

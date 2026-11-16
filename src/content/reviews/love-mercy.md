@@ -16,7 +16,7 @@ description: 'Paul Dano is a perfect Brian Wilson'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/love-mercy/'
 poster: '/images/reviews/love-mercy/poster.webp'
 heroImage: '/images/reviews/love-mercy/backdrop.webp'
-heroAlt: 'A still from Love & Mercy (2014)'
+heroAlt: 'John Cusack and Elizabeth Banks walking side by side outside a white building, smiling at each other.'
 ---
 
 Paul Dano is a perfect Brian Wilson

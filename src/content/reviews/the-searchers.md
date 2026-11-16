@@ -16,7 +16,7 @@ description: "Jesus. The Searchers is mega relevant today and difficult to watch
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-searchers/'
 poster: '/images/reviews/the-searchers/poster.webp'
 heroImage: '/images/reviews/the-searchers/backdrop.webp'
-heroAlt: 'A still from The Searchers (1956)'
+heroAlt: 'Jeffrey Hunter and John Wayne standing with their horses among the red buttes of Monument Valley.'
 ---
 
 Jesus. The Searchers is mega relevant today and difficult to watch. John Wayne's deep and terrible racism still resonates today.

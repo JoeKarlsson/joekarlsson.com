@@ -17,7 +17,7 @@ description: '"It''s business doing pleasure with ya!"'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-best-little-whorehouse-in-texas/'
 poster: '/images/reviews/the-best-little-whorehouse-in-texas/poster.webp'
 heroImage: '/images/reviews/the-best-little-whorehouse-in-texas/backdrop.webp'
-heroAlt: 'A still from The Best Little Whorehouse in Texas (1982)'
+heroAlt: "Burt Reynolds in a sheriff's uniform with Dolly Parton beside him, her hand resting on his chest."
 ---
 
 "It's business doing pleasure with ya!"

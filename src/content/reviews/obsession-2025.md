@@ -24,7 +24,7 @@ description: 'As a certified cat guy, this was a tough watch.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/obsession-2025/'
 poster: '/images/reviews/obsession-2025/poster.webp'
 heroImage: '/images/reviews/obsession-2025/backdrop.webp'
-heroAlt: 'A still from Obsession (2025)'
+heroAlt: 'A dark figure standing on the lit porch of a small house at night, with a car parked in the foreground.'
 ---
 
 As a certified cat guy, this was a tough watch.

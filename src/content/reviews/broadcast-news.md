@@ -18,7 +18,7 @@ description: "I feel like I'm missing something with this movie. I know it was n
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/broadcast-news/'
 poster: '/images/reviews/broadcast-news/poster.webp'
 heroImage: '/images/reviews/broadcast-news/backdrop.webp'
-heroAlt: 'A still from Broadcast News (1987)'
+heroAlt: 'Reporters gathered around desks in a cluttered TV newsroom under a "WASHINGTON" sign.'
 ---
 
 I feel like I'm missing something with this movie. I know it was nominated for Best Picture. I know everyone loves it, but I just couldn't get on the same wavelength as this movie. It feels like a boomer movie, but I get how it's ahead of its time, and I still relate to the vulnerabilities of these hard-working, extremely smart people

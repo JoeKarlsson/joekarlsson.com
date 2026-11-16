@@ -24,7 +24,7 @@ description: "Oof! This is bad. Jokes were few and far between and felt like a r
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/spinal-tap-ii-the-end-continues/'
 poster: '/images/reviews/spinal-tap-ii-the-end-continues/poster.webp'
 heroImage: '/images/reviews/spinal-tap-ii-the-end-continues/backdrop.webp'
-heroAlt: 'A still from Spinal Tap II: The End Continues (2025)'
+heroAlt: 'Christopher Guest, Michael McKean and Harry Shearer, long-haired and grey, sitting on folding chairs in a rehearsal space lined with guitars.'
 ---
 
 Oof! This is bad. Jokes were few and far between and felt like a reunion tour that offered no new songs of any value. And they're just going on tour to get a payday. But in this movie's defense, I am not mad about paying an admission ticket to support these legends.

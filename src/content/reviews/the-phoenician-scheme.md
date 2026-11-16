@@ -24,7 +24,7 @@ description: 'Oh man. I really got nothing out of this film.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-phoenician-scheme/'
 poster: '/images/reviews/the-phoenician-scheme/poster.webp'
 heroImage: '/images/reviews/the-phoenician-scheme/backdrop.webp'
-heroAlt: 'A still from The Phoenician Scheme (2025)'
+heroAlt: "A bloodied Benicio del Toro in a pinstripe suit beside Mia Threapleton in a nun's habit, in front of a crashed plane."
 ---
 
 Oh man. I really got nothing out of this film.

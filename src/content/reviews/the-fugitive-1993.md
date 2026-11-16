@@ -24,7 +24,7 @@ description: 'Great direction and editing. Amazing cat and mouse. Tommy Lee Jone
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-fugitive-1993/'
 poster: '/images/reviews/the-fugitive-1993/poster.webp'
 heroImage: '/images/reviews/the-fugitive-1993/backdrop.webp'
-heroAlt: 'A still from The Fugitive (1993)'
+heroAlt: 'Harrison Ford in a blue work shirt examining a prosthetic arm in a cluttered workshop.'
 ---
 
 Great direction and editing. Amazing cat and mouse. Tommy Lee Jones is one of my favorite cops of all time (ACAB). I love the minimalist screenplay with Harrison Ford acting his balls off. This was my favorite type of competency porn with two professionals doing good at their jobs. So fun to watch.

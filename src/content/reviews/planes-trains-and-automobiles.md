@@ -16,7 +16,7 @@ description: 'A screwball comedy with heart. John Candy is a treasure in this - 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/planes-trains-and-automobiles/'
 poster: '/images/reviews/planes-trains-and-automobiles/poster.webp'
 heroImage: '/images/reviews/planes-trains-and-automobiles/backdrop.webp'
-heroAlt: 'A still from Planes, Trains and Automobiles (1987)'
+heroAlt: 'Painted art of Steve Martin and John Candy sitting on a trunk, with a jet, a car and a train behind them.'
 ---
 
 A screwball comedy with heart. John Candy is a treasure in this - warm, funny, and quietly devastating. Steve Martin plays exasperation perfectly, but Candy is the soul of the film. It's chaotic and silly and then it turns and becomes something beautiful.

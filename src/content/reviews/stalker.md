@@ -24,7 +24,7 @@ description: 'This took me three days to watch. Not because I wasn’t engaged, 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/stalker/'
 poster: '/images/reviews/stalker/poster.webp'
 heroImage: '/images/reviews/stalker/backdrop.webp'
-heroAlt: 'A still from Stalker (1979)'
+heroAlt: 'A man in a dark coat standing among smooth sand dunes inside a vast stone hall, two men watching from behind.'
 ---
 
 This took me three days to watch. Not because I wasn’t engaged, but because Tarkovsky demands you sit with each moment, each lingering shot of industrial decay and overgrown ruins. The pacing is glacial and completely intentional.

@@ -17,7 +17,7 @@ description: 'Very good'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-silence-of-the-lambs/'
 poster: '/images/reviews/the-silence-of-the-lambs/poster.webp'
 heroImage: '/images/reviews/the-silence-of-the-lambs/backdrop.webp'
-heroAlt: 'A still from The Silence of the Lambs (1991)'
+heroAlt: 'A close-up of Anthony Hopkins looking upward with wide, pale eyes.'
 ---
 
 Very good

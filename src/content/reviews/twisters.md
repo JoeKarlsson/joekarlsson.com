@@ -25,7 +25,7 @@ description: 'Saw this at a drive in in the middle of summer. That equally adds 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/twisters/'
 poster: '/images/reviews/twisters/poster.webp'
 heroImage: '/images/reviews/twisters/backdrop.webp'
-heroAlt: 'A still from Twisters (2024)'
+heroAlt: 'Daisy Edgar-Jones, Glen Powell and another man stare up at a tornado beside a truck in a field.'
 ---
 
 Saw this at a drive in in the middle of summer. That equally adds a star

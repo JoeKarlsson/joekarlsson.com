@@ -24,7 +24,7 @@ description: 'Grumpier, yes. Better, no.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/grumpier-old-men/'
 poster: '/images/reviews/grumpier-old-men/poster.webp'
 heroImage: '/images/reviews/grumpier-old-men/backdrop.webp'
-heroAlt: 'A still from Grumpier Old Men (1995)'
+heroAlt: 'Jack Lemmon and Walter Matthau in tuxedos struggling with a bent fishing rod in a small boat on a lake.'
 ---
 
 Grumpier, yes. Better, no.

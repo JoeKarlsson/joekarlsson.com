@@ -24,7 +24,7 @@ description: 'Antifa Trunks and Goten confirmed.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dragon-ball-z-fusion-reborn/'
 poster: '/images/reviews/dragon-ball-z-fusion-reborn/poster.webp'
 heroImage: '/images/reviews/dragon-ball-z-fusion-reborn/backdrop.webp'
-heroAlt: 'A still from Dragon Ball Z: Fusion Reborn (1995)'
+heroAlt: 'Anime art of a golden-haired fighter pointing skyward before a giant grinning green ogre, with warriors and villains flying around them.'
 ---
 
 Antifa Trunks and Goten confirmed.

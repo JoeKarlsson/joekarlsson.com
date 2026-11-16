@@ -22,7 +22,7 @@ description: 'A Herzogian task to even make this movie. Somehow Friedkin pulled 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sorcerer/'
 poster: '/images/reviews/sorcerer/poster.webp'
 heroImage: '/images/reviews/sorcerer/backdrop.webp'
-heroAlt: 'A still from Sorcerer (1977)'
+heroAlt: 'Four grimy men in work clothes gathered in a dim shed, one in a fedora with his arms crossed.'
 ---
 
 A Herzogian task to even make this movie. Somehow Friedkin pulled it off. And that bridge sequence. 👏

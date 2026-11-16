@@ -17,7 +17,7 @@ description: 'Great noir, not one of the best films of all time.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/chinatown/'
 poster: '/images/reviews/chinatown/poster.webp'
 heroImage: '/images/reviews/chinatown/backdrop.webp'
-heroAlt: 'A still from Chinatown (1974)'
+heroAlt: 'Jack Nicholson with a bandaged nose and a fedora sitting beside Faye Dunaway in a black hat in a car at dusk.'
 ---
 
 Great noir, not one of the best films of all time.

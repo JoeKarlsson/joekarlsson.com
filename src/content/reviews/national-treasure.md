@@ -17,7 +17,7 @@ description: "What's with that changing room????"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/national-treasure/'
 poster: '/images/reviews/national-treasure/poster.webp'
 heroImage: '/images/reviews/national-treasure/backdrop.webp'
-heroAlt: 'A still from National Treasure (2004)'
+heroAlt: 'Poster art of Nicolas Cage with a satchel against a golden glow, with the Capitol dome and a running blonde woman behind him.'
 ---
 
 What's with that changing room????

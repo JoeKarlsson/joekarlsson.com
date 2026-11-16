@@ -32,7 +32,7 @@ description: 'I never thought I would see Jason Momoa 69 Jack Black, but here we
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/a-minecraft-movie/'
 poster: '/images/reviews/a-minecraft-movie/poster.webp'
 heroImage: '/images/reviews/a-minecraft-movie/backdrop.webp'
-heroAlt: 'A still from A Minecraft Movie (2025)'
+heroAlt: 'A blocky white llama standing on a sunny lawn beside a cube-built stone house in a village.'
 ---
 
 I never thought I would see Jason Momoa 69 Jack Black, but here we are.

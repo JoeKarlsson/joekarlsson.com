@@ -31,7 +31,7 @@ description: 'Fun, pulpy horror. I enjoyed myself.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/ready-or-not-2019/'
 poster: '/images/reviews/ready-or-not-2019/poster.webp'
 heroImage: '/images/reviews/ready-or-not-2019/backdrop.webp'
-heroAlt: 'A still from Ready or Not (2019)'
+heroAlt: 'Samara Weaving in a lace wedding dress with an ammunition belt across her chest and a shotgun, in a candlelit room.'
 ---
 
 Fun, pulpy horror. I enjoyed myself.

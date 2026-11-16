@@ -17,7 +17,7 @@ description: 'I love that Captain Capitalism finally ate shit when he tried to m
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-smashing-machine-2025/'
 poster: '/images/reviews/the-smashing-machine-2025/poster.webp'
 heroImage: '/images/reviews/the-smashing-machine-2025/backdrop.webp'
-heroAlt: 'A still from The Smashing Machine (2025)'
+heroAlt: "Dwayne Johnson sitting in a fighter's corner of a ring while his cornermen tend to him."
 ---
 
 I love that Captain Capitalism finally ate shit when he tried to make an earnest play at being a legit drama actor. Schadenfreude tastes sweet. The Rock finally tried to be a serious actor and bombed so hard the movie became a meta-commentary on failure.

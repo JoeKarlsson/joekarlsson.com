@@ -24,7 +24,7 @@ description: "The performances were really fun, but I have to admit that Hepburn
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bringing-up-baby/'
 poster: '/images/reviews/bringing-up-baby/poster.webp'
 heroImage: '/images/reviews/bringing-up-baby/backdrop.webp'
-heroAlt: 'A still from Bringing Up Baby (1938)'
+heroAlt: 'Cary Grant behind jail bars talking to Katharine Hepburn, who holds a cigarette, in black and white.'
 ---
 
 The performances were really fun, but I have to admit that Hepburn's charm had worn off by the time she knocked over the dinosaur skeleton.

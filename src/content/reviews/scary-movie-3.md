@@ -17,7 +17,7 @@ description: "I hate to say it, but this is still genuinely funny. Revisiting th
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scary-movie-3/'
 poster: '/images/reviews/scary-movie-3/poster.webp'
 heroImage: '/images/reviews/scary-movie-3/backdrop.webp'
-heroAlt: 'A still from Scary Movie 3 (2003)'
+heroAlt: 'Simon Rex, Anna Faris and Charlie Sheen staring up in alarm inside a cluttered, dim barn.'
 ---
 
 I hate to say it, but this is still genuinely funny. Revisiting this after writing it off for the last 20 years, and I'm shocked at how much I laughed. It's 2025 and this thing still lands.

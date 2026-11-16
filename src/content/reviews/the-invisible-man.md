@@ -24,7 +24,7 @@ description: 'The central question of The Invisible Man is: what would you do if
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-invisible-man/'
 poster: '/images/reviews/the-invisible-man/poster.webp'
 heroImage: '/images/reviews/the-invisible-man/backdrop.webp'
-heroAlt: 'A still from The Invisible Man (1933)'
+heroAlt: 'Claude Rains, his head wrapped in bandages and dark goggles, leaning over a lab bench of glassware in black and white.'
 ---
 
 The central question of The Invisible Man is: what would you do if you had the power of invisibility? And more specifically, what would a man do with that power?

@@ -25,7 +25,7 @@ description: 'I’ve been Speed-pilled 🏎️💊'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/speed-racer/'
 poster: '/images/reviews/speed-racer/poster.webp'
 heroImage: '/images/reviews/speed-racer/backdrop.webp'
-heroAlt: 'A still from Speed Racer (2008)'
+heroAlt: 'A white race car with a red stripe speeding through a hall of glowing orange pillars, chased by a pack of neon-colored racers.'
 ---
 
 I’ve been Speed-pilled 🏎️💊

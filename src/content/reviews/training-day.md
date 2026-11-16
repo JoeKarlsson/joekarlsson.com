@@ -31,7 +31,7 @@ description: 'I hate to say it, but ACAB includes Ethan Hawke. This movie was we
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/training-day/'
 poster: '/images/reviews/training-day/poster.webp'
 heroImage: '/images/reviews/training-day/backdrop.webp'
-heroAlt: 'A still from Training Day (2001)'
+heroAlt: 'Ethan Hawke and Denzel Washington, faces side by side in warm sepia tones.'
 ---
 
 I hate to say it, but ACAB includes Ethan Hawke. This movie was well acted and the performances are wonderful, but ultimately it feels like copaganda. Like, I know we've had problems with corruption, but there are still good ones out there!

@@ -16,7 +16,7 @@ description: "It's a throwback 40s rom-com. It's also deeply weird."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/joe-versus-the-volcano/'
 poster: '/images/reviews/joe-versus-the-volcano/poster.webp'
 heroImage: '/images/reviews/joe-versus-the-volcano/backdrop.webp'
-heroAlt: 'A still from Joe Versus the Volcano (1990)'
+heroAlt: 'Meg Ryan in a white gown and Tom Hanks in a flower lei walking down stone steps between tiki statues inside a fiery cave.'
 ---
 
 It's a throwback 40s rom-com. It's also deeply weird.

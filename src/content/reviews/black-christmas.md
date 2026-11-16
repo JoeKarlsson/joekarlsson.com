@@ -24,7 +24,7 @@ description: 'The same guy who directed A Christmas Story directed this. Bob Cla
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/black-christmas/'
 poster: '/images/reviews/black-christmas/poster.webp'
 heroImage: '/images/reviews/black-christmas/backdrop.webp'
-heroAlt: 'A still from Black Christmas (1974)'
+heroAlt: 'Olivia Hussey listening on a telephone receiver in front of blurred Christmas tree lights.'
 ---
 
 The same guy who directed A Christmas Story directed this. Bob Clark made a cozy holiday classic about a kid and a BB gun, and he also made one of the most influential slasher films ever. Cinema is genuinely insane.

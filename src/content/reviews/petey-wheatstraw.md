@@ -24,7 +24,7 @@ description: 'Rudy Ray Moores weirdest movie. I have no idea what the themes are
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/petey-wheatstraw/'
 poster: '/images/reviews/petey-wheatstraw/poster.webp'
 heroImage: '/images/reviews/petey-wheatstraw/backdrop.webp'
-heroAlt: 'A still from Petey Wheatstraw (1977)'
+heroAlt: 'Rudy Ray Moore in a white robe sitting with a woman in white on a floral couch in a room with red curtains.'
 ---
 
 Rudy Ray Moores weirdest movie. I have no idea what the themes are, but it was fun and funny. I really liked it.

@@ -24,7 +24,7 @@ description: 'Where the hell were Bob Hoskins and John Leguizamo???'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-super-mario-galaxy-movie/'
 poster: '/images/reviews/the-super-mario-galaxy-movie/poster.webp'
 heroImage: '/images/reviews/the-super-mario-galaxy-movie/backdrop.webp'
-heroAlt: 'A still from The Super Mario Galaxy Movie (2026)'
+heroAlt: 'Mario and Luigi in ponchos and goggles surrounded by sugar-skull characters in sombreros.'
 ---
 
 Where the hell were Bob Hoskins and John Leguizamo???

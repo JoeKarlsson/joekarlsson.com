@@ -24,7 +24,7 @@ description: 'This cast is stacked. I assume everyone wanted to work with Amy He
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/vamps/'
 poster: '/images/reviews/vamps/poster.webp'
 heroImage: '/images/reviews/vamps/backdrop.webp'
-heroAlt: 'A still from Vamps (2012)'
+heroAlt: 'Krysten Ritter and Alicia Silverstone in black dresses sitting side by side at night.'
 ---
 
 This cast is stacked. I assume everyone wanted to work with Amy Heckerling??? I do not know what’s going on with the cinematography, but it looks terrible.

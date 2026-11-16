@@ -28,7 +28,7 @@ description: 'If you liked, there will be blood, you would love this movie. Merc
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-brutalist/'
 poster: '/images/reviews/the-brutalist/poster.webp'
 heroImage: '/images/reviews/the-brutalist/backdrop.webp'
-heroAlt: 'A still from The Brutalist (2024)'
+heroAlt: 'Adrien Brody smiling and holding a bouquet of roses on a train platform.'
 ---
 
 If you liked, there will be blood, you would love this movie. Mercifully has a 60 second intermission in the middle, which I used to go to the bathroom and get some more snacks. Love the themes of the illusion of the American dream, the patron and the artist, and the longevity of art. I don’t know if I’ll watch this movie again in the next 5 to 10 years, but I’m glad I watched it. Great photography and score.

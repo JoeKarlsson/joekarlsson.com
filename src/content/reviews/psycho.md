@@ -17,7 +17,7 @@ description: 'Everything before the ending is a classic, but that ending doesnâ€
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/psycho/'
 poster: '/images/reviews/psycho/poster.webp'
 heroImage: '/images/reviews/psycho/backdrop.webp'
-heroAlt: 'A still from Psycho (1960)'
+heroAlt: 'Anthony Perkins with his hand over his mouth in a black-and-white room, a painting of a bird on the wall behind him.'
 ---
 
 Everything before the ending is a classic, but that ending doesnâ€™t hold up too great

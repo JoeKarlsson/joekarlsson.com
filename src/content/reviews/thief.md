@@ -17,7 +17,7 @@ description: 'What if capitalism wouldn’t let you live without accepting your 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/thief/'
 poster: '/images/reviews/thief/poster.webp'
 heroImage: '/images/reviews/thief/backdrop.webp'
-heroAlt: 'A still from Thief (1981)'
+heroAlt: 'Tuesday Weld in a fur coat and James Caan in a leather jacket talking in a diner booth at night.'
 ---
 
 What if capitalism wouldn’t let you live without accepting your own death? Hahaha. Isn’t that crazy?

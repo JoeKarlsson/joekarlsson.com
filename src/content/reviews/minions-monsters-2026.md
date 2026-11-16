@@ -24,7 +24,7 @@ description: "I hadn't thought about the Minions since high school, and I did no
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/minions-monsters-2026/'
 poster: '/images/reviews/minions-monsters-2026/poster.webp'
 heroImage: '/images/reviews/minions-monsters-2026/backdrop.webp'
-heroAlt: 'A still from Minions & Monsters (2026)'
+heroAlt: 'A crowd of yellow Minions in overalls, one in the middle filming with an old movie camera.'
 ---
 
 I hadn't thought about the Minions since high school, and I did not expect them to come back as a silent-comedy history lesson.

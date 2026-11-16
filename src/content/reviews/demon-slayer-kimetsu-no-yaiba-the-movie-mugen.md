@@ -24,7 +24,7 @@ description: 'Beware new comers - there is a very complex lore at play here that
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/demon-slayer-kimetsu-no-yaiba-the-movie-mugen/'
 poster: '/images/reviews/demon-slayer-kimetsu-no-yaiba-the-movie-mugen/poster.webp'
 heroImage: '/images/reviews/demon-slayer-kimetsu-no-yaiba-the-movie-mugen/backdrop.webp'
-heroAlt: 'A still from Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train (2020)'
+heroAlt: 'An anime swordsman with flame-like yellow and red hair and a white cloak, against a fiery red background.'
 ---
 
 Beware new comers - there is a very complex lore at play here that requires watching a season of television to understand. If you do not know this lore - it is just a unyeilding onslaught of confusing violence.

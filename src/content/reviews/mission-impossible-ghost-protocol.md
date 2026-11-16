@@ -24,7 +24,7 @@ description: 'My favorite MI. Brad Bird please make more action movies 🙏'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mission-impossible-ghost-protocol/'
 poster: '/images/reviews/mission-impossible-ghost-protocol/poster.webp'
 heroImage: '/images/reviews/mission-impossible-ghost-protocol/backdrop.webp'
-heroAlt: 'A still from Mission: Impossible – Ghost Protocol (2011)'
+heroAlt: 'Poster art of Tom Cruise in a hooded leather jacket with Jeremy Renner, Simon Pegg and Paula Patton behind him in a dusty city.'
 ---
 
 My favorite MI. Brad Bird please make more action movies 🙏

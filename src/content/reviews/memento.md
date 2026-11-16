@@ -24,7 +24,7 @@ description: 'This was my favorite movie in college 😅'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/memento/'
 poster: '/images/reviews/memento/poster.webp'
 heroImage: '/images/reviews/memento/backdrop.webp'
-heroAlt: 'A still from Memento (2000)'
+heroAlt: 'Guy Pearce in a tan suit sitting on the edge of a motel bed in a dark room lit by wall lamps.'
 ---
 
 This was my favorite movie in college 😅

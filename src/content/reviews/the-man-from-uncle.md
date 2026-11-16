@@ -25,7 +25,7 @@ description: 'GAAY GAY GAY GAAYY GAYHHGAH GAAAY GGGGGGAAHBHHY'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-man-from-uncle/'
 poster: '/images/reviews/the-man-from-uncle/poster.webp'
 heroImage: '/images/reviews/the-man-from-uncle/backdrop.webp'
-heroAlt: 'A still from The Man from U.N.C.L.E. (2015)'
+heroAlt: 'Henry Cavill and Armie Hammer standing back to back, each aiming a pistol.'
 ---
 
 GAAY GAY GAY GAAYY GAYHHGAH GAAAY GGGGGGAAHBHHY

@@ -32,7 +32,7 @@ description: 'I saw Burn After Reading in theaters back in 2008 with friends bec
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/burn-after-reading/1/'
 poster: '/images/reviews/burn-after-reading-1/poster.webp'
 heroImage: '/images/reviews/burn-after-reading-1/backdrop.webp'
-heroAlt: 'A still from Burn After Reading (2008)'
+heroAlt: "Brad Pitt with earbuds in, sipping from a large cup through a straw in the driver's seat of a car."
 ---
 
 I saw Burn After Reading in theaters back in 2008 with friends because we were running high off No Country for Old Men. I loved it at the time and have loved it all these years since. This was my first rewatch since that theatrical experience, and I have to say - it’s gotten dinged a bit for me.

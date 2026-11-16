@@ -24,7 +24,7 @@ description: "A Christmas movie about every holiday, including one particularly 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/holiday-inn/'
 poster: '/images/reviews/holiday-inn/poster.webp'
 heroImage: '/images/reviews/holiday-inn/backdrop.webp'
-heroAlt: 'A still from Holiday Inn (1942)'
+heroAlt: 'Bing Crosby and Fred Astaire in suits sitting beside two women in a black-and-white publicity photo.'
 ---
 
 A Christmas movie about every holiday, including one particularly memorable one we don't celebrate anymore... Cough cough, Abraham Lincoln's birthday, cough cough.

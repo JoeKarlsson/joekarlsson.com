@@ -24,7 +24,7 @@ description: 'I gotta say this movie hit me really hard as a 35 year-old man thi
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/raising-arizona/'
 poster: '/images/reviews/raising-arizona/poster.webp'
 heroImage: '/images/reviews/raising-arizona/backdrop.webp'
-heroAlt: 'A still from Raising Arizona (1987)'
+heroAlt: 'Nicolas Cage holding up a baby in a diaper while Holly Hunter smiles behind him in a decorated room.'
 ---
 
 I gotta say this movie hit me really hard as a 35 year-old man thinking about having children. That ending had me in tears.

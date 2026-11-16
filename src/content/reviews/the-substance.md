@@ -24,7 +24,7 @@ description: 'This is a perfect movie. It takes the story ALL THE WAY to its con
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-substance/'
 poster: '/images/reviews/the-substance/poster.webp'
 heroImage: '/images/reviews/the-substance/backdrop.webp'
-heroAlt: 'A still from The Substance (2024)'
+heroAlt: 'Demi Moore holding up a small glass bulb and studying it in blue light.'
 ---
 
 This is a perfect movie. It takes the story ALL THE WAY to its conclusion.

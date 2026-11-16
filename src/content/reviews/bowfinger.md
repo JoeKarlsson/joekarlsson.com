@@ -24,7 +24,7 @@ description: 'Chubby Rain looks kinda good though 👀'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bowfinger/'
 poster: '/images/reviews/bowfinger/poster.webp'
 heroImage: '/images/reviews/bowfinger/backdrop.webp'
-heroAlt: 'A still from Bowfinger (1999)'
+heroAlt: 'Eddie Murphy and Steve Martin facing each other with their hands raised in a cluttered office.'
 ---
 
 Chubby Rain looks kinda good though 👀

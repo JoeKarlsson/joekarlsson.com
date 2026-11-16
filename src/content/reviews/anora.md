@@ -24,7 +24,7 @@ description: 'Florida Project is still my favorite Sean Baker flick, but this on
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/anora/'
 poster: '/images/reviews/anora/poster.webp'
 heroImage: '/images/reviews/anora/backdrop.webp'
-heroAlt: 'A still from Anora (2024)'
+heroAlt: 'Mikey Madison in a lace top hugging a young man in sunglasses and a leopard-print shirt at a casino table, beside a grinning man.'
 ---
 
 Florida Project is still my favorite Sean Baker flick, but this one is so good. I had no idea where it was going and was consistently surprised. Sean definitely cares about SW and it shows with his delicate and empathetic stories about their lives.

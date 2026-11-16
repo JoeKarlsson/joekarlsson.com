@@ -24,7 +24,7 @@ description: 'This is a perfect example of a three star movie'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/drive-away-dolls/'
 poster: '/images/reviews/drive-away-dolls/poster.webp'
 heroImage: '/images/reviews/drive-away-dolls/backdrop.webp'
-heroAlt: 'A still from Drive-Away Dolls (2024)'
+heroAlt: 'Geraldine Viswanathan and Margaret Qualley opening a silver metal briefcase in a diner booth.'
 ---
 
 This is a perfect example of a three star movie

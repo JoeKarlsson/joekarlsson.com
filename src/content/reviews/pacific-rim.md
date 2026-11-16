@@ -24,7 +24,7 @@ description: 'GDT does Neon Genesis Evangelion and it rocks.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/pacific-rim/'
 poster: '/images/reviews/pacific-rim/poster.webp'
 heroImage: '/images/reviews/pacific-rim/backdrop.webp'
-heroAlt: 'A still from Pacific Rim (2013)'
+heroAlt: 'Poster art of Idris Elba, Charlie Hunnam and Rinko Kikuchi in armored suits standing before giant robots in a hangar.'
 ---
 
 GDT does Neon Genesis Evangelion and it rocks.

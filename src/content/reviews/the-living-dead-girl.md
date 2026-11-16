@@ -24,7 +24,7 @@ description: "This is the most French horror film I've ever seen in my entire li
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-living-dead-girl/'
 poster: '/images/reviews/the-living-dead-girl/poster.webp'
 heroImage: '/images/reviews/the-living-dead-girl/backdrop.webp'
-heroAlt: 'A still from The Living Dead Girl (1982)'
+heroAlt: 'A dark-haired woman holding a bloodied white dove up to a pale blonde woman in a robe against a stone wall.'
 ---
 
 This is the most French horror film I've ever seen in my entire life.

@@ -24,7 +24,7 @@ description: "I finished Memories a couple hours ago and I'm still noodling on i
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/memories/'
 poster: '/images/reviews/memories/poster.webp'
 heroImage: '/images/reviews/memories/backdrop.webp'
-heroAlt: 'A still from Memories (1995)'
+heroAlt: 'A pale blue animated sketch of a family seated around a dinner table, the room and furniture crusted with dripping debris.'
 ---
 
 I finished Memories a couple hours ago and I'm still noodling on it. This was much deeper than I ever expected, and the subjects it touched on feel like they need more time to process than a quick 90-minute runtime allows.

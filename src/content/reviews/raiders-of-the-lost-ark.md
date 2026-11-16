@@ -24,7 +24,7 @@ description: "I'm sorry this is a banger. Amazing performance amazing screenplay
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/raiders-of-the-lost-ark/'
 poster: '/images/reviews/raiders-of-the-lost-ark/poster.webp'
 heroImage: '/images/reviews/raiders-of-the-lost-ark/backdrop.webp'
-heroAlt: 'A still from Raiders of the Lost Ark (1981)'
+heroAlt: 'Harrison Ford in a fedora beside a man in a white Panama hat drinking in a crowded bar.'
 ---
 
 I'm sorry this is a banger. Amazing performance amazing screenplay amazing direction amazing lead performance amazing supporting performances amazing soundtrack. I loved it all and I've seen it 500 billion times.

@@ -25,7 +25,7 @@ description: 'Showing Paddington 2 to someone new is a confession.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/paddington-2/1/'
 poster: '/images/reviews/paddington-2-1/poster.webp'
 heroImage: '/images/reviews/paddington-2-1/backdrop.webp'
-heroAlt: 'A still from Paddington 2 (2017)'
+heroAlt: 'Poster art of Paddington Bear raising his red hat beside a chef, a man in a plaid suit and the Brown family.'
 ---
 
 Showing Paddington 2 to someone new is a confession.

@@ -16,7 +16,7 @@ description: "Guys, this is a really good movie. I don't care what anyone says. 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jason-x/'
 poster: '/images/reviews/jason-x/poster.webp'
 heroImage: '/images/reviews/jason-x/backdrop.webp'
-heroAlt: 'A still from Jason X (2001)'
+heroAlt: 'Jason in his hockey mask raising a machete over a crouching man in a metal spaceship corridor.'
 ---
 
 Guys, this is a really good movie. I don't care what anyone says. Objectively it's two and a half stars. Spiritually it's a five.

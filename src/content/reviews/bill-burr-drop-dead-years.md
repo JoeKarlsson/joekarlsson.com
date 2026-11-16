@@ -16,7 +16,7 @@ description: 'The best bit was Bill tapping about how he’s been an asshole to 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bill-burr-drop-dead-years/'
 poster: '/images/reviews/bill-burr-drop-dead-years/poster.webp'
 heroImage: '/images/reviews/bill-burr-drop-dead-years/backdrop.webp'
-heroAlt: 'A still from Bill Burr: Drop Dead Years (2025)'
+heroAlt: 'Bill Burr in a navy sweater, smiling and leaning on a microphone stand on a dark stage.'
 ---
 
 The best bit was Bill tapping about how he’s been an asshole to his wife. Felt SUPER personal. I will follow Bill into the revolution. FREE LUIGI.

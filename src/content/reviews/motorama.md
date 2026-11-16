@@ -24,7 +24,7 @@ description: "Answers the age-old question of what would happen if you combined 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/motorama/'
 poster: '/images/reviews/motorama/poster.webp'
 heroImage: '/images/reviews/motorama/backdrop.webp'
-heroAlt: 'A still from Motorama (1991)'
+heroAlt: 'An older man in a pale blue jacket handing something to a boy with a headband and a tattooed arm at a picnic area.'
 ---
 
 Answers the age-old question of what would happen if you combined The Adventures of Pete and Pete and [Pee-wee's Big Adventure](/reviews/pee-wees-big-adventure/) and made it rated R. The answer is, you'd get Motorama. What a crazy movie. I loved it.

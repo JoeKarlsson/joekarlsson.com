@@ -16,7 +16,7 @@ description: 'The final episode really got me, bro'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-midnight-gospel/'
 poster: '/images/reviews/the-midnight-gospel/poster.webp'
 heroImage: '/images/reviews/the-midnight-gospel/backdrop.webp'
-heroAlt: 'A still from The Midnight Gospel (2020)'
+heroAlt: 'A pink cartoon character in a wizard hat sits with a mug and a white dog before a glowing triangle in a crowded cosmic scene.'
 ---
 
 The final episode really got me, bro

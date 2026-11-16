@@ -31,7 +31,7 @@ description: 'This movies soundtrack permanently altered my brain chemistry when
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/o-brother-where-art-thou/'
 poster: '/images/reviews/o-brother-where-art-thou/poster.webp'
 heroImage: '/images/reviews/o-brother-where-art-thou/backdrop.webp'
-heroAlt: 'A still from O Brother, Where Art Thou? (2000)'
+heroAlt: 'George Clooney, John Turturro and Tim Blake Nelson in striped prison uniforms peering out through green leaves.'
 ---
 
 This movies soundtrack permanently altered my brain chemistry when I was 10 years old

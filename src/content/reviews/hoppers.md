@@ -16,7 +16,7 @@ description: 'I would have let the shark eat Jerry.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hoppers/'
 poster: '/images/reviews/hoppers/poster.webp'
 heroImage: '/images/reviews/hoppers/backdrop.webp'
-heroAlt: 'A still from Hoppers (2026)'
+heroAlt: 'Two animated beavers in an autumn forest, the larger one wearing a gold crown and holding a stick.'
 ---
 
 I would have let the shark eat Jerry.

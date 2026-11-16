@@ -23,7 +23,7 @@ description: 'I want a Li Mu Bai action figure so bad.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/crouching-tiger-hidden-dragon/'
 poster: '/images/reviews/crouching-tiger-hidden-dragon/poster.webp'
 heroImage: '/images/reviews/crouching-tiger-hidden-dragon/backdrop.webp'
-heroAlt: 'A still from Crouching Tiger, Hidden Dragon (2000)'
+heroAlt: 'Zhang Ziyi in a white robe holding a sword straight out in a fighting stance.'
 ---
 
 I want a Li Mu Bai action figure so bad.

@@ -24,7 +24,7 @@ description: "Just finished The African Queen. I was kinda bored at first, but I
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-african-queen/'
 poster: '/images/reviews/the-african-queen/poster.webp'
 heroImage: '/images/reviews/the-african-queen/backdrop.webp'
-heroAlt: 'A still from The African Queen (1951)'
+heroAlt: 'Humphrey Bogart, sweaty in a cap and striped shirt, with Katharine Hepburn in a high-collared white blouse behind him.'
 ---
 
 Just finished The African Queen. I was kinda bored at first, but I was ultimately charmed by Humphrey Bogart and Katherine Hepburn's dynamite chemistry. Overall, I think it's a great, albiet overrated film ¯\_(ツ)_/¯

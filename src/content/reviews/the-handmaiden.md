@@ -16,7 +16,7 @@ description: 'Hollywood stopped making erotic thrillers. Thank god Korea didn’
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-handmaiden/'
 poster: '/images/reviews/the-handmaiden/poster.webp'
 heroImage: '/images/reviews/the-handmaiden/backdrop.webp'
-heroAlt: 'A still from The Handmaiden (2016)'
+heroAlt: 'A man in a suit, a maid in an apron, a woman in a green gown and an older man in a robe standing in a row.'
 ---
 
 Hollywood stopped making erotic thrillers. Thank god Korea didn’t.

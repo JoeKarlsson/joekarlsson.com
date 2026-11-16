@@ -24,7 +24,7 @@ description: "Time to get vulnerable - I have wanted to have Brendan Fraiser's M
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-mummy-1999/'
 poster: '/images/reviews/the-mummy-1999/poster.webp'
 heroImage: '/images/reviews/the-mummy-1999/backdrop.webp'
-heroAlt: 'A still from The Mummy (1999)'
+heroAlt: 'Brendan Fraser aiming a pistol in a tomb, with Rachel Weisz and John Hannah holding a torch behind him.'
 ---
 
 Time to get vulnerable - I have wanted to have Brendan Fraiser's Mummy hair my entire life.

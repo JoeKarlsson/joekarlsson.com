@@ -17,7 +17,7 @@ description: 'I have to admidt - I do not know what happens in this movie, and I
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mission-impossible/1/'
 poster: '/images/reviews/mission-impossible-1/poster.webp'
 heroImage: '/images/reviews/mission-impossible-1/backdrop.webp'
-heroAlt: 'A still from Mission: Impossible (1996)'
+heroAlt: 'Tom Cruise suspended face down on wires inches above a glowing vault floor, in cold blue-green light.'
 ---
 
 I have to admidt - I do not know what happens in this movie, and Im done trying to figure it out.

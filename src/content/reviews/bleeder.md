@@ -32,7 +32,7 @@ description: 'Yes. I also related a little to hard to Mads character in this fil
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bleeder/'
 poster: '/images/reviews/bleeder/poster.webp'
 heroImage: '/images/reviews/bleeder/backdrop.webp'
-heroAlt: 'A still from Bleeder (1999)'
+heroAlt: 'Mads Mikkelsen in a black shirt holding a VHS tape in front of shelves packed with videotapes.'
 ---
 
 Yes. I also related a little to hard to Mads character in this film. Sounds like something I should talk to my therapist about this week….

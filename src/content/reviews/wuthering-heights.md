@@ -24,7 +24,7 @@ description: "Two angry sad jilted lovers being absolute insufferable monsters t
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wuthering-heights/'
 poster: '/images/reviews/wuthering-heights/poster.webp'
 heroImage: '/images/reviews/wuthering-heights/backdrop.webp'
-heroAlt: 'A still from Wuthering Heights (1939)'
+heroAlt: 'Two figures in coats and hats hold a lantern on a rocky moor in a driving rainstorm, in black and white.'
 ---
 
 Two angry sad jilted lovers being absolute insufferable monsters to everyone around them. That's the whole movie. I was moved.

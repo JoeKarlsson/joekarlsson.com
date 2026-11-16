@@ -17,7 +17,7 @@ description: 'Fun movie, but I thinks liked Clue better. So fun though'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/murder-by-death/'
 poster: '/images/reviews/murder-by-death/poster.webp'
 heroImage: '/images/reviews/murder-by-death/backdrop.webp'
-heroAlt: 'A still from Murder by Death (1976)'
+heroAlt: 'A man in a white dinner jacket aiming a revolver beside a startled young man in a black tuxedo.'
 ---
 
 Fun movie, but I thinks liked Clue better. So fun though

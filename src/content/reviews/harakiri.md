@@ -24,7 +24,7 @@ description: "Harakiri: beautiful cinematography, devastating story, and one of 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/harakiri/'
 poster: '/images/reviews/harakiri/poster.webp'
 heroImage: '/images/reviews/harakiri/backdrop.webp'
-heroAlt: 'A still from Harakiri (1962)'
+heroAlt: 'Two samurai facing each other with swords drawn in a windswept field of tall grass under a stormy sky, in black and white.'
 ---
 
 Harakiri: beautiful cinematography, devastating story, and one of cinema's most scathing critiques of power.

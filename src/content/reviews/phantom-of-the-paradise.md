@@ -24,7 +24,7 @@ description: 'My expectations for this movie were rock bottom. But it was way mo
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/phantom-of-the-paradise/'
 poster: '/images/reviews/phantom-of-the-paradise/poster.webp'
 heroImage: '/images/reviews/phantom-of-the-paradise/backdrop.webp'
-heroAlt: 'A still from Phantom of the Paradise (1974)'
+heroAlt: 'A figure in a silver bird-like helmet with one bulging eye and metal teeth, in a dark recording studio.'
 ---
 
 My expectations for this movie were rock bottom. But it was way more fun and inventive and creative than I ever could’ve expected. I should’ve known better knowing this came from Brian De Palma, but lesson learned.

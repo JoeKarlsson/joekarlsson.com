@@ -24,7 +24,7 @@ description: 'If this doesn’t inspire you to want to get out and make some gue
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/secret-mall-apartment-2024/'
 poster: '/images/reviews/secret-mall-apartment-2024/poster.webp'
 heroImage: '/images/reviews/secret-mall-apartment-2024/backdrop.webp'
-heroAlt: 'A still from Secret Mall Apartment (2024)'
+heroAlt: 'Two young men sitting on a couch in a cinderblock room lit by a floor lamp, with an old TV on a coffee table.'
 ---
 
 If this doesn’t inspire you to want to get out and make some guerilla art, I don’t know what will? 🧑‍🎨

@@ -24,7 +24,7 @@ description: 'Remember when Spider-Man called “Macho Man” Randy Savage gay?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/spider-man/'
 poster: '/images/reviews/spider-man/poster.webp'
 heroImage: '/images/reviews/spider-man/backdrop.webp'
-heroAlt: 'A still from Spider-Man (2002)'
+heroAlt: 'Spider-Man clinging to the glass side of a skyscraper, his reflection in the gold-lit windows below.'
 ---
 
 Remember when Spider-Man called “Macho Man” Randy Savage gay?

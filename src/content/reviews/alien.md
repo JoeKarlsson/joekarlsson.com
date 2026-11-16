@@ -25,7 +25,7 @@ description: 'Best anti capitalist sci-fi film.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/alien/'
 poster: '/images/reviews/alien/poster.webp'
 heroImage: '/images/reviews/alien/backdrop.webp'
-heroAlt: 'A still from Alien (1979)'
+heroAlt: 'Sigourney Weaver in a blue flight jacket with a mission patch, leaning forward in a seat inside a spaceship cockpit.'
 ---
 
 Best anti capitalist sci-fi film.

@@ -18,7 +18,7 @@ description: "Mark Ruffalo as a cholo LAPD officer is one of the strangest casti
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/collateral/'
 poster: '/images/reviews/collateral/poster.webp'
 heroImage: '/images/reviews/collateral/backdrop.webp'
-heroAlt: 'A still from Collateral (2004)'
+heroAlt: 'Tom Cruise with gray hair and a gray suit aiming a pistol in a crowded, dim nightclub.'
 ---
 
 Mark Ruffalo as a cholo LAPD officer is one of the strangest casting decisions I've ever seen in my entire life.

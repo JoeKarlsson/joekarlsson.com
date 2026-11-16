@@ -17,7 +17,7 @@ description: "Manhunter feels like an aquarium trapped in time from 1986. It's s
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/manhunter/'
 poster: '/images/reviews/manhunter/poster.webp'
 heroImage: '/images/reviews/manhunter/backdrop.webp'
-heroAlt: 'A still from Manhunter (1986)'
+heroAlt: 'William L. Petersen aiming a pistol straight at the camera on a dark street at night.'
 ---
 
 Manhunter feels like an aquarium trapped in time from 1986. It's slick and cool and undeniably aesthetic, really capturing the essence of an era - but I don't think I want it in my house.

@@ -17,7 +17,7 @@ description: 'I swear I heard the Pirates of the Caribbean theme song in the mid
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-rock/'
 poster: '/images/reviews/the-rock/poster.webp'
 heroImage: '/images/reviews/the-rock/backdrop.webp'
-heroAlt: 'A still from The Rock (1996)'
+heroAlt: 'Ed Harris, Sean Connery and Nicolas Cage posed together, with Connery in front.'
 ---
 
 I swear I heard the Pirates of the Caribbean theme song in the middle of this movie

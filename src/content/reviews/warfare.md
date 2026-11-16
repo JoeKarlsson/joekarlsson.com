@@ -24,7 +24,7 @@ description: 'I went into Warfare knowing nothing about the context, which left 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/warfare/'
 poster: '/images/reviews/warfare/poster.webp'
 heroImage: '/images/reviews/warfare/backdrop.webp'
-heroAlt: 'A still from Warfare (2025)'
+heroAlt: 'A squad of soldiers in combat gear with rifles standing in a dusty courtyard.'
 ---
 
 I went into Warfare knowing nothing about the context, which left me with one nagging question through the entire runtime: why the hell did Alex Garland - a British filmmaker - decide to make an American war epic?

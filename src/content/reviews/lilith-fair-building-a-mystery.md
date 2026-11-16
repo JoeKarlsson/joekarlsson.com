@@ -28,7 +28,7 @@ description: 'My girlfriend loved this one, and it was cute, but it definitely d
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/lilith-fair-building-a-mystery/'
 poster: '/images/reviews/lilith-fair-building-a-mystery/poster.webp'
 heroImage: '/images/reviews/lilith-fair-building-a-mystery/backdrop.webp'
-heroAlt: 'A still from Lilith Fair: Building a Mystery (2025)'
+heroAlt: 'Six women singing together into microphones on a stage under purple lights.'
 ---
 
 My girlfriend loved this one, and it was cute, but it definitely did not have the same effect on me. It’s funny seeing this wave of feminism through the lens of today, though.

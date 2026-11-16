@@ -25,7 +25,7 @@ description: 'The onslaught in Onslaught shows up late and leaves early.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/onslaught-2026/'
 poster: '/images/reviews/onslaught-2026/poster.webp'
 heroImage: '/images/reviews/onslaught-2026/backdrop.webp'
-heroAlt: 'A still from Onslaught (2026)'
+heroAlt: 'A close-up of a woman in amber-tinted aviator glasses sighting down a rifle.'
 ---
 
 The onslaught in Onslaught shows up late and leaves early.

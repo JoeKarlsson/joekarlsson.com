@@ -24,7 +24,7 @@ description: "“That's just it, Honey, I'm not gay. I'm straight and I fucking 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/cecil-b-demented/'
 poster: '/images/reviews/cecil-b-demented/poster.webp'
 heroImage: '/images/reviews/cecil-b-demented/backdrop.webp'
-heroAlt: 'A still from Cecil B. Demented (2000)'
+heroAlt: 'A woman with a platinum bob and heavy makeup raising two pistols above her head on a bridge in front of a city skyline.'
 ---
 
 “That's just it, Honey, I'm not gay. I'm straight and I fucking hate it! Petey loves me and I can't love him back. I tried. I kiss him, and all I feel is whiskers. I can't take that certain thickness in his pants. I'm ashamed of my heterosexuality!”

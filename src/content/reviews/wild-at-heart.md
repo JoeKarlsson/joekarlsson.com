@@ -17,7 +17,7 @@ description: "It's not the best David Lynch film, but it's my favorite David Lyn
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wild-at-heart/'
 poster: '/images/reviews/wild-at-heart/poster.webp'
 heroImage: '/images/reviews/wild-at-heart/backdrop.webp'
-heroAlt: 'A still from Wild at Heart (1990)'
+heroAlt: 'Nicolas Cage in a snakeskin jacket and Laura Dern by a blue convertible, with a wall of fire behind them.'
 ---
 
 It's not the best David Lynch film, but it's my favorite David Lynch film.

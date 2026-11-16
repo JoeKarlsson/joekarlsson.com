@@ -24,7 +24,7 @@ description: 'I really wanted to love this movie. However, I was not able to get
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/paddington-in-peru/'
 poster: '/images/reviews/paddington-in-peru/poster.webp'
 heroImage: '/images/reviews/paddington-in-peru/backdrop.webp'
-heroAlt: 'A still from Paddington in Peru (2024)'
+heroAlt: 'Hugh Bonneville leading a family and an older woman away from a yellow van piled with luggage in a jungle clearing.'
 ---
 
 I really wanted to love this movie. However, I was not able to get this movie to live up to the hype in my head. I know there was some changes in directors. But it just didn't have the whimsy of the first two Paddington films. Also, I was planning on seeing this in the theater and for some reason it just went straight to streaming. I was going to give them money for this movie, but they blew it.

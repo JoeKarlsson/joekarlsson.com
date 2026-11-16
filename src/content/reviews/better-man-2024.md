@@ -36,7 +36,7 @@ description: 'After watching this movie, I still don’t know who Robbie William
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/better-man-2024/'
 poster: '/images/reviews/better-man-2024/poster.webp'
 heroImage: '/images/reviews/better-man-2024/backdrop.webp'
-heroAlt: 'A still from Better Man (2024)'
+heroAlt: 'A CGI chimpanzee in a black suit and white tie shouting into a microphone and pointing, with a giant screen of his face behind.'
 ---
 
 After watching this movie, I still don’t know who Robbie Williams is, but I had such a fun time watching him. Don’t care for his music, even after watching it, but I thought it was so funny, and I still cried at the end of the monkey musician movie. Didn’t see that coming.

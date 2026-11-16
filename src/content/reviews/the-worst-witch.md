@@ -16,7 +16,7 @@ description: 'I’m giving this movie an extra half star for Tim Curry’s incre
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-worst-witch/'
 poster: '/images/reviews/the-worst-witch/poster.webp'
 heroImage: '/images/reviews/the-worst-witch/backdrop.webp'
-heroAlt: 'A still from The Worst Witch (1986)'
+heroAlt: 'Tim Curry in a white tuxedo holding up a red heart in front of a full moon.'
 ---
 
 I’m giving this movie an extra half star for Tim Curry’s incredible Halloween dance extravaganza.

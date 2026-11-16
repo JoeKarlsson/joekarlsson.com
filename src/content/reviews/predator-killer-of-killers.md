@@ -30,7 +30,7 @@ description: "I just love how low stakes the Predator franchise has become and t
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/predator-killer-of-killers/'
 poster: '/images/reviews/predator-killer-of-killers/poster.webp'
 heroImage: '/images/reviews/predator-killer-of-killers/backdrop.webp'
-heroAlt: 'A still from Predator: Killer of Killers (2025)'
+heroAlt: 'An animated Predator with dreadlocks and bared fangs, its body spattered with glowing green blood.'
 ---
 
 I just love how low stakes the Predator franchise has become and the loosey goosey freedom Trachtenberg's been able to get with this franchise.

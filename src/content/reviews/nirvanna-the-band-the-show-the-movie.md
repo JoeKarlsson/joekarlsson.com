@@ -16,7 +16,7 @@ description: 'Lightning in a bottle'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/nirvanna-the-band-the-show-the-movie/'
 poster: '/images/reviews/nirvanna-the-band-the-show-the-movie/poster.webp'
 heroImage: '/images/reviews/nirvanna-the-band-the-show-the-movie/backdrop.webp'
-heroAlt: 'A still from Nirvanna the Band the Show the Movie (2025)'
+heroAlt: 'Two men crossing a busy city plaza, one pushing a big drum in a red wheelbarrow and one carrying a coil of rope.'
 ---
 
 Lightning in a bottle

@@ -24,7 +24,7 @@ description: 'Like?!? I LOVE movies!'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/i-like-movies/'
 poster: '/images/reviews/i-like-movies/poster.webp'
 heroImage: '/images/reviews/i-like-movies/backdrop.webp'
-heroAlt: 'A still from I Like Movies (2022)'
+heroAlt: 'Four video store workers in red and blue uniform shirts posing against a red "Employees Only" door, one pointing at the camera.'
 ---
 
 Like?!?  I LOVE movies!

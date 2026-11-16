@@ -16,7 +16,7 @@ description: 'This movie got an extra star when Willem Dafoe spanked Johnny Depp
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/cry-baby/'
 poster: '/images/reviews/cry-baby/poster.webp'
 heroImage: '/images/reviews/cry-baby/backdrop.webp'
-heroAlt: 'A still from Cry-Baby (1990)'
+heroAlt: 'Johnny Depp in a leather jacket and pompadour posing between two women in leather jackets on a roadside.'
 ---
 
 This movie got an extra star when Willem Dafoe spanked Johnny Depp up on the butt

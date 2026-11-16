@@ -32,7 +32,7 @@ description: "Love Vegeta, Goku's a himbo. Freeza is boring. Broly kicks ass. I'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dragon-ball-super-broly/'
 poster: '/images/reviews/dragon-ball-super-broly/poster.webp'
 heroImage: '/images/reviews/dragon-ball-super-broly/backdrop.webp'
-heroAlt: 'A still from Dragon Ball Super: Broly (2018)'
+heroAlt: 'Close-up of an angry anime warrior with spiky hair gritting his teeth amid falling snow and a green glow.'
 ---
 
 Love Vegeta, Goku's a himbo. Freeza is boring. Broly kicks ass. I'm 35 years old.

@@ -17,7 +17,7 @@ description: '“The world of the heterosexual is sick and boring!"'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/female-trouble/'
 poster: '/images/reviews/female-trouble/poster.webp'
 heroImage: '/images/reviews/female-trouble/backdrop.webp'
-heroAlt: 'A still from Female Trouble (1974)'
+heroAlt: 'Divine with teased black hair and hoop earrings, leaning against wallpaper of brown and green circles.'
 ---
 
 “The world of the heterosexual is sick and boring!"

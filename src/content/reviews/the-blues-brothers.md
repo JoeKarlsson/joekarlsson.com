@@ -18,7 +18,7 @@ description: 'Even as an idiot child, I understood how expensive and impressive 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-blues-brothers/'
 poster: '/images/reviews/the-blues-brothers/poster.webp'
 heroImage: '/images/reviews/the-blues-brothers/backdrop.webp'
-heroAlt: 'A still from The Blues Brothers (1980)'
+heroAlt: 'John Belushi and Dan Aykroyd in black suits, hats and sunglasses standing before a crowd under a "Soul Food" sign.'
 ---
 
 Even as an idiot child, I understood how expensive and impressive this movie was.

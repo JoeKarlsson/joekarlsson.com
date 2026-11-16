@@ -24,7 +24,7 @@ description: 'Not my favorite Christopher Guest film, but i had to rewatch it af
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/waiting-for-guffman/'
 poster: '/images/reviews/waiting-for-guffman/poster.webp'
 heroImage: '/images/reviews/waiting-for-guffman/backdrop.webp'
-heroAlt: 'A still from Waiting for Guffman (1996)'
+heroAlt: 'Five performers in costume posing on stage with hands on their cheeks in front of a painted farm backdrop.'
 ---
 
 Not my favorite Christopher Guest film, but i had to rewatch it after watching [Theater Camp](/reviews/theater-camp-2023-1/).

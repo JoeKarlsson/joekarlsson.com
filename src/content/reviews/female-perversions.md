@@ -17,7 +17,7 @@ description: 'What was deviant in 1996 is vanilla now. The anxiety is still real
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/female-perversions/'
 poster: '/images/reviews/female-perversions/poster.webp'
 heroImage: '/images/reviews/female-perversions/backdrop.webp'
-heroAlt: 'A still from Female Perversions (1996)'
+heroAlt: 'Two women in a tiled bathroom, one smoking on the edge of the tub, the other hugging her knees on the floor.'
 ---
 
 What was deviant in 1996 is vanilla now. The anxiety is still real though.

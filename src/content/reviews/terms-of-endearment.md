@@ -24,7 +24,7 @@ description: "I still can't believe this film was the second highest grossing fi
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/terms-of-endearment/'
 poster: '/images/reviews/terms-of-endearment/poster.webp'
 heroImage: '/images/reviews/terms-of-endearment/backdrop.webp'
-heroAlt: 'A still from Terms of Endearment (1983)'
+heroAlt: 'Debra Winger and Shirley MacLaine posing cheek to cheek and smiling.'
 ---
 
 I still can't believe this film was the second highest grossing film of 1983, directly behind Return of the Jedi. That's crazy.

@@ -16,7 +16,7 @@ description: 'Wild that this movie dunks on Fast and Furious while being the sam
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/torque/'
 poster: '/images/reviews/torque/poster.webp'
 heroImage: '/images/reviews/torque/backdrop.webp'
-heroAlt: 'A still from Torque (2004)'
+heroAlt: 'Martin Henderson in a racing suit reading "Carpe Diem" stands with other riders and their motorcycles.'
 ---
 
 Wild that this movie dunks on Fast and Furious while being the same thing but with motorcycles. I wanted to absolutely love this movie. It kind of worked for me - just not as well as I hoped.

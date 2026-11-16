@@ -18,7 +18,7 @@ description: 'Worth it for Plemons, Stone and Dafoe. Besides that, this movie is
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/kinds-of-kindness/'
 poster: '/images/reviews/kinds-of-kindness/poster.webp'
 heroImage: '/images/reviews/kinds-of-kindness/backdrop.webp'
-heroAlt: 'A still from Kinds of Kindness (2024)'
+heroAlt: 'Emma Stone and Jesse Plemons standing face to face outside a motel at night.'
 ---
 
 Worth it for Plemons, Stone and Dafoe. Besides that, this movie is too long.

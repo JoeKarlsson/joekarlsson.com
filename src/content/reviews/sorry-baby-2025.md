@@ -33,7 +33,7 @@ description: 'Sorry Baby threads the needle of being genuinely sweet without bei
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sorry-baby-2025/'
 poster: '/images/reviews/sorry-baby-2025/poster.webp'
 heroImage: '/images/reviews/sorry-baby-2025/backdrop.webp'
-heroAlt: 'A still from Sorry, Baby (2025)'
+heroAlt: 'Eva Victor in a knit cap and Naomi Ackie in a scarf sitting on rocks in winter coats, eating and smiling at each other.'
 ---
 
 Sorry Baby threads the needle of being genuinely sweet without being saccharine, funny without undercutting the emotion.

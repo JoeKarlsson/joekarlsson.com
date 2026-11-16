@@ -25,7 +25,7 @@ description: 'This movie made me want to be a better man.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/paddington-2/'
 poster: '/images/reviews/paddington-2/poster.webp'
 heroImage: '/images/reviews/paddington-2/backdrop.webp'
-heroAlt: 'A still from Paddington 2 (2017)'
+heroAlt: 'Poster art of Paddington Bear raising his red hat beside a chef, a man in a plaid suit and the Brown family.'
 ---
 
 This movie made me want to be a better man.

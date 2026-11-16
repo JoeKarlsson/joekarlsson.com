@@ -17,7 +17,7 @@ description: 'Feels like a student film. But you can see the seeds being planted
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/following/'
 poster: '/images/reviews/following/poster.webp'
 heroImage: '/images/reviews/following/backdrop.webp'
-heroAlt: 'A still from Following (1998)'
+heroAlt: 'A young man in a suit talking on a phone by a window, in black and white.'
 ---
 
 Feels like a student film. But you can see the seeds being planted here.

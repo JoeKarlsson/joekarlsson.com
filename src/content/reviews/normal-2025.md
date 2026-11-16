@@ -25,7 +25,7 @@ description: 'Ninety minutes, simple story, killer kills. Give me more of these.
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/normal-2025/'
 poster: '/images/reviews/normal-2025/poster.webp'
 heroImage: '/images/reviews/normal-2025/backdrop.webp'
-heroAlt: 'A still from Normal (2025)'
+heroAlt: "Bob Odenkirk in a sheriff's jacket holding his hands up in a snowy parking lot full of cars."
 ---
 
 Ninety minutes, simple story, killer kills. Give me more of these. Too bad this is copaganda.

@@ -24,7 +24,7 @@ description: 'Johnny Boy struts into the bar in slow motion and cinema never ful
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mean-streets/'
 poster: '/images/reviews/mean-streets/poster.webp'
 heroImage: '/images/reviews/mean-streets/backdrop.webp'
-heroAlt: 'A still from Mean Streets (1973)'
+heroAlt: 'Robert De Niro in a leather jacket grinning beside a man smoking a cigarette in a dim, red-lit bar.'
 ---
 
 Johnny Boy struts into the bar in slow motion and cinema never fully recovers.

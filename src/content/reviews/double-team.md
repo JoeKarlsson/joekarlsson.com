@@ -24,7 +24,7 @@ description: 'A quarter of this movie is Van Dam working out in his bedroom.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/double-team/'
 poster: '/images/reviews/double-team/poster.webp'
 heroImage: '/images/reviews/double-team/backdrop.webp'
-heroAlt: 'A still from Double Team (1997)'
+heroAlt: 'Dennis Rodman with dyed hair, sunglasses and tattoos on a yellow motorcycle on a neon-lit street beside a "SEX" sign.'
 ---
 
 A quarter of this movie is Van Dam working out in his bedroom.

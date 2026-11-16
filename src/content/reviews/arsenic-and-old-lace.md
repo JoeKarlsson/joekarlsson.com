@@ -24,7 +24,7 @@ description: 'This is Cary Grant at peak hotness. Also, I had no idea. This is t
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/arsenic-and-old-lace/'
 poster: '/images/reviews/arsenic-and-old-lace/poster.webp'
 heroImage: '/images/reviews/arsenic-and-old-lace/backdrop.webp'
-heroAlt: 'A still from Arsenic and Old Lace (1944)'
+heroAlt: 'Cary Grant leaning on a tree in a leaf-covered graveyard while Priscilla Lane peeks around it, in black and white.'
 ---
 
 This is Cary Grant at peak hotness. Also, I had no idea. This is the most complicated plot of all time who knew. Still funny though.

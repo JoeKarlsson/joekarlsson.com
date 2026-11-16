@@ -24,7 +24,7 @@ description: "I walked into One Battle After Another with astronomical hype - an
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/one-battle-after-another/'
 poster: '/images/reviews/one-battle-after-another/poster.webp'
 heroImage: '/images/reviews/one-battle-after-another/backdrop.webp'
-heroAlt: 'A still from One Battle After Another (2025)'
+heroAlt: 'Leonardo DiCaprio in a beanie, dark glasses and plaid robe talking on a pay phone against a tan wall.'
 ---
 
 I walked into One Battle After Another with astronomical hype - and still left the theater knowing in my gut that I'd just witnessed a five out of five star masterpiece.

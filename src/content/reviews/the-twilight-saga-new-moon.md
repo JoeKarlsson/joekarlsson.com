@@ -31,7 +31,7 @@ description: 'The one where everyone sad for no reason'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-twilight-saga-new-moon/'
 poster: '/images/reviews/the-twilight-saga-new-moon/poster.webp'
 heroImage: '/images/reviews/the-twilight-saga-new-moon/backdrop.webp'
-heroAlt: 'A still from The Twilight Saga: New Moon (2009)'
+heroAlt: 'Kristen Stewart and Robert Pattinson embrace in front of a group of pale young people in a forest.'
 ---
 
 The one where everyone sad for no reason

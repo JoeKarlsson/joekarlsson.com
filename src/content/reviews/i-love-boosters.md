@@ -26,7 +26,7 @@ description: 'Not since Sinners have I seen a movie so pro pussy eating.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/i-love-boosters/'
 poster: '/images/reviews/i-love-boosters/poster.webp'
 heroImage: '/images/reviews/i-love-boosters/backdrop.webp'
-heroAlt: 'A still from I Love Boosters (2026)'
+heroAlt: 'Four women in bright fuzzy furs, colorful wigs and platform boots standing in front of a maroon minivan in a parking lot.'
 ---
 
 Not since [Sinners](/reviews/sinners-2025/) have I seen a movie so pro pussy eating.

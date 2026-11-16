@@ -17,7 +17,7 @@ description: 'I’m sure everyone had a really fun time making this movie. But I
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-toxic-avenger-2023/'
 poster: '/images/reviews/the-toxic-avenger-2023/poster.webp'
 heroImage: '/images/reviews/the-toxic-avenger-2023/backdrop.webp'
-heroAlt: 'A still from The Toxic Avenger (2023)'
+heroAlt: 'A green, lumpy mutant creature in a torn jacket sitting in a cluttered room.'
 ---
 
 I’m sure everyone had a really fun time making this movie. But I just never connected with it. But it paid spirit to the Troma films, even though it never quite hit like those did for me.

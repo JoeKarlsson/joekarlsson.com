@@ -16,7 +16,7 @@ description: "I don't know much about k-pop, but the final battle brought a genu
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/kpop-demon-hunters/'
 poster: '/images/reviews/kpop-demon-hunters/poster.webp'
 heroImage: '/images/reviews/kpop-demon-hunters/backdrop.webp'
-heroAlt: 'A still from KPop Demon Hunters (2025)'
+heroAlt: 'Three animated pop-star heroines with glowing weapons posing against a sparkling blue background.'
 ---
 
 I don't know much about k-pop, but the final battle brought a genuine tear to my eye,

@@ -23,7 +23,7 @@ description: 'How did such a stacked cast turn in such terrible and completely f
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/good-fortune-2025/'
 poster: '/images/reviews/good-fortune-2025/poster.webp'
 heroImage: '/images/reviews/good-fortune-2025/backdrop.webp'
-heroAlt: 'A still from Good Fortune (2025)'
+heroAlt: 'Keanu Reeves with long hair and a beard in a trench coat, white wings behind him, under palm trees.'
 ---
 
 How did such a stacked cast turn in such terrible and completely flat performances?

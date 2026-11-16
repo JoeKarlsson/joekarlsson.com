@@ -24,7 +24,7 @@ description: 'Adorable little indie romance slash Christmas rom-com. Everyone is
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-baltimorons/'
 poster: '/images/reviews/the-baltimorons/poster.webp'
 heroImage: '/images/reviews/the-baltimorons/backdrop.webp'
-heroAlt: 'A still from The Baltimorons (2025)'
+heroAlt: 'A blonde woman in a red coat and a bearded man in a knit hat talking outside a house lit with Christmas lights.'
 ---
 
 Adorable little indie romance slash Christmas rom-com. Everyone is utterly charming and I wish we had more movies like this today.

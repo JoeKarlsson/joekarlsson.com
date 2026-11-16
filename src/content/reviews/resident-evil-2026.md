@@ -33,7 +33,7 @@ description: 'This movie is the exact opposite of competency porn. Turns out I a
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/resident-evil-2026/'
 poster: '/images/reviews/resident-evil-2026/poster.webp'
 heroImage: '/images/reviews/resident-evil-2026/backdrop.webp'
-heroAlt: 'A still from Resident Evil (2026)'
+heroAlt: 'A young man in a yellow beanie in a car at night covering his mouth with a bloody hand, a pale woman behind him.'
 ---
 
 This movie is the exact opposite of competency porn. Turns out I also love movies about an idiot NPC who stumbles through the worst night of his life.

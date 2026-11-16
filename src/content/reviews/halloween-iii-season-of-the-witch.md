@@ -24,7 +24,7 @@ description: "I should love Halloween III more since it's about techno-corporate
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/halloween-iii-season-of-the-witch/'
 poster: '/images/reviews/halloween-iii-season-of-the-witch/poster.webp'
 heroImage: '/images/reviews/halloween-iii-season-of-the-witch/backdrop.webp'
-heroAlt: 'A still from Halloween III: Season of the Witch (1982)'
+heroAlt: "Three trick-or-treaters in witch, skeleton and jack-o'-lantern masks holding out their bags in the dark."
 ---
 
 I should love Halloween III more since it's about techno-corporate witchcraft, which is a genuinely fun concept. But this is not a good movie and I don't think it's aged particularly well.

@@ -24,7 +24,7 @@ description: 'A better sequel than we deserved. In this film, the Devil has an M
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-devil-wears-prada-2/'
 poster: '/images/reviews/the-devil-wears-prada-2/poster.webp'
 heroImage: '/images/reviews/the-devil-wears-prada-2/backdrop.webp'
-heroAlt: 'A still from The Devil Wears Prada 2 (2026)'
+heroAlt: 'Meryl Streep and Anne Hathaway in black sunglasses and black outfits posing side by side against a grey wall.'
 ---
 
 A better sequel than we deserved. In this film, the Devil has an MBA.

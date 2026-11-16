@@ -18,7 +18,7 @@ description: 'Really helped me to better understand gentrification. Loved the th
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-last-black-man-in-san-francisco/1/'
 poster: '/images/reviews/the-last-black-man-in-san-francisco-1/poster.webp'
 heroImage: '/images/reviews/the-last-black-man-in-san-francisco-1/backdrop.webp'
-heroAlt: 'A still from The Last Black Man in San Francisco (2019)'
+heroAlt: 'Jimmie Fails in a black beanie and red flannel beside Jonathan Majors in a tweed coat, standing in a field of wildflowers.'
 ---
 
 Really helped me to better understand gentrification. Loved the themes of finding a home. Great male friendship

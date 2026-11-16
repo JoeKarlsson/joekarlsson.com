@@ -24,7 +24,7 @@ description: 'I’m gonna say something controversial yet brave. I’m not a hug
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/ballerina-2025/'
 poster: '/images/reviews/ballerina-2025/poster.webp'
 heroImage: '/images/reviews/ballerina-2025/backdrop.webp'
-heroAlt: 'A still from Ballerina (2025)'
+heroAlt: 'Ana de Armas in a fur coat standing in a crowded nightclub against bright pink neon rays.'
 ---
 
 I’m gonna say something controversial yet brave. I’m not a huge fan of the John Wick movies.

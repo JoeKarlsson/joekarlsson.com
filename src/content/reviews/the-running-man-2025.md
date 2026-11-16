@@ -17,7 +17,7 @@ description: 'Edgar tried waaaay too hard to sell that Glen Powellis the “angr
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-running-man-2025/'
 poster: '/images/reviews/the-running-man-2025/poster.webp'
 heroImage: '/images/reviews/the-running-man-2025/backdrop.webp'
-heroAlt: 'A still from The Running Man (2025)'
+heroAlt: 'A close-up of Glen Powell in a hoodie, glaring in dim green light.'
 ---
 
 Edgar tried waaaay too hard to sell that Glen Powellis the “angriest person in the  world” and I never bought it.

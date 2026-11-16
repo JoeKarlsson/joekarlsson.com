@@ -16,7 +16,7 @@ description: 'Liza Minnelli was 26 here, and she had the whole world in her hand
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/liza-with-a-z/'
 poster: '/images/reviews/liza-with-a-z/poster.webp'
 heroImage: '/images/reviews/liza-with-a-z/backdrop.webp'
-heroAlt: 'A still from Liza with a "Z" (1972)'
+heroAlt: 'Liza Minnelli in a red sequined minidress throwing her arms wide on stage while dancers in black vests circle her.'
 ---
 
 Liza Minnelli was 26 here, and she had the whole world in her hand.

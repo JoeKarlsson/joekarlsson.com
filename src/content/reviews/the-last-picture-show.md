@@ -24,7 +24,7 @@ description: 'Proto American Pie teen flick'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-last-picture-show/'
 poster: '/images/reviews/the-last-picture-show/poster.webp'
 heroImage: '/images/reviews/the-last-picture-show/backdrop.webp'
-heroAlt: 'A still from The Last Picture Show (1971)'
+heroAlt: 'Cybill Shepherd in close-up, leaning back against a car seat, in black and white.'
 ---
 
 Proto American Pie teen flick

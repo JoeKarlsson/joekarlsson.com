@@ -32,7 +32,7 @@ description: "My intro to late Verhoeven, and within twenty minutes Jesus had lo
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/benedetta/'
 poster: '/images/reviews/benedetta/poster.webp'
 heroImage: '/images/reviews/benedetta/backdrop.webp'
-heroAlt: 'A still from Benedetta (2021)'
+heroAlt: 'A young woman holding a small carved figurine faces a nun in a black and white habit, close together in a dim room.'
 ---
 
 My intro to late Verhoeven, and within twenty minutes Jesus had lopped a man's arm off like Obi-Wan. I was in.

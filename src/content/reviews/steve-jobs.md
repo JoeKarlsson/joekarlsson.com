@@ -33,7 +33,7 @@ description: 'It’s funny how little Sorkin cares about Jobs. And honestly, it 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/steve-jobs/'
 poster: '/images/reviews/steve-jobs/poster.webp'
 heroImage: '/images/reviews/steve-jobs/backdrop.webp'
-heroAlt: 'A still from Steve Jobs (2015)'
+heroAlt: 'Michael Fassbender in close-up, his round glasses reflecting the glow of colorful app icons in the dark.'
 ---
 
 It’s funny how little Sorkin cares about Jobs. And honestly, it feels like it’s more of a play about being a father. Boyle definitely got some touches in there.

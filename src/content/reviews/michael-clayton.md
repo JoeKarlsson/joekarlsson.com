@@ -24,7 +24,7 @@ description: 'A film where the villain is just a mid-level executive doing horri
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/michael-clayton/'
 poster: '/images/reviews/michael-clayton/poster.webp'
 heroImage: '/images/reviews/michael-clayton/backdrop.webp'
-heroAlt: 'A still from Michael Clayton (2007)'
+heroAlt: 'George Clooney in a dark suit slumped in a chair with his hand at his chin in a police station.'
 ---
 
 A film where the villain is just a mid-level executive doing horrible things for quarterly earnings. Finally, accurate representation.

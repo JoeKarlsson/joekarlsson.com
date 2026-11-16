@@ -24,7 +24,7 @@ description: 'I love Martin short, but this was a movie that need to be aborted.
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/clifford/'
 poster: '/images/reviews/clifford/poster.webp'
 heroImage: '/images/reviews/clifford/backdrop.webp'
-heroAlt: 'A still from Clifford (1994)'
+heroAlt: 'Martin Short, dressed as a boy in a suit and tie, smiling among three adults in a hotel lobby.'
 ---
 
 I love Martin short, but this was a movie that need to be aborted. I don’t understand the framing device. It’s not funny and it’s genuinely terrifying.

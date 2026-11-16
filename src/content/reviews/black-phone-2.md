@@ -24,7 +24,7 @@ description: 'Huge respect for a franchise pivoting this hard. Mixed feelings on
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/black-phone-2/'
 poster: '/images/reviews/black-phone-2/poster.webp'
 heroImage: '/images/reviews/black-phone-2/backdrop.webp'
-heroAlt: 'A still from Black Phone 2 (2025)'
+heroAlt: 'Mason Thames talking on a black phone while a figure in a grinning horned mask looms behind him in the dark.'
 ---
 
 Huge respect for a franchise pivoting this hard. Mixed feelings on the execution.

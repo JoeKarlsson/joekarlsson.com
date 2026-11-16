@@ -24,7 +24,7 @@ description: 'RIP PSH'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mission-impossible-iii/'
 poster: '/images/reviews/mission-impossible-iii/poster.webp'
 heroImage: '/images/reviews/mission-impossible-iii/backdrop.webp'
-heroAlt: 'A still from Mission: Impossible III (2006)'
+heroAlt: 'Tom Cruise aiming a pistol while a dark-haired woman clings to him from behind.'
 ---
 
 RIP PSH

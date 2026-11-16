@@ -17,7 +17,7 @@ description: 'Impressive that this exists. Frustrating to sit through.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/iron-lung/'
 poster: '/images/reviews/iron-lung/poster.webp'
 heroImage: '/images/reviews/iron-lung/backdrop.webp'
-heroAlt: 'A still from Iron Lung (2026)'
+heroAlt: 'A dark hulking silhouette ringed by jagged glowing red light in black water.'
 ---
 
 Impressive that this exists. Frustrating to sit through.

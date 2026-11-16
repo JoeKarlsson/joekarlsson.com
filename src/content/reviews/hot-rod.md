@@ -17,7 +17,7 @@ description: 'This movie altered my brain at a formative age. Cool beans???'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hot-rod/'
 poster: '/images/reviews/hot-rod/poster.webp'
 heroImage: '/images/reviews/hot-rod/backdrop.webp'
-heroAlt: 'A still from Hot Rod (2007)'
+heroAlt: 'Isla Fisher in a red jersey and Andy Samberg in a denim work shirt with a flag patch, sitting together outside.'
 ---
 
 This movie altered my brain at a formative age. Cool beans???

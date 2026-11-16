@@ -24,7 +24,7 @@ description: 'Never in a million years would I have guessed the blood of Christ 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/tales-from-the-crypt-demon-knight/'
 poster: '/images/reviews/tales-from-the-crypt-demon-knight/poster.webp'
 heroImage: '/images/reviews/tales-from-the-crypt-demon-knight/backdrop.webp'
-heroAlt: 'A still from Tales from the Crypt: Demon Knight (1995)'
+heroAlt: 'Poster art of a man in a long coat bursting out of the pages of a giant book held open by clawed hands.'
 ---
 
 Never in a million years would I have guessed the blood of Christ and the literal crucifixion would be such a core part of this movie. Tales from the Crypt: Demon Knight surprised me.

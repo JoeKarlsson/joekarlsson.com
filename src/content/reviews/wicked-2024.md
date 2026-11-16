@@ -24,7 +24,7 @@ description: 'Watched this again with a 11 year old. It was so fun to see them e
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wicked-2024/'
 poster: '/images/reviews/wicked-2024/poster.webp'
 heroImage: '/images/reviews/wicked-2024/backdrop.webp'
-heroAlt: 'A still from Wicked (2024)'
+heroAlt: 'Art of Cynthia Erivo as a green-skinned witch and Ariana Grande in a pink gown with other costumed characters in a lush, colorful landscape.'
 ---
 
 Watched this again with a 11 year old. It was so fun to see them engage with this film and looks for themes and easter eggs. Plus, it’s such a radical film with awesome themes for teens.

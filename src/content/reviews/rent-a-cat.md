@@ -24,7 +24,7 @@ description: 'Feels like a sweet slice of life anime this movie immediately made
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/rent-a-cat/'
 poster: '/images/reviews/rent-a-cat/poster.webp'
 heroImage: '/images/reviews/rent-a-cat/backdrop.webp'
-heroAlt: 'A still from Rent-a-Cat (2012)'
+heroAlt: 'A woman in a red top seen from behind, sitting on a porch with cats and looking out at a leafy garden.'
 ---
 
 Feels like a sweet slice of life anime this movie immediately made me start crying

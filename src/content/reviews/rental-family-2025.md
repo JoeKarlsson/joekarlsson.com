@@ -24,7 +24,7 @@ description: "Hey, that was kind of a sweet movie, wasn't it?"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/rental-family-2025/'
 poster: '/images/reviews/rental-family-2025/poster.webp'
 heroImage: '/images/reviews/rental-family-2025/backdrop.webp'
-heroAlt: 'A still from Rental Family (2025)'
+heroAlt: 'Brendan Fraser sitting on a train next to a young girl holding a backpack, among other passengers.'
 ---
 
 Hey, that was kind of a sweet movie, wasn't it?

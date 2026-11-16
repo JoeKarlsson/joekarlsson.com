@@ -24,7 +24,7 @@ description: 'Cute surrealists comedy about surviving in late stage capitalist g
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/boys-go-to-jupiter/'
 poster: '/images/reviews/boys-go-to-jupiter/poster.webp'
 heroImage: '/images/reviews/boys-go-to-jupiter/backdrop.webp'
-heroAlt: 'A still from Boys Go to Jupiter (2024)'
+heroAlt: 'A small animated kid sitting on the diving board of an empty swimming pool, seen from above in pastel purple and teal.'
 ---
 
 Cute surrealists comedy about surviving in late stage capitalist gig economy. It also stars all of my favorite modern old comics on one place, which is incredible.

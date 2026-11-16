@@ -17,7 +17,7 @@ description: 'There was a chupacabra joke in here, that I think was only for me.
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hotel-transylvania-3-summer-vacation/'
 poster: '/images/reviews/hotel-transylvania-3-summer-vacation/poster.webp'
 heroImage: '/images/reviews/hotel-transylvania-3-summer-vacation/backdrop.webp'
-heroAlt: 'A still from Hotel Transylvania 3: Summer Vacation (2018)'
+heroAlt: 'The animated monster family in beach clothes on the shore, with a beach ball overhead and a cruise ship behind them.'
 ---
 
 There was a chupacabra joke in here, that I think was only for me. How many people out there know that chupacabra loosely translates in English to, goat sucker?!?!

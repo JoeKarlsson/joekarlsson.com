@@ -24,7 +24,7 @@ description: "I tried to watch Megalopolis three times. I finished Megadoc on th
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/megadoc/'
 poster: '/images/reviews/megadoc/poster.webp'
 heroImage: '/images/reviews/megadoc/backdrop.webp'
-heroAlt: 'A still from Megadoc (2025)'
+heroAlt: 'Francis Ford Coppola in glasses and a gray sweater sitting beside a film camera on a dark set, looking up.'
 ---
 
 I tried to watch Megalopolis three times. I finished Megadoc on the first try. That says something.That movie is a mess. It's not for me. I do not like it.

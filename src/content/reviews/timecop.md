@@ -31,7 +31,7 @@ description: 'I don’t think it’s controversial to say this is the best JCVD 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/timecop/'
 poster: '/images/reviews/timecop/poster.webp'
 heroImage: '/images/reviews/timecop/backdrop.webp'
-heroAlt: 'A still from Timecop (1994)'
+heroAlt: "Jean-Claude Van Damme's face and a gun in front of a red clock face with Roman numerals."
 ---
 
 I don’t think it’s controversial to say this is the best JCVD has ever been.

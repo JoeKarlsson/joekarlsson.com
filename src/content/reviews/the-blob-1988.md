@@ -17,7 +17,7 @@ description: "I love this movie. I've seen it so many times, and it needs to be 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-blob-1988/'
 poster: '/images/reviews/the-blob-1988/poster.webp'
 heroImage: '/images/reviews/the-blob-1988/backdrop.webp'
-heroAlt: 'A still from The Blob (1988)'
+heroAlt: 'A young man in a white diner shirt recoiling in a car as a woman beside him melts into a bloody mass.'
 ---
 
 I love this movie. I've seen it so many times, and it needs to be as celebrated as The Thing in my humble opinion.

@@ -17,7 +17,7 @@ description: 'ACAB includes Dredd. But, with that being said this movie is fun.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dredd/'
 poster: '/images/reviews/dredd/poster.webp'
 heroImage: '/images/reviews/dredd/backdrop.webp'
-heroAlt: 'A still from Dredd (2012)'
+heroAlt: 'Karl Urban in a red-visored helmet and armor with a "DREDD" badge, aiming a large pistol.'
 ---
 
 ACAB includes Dredd. But, with that being said this movie is fun.

@@ -16,7 +16,7 @@ description: 'Chris Fleming needs to be A24’s next horror auteur.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/chris-fleming-live-at-the-palace/'
 poster: '/images/reviews/chris-fleming-live-at-the-palace/poster.webp'
 heroImage: '/images/reviews/chris-fleming-live-at-the-palace/backdrop.webp'
-heroAlt: 'A still from Chris Fleming: Live at The Palace (2026)'
+heroAlt: 'Chris Fleming in a purple suit and glasses against an orange background, with tiny copies of himself leaping around his head.'
 ---
 
 Chris Fleming needs to be A24’s next horror auteur.

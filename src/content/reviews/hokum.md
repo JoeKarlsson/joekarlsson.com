@@ -32,7 +32,7 @@ description: 'A tight, well-plotted whodunit that also made me scream.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hokum/'
 poster: '/images/reviews/hokum/poster.webp'
 heroImage: '/images/reviews/hokum/backdrop.webp'
-heroAlt: 'A still from Hokum (2026)'
+heroAlt: 'Adam Scott, unshaven, with glasses and messy dark hair, sitting by a gray curtain in a dim room.'
 ---
 
 A tight, well-plotted whodunit that also made me scream.

@@ -24,7 +24,7 @@ description: 'Red Hulk should have kept the mustache.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/captain-america-brave-new-world/'
 poster: '/images/reviews/captain-america-brave-new-world/poster.webp'
 heroImage: '/images/reviews/captain-america-brave-new-world/backdrop.webp'
-heroAlt: 'A still from Captain America: Brave New World (2025)'
+heroAlt: 'A giant red hulking creature looming over a winged figure holding a round star shield in a smoky, ruined street.'
 ---
 
 Red Hulk should have kept the mustache.

@@ -24,7 +24,7 @@ description: 'Robert Redford is so handsome. He got a little creepy when he star
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/three-days-of-the-condor/'
 poster: '/images/reviews/three-days-of-the-condor/poster.webp'
 heroImage: '/images/reviews/three-days-of-the-condor/backdrop.webp'
-heroAlt: 'A still from Three Days of the Condor (1975)'
+heroAlt: 'Robert Redford in glasses holding a pistol on an older man in a dim study.'
 ---
 
 Robert Redford is so handsome. He got a little creepy when he started making out with Faye Dunaway. And I have to admit, I got a little confused at the end.

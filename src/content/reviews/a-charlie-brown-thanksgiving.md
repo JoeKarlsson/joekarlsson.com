@@ -24,7 +24,7 @@ description: 'When I think of Thanksgiving, I think about Snoopy fighting a fold
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/a-charlie-brown-thanksgiving/'
 poster: '/images/reviews/a-charlie-brown-thanksgiving/poster.webp'
 heroImage: '/images/reviews/a-charlie-brown-thanksgiving/backdrop.webp'
-heroAlt: 'A still from A Charlie Brown Thanksgiving (1973)'
+heroAlt: "Snoopy in a chef's hat carving a roast turkey on a purple table while Woodstock eats from a small plate."
 ---
 
 When I think of Thanksgiving, I think about Snoopy fighting a folding chair

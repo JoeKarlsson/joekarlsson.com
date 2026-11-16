@@ -23,7 +23,7 @@ description: 'Dumb as hell. Karl Urban is perfect casting. Both things can be tr
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mortal-kombat-ii/'
 poster: '/images/reviews/mortal-kombat-ii/poster.webp'
 heroImage: '/images/reviews/mortal-kombat-ii/backdrop.webp'
-heroAlt: 'A still from Mortal Kombat II (2026)'
+heroAlt: 'A hooded fighter in a gold mask and armor pulling two chains taut against a fiery background.'
 ---
 
 Dumb as hell. Karl Urban is perfect casting. Both things can be true.

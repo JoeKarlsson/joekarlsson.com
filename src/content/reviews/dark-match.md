@@ -24,7 +24,7 @@ description: 'My two favorite things. Indie wrestling, and Satan.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dark-match/'
 poster: '/images/reviews/dark-match/poster.webp'
 heroImage: '/images/reviews/dark-match/backdrop.webp'
-heroAlt: 'A still from Dark Match (2024)'
+heroAlt: 'A wrestler in a red and white luchador mask firing an assault rifle from a doorway.'
 ---
 
 My two favorite things. Indie wrestling, and Satan.

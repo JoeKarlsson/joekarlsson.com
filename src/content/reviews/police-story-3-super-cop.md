@@ -17,7 +17,7 @@ description: 'Seriously, how did no one die filming that final sequence?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/police-story-3-super-cop/'
 poster: '/images/reviews/police-story-3-super-cop/poster.webp'
 heroImage: '/images/reviews/police-story-3-super-cop/backdrop.webp'
-heroAlt: 'A still from Police Story 3: Super Cop (1992)'
+heroAlt: 'Jackie Chan pointing and shouting as a crowd of young men advances behind him on a street at night.'
 ---
 
 Seriously, how did no one die filming that final sequence?

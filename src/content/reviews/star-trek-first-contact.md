@@ -24,7 +24,7 @@ description: 'Frakes really directed the shit out of this movie. It looks incred
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/star-trek-first-contact/'
 poster: '/images/reviews/star-trek-first-contact/poster.webp'
 heroImage: '/images/reviews/star-trek-first-contact/backdrop.webp'
-heroAlt: 'A still from Star Trek: First Contact (1996)'
+heroAlt: 'A starship firing blue beams across the vast, glowing, circuit-covered hull of a Borg cube in space.'
 ---
 
 Frakes really directed the shit out of this movie. It looks incredible, and I’d even go so far to say that the aesthetics of the Borg in this film directly influenced the look of the real world in [The Matrix](/reviews/the-matrix/).

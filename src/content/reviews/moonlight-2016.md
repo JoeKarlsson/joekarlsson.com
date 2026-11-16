@@ -25,7 +25,7 @@ description: 'One of the most important films of my life.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/moonlight-2016/'
 poster: '/images/reviews/moonlight-2016/poster.webp'
 heroImage: '/images/reviews/moonlight-2016/backdrop.webp'
-heroAlt: 'A still from Moonlight (2016)'
+heroAlt: 'A shirtless boy in silhouette walking along a beach at dusk, with palm trees against a blue sky.'
 ---
 
 One of the most important films of my life.

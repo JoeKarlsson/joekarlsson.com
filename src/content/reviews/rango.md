@@ -16,7 +16,7 @@ description: 'Damn, this movie goes hard. I was also shocked at how good this mo
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/rango/'
 poster: '/images/reviews/rango/poster.webp'
 heroImage: '/images/reviews/rango/backdrop.webp'
-heroAlt: 'A still from Rango (2011)'
+heroAlt: 'An animated green chameleon in a red Hawaiian shirt standing in an empty desert with saguaro cacti.'
 ---
 
 Damn, this movie goes hard. I was also shocked at how good this movie looks.

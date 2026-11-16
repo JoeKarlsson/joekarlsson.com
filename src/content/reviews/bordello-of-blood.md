@@ -24,7 +24,7 @@ description: 'Why does Dennis Miller look like he would rather be anywhere else 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bordello-of-blood/'
 poster: '/images/reviews/bordello-of-blood/poster.webp'
 heroImage: '/images/reviews/bordello-of-blood/backdrop.webp'
-heroAlt: 'A still from Bordello of Blood (1996)'
+heroAlt: 'A red-haired woman pressing close behind a sweaty, bearded man in a dark room.'
 ---
 
 Why does Dennis Miller look like he would rather be anywhere else than on the set of this film?

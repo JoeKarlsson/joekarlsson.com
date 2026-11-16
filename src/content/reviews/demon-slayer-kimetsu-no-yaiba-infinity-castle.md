@@ -24,7 +24,7 @@ description: "I've seen two seasons of Demon slayer, and I mistakenly thought I 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/demon-slayer-kimetsu-no-yaiba-infinity-castle/'
 poster: '/images/reviews/demon-slayer-kimetsu-no-yaiba-infinity-castle/poster.webp'
 heroImage: '/images/reviews/demon-slayer-kimetsu-no-yaiba-infinity-castle/backdrop.webp'
-heroAlt: 'A still from Demon Slayer: Kimetsu no Yaiba Infinity Castle (2025)'
+heroAlt: 'A huge anime eye in blue light, its glowing iris reflecting a red-haired boy.'
 ---
 
 I've seen two seasons of Demon slayer, and I mistakenly thought I would be able to catch up with the lore in order to watch and comprehend, what was happening in this movie. I was wrong.

@@ -17,7 +17,7 @@ description: 'Funny, timely, and so sad. A movie about the lies we tell ourselve
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/no-other-choice-2025/'
 poster: '/images/reviews/no-other-choice-2025/poster.webp'
 heroImage: '/images/reviews/no-other-choice-2025/backdrop.webp'
-heroAlt: 'A still from No Other Choice (2025)'
+heroAlt: 'Son Ye-jin leaning on a table at night beside a young girl in a pink sweater eating from a bowl.'
 ---
 
 Funny, timely, and so sad. A movie about the lies we tell ourselves about the options we have.

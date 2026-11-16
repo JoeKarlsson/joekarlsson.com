@@ -16,7 +16,7 @@ description: 'This movie was dumb and bad.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jason-goes-to-hell-the-final-friday/'
 poster: '/images/reviews/jason-goes-to-hell-the-final-friday/poster.webp'
 heroImage: '/images/reviews/jason-goes-to-hell-the-final-friday/backdrop.webp'
-heroAlt: 'A still from Jason Goes to Hell: The Final Friday (1993)'
+heroAlt: 'A man in glasses and a red T-shirt looking over his shoulder in an empty diner.'
 ---
 
 This movie was dumb and bad.

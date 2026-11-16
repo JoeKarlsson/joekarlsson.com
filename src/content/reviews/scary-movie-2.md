@@ -25,7 +25,7 @@ description: 'This isn’t a good movie. But I would be lying to you if I didn�
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scary-movie-2/'
 poster: '/images/reviews/scary-movie-2/poster.webp'
 heroImage: '/images/reviews/scary-movie-2/backdrop.webp'
-heroAlt: 'A still from Scary Movie 2 (2001)'
+heroAlt: 'Four young people and a hunched, bald old man standing together in a dim room, looking startled.'
 ---
 
 This isn’t a good movie. But I would be lying to you if I didn’t tell you that I’ve seen this movie 1000 times and I secretly love it.

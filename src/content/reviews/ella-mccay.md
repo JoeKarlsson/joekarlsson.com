@@ -24,7 +24,7 @@ description: 'This feels like a nearly four hour long neoliberal fever dream tha
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/ella-mccay/'
 poster: '/images/reviews/ella-mccay/poster.webp'
 heroImage: '/images/reviews/ella-mccay/backdrop.webp'
-heroAlt: 'A still from Ella McCay (2025)'
+heroAlt: "Emma Mackey smiling from the driver's seat of a car."
 ---
 
 This feels like a nearly four hour long neoliberal fever dream that asks us to find the good in a terrible system. You can tell this is written by a well-meaning 85 year old billionaire.

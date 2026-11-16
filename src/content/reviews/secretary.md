@@ -25,7 +25,7 @@ description: 'I’d let James Spader spank me….'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/secretary/'
 poster: '/images/reviews/secretary/poster.webp'
 heroImage: '/images/reviews/secretary/backdrop.webp'
-heroAlt: 'A still from Secretary (2002)'
+heroAlt: 'Maggie Gyllenhaal crawling on all fours across a carpet with a letter held in her mouth.'
 ---
 
 I’d let James Spader spank me….

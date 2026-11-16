@@ -24,7 +24,7 @@ description: 'I don’t want to ever escape the Escape Room franchise'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/escape-room-tournament-of-champions/'
 poster: '/images/reviews/escape-room-tournament-of-champions/poster.webp'
 heroImage: '/images/reviews/escape-room-tournament-of-champions/backdrop.webp'
-heroAlt: 'A still from Escape Room: Tournament of Champions (2021)'
+heroAlt: 'Five young people walking past a weathered "Hourglass Bay" sign on a beach set, one reading a small card.'
 ---
 
 I don’t want to ever escape the [Escape Room](/reviews/escape-room-2019/) franchise

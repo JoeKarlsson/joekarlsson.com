@@ -24,7 +24,7 @@ description: 'They dont make movies as horny as this anymore.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-thomas-crown-affair-1999/'
 poster: '/images/reviews/the-thomas-crown-affair-1999/poster.webp'
 heroImage: '/images/reviews/the-thomas-crown-affair-1999/backdrop.webp'
-heroAlt: 'A still from The Thomas Crown Affair (1999)'
+heroAlt: 'Pierce Brosnan in a bowler hat and red tie standing in a museum stairway.'
 ---
 
 They dont make movies as horny as this anymore.

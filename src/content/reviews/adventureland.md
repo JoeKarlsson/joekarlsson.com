@@ -25,7 +25,7 @@ description: "This might be Ryan Reynolds' best performance and I will die on th
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/adventureland/'
 poster: '/images/reviews/adventureland/poster.webp'
 heroImage: '/images/reviews/adventureland/backdrop.webp'
-heroAlt: 'A still from Adventureland (2009)'
+heroAlt: 'Jesse Eisenberg and Kristen Stewart in matching blue "GAMES" T-shirts talking at an amusement park game booth, a stuffed panda behind them.'
 ---
 
 This might be Ryan Reynolds' best performance and I will die on this hill.

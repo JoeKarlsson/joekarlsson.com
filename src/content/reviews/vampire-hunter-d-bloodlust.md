@@ -25,7 +25,7 @@ description: "Boy, they sure don't make them like they used to. This film is sim
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/vampire-hunter-d-bloodlust/'
 poster: '/images/reviews/vampire-hunter-d-bloodlust/poster.webp'
 heroImage: '/images/reviews/vampire-hunter-d-bloodlust/backdrop.webp'
-heroAlt: 'A still from Vampire Hunter D: Bloodlust (2000)'
+heroAlt: 'An animated hunter in a wide hat and long cloak standing beside a dark horse at night.'
 ---
 
 Boy, they sure don't make them like they used to. This film is simply gorgeous. Gothic, bloody violent, dark, elegant, and well animated. I gotta say, I love the cyberpunk goth aesthetic.

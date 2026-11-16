@@ -24,7 +24,7 @@ description: 'Do y’all remember in 2020 when the third precinct in Minneapolis
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/assault-on-precinct-13/'
 poster: '/images/reviews/assault-on-precinct-13/poster.webp'
 heroImage: '/images/reviews/assault-on-precinct-13/backdrop.webp'
-heroAlt: 'A still from Assault on Precinct 13 (1976)'
+heroAlt: 'A man in a sleeveless shirt pins a man in a patterned shirt to a van, gun under his chin, as two men watch.'
 ---
 
 Do y’all remember in 2020 when the third precinct in Minneapolis burning down was more popular than the president?

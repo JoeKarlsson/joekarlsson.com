@@ -16,7 +16,7 @@ description: 'I have such a soft spot for early digital documentaries, and The G
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-gleaners-and-i/'
 poster: '/images/reviews/the-gleaners-and-i/poster.webp'
 heroImage: '/images/reviews/the-gleaners-and-i/backdrop.webp'
-heroAlt: 'A still from The Gleaners and I (2000)'
+heroAlt: "Agnès Varda's wrinkled hand held up against a car windshield, framing a tanker truck on the highway ahead."
 ---
 
 I have such a soft spot for early digital documentaries, and The Gleaners and I completely scratches that itch. That lo-fi digital aesthetic - the ad hoc, homemade feeling paired with sharp editing and a wonderful soundtrack - just works for me in a way that’s hard to articulate.

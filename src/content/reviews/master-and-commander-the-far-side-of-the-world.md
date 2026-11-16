@@ -17,7 +17,7 @@ description: 'The ultimate dad movie.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/master-and-commander-the-far-side-of-the-world/'
 poster: '/images/reviews/master-and-commander-the-far-side-of-the-world/poster.webp'
 heroImage: '/images/reviews/master-and-commander-the-far-side-of-the-world/backdrop.webp'
-heroAlt: 'A still from Master and Commander: The Far Side of the World (2003)'
+heroAlt: 'A tall sailing warship firing its cannons as it plows through a storm of dark blue waves.'
 ---
 
 The ultimate dad movie.

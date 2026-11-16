@@ -32,7 +32,7 @@ description: "My favorite part was when the druggie broke into the backyard of A
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/weapons-2025/1/'
 poster: '/images/reviews/weapons-2025-1/poster.webp'
 heroImage: '/images/reviews/weapons-2025-1/backdrop.webp'
-heroAlt: 'A still from Weapons (2025)'
+heroAlt: 'Julia Garner lying on a patterned pillow in the dark, staring upward.'
 ---
 
 My favorite part was when the druggie broke into the backyard of Alex's house and pushed the gate the wrong way to get in. It kills me every time.

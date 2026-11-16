@@ -24,7 +24,7 @@ description: 'Once again, Ari Aster her brings all of our anxieties to life in t
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/eddington/'
 poster: '/images/reviews/eddington/poster.webp'
 heroImage: '/images/reviews/eddington/backdrop.webp'
-heroAlt: 'A still from Eddington (2025)'
+heroAlt: 'Joaquin Phoenix in a white cowboy hat, holding a radio and pointing from behind a desk with a "Joe Cross Sheriff" nameplate.'
 ---
 
 Once again, Ari Aster her brings all of our anxieties to life in the 2nd Post-Woke film of the summer ([Superman](/reviews/superman-2025/) was the first).

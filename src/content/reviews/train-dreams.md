@@ -24,7 +24,7 @@ description: 'This movie made me feel seen'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/train-dreams/'
 poster: '/images/reviews/train-dreams/poster.webp'
 heroImage: '/images/reviews/train-dreams/backdrop.webp'
-heroAlt: 'A still from Train Dreams (2025)'
+heroAlt: 'Felicity Jones smiling as Joel Edgerton rests his head on her lap outdoors at dusk.'
 ---
 
 This movie made me feel seen

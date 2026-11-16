@@ -24,7 +24,7 @@ description: 'I love American propaganda. Make me yearn for the neoliberal optim
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/air-force-one/'
 poster: '/images/reviews/air-force-one/poster.webp'
 heroImage: '/images/reviews/air-force-one/backdrop.webp'
-heroAlt: 'A still from Air Force One (1997)'
+heroAlt: 'Harrison Ford holding a phone receiver and a gun, face to face with Gary Oldman in a dim aircraft cabin.'
 ---
 
 I love American propaganda. Make me yearn for the neoliberal optimism of the 1990s à la West Wing

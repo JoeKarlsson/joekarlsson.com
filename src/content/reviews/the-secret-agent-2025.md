@@ -33,7 +33,7 @@ description: 'Incredible production design. Baffling narrative decisions.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-secret-agent-2025/'
 poster: '/images/reviews/the-secret-agent-2025/poster.webp'
 heroImage: '/images/reviews/the-secret-agent-2025/backdrop.webp'
-heroAlt: 'A still from The Secret Agent (2025)'
+heroAlt: 'Wagner Moura in a green shirt among a group of people gathered in a 1970s living room with drinks.'
 ---
 
 Incredible production design. Baffling narrative decisions.

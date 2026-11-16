@@ -25,7 +25,7 @@ description: 'A very woke movie that conservatives think is on their side. Fasci
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/anchorman-the-legend-of-ron-burgundy/'
 poster: '/images/reviews/anchorman-the-legend-of-ron-burgundy/poster.webp'
 heroImage: '/images/reviews/anchorman-the-legend-of-ron-burgundy/backdrop.webp'
-heroAlt: 'A still from Anchorman: The Legend of Ron Burgundy (2004)'
+heroAlt: 'Will Ferrell with a mustache and a red blazer, flanked by David Koechner, Christina Applegate, Paul Rudd and Steve Carell.'
 ---
 
 A very woke movie that conservatives think is on their side. Fascinating.

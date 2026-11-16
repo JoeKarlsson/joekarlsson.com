@@ -31,7 +31,7 @@ description: 'I think I needed to be more stoned to understand this one.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/inherent-vice/'
 poster: '/images/reviews/inherent-vice/poster.webp'
 heroImage: '/images/reviews/inherent-vice/backdrop.webp'
-heroAlt: 'A still from Inherent Vice (2014)'
+heroAlt: 'Joaquin Phoenix in a straw hat and sunglasses beside Katherine Waterston on a beach at sunset.'
 ---
 
 I think I needed to be more stoned to understand this one.

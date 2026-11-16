@@ -24,7 +24,7 @@ description: 'Booooooooo'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jurassic-world-rebirth/'
 poster: '/images/reviews/jurassic-world-rebirth/poster.webp'
 heroImage: '/images/reviews/jurassic-world-rebirth/backdrop.webp'
-heroAlt: 'A still from Jurassic World Rebirth (2025)'
+heroAlt: 'Jonathan Bailey in glasses and Scarlett Johansson crouching in tall green grass, looking ahead.'
 ---
 
 Booooooooo

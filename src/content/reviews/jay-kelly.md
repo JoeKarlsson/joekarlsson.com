@@ -17,7 +17,7 @@ description: 'Beautiful to look at. Existential as hell. Still a movie about mov
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jay-kelly/'
 poster: '/images/reviews/jay-kelly/poster.webp'
 heroImage: '/images/reviews/jay-kelly/backdrop.webp'
-heroAlt: 'A still from Jay Kelly (2025)'
+heroAlt: 'George Clooney in a cream jacket smiling as he walks past a giant black-and-white portrait of a man.'
 ---
 
 Beautiful to look at. Existential as hell. Still a movie about movies.

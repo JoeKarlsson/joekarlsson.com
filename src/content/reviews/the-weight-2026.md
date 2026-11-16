@@ -31,7 +31,7 @@ description: 'Sorcerer meets The Treasure of the Sierra Madre,'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-weight-2026/'
 poster: '/images/reviews/the-weight-2026/poster.webp'
 heroImage: '/images/reviews/the-weight-2026/backdrop.webp'
-heroAlt: 'A still from The Weight (2026)'
+heroAlt: 'Ethan Hawke and another man wading through a river, hauling a bundle with rope.'
 ---
 
 [Sorcerer](/reviews/sorcerer/) meets The Treasure of the Sierra Madre,

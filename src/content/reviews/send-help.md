@@ -24,7 +24,7 @@ description: 'Answers the age old question what if Sam Raimi directed triangle o
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/send-help/'
 poster: '/images/reviews/send-help/poster.webp'
 heroImage: '/images/reviews/send-help/backdrop.webp'
-heroAlt: 'A still from Send Help (2026)'
+heroAlt: 'Rachel McAdams, her face and shirt smeared with blood and dirt, crawling through the jungle.'
 ---
 
 Answers the age old question what if Sam Raimi directed triangle of sadness?

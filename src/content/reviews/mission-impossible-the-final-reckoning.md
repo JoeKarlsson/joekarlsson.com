@@ -17,7 +17,7 @@ description: 'I’m sorry. But this shit was so boring. Why’d it have to take 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mission-impossible-the-final-reckoning/'
 poster: '/images/reviews/mission-impossible-the-final-reckoning/poster.webp'
 heroImage: '/images/reviews/mission-impossible-the-final-reckoning/backdrop.webp'
-heroAlt: 'A still from Mission: Impossible – The Final Reckoning (2025)'
+heroAlt: 'Tom Cruise looking up in alarm under red and white fluorescent lights.'
 ---
 
 I’m sorry. But this shit was so boring. Why’d it have to take THREE FUCKING HOURS to get to the bi-plane sequence?!?!

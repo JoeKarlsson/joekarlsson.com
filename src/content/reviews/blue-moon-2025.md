@@ -34,7 +34,7 @@ description: "Linklater made another movie where people just talk. I'm always go
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/blue-moon-2025/'
 poster: '/images/reviews/blue-moon-2025/poster.webp'
 heroImage: '/images/reviews/blue-moon-2025/backdrop.webp'
-heroAlt: 'A still from Blue Moon (2025)'
+heroAlt: 'Margaret Qualley in a cream blouse beside a vase of red carnations, talking with Ethan Hawke in a dark suit at a bar.'
 ---
 
 Linklater made another movie where people just talk. I'm always going to show up for that.

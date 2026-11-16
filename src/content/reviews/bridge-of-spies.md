@@ -26,7 +26,7 @@ description: 'This is quietly one of the most humanitarian films ever made. Itâ€
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bridge-of-spies/'
 poster: '/images/reviews/bridge-of-spies/poster.webp'
 heroImage: '/images/reviews/bridge-of-spies/backdrop.webp'
-heroAlt: 'A still from Bridge of Spies (2015)'
+heroAlt: 'A lone man in a hat and coat standing on a snowy steel bridge at night, with tank barriers and a tank in blue light.'
 ---
 
 This is quietly one of the most humanitarian films ever made. Itâ€™s still a super fun, engaging spy thriller.

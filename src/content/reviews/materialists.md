@@ -24,7 +24,7 @@ description: 'Career best performance from Chris Evans????'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/materialists/'
 poster: '/images/reviews/materialists/poster.webp'
 heroImage: '/images/reviews/materialists/backdrop.webp'
-heroAlt: 'A still from Materialists (2025)'
+heroAlt: 'Dakota Johnson in a white shirt and jeans standing beside a yellow taxi on a New York street.'
 ---
 
 Career best performance from Chris Evans????

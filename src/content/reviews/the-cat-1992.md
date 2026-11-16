@@ -24,7 +24,7 @@ description: "A cat kung fu fights a dog. That's really all you need to know."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-cat-1992/'
 poster: '/images/reviews/the-cat-1992/poster.webp'
 heroImage: '/images/reviews/the-cat-1992/backdrop.webp'
-heroAlt: 'A still from The Cat (1992)'
+heroAlt: 'A young woman lying back with a black cat curled against her face.'
 ---
 
 A cat kung fu fights a dog. That's really all you need to know.

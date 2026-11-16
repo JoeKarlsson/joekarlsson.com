@@ -24,7 +24,7 @@ description: 'Watch this on an airplane trip to France, the way God intended it'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/blackberry-2023/'
 poster: '/images/reviews/blackberry-2023/poster.webp'
 heroImage: '/images/reviews/blackberry-2023/backdrop.webp'
-heroAlt: 'A still from BlackBerry (2023)'
+heroAlt: 'Jay Baruchel, gray-haired in glasses and a striped shirt, looking down at a phone while coworkers cheer around him in an office.'
 ---
 
 Watch this on an airplane trip to France, the way God intended it

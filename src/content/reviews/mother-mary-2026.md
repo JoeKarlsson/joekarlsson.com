@@ -26,7 +26,7 @@ description: 'I love how gay this movie is. I struggled with everything else.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mother-mary-2026/'
 poster: '/images/reviews/mother-mary-2026/poster.webp'
 heroImage: '/images/reviews/mother-mary-2026/backdrop.webp'
-heroAlt: 'A still from Mother Mary (2026)'
+heroAlt: "Michaela Coel holding Anne Hathaway's face in her hands, the two staring at each other in the dark."
 ---
 
 I love how gay this movie is. I struggled with everything else.

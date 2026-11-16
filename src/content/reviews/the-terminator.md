@@ -24,7 +24,7 @@ description: 'I think I saw Arnold’s hog'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-terminator/'
 poster: '/images/reviews/the-terminator/poster.webp'
 heroImage: '/images/reviews/the-terminator/backdrop.webp'
-heroAlt: 'A still from The Terminator (1984)'
+heroAlt: 'Arnold Schwarzenegger aiming a laser-sighted pistol in a crowded nightclub.'
 ---
 
 I think I saw Arnold’s hog

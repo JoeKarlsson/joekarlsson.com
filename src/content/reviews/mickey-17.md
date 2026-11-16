@@ -31,7 +31,7 @@ description: 'I was scared that this was gonna be too depressing, but it was bot
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mickey-17/'
 poster: '/images/reviews/mickey-17/poster.webp'
 heroImage: '/images/reviews/mickey-17/backdrop.webp'
-heroAlt: 'A still from Mickey 17 (2025)'
+heroAlt: 'Robert Pattinson lying on his back inside a space helmet, his face bruised and sweaty.'
 ---
 
 I was scared that this was gonna be too depressing, but it was both way funnier than I expected it to be and had a really warm ending.

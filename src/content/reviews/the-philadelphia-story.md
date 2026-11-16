@@ -17,7 +17,7 @@ description: "I had a hard time getting into this one. The cat was great though!
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-philadelphia-story/'
 poster: '/images/reviews/the-philadelphia-story/poster.webp'
 heroImage: '/images/reviews/the-philadelphia-story/backdrop.webp'
-heroAlt: 'A still from The Philadelphia Story (1940)'
+heroAlt: "Katharine Hepburn lighting James Stewart's cigarette in front of a fireplace, in black and white."
 ---
 
 I had a hard time getting into this one. The cat was great though! Four stars because I can see why it's a classic, even if it didn't click for me.

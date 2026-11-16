@@ -24,7 +24,7 @@ description: 'A dumb Disney sports biopic. It still worked.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/miracle/'
 poster: '/images/reviews/miracle/poster.webp'
 heroImage: '/images/reviews/miracle/backdrop.webp'
-heroAlt: 'A still from Miracle (2004)'
+heroAlt: 'A sweaty hockey player with long dark hair screaming with joy as he clutches an American flag.'
 ---
 
 A dumb Disney sports biopic. It still worked.

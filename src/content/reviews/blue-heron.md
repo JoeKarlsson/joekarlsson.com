@@ -17,7 +17,7 @@ description: 'A movie about memory that leaves you with more questions than answ
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/blue-heron/'
 poster: '/images/reviews/blue-heron/poster.webp'
 heroImage: '/images/reviews/blue-heron/backdrop.webp'
-heroAlt: 'A still from Blue Heron (2025)'
+heroAlt: 'A long-haired girl standing on a wooden porch by a red door with her hands behind her back, beside a person lying on a bench.'
 ---
 
 A movie about memory that leaves you with more questions than answers. And more grief than when you started.

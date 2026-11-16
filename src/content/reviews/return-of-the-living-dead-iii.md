@@ -24,7 +24,7 @@ description: 'For the love of God, no one show this movie to the adult Nightmare
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/return-of-the-living-dead-iii/'
 poster: '/images/reviews/return-of-the-living-dead-iii/poster.webp'
 heroImage: '/images/reviews/return-of-the-living-dead-iii/backdrop.webp'
-heroAlt: 'A still from Return of the Living Dead III (1993)'
+heroAlt: 'A young man in a leather jacket carrying an unconscious red-haired woman in his arms past a large metal door.'
 ---
 
 For the love of God, no one show this movie to the adult Nightmares Before Christmas, Cookie Monster pajama pants girlies 🙏

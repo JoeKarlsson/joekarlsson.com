@@ -17,7 +17,7 @@ description: 'No, seriously, how did they film this? How did no one die?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/safety-last/'
 poster: '/images/reviews/safety-last/poster.webp'
 heroImage: '/images/reviews/safety-last/backdrop.webp'
-heroAlt: 'A still from Safety Last! (1923)'
+heroAlt: 'Harold Lloyd hanging from the hands of a giant clock high above a busy city street.'
 ---
 
 No, seriously, how did they film this? How did no one die?

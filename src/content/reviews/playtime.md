@@ -24,7 +24,7 @@ description: 'Spent the first 20 minutes convinced my speakers were broken, only
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/playtime/'
 poster: '/images/reviews/playtime/poster.webp'
 heroImage: '/images/reviews/playtime/backdrop.webp'
-heroAlt: 'A still from PlayTime (1967)'
+heroAlt: 'A woman in a gray coat on a bus looking out the window at a glass building with the word "PARIS" on it.'
 ---
 
 Spent the first 20 minutes convinced my speakers were broken, only to realize Tati intentionally mixed all dialogue to sound like it’s coming from three rooms away through a fish tank. Bold choice.

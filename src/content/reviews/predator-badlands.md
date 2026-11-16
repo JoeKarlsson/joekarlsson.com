@@ -31,7 +31,7 @@ description: "Predator: Badlands is a violent 80's throwback dark fantasy PG-13 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/predator-badlands/'
 poster: '/images/reviews/predator-badlands/poster.webp'
 heroImage: '/images/reviews/predator-badlands/backdrop.webp'
-heroAlt: 'A still from Predator: Badlands (2025)'
+heroAlt: 'Painted art of a Predator kneeling with a sword on a rocky alien landscape under an eclipsed sun.'
 ---
 
 Predator: Badlands is a violent 80's throwback dark fantasy PG-13 action movie for Disney adults.

@@ -30,7 +30,7 @@ description: 'I wanted to see Robin Williams punch Red in the face'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dead-poets-society/'
 poster: '/images/reviews/dead-poets-society/poster.webp'
 heroImage: '/images/reviews/dead-poets-society/backdrop.webp'
-heroAlt: 'A still from Dead Poets Society (1989)'
+heroAlt: 'Robin Williams in a shirt and tie reading from a small book to a group of students in a wood-paneled room.'
 ---
 
 I wanted to see Robin Williams punch Red in the face

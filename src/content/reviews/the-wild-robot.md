@@ -16,7 +16,7 @@ description: 'This is joining the pantheon of some of my favorite animated movie
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-wild-robot/'
 poster: '/images/reviews/the-wild-robot/poster.webp'
 heroImage: '/images/reviews/the-wild-robot/backdrop.webp'
-heroAlt: 'A still from The Wild Robot (2024)'
+heroAlt: 'A robot with glowing eyes sits in a moonlit forest, holding a small fox close to its chest.'
 ---
 
 This is joining the pantheon of some of my favorite animated movies of all time, including Puss in boots: Last Wish, into the spider verse, and the first two Paddington films.

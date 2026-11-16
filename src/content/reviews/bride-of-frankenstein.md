@@ -24,7 +24,7 @@ description: 'After decades of revisiting the original Frankenstein, I finally c
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bride-of-frankenstein/'
 poster: '/images/reviews/bride-of-frankenstein/poster.webp'
 heroImage: '/images/reviews/bride-of-frankenstein/backdrop.webp'
-heroAlt: 'A still from Bride of Frankenstein (1935)'
+heroAlt: "Elsa Lanchester as the Bride, with tall streaked hair, sitting beside Boris Karloff's monster as he holds her hand, in black and white."
 ---
 
 After decades of revisiting the original Frankenstein, I finally caught up with Bride of Frankenstein - and honestly, what took me so long? This film is significantly more beautiful than its predecessor, with cinematography that's genuinely gorgeous to look at.

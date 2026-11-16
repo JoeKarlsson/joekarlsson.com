@@ -22,7 +22,7 @@ description: 'This is the best crossover of severance inside out, real housewive
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/black-mirror-uss-callister-into-infinity/'
 poster: '/images/reviews/black-mirror-uss-callister-into-infinity/poster.webp'
 heroImage: '/images/reviews/black-mirror-uss-callister-into-infinity/backdrop.webp'
-heroAlt: 'A still from Black Mirror: USS Callister – Into Infinity (2025)'
+heroAlt: "Cristin Milioti in black armor sitting in a captain's chair on a bright, blue-lit starship bridge."
 ---
 
 This is the best crossover of severance inside out, real housewives of Atlanta and Star Trek

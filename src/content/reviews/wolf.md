@@ -24,7 +24,7 @@ description: 'James Spader and Jack Nicholson fight under a full moon in slow mo
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wolf/'
 poster: '/images/reviews/wolf/poster.webp'
 heroImage: '/images/reviews/wolf/backdrop.webp'
-heroAlt: 'A still from Wolf (1994)'
+heroAlt: 'Jack Nicholson snarling as he grips the bars of a cell.'
 ---
 
 James Spader and Jack Nicholson fight under a full moon in slow motion while Ennio Morricone plays saxophone. Such a wildly unintentionally funny movie.

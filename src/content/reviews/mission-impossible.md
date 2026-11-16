@@ -16,7 +16,7 @@ description: 'I respect the craft, but goddamnit I don’t understand the plot o
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mission-impossible/'
 poster: '/images/reviews/mission-impossible/poster.webp'
 heroImage: '/images/reviews/mission-impossible/backdrop.webp'
-heroAlt: 'A still from Mission: Impossible (1996)'
+heroAlt: 'Tom Cruise suspended face down on wires inches above a glowing vault floor, in cold blue-green light.'
 ---
 
 I respect the craft, but goddamnit I don’t understand the plot of this movie at all

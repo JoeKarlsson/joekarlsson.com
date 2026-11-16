@@ -25,7 +25,7 @@ description: 'I think The Wolf of Wall Street is running for the second most mis
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-wolf-of-wall-street/'
 poster: '/images/reviews/the-wolf-of-wall-street/poster.webp'
 heroImage: '/images/reviews/the-wolf-of-wall-street/backdrop.webp'
-heroAlt: 'A still from The Wolf of Wall Street (2013)'
+heroAlt: 'Leonardo DiCaprio in a pinstripe suit pointing upward at a microphone during an office party.'
 ---
 
 I think The Wolf of Wall Street is running for the second most misunderstood film by illiterate film bros, right behind American Psycho.

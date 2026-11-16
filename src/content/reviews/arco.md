@@ -24,7 +24,7 @@ description: 'George Bluth Sr: “And that’s why you should never take your si
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/arco/'
 poster: '/images/reviews/arco/poster.webp'
 heroImage: '/images/reviews/arco/backdrop.webp'
-heroAlt: 'A still from Arco (2025)'
+heroAlt: 'A faceless figure in a rainbow-colored cloak and pink helmet watching a small girl standing on a muddy forest path, in animation.'
 ---
 
 George Bluth Sr: “And that’s why you should never take your sisters magic time travel crystals”

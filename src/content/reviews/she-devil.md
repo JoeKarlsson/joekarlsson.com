@@ -24,7 +24,7 @@ description: 'Katya would love this movie. Also, Roseanne Barr is unfortunately 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/she-devil/'
 poster: '/images/reviews/she-devil/poster.webp'
 heroImage: '/images/reviews/she-devil/backdrop.webp'
-heroAlt: 'A still from She-Devil (1989)'
+heroAlt: 'Meryl Streep in a pink gown and Ed Begley Jr. in a tuxedo facing Roseanne Barr in a floral dress at a party.'
 ---
 
 Katya would love this movie. Also, Roseanne Barr is unfortunately pretty good in this movie.

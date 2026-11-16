@@ -25,7 +25,7 @@ description: "This was my first time ever watching Highlander, which honestly sh
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/highlander/'
 poster: '/images/reviews/highlander/poster.webp'
 heroImage: '/images/reviews/highlander/backdrop.webp'
-heroAlt: 'A still from Highlander (1986)'
+heroAlt: 'Christopher Lambert in a plaid kilt sitting on rocks at the edge of a forest, holding a blonde woman in a white dress.'
 ---
 
 This was my first time ever watching Highlander, which honestly shocks me. I've known about it my entire life and just had zero interest until now.

@@ -25,7 +25,7 @@ description: "This reminded me of Joker: Folie Deux. Lots of singing and dancing
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-bride-2026/'
 poster: '/images/reviews/the-bride-2026/poster.webp'
 heroImage: '/images/reviews/the-bride-2026/backdrop.webp'
-heroAlt: 'A still from The Bride! (2026)'
+heroAlt: 'A woman in an orange skirt and metal bodice lying on a table among tangled wires and lamps, seen from above.'
 ---
 
 This reminded me of Joker: Folie Deux. Lots of singing and dancing, the Bride's violence inspiring masked vigilantes to follow her lead, heavy face makeup, insane protagonist, shaggy plot. The comparisons are hard to avoid.

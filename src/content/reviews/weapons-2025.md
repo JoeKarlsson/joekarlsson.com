@@ -31,7 +31,7 @@ description: 'You better Naruto run to the theater to see this movie'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/weapons-2025/'
 poster: '/images/reviews/weapons-2025/poster.webp'
 heroImage: '/images/reviews/weapons-2025/backdrop.webp'
-heroAlt: 'A still from Weapons (2025)'
+heroAlt: 'Julia Garner lying on a patterned pillow in the dark, staring upward.'
 ---
 
 You better Naruto run to the theater to see this movie

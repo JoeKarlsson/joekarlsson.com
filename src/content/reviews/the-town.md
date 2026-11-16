@@ -16,7 +16,7 @@ description: 'Ben Affleck did the Joker bank heist in 2010 and we still let him 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-town/'
 poster: '/images/reviews/the-town/poster.webp'
 heroImage: '/images/reviews/the-town/backdrop.webp'
-heroAlt: 'A still from The Town (2010)'
+heroAlt: 'Armed police aim rifles at gunmen in nun masks by an armored truck under a bridge at night.'
 ---
 
 Ben Affleck did the Joker bank heist in 2010 and we still let him be Batman.

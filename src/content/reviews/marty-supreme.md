@@ -24,7 +24,7 @@ description: "The theater was packed. I can't wait to see what normies think of 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/marty-supreme/'
 poster: '/images/reviews/marty-supreme/poster.webp'
 heroImage: '/images/reviews/marty-supreme/backdrop.webp'
-heroAlt: 'A still from Marty Supreme (2025)'
+heroAlt: 'Timothée Chalamet with a thin mustache and round glasses in a navy jacket, standing outside an old storefront.'
 ---
 
 The theater was packed. I can't wait to see what normies think of this.

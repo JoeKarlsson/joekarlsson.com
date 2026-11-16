@@ -24,7 +24,7 @@ description: 'Superman made me want to be a better man. Supergirl made me want t
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/supergirl-2026/'
 poster: '/images/reviews/supergirl-2026/poster.webp'
 heroImage: '/images/reviews/supergirl-2026/backdrop.webp'
-heroAlt: 'A still from Supergirl (2026)'
+heroAlt: 'Poster art of Milly Alcock as Supergirl, a girl with a sword, a white dog and Jason Momoa in face paint before an S shield.'
 ---
 
 [Superman](/reviews/superman-2025/) made me want to be a better man. Supergirl made me want to leave.

@@ -16,7 +16,7 @@ description: 'Henry cocking his arms is still unbeat'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mission-impossible-fallout/'
 poster: '/images/reviews/mission-impossible-fallout/poster.webp'
 heroImage: '/images/reviews/mission-impossible-fallout/backdrop.webp'
-heroAlt: 'A still from Mission: Impossible – Fallout (2018)'
+heroAlt: 'Tom Cruise in a skydiving helmet with a clear visor, lit in amber light inside an aircraft.'
 ---
 
 Henry cocking his arms is still unbeat

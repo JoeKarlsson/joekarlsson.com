@@ -24,7 +24,7 @@ description: "I mostly love Guillermo del Toro, but I think I just don't like go
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/crimson-peak/'
 poster: '/images/reviews/crimson-peak/poster.webp'
 heroImage: '/images/reviews/crimson-peak/backdrop.webp'
-heroAlt: 'A still from Crimson Peak (2015)'
+heroAlt: 'Mia Wasikowska with long blond hair in a white nightgown holding a lit candelabra at a doorway.'
 ---
 
 I mostly love Guillermo del Toro, but I think I just don't like gothic horror very much. And this movie didn't do much for me.

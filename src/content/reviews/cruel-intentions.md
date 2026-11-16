@@ -24,7 +24,7 @@ description: 'This has to be in the running for best 90s film soundtracks of all
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/cruel-intentions/'
 poster: '/images/reviews/cruel-intentions/poster.webp'
 heroImage: '/images/reviews/cruel-intentions/backdrop.webp'
-heroAlt: 'A still from Cruel Intentions (1999)'
+heroAlt: 'Selma Blair and Sarah Michelle Gellar kissing outdoors against a green, leafy background.'
 ---
 
 This has to be in the running for best 90s film soundtracks of all time, right??? The movie around it is a two.

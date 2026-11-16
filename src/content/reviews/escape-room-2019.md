@@ -17,7 +17,7 @@ description: 'Cube meets Saw'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/escape-room-2019/'
 poster: '/images/reviews/escape-room-2019/poster.webp'
 heroImage: '/images/reviews/escape-room-2019/backdrop.webp'
-heroAlt: 'A still from Escape Room (2019)'
+heroAlt: 'A young woman in a plaid shirt turning a small metal puzzle box in her hands.'
 ---
 
 Cube meets Saw

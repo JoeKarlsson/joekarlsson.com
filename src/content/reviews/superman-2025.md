@@ -24,7 +24,7 @@ description: 'I’m ready for Superman Summer ™️'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/superman-2025/'
 poster: '/images/reviews/superman-2025/poster.webp'
 heroImage: '/images/reviews/superman-2025/backdrop.webp'
-heroAlt: 'A still from Superman (2025)'
+heroAlt: 'Superman in his red cape sitting on the moon beside a small white dog, looking out at Earth.'
 ---
 
 I’m ready for Superman Summer ™️

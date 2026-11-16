@@ -16,7 +16,7 @@ description: 'Very lynchian. This could have been an amazing episode of Twin Pea
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-gullspang-miracle/'
 poster: '/images/reviews/the-gullspang-miracle/poster.webp'
 heroImage: '/images/reviews/the-gullspang-miracle/backdrop.webp'
-heroAlt: 'A still from The Gullspång Miracle (2023)'
+heroAlt: 'Two older women in knit sweaters sitting at a kitchen table, heads bowed over their clasped hands.'
 ---
 
 Very lynchian. This could have been an amazing episode of Twin Peaks.

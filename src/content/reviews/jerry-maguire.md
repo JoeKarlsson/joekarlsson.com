@@ -24,7 +24,7 @@ description: 'This movie worked for me. What a strange screenplay structure - bu
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jerry-maguire/'
 poster: '/images/reviews/jerry-maguire/poster.webp'
 heroImage: '/images/reviews/jerry-maguire/backdrop.webp'
-heroAlt: 'A still from Jerry Maguire (1996)'
+heroAlt: 'Tom Cruise in a black polo, hand on his chin, in an office with sticky notes on the glass behind him.'
 ---
 
 This movie worked for me. What a strange screenplay structure - but it totally worked for me.

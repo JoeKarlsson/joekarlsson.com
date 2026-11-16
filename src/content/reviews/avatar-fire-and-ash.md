@@ -24,7 +24,7 @@ description: "Maybe James Cameron's horniest movie ever made. Chaplin gives one 
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/avatar-fire-and-ash/'
 poster: '/images/reviews/avatar-fire-and-ash/poster.webp'
 heroImage: '/images/reviews/avatar-fire-and-ash/backdrop.webp'
-heroAlt: 'A still from Avatar: Fire and Ash (2025)'
+heroAlt: "A snarling Na'vi warrior with green and orange face markings drawing a bow in purple light."
 ---
 
 Maybe James Cameron's horniest movie ever made. Chaplin gives one of the most hip-forward performance I've ever seen in my entire life. Good for her.

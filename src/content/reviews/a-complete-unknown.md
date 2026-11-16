@@ -33,7 +33,7 @@ description: 'I want to give this movie zero out of five stars because there’s
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/a-complete-unknown/'
 poster: '/images/reviews/a-complete-unknown/poster.webp'
 heroImage: '/images/reviews/a-complete-unknown/backdrop.webp'
-heroAlt: 'A still from A Complete Unknown (2024)'
+heroAlt: 'A man in dark clothes crossing a rain-wet city street at night past a vintage car and a red neon sign reading "El Quijote."'
 ---
 
 I want to give this movie zero out of five stars because there’s no Minnesota in it, but I love Bob Dylan. I had to say I didn’t love this movie. It was OK.

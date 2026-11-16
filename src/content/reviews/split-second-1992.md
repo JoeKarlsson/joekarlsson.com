@@ -31,7 +31,7 @@ description: 'Split Second is a film that watched Blade Runner, Alien, and The S
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/split-second-1992/'
 poster: '/images/reviews/split-second-1992/poster.webp'
 heroImage: '/images/reviews/split-second-1992/backdrop.webp'
-heroAlt: 'A still from Split Second (1992)'
+heroAlt: 'Painted art of Rutger Hauer in round orange sunglasses holding a huge pistol, a bound woman and a fanged creature behind him.'
 ---
 
 Split Second is a film that watched Blade Runner, [Alien](/reviews/alien/), and [The Silence of the Lambs](/reviews/the-silence-of-the-lambs/), loved all three, and understood exactly none of them, which is most of its charm.

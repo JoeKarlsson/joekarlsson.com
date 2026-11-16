@@ -24,7 +24,7 @@ description: 'The first fire breath scene was incredible. The rest was way too s
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/shin-godzilla/'
 poster: '/images/reviews/shin-godzilla/poster.webp'
 heroImage: '/images/reviews/shin-godzilla/backdrop.webp'
-heroAlt: 'A still from Shin Godzilla (2016)'
+heroAlt: 'Godzilla, its rough dark hide split by glowing red seams, rising behind a blurred clawed shape under a grey sky.'
 ---
 
 The first fire breath scene was incredible. The rest was way too slow

@@ -24,7 +24,7 @@ description: 'These Minnesota boys can sure make a movie'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/blood-simple/'
 poster: '/images/reviews/blood-simple/poster.webp'
 heroImage: '/images/reviews/blood-simple/backdrop.webp'
-heroAlt: 'A still from Blood Simple (1984)'
+heroAlt: "A man crawling on his hands and knees across a dark gravel road in a truck's headlights while someone nearby holds a shovel."
 ---
 
 These Minnesota boys can sure make a movie

@@ -30,7 +30,7 @@ description: "Channing Tatum plays a shirtless wolf man on roller skates and Edd
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jupiter-ascending/'
 poster: '/images/reviews/jupiter-ascending/poster.webp'
 heroImage: '/images/reviews/jupiter-ascending/backdrop.webp'
-heroAlt: 'A still from Jupiter Ascending (2015)'
+heroAlt: 'Poster art of Channing Tatum and Mila Kunis standing on a futuristic city ledge before a giant Jupiter, with spaceships flying past.'
 ---
 
 Channing Tatum plays a shirtless wolf man on roller skates and Eddie Redmayne whisper-screams about bureaucracy. This should be perfect but it's just... fine.

@@ -24,7 +24,7 @@ description: 'The Quick and the Dead did this so much better.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/straight-to-hell/'
 poster: '/images/reviews/straight-to-hell/poster.webp'
 heroImage: '/images/reviews/straight-to-hell/backdrop.webp'
-heroAlt: 'A still from Straight to Hell (1987)'
+heroAlt: 'Courtney Love in a polka-dot dress facing a figure in a bowler hat and suspenders on a dusty desert street.'
 ---
 
 The Quick and the Dead did this so much better.

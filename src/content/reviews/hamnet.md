@@ -16,7 +16,7 @@ description: 'I’m writing this fresh out of the theater, tears still wet. This
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hamnet/'
 poster: '/images/reviews/hamnet/poster.webp'
 heroImage: '/images/reviews/hamnet/backdrop.webp'
-heroAlt: 'A still from Hamnet (2025)'
+heroAlt: 'A young woman in red sitting at the front of a crowd in rough period clothes, hands clasped, watching something ahead.'
 ---
 
 I’m writing this fresh out of the theater, tears still wet. This is a raw reaction. The whole theater was sniffling - we basically cried together for two hours straight.

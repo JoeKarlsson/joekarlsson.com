@@ -34,7 +34,7 @@ description: 'Is this my favorite Batman movie?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-lego-batman-movie/'
 poster: '/images/reviews/the-lego-batman-movie/poster.webp'
 heroImage: '/images/reviews/the-lego-batman-movie/backdrop.webp'
-heroAlt: 'A still from The Lego Batman Movie (2017)'
+heroAlt: 'Lego Batman swooping through a night city with Batgirl swinging on a line and Robin flying beside him.'
 ---
 
 Is this my favorite Batman movie?
