@@ -107,7 +107,7 @@ The [SEO work I described here](https://www.joekarlsson.com/blog/reversing-seo-t
 
 > "Flow is a state of transient downregulation of the highest cognitive hierarchical component, the prefrontal cortices." People in flow "become so absorbed in the activity that they do not have any attention to spare to become distracted by anything else."
 >
-> From [Frontiers in Psychology, flow states research](https://pmc.ncbi.nlm.nih.gov/articles/PMC7551835/ 'cite: Gold, September 2020')
+> From [Behavioral Sciences, flow states research](https://pmc.ncbi.nlm.nih.gov/articles/PMC7551835/ 'cite: Gold, September 2020')
 
 Anything that triggers self-evaluation re-activates exactly the circuitry the flow state had quieted, so you lose the state along with the time. Protect blocks of uninterrupted work the way you'd protect a production deployment.
 
