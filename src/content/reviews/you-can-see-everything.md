@@ -69,7 +69,7 @@ Seyfried is so much fun in this. She was already one of my favorite actresses wo
 
 The longer it goes, the more the film becomes about Billy. ||The billboards, the posts on X written as Holmes, the AI model that looks like her.|| He says he holds power of attorney and that his posts come from her emails. Maybe. He looks terrible in this movie, and I'm sure he's going to love all the attention.
 
-![Billy Evans in a tight close-up, bearded and wide-eyed, mid-sentence.](/images/reviews/you-can-see-everything/billy-evans-close-up.webp)
+![Billy Evans in a tight close-up, bearded and wide-eyed, mid-sentence.](/images/reviews/you-can-see-everything/billy-evans-wide-eyed.webp)
 
 _Billy Evans in A24's [trailer](https://www.youtube.com/watch?v=HvW_N5p1q44)._
 
