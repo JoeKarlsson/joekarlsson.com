@@ -407,6 +407,26 @@ Blog posts need visual breaks. Walls of text kill engagement. Include:
 
 **Animated explainers:** the collage scenes approved in Phase 2c and any animated figures sit under the paragraph whose claim they show, as inline animated SVGs (`![alt](/images/blog/{slug}/<scene>.svg)`), never an MP4: Joe doesn't want a play bar on a post's animation (2026-11-10). Their finished frame is what reduced motion and the pause button get.
 
+**Margins** (Joe, 2026-11-15: "make sure that we're taking advantage of the margins"). On wide screens every post has a 15rem right margin (`.margin-column`, global.css) that `src/plugins/rehype-margin-notes.mjs` fills with notes beside the paragraph they belong to. Only 7 posts use it, so a new post with sources should fill it:
+
+- **Every source the post quotes, argues with or leans on for a fact gets a `cite:` title**: `[We mourn our craft](https://... "cite: Nolan Lawson, February 2026")`. The link keeps its words, gets a pink number, and the margin note gives author, date, the link's words and the site. Cite the primary source (the paper, the talk, the changelog, the author's own post), never a roundup that quotes it.
+- **Asides go in footnotes** (`[^1]`): the tangent, the "yes, I know about X" concession, the one-line definition of a term half the readers know. They sit in the margin on wide screens and in the list at the end everywhere else, so they keep the line moving without being lost.
+- **Not a note:** product, docs and repo links stay plain links (DECISIONS.md, 2026-11-15). A short post with no sources keeps an empty margin; never invent citations to fill it.
+- The margin is hidden below 80rem, so a note never carries anything the paragraph needs.
+
+**Supporting materials pitch** (Joe, 2026-11-15, modeled on the film review skill's supporting-media list). Once the draft is written and humanized, and before the draft gate, pitch **10 supporting materials** for it, each tied to one paragraph. Draw them from what the site already does:
+
+- a public-domain picture of the thing a paragraph names (above), or a primary-source document: the paper's figure, the RFC, the patent drawing, the original announcement
+- a short exact quote (under 15 words, in quotation marks as published, with a `cite:` link) from a researcher, maintainer or critic who backs or pushes back on the paragraph; prefer peer-reviewed work and first-party writing over blogs
+- a talk or interview the paragraph argues with, as a YouTube link on its own line (it becomes the local-thumbnail facade)
+- a short muted loop or a captioned clip of the thing working, cut from Joe's own recording (Product posts rules above)
+- a diagram (`diagrams` skill), a collage scene or animated figure (`explainers`), a meme (step below)
+- a live embed or try-it tool when the reader can run the thing (`.claude/rules/embeds.md`: new origins need CSP)
+- a two-picture pair (before/after, this vs the thing it's compared to), which runs across the text and the margin
+- a link to Joe's own related talk, newsletter issue, project page or film review on first mention
+
+For each, give the paragraph (its first words), what it is, why it proves or sharpens that paragraph's point, and where it comes from (Joe's files, Commons with license, the source URL, or "to make"). Write them to an HTML page in the scratchpad, numbered, with a thumbnail wherever one exists, open it, and let Joe pick by number. Add only his picks. Never pitch generic stock, logos as decoration, or a picture per product mentioned.
+
 **Placement:** Alternate between photos, memes, and diagrams throughout the post. Place them at natural section breaks. Never have more than 3-4 paragraphs of prose without a visual element.
 
 ### Meme generation step (format rotation is mandatory)
@@ -478,7 +498,7 @@ Write the draft to `src/content/blog/{slug}.md` so subsequent phases can grep an
 
 **Run the full `humanizer` skill (Skill tool) on the draft before Joe sees it, and again after every round of edits, before each time you show or ship it.** That means the whole process: fact ledger, Joe's voice samples, rewrite, rubric loop with the quotable-line cap, fact diff. The `ai_tells.py` hits from the post-edit hook, Vale and `blog-voice-reviewer` don't count as the humanizer. In the summary, say which humanizer steps ran. On later rounds it should fix only lines with a confirmed tell and copy the rest exactly, so a re-run never churns paragraphs Joe already approved. Why it runs every time: on the recording-setup-tour post (2026-11-09) only the scanner and the voice reviewer ran, and the draft reached Joe with a joke and an opinion he never said. He asked "Wait, why did that not run? That needs to happen every time for these blog posts."
 
-Open the draft in VS Code for Joe to review (`code src/content/blog/{slug}.md`) - do this every time, without asking, and again after any round of changes he requests. Don't paste the full draft inline; give a short summary (word count, sections, memes, anything he needs to confirm) and use AskUserQuestion:
+Open the draft in VS Code for Joe to review (`code src/content/blog/{slug}.md`) - do this every time, without asking, and again after any round of changes he requests. Don't paste the full draft inline; give a short summary (word count, sections, memes, margin notes, the supporting materials he picked, anything he needs to confirm) and use AskUserQuestion:
 
 - Approve draft
 - Request changes
