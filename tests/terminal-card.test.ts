@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { terminalCard, wrapWords } from '../src/utils/terminal-card';
+import { terminalCard, terminalRuns, wrapWords } from '../src/utils/terminal-card';
 
 describe('wrapWords', () => {
 	it('breaks at spaces and keeps every line within the width', () => {
@@ -32,5 +32,19 @@ describe('terminalCard', () => {
 			'getting shorter? About 40% of the drop is punctuation',
 		);
 		for (const line of plain.split('\n')) expect(line.length).toBeLessThanOrEqual(80);
+	});
+});
+
+describe('terminalRuns', () => {
+	it('turns the escape codes into styled runs and drops them from the text', () => {
+		const [line] = terminalRuns(
+			'  \x1b[90mlatest    \x1b[0mHello \x1b[38;2;255;79;216m\x1b[1mJOE\x1b[0m',
+		);
+		expect(line).toEqual([
+			{ text: '  ', pink: false, muted: false, bold: false },
+			{ text: 'latest    ', pink: false, muted: true, bold: false },
+			{ text: 'Hello ', pink: false, muted: false, bold: false },
+			{ text: 'JOE', pink: true, muted: false, bold: true },
+		]);
 	});
 });

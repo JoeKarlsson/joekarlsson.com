@@ -1,86 +1,165 @@
 ---
-import { MORE_LINK, SECTION_HEADING, formatDate } from '../utils/ui';
+import { getCollection } from 'astro:content';
+import { formatDate } from '../utils/ui';
 import DrawingBoard from '../components/DrawingBoard.astro';
 import FeaturedBand from '../components/FeaturedBand.astro';
 import HoverBox from '../components/HoverBox.astro';
-import IndexRow from '../components/IndexRow.astro';
-import Scribble from '../components/Scribble.astro';
 import MetaParts from '../components/MetaParts.astro';
+import NewsletterBand from '../components/NewsletterBand.astro';
+import Scribble from '../components/Scribble.astro';
+import SectionMasthead from '../components/SectionMasthead.astro';
 import WrittenFor from '../components/WrittenFor.astro';
+import YouTubeFacade from '../components/YouTubeFacade.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE, SITE_DESCRIPTION } from '../consts';
 import { projects } from '../data/projects';
 import { ARROW, CHALK, COIL, HERO_COIL, MARKS } from '../data/scribbles';
+import { shortPosterPath, shorts } from '../data/shorts';
 import nowFeed from '../data/now-feed.json';
+import popularPosts from '../data/popular-posts.json';
 import { getCategoryCounts } from '../utils/categories';
 import { getFeedPosts, getPinnedPost, isOwnPost } from '../utils/posts';
-import { cardHalftone, halftoneMode } from '../utils/halftone';
-
-// Live count from the snapshot scripts/update-now-feed.mjs writes on every deploy
-const { runningContainers } = nowFeed.homelab;
+import { cardClip, cardHalftone } from '../utils/halftone';
+import { oneLiner, reviewStats } from '../utils/review-stats';
+import { terminalCard, terminalRuns } from '../utils/terminal-card';
+import { stars } from '../../scripts/update-reviews.mjs';
 
 const allPosts = await getFeedPosts();
-const recentPosts = allPosts.filter(isOwnPost).slice(0, 5);
+const ownPosts = allPosts.filter(isOwnPost);
+const [leadPost, ...sidePosts] = ownPosts.slice(0, 4);
 // All six subject categories (BLOG_CATEGORIES), most posts first
 const topics = getCategoryCounts(allPosts.filter((p) => !p.isNewsletter));
 
-const HOME_PROJECTS = [
-	'PixelPane',
-	'Screencast Director',
-	'FollowSpot',
-	'Connect AI × DOOM',
-	'IoT Kitty Litter Box',
-];
-const homeProjects = HOME_PROJECTS.map((title) => {
-	const project = projects.find((p) => p.title === title);
-	if (!project) throw new Error(`Homepage project "${title}" is not in src/data/projects.ts`);
-	const href = project.page ? `/work/${project.page.slug}/` : project.blogUrl;
-	if (!href) throw new Error(`Homepage project "${title}" has no project page or blog post`);
-	return { title, href, meta: [project.date.slice(0, 4), ...project.tech.slice(0, 2)].join(', ') };
-});
+// Most read: the five own posts with the most visitors in the last 12 months (Plausible,
+// popular-posts.json). Only the bars show, relative to the top post: no counts in public
+const mostRead = Object.entries(popularPosts.visitorsByPath)
+	.flatMap(([path, visitors]) => {
+		const post = ownPosts.find((p) => p.href === path);
+		return post ? [{ post, visitors }] : [];
+	})
+	.slice(0, 5);
+const topVisitors = mostRead[0].visitors;
 
-// The pink band in the hero pins the one piece I'm pushing; Recent posts below already
-// shows the newest
+// A line I picked from a post, set big between Writing and Most read
+const pullQuote = {
+	text: 'Working like this, I can get into an artistic flow.',
+	post: await getPinnedPost('hackers-and-painters-ai-agents'),
+};
+
+// The pink band in the hero pins the one piece I'm pushing
 const featuredPost = await getPinnedPost('doom-mcp-server');
 // The last repeats the first so the reel loops seamlessly (slot-roll in motion.css)
 const SLOT_WORDS = ['ugly pot', 'bad idea', 'ugly demo', 'weird idea', 'homelab', 'ugly pot'];
 
-// Around the house: one clip per thing, each with a caption that links to it.
-// Every clip is plain color; the live pink dots (src/scripts/halftone.ts)
-// give them the same look as the montage, cropped to 4:5 on the page.
-const AROUND_THE_HOUSE = [
+function work(title: string) {
+	const project = projects.find((p) => p.title === title);
+	if (!project?.page || !project.video)
+		throw new Error(`Homepage work "${title}" needs a project page and a clip`);
+	return {
+		href: `/work/${project.page.slug}/`,
+		tagline: project.page.tagline,
+		poster: project.poster ?? project.image,
+		clip: cardClip(project.video),
+	};
+}
+const spreadWork = { name: 'Nothing But', accent: 'Corners', ...work('DVD Screensaver') };
+const works = ['PixelPane', 'Connect AI × DOOM', 'Punc', 'Screencast Director'].map((title) => ({
+	title,
+	...work(title),
+}));
+
+const talks = await getCollection('talks');
+const talk = (slug: string) => {
+	const entry = talks.find((t) => t.data.slug === slug);
+	if (!entry) throw new Error(`Homepage talk "${slug}" is not in src/content/talks`);
+	return { title: entry.data.title, href: `/talks/${slug}/` };
+};
+const spreadTalk = {
+	...talk('the-art-of-computer-science'),
+	kicker: 'TEDxYouth',
+	clip: '/images/talks/tedx-art-of-computer-science-montage.mp4',
+	poster: '/images/talks/tedx-art-of-computer-science-still.webp',
+};
+const talkCards = [
 	{
-		name: 'cat-wide',
-		alt: "Photocopied video of Joe's cat on the litter box wiring",
-		caption: 'My cat inspecting the litter box I wired to the internet',
-		href: '/talks/an-introduction-to-iot-internet-of-toilets/',
+		...talk('mongodb-schema-design-best-practices'),
+		kicker: 'Conf42 JavaScript',
+		clip: '/images/talks/mongodb-schema-design-montage.mp4',
+		poster: '/images/talks/mongodb-schema-design-still.webp',
 	},
 	{
-		name: 'pixelpane',
-		alt: 'Photocopied video of Joe holding up his PixelPane pixel art frame',
-		caption: 'PixelPane, the pixel art frame behind my mirror',
-		href: '/work/pixelpane/',
-	},
-	{
-		name: 'rackfront',
-		alt: "Photocopied video of Joe's hand pointing out the servers in his rack",
-		caption: `The rack: ${runningContainers} containers running right now`,
-		href: '/blog/how-to-get-started-building-a-homelab-server/',
-	},
-	{
-		name: 'kindle',
-		alt: 'Photocopied video of an old Kindle showing the house dashboard',
-		caption: 'An old Kindle, now the house dashboard',
+		...talk('an-introduction-to-iot-internet-of-toilets'),
+		kicker: 'My most-given talk',
+		clip: '/images/blog/an-introduction-to-iot-internet-of-toilets/stop_motion_intro-1024x683.mp4',
+		poster: '/images/blog/an-introduction-to-iot-internet-of-toilets/thumb-ec97a203.webp',
 	},
 ];
+
+const HOME_SHORTS = ['uQTWcr5Bvk4', 'jPQSayxSpNM'].map((id) => {
+	const short = shorts.find((s) => s.id === id);
+	if (!short) throw new Error(`Homepage Short ${id} is not in src/data/shorts.ts`);
+	return short;
+});
+
+const reviews = (await getCollection('reviews'))
+	.map((r) => r.data)
+	.toSorted((a, b) => b.date.valueOf() - a.date.valueOf());
+const [newestReview, ...moreReviews] = reviews.slice(0, 4);
+// Two films I rate far above Letterboxd's crowd and one far below: more love than dunking
+const { higher, lower } = reviewStats(reviews);
+const hotTakes = [...higher.slice(0, 2), lower[0]].map((film) =>
+	reviews.find((r) => r.slug === film.slug)!,
+);
+
+const PODCASTS = [
+	{
+		name: 'Hanselminutes',
+		image: '/images/podcasts/hanselminutes.webp',
+		url: 'https://hanselminutes.com/752/document-databases-and-mongo-with-engineer-joe-karlsson',
+	},
+	{
+		name: 'Screaming in the Cloud',
+		image: '/images/talks/events/screaming-in-the-cloud.webp',
+		url: 'https://www.lastweekinaws.com/podcast/screaming-in-the-cloud/when-data-is-your-brand-and-your-job-with-joe-karlsson/',
+	},
+	{
+		name: 'JavaScript Jabber',
+		image: '/images/podcasts/javascript-jabber.webp',
+		url: 'https://topenddevs.com/authors/joe-karlsson',
+	},
+	{
+		name: 'CodeNewbie',
+		image: '/images/podcasts/codenewbie.webp',
+		url: 'https://dev.to/codenewbie/s19-e6-how-to-make-learning-databases-fun-and-approachable-joe-karlsson',
+	},
+];
+
+// What `curl -L joekarlsson.com/hi` prints, minus its sign-off line
+const terminal = terminalRuns(
+	terminalCard({
+		...nowFeed.homelab,
+		latestTitle: ownPosts[0].data.title,
+		latestUrl: new URL(ownPosts[0].href, 'https://joekarlsson.com').href,
+	}),
+)
+	// Its sign-off and pink links are too wide for the column; the labels and text stay
+	.filter((line) => !line.some((run) => run.text.includes('get along')))
+	.map((line) => line.filter((run) => !(run.pink && run.text.startsWith('https://'))))
+	.filter(
+		(line, i, all) =>
+			line.some((run) => run.text.trim()) || !all[i - 1]?.every((run) => !run.text.trim()),
+	);
+while (!terminal.at(-1)?.length) terminal.pop();
+
+const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-20';
 ---
 
 <BaseLayout
 	title="Joe Karlsson | Developer Marketing Engineer"
 	description={SITE_DESCRIPTION}
 	schemaType="WebSite"
-
 	marginDoodles={false}
+	footerNewsletter={false}
 >
 	<!-- A section with a name is a landmark, so screen-reader landmark jumps reach the
 	hero, which sits above the nav and outside <main> -->
@@ -188,9 +267,9 @@ const AROUND_THE_HOUSE = [
 						/>
 					</h1>
 				</div>
-				<p class="text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[1.15] font-semibold text-paper">
-					I run developer marketing at CData, and before that DevRel at CloudQuery, Tinybird,
-					SingleStore and MongoDB.
+				<p class="font-serif text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[1.15] font-medium text-paper italic">
+					I think technology should be weird and personal. I write about AI and homelabs, and I
+					build the things I write about.
 				</p>
 			</div>
 			<!-- After the panel, so my name is read first; wider screens show it on top -->
@@ -204,126 +283,175 @@ const AROUND_THE_HOUSE = [
 		</div>
 	</section>
 
-	<!-- Phones: the hero's own bottom padding (p-4) plus pt-8 makes the usual 48 -->
-	<section class="relative mx-auto max-w-[90rem] px-4 pt-8 sm:px-7 md:pt-20">
-		<h2 class={SECTION_HEADING}>
-			<a href="/blog/" class="relative text-pink no-underline hover:text-pink hover:underline">
-				Recent posts
-				<Scribble
-					{...MARKS.underline}
-					color={CHALK}
-					duration="8s"
-					delay="0.5s"
-					class="-bottom-[0.3em] left-0 h-[0.3em] w-full"
-				/>
-			</a>
-		</h2>
-		<ul>
-			{recentPosts.map((post, i) => (
-				// Phones: the newest post keeps its big picture; the rest are compact rows with a
-				// thumbnail beside the title, so the list is one screen instead of three
-				<li
-					class:list={[
-						'ring-host group grid items-center gap-7 border-t border-surface-4 py-[18px] md:grid-cols-[clamp(140px,22vw,300px)_1fr]',
-						i > 0 && 'recent-compact max-md:grid-cols-[112px_1fr] max-md:gap-4',
-					]}
+	<section class={SECTION} aria-labelledby="writing">
+		<SectionMasthead id="writing" title="Writing" href="/blog/" linkLabel="Every post">
+			<Scribble
+				{...MARKS.rays}
+				once
+				color="#ff4fd8"
+				strokeWidth={10}
+				duration="6s"
+				class="-top-[0.15em] left-[calc(100%+0.15em)] h-[0.45em] w-[0.6em] max-md:hidden"
+			/>
+		</SectionMasthead>
+		<nav
+			aria-label="Topics"
+			class="-mt-3 mb-7 flex flex-wrap items-baseline gap-x-5 text-[0.9375rem]"
+		>
+			<span class="text-muted">Topics:</span>
+			{topics.map((topic) => (
+				<a
+					href={`/blog/category/${topic.slug}/`}
+					class="min-w-11 py-2.5 text-center font-semibold text-paper underline decoration-pink decoration-2 underline-offset-[6px] hover:text-pink md:min-w-0"
 				>
-					<a href={post.href} tabindex="-1" aria-hidden="true" class="relative block">
-						{i === 0 && (
-							<Scribble
-								{...MARKS.box}
-								color={CHALK}
-								duration="10s"
-								delay="0.8s"
-								class="-inset-[8%] z-10 h-[116%] w-[116%]"
-							/>
-						)}
-						{i === 0 && (
-							<Scribble
-								{...MARKS.newTag}
-								once
-								color="#ff4fd8"
-								strokeWidth={16}
-								duration="10s"
-								delay="2.4s"
-								class="-right-[18%] -bottom-[20%] z-10 h-[40%] w-[48%] -rotate-[8deg] max-md:-right-[1%] max-md:-bottom-[14%] max-md:h-[24%] max-md:w-[30%]"
-							/>
-						)}
-						<img
-							data-morph={post.href}
-							src={post.data.heroImage || DEFAULT_HERO_IMAGE}
-							alt=""
-							data-halftone={cardHalftone(post.data.heroImage || DEFAULT_HERO_IMAGE)}
-							aria-hidden="true"
-							sizes={
-								i === 0 ? '(min-width: 768px) 300px, 100vw' : '(min-width: 768px) 300px, 112px'
-							}
-							loading="lazy"
-							decoding="async"
-							class="block aspect-video w-full rounded-lg object-cover"
-						/>
-						{/* The newest post's box is always drawn; the rest draw it on hover */}
-						{i > 0 && <HoverBox index={i} />}
+					{topic.name}
+				</a>
+			))}
+		</nav>
+		<div class="grid gap-7 md:grid-cols-12">
+			<article class="relative md:col-span-8 -mx-4 sm:-mx-7 md:mr-0">
+				<a href={leadPost.href} tabindex="-1" aria-hidden="true" class="block">
+					<img
+						data-morph={leadPost.href}
+						src={leadPost.data.heroImage || DEFAULT_HERO_IMAGE}
+						alt=""
+						data-halftone={cardHalftone(leadPost.data.heroImage || DEFAULT_HERO_IMAGE)}
+						sizes="(min-width: 768px) 60vw, 100vw"
+						decoding="async"
+						class="block aspect-[16/10] w-full object-cover"
+					/>
+				</a>
+				<!-- The headline overlaps the bottom of the picture on a black slab, magazine style -->
+				<h3 class="relative -mt-[clamp(40px,8vw,118px)] w-fit max-w-[min(620px,92%)] bg-ink px-4 pt-3 font-display text-[clamp(2.75rem,7vw,6.5rem)] leading-[0.9] font-normal text-paper uppercase sm:px-7">
+					<a href={leadPost.href} class="text-paper no-underline hover:text-pink">
+						{leadPost.data.title.split('?')[0]}
+						{leadPost.data.title.includes('?') && '?'}
 					</a>
-					<div>
-						<MetaParts class="mb-1.5 text-sm text-muted">
-							<time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>{' '}
-							{post.data.categories[0] && <span>{post.data.categories[0]}</span>}{' '}
+					<Scribble
+						path={ARROW}
+						viewBox="0 0 260 140"
+						once
+						color="#ff4fd8"
+						strokeWidth={7}
+						duration="5s"
+						class="-right-[220px] bottom-[10%] hidden h-[100px] w-[190px] -rotate-6 lg:block"
+					/>
+				</h3>
+				<div class="px-4 sm:px-7">
+					<MetaParts class="mt-2 text-sm text-muted">
+						<time datetime={leadPost.data.date.toISOString()}>
+							{formatDate(leadPost.data.date)}
+						</time>{' '}
+						{leadPost.data.categories[0] && <span>{leadPost.data.categories[0]}</span>}
+					</MetaParts>
+					<p class="mt-3 max-w-[52ch] font-serif text-[1.1875rem] leading-normal text-paper">
+						{leadPost.data.description}
+					</p>
+				</div>
+			</article>
+			<ul class="flex flex-col gap-7 md:col-span-4">
+				{sidePosts.map((post, i) => (
+					<li class="ring-host group relative">
+						<p class="mb-1.5 text-sm font-semibold text-pink">
+							{post.data.categories[0]}
 							{post.data.writtenFor && <WrittenFor employer={post.data.writtenFor} />}
-						</MetaParts>
+						</p>
+						{i === 0 && (
+							<a href={post.href} tabindex="-1" aria-hidden="true" class="relative mb-3 block">
+								<img
+									data-morph={post.href}
+									src={post.data.heroImage || DEFAULT_HERO_IMAGE}
+									alt=""
+									data-halftone={cardHalftone(post.data.heroImage || DEFAULT_HERO_IMAGE)}
+									sizes="(min-width: 768px) 30vw, 100vw"
+									loading="lazy"
+									decoding="async"
+									class="block aspect-video w-full rounded-lg object-cover"
+								/>
+								<HoverBox index={1} />
+							</a>
+						)}
 						<a
 							href={post.href}
-							class:list={[
-								'text-[clamp(1.25rem,2.2vw,1.875rem)] leading-tight font-semibold text-paper no-underline group-hover:text-pink',
-								i > 0 && 'max-md:text-lg',
-							]}
+							class="text-[1.375rem] leading-tight font-semibold text-balance text-paper no-underline group-hover:text-pink"
 						>
 							{post.data.title}
 						</a>
-						{i === 0 && (
-							<span class="relative ml-2 inline-block size-[0.9em] align-[-0.1em] text-[clamp(1.25rem,2.2vw,1.875rem)]">
-								<Scribble
-									{...MARKS.asterisk}
-									color="#ff4fd8"
-									strokeWidth={9}
-									duration="7s"
-									delay="2s"
-									class="inset-0 size-full"
-								/>
-							</span>
-						)}
-					</div>
-				</li>
-			))}
-		</ul>
-		<Scribble
-			path={ARROW}
-			color="#ff4fd8"
-			viewBox="0 0 260 140"
-			strokeWidth={7}
-			duration="5s"
-			delay="1s"
-			class="top-10 right-[8%] hidden h-[110px] w-[200px] md:block"
-		/>
-		<p class="mt-[18px]">
-			<a href="/blog/" class={MORE_LINK}>
-				All {allPosts.length} posts →
-			</a>
-		</p>
-		<!-- Leaves Recent posts and runs down into the Ship the ugly pot band -->
-		<Scribble
-			path={COIL}
-			color={CHALK}
-			duration="12s"
-			delay="2s"
-			class="right-[-6%] -bottom-[150px] z-10 h-[170px] w-[62%]"
-		/>
+					</li>
+				))}
+			</ul>
+		</div>
 	</section>
 
+	<figure class="quote-band torn relative mx-auto mt-20 max-w-[90rem] bg-pink px-4 py-16 text-ink sm:px-7 md:py-20">
+		<span
+			aria-hidden="true"
+			class="block font-display text-[clamp(7rem,14vw,15rem)] leading-[0.6] text-ink md:absolute md:top-8 md:left-7"
+		>
+			“
+		</span>
+		<blockquote class="max-w-[19ch] font-serif text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.02] font-semibold text-ink italic md:ml-[clamp(7rem,11vw,10rem)]">
+			{pullQuote.text}
+		</blockquote>
+		<figcaption class="mt-6 flex flex-wrap items-center gap-3 text-[0.9375rem] font-medium md:ml-[clamp(7rem,11vw,10rem)]">
+			<a
+				href={pullQuote.post.href}
+				class="bg-ink px-2 py-1 font-display text-xl whitespace-nowrap text-pink uppercase no-underline hover:text-paper"
+			>
+				Read it
+			</a>
+			<cite class="not-italic">{pullQuote.post.data.title}</cite>
+		</figcaption>
+	</figure>
+
+	<section class={SECTION} aria-labelledby="most-read">
+		<SectionMasthead id="most-read" title="Most" accent="read" href="/blog/" linkLabel="The blog" />
+		<ol class="relative flex flex-col gap-5">
+			{mostRead.map(({ post, visitors }, i) => (
+				<li class="group">
+					<a href={post.href} class="block text-paper no-underline">
+						<span class="relative inline-block text-lg leading-snug font-semibold group-hover:text-pink md:text-xl">
+							{post.data.title}
+							{i === 0 && (
+								<Scribble
+									{...MARKS.oval}
+									stretch
+									once
+									color={CHALK}
+									strokeWidth={5}
+									duration="6s"
+									class="-top-[70%] -left-[5%] h-[240%] w-[110%] max-md:hidden"
+								/>
+							)}
+						</span>
+						<span
+							class="most-read-bar mt-2 block h-[22px] bg-pink group-hover:bg-paper"
+							style={`width:${Math.max(6, (visitors / topVisitors) * 72)}%`}
+						/>
+					</a>
+				</li>
+			))}
+			<Scribble
+				{...MARKS.burst}
+				once
+				color="#ff4fd8"
+				strokeWidth={6}
+				duration="7s"
+				class="right-[6%] bottom-[8%] hidden size-[110px] md:block"
+			/>
+		</ol>
+	</section>
+
+	<section
+		aria-label="Newsletter"
+		class="relative mx-auto mt-20 max-w-[90rem] bg-pink px-4 pt-11 pb-12 text-ink sm:px-7 [&_:focus-visible]:outline-ink"
+	>
+		<NewsletterBand />
+	</section>
 	<!-- Phones: the word is about 36px tall, so min-h-11 makes the link a 44px tap target -->
 	<a
 		href="/blog/ship-the-ugly-pot/"
-		class="group relative mx-4 mt-[110px] mb-[30px] flex max-md:min-h-11 items-baseline justify-center gap-[0.28em] font-display text-[clamp(32px,10vw,170px)] leading-[0.88] whitespace-nowrap text-paper uppercase no-underline hover:text-paper sm:mx-7"
+		class="group relative mx-4 mt-20 mb-6 flex max-md:min-h-11 items-baseline justify-center gap-[0.28em] font-display text-[clamp(32px,10vw,170px)] leading-[0.88] whitespace-nowrap text-paper uppercase no-underline hover:text-paper sm:mx-7"
 	>
 		<span class="sr-only">Ship the ugly pot</span>
 		<span aria-hidden="true" class="relative group-hover:text-pink">
@@ -353,166 +481,364 @@ const AROUND_THE_HOUSE = [
 		/>
 	</a>
 
-	<section class="relative mx-auto max-w-[90rem] px-4 pt-12 md:pt-20 sm:px-7">
-		<h2 class={SECTION_HEADING}>
-			<a href="/work/" class="text-pink no-underline hover:text-pink hover:underline">
-				Works
-			</a>
-		</h2>
-		<Scribble
-			{...MARKS.hatch}
-			color="#ff4fd8"
-			duration="9s"
-			delay="1s"
-			class="top-[86px] right-[6%] h-[60px] w-[120px]"
-		/>
-		<div class="border-b border-surface-4">
-			{homeProjects.map((project, i) => (
-				<IndexRow href={project.href} label={project.title} meta={project.meta} index={i} />
-			))}
-		</div>
-		<p class="relative mt-[18px] inline-block">
-			<a href="/work/" class={MORE_LINK}>
-				All works →
-			</a>
+	<section class={SECTION.replace('md:pt-20', 'md:pt-12')} aria-labelledby="works">
+		<SectionMasthead id="works" title="Works" href="/work/" linkLabel="All works">
 			<Scribble
-				{...MARKS.pointer}
-				color={CHALK}
-				strokeWidth={14}
-				duration="7s"
-				delay="1.5s"
-				class="top-[-10%] left-[calc(100%+12px)] h-[1.6em] w-[110px]"
+				{...MARKS.burst}
+				once
+				color="#ff4fd8"
+				strokeWidth={6}
+				duration="6s"
+				class="-top-[0.2em] left-[calc(100%+0.2em)] size-[0.55em] max-md:hidden"
 			/>
-		</p>
+		</SectionMasthead>
+		<a
+			href={spreadWork.href}
+			class="spread group relative -mx-4 block text-ink no-underline sm:-mx-7"
+		>
+			<video
+				class="block aspect-[4/3] w-full object-cover object-[70%_40%] md:aspect-[16/7]"
+				src={spreadWork.clip}
+				data-poster={spreadWork.poster}
+				data-halftone="flat"
+				data-morph={spreadWork.href}
+				data-autoplay-in-view
+				data-phone-still
+				muted
+				loop
+				playsinline
+				preload="none"
+				aria-hidden="true"
+			></video>
+			<span class="absolute bottom-6 left-4 bg-pink px-5 pt-3 pb-4 z-10 sm:left-7 max-md:relative max-md:mx-4 max-md:-mt-8 max-md:block">
+				<span class="block font-display text-[clamp(2.25rem,5.5vw,4.75rem)] leading-[0.9] uppercase">
+					{spreadWork.name}{' '}
+					<em class="font-serif font-semibold normal-case">{spreadWork.accent}</em>
+				</span>
+				<span class="mt-2 block max-w-[40ch] font-serif text-lg">{spreadWork.tagline}</span>
+			</span>
+		</a>
+		<ul class="paste-wall mt-9 grid grid-cols-2 gap-7 lg:grid-cols-4" style="--wall:1">
+			{works.map((w) => (
+				<li>
+					<a href={w.href} class="group block text-paper no-underline">
+						<video
+							class="block aspect-video w-full object-cover"
+							src={w.clip}
+							data-poster={w.poster}
+							data-halftone="flat"
+							data-morph={w.href}
+							data-autoplay-in-view
+							data-phone-still
+							muted
+							loop
+							playsinline
+							preload="none"
+							aria-hidden="true"
+						></video>
+						<span class="mt-3.5 block font-display text-[clamp(1.5rem,2.4vw,2.125rem)] leading-[0.92] text-balance uppercase group-hover:text-pink">
+							{w.title}
+						</span>
+						<span class="mt-1.5 block text-[0.9375rem] leading-snug text-[#c9c9c9]">
+							{w.tagline}
+						</span>
+					</a>
+				</li>
+			))}
+		</ul>
+	</section>
+
+	<section class={SECTION} aria-labelledby="talks">
+		<SectionMasthead id="talks" title="Talks" href="/talks/" linkLabel="Every talk">
+			<Scribble
+				{...MARKS.hatch}
+				once
+				color={CHALK}
+				duration="6s"
+				class="top-[20%] left-[calc(100%+0.3em)] h-[0.5em] w-[1.3em] max-md:hidden"
+			/>
+		</SectionMasthead>
+		<a href={spreadTalk.href} class="spread group relative -mx-4 block no-underline sm:-mx-7">
+			<video
+				class="block aspect-[4/3] w-full object-cover object-[50%_0%] md:aspect-[21/9]"
+				src={spreadTalk.clip}
+				data-poster={spreadTalk.poster}
+				data-halftone="dots"
+				data-morph={spreadTalk.href}
+				data-autoplay-in-view
+				data-phone-still
+				muted
+				loop
+				playsinline
+				preload="none"
+				aria-hidden="true"
+			></video>
+			<span class="absolute bottom-6 left-4 bg-ink px-5 pt-3 pb-4 sm:left-7 max-md:static max-md:block">
+				<span class="block text-sm font-semibold text-pink">{spreadTalk.kicker}</span>
+				<span class="block font-display text-[clamp(2.25rem,5.5vw,4.75rem)] leading-[0.9] text-paper uppercase group-hover:text-pink">
+					The Art of{' '}
+					<em class="relative font-serif font-semibold text-pink normal-case">
+						Computer Science
+						<Scribble
+							{...MARKS.oval}
+							stretch
+							once
+							color={CHALK}
+							strokeWidth={5}
+							duration="6s"
+							class="-top-[25%] -left-[6%] h-[150%] w-[112%] max-md:hidden"
+						/>
+					</em>
+				</span>
+			</span>
+		</a>
+		<ul class="paste-wall mt-9 grid gap-7 md:grid-cols-2" style="--wall:2">
+			{talkCards.map((t) => (
+				<li>
+					<a href={t.href} class="group block no-underline">
+						<video
+							class="block aspect-video w-full rounded-lg object-cover"
+							src={t.clip}
+							data-poster={t.poster}
+							data-halftone="dots"
+							data-morph={t.href}
+							data-autoplay-in-view
+							data-phone-still
+							muted
+							loop
+							playsinline
+							preload="none"
+							aria-hidden="true"
+						></video>
+						<span class="mt-3 block text-sm font-semibold text-pink">{t.kicker}</span>
+						<span class="block font-display text-[clamp(1.5rem,2.6vw,2.25rem)] leading-[0.95] text-balance text-paper uppercase group-hover:text-pink">
+							{t.title}
+						</span>
+					</a>
+				</li>
+			))}
+		</ul>
+	</section>
+
+	<section class={SECTION} aria-labelledby="odds">
+		<SectionMasthead
+			id="odds"
+			title="Odds &"
+			accent="ends"
+			href="/reviews/"
+			linkLabel="All film reviews"
+		>
+			<Scribble
+				{...MARKS.asterisk}
+				once
+				color={CHALK}
+				strokeWidth={8}
+				duration="6s"
+				class="-top-[0.1em] left-[calc(100%+0.1em)] size-[0.45em] max-md:hidden"
+			/>
+		</SectionMasthead>
+		<div class="grid gap-7 md:grid-cols-12">
+			<ul class="grid grid-cols-2 gap-4 md:col-span-7 md:gap-5">
+				{HOME_SHORTS.map((s) => (
+					<li>
+						<YouTubeFacade id={s.id} title={s.title} poster={shortPosterPath(s)} vertical />
+						<a
+							href={`https://www.youtube.com/shorts/${s.id}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="mt-3 block font-display text-[clamp(1.125rem,2.2vw,1.875rem)] leading-[0.95] text-balance text-paper uppercase no-underline hover:text-pink"
+						>
+							{s.title}
+						</a>
+					</li>
+				))}
+			</ul>
+			<div class="flex flex-col md:col-span-5">
+				<a href={`/reviews/${newestReview.slug}/`} class="group block text-paper no-underline">
+					{newestReview.poster && (
+						<img
+							src={newestReview.poster}
+							alt=""
+							aria-hidden="true"
+							data-morph={`/reviews/${newestReview.slug}/`}
+							loading="lazy"
+							class="block aspect-[16/9] w-full object-cover object-[50%_12%]"
+						/>
+					)}
+					<span class="mt-4 block font-display text-[clamp(2.25rem,4vw,3.25rem)] leading-[0.9] uppercase group-hover:text-pink">
+						{newestReview.title}
+					</span>
+					{newestReview.rating && (
+						<span class="mt-1 block text-xl text-pink">
+							<span aria-hidden="true">{stars(newestReview.rating)}</span>
+							<span class="sr-only">Rated {newestReview.rating} out of 5</span>
+						</span>
+					)}
+					<span class="mt-2 block text-lg leading-snug">{oneLiner(newestReview)}</span>
+				</a>
+				<ul class="paste-wall mt-5 grid grid-cols-3 gap-3" style="--wall:3">
+					{moreReviews.map((r) => (
+						<li>
+							<a href={`/reviews/${r.slug}/`} class="group block text-sm text-paper no-underline">
+								{r.poster && (
+									<img
+										src={r.poster}
+										alt=""
+										aria-hidden="true"
+										data-morph={`/reviews/${r.slug}/`}
+										loading="lazy"
+										class="block aspect-[2/3] w-full object-cover"
+									/>
+								)}
+								<span class="mt-1.5 block leading-snug group-hover:text-pink">{r.title}</span>
+								{r.rating && (
+									<span class="block text-pink">
+										<span aria-hidden="true">{stars(r.rating)}</span>
+										<span class="sr-only">Rated {r.rating} out of 5</span>
+									</span>
+								)}
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<div class="torn relative bg-paper px-5 py-7 text-ink md:col-span-12 md:px-7">
+				<h3 class="mb-5 font-display text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.05] font-normal text-ink uppercase">
+					Hot takes: where I part ways with{' '}
+					<em class="font-serif font-semibold text-[#c4009f] normal-case">Letterboxd</em>
+				</h3>
+				<ul class="paste-wall grid gap-6 md:grid-cols-3" style="--wall:4">
+					{hotTakes.map((r) => (
+						<li>
+							<a
+								href={`/reviews/${r.slug}/`}
+								class="grid grid-cols-[90px_1fr] gap-4 text-ink no-underline hover:text-[#c4009f]"
+							>
+								{r.poster && (
+									<img
+										src={r.poster}
+										alt=""
+										aria-hidden="true"
+										loading="lazy"
+										class="block aspect-[2/3] w-full object-cover"
+									/>
+								)}
+								<span>
+									<span class="block font-display text-2xl leading-none uppercase">{r.title}</span>
+									<span class="mt-1.5 flex flex-wrap items-baseline gap-x-3 text-[0.8125rem] font-bold">
+										<span>
+											Me{' '}
+											<span class="text-2xl text-[#c4009f]" aria-hidden="true">
+												{stars(r.rating!)}
+											</span>
+											<span class="sr-only">{r.rating} out of 5</span>
+										</span>
+										<span>
+											Crowd{' '}
+											<span class="font-display text-[1.75rem] font-normal">
+												{r.letterboxdAverage!.toFixed(1)}
+											</span>
+										</span>
+									</span>
+									<span class="mt-1 block text-[0.9375rem] leading-snug">{oneLiner(r)}</span>
+								</span>
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<div class="md:col-span-4">
+				<h3 class="mb-2 text-sm font-semibold text-pink">I was a guest on</h3>
+				<ul class="grid grid-cols-2 gap-2">
+					{PODCASTS.map((p) => (
+						<li>
+							<a href={p.url} target="_blank" rel="noopener noreferrer" class="block">
+								<img
+									src={p.image}
+									alt={p.name}
+									data-halftone="flat"
+									loading="lazy"
+									class="block aspect-square w-full object-cover"
+								/>
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+			<div class="flex min-w-0 flex-col md:col-span-5">
+				<h3 class="mb-2 text-sm font-semibold text-pink">Try this in a terminal</h3>
+				<pre class="flex-1 overflow-x-auto border-2 border-paper bg-[#0b0b0b] px-4 py-3.5 font-mono text-[11px] leading-[1.7] text-[#e6e6e6] md:text-[13px]"><span class="text-muted">$</span> curl -L joekarlsson.com/hi
+{terminal.map((line) => <>{line.map((run) => <span class:list={[run.pink && 'text-pink', run.muted && 'text-muted', run.bold && 'font-bold']}>{run.text}</span>)}{'\n'}</>)}</pre>
+			</div>
+			<figure class="flex flex-col md:col-span-3">
+				<video
+					class="block min-h-[220px] w-full flex-1 object-cover"
+					src="/images/home/cat-wide.mp4"
+					data-poster="/images/home/cat-wide-poster.webp"
+					data-halftone="dots"
+					data-autoplay-in-view
+					data-phone-still
+					muted
+					loop
+					playsinline
+					preload="none"
+					aria-label="Photocopied video of Joe's cat on the litter box wiring"
+				></video>
+				<figcaption class="mt-2 text-[0.9375rem] text-paper">The cat</figcaption>
+			</figure>
+		</div>
 	</section>
 
 	<!-- In the 1440px column like the sections around it, so it doesn't run edge to edge at 2560 -->
-	<div class="mx-auto max-w-[90rem]">
+	<div class="mx-auto mt-20 max-w-[90rem]">
 		<DrawingBoard />
 	</div>
-
-	<section class="relative mx-auto max-w-[90rem] px-4 pt-12 md:pt-20 sm:px-7">
-		<h2 class={SECTION_HEADING}>
-			<a href="/blog/" class="text-pink no-underline hover:text-pink hover:underline">
-				Writing by topic
-			</a>
-			<span class="relative ml-3 inline-block h-[0.9em] w-[1.2em] align-top">
-				<Scribble
-					{...MARKS.rays}
-					color="#ff4fd8"
-					strokeWidth={10}
-					duration="6s"
-					delay="1.4s"
-					class="inset-0 size-full"
-				/>
-			</span>
-		</h2>
-		<Scribble
-			{...MARKS.lines}
-			color={CHALK}
-			duration="12s"
-			delay="0.4s"
-			class="top-[92px] right-[4%] hidden h-[56px] w-[250px] sm:block"
-		/>
-		<div class="border-b border-surface-4">
-			{topics.map((topic, i) => (
-				<IndexRow
-					href={`/blog/category/${topic.slug}/`}
-					label={topic.name}
-					meta={`${topic.count} posts`}
-					index={i + 1}
-				/>
-			))}
-		</div>
-		<p class="mt-[18px]">
-			<a href="/blog/" class={`relative ${MORE_LINK}`}>
-				Every post and topic →
-				<Scribble
-					{...MARKS.double}
-					color="#ff4fd8"
-					strokeWidth={14}
-					duration="8s"
-					delay="1s"
-					class="-bottom-[0.55em] left-0 h-[0.5em] w-full"
-				/>
-			</a>
-		</p>
-	</section>
-
-	<section class="relative mx-auto max-w-[90rem] px-4 pt-12 md:pt-24 sm:px-7">
-		<h2 class={SECTION_HEADING}>Around the house</h2>
-		<!-- Straddles the topics list and the strip -->
-		<Scribble
-			{...MARKS.burstDense}
-			color="#ff4fd8"
-			strokeWidth={6}
-			duration="9s"
-			delay="1.2s"
-			class="-top-[30px] right-[12%] z-10 size-[140px]"
-		/>
-		<!-- Phones: one clip at a time, swiped sideways, the next one peeking in from the
-		edge. py keeps the tape and the tilted corners inside the scroller's clip. -->
-		<div class="house-strip -mx-4 mt-8 flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto px-4 py-6 sm:-mx-7 sm:scroll-px-7 sm:px-7 md:mx-0 md:mt-12 md:grid md:grid-cols-4 md:gap-x-10 md:gap-y-14 md:overflow-visible md:p-0">
-			{AROUND_THE_HOUSE.map(({ name, alt, caption, href }, i) => (
-				<figure class="relative w-[72%] shrink-0 snap-start md:w-auto">
-					<span class="tape" aria-hidden="true" />
-					<video
-						class="block aspect-[4/5] w-full object-cover"
-						src={`/images/home/${name}.mp4`}
-						data-morph={href}
-						data-poster={`/images/home/${name}-poster.webp`}
-						data-halftone={halftoneMode(`/images/home/${name}.mp4`)}
-						data-autoplay-in-view
-						muted
-						loop
-						playsinline
-						preload="none"
-						aria-label={alt}
-					/>
-					<figcaption class="mt-3 flex gap-2.5 text-[0.9375rem] leading-snug text-paper">
-						<span class="font-display text-[1.375rem] leading-none text-pink" aria-hidden="true">
-							{String(i + 1).padStart(2, '0')}
-						</span>
-						{href ? (
-							<a
-								href={href}
-								class="text-paper underline decoration-pink underline-offset-4 hover:text-pink"
-							>
-								{caption}
-							</a>
-						) : (
-							<span>{caption}</span>
-						)}
-					</figcaption>
-				</figure>
-			))}
-		</div>
-	</section>
 </BaseLayout>
 
 <style>
-	/* Taped up, slightly crooked: each clip tilts its own way and the tape leans against it */
-	.house-strip figure {
-		--tilt: -1.5deg;
-		transform: rotate(var(--tilt));
-	}
-	.house-strip figure:nth-child(2) {
-		--tilt: 1.2deg;
-	}
-	.house-strip figure:nth-child(3) {
-		--tilt: -0.8deg;
-	}
-	.house-strip figure:nth-child(4) {
-		--tilt: 1.8deg;
-	}
-	.tape {
-		position: absolute;
-		top: -12px;
-		left: 50%;
-		z-index: 2;
-		width: 84px;
-		height: 24px;
-		transform: translateX(-50%) rotate(calc(var(--tilt) * -2));
-		background: #8f8a80;
+	/* Torn paper top and bottom: a fixed-depth ragged edge (DECISIONS.md, the CSS round) */
+	.torn {
+		--tear: 10px;
+		clip-path: polygon(
+			0 var(--tear),
+			4% 2px,
+			9% 8px,
+			14% 0,
+			19% 7px,
+			25% 3px,
+			31% 9px,
+			37% 1px,
+			43% 6px,
+			49% 2px,
+			55% 9px,
+			61% 0,
+			67% 6px,
+			73% 2px,
+			79% 8px,
+			85% 1px,
+			91% 7px,
+			96% 2px,
+			100% 6px,
+			100% calc(100% - 4px),
+			95% 100%,
+			89% calc(100% - 8px),
+			83% calc(100% - 1px),
+			77% calc(100% - 7px),
+			71% calc(100% - 2px),
+			65% calc(100% - 9px),
+			59% calc(100% - 3px),
+			53% calc(100% - 8px),
+			47% 100%,
+			41% calc(100% - 6px),
+			35% calc(100% - 1px),
+			29% calc(100% - 8px),
+			23% calc(100% - 2px),
+			17% calc(100% - 7px),
+			11% 100%,
+			5% calc(100% - 6px),
+			0 calc(100% - 2px)
+		);
 	}
 </style>

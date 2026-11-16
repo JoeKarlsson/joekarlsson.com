@@ -1,55 +1,29 @@
 ---
 import { FOOTER_LINKS, SOCIAL_LINKS } from '../consts';
-import { CHALK, COIL, MARKS } from '../data/scribbles';
+import { MARKS } from '../data/scribbles';
 import Logo from './Logo.astro';
-import NewsletterCTA from './NewsletterCTA.astro';
+import NewsletterBand from './NewsletterBand.astro';
 import Scribble from './Scribble.astro';
 const year = new Date().getFullYear();
-const ECHO_TITLE = 'Works on my machine';
+// The homepage shows the newsletter up the page instead (NewsletterBand), so its footer
+// starts at the links
+const { newsletter = true } = Astro.props;
 ---
 
 <footer
 	id="site-footer"
 	class="relative bg-pink px-4 pt-11 pb-10 text-ink sm:px-7 [&_:focus-visible]:outline-ink"
 >
-	<h2
-		class="echo font-display text-[clamp(24px,calc((100vw-var(--spine-w))*0.09),150px)] whitespace-nowrap text-ink uppercase"
-		style="--echo-fill:#000;--echo-stroke:#000"
-	>
-		<span class="sr-only">{ECHO_TITLE}</span>
-		<!-- Phones keep just the first line, filled in solid (.echo-lead in motion.css) -->
-		{[0, 1, 2, 3, 4].map((index) => (
-			<span
-				aria-hidden="true"
-				style={`--echo-index:${index}`}
-				class={index === 0 ? 'echo-lead' : 'max-md:hidden'}
-			>
-				{ECHO_TITLE}
-			</span>
-		))}
-	</h2>
-	<!-- Starts above the footer and comes down into the pink -->
-	<Scribble
-		path={COIL}
-		color={CHALK}
-		duration="10s"
-		class="-top-[110px] right-[1%] z-10 h-[260px] w-[56%]"
-	/>
-	<Scribble
-		{...MARKS.burstDense}
-		color="#000"
-		strokeWidth={6}
-		duration="8s"
-		delay="2s"
-		class="right-[6%] bottom-[150px] hidden size-[150px] md:block"
-	/>
-	<NewsletterCTA />
+	{newsletter && <NewsletterBand />}
 	<!-- From md up, one row: the links take about 33em, so the type shrinks with the
 	viewport until they fit. Phones: bigger type wrapped onto a few rows, each link a
 	full-height tap target -->
 	<nav
 		aria-label="Footer"
-		class="mt-8 flex flex-wrap gap-x-5 font-display text-xl whitespace-nowrap uppercase md:mt-10 md:gap-x-[1em] md:text-[clamp(15px,calc((100vw-var(--spine-w)-64px)/33),22px)]"
+		class:list={[
+			'flex flex-wrap gap-x-5 font-display text-xl whitespace-nowrap uppercase md:gap-x-[1em] md:text-[clamp(15px,calc((100vw-var(--spine-w)-64px)/33),22px)]',
+			newsletter && 'mt-8 md:mt-10',
+		]}
 	>
 		{FOOTER_LINKS.map(({ href, label }) => (
 			<a

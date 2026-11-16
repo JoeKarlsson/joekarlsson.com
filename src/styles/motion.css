@@ -221,9 +221,9 @@
 	animation-delay: calc(var(--echo-index, 0) * -0.6s);
 }
 
-/* The footer's echo sits just above the subscribe form: it holds still while
-   someone is typing there, so nothing blinks beside the field in use */
-footer:has(.newsletter-signup:focus-within) .echo > span {
+/* The echo sits just above the subscribe form (in the footer, or up the homepage): it
+   holds still while someone is typing there, so nothing blinks beside the field in use */
+.newsletter-band:has(.newsletter-signup:focus-within) .echo > span {
 	animation-play-state: paused;
 }
 

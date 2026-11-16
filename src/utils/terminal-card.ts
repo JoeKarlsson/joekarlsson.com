@@ -67,3 +67,23 @@ export function terminalCard(data: TerminalCardData): string {
 		'',
 	].join('\n');
 }
+
+/** The card's lines as colored runs, for showing it on a web page: pink, gray (muted) and
+ * bold come from its escape codes; every reset ends a run. */
+export function terminalRuns(
+	card: string,
+): { text: string; pink: boolean; muted: boolean; bold: boolean }[][] {
+	return card.split('\n').map((line) => {
+		const runs = [];
+		const style = { pink: false, muted: false, bold: false };
+		// eslint-disable-next-line no-control-regex -- the escape codes are what it splits on
+		for (const part of line.split(/(\x1b\[[\d;]+m)/)) {
+			if (part === RESET) Object.assign(style, { pink: false, muted: false, bold: false });
+			else if (part === PINK) style.pink = true;
+			else if (part === GRAY) style.muted = true;
+			else if (part === BOLD) style.bold = true;
+			else if (part) runs.push({ text: part, ...style });
+		}
+		return runs;
+	});
+}

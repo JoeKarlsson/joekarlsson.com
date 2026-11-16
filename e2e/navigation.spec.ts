@@ -92,7 +92,7 @@ test.describe('Pause motion', () => {
 		});
 
 		const button = page.getByRole('button', { name: 'Pause motion' });
-		const echo = page.locator('footer .echo > span[aria-hidden="true"]').first();
+		const echo = page.locator('.newsletter-band .echo > span[aria-hidden="true"]').first();
 		await expect(echo).toHaveCSS('animation-play-state', 'running');
 
 		await button.click();
@@ -116,7 +116,7 @@ test.describe('Pause motion', () => {
 		await page.goto('/about/');
 		const resume = page.getByRole('button', { name: 'Pause motion' });
 		await expect(resume).toHaveAttribute('aria-pressed', 'true');
-		const echo = page.locator('footer .echo > span[aria-hidden="true"]').first();
+		const echo = page.locator('.newsletter-band .echo > span[aria-hidden="true"]').first();
 		await expect(echo).toHaveCSS('animation-play-state', 'paused');
 		// The header clip is on screen, but in-view-play doesn't start it while paused
 		const clip = page.locator('header video');
@@ -150,7 +150,7 @@ test.describe('Footer', () => {
 	});
 
 	test('newsletter CTA posts to listmonk', async ({ page }) => {
-		await page.goto('/');
+		await page.goto('/about/');
 
 		const form = page.locator('footer form.newsletter-signup');
 		await expect(form).toHaveAttribute(

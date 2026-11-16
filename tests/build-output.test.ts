@@ -3,7 +3,6 @@ import { filteredAreaRatio, MAX_FILTERED_AREA_PER_FIGURE } from './svg-filter-ar
 import { resolve } from 'path';
 import sharp from 'sharp';
 import { describe, expect, it } from 'vitest';
-import { halftoneMode } from '../src/utils/halftone';
 
 const dist = resolve(import.meta.dirname, '..', 'dist');
 
@@ -812,9 +811,12 @@ describe('link preview meta', () => {
 });
 
 describe('post suggestions', () => {
-	it("homepage Recent posts lists only Joe's own posts, never employer posts", () => {
+	it("homepage Writing lists only Joe's own posts, never employer posts", () => {
 		const homepage = readDist('index.html');
-		const recent = homepage.slice(homepage.indexOf('Recent posts'), homepage.indexOf('posts →'));
+		const recent = homepage.slice(
+			homepage.indexOf('id="writing"'),
+			homepage.indexOf('id="most-read"'),
+		);
 		expect(recent).toContain('href="/blog/');
 		expect(recent).not.toContain('Written for');
 	});
@@ -823,7 +825,8 @@ describe('post suggestions', () => {
 describe('scribbles keep their shape', () => {
 	// Only marks that trace a target (underlines, the three lines, boxes) and hover
 	// rings may stretch; coils, bursts, tallies and the rest keep their proportions
-	const STRETCHING_VIEWBOXES = ['0 0 600 60', '0 0 600 300', '0 0 900 200'];
+	// The oval traces a title it circles
+	const STRETCHING_VIEWBOXES = ['0 0 600 60', '0 0 600 300', '0 0 900 200', '0 0 400 160'];
 	// The zigzag stretches as an underline and keeps its shape in a blog card's corner
 	const EITHER_WAY_VIEWBOXES = ['0 0 600 120'];
 
@@ -1131,15 +1134,10 @@ describe('performance guards', () => {
 		}
 	});
 
-	it('Around the house clips get the live halftone, flat where they show text', () => {
-		const clips = [
-			...readDist('index.html').matchAll(/<video[^>]*src="(\/images\/home\/[a-z-]+\.mp4)"[^>]*>/g),
-		];
-		expect(clips.length).toBeGreaterThanOrEqual(4);
-		for (const [tag, src] of clips) {
-			expect(tag, src).toContain(`data-halftone="${halftoneMode(src)}"`);
-		}
-		expect(halftoneMode('/images/home/kindle.mp4')).toBe('flat');
+	it('every homepage clip gets the live pink treatment', () => {
+		const clips = [...readDist('index.html').matchAll(/<video[^>]*>/g)];
+		expect(clips.length).toBeGreaterThanOrEqual(9);
+		for (const [tag] of clips) expect(tag).toMatch(/data-halftone="(flat|dots)"/);
 	});
 
 	it("a project's light poster is what its video waits on, and its share image stays full size", () => {

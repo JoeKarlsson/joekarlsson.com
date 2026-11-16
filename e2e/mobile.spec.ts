@@ -100,7 +100,7 @@ test.describe('Phone layout', () => {
 		page,
 	}) => {
 		await page.goto('/');
-		const echoes = page.locator('footer .echo > span[aria-hidden="true"]');
+		const echoes = page.locator('.newsletter-band .echo > span[aria-hidden="true"]');
 		await expect(echoes.first()).toBeVisible();
 		for (let i = 1; i < (await echoes.count()); i++) await expect(echoes.nth(i)).toBeHidden();
 		// The one line stays solid black rather than blinking to an outline
@@ -122,34 +122,17 @@ test.describe('Phone layout', () => {
 		for (const icon of icons) expect(icon.height).toBeGreaterThanOrEqual(44);
 	});
 
-	test('Recent posts: the newest keeps a big picture, the rest are compact rows', async ({
+	test('the homepage Shorts sit side by side, each taller than the review picture', async ({
 		page,
 	}) => {
 		await page.goto('/');
-		const pictures = await page
-			.locator('ul:has(> li.recent-compact) > li img')
-			.evaluateAll((imgs) => imgs.map((img) => img.getBoundingClientRect().width));
-		expect(pictures[0]).toBeGreaterThan(300);
-		for (const width of pictures.slice(1)) expect(width).toBeLessThanOrEqual(112);
-	});
-
-	test('Around the house swipes sideways one clip at a time, captions readable', async ({
-		page,
-	}) => {
-		await page.goto('/');
-		const strip = page.locator('.house-strip');
-		const { scrollWidth, clientWidth } = await strip.evaluate((el) => ({
-			scrollWidth: el.scrollWidth,
-			clientWidth: el.clientWidth,
-		}));
-		expect(scrollWidth).toBeGreaterThan(clientWidth);
-		const figure = await box(page, '.house-strip figure');
-		expect(figure.width).toBeGreaterThan(clientWidth * 0.6);
-		const captionSize = await page
-			.locator('.house-strip figcaption')
-			.first()
-			.evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
-		expect(captionSize).toBeGreaterThanOrEqual(15);
+		const shorts = await page
+			.locator('section[aria-labelledby="odds"] .youtube-facade')
+			.evaluateAll((all) => all.map((el) => el.getBoundingClientRect().toJSON()));
+		expect(shorts).toHaveLength(2);
+		expect(shorts[0].y).toBe(shorts[1].y);
+		const review = await box(page, 'section[aria-labelledby="odds"] img[data-morph]');
+		expect(shorts[0].height).toBeGreaterThan(review.height);
 	});
 
 	test('/about drops Previously at, lines up As seen on, and folds Right now', async ({ page }) => {
@@ -264,7 +247,8 @@ test.describe('Phone layout', () => {
 		await page.goto('/blog/');
 		await tall('nav[aria-label="Blog categories"] a, .sort-btn');
 		await page.goto('/');
-		await tall('main a:text-matches("^All \\\\d+ posts")');
+		// Each homepage section's link to its page ("Every post →")
+		await tall('main section > header a');
 		await page.goto('/work/');
 		// The filter chips are gone; the era index and each project's Source/Demo/Blog links remain
 		await tall('nav[aria-label="Eras"] a');

@@ -1,0 +1,43 @@
+---
+// The "Works on my machine" echo and the subscribe form: the top of the pink footer on
+// every page, and its own pink band up the homepage (which then leaves it out of the footer)
+import { CHALK, COIL, MARKS } from '../data/scribbles';
+import NewsletterCTA from './NewsletterCTA.astro';
+import Scribble from './Scribble.astro';
+const ECHO_TITLE = 'Works on my machine';
+---
+
+<div class="newsletter-band relative">
+	<h2
+		class="echo font-display text-[clamp(24px,calc((100vw-var(--spine-w))*0.09),150px)] whitespace-nowrap text-ink uppercase"
+		style="--echo-fill:#000;--echo-stroke:#000"
+	>
+		<span class="sr-only">{ECHO_TITLE}</span>
+		<!-- Phones keep just the first line, filled in solid (.echo-lead in motion.css) -->
+		{[0, 1, 2, 3, 4].map((index) => (
+			<span
+				aria-hidden="true"
+				style={`--echo-index:${index}`}
+				class={index === 0 ? 'echo-lead' : 'max-md:hidden'}
+			>
+				{ECHO_TITLE}
+			</span>
+		))}
+	</h2>
+	<!-- Starts above the pink and comes down into it -->
+	<Scribble
+		path={COIL}
+		color={CHALK}
+		duration="10s"
+		class="-top-[154px] right-[1%] z-10 h-[260px] w-[56%]"
+	/>
+	<Scribble
+		{...MARKS.burstDense}
+		color="#000"
+		strokeWidth={6}
+		duration="8s"
+		delay="2s"
+		class="right-[6%] -bottom-[36px] hidden size-[150px] md:block"
+	/>
+	<NewsletterCTA />
+</div>

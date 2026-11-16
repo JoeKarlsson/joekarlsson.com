@@ -23,8 +23,8 @@ test.describe('Homepage', () => {
 		);
 	});
 
-	test('the rack caption carries the live container count', async ({ page }) => {
-		await expect(page.locator('body')).toContainText(/The rack: \d+ containers running right now/);
+	test('the terminal card shows the live container count', async ({ page }) => {
+		await expect(page.locator('main pre')).toContainText(/run \d+ containers/);
 	});
 
 	test('the hero panel leads with my name, then one line on what I do', async ({ page }) => {
@@ -32,37 +32,47 @@ test.describe('Homepage', () => {
 			.locator('h1')
 			.locator('xpath=ancestor::div[contains(@class,"bg-surface-1")][1]');
 		const nameTop = (await page.locator('h1').boundingBox())!.y;
-		const lead = panel.getByText('I run developer marketing');
+		const lead = panel.getByText('I think technology should be weird');
 		expect((await lead.boundingBox())!.y).toBeGreaterThan(nameTop);
 		await expect(page.locator('body')).not.toContainText('15 years writing software');
 	});
 
 	test('every section heading links to its section page', async ({ page }) => {
 		const headings: [string, string][] = [
-			['Recent posts', '/blog/'],
+			['Writing', '/blog/'],
+			['Most read', '/blog/'],
 			['Works', '/work/'],
-			['Writing by topic', '/blog/'],
+			['Talks', '/talks/'],
+			['Odds & ends', '/reviews/'],
 		];
 		for (const [name, href] of headings) {
-			await expect(page.getByRole('heading', { level: 2, name }).getByRole('link')).toHaveAttribute(
-				'href',
-				href,
-			);
+			const masthead = page.locator('header', {
+				has: page.getByRole('heading', { level: 2, name, exact: true }),
+			});
+			await expect(masthead.getByRole('link')).toHaveAttribute('href', href);
 		}
 	});
 
-	test('recent posts, project and topic rows all link somewhere', async ({ page }) => {
-		const rows = page.locator('main li a:not([tabindex="-1"]), main a.index-row');
-		expect(await rows.count()).toBeGreaterThanOrEqual(5 + 5 + 4);
+	test('posts, works, talks and reviews all link into the site', async ({ page }) => {
+		// 3 side posts + 5 most read + 4 works + 2 talks + 3 small reviews
+		const rows = page.locator('main li a:not([tabindex="-1"]):not([target="_blank"])');
+		expect(await rows.count()).toBeGreaterThanOrEqual(3 + 5 + 4 + 2 + 3);
 		for (const href of await rows.evaluateAll((links) =>
 			links.map((a) => a.getAttribute('href')),
 		)) {
 			expect(href).toMatch(/^\//);
 		}
-		await expect(page.getByRole('link', { name: /^All \d+ posts/ })).toHaveAttribute(
-			'href',
-			'/blog/',
-		);
+	});
+
+	test('Most read shows no visitor counts', async ({ page }) => {
+		const list = page.locator('section[aria-labelledby="most-read"] ol');
+		await expect(list.locator('li')).toHaveCount(5);
+		expect(await list.innerText()).not.toMatch(/\d,\d{3}|visitors|readers/i);
+	});
+
+	test('the newsletter sits up the page, and the footer leaves it out', async ({ page }) => {
+		await expect(page.locator('main .newsletter-band form.newsletter-signup')).toHaveCount(1);
+		await expect(page.locator('footer form.newsletter-signup')).toHaveCount(0);
 	});
 
 	test('the slot machine has real screen-reader text', async ({ page }) => {

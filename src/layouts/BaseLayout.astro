@@ -27,6 +27,8 @@ interface Props {
 	// Joe's doodles down the side margins on wide screens; off where full-width
 	// sections already run through the margins (the homepage)
 	marginDoodles?: boolean;
+	// The homepage shows the newsletter up the page, so its footer leaves it out
+	footerNewsletter?: boolean;
 }
 
 const {
@@ -47,6 +49,7 @@ const {
 	section,
 	videoObjects,
 	marginDoodles = true,
+	footerNewsletter = true,
 } = Astro.props;
 const spine = spineFor(Astro.url.pathname);
 ---
@@ -95,7 +98,7 @@ const spine = spineFor(Astro.url.pathname);
 			{marginDoodles && <MarginDoodles />}
 			<slot />
 		</main>
-		<Footer />
+		<Footer newsletter={footerNewsletter} />
 
 		<!-- The crayon texture every Scribble draws with, and the wobbles that make lines
 		boil (motion.css). Each wobble is one filter whose noise seed steps through three

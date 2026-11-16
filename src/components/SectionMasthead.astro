@@ -1,0 +1,37 @@
+---
+// A homepage section's masthead: the section's name huge in Anton, an optional second word
+// in pink Fraunces italic, a thick rule under it, and a plain link to the section's page on
+// the right. Marks passed as children sit in the header's box (absolute, from Scribble).
+interface Props {
+	title: string;
+	// Set in pink Fraunces italic after the title ("Most *read*")
+	accent?: string;
+	href: string;
+	linkLabel: string;
+	id?: string;
+}
+
+const { title, accent, href, linkLabel, id } = Astro.props;
+---
+
+<header class="relative mb-7 flex items-end justify-between gap-6 border-b-8 border-paper pb-2.5">
+	<h2
+		id={id}
+		class="relative font-display text-[clamp(3.25rem,9vw,7.5rem)] leading-[0.8] font-normal text-paper uppercase"
+	>
+		{title}
+		{accent && ' '}
+		{accent && (
+			<em class="font-serif text-[0.92em] font-semibold text-pink normal-case">{accent}</em>
+		)}
+		<slot />
+	</h2>
+	<a
+		href={href}
+		class="shrink-0 border-b-2 border-pink py-3 text-base font-semibold text-paper no-underline hover:text-pink max-md:text-sm"
+	>
+		<span class="whitespace-nowrap">
+			{linkLabel} <span aria-hidden="true">→</span>
+		</span>
+	</a>
+</header>
