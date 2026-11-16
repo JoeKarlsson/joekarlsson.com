@@ -387,6 +387,24 @@ page's own scripts run. -->
 				// Not remembered
 			}
 		};
+		// Back to a page the browser reloads (not kept in the back-forward cache), the first
+		// paint can come before the thumbnail the header shrinks into is parsed or scrolled
+		// to, and the header fades out alone; hold that paint until <main> is parsed. Chrome
+		// was seen letting go at #main's opening tag, so this waits for the element after it
+		const arrival = window.navigation && navigation.activation;
+		if (
+			arrival &&
+			arrival.navigationType === 'traverse' &&
+			arrival.entry.index < arrival.from.index &&
+			load('morph-to') === location.pathname &&
+			!paused()
+		) {
+			const expectFooter = document.createElement('link');
+			expectFooter.rel = 'expect';
+			expectFooter.href = '#site-footer';
+			expectFooter.setAttribute('blocking', 'render');
+			document.head.append(expectFooter);
+		}
 
 		// Home (the logo) is left of every section; a page outside the nav has no section
 		const sectionOf = function (path) {

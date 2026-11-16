@@ -66,6 +66,10 @@ test('a project picture grows into its page header, and shrinks back on Back', a
 	await page.waitForURL(`**${path}`);
 	await expect.poll(() => typesOnArrival(page)).toEqual(['forward', 'morph']);
 
+	// A slow phone (or CI runner): Back reloads /work/, and its first paint must still wait
+	// for the thumbnail to be parsed and scrolled to
+	const devtools = await page.context().newCDPSession(page);
+	await devtools.send('Emulation.setCPUThrottlingRate', { rate: 20 });
 	await page.goBack();
 	await page.waitForURL('**/work/');
 	await expect.poll(() => typesOnArrival(page)).toEqual(['back']);
