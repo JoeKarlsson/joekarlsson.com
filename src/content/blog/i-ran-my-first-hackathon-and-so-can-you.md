@@ -8,6 +8,15 @@ heroImage: '/images/blog/i-ran-my-first-hackathon-and-so-can-you/thumb-70a56749.
 heroAlt: 'A Rube Goldberg cartoon of a ridiculous sausage-making contraption'
 contentNotice: false
 tldr: 'Everything I learned organizing my first hackathon from scratch - venue, food, sponsors, marketing, code of conduct, and all the mistakes I made along the way.'
+marginNotes:
+  - type: 'exhibit'
+    at: 'Here are the lessons I learned'
+    text: "The event's site. After it ended I filled in every entry, winner and builder, so it's also the record of the day."
+    image: '/images/projects/stupid-hackathon-poster.webp'
+    alt: "The event's title card: Stupid Shit No One in Hawaii Needs and Terrible Ideas Hackathon in red brush letters on lime green"
+  - type: 'aside'
+    at: 'for the sheer joy of creation'
+    text: 'Mine was App-All-O-Gizer. Type in an email address and it sends one of 13 random apologies, from a missed anniversary to murder.'
 ---
 
 I Ran My First Hackathon, and So Can You! Here are the lessons I learned from planning, organizing, and executing my first hackathon. The hackathon I ran was the [Stupid Shit and Terrible Ideas Hackathon](https://stupidshitnooneinhawaiineedshackathon.github.io/) in Honolulu, Hawaii.
@@ -39,7 +48,7 @@ Over the years as my career as a Software Engineer, I had attended dozens of hac
 
 ### A couple of notes before we dig in:
 
-- The event I organized had about 60 people in attendance, if you are planning an event with 100 people or more, you are probably on a whole other level and you will need to do a lot more prep work. I would recommend checking out the [Hackathon Guide](https://hackathon.guide/) for details on how to run an event with lots of people in attendance.
+- The event I organized had about 60 people in attendance, if you are planning an event with 100 people or more, you are probably on a whole other level and you will need to do a lot more prep work. I would recommend checking out the [Hackathon Guide](https://hackathon.guide/ 'cite: Tauberer, Hackathon Guide, 2014-2017') for details on how to run an event with lots of people in attendance.
 - This was a Stupid Shit and Terrible Ideas hackathon, which by its very nature is a very nonstandard hackathon. We wanted to create more of a collaborative and warm vibe so that all of our entrants have fun, but hopefully you can bring the positive and welcoming vibes to your hackathon.
 - This was the first hackathon I ever ran - I still have lots to learn in regards to running a smooth, diverse and inclusive event, but I am trying my hardest.
 - I am a software engineer, not a lawyer. **Do not take anything I say here as legal advice.**
@@ -114,7 +123,7 @@ Alright, one final thought, for a small event or a non-profit event, food can be
 
 ### **Registration**
 
-When your participants are signing up for your event is a great time to collect preliminary information about the audience of your hackathon. For our event, we set up an [Eventbrite](https://www.eventbrite.com/) registration form, you can easily collect as much info as you want with it. This worked great for our free event. [Hackathon.guide](https://hackathon.guide/) has some great suggestions for types of information that you should be looking to collect on the registration form.
+When your participants are signing up for your event is a great time to collect preliminary information about the audience of your hackathon. For our event, we set up an [Eventbrite](https://www.eventbrite.com/) registration form, you can easily collect as much info as you want with it. This worked great for our free event. [Hackathon.guide](https://hackathon.guide/ 'cite: Tauberer, Hackathon Guide, 2014-2017') has some great suggestions for types of information that you should be looking to collect on the registration form.
 
 - Name (and possibly other information as required by venue security)
 - Email address
@@ -128,7 +137,7 @@ When your participants are signing up for your event is a great time to collect 
 
 This information you can collect ahead of time, the better you can plan and prepare.
 
-One final note, according to the [Hackathon Guide](http://hackathon.guide/), “For a free event, about 65% of those who register will actually show up. This number is very consistently seen across events. So cap registration at 150% of your actual maximum capacity.”
+One final note, according to the [Hackathon Guide](http://hackathon.guide/ 'cite: Tauberer, Hackathon Guide, 2014-2017'), “For a free event, about 65% of those who register will actually show up. This number is very consistently seen across events. So cap registration at 150% of your actual maximum capacity.”
 
 ### **Legal Stuff**
 
@@ -378,4 +387,4 @@ Do you have more ideas for how to run a hackathon? Let me know. This was only my
 ### **Additional Resources:**
 
 - [http://alexeymk.com/hosting-hackathons/](http://alexeymk.com/hosting-hackathons/)
-- [https://hackathon.guide/](https://hackathon.guide/)
+- [https://hackathon.guide/](https://hackathon.guide/ 'cite: Tauberer, Hackathon Guide, 2014-2017')

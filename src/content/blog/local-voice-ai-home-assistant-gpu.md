@@ -15,13 +15,34 @@ corrections:
     note: 'I said zero audio leaves my network. None does unless the cloud fallback kicks in, which the post itself describes.'
   - date: 2026-11-12
     note: '"Lights on" is two words, not three. Voice and subtitle generation share both GPUs, not one.'
+marginNotes:
+  - type: 'term'
+    at: 'medium-int8'
+    text: "the model's weights stored as 8-bit integers instead of 16-bit numbers. About half the memory for a small accuracy cost. Mine holds about 2.1GB of VRAM."
+    term: 'int8'
+  - type: 'exhibit'
+    at: "Here's a rough VRAM floor guide"
+    text: "Measured on my 8GB Quadro: Whisper takes 2.1GB and Frigate with four cameras 1.8GB, leaving 3.8GB. That's enough for a 3B model at full speed."
+  - type: 'update'
+    at: 'Eventually I switched to llama3.2:3b'
+    text: "It's qwen3:8b with thinking off now: about 1.3 seconds per call, and it got every request right with all 171 tool definitions loaded."
+    date: 'Jul 2026'
+  - type: 'see'
+    at: 'All of them, by default'
+    text: 'I had exposed 644. Cutting that to the 101 worth controlling by voice took one office-lights question from 121 seconds to 3.'
+    post: 'proxmox-gpu-passthrough-multi-service'
+  - type: 'exhibit'
+    at: 'just a convenient pre-built satellite'
+    text: 'There are four of these in my house now, at about $69 each.'
+    image: '/images/blog/homelab-gift-ideas-2026/ha-voice-pe.webp'
+    alt: 'The Home Assistant Voice Preview Edition, a small square gray speaker with a glowing LED ring on top'
 ---
 
 **Updated October 2026:** The conversation agent is now qwen3:8b, not llama3.2:3b, so the six-month swap I predicted near the end came true. Thinking is switched off in the request, which avoids the think-mode problem described below. In a July test with Home Assistant's real prompt and all 171 tool definitions, qwen3:8b took about 1.3 seconds per call and got every request right. Whisper also moved up from the small model to medium-int8, which still transcribes a short command in about a third of a second on the Quadro RTX 4000. The rest of this post is the original April story.
 
 ---
 
-I started this because of Amazon. Specifically, the moment I actually read what Amazon's voice data policies let them do - and realized I had no real way to opt out. Every command to Alexa - lights, calendar, weather, whatever - was going to their servers, processed there, retained under terms I couldn't meaningfully negotiate. I'd been fine with that tradeoff for years without thinking hard about it. Then Amazon [removed the "Do Not Send Voice Recordings" option entirely](https://www.malwarebytes.com/blog/news/2025/03/amazon-disables-option-to-store-echo-voice-recordings-on-your-device), effective March 28, 2025. That was the end of it for me.
+I started this because of Amazon. Specifically, the moment I actually read what Amazon's voice data policies let them do - and realized I had no real way to opt out. Every command to Alexa - lights, calendar, weather, whatever - was going to their servers, processed there, retained under terms I couldn't meaningfully negotiate. I'd been fine with that tradeoff for years without thinking hard about it. Then Amazon [removed the "Do Not Send Voice Recordings" option entirely](https://www.malwarebytes.com/blog/news/2025/03/amazon-disables-option-to-store-echo-voice-recordings-on-your-device 'cite: Arntz, Malwarebytes, March 2025'), effective March 28, 2025. That was the end of it for me.
 
 The timing was good. I already had a GPU server sitting in my attic. Two of them, actually - [dual R730s with NVIDIA cards](/blog/homelab-two-years-later/) I'd built out for Plex transcoding and local AI workloads. It felt absurd to have that compute available and still be shipping my living room conversations to Amazon. So I went all-in on local AI for voice and decided to see what was actually possible in 2025.
 

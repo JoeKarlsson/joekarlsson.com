@@ -958,6 +958,98 @@ header nav .sticker {
 	.prose .cite-num {
 		@apply inline font-sans text-xs font-bold text-pink;
 	}
+	.prose .margin-note.mn-narrow {
+		display: none;
+	}
+	.prose .margin-note:is(.is-lit, :target) {
+		@apply border-pink text-paper;
+	}
+	/* One line, so the crayon ring has a box to circle (a wrapped span has none) */
+	.prose .mn-words {
+		@apply cursor-pointer whitespace-nowrap;
+	}
+}
+/* Front matter notes (round 6 B, round 7 A): set like a book, no labels. Quotes and updates
+   also show on phones, as a block under their paragraph, and keep their number in the line */
+@media (width < 80rem) {
+	.prose .margin-note.mn-narrow {
+		@apply mb-6 block border-t-0 border-l-2 border-pink py-1 pl-3 font-sans text-sm leading-snug text-muted;
+	}
+	.prose .cite-num.mn-phone {
+		@apply inline font-sans text-xs font-bold text-pink;
+	}
+}
+.prose .margin-note b a,
+.prose .mn-num a {
+	@apply relative text-pink no-underline;
+	background: none;
+}
+/* The number stays pink under the pointer (post links turn ink on hover) */
+.prose :is(.margin-note b, .mn-num) a:is(:hover, :focus-visible) {
+	@apply text-pink;
+}
+/* A 24px tap target round a one-digit number, without moving the line */
+.prose :is(.margin-note b, .mn-num) a::after {
+	content: '';
+	@apply absolute -inset-x-2.5 -inset-y-1;
+}
+/* A lit or held note's number turns into a pink chip, a change every kind of note shows */
+.prose .margin-note.is-lit b a {
+	@apply bg-pink px-0.5 text-ink;
+}
+.prose .mn-quote {
+	@apply border-t-2 border-pink;
+}
+.prose .mn-quote q {
+	@apply font-serif text-base text-paper italic;
+}
+.prose .mn-quote cite {
+	@apply mt-1 block text-xs not-italic;
+}
+.prose .mn-quote cite a {
+	@apply text-muted;
+}
+.prose .margin-note dfn {
+	@apply font-semibold text-paper not-italic;
+}
+.prose .mn-stamp {
+	@apply mr-1.5 inline-block border border-pink px-1 text-[11px] font-bold tracking-wider text-pink uppercase;
+}
+.prose .mn-see {
+	@apply grid grid-cols-[auto_1fr] items-start gap-x-1.5;
+}
+.prose a.mn-card {
+	@apply grid grid-cols-[56px_1fr] items-start gap-2.5 text-muted no-underline;
+	background: none;
+}
+.prose a.mn-card img {
+	@apply m-0 size-14 object-cover;
+}
+.prose a.mn-card strong {
+	@apply block font-medium text-paper;
+}
+.prose a.mn-card:hover strong {
+	@apply text-pink;
+}
+.prose .mn-exhibit img {
+	@apply my-1 block w-full;
+}
+/* The phrase a note is about: pink while either is hovered, ringed in crayon once clicked
+   (src/scripts/margin-notes.ts), like a pinned item on /uses */
+.prose .mn-words {
+	@apply relative;
+}
+.prose .mn-words.is-lit {
+	@apply text-pink;
+}
+.prose .mn-ring {
+	@apply pointer-events-none absolute -top-[35%] -left-[6%] h-[170%] w-[112%] overflow-visible;
+}
+.prose .mn-words.is-held .mn-ring {
+	visibility: visible;
+	stroke-dashoffset: 0;
+}
+@media (width >= 80rem) {
 	.margin-column
 		.prose.wide-media
 		> :is(pre, figure:not(.frame, .frame-pair, .margin-figure), table, .\@container) {

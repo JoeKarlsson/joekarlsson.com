@@ -33,6 +33,16 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "The FAQ credited Claude Code with keeping tools inside the context window. That's a small-local-model problem, as the post explains, so the claim is gone."
+marginNotes:
+  - type: 'quote'
+    at: 'it just got dumber'
+    text: 'If your code does not correctly pass back reasoning_content, the API will return a 400 error.'
+    by: "DeepSeek's API docs, on thinking mode"
+    url: 'https://api-docs.deepseek.com/guides/thinking_mode'
+  - type: 'see'
+    at: 'describes whoever is at the door at 2 AM'
+    text: 'How the doorbell description works, and why a bad answer there costs me nothing.'
+    post: 'best-home-assistant-automations'
 ---
 
 I switched my default coding agent from Claude Code to [OpenCode](https://opencode.ai/) running open models. Claude Code was doing work for me that I never noticed until it was gone, like passing the model's reasoning back between steps and checking its own work more often. The model itself was fine, but I had to fix a lot of what was around it.
@@ -45,7 +55,7 @@ _Tested with OpenCode 2.0.20, LiteLLM, and OpenRouter in October 2026._
 
 ## Why I'm leaving
 
-**Price.** That's the big one. Claude is affordable for me today, but I can see where this is going. OpenAI and Anthropic are both [still burning cash](https://fortune.com/2025/11/12/openai-cash-burn-rate-annual-losses-2028-profitable-2030-financial-documents/), that bill comes due eventually, and I don't want my whole workflow tied to one vendor when they go up again.
+**Price.** That's the big one. Claude is affordable for me today, but I can see where this is going. OpenAI and Anthropic are both [still burning cash](https://fortune.com/2025/11/12/openai-cash-burn-rate-annual-losses-2028-profitable-2030-financial-documents/ 'cite: Smith, Fortune, November 2025'), that bill comes due eventually, and I don't want my whole workflow tied to one vendor when they go up again.
 
 And the open models got good:
 
@@ -63,7 +73,7 @@ That chart cuts both ways. Claude Opus 5.5 still leads by 8.5 points. But DeepSe
 
 **Curiosity.** Kimi, GLM, MiniMax, Qwen, MiMo. I'd been reading about these models on leaderboards for a year without running one on real work.
 
-Also, since February 2026, Anthropic [restricts Claude subscriptions to its own tools](https://www.theregister.com/software/2026/02/20/anthropic-clarifies-ban-on-third-party-tool-access-to-claude/5014546), so OpenCode users bring their own models anyway.
+Also, since February 2026, Anthropic [restricts Claude subscriptions to its own tools](https://www.theregister.com/software/2026/02/20/anthropic-clarifies-ban-on-third-party-tool-access-to-claude/5014546 'cite: Claburn, The Register, February 2026'), so OpenCode users bring their own models anyway.
 
 ## The gateway
 
@@ -97,7 +107,7 @@ Related: [LiteLLM or CData Connect AI?](/blog/litellm-vs-cdata-connect-ai/) cove
 
 I didn't pick from a leaderboard, for two reasons.
 
-First, leaderboards get gamed. xAI's Grok 3 launch chart was [accused of leaving out](https://techcrunch.com/2025/02/22/did-xai-lie-about-grok-3s-benchmarks/) the scores that made OpenAI's model look better. OpenAI [funded the FrontierMath benchmark and had access to much of it](https://techcrunch.com/2025/01/19/ai-benchmarking-organization-criticized-for-waiting-to-disclose-funding-from-openai/) before the funding was disclosed. Looking at you, Grok and ChatGPT.
+First, leaderboards get gamed. xAI's Grok 3 launch chart was [accused of leaving out](https://techcrunch.com/2025/02/22/did-xai-lie-about-grok-3s-benchmarks/ 'cite: Wiggers, TechCrunch, February 2025') the scores that made OpenAI's model look better. OpenAI [funded the FrontierMath benchmark and had access to much of it](https://techcrunch.com/2025/01/19/ai-benchmarking-organization-criticized-for-waiting-to-disclose-funding-from-openai/ 'cite: Wiggers, TechCrunch, January 2025') before the funding was disclosed. Looking at you, Grok and ChatGPT.
 
 The bigger reason is that leaderboards are fine for the broad trend, but they test things I don't do. I'm not solving frontier math or competition programming. I do the work of an average software engineer and homelabber. I fix bugs, write small features, and wrangle config files, and I need a model that does that well, fast, and cheap.
 
@@ -178,7 +188,7 @@ I have 24GB of VRAM across two cards, shared with Plex, Frigate, and Immich ([th
 
 Small context windows make it worse. OpenCode's own instructions and tool definitions take about 9,500 tokens before I've typed anything. When I tried a local model with an 8K window, it never called a tool. It answered like a chatbot, because its tool definitions had fallen out of the window without any error. Watch out for Ollama here: on a GPU under 24GB, its [default window is 4K](https://docs.ollama.com/context-length).
 
-Could I buy my way out? NVIDIA's 96GB RTX PRO 6000 now lists at [$16,000](https://www.tomshardware.com/pc-components/gpus/nvidia-doubles-rtx-pro-6000-blackwells-msrp-to-a-staggering-usd16-000-96gb-card-started-pre-orders-below-usd8-000-last-year). That's 66 years of my $20-a-month OpenCode budget, and it still couldn't hold DeepSeek V4.1 Flash.
+Could I buy my way out? NVIDIA's 96GB RTX PRO 6000 now lists at [$16,000](https://www.tomshardware.com/pc-components/gpus/nvidia-doubles-rtx-pro-6000-blackwells-msrp-to-a-staggering-usd16-000-96gb-card-started-pre-orders-below-usd8-000-last-year "cite: Nasir, Tom's Hardware, August 2026"). That's 66 years of my $20-a-month OpenCode budget, and it still couldn't hold DeepSeek V4.1 Flash.
 
 So my GPUs do the light work, and they're great at it: [Home Assistant voice](/blog/local-voice-ai-home-assistant-gpu/) on Qwen3 8B, at about 1.3 seconds per command, and doorbell camera descriptions on Qwen3-VL 8B. Both fall back to the cloud when the GPU box is off.
 

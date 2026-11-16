@@ -35,6 +35,26 @@ corrections:
     note: "I called Presence Simulation and Alarmo add-ons. They're community integrations."
   - date: 2026-11-12
     note: 'I said every safety sensor sends a loud alert. The heat one turns the heat back on instead.'
+marginNotes:
+  - type: 'term'
+    at: '29 Zigbee devices on Zigbee2MQTT'
+    text: "talks to Zigbee devices through a USB radio and hands them to Home Assistant over MQTT, so no brand's hub or app sits in the middle."
+    term: 'Zigbee2MQTT'
+  - type: 'see'
+    at: '4 Aqara leak sensors'
+    text: "These pair straight to Zigbee2MQTT, no Aqara hub. They're on my gift list for anyone who runs Zigbee."
+    post: 'homelab-gift-ideas-2026'
+  - type: 'term'
+    at: 'Each machine saves its finish time'
+    text: 'a Home Assistant helper that just holds a date and time. Automations write to it and templates read it.'
+    term: 'input_datetime'
+  - type: 'term'
+    at: 'Radar picks up someone sitting still'
+    text: 'millimeter-wave radar. It catches motion as small as breathing, so someone reading on the couch still counts.'
+    term: 'mmWave'
+  - type: 'aside'
+    at: 'sending notifications to my old iPhone'
+    text: "I had Claude repoint all 60. That's the kind of tedious job I hand it, more on that below."
 ---
 
 I've been running Home Assistant since 2016. Today I have 134 automations, and the best Home Assistant automations I've built share one trait: someone who has never been in my house can live with them without an app, instructions, or me saying "oh, don't touch that switch."

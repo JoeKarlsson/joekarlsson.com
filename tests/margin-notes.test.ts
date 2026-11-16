@@ -23,32 +23,39 @@ const link = (href: string, words: string, title?: string): HastNode => ({
 	properties: { href, ...(title ? { title } : {}) },
 	children: [text(words)],
 });
-function run(...blocks: HastNode[]): HastNode {
+async function run(...blocks: HastNode[]): Promise<HastNode> {
+	return runWith(undefined, ...blocks);
+}
+// A post's marginNotes front matter reaches the plugin the way Astro passes it
+async function runWith(marginNotes: unknown, ...blocks: HastNode[]): Promise<HastNode> {
 	const root: HastNode = { type: 'root', children: blocks };
-	(rehypeMarginNotes() as (t: HastNode) => void)(root);
+	const file = { path: 'post.md', data: { astro: { frontmatter: { marginNotes } } } };
+	await (rehypeMarginNotes() as (t: HastNode, f: unknown) => Promise<void>)(root, file);
 	return root;
 }
 const textOf = (n: HastNode): string => n.value ?? (n.children ?? []).map(textOf).join('');
 const notes = (root: HastNode) =>
-	root.children!.filter((n) => n.tagName === 'aside').map((n) => textOf(n));
+	root
+		.children!.filter((n) => String(n.properties?.className ?? '').includes('margin-note'))
+		.map((n) => textOf(n));
 const numbers = (block: HastNode) =>
 	block.children!.filter((n) => n.tagName === 'sup').map((n) => textOf(n));
 
-describe('rehypeMarginNotes', () => {
-	it('turns a cite: link into a numbered source note, keeping the link its own words', () => {
+describe('rehypeMarginNotes', async () => {
+	it('turns a cite: link into a numbered source note, keeping the link its own words', async () => {
 		const a = link(
 			'https://nolanlawson.com/x/',
 			'We mourn our craft',
 			'cite: Lawson, February 2026',
 		);
 		const block = p(text('Nolan Lawson wrote '), a, text(', and more.'));
-		const root = run(block);
+		const root = await run(block);
 		expect(notes(root)).toEqual(['1 Lawson, February 2026. We mourn our craft. nolanlawson.com']);
 		expect(textOf(a)).toBe('We mourn our craft');
 		expect(a.properties!.title).toBeUndefined();
 		expect(numbers(block)).toEqual(['1']);
 	});
-	it('notes every source in a paragraph with several', () => {
+	it('notes every source in a paragraph with several', async () => {
 		const block = p(
 			link('https://a.com/', 'A', 'cite: A, 2020'),
 			text(', '),
@@ -56,12 +63,12 @@ describe('rehypeMarginNotes', () => {
 			text(' and '),
 			link('https://c.com/', 'C', 'cite: C, 2020'),
 		);
-		expect(notes(run(block))).toHaveLength(3);
+		expect(notes(await run(block))).toHaveLength(3);
 		expect(numbers(block)).toEqual(['1', '2', '3']);
 	});
-	it('gives a source cited twice its first number and one note', () => {
+	it('gives a source cited twice its first number and one note', async () => {
 		const again = p(text('Again '), link('https://a.com/x', 'A', 'cite: Ames, 2020'));
-		const root = run(
+		const root = await run(
 			p(
 				link('https://a.com/x', 'A', 'cite: Ames, 2020'),
 				text(' and '),
@@ -72,11 +79,64 @@ describe('rehypeMarginNotes', () => {
 		expect(notes(root)).toHaveLength(2);
 		expect(numbers(again)).toEqual(['1']);
 	});
-	it('leaves a plain outside link alone', () => {
+	it('leaves a plain outside link alone', async () => {
 		const block = p(text('See '), link('https://example.com/docs', 'the docs'));
-		const root = run(block);
+		const root = await run(block);
 		expect(notes(root)).toEqual([]);
 		expect(numbers(block)).toEqual([]);
+	});
+	it('numbers a front matter note in reading order with the citations, and wraps its phrase', async () => {
+		const block = p(
+			link('https://a.com/', 'A', 'cite: A, 2020'),
+			text(' runs as the state backend for everything.'),
+		);
+		const root = await runWith(
+			[{ type: 'term', at: 'state backend', term: 'State backend', text: 'where state lives.' }],
+			block,
+		);
+		expect(notes(root)).toEqual(['1 A, 2020. A. a.com', '2 State backend: where state lives.']);
+		const words = block.children!.find((n) => n.properties?.id === 'mn-w-2')!;
+		expect(textOf(words)).toBe('state backend');
+		expect(textOf(block)).toBe('A1 runs as the state backend2 for everything.');
+	});
+	it('repeats a quote or update under its paragraph for phones, and not a term', async () => {
+		const block = p(text('It has 41 checks and an LXC container.'));
+		const root = await runWith(
+			[
+				{ type: 'update', at: '41 checks', date: 'Oct 2026', text: 'It has 185 now.' },
+				{ type: 'term', at: 'LXC container', text: 'a light container.' },
+			],
+			block,
+		);
+		const ids = root.children!.map((n) => n.properties?.id ?? n.tagName);
+		expect(ids).toEqual(['mn-1', 'mn-2', 'p', 'mn-1-narrow']);
+	});
+	it("fails the build when a note's phrase isn't plain text in the post", async () => {
+		const block = p(text('See '), link('https://example.com/', 'the docs'));
+		await expect(runWith([{ type: 'aside', at: 'the docs', text: 'x' }], block)).rejects.toThrow(
+			/no paragraph or list containing "the docs"/,
+		);
+	});
+	it('puts a note in a list at the top of the item holding its phrase', async () => {
+		const li = (...children: HastNode[]): HastNode => ({
+			type: 'element',
+			tagName: 'li',
+			properties: {},
+			children,
+		});
+		const second = li(text('How long do you keep it?'));
+		const list: HastNode = {
+			type: 'element',
+			tagName: 'ul',
+			properties: {},
+			children: [li(text('How big?')), second],
+		};
+		const root = await runWith(
+			[{ type: 'see', at: 'keep it', post: 'homelab-two-years-later', text: 'x' }],
+			list,
+		);
+		expect(root.children!.map((n) => n.tagName)).toEqual(['ul']);
+		expect(second.children![0].properties?.id).toBe('mn-1');
 	});
 });
 

@@ -27,6 +27,33 @@ faq:
     answer: "Only if you read them first. A mod isn't sandboxed and runs with full access to your machine."
   - question: 'Should a rule go in CLAUDE.md or in a mod?'
     answer: 'If the rule exists because something went wrong once, make it a mod. Keep CLAUDE.md for judgment calls like tone and taste, where there is nothing for code to check.'
+marginNotes:
+  - type: 'quote'
+    at: 'handed the model some text and hoped it would remember'
+    text: "Either the file has grown long enough that the line gets lost, or the line is a rule that can't have exceptions, in which case it belongs in a hook."
+    by: "Anthropic's Claude Code best practices"
+    url: 'https://code.claude.com/docs/en/best-practices'
+  - type: 'aside'
+    at: "Claude and Word documents don't get along on my Mac"
+    text: 'This was a CLAUDE.md rule first. Edits passed validation, then vanished when Word reopened a stale OneDrive copy.'
+  - type: 'quote'
+    at: 'lets the write go through anyway'
+    text: 'Blocking error: your hook exits 2.'
+    by: "Anthropic's hooks docs. Any other failure is non-blocking, and the action goes ahead"
+    url: 'https://code.claude.com/docs/en/hooks'
+  - type: 'see'
+    at: 'several Claude sessions going at once'
+    text: 'How I run them: Ghostty splits and git worktrees, with a status line that names each session.'
+    post: 'my-development-setup-2026'
+  - type: 'term'
+    at: 'If a mod crashes'
+    text: 'when the guard breaks, the action goes through. Fail closed would block everything until the guard works again.'
+    term: 'Fail open'
+  - type: 'quote'
+    at: 'A mod runs with'
+    text: "Mods aren't sandboxed."
+    by: "Anthropic's mods overview"
+    url: 'https://code.claude.com/docs/en/plugins/mods/overview'
 ---
 
 Anthropic shipped [mods](https://code.claude.com/docs/en/plugins/mods/overview) at the start of October 2026. I sat down to build one on October 14, and by the next afternoon I had two Claude Code mods running in every session and more in progress.

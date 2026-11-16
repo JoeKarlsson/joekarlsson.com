@@ -26,6 +26,29 @@ faq:
 corrections:
   - date: 2026-10-15
     note: 'I said the RTX A4000 could encode AV1 with `av1_nvenc`. Neither card can.'
+marginNotes:
+  - type: 'term'
+    at: "Here's the part of a container config that does it"
+    text: "195 is the major device number Linux gives NVIDIA's device files. rwm lets the container read, write and create them, and the mount lines bind the actual files in."
+    term: 'The config lines'
+  - type: 'exhibit'
+    at: 'hold the same amount of VRAM forever'
+    text: '30 days of Prometheus data back this up: the Quadro sits around 4GB and peaked at 4.7GB. The A4000 only reaches 15 of its 16GB when the 30B coding model loads.'
+  - type: 'update'
+    at: 'a bigger coding model I experiment with'
+    text: 'The best coding model I can fit is a heavily quantized Qwen3-Coder 30B, and it was stiff and weak in OpenCode. I code on hosted open models now.'
+    date: 'Oct 2026'
+  - type: 'see'
+    at: 'runs the local LLMs behind that voice assistant'
+    text: 'It also describes whoever is at my doorbell. Nothing depends on what the model says, so a bad answer costs me nothing.'
+    post: 'best-home-assistant-automations'
+  - type: 'term'
+    at: 'at the same quantization'
+    text: "storing a model's weights in fewer bits, say 4 instead of 16. The model fits in far less VRAM and gets a little less accurate."
+    term: 'Quantization'
+  - type: 'exhibit'
+    at: 'the monthly power cost of a 430W rack'
+    text: 'The real answer from my rack: about $47 a month at $0.15/kWh.'
 ---
 
 **Updated October 2026:** I first published this in April. Since then Whisper moved to a bigger model, Frigate went from two cameras to four, and I benchmarked the open-source models I actually run on both cards, for speed and for whether their answers can be trusted. The original also said the RTX A4000 could encode AV1, which was wrong.

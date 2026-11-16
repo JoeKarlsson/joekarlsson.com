@@ -28,6 +28,33 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'The TL;DR said one Thunderbolt 5 cable connects everything. It connects the camera, mic and prompter, not the lights.'
+marginNotes:
+  - type: 'term'
+    at: 'clean HDMI out'
+    text: "the camera's feed without its menus, focus boxes and battery icon, so the Mac gets just the picture."
+    term: 'Clean HDMI'
+  - type: 'aside'
+    at: 'read a script while looking straight into the lens'
+    text: 'Keep the prompter text to three or four words a line, centered over the lens. With a wide column my eyes sweep on every line, and viewers notice.'
+  - type: 'term'
+    at: 'calls it an expander'
+    text: "it turns the mic down whenever my voice drops below a set level, so the room's hum fades out instead of cutting off hard."
+    term: 'Expander'
+  - type: 'term'
+    at: 'a soft film LUT'
+    text: 'a file that maps every color in the footage to a new one, so a whole grade goes on in one step.'
+    term: 'LUT (lookup table)'
+  - type: 'update'
+    at: 'I plug in one Thunderbolt 5 cable'
+    text: 'Corrected: the summary first said this cable runs everything. It carries the camera, mic and prompter. The lights run on the smart plug.'
+    date: 'Nov 12'
+  - type: 'see'
+    at: 'My Prusa has great LEDs'
+    text: "It hasn't always been a prop. I printed the pots for my postcard-rack planter tower on it."
+    post: 'from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack'
+  - type: 'exhibit'
+    at: 'the two costs most people could skip'
+    text: 'Together the dock and desk cost $865, the same as the camera, and about a third of the $2,707 total.'
 ---
 
 My whole recording setup lives on one standing desk that rolls. When I'm done, I push it into the corner. Most of the gear went together without much trouble, but lighting took weeks of experimenting, and I'm still working on it.

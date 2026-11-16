@@ -9,6 +9,36 @@ tags: ['Claude Code', 'AI', 'devrel', 'automation', 'internal tooling', 'marketi
 heroImage: '/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/claude-code-skills-repo-internal-tooling.webp'
 heroAlt: 'Three monitors showing code in a dark office overlooking the New York City skyline with a purple tint'
 tldr: 'Skills are just markdown files you can share via git. CLAUDE.md is the part nobody explains properly and it matters more than the skills themselves. Onboarding non-technical people is harder than building the thing. Start for yourself, share when a coworker asks.'
+marginNotes:
+  - type: 'update'
+    at: "I'm a developer on the marketing team at CloudQuery"
+    text: "I'm at CData now, in developer marketing, and again the only engineer on the marketing team."
+    date: 'Jun 2026'
+  - type: 'update'
+    at: 'They version-control exactly like code'
+    text: 'My default coding agent is OpenCode with open models now, and my rules moved into its AGENTS.md. I still go to Claude when something is hard.'
+    date: 'Oct 2026'
+  - type: 'term'
+    at: 'skills wire into MCP servers'
+    text: "Anthropic's open standard for plugging tools and data into an AI assistant. Each server wraps one service, like Linear or Slack."
+    term: 'MCP (Model Context Protocol)'
+  - type: 'term'
+    at: 'A skill is a prompt with some frontmatter'
+    text: 'the YAML block between two --- lines at the top of a markdown file. Claude Code reads it as settings, and everything below it is the prompt.'
+    term: 'Frontmatter'
+  - type: 'exhibit'
+    at: 'Just keep it short as it grows'
+    text: 'Before the split: about 200 files, a 65 KB Home Assistant doc, and roughly 16,000 tokens loaded before I typed a word.'
+  - type: 'quote'
+    at: 'automate the check'
+    text: 'Claude treats them as context, not enforced configuration.'
+    by: "Anthropic's Claude Code docs, on CLAUDE.md files"
+    url: 'https://code.claude.com/docs/en/memory'
+  - type: 'quote'
+    at: 'which is why almost nobody uses it'
+    text: 'Rules can be scoped to specific files using YAML frontmatter with the `paths` field.'
+    by: "It's documented now: Anthropic's Claude Code memory docs"
+    url: 'https://code.claude.com/docs/en/memory#path-specific-rules'
 ---
 
 I'm a developer on the marketing team at CloudQuery - a cloud asset management platform - where I also lead DevRel. That's a slightly unusual combination - technical enough to be dangerous, embedded in a non-technical team that has real content needs every week. Which is probably why I ended up here.

@@ -30,6 +30,28 @@ faq:
     answer: "Under 200 lines, per Anthropic's memory docs, and shorter is better. Keep only what Claude needs on nearly every task: how you want work done, short rules, and a pointer to an index for everything else."
   - question: 'Does Claude Code read Open Knowledge Format natively?'
     answer: 'No. Claude Code loads CLAUDE.md files, rules and MEMORY.md as usual. OKF helps because each CLAUDE.md becomes a short stub that points to an index.md, and Claude opens only the concept files it needs.'
+marginNotes:
+  - type: 'quote'
+    at: 'both want a'
+    text: "Claude records the kind as a `type` field in the memory file's frontmatter."
+    by: "Anthropic's Claude Code memory docs"
+    url: 'https://code.claude.com/docs/en/memory'
+  - type: 'exhibit'
+    at: 'One of my 44 questions'
+    text: 'From the full results: questions that span several files went from 50% right to 100% after the split. No other question type moved that much.'
+  - type: 'see'
+    at: 'the agent can argue its way past text'
+    text: 'Test that the hook really blocks. Five of mine never worked, so my must-never-break rules live in Claude Code mods now.'
+    post: 'claude-code-mods-first-impressions'
+  - type: 'quote'
+    at: 'keep each CLAUDE.md under 200 lines'
+    text: '[T]arget under 200 lines per CLAUDE.md file. Longer files consume more context and reduce adherence.'
+    by: "Anthropic's Claude Code memory docs"
+    url: 'https://code.claude.com/docs/en/memory'
+  - type: 'see'
+    at: 'saved 312 tokens'
+    text: "What's in that global file: its testing and git rules, and how chezmoi copies it to every machine."
+    post: 'my-development-setup-2026'
 ---
 
 I'd been hearing about Google's [Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) (OKF) and wanted to try it on my Claude Code second brain. That's the pile of CLAUDE.md files, rules and auto-memory that teaches Claude how my homelab works. Would converting it to OKF make Claude more accurate, or cheaper to run, or neither?
@@ -46,7 +68,7 @@ I switched my real setup over the same day. The method and the full results are 
 
 ## What Open Knowledge Format is
 
-OKF is an open spec from Google Cloud. It's a folder of markdown files, one concept per file, each with a little YAML frontmatter where only `type` is required, and an `index.md` in each folder listing what's there. The idea is progressive disclosure: the agent reads the index, then opens only the concept it needs. If you've seen [Karpathy's LLM wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f), it's that idea with a spec. [Sébastien Dubois has a good explainer](https://www.dsebastien.net/open-knowledge-format-okf/) if you want the full tour.
+OKF is an open spec from Google Cloud. It's a folder of markdown files, one concept per file, each with a little YAML frontmatter where only `type` is required, and an `index.md` in each folder listing what's there. The idea is progressive disclosure: the agent reads the index, then opens only the concept it needs. If you've seen [Karpathy's LLM wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f 'cite: Karpathy, April 2026'), it's that idea with a spec. [Sébastien Dubois has a good explainer](https://www.dsebastien.net/open-knowledge-format-okf/ 'cite: Dubois, June 2026') if you want the full tour.
 
 Here's roughly what a bundle looks like. File names say what's inside, and every folder's index describes each file in one line, so the agent can pick the right one without opening the rest:
 
@@ -186,7 +208,7 @@ I wrote 44 questions from the docs, each with a known answer. Some were facts th
 
 ![Three bar charts comparing the docs as-is, with metadata added, and restructured. Tokens loaded at session start: 16,237, 16,237 and 8,505. Cost per question on Sonnet: $0.043, $0.042 and $0.030. Cost per question on Opus: $0.201, $0.203 and $0.133. Accuracy on Sonnet held at 97%, 98% and 99%, within the noise of 44 questions.](/images/blog/claude-md-open-knowledge-format/test-results.svg)
 
-Forty-four questions is a small set, and the accuracy ranges overlap, so read accuracy as "held," not "improved." I overturned one grade by hand, where the judge misread a correct refusal. I measured whether Claude could find and use what's in the docs. Whether it follows instructions better is a separate question, and a [study of 1,650 Claude Code sessions](https://arxiv.org/abs/2605.10039) found no detectable effect from CLAUDE.md length or file structure.
+Forty-four questions is a small set, and the accuracy ranges overlap, so read accuracy as "held," not "improved." I overturned one grade by hand, where the judge misread a correct refusal. I measured whether Claude could find and use what's in the docs. Whether it follows instructions better is a separate question, and a [study of 1,650 Claude Code sessions](https://arxiv.org/abs/2605.10039 'cite: McMillan, May 2026') found no detectable effect from CLAUDE.md length or file structure.
 
 <details>
 <summary>More results and lessons from building the test</summary>

@@ -26,6 +26,36 @@ corrections:
     note: 'I said a MikroTik firewall list kept the old IoT gear away from the NAS. Nothing does yet.'
   - date: 2026-11-12
     note: "I stated as fact that used server RAM dried up because companies keep servers for AI. That's my guess, and the post now says so."
+marginNotes:
+  - type: 'exhibit'
+    at: 'bonded with LACP'
+    text: "The back of the rack. The MikroTik CRS317 is the bottom switch, and both hosts' 10G pairs plug into it."
+    image: '/images/blog/homelab-two-years-later/rack-back-cables.webp'
+    alt: 'The back of the rack from below: patch cables looping into a MikroTik switch and the gear stacked above it'
+  - type: 'term'
+    at: 'gives the two-node cluster its tiebreaker vote'
+    text: 'a cluster only acts when most of its votes agree. Two servers can tie, so a Pi casts the third vote.'
+    term: 'Quorum'
+  - type: 'term'
+    at: 'Every six hours a drift check runs'
+    text: 'makes plan exit 0 when nothing changed, 1 on an error and 2 when something drifted, so a cron job can tell drift from a crash.'
+    term: '-detailed-exitcode'
+  - type: 'see'
+    at: 'A few of the 134 automations'
+    text: "The ones worth building out of all 134, in the order I'd build them again."
+    post: 'best-home-assistant-automations'
+  - type: 'see'
+    at: 'dead for over a week'
+    text: "That's where the health checks started, and later the move to OpenTofu."
+    post: 'opentofu-proxmox-immutable-homelab'
+  - type: 'aside'
+    at: 'reported a flat 541W'
+    text: "The check that would catch this, one that flags any sensor that stops changing, is still on my list. Until then I only trust the plug's last week."
+  - type: 'exhibit'
+    at: 'I get a live battery-level notification'
+    text: 'The two CyberPower units on the living room rug the day they arrived.'
+    image: '/images/blog/homelab-gift-ideas-2026/ups-unboxed.webp'
+    alt: 'My two CyberPower OR1500PFCRT2U rack UPSes stacked on the living room rug, just out of the box'
 ---
 
 Two years ago I bought a $200 ThinkServer off Facebook Marketplace, put Proxmox on it, ran about 15 containers, and wrote an [original homelab post](/blog/how-to-get-started-building-a-homelab-server/) telling everyone that was all a homelab needed.
@@ -354,7 +384,7 @@ That number depends a lot on one line: the $80 security monitoring plan is over 
 
 ![Line chart of what the homelab has saved over time against the $7,200 it cost in hardware. Netting about $131 a month (subscriptions killed, minus electricity and backups), savings cross the hardware line at about 4.6 years. Take out the $80-a-month security monitoring plan and it nets about $51 a month, crossing at about 11.8 years.](/images/blog/homelab-two-years-later/payback.svg)
 
-It may pay for itself eventually. Subscription prices keep going up - [1Password went from $2.99 to $3.99](https://www.macrumors.com/2026/02/24/1password-march-price-increase/) in March, and [Ring Protect from $10 to $12](https://ring.com/support/articles/7zvp5/Ring-Protect-Plus-1st-Gen-Information) in February - and I own my data and the hardware it runs on.
+It may pay for itself eventually. Subscription prices keep going up - [1Password went from $2.99 to $3.99](https://www.macrumors.com/2026/02/24/1password-march-price-increase/ 'cite: Clover, MacRumors, February 2026') in March, and [Ring Protect from $10 to $12](https://ring.com/support/articles/7zvp5/Ring-Protect-Plus-1st-Gen-Information) in February - and I own my data and the hardware it runs on.
 
 It's a hobby, and hobbies cost money. Nobody asks a golfer to justify their club membership with a break-even analysis.
 

@@ -20,6 +20,33 @@ faq:
     answer: 'No. The web version at cdatasoftware.github.io/connect-ai-doom plays in your browser with a level built from a demo company, and ./raid.sh offline plays made-up data locally. Live data from your own apps needs a Connect AI account.'
   - question: 'Can an AI agent play Doom over MCP?'
     answer: 'Yes. doom-mcp by Gunnar Grosch lets an agent play Doom, and Connect AI × DOOM gives Claude a second MCP server that controls the marine while a side panel shows every tool call.'
+marginNotes:
+  - type: 'term'
+    at: 'hand back JSON'
+    text: 'an open standard for giving an AI agent tools and data. An MCP server is what the agent calls to run the query.'
+    term: 'MCP (Model Context Protocol)'
+  - type: 'quote'
+    at: 'everyone already knows how to read it'
+    text: 'Doom was chosen for this project for two reasons. The first is that it is a classic game, familiar to most system administrators.'
+    by: 'Dennis Chao, CHI 2001. The same idea, 25 years earlier'
+    url: 'https://cs.unm.edu/~dlchao/flake/doom/chi/chi.html'
+  - type: 'quote'
+    at: "I'd heard of KubeDOOM"
+    text: 'which was forked from psdoom.'
+    by: "KubeDOOM's README, on where its Doom came from: dockerdoom, then psdoom"
+    url: 'https://github.com/storax/kubedoom'
+  - type: 'aside'
+    at: 'the level is still regular Doom'
+    text: 'Mine never gives Claude a keyboard. Doom runs at 35 tics a second and a model takes seconds to think, so Claude gets three verbs: look, go_to and attack.'
+  - type: 'update'
+    at: "There's no key"
+    text: 'In 32 test runs, Gemini Flash tried to get the Social Security number another way in three of its eight. Connect AI blocked every attempt. No Claude run tried.'
+    date: 'Nov 2026'
+  - type: 'exhibit'
+    at: 'a second MCP server that controls the marine'
+    text: "The side panel: one room per app, the red door, and Claude's feed of every tool call."
+    image: '/images/blog/why-i-use-doom-to-visualize-mcp-data/game-and-panel.webp'
+    alt: "Doom on the left and the side panel on the right, listing each app's room and every tool call Claude made"
 ---
 
 I've been a database developer advocate for years, and the hard part of the job has never been explaining databases. It's making them look like anything. Data is rows and columns (like a boring Excel spreadsheet), and MCP servers, which is what I work with now, hand back JSON. Put a chat window on a projector at a conference booth and let an AI agent query five apps, and to everyone walking past, it looks like someone reading their email.

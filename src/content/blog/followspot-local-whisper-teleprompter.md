@@ -10,6 +10,29 @@ heroImage: '/images/blog/followspot-local-whisper-teleprompter/hero.webp'
 heroVideo: '/images/blog/followspot-local-whisper-teleprompter/demo.mp4'
 heroAlt: 'FollowSpot reading a bread recipe script: words already read are dimmed, the current word is highlighted in yellow, and the page scrolls to keep it on the reading line while a small panel shows Whisper latency'
 tldr: "I can't memorize lines, so I built FollowSpot, a browser teleprompter that follows my voice using a Whisper model running locally through whisper.cpp. It lets me pick the model and set up the screen exactly how I want, including a narrow column centered over the camera lens. I benchmarked five Whisper models on my M5 Max MacBook Pro with my own voice: every one kept up, tiny.en mangled tech jargon, base.en missed one more term than the bigger models, and small.en and up got 14 of 16 right."
+marginNotes:
+  - type: 'term'
+    at: 'The speech recognition is a'
+    text: "a C/C++ port of OpenAI's Whisper speech-to-text model. It runs on a laptop's CPU or Apple GPU, with no Python and no server."
+    term: 'whisper.cpp'
+  - type: 'quote'
+    at: 'your eyes sweep left to right on every line'
+    text: 'Narrow the text column so the eyes do not travel far from side to side.'
+    by: "StudioKitGuide's teleprompter eye-line guide"
+    url: 'https://studiokitguide.com/teleprompter-eye-line-setup/'
+  - type: 'exhibit'
+    at: 'Keep the text narrow and centered'
+    text: 'My Sony ZV-E10 behind the Elgato Prompter, on one arm of my rolling recording desk.'
+    image: '/images/blog/recording-setup-tour/camera-behind-prompter.webp'
+    alt: "The Sony ZV-E10 seen from behind, mounted behind the Elgato Prompter's hood on the arm, over the green cutting mat"
+  - type: 'term'
+    at: 'On a beam-splitter prompter'
+    text: 'angled glass in front of the lens. It reflects the screen toward me and lets the camera see straight through, so the text has to be mirrored.'
+    term: 'Beam splitter'
+  - type: 'term'
+    at: 'To get word error rates'
+    text: 'the words a model got wrong, dropped or added, as a share of the script. Lower is better: 7% is about one word in 14.'
+    term: 'Word error rate'
 ---
 
 I have the energy of a theater kid and I can't memorize lines. I'm pretty sure something is wrong with my brain. (If anyone knows if this is a real medical disorder, please let me know). I can write a paragraph, read it twice, and lose it by the time the camera is rolling. It's the reason I never had the guts to do theater.
@@ -20,7 +43,7 @@ Lately I've been making more videos, though, and some of them need tight monolog
 
 ## Elgato already follows your voice. I wanted to pick the model
 
-Voice-following teleprompters exist. Elgato's Camera Hub has one called [Voice Sync](https://help.elgato.com/hc/en-us/articles/29902730928653-Camera-Hub-How-to-use-Voice-Sync), and it runs on-device, which I appreciate. You just can't choose what's listening. Elgato doesn't say which model Voice Sync uses. One developer who dug through the Mac app [reports](https://github.com/drbarq/elgato-camera-hub-teleprompter-fix/blob/main/docs/VOICE_SYNC.md) that it bundles whisper.cpp with `base.en`, one of the smallest Whisper models.
+Voice-following teleprompters exist. Elgato's Camera Hub has one called [Voice Sync](https://help.elgato.com/hc/en-us/articles/29902730928653-Camera-Hub-How-to-use-Voice-Sync), and it runs on-device, which I appreciate. You just can't choose what's listening. Elgato doesn't say which model Voice Sync uses. One developer who dug through the Mac app [reports](https://github.com/drbarq/elgato-camera-hub-teleprompter-fix/blob/main/docs/VOICE_SYNC.md 'cite: drbarq on GitHub') that it bundles whisper.cpp with `base.en`, one of the smallest Whisper models.
 
 ![Pawn Stars Best I Can Do meme: Rick Harrison hears 'I'd like to pick my own Whisper model' and answers 'Best I can do is base.en'.](/images/blog/followspot-local-whisper-teleprompter/meme-pawn-stars-base-en.webp)
 

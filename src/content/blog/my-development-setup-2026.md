@@ -43,6 +43,24 @@ corrections:
     note: 'I wrote that every tool here keeps data on hardware I own, that every repo has tests for everything, and that everything but templates is a symlink. None of that was literally true. The post now says I pick the local option when there is one, my repos have tests, and most files are symlinks.'
   - date: 2026-11-12
     note: 'The Vale config used the `JoeKarlsson` style without listing its package under `Packages`, so the style never loaded.'
+marginNotes:
+  - type: 'exhibit'
+    at: 'The full inventory of hardware and apps'
+    text: 'My desk in 2026, where the splits run.'
+    image: '/images/uses/desk-2026.webp'
+    alt: 'My main desk: two monitors, an Elgato Key Light on a stand behind them, and the Elgato Wave:3 mic on an arm'
+  - type: 'update'
+    at: 'For code, I tried'
+    text: 'A week later I made OpenCode my default, running hosted open models. Claude is the model I switch to for the hardest problems.'
+    date: 'Oct 2026'
+  - type: 'update'
+    at: "I haven't tested one"
+    text: 'Qwen 3.8 2.4T passed every run of my two-task test, in about 14 minutes and for $0.37.'
+    date: 'Oct 2026'
+  - type: 'update'
+    at: 'edits that passed validation and then vanished'
+    text: 'The hook meant to enforce this never blocked anything. I found out while building Claude Code mods.'
+    date: 'Oct 2026'
 ---
 
 The biggest change to my development setup in 2026 is **concurrency.** I rarely have only one agent working anymore. I usually have three to six Claude Code sessions going at once, on different tasks, until my brain starts to melt from the context switching. Agents make whatever environment you give them go faster, including the mess, so most of what's below exists to make running several at once fast and safe.
@@ -496,7 +514,7 @@ If you want to see how far open models get today, I tried swapping Claude Code f
 
 SSH keys live in [1Password](https://1password.com/) and get served by [its SSH agent](https://www.1password.dev/ssh/). My SSH config is in my dotfiles; the keys never are. Commits are signed with the same key, Touch ID once per session.
 
-My git config got an upgrade, mostly from Scott Chacon's [How Core Git Developers Configure Git](https://blog.gitbutler.com/how-git-core-devs-configure-git/). It pays off when I'm merging five worktree branches back in a row: `zdiff3` shows the original in conflicts, `rerere` replays conflict resolutions I've already made, and [delta](https://github.com/dandavison/delta) makes diffs readable. delta only kicks in when git writes to a terminal, so an agent piping `git diff` still gets plain text.
+My git config got an upgrade, mostly from Scott Chacon's [How Core Git Developers Configure Git](https://blog.gitbutler.com/how-git-core-devs-configure-git/ 'cite: Chacon, February 2025'). It pays off when I'm merging five worktree branches back in a row: `zdiff3` shows the original in conflicts, `rerere` replays conflict resolutions I've already made, and [delta](https://github.com/dandavison/delta) makes diffs readable. delta only kicks in when git writes to a terminal, so an agent piping `git diff` still gets plain text.
 
 <details>
 <summary>Show my git config highlights</summary>

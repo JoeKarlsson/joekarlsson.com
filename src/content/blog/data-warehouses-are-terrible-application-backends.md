@@ -9,6 +9,24 @@ writtenFor: 'Tinybird'
 heroImage: '/images/blog/data-warehouses-are-terrible-application-backends/thumb-fc87ba02.webp'
 heroAlt: 'A long, plain old warehouse'
 tldr: 'Data warehouses like Snowflake and BigQuery are great for BI dashboards but terrible for user-facing apps. Job pool queuing creates unpredictable latency, concurrency is expensive to scale, and cache layers sacrifice data freshness. Use a real-time data platform instead.'
+marginNotes:
+  - type: 'quote'
+    at: 'nondeterministic latency with a set floor'
+    text: 'If the warehouse does not have enough remaining resources to process a query, the query is queued, pending resources that become available as other running queries complete.'
+    by: "Snowflake's docs"
+    url: 'https://docs.snowflake.com/en/user-guide/warehouses-overview'
+  - type: 'see'
+    at: 'fast and balanced even with many concurrent users'
+    text: 'My comparison of real-time databases: MongoDB, Postgres, Tinybird, ClickHouse, Pinot, Druid and Snowflake.'
+    post: 'real-time-databases-what-developers-need-to-know'
+  - type: 'see'
+    at: 'must determine if a transaction is fraudulent'
+    text: 'The full build of this example, from event stream to a fraud score in seconds.'
+    post: 'how-to-build-a-real-time-fraud-detection-system'
+  - type: 'see'
+    at: 'For building user-facing applications, you should turn to'
+    text: 'Tinybird is built on ClickHouse. I wrote up why ClickHouse is fast at this the same week.'
+    post: 'why-clickhouse-should-be-your-next-database'
 ---
 
 Developers have more data to work with than ever. According to [a report from Seagate](https://www.seagate.com/www-content/our-story/trends/files/Seagate-WP-DataAge2025-March-2017.pdf), by 2025 worldwide data will grow to 163 zettabytes, over 10 times the volume in 2016. More data should mean deeper insights and better user experiences, but it also leads to problems.

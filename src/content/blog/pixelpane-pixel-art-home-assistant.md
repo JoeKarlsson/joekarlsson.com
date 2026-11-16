@@ -13,6 +13,33 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: 'I said Home Assistant pushes data for every scene every 10 minutes, the clock included. It pushes the weather, music, meeting and homelab scenes.'
+marginNotes:
+  - type: 'exhibit'
+    at: 'The board itself goes back to 2020'
+    text: 'Where this panel started: audiences drew on their phones and it showed up on a 32x32 LED grid on stage.'
+    image: '/images/blog/building-a-real-time-digital-graffiti-wall/hero.webp'
+    alt: 'A 32 by 32 LED wall lighting up pixel by pixel as people draw a heart, a smiley face and the word HI'
+  - type: 'quote'
+    at: 'it paused manufacturing'
+    text: "We're taking a break from manufacturing"
+    by: 'Rohan Singh, Tidbyt, November 2024'
+    url: 'https://tidbyt.com/blogs/tidbyt/tidbyt-is-joining-modal'
+  - type: 'term'
+    at: 'The parts come to about'
+    text: "a board that plugs onto the Pi's GPIO pins. This one drives the LED panel so the Pi doesn't have to."
+    term: 'HAT'
+  - type: 'term'
+    at: "From the front it's a dark mirror"
+    text: 'acrylic with a thin reflective coating. With the lights off you see a mirror. When the LEDs behind it light up, they show through.'
+    term: 'Two-way mirror'
+  - type: 'see'
+    at: 'it can live on my IoT VLAN'
+    text: 'What the IoT VLAN is, and what it still lets through.'
+    post: 'homelab-two-years-later'
+  - type: 'see'
+    at: "when my work MacBook's camera turns on"
+    text: 'That covers calls. For recorded videos I say "I''m recording" and a separate mode powers up my rolling desk.'
+    post: 'recording-setup-tour'
 ---
 
 There's a black shadow box on the shelf next to my desk. Right now it's showing a pixel art pumpkin under a crescent moon, because it's October. When my camera turns on for a meeting it switches to a red ON AIR sign. When someone rings the doorbell it flashes yellow. Then it goes back to the pumpkin.

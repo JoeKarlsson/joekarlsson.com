@@ -13,6 +13,36 @@ updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
     note: "I removed two stats I couldn't back up: 40%+ word error rates in other languages, and 10-90% failure rates for voice announcements."
+marginNotes:
+  - type: 'update'
+    at: 'completely replacing my Amazon Alexa ecosystem'
+    text: 'There are four of them in the house now.'
+    date: 'Nov 2026'
+  - type: 'term'
+    at: 'XMOS audio processing'
+    text: 'the XU316 audio chip. It cancels echo, removes steady background noise and evens out volume before the device listens.'
+    term: 'XMOS'
+  - type: 'update'
+    at: 'custom wake words are on the roadmap'
+    text: "Since Home Assistant 2025.10, each satellite can run two wake words, each with its own pipeline. I haven't wired up a second one yet."
+    date: 'Oct 2025'
+  - type: 'update'
+    at: 'connecting my local Ollama LLM server'
+    text: 'The whole pipeline runs on a GPU in my rack now. Wake word to spoken reply takes 2-3 seconds, and the cloud only answers when Ollama is down.'
+    date: 'Apr 2026'
+  - type: 'quote'
+    at: 'Setup complexity remains prohibitive for mainstream users'
+    text: 'it is more likely to make me want to throw away this whole thing and light it on fire.'
+    by: 'swyx, Home Assistant Voice Preview is an unusable mess, January 2025'
+    url: 'https://www.swyx.io/home-assistant-struggles'
+  - type: 'update'
+    at: 'testing WiiM smart speakers'
+    text: 'A WiiM Pro plays music in my office now. It shows up in Home Assistant and plays from my own music server.'
+    date: 'Nov 2026'
+  - type: 'see'
+    at: 'handles my personal music collection beautifully'
+    text: 'Why I still find music on Apple Music and file the keepers into Navidrome by hand.'
+    post: 'self-hosted-music-still-sucks-in-2026'
 ---
 
 After five years of building automations in [Home Assistant](https://www.home-assistant.io/) (I wrote about [how I first got started with Home Assistant](/blog/how-to-get-started-with-home-assistant/) a while back), I finally pulled the trigger on something I’d been contemplating for months: completely replacing my Amazon Alexa ecosystem with Home Assistant’s Voice Preview Edition. Recent privacy changes from Amazon were the final straw, but what I discovered during this migration was both more challenging and more technically satisfying than I anticipated.

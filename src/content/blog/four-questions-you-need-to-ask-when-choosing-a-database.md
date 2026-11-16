@@ -9,6 +9,27 @@ heroImage: '/images/blog/four-questions-you-need-to-ask-when-choosing-a-database
 heroAlt: 'Rows of wooden library card catalog drawers'
 contentNotice: false
 tldr: 'Before picking a database, ask yourself four things: does it solve my actual problem, does it fit my tech stack, can my team learn it, and what will it cost as we scale? I give you the specific sub-questions for each.'
+marginNotes:
+  - type: 'term'
+    at: 'MySQL wire compatible'
+    text: "it speaks MySQL's network protocol, so MySQL drivers, clients and tools connect without changes."
+    term: 'Wire compatible'
+  - type: 'see'
+    at: 'when the application is mature'
+    text: "If it's more than one machine can hold: sharding vs. partitioning, and when sharding isn't worth it."
+    post: 'database-sharding-vs-partitioning-whats-the-difference'
+  - type: 'see'
+    at: 'Do you need to archive it?'
+    text: 'Archiving by a rule instead of a date, like moving inactive users, with Atlas Online Archive.'
+    post: 'how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive'
+  - type: 'see'
+    at: 'HIPAA, GDPR, CCPA'
+    text: 'One answer: encrypt fields like SSNs and medical records before they leave the app.'
+    post: 'how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js'
+  - type: 'see'
+    at: 'does it use a custom language'
+    text: "If your team speaks SQL and the database doesn't: my SQL-to-aggregation-pipeline cheat sheet."
+    post: 'mongodb-aggregation-pipeline-queries-vs-sql-queries'
 ---
 
 Are you overwhelmed by the sheer amount of databases on the market today, and not sure where to start? Let’s say that you are a Software Developer, and you need to select a database for a brand new application or maybe you need to figure out a database to replace and upgrade your legacy database. There are so many databases out there on the market today and they often promise to do it all or they perform niche functions. When picking your next database, it’s important to understand what problems you are attempting to solve, so you can pick one that will fit your needs today, as well as in the future. So, what should you be considering when you are choosing your next database? Well, I’m glad you asked, because I’m here to help you. There is no silver bullet for picking a database for your application. That’s why it’s important to dig into your current and future needs by asking yourself these four questions. Be sure that you are asking yourself, your team, and the business these questions when you are evaluating databases.

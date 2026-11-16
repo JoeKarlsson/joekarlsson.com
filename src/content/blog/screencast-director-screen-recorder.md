@@ -13,6 +13,26 @@ updatedDate: 2026-11-10
 corrections:
   - date: 2026-11-10
     note: 'I said your video and audio never leave your Mac. With Claude Code, a few still frames go to the model. Only a local model keeps everything on the machine.'
+marginNotes:
+  - type: 'see'
+    at: 'a model running on my own machine'
+    text: "The week before, I'd moved my default coding agent to OpenCode with open models through OpenRouter. The OpenAI-compatible option covers that route."
+    post: 'breaking-up-with-claude-code'
+  - type: 'exhibit'
+    at: 'Transcribe with any whisper.cpp model I install'
+    text: 'When I tested five for FollowSpot, every one kept up in real time on my M5 Max, and large-v3-turbo got 14 of my 16 tech terms right.'
+  - type: 'update'
+    at: 'Recordings and input logs stay on your Mac'
+    text: 'Corrected: I first wrote that your video and audio never leave your Mac. With Claude Code, a few still frames go to the model.'
+    date: 'Nov 10'
+  - type: 'see'
+    at: 'turns what you said into captions'
+    text: "I'd already been captioning my whole video library with Whisper on my homelab GPUs, with a filter for lines Whisper makes up."
+    post: 'building-a-gpu-accelerated-subtitle-generator'
+  - type: 'term'
+    at: 'macOS makes you click Open Anyway'
+    text: 'Apple scans an app sold outside the App Store and signs off on it. Without that, macOS blocks the first launch until you allow it.'
+    term: 'Notarizing'
 ---
 
 I don't mind writing a video. I don't even mind recording one. Editing is the part I hate. It means sitting there for hours after the fact, watching myself, scrubbing past every "um," every dead pause, every time I lost my cursor, and every take of a line I flubbed three times.

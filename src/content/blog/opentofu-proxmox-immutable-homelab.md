@@ -39,6 +39,36 @@ corrections:
     note: 'The comparison table said the old feedback loop took 2 minutes. The post says three, which is right.'
   - date: 2026-11-12
     note: 'The script showed `$${hostname}`, which escapes the substitution the post said happens. It was also missing the `sonarr` user, and its grep could grab the wrong release file.'
+marginNotes:
+  - type: 'quote'
+    at: 'rebuild it from scratch'
+    text: 'good for a ski resort, bad for a data center.'
+    by: 'Martin Fowler on servers set up by hand, Snowflake Server, 2012'
+    url: 'https://martinfowler.com/bliki/SnowflakeServer.html'
+  - type: 'update'
+    at: '41 health check scripts'
+    text: "It's 185 now: 153 shell checks on the Proxmox side and 32 Python checks for Home Assistant."
+    date: 'Oct 2026'
+  - type: 'term'
+    at: 'LXC containers'
+    text: "a Linux container that shares the host's kernel. It's lighter than a VM, so each service gets its own small OS without a VM's overhead."
+    term: 'LXC container'
+  - type: 'term'
+    at: 'is the state backend'
+    text: 'where OpenTofu keeps its record of everything it created. Every plan compares that record to what Proxmox reports. Lose it and OpenTofu forgets what it owns.'
+    term: 'State backend'
+  - type: 'see'
+    at: '62 service directories'
+    text: 'A real, trimmed main.tf, the Healthchecks container, is in my two-year homelab post.'
+    post: 'homelab-two-years-later'
+  - type: 'aside'
+    at: 'Drift is visible instead of silent'
+    text: "A drift check runs plan in every service directory every six hours. It can't see the Proxmox hosts themselves, which is how 31 CPU threads drifted without anyone noticing."
+  - type: 'quote'
+    at: 'maintenance mode'
+    text: 'THIS REPOSITORY IS NO LONGER MAINTAINED.'
+    by: "The first line of MinIO's README. GitHub archived the repo on April 25, 2026"
+    url: 'https://github.com/minio/minio'
 ---
 
 I was writing a health check script for one of my Proxmox containers - a service I'd been running for roughly two years, mostly without thinking about it. The check was simple: ping the API endpoint, verify the response, exit 0 if healthy.
