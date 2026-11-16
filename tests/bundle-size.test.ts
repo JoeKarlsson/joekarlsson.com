@@ -35,8 +35,9 @@ const THRESHOLDS = {
 	// A coverage run that day found no dead rules to cut (the unused share is spoilers, the
 	// lightbox, callouts and other states), and it's one stylesheet cached for a year.
 	// Raised to 22KB the same day (Joe's OK): the art book layout (spine, margin notes,
-	// chapter openers) took it to 20.1KB.
-	maxTotalCssGzip: 22 * 1024,
+	// chapter openers) took it to 20.1KB. Raised to 23KB on 2026-11-16 (Joe's OK): margin
+	// notes beyond citations (quotes, terms, updates, see-also cards) took it to 22.1KB.
+	maxTotalCssGzip: 23 * 1024,
 	// Total dist folder (includes images). Raised from 200MB on 2026-11-05 for the
 	// redesign's pink halftone of every post hero (7.5MB) and the homepage video,
 	// when dist sat at 199MB. Those halftones are now drawn live in the browser
@@ -144,7 +145,7 @@ describe('Bundle Size', () => {
 	});
 
 	describe('CSS bundles', () => {
-		it('total CSS is under 22KB gzipped', () => {
+		it('total CSS is under 23KB gzipped', () => {
 			const cssFiles = getFilesWithExtension(ASTRO_DIR, '.css').map((f) => ({
 				name: f.name,
 				size: gzipSync(readFileSync(join(ASTRO_DIR, f.name))).length,
