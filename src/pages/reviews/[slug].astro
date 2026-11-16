@@ -196,6 +196,22 @@ const mentions =
 			for (const attribute of ['role', 'tabindex', 'aria-pressed']) s.removeAttribute(attribute);
 		});
 	};
+	// A frame pair runs across the right margin on wide screens, unless it would slide under the
+	// credits floated there (global.css .beside-credits keeps it to the text). Floats don't push
+	// a wide block aside, so this is measured, not done in CSS
+	const credits = document.querySelector('.review-credits-margin');
+	const pairs = document.querySelectorAll<HTMLElement>('.prose figure.frame-pair');
+	const keepPairsClear = () => {
+		const creditsBottom = credits?.getBoundingClientRect().bottom ?? -Infinity;
+		for (const pair of pairs) {
+			pair.classList.toggle('beside-credits', pair.getBoundingClientRect().top < creditsBottom);
+		}
+	};
+	if (credits && pairs.length) {
+		keepPairsClear();
+		new ResizeObserver(keepPairsClear).observe(document.querySelector('.margin-column')!);
+	}
+
 	document.addEventListener('click', revealAll);
 	document.addEventListener('keydown', revealAll);
 	document.addEventListener('keyup', revealAll);

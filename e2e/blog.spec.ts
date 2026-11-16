@@ -231,3 +231,18 @@ test.describe('Individual Blog Post', () => {
 		expect(broken).toEqual([]);
 	});
 });
+
+test.describe('Film review frame pairs', () => {
+	test.use({ viewport: { width: 1440, height: 900 } });
+
+	test('an early frame pair keeps clear of the credits in the margin', async ({ page }) => {
+		await page.goto('/reviews/mutiny-2026/');
+		const credits = await page.locator('.review-credits-margin').boundingBox();
+		await expect(page.locator('figure.frame-pair').first()).toHaveClass(/beside-credits/);
+		for (const pair of await page.locator('figure.frame-pair').all()) {
+			const box = (await pair.boundingBox())!;
+			const overlaps = box.x + box.width > credits!.x && box.y < credits!.y + credits!.height;
+			expect(overlaps).toBe(false);
+		}
+	});
+});

@@ -399,7 +399,8 @@ pre.astro-code {
 	@apply mt-2.5 text-left leading-snug;
 }
 .prose .frame-pair-grid {
-	@apply grid gap-2;
+	/* Stacked, more room between frames than under a label, so a label reads as its frame's */
+	@apply grid gap-x-2 gap-y-5;
 }
 .prose .frame-pair img {
 	width: 100%;
@@ -418,9 +419,9 @@ pre.astro-code {
 		grid-template-columns: var(--pair-columns, 1fr 1fr);
 	}
 	.prose.wide-media > figure.frame-pair {
-		width: min(100cqw, calc(var(--reading-width) + 18rem));
+		width: min(100cqw, 856px);
 		max-width: none;
-		margin-inline: calc((100% - min(100cqw, calc(var(--reading-width) + 18rem))) / 2);
+		margin-inline: calc((100% - min(100cqw, 856px)) / 2);
 	}
 	.prose figure.frame-pair .frame-caption {
 		max-width: var(--reading-width);
@@ -917,7 +918,8 @@ header nav .sticker {
 		width: calc(100% + var(--margin-col));
 		margin-inline: 0;
 	}
-	.margin-column:has(> .margin-toc) .prose.wide-media > figure.frame-pair {
+	.margin-column:has(> .margin-toc) .prose.wide-media > figure.frame-pair,
+	.margin-column .prose.wide-media > figure.frame-pair.beside-credits {
 		width: 100%;
 	}
 	/* The masthead spans the text and the margin, so title, picture and text share one left
