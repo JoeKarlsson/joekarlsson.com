@@ -18,7 +18,7 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-weather-underground/
 poster: '/images/reviews/the-weather-underground/poster.webp'
 ---
 
-I’m treading carefully with this one given today’s political climate, but I really loved The Weather Underground. I found this after watching and loving One Battle After Another, and it covers the real-life events of radical Vietnam War-era political activists and the aftermath of their work.
+I’m treading carefully with this one given today’s political climate, but I really loved The Weather Underground. I found this after watching and loving [One Battle After Another](/reviews/one-battle-after-another/), and it covers the real-life events of radical Vietnam War-era political activists and the aftermath of their work.
 
 This feels like a documentary that shouldn’t be allowed to be aired. I learned a lot about the movement, what worked and what didn’t, and frankly found parts of it inspiring. But the most interesting aspect is watching them deal with the aftermath: going underground, hiding, paying the costs of their choices.
 

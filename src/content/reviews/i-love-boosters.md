@@ -29,11 +29,11 @@ heroImage: '/images/reviews/i-love-boosters/backdrop.webp'
 heroAlt: 'A still from I Love Boosters (2026)'
 ---
 
-Not since Sinners have I seen a movie so pro pussy eating.
+Not since [Sinners](/reviews/sinners-2025/) have I seen a movie so pro pussy eating.
 
-I love Boots Riley so much. For those unfamiliar, Riley is the frontman of The Coup, a communist hip-hop group from Oakland, and one of the only openly communist filmmakers working in American cinema right now. Sorry to Bother You was his directorial debut - a film that took years to get made because Hollywood doesn’t fund explicitly anti-capitalist work. In 2026, it’s still rare to see a wide release studio film with genuinely leftist politics. Not liberal. Leftist. I Love Boosters is that rare thing.
+I love Boots Riley so much. For those unfamiliar, Riley is the frontman of The Coup, a communist hip-hop group from Oakland, and one of the only openly communist filmmakers working in American cinema right now. [Sorry to Bother You](/reviews/sorry-to-bother-you/) was his directorial debut - a film that took years to get made because Hollywood doesn’t fund explicitly anti-capitalist work. In 2026, it’s still rare to see a wide release studio film with genuinely leftist politics. Not liberal. Leftist. I Love Boosters is that rare thing.
 
-This is a sprawling film that covers capitalism, fashion, race, community - a leftist heist movie with clear visual inspiration from Michel Gondry’s playbook. The surrealism, the handmade aesthetic, the way ideas become literal on screen. It reminded me of One Battle After Another - revolutionary Black women fighting back - but this is a more openly comedic, colorful, surreal version of that energy.
+This is a sprawling film that covers capitalism, fashion, race, community - a leftist heist movie with clear visual inspiration from Michel Gondry’s playbook. The surrealism, the handmade aesthetic, the way ideas become literal on screen. It reminded me of [One Battle After Another](/reviews/one-battle-after-another/) - revolutionary Black women fighting back - but this is a more openly comedic, colorful, surreal version of that energy.
 
 I will be seated for any Boots Riley film or show. I loved I’m a Virgo, loved Sorry to Bother You. I was ready for any strange zags that were gonna be thrown at me, and I’m so glad I was here for it. Soul sucking pussy succubuses, demons, vampires, walking claymation, muscle suits. This film is lowbrow and high ideal, with creative energy bursting out of the literal seams.
 

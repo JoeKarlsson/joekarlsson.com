@@ -39,7 +39,7 @@ This is a great prey vs. predator film, and it all clicked for me in the final a
 
 The theater was cracking up at parts, which surprised me. I wish I could put myself in the headspace of a 1955 audience, because reading reviews from the time, people treated this as a shocking horror nightmare with no value. They were so wrong. It's funny, it's scary, it's beautiful.
 
-References to this film are everywhere, and seeing the source material is electric. Spike Lee pulled the LOVE/HATE tattoo imagery directly for Do the Right Thing. The flowing hair and fairy tale darkness feels very Guillermo del Toro - Pan's Labyrinth owes something to this. Terrence Malick's golden hour pastoral shots echo the riverbank sequences. The Coen Brothers' Preacher in True Grit feels like a direct descendant of Mitchum's performance. Even Martin Scorsese's Cape Fear remake with De Niro draws heavily from Mitchum's menace here.
+References to this film are everywhere, and seeing the source material is electric. Spike Lee pulled the LOVE/HATE tattoo imagery directly for Do the Right Thing. The flowing hair and fairy tale darkness feels very Guillermo del Toro - Pan's Labyrinth owes something to this. Terrence Malick's golden hour pastoral shots echo the riverbank sequences. The Coen Brothers' Preacher in True Grit feels like a direct descendant of Mitchum's performance. Even Martin Scorsese's [Cape Fear](/reviews/cape-fear-1991/) remake with De Niro draws heavily from Mitchum's menace here.
 
 ![Two frames: Robert Mitchum's fist with HATE tattooed across the knuckles in The Night of the Hunter, and Radio Raheem holding his gold HATE rings up to the camera in Do the Right Thing.](/images/reviews/the-night-of-the-hunter/hate-and-hate.webp)
 

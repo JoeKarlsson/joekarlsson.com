@@ -29,7 +29,7 @@ heroAlt: 'A still from Straight to Hell (1987)'
 
 The Quick and the Dead did this so much better.
 
-As a massive fan of Repo Man - probably watched it twenty times in my life - I’m surprised I haven’t dug into Alex Cox’s other work until now. I didn’t even realize this was a Cox production until I noticed pretty much the entire cast of Repo Man reuniting. That was fun. The movie around them was not.
+As a massive fan of [Repo Man](/reviews/repo-man/) - probably watched it twenty times in my life - I’m surprised I haven’t dug into Alex Cox’s other work until now. I didn’t even realize this was a Cox production until I noticed pretty much the entire cast of Repo Man reuniting. That was fun. The movie around them was not.
 
 I found Straight to Hell pointless and meandering in a bad way. It felt like an excuse for a bunch of punks to party in the desert, which it probably was. Stuff actually happens in Repo Man. It has a point - something to say about society, youth, capitalism - all rolled into this Gonzo surrealist fantasy. This has none of that. It just vibes aimlessly.
 

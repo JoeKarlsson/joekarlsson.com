@@ -23,7 +23,7 @@ heroAlt: 'A still from Some Kind of Heaven (2020)'
 
 The Villages bills itself as the happiest place to retire in America. Oppenheim points a perfectly still camera at it and waits for the smiles to fall.
 
-I first saw Some Kind of Heaven in early 2021, deep in the worst of COVID, when a movie about old people sealed inside a gated bubble hit a little close. I went back to it last night because Primetime, Oppenheim's first narrative feature, is waiting for me tomorrow, and I wanted to remember what his eye looked like before Robert Pattinson got anywhere near it.
+I first saw Some Kind of Heaven in early 2021, deep in the worst of COVID, when a movie about old people sealed inside a gated bubble hit a little close. I went back to it last night because [Primetime](/reviews/primetime-2026/), Oppenheim's first narrative feature, is waiting for me tomorrow, and I wanted to remember what his eye looked like before Robert Pattinson got anywhere near it.
 
 It looks unreal. Every frame of The Villages is centered, symmetrical, and lit like a postcard someone is about to be sad in front of. David Bolen's camera barely moves, and Ari Balouzian's harp-heavy score sounds like it drifted in from a 1950s melodrama. I still don't understand how a nonfiction crew got images this controlled out of people who were just living their lives.
 

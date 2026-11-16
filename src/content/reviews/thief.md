@@ -24,7 +24,7 @@ What if capitalism wouldn’t let you live without accepting your own death? Hah
 
 This movie worked for me. I actually think I like this one more than Heat, which feels like heresy to say but here we are.
 
-Michael Mann’s style clicked for me here in a way it didn’t in Manhunter. The Tangerine Dream score worked so much better than it did in Manhunter or his later films - it enhances the mood without being distracting. I love the story and the characterization of Frank.
+Michael Mann’s style clicked for me here in a way it didn’t in [Manhunter](/reviews/manhunter/). The Tangerine Dream score worked so much better than it did in Manhunter or his later films - it enhances the mood without being distracting. I love the story and the characterization of Frank.
 
 But was Willie Nelson given the best performance in the entire movie? Maybe. I could use way more Willie Nelson - I didn’t know he was such an incredible actor. The opening heist and the heist at the beginning of the third act are both incredible. I love how highly technical Michael Mann is here, and I feel like heist movies are where he really shines. You can see his research and commitment to showing how things are actually done by criminals in this era.
 

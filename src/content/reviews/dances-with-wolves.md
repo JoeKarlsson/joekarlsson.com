@@ -44,6 +44,6 @@ But if I’m being completely honest about why I connected with this so much: I 
 ![A mule-drawn supply wagon crossing sun-bleached badlands under a wide sky.](/images/reviews/dances-with-wolves/the-frontier.webp)
 _The frontier._
 
-So despite the film’s politics not aging particularly well, I am a fan of this movie - especially when I compare it to The Last of the Mohicans, which I just watched. That film had better action sequences, sure, but I was so much more turned off by and bored by it. Dances with Wolves works so much better for me on almost every level.
+So despite the film’s politics not aging particularly well, I am a fan of this movie - especially when I compare it to [The Last of the Mohicans](/reviews/the-last-of-the-mohicans-1992/), which I just watched. That film had better action sequences, sure, but I was so much more turned off by and bored by it. Dances with Wolves works so much better for me on almost every level.
 
 I guess what I’m saying is: I just think I’m a Kevin Costner guy, and I gotta go see the Horizon saga now.

@@ -22,7 +22,7 @@ heroAlt: 'A still from Manhunter (1986)'
 
 Manhunter feels like an aquarium trapped in time from 1986. It's slick and cool and undeniably aesthetic, really capturing the essence of an era - but I don't think I want it in my house.
 
-The first 30 minutes were wonderful and I was genuinely shocked by the violence. But this movie is really slow. It's clearly going for a process-driven approach, but I just enjoy movies like Zodiac or No Country for Old Men more. I feel like they could have tightened up the editing quite a bit.
+The first 30 minutes were wonderful and I was genuinely shocked by the violence. But this movie is really slow. It's clearly going for a process-driven approach, but I just enjoy movies like [Zodiac](/reviews/zodiac/) or No Country for Old Men more. I feel like they could have tightened up the editing quite a bit.
 
 Brian Cox was wonderful as Hannibal Lecter. His performance has more of a tinge of menace - I could actually feel the violent man within him. Hopkins plays Lecter so much kinder before he's ripping faces off, which is strange by comparison. I really enjoyed Cox's take a lot.
 

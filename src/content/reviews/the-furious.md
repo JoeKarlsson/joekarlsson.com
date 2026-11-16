@@ -19,4 +19,4 @@ heroImage: '/images/reviews/the-furious/backdrop.webp'
 heroAlt: 'A still from The Furious (2025)'
 ---
 
-This movie is the exact same and also the complete opposite as Lynne Ramsay’s You Were Never Really Here. And, I’m obsessed with both.
+This movie is the exact same and also the complete opposite as Lynne Ramsay’s [You Were Never Really Here](/reviews/you-were-never-really-here/). And, I’m obsessed with both.

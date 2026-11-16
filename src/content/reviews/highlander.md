@@ -33,7 +33,7 @@ Initial thoughts: this is a beautiful movie with some really fun special effects
 
 The Queen music is a shot of adrenaline straight into the film's veins. Sean Connery showing up for 10 minutes, making a massive paycheck, and then dipping out was great. It's roles like this that really showcase his presence - he deserved every penny for just hanging out. But can I just say it's absolutely crazy to cast a Scottish person as an Egyptian Spaniard in the Scottish Highlands and not have him play a Scottish person? Someone really needs to sit me down and explain the production thought process on that one.
 
-I know Christopher Lambert most notably from the Mortal Kombat movies, so it was fun to see him in the role that made him famous first. He's such a strange looking man. He looks like a Neanderthal sometimes and sometimes he looks like the most handsome man I've ever seen. I haven't quite figured out his face, and I think it's the movie's crazy lighting that really makes him transform.
+I know Christopher Lambert most notably from the [Mortal Kombat](/reviews/mortal-kombat/) movies, so it was fun to see him in the role that made him famous first. He's such a strange looking man. He looks like a Neanderthal sometimes and sometimes he looks like the most handsome man I've ever seen. I haven't quite figured out his face, and I think it's the movie's crazy lighting that really makes him transform.
 
 Some of the special effects were incredible - the sparking swords, the hand-drawn animation of the final quickening. Gorgeous stuff.
 

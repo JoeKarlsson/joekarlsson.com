@@ -37,6 +37,6 @@ But it felt like I was unraveling riddles the entire film. It was hard for me to
 
 Also, I just don’t connect with movies about people struggling with being famous. I’m sorry. I don’t care. Rich famous people problems rarely work for me, and this falls in that camp. It just doesn’t land.
 
-That said, the fantastical imagery is captivating. It reminded me of Crimson Peak - that Guillermo del Toro gothic mansion movie. Very similar energy with the dark, rainy, wet atmosphere and these red ghosts haunting the film. That part I loved.
+That said, the fantastical imagery is captivating. It reminded me of [Crimson Peak](/reviews/crimson-peak/) - that Guillermo del Toro gothic mansion movie. Very similar energy with the dark, rainy, wet atmosphere and these red ghosts haunting the film. That part I loved.
 
 I liked the first half more than the second, which surprised me in retrospect. But that’s just how it played.

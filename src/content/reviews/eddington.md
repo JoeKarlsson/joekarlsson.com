@@ -27,6 +27,6 @@ heroImage: '/images/reviews/eddington/backdrop.webp'
 heroAlt: 'A still from Eddington (2025)'
 ---
 
-Once again, Ari Aster her brings all of our anxieties to life in the 2nd Post-Woke film of the summer (Superman was the first).
+Once again, Ari Aster her brings all of our anxieties to life in the 2nd Post-Woke film of the summer ([Superman](/reviews/superman-2025/) was the first).
 
 Also - Jacob Frey is in this thing?!?!?!?!

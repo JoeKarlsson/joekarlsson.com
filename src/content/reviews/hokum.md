@@ -37,10 +37,10 @@ heroAlt: 'A still from Hokum (2026)'
 
 A tight, well-plotted whodunit that also made me scream.
 
-Hokum is a little bit Barton Fink, a little bit The Shining, some 1408, mixed with Irish folklore. It’s really well paced, an interesting whodunit that’s so tightly plotted and well edited. The ending was satisfying - it actually sticks the landing, which horror so often fumbles.
+Hokum is a little bit [Barton Fink](/reviews/barton-fink/), a little bit [The Shining](/reviews/the-shining/), some 1408, mixed with Irish folklore. It’s really well paced, an interesting whodunit that’s so tightly plotted and well edited. The ending was satisfying - it actually sticks the landing, which horror so often fumbles.
 
 It’s so refreshing to see Adam Scott play an asshole for once. He’s great at warmth and likability, but watching him be a dick for 90 minutes? That’s a treat.
 
-I’ve seen Oddity and I liked this more, actually. Same vibe of elevated Irish horror, but this one worked better for me.
+I’ve seen [Oddity](/reviews/oddity-2024/) and I liked this more, actually. Same vibe of elevated Irish horror, but this one worked better for me.
 
 The movie killed in the theater. People were gasping, shrieking, laughing. That’s horror done right.

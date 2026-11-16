@@ -32,7 +32,7 @@ I didn't even know he was in this. I put Silver Bullet on for Halloween to get r
 
 Seeing a reverend, a man of the cloth, try to run over a disabled kid in a wheelchair is so fucking funny, and Everett McGill plays Reverend Lowe completely straight, which makes it funnier. Marty's sister Jane (Megan Follows) asks, "Well, what are we gonna do?" Marty says, "I think I know," and it cuts to him writing the reverend telling him to "kill himself."
 
-I think coked-out schlock King is my favorite version of King. He wrote this the year before Maximum Overdrive, the one he's said he was coked out of his mind for.
+I think coked-out schlock King is my favorite version of King. He wrote this the year before [Maximum Overdrive](/reviews/maximum-overdrive/), the one he's said he was coked out of his mind for.
 
 The effects looked terrible. I loved them. King wanted a werewolf you could barely see, and the suit they ended up with looks like a black bear having a bad night. People call it the werebear.
 

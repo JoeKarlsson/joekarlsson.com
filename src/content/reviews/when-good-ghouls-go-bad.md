@@ -41,4 +41,4 @@ Christopher Lloyd is giving an incredible performance here, even though it's jus
 
 What shocked me most on this rewatch is that they made child suicide a main plot point of the film. That's a bold choice for a kids' Halloween movie, but they actually handle it surprisingly well. It deals with grief in a way kids can follow, and it doesn't sugarcoat it. It's weird and thoughtful in ways you don't expect from something like this.
 
-It's great cozy Halloween comfort viewing. That said, my favorite cozy Halloween movie of the year was The Worst Witch - definitely check that one out if you like this one.
+It's great cozy Halloween comfort viewing. That said, my favorite cozy Halloween movie of the year was [The Worst Witch](/reviews/the-worst-witch/) - definitely check that one out if you like this one.

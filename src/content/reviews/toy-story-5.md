@@ -21,7 +21,7 @@ heroAlt: 'A still from Toy Story 5 (2026)'
 
 The theme for kids (and adults): get off your fucking iPads and get outside.
 
-Saw this in a theater full of kids and their parents. I'm not really sure this is a kids movie. The kids weren't laughing or screaming or dancing like when I saw Zootopia 2. But the parents were chuckling the whole time, because the main theme is for them - letting your children grow up and develop. You don't get to decide when they get to grow up. They get to decide.
+Saw this in a theater full of kids and their parents. I'm not really sure this is a kids movie. The kids weren't laughing or screaming or dancing like when I saw [Zootopia 2](/reviews/zootopia-2/). But the parents were chuckling the whole time, because the main theme is for them - letting your children grow up and develop. You don't get to decide when they get to grow up. They get to decide.
 
 The secondary theme, aimed at the kids, is get off your fucking iPads and get outside. It hammers this home over and over again. I think most children will pick up on it.
 

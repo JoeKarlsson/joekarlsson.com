@@ -29,7 +29,7 @@ heroAlt: 'A still from Grumpier Old Men (1995)'
 
 Grumpier, yes. Better, no.
 
-It's honestly crazy that Grumpy Old Men popped off enough to warrant a sequel, but here we are. First impressions: I love the first one more. It's funnier, more well-written, and isn't as overstuffed and bloated as this one. The original had a simplicity to it - two guys, decades of grudges, one woman, ice fishing. This one throws in a wedding plot, Sophia Loren, more family drama, and loses the thread somewhere along the way.
+It's honestly crazy that [Grumpy Old Men](/reviews/grumpy-old-men/) popped off enough to warrant a sequel, but here we are. First impressions: I love the first one more. It's funnier, more well-written, and isn't as overstuffed and bloated as this one. The original had a simplicity to it - two guys, decades of grudges, one woman, ice fishing. This one throws in a wedding plot, Sophia Loren, more family drama, and loses the thread somewhere along the way.
 
 More importantly, the first one captures Minnesota better. You could tell it was filmed in Saint Paul, Stillwater, Wabasha - places I know, places that felt real. The frozen lakes, the bundled-up conversations, the specific texture of winter here. The sequel has Minnesota in it, technically, but it doesn't feel as rooted. It's more Hollywood-ized, less specific. The geography gets vague. The details that made the first one feel like home aren't as sharp.
 

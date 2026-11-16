@@ -35,7 +35,7 @@ heroAlt: 'A still from Bringing Out the Dead (1999)'
 
 Scorsese made two hours about Catholic guilt, and I'm the one who walked out feeling like I'd done penance.
 
-I came to this one straight from Kundun. The whiplash was wild: one religion's slow, still meditation, then another's screaming ambulance tearing through Hell's Kitchen.
+I came to this one straight from [Kundun](/reviews/kundun/). The whiplash was wild: one religion's slow, still meditation, then another's screaming ambulance tearing through Hell's Kitchen.
 
 Bringing Out the Dead is a super Catholic movie. Even the hospital is named for the Virgin Mary.
 
@@ -47,7 +47,7 @@ Nicolas Cage plays Frank Pierce, a burned-out paramedic working three night shif
 
 Faith and guilt are the parts of Scorsese I've always struggled to connect with, and here I just don't care. Guilt isn't something I think about, and it isn't something I think is important. From the outside, the guilt Catholics are raised with looks like an undue mental burden, put there to scare people into staying faithful to the church and to God, and to keep the donations coming.
 
-Take away the guilt and the night is just After Hours again. Same manic, New-York-as-purgatory energy, same guy who can't get out of the city until morning, but longer, more repetitive, less funny, and missing the existential philosophy of After Hours that I fucking loved.
+Take away the guilt and the night is just [After Hours](/reviews/after-hours/) again. Same manic, New-York-as-purgatory energy, same guy who can't get out of the city until morning, but longer, more repetitive, less funny, and missing the existential philosophy of After Hours that I fucking loved.
 
 ![Two frames: Griffin Dunne soaked and lost on a rainy street in After Hours, then Nicolas Cage behind a rain-streaked ambulance window.](/images/reviews/bringing-out-the-dead/after-hours-again.webp)
 

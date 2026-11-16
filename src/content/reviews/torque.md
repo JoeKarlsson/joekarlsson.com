@@ -21,7 +21,7 @@ heroAlt: 'A still from Torque (2004)'
 
 Wild that this movie dunks on Fast and Furious while being the same thing but with motorcycles. I wanted to absolutely love this movie. It kind of worked for me - just not as well as I hoped.
 
-Torque is incredibly shot and directed. The whole thing looks like an early 2000s music video - it reminded me of the Charlie's Angels reboot in its maximalist, stylized chaos. The stunts are incredible, the movie fucking rips, and at only 80 minutes it does not stop the entire time. The plot is mostly incomprehensible and insane, which I think is the point.
+Torque is incredibly shot and directed. The whole thing looks like an early 2000s music video - it reminded me of the [Charlie's Angels](/reviews/charlies-angels/) reboot in its maximalist, stylized chaos. The stunts are incredible, the movie fucking rips, and at only 80 minutes it does not stop the entire time. The plot is mostly incomprehensible and insane, which I think is the point.
 
 Adam Scott showing up was a complete surprise. He's very funny in this. I loved him.
 

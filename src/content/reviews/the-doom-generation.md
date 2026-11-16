@@ -28,9 +28,9 @@ heroImage: '/images/reviews/the-doom-generation/backdrop.webp'
 heroAlt: 'A still from The Doom Generation (1995)'
 ---
 
-Y Tu Mamá También with neon, road rage, and a body count.
+[Y Tu Mamá También](/reviews/y-tu-mama-tambien/) with neon, road rage, and a body count.
 
-I watched this to prep for I Want Your Sex, my only prior Araki being Nowhere, which I remember as gorgeous and horny and gay. That's the house style. But the "heterosexual movie" card isn't only the marketing Araki slapped on to get funded. It's literally accurate, and that's the whole point. No gay sex ever actually happens here. Jordan and Xavier spend the entire runtime inches apart, gazing, orbiting, aching, and they never land it. Their looks penetrate deeper than the penis ever could, but the fluids only ever pass between man and woman. A straight world does not let these two touch, so onscreen, they don't.
+I watched this to prep for [I Want Your Sex](/reviews/i-want-your-sex/), my only prior Araki being [Nowhere](/reviews/nowhere/), which I remember as gorgeous and horny and gay. That's the house style. But the "heterosexual movie" card isn't only the marketing Araki slapped on to get funded. It's literally accurate, and that's the whole point. No gay sex ever actually happens here. Jordan and Xavier spend the entire runtime inches apart, gazing, orbiting, aching, and they never land it. Their looks penetrate deeper than the penis ever could, but the fluids only ever pass between man and woman. A straight world does not let these two touch, so onscreen, they don't.
 
 I'm bisexual, and I will take a self-destructive bi man onscreen over no bi man onscreen every single time. Jordan reads so clearly as one of us: fine with his girlfriend, undone the second X walks into frame, not opposed to being with a man so much as unsure what it would even mean. Watching him is the specific ache of recognizing yourself in someone the movie is about to punish. And punish him it does. ||The instant the three finally connect, Araki answers with strobe lights, neo-Nazis, and garden shears.|| What enrages the skinheads most isn't that Amy's with two men, it's that the men are into each other. The violence is aimed with precision at the exact thing the title card swore wouldn't happen.
 

@@ -29,7 +29,7 @@ heroAlt: 'A still from Con Air (1997)'
 
 I've been on an absolute Jerry Bruckheimer tear the last couple weeks, and after binging his entire catalog consecutively, the formula is crystal clear: you need a kind, weird, misunderstood white guy who gets prosecuted and becomes the underdog. But he's also secretly a terminator who's incredibly smart, funny, strong, and ultimately wins the day in the most patriotic way possible. Every. Single. Time.
 
-Con Air is probably the Bruckheimer movie I've seen the most, and it's wild that Nicolas Cage became the vehicle for this formula before it eventually evolved into Johnny Depp. I can see the progression from The Rock, but it's still just... weird, you know?
+Con Air is probably the Bruckheimer movie I've seen the most, and it's wild that Nicolas Cage became the vehicle for this formula before it eventually evolved into Johnny Depp. I can see the progression from [The Rock](/reviews/the-rock/), but it's still just... weird, you know?
 
 These movies have an air of sexism and racism that they absolutely think they don't have. Some jokes and moments haven't aged well at all, but that comes with the territory of 90s action movies. And yet - god damn it - I still have such a sweet spot for this stupid, fun movie. The entire cast is clearly having an absolute blast hanging out in that weird airplane set, and I love that for them.
 

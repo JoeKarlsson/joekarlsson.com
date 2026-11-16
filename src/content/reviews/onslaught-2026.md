@@ -30,7 +30,7 @@ heroAlt: 'A still from Onslaught (2026)'
 
 The onslaught in Onslaught shows up late and leaves early.
 
-Adam Wingard and Simon Barrett are back with a great B movie setup: a desert trailer park, a former Army sniper (Adria Arjona) raising her daughter, and a squad of genetically engineered super soldiers who break out of the secret government lab next door. Wingard clearly has Assault on Precinct 13 on the brain, and casting Michael Biehn is a nice treat for anyone who grew up renting The Terminator and Aliens.
+Adam Wingard and Simon Barrett are back with a great B movie setup: a desert trailer park, a former Army sniper (Adria Arjona) raising her daughter, and a squad of genetically engineered super soldiers who break out of the secret government lab next door. Wingard clearly has [Assault on Precinct 13](/reviews/assault-on-precinct-13/) on the brain, and casting Michael Biehn is a nice treat for anyone who grew up renting [The Terminator](/reviews/the-terminator/) and Aliens.
 
 And it looks fantastic. The night exteriors are the best thing in the movie, with the fog machines running at full blast and the trailer park lit up in that hazy, colored 1980s glow. Wingard has said this was a cheap shoot by today's standards. You'd never know it from the frame.
 

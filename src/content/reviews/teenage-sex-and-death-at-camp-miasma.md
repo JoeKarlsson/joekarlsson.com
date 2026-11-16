@@ -31,12 +31,12 @@ Overstuffed, messy, horny, and somehow made just for me.
 
 Jane Schoenbrun made a slasher about the exact questions I've been turning over in my own life this year, then had the decency to make it a blast.
 
-Her first two films were morose, gorgeous, desperate little cries to come out and be yourself. This one already is out, and it's having a great time. It's exuberant. It's horny. It opens on a blood geyser so gleeful I laughed out loud, and it never stops being about the same thing underneath: finding your pleasure, getting back into your own body, chasing what actually lights you up, even if what lights you up is being hunted through the woods in an 80s slasher. Coming to this off a long queer-film binge, a lot of Araki lately, it scratched the same itch I Want Your Sex did. Go find what you want and stop apologizing for it. I needed to hear it.
+Her first two films were morose, gorgeous, desperate little cries to come out and be yourself. This one already is out, and it's having a great time. It's exuberant. It's horny. It opens on a blood geyser so gleeful I laughed out loud, and it never stops being about the same thing underneath: finding your pleasure, getting back into your own body, chasing what actually lights you up, even if what lights you up is being hunted through the woods in an 80s slasher. Coming to this off a long queer-film binge, a lot of Araki lately, it scratched the same itch [I Want Your Sex](/reviews/i-want-your-sex/) did. Go find what you want and stop apologizing for it. I needed to hear it.
 
 ![A red geyser of blood shooting up out of a dark, empty field at night.](/images/reviews/teenage-sex-and-death-at-camp-miasma/blood-geyser.webp)
 _Two minutes in._
 
-Nobody here gets punished for their desire. ||The queer women live.|| Cinema loves to make women and queers pay in blood for wanting pleasure, and Schoenbrun just refuses, letting them want and then survive the wanting, the way The Handmaiden did.
+Nobody here gets punished for their desire. ||The queer women live.|| Cinema loves to make women and queers pay in blood for wanting pleasure, and Schoenbrun just refuses, letting them want and then survive the wanting, the way [The Handmaiden](/reviews/the-handmaiden/) did.
 
 And Little Death is an instant horror icon. The masked, spear-wielding vengeful ghost at the center of the fictional franchise looks like what you'd get if Pyramid Head and Jason Voorhees had a baby in a Silent Hill parking lot, and the central kill run at the camp is one of the best sequences of the year, all squishy Foley and go-for-broke splatter. The whole movie has that handmade Lynch quality where the cheapness becomes the dream. Matte paintings, charming garbage effects, a budget held together with love, all of it chasing a feeling instead of accuracy.
 
@@ -61,4 +61,4 @@ Stray thoughts:
 ・The final end-credits song, on the other hand, absolutely rips.
 Gillian Anderson is making enormous vocal choices, some Southern-but-not-quite-Norma-Desmond thing that never pays off as character, and she's still magnetic, ravenous, coming gorgeously apart.
 ・Give me an entire Thor spinoff. The poly bi boyfriend deserves his own franchise.
-・Overstuffed the way I Love Boosters was this year, and I loved both for having too much to say and no room to say it.
+・Overstuffed the way [I Love Boosters](/reviews/i-love-boosters/) was this year, and I loved both for having too much to say and no room to say it.

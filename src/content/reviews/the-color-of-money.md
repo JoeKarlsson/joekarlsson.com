@@ -27,4 +27,4 @@ heroImage: '/images/reviews/the-color-of-money/backdrop.webp'
 heroAlt: 'A still from The Color of Money (1986)'
 ---
 
-Answers the question, what if John Wick and Marty Supreme had a baby?
+Answers the question, what if John Wick and [Marty Supreme](/reviews/marty-supreme/) had a baby?

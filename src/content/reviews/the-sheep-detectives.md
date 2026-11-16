@@ -29,7 +29,7 @@ heroAlt: 'A still from The Sheep Detectives (2026)'
 
 Paddington fans, assemble.
 
-I was predisposed to loving this. I'm a Paddington guy, I'm a Puss in Boots: The Last Wish guy, and the early buzz had me primed. So take this with the appropriate grain of salt. But god, this hit.
+I was predisposed to loving this. I'm a Paddington guy, I'm a [Puss in Boots: The Last Wish](/reviews/puss-in-boots-the-last-wish/) guy, and the early buzz had me primed. So take this with the appropriate grain of salt. But god, this hit.
 
 It's just such a solid, fun, touching family film in a way that honestly feels like a movie they would have made in the 90s. I was shocked at how deep it goes. Like, genuinely existential. The stuff it has to say about loss and sitting in painful memories and not running from grief is way more thoughtful than I had any right to expect from a movie with a sheep on the poster. I cried for two hours straight. Just openly weeping in the theater at a cartoon sheep. This is near-masterpiece territory for me.
 

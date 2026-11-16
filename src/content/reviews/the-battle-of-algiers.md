@@ -42,6 +42,6 @@ I'm going to have to come back and expand on this review even more in the future
 ![A huge crowd of Algerians flooding a wide street, seen from above, white flags and headscarves everywhere.](/images/reviews/the-battle-of-algiers/the-streets.webp 'spoiler')
 _The streets, ||at the end||._
 
-I came to this movie after watching One Battle After Another - it's the film Leo is watching on TV in that movie. It makes total sense why PTA chose The Battle of Algiers to show in One Battle. It's incredible and totally underscores the themes of that film as well. Both are about the costs of revolution, the complexity of resistance, the impossible choices people face when fighting for liberation, and what it means to sacrifice everything for a better world you might not live to see.
+I came to this movie after watching [One Battle After Another](/reviews/one-battle-after-another/) - it's the film Leo is watching on TV in that movie. It makes total sense why PTA chose The Battle of Algiers to show in One Battle. It's incredible and totally underscores the themes of that film as well. Both are about the costs of revolution, the complexity of resistance, the impossible choices people face when fighting for liberation, and what it means to sacrifice everything for a better world you might not live to see.
 
 I love this movie so much, and I think everyone should sit with how uncomfortable and necessary it is.

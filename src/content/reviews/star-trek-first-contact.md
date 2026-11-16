@@ -27,6 +27,6 @@ heroImage: '/images/reviews/star-trek-first-contact/backdrop.webp'
 heroAlt: 'A still from Star Trek: First Contact (1996)'
 ---
 
-Frakes really directed the shit out of this movie. It looks incredible, and I’d even go so far to say that the aesthetics of the Borg in this film directly influenced the look of the real world in The Matrix.
+Frakes really directed the shit out of this movie. It looks incredible, and I’d even go so far to say that the aesthetics of the Borg in this film directly influenced the look of the real world in [The Matrix](/reviews/the-matrix/).
 
 I had so much fun watching this, and I will for sure be watching this again someday. I’m a TNG and DS9 guy, so this was a perfect balance for me. The later TNG films feel too action heavy for no reason at all. But this one had fun action sequences, great special effects and heady philosophical concepts about what it means to be human.

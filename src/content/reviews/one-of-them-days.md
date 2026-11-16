@@ -19,4 +19,4 @@ heroImage: '/images/reviews/one-of-them-days/backdrop.webp'
 heroAlt: 'A still from One of Them Days (2025)'
 ---
 
-They don't make movies like this anymore. Super fun mid budget buddy comedy. I had more fun watching this than Paddington in Peru.
+They don't make movies like this anymore. Super fun mid budget buddy comedy. I had more fun watching this than [Paddington in Peru](/reviews/paddington-in-peru/).

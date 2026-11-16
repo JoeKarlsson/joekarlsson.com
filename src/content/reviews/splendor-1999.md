@@ -35,7 +35,7 @@ This is Araki in full screwball mode, a giddy 30s throwback that plays like a ve
 ![Veronica on a green couch between Abel and Zed, in a pink top, the three of them squeezed together.](/images/reviews/splendor-1999/the-triad.webp)
 _Veronica, Abel and Zed._
 
-And god, it's beautiful. This is peak Araki, the color stunning and genuinely innovative, candy light and adorable outfits and a frame that glows, exactly the look he'd lose by the time he got to the flat fluorescent I Want Your Sex almost thirty years later. The dialogue, on the other hand, is not good, all campy-porno stilt, but that's the mode, and half the fun is watching him shove at what a movie in '99 could get away with. He has never once tried to be respectable, thank god.
+And god, it's beautiful. This is peak Araki, the color stunning and genuinely innovative, candy light and adorable outfits and a frame that glows, exactly the look he'd lose by the time he got to the flat fluorescent [I Want Your Sex](/reviews/i-want-your-sex/) almost thirty years later. The dialogue, on the other hand, is not good, all campy-porno stilt, but that's the mode, and half the fun is watching him shove at what a movie in '99 could get away with. He has never once tried to be respectable, thank god.
 
 I owe Zed an apology. He walks in looking like the dumbest man alive and turns out to be the sweet, dopey heart of the entire thing. Keeslar steals every scene he's in, and I fell for him exactly the way the movie wanted me to.
 

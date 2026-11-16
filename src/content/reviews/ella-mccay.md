@@ -31,6 +31,6 @@ This feels like a nearly four hour long neoliberal fever dream that asks us to f
 
 Ella McKay is about a good but flawed woman trying to make change in a corrupt system. The plot is simple. The screenplay is needlessly complicated - insane flashbacks, fractured timelines, narrative detours that add nothing. There is no way in fucking hell this movie warranted a runtime that feels like three and a half hours.
 
-I did find it sweet how throwbacky it felt. It made me yearn for those days, and I do love James L. Brooks's early work - Terms of Endearment, Broadcast News, the stuff that had heart and edge in equal measure. But this is late Brooks. This is a well-meaning 85-year-old man who's amassed an ungodly amount of money, looking down upon us from on high and saying "It's okay, the system works, right?"
+I did find it sweet how throwbacky it felt. It made me yearn for those days, and I do love James L. Brooks's early work - [Terms of Endearment](/reviews/terms-of-endearment/), [Broadcast News](/reviews/broadcast-news/), the stuff that had heart and edge in equal measure. But this is late Brooks. This is a well-meaning 85-year-old man who's amassed an ungodly amount of money, looking down upon us from on high and saying "It's okay, the system works, right?"
 
 It doesn't. And this was a tough watch.

@@ -39,7 +39,7 @@ Cooper Hoffman and Olivia Wilde are the glue, both giving genuinely naked, vulne
 
 Now my hot take. The film frames the whole thing as workplace sexual harassment, and the only part of the Erika and Elliot dynamic that actually bothered me was that she was his boss. He's 23, an adult, and he affirms it over and over. It was absolutely an abusive relationship and he was also clearly getting something profound out of it, so my issue was the professional overstep, not the age.
 
-Past that, this isn't my favorite Araki. After bingeing Nowhere and The Doom Generation to prep, it stings how flat this looks, shot like a TV show with a few inspired flashes and the neon-soaked shadows of his 90s work almost entirely gone. It really is his most mainstream movie to date. I don't fully get the ending either. And it is wildly heavy-handed, and I do not care even a little.
+Past that, this isn't my favorite Araki. After bingeing [Nowhere](/reviews/nowhere/) and [The Doom Generation](/reviews/the-doom-generation/) to prep, it stings how flat this looks, shot like a TV show with a few inspired flashes and the neon-soaked shadows of his 90s work almost entirely gone. It really is his most mainstream movie to date. I don't fully get the ending either. And it is wildly heavy-handed, and I do not care even a little.
 
 ![Two frames: a magenta-lit party scene from Nowhere (1997), then Olivia Wilde and Cooper Hoffman on a white couch in flat daylight in I Want Your Sex.](/images/reviews/i-want-your-sex/nowhere-vs-now.webp)
 _Nowhere in 1997, I Want Your Sex in 2026._

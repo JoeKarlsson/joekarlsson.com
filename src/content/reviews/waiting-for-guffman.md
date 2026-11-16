@@ -27,4 +27,4 @@ heroImage: '/images/reviews/waiting-for-guffman/backdrop.webp'
 heroAlt: 'A still from Waiting for Guffman (1996)'
 ---
 
-Not my favorite Christopher Guest film, but i had to rewatch it after watching Theater Camp.
+Not my favorite Christopher Guest film, but i had to rewatch it after watching [Theater Camp](/reviews/theater-camp-2023-1/).

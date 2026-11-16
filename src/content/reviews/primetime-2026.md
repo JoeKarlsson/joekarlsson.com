@@ -29,7 +29,7 @@ heroAlt: 'A still from Primetime (2026)'
 
 Robert Pattinson's 2026 has been one long argument that he's the best creep in Hollywood
 
-Lance Oppenheim has made a career out of filming people who live inside a fantasy they built for themselves, from the retirees of The Villages in Some Kind of Heaven to the donors of Spermworld. Primetime is his first narrative feature, and it arrives the same month as You Can See Everything, his Elizabeth Holmes documentary with Nathan Fielder. Together they make a strange little double feature about hapless, power-hungry people who want money and influence and will lie to anyone standing between them and it. Oppenheim seems fixated right now on the point where a performance eats the person giving it.
+Lance Oppenheim has made a career out of filming people who live inside a fantasy they built for themselves, from the retirees of The Villages in [Some Kind of Heaven](/reviews/some-kind-of-heaven/) to the donors of Spermworld. Primetime is his first narrative feature, and it arrives the same month as [You Can See Everything](/reviews/you-can-see-everything/), his Elizabeth Holmes documentary with Nathan Fielder. Together they make a strange little double feature about hapless, power-hungry people who want money and influence and will lie to anyone standing between them and it. Oppenheim seems fixated right now on the point where a performance eats the person giving it.
 
 Robert Pattinson makes that point visible.
 

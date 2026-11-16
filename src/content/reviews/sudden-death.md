@@ -41,6 +41,6 @@ The most unintentionally hilarious part? For a Stanley Cup Finals game - literal
 
 What the movie mostly involves is JCVD running around empty back rooms and hallways, building improvised guns out of random materials, and punching people in the throats. Which, to be fair, is kind of fun in that mid-90s direct-to-video action movie way, even though this actually got a theatrical release.
 
-I have to say though, I prefer Timecop over this movie any day of the week. That one at least commits to its bonkers premise and has more memorable set pieces. This just feels like a pale imitation of better action movies that came before it.
+I have to say though, I prefer [Timecop](/reviews/timecop/) over this movie any day of the week. That one at least commits to its bonkers premise and has more memorable set pieces. This just feels like a pale imitation of better action movies that came before it.
 
 Still kind of fun if you're in the mood for dumb 90s action, but it's nowhere near JCVD's best work.

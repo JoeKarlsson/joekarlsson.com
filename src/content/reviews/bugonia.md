@@ -40,7 +40,7 @@ This movie is an absolute tragedy, and I thought it was masterful how it made me
 
 I also loved the ending. It was my desired outcome going into it, and I loved watching it go completely off the rails.
 
-This is a bleak film, but I think it stays true to the moment and works perfectly as part of a thematic triple feature alongside Eddington and One Battle After Another. All three are grappling with violence, systems, and the possibility (or impossibility) of meaningful change.
+This is a bleak film, but I think it stays true to the moment and works perfectly as part of a thematic triple feature alongside [Eddington](/reviews/eddington/) and [One Battle After Another](/reviews/one-battle-after-another/). All three are grappling with violence, systems, and the possibility (or impossibility) of meaningful change.
 
 I'm loving Emma Stone's turn in her 30s to playing horrible, prickly characters. She's taking incredible risks with these performances, and I would genuinely contend she is the best actor of our generation. The choices she's making - especially with Lanthimos - are bold and fascinating. I cannot wait to see what she does next.
 

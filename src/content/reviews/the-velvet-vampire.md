@@ -29,7 +29,7 @@ heroAlt: 'A still from The Velvet Vampire (1971)'
 
 If you love The Love Witch, go find this immediately.
 
-I went in expecting a cheap Roger Corman drive-in picture and got one of the most gorgeous things I've seen all year. Stephanie Rothman directed it in 1971, and the whole time I kept thinking about Anna Biller, who made Viva and The Love Witch decades later. Same saturated color, same love of costumes and décor, same sense of a woman behind the camera having a great time staging female desire whether or not you take it seriously. Rothman got there first.
+I went in expecting a cheap Roger Corman drive-in picture and got one of the most gorgeous things I've seen all year. Stephanie Rothman directed it in 1971, and the whole time I kept thinking about Anna Biller, who made [Viva](/reviews/viva/) and The Love Witch decades later. Same saturated color, same love of costumes and décor, same sense of a woman behind the camera having a great time staging female desire whether or not you take it seriously. Rothman got there first.
 
 A married couple, Lee and Susan Ritter, accept an invitation from Diane LeFanu (Celeste Yarnall) to stay at her house out in the desert. Diane is a vampire, and she WANTS both of them.
 

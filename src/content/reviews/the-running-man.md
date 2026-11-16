@@ -27,4 +27,4 @@ heroImage: '/images/reviews/the-running-man/backdrop.webp'
 heroAlt: 'A still from The Running Man (1987)'
 ---
 
-Running Man is just a worse version of RoboCop in nearly every single way.
+Running Man is just a worse version of [RoboCop](/reviews/robocop/) in nearly every single way.

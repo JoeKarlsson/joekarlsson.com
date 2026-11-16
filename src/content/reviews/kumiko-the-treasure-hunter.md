@@ -31,7 +31,7 @@ As a Minnesotan, I’m legally required to discuss the Minnesota representation.
 
 From the marketing and the poster, I envisioned this as a much more fun romp than it actually is. This movie is deeply bleak.
 
-I watched it because 2026 is the 30th anniversary of Fargo - I just finished some crop art for that film and was inspired to check out what it birthed. I’d heard rumors about Kumiko for a while. Turns out Fargo created its own American folk story, a modern Paul Bunyan legend, and this movie is about someone who believed it was real.
+I watched it because 2026 is the 30th anniversary of [Fargo](/reviews/fargo-1/) - I just finished some crop art for that film and was inspired to check out what it birthed. I’d heard rumors about Kumiko for a while. Turns out Fargo created its own American folk story, a modern Paul Bunyan legend, and this movie is about someone who believed it was real.
 
 The lead gives a really strong performance, and it’s an intriguing premise. But this ends up exploring much darker sides of mental health than I expected. It’s basically about a woman rejecting the hierarchy and patriarchy of Japan, coming to the great North so she can spiral out alone. The movie has a lot to say about American legends and their impact - maybe even the American Dream itself. Come to America, find treasure, start a new life. Get destroyed by that pursuit.
 

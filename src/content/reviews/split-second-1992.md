@@ -34,7 +34,7 @@ heroImage: '/images/reviews/split-second-1992/backdrop.webp'
 heroAlt: 'A still from Split Second (1992)'
 ---
 
-Split Second is a film that watched Blade Runner, Alien, and The Silence of the Lambs, loved all three, and understood exactly none of them, which is most of its charm.
+Split Second is a film that watched Blade Runner, [Alien](/reviews/alien/), and [The Silence of the Lambs](/reviews/the-silence-of-the-lambs/), loved all three, and understood exactly none of them, which is most of its charm.
 
 Tony Maylam's 1992 cult curio drops Rutger Hauer into a flooded near-future London as Harley Stone, a chain-smoking, chocolate-inhaling supercop hunting the demonic serial killer who gutted his partner. On paper this is a genre nerd's dream, dystopian noir crossed with creature horror crossed with a Hannibal Lecter riff, and for long stretches of its lean ninety minutes it delivers exactly the disreputable pleasure that combination promises. The budget is visible in every waterlogged frame, but the film spends what little it has with real conviction, and Hauer is magnetic, a behemoth who understands that the entire job is to scowl beautifully and pose with an absurdly large pistol.
 

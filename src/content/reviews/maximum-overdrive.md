@@ -47,4 +47,4 @@ This is a bad movie. It's a two-star movie that I'm giving a heart and a spiritu
 
 Stray thoughts:
 
-- Another reviewer on here said Maximum Overdrive feels like an Alex Cox wasteland, which is well said. Emilio Estevez being in it helps, and my Repo Man love definitely seeped into this watch.
+- Another reviewer on here said Maximum Overdrive feels like an Alex Cox wasteland, which is well said. Emilio Estevez being in it helps, and my [Repo Man](/reviews/repo-man/) love definitely seeped into this watch.

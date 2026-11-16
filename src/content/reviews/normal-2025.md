@@ -36,6 +36,6 @@ I always struggle with these films though. The one man army trope is pretty toxi
 
 But despite all that, this is a fun movie. John Wick is fun. Nobody is fun. Normal is fun. The formula works. The kills are a blast, the story is simple, and I love how tight it is. Ninety minutes. Hell yeah. I always want more ninety minute movies, and this brings everything I love - tight screenplay, killer performance from Bob Odenkirk, and it takes place in my native Minnesota.
 
-The MN representation mostly worked. Light on the accents - I actually could have used a bit more. A town like Normal has some intense Minnesota accents. But the film has some Fargo energy to it, exposing the coastal idea of what a “normal” Minnesotan is and then turning it over to show the darkness underneath. Similar to what the Coens did.
+The MN representation mostly worked. Light on the accents - I actually could have used a bit more. A town like Normal has some intense Minnesota accents. But the film has some [Fargo](/reviews/fargo-1/) energy to it, exposing the coastal idea of what a “normal” Minnesotan is and then turning it over to show the darkness underneath. Similar to what the Coens did.
 
 I hope to see more mid-budget movies like this. More ninety minute action films. And I hope Bob Odenkirk keeps making shit like this. He seems like he’s having a fucking blast. Honestly, I don’t blame him.

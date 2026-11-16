@@ -27,7 +27,7 @@ heroImage: '/images/reviews/supergirl-2026/backdrop.webp'
 heroAlt: 'A still from Supergirl (2026)'
 ---
 
-Superman made me want to be a better man. Supergirl made me want to leave.
+[Superman](/reviews/superman-2025/) made me want to be a better man. Supergirl made me want to leave.
 
 Last year Gunn's Superman wrecked me. I cried, I walked out wanting to be kinder, the color and the earnestness and the whole "kindness is punk rock" of it worked on me completely, right down to Iggy Pop singing "because I'm a punk rocker, yes I am" over the ending. So I showed up for a planet-hopping, female-led space adventure ready to fall in love again. What I got was the dullest, brownest, most overstuffed fluff I've run into in ages.
 

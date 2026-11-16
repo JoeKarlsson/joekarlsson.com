@@ -30,7 +30,7 @@ heroAlt: 'A still from Häxan (1922)'
 
 I've used Häxan as my go to Halloween party vibes movie for years, and it turns out it's a proto-documentary lecture.
 
-A seven-part lecture, actually, on the history of witches, delivered by the Danish director Benjamin Christensen in 1922 with woodcuts, paintings and a model of hell. I'd never sat down with it properly until last night at the Parkway Theater, on 35mm with a live band, right after I saw the 4K re-release of Ken Russell's The Devils. I didn't plan the double feature, but it was a great one. Häxan is basically a proto-documentary, and it's always so fun watching early filmmakers figure out how to structure a story before the rules set.
+A seven-part lecture, actually, on the history of witches, delivered by the Danish director Benjamin Christensen in 1922 with woodcuts, paintings and a model of hell. I'd never sat down with it properly until last night at the Parkway Theater, on 35mm with a live band, right after I saw the 4K re-release of Ken Russell's [The Devils](/reviews/the-devils/). I didn't plan the double feature, but it was a great one. Häxan is basically a proto-documentary, and it's always so fun watching early filmmakers figure out how to structure a story before the rules set.
 
 Häxan wants to be on the side of the women it's about, and for six chapters it is. The men are the problem here: inquisitors, torturers, monks, a church that runs on accusations. The women are the victims, and the film is clear about that.
 

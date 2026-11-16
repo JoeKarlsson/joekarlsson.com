@@ -47,13 +47,13 @@ The worst of the invasion comes to him in a dream. He stands distraught in a red
 
 ![Two frames: the Dalai Lama standing among the bodies of monks in red robes, then the camera high above a field of red that runs past the edge of the frame.](/images/reviews/kundun/red-circle-of-dead-monks.webp)
 
-The colors and the sheer number of extras reminded me of Kurosawa's Ran. In Ran the red is banners on an army that's still alive. In Kundun it's robes on the dead.
+The colors and the sheer number of extras reminded me of Kurosawa's [Ran](/reviews/ran/). In Ran the red is banners on an army that's still alive. In Kundun it's robes on the dead.
 
 ![Two frames: a burning castle in Ran above an army of red and yellow banners, then the field of dead monks in Kundun.](/images/reviews/kundun/ran-then-kundun-in-red.webp)
 
 _Ran's burning castle, from Rialto Pictures' 4K restoration trailer, next to Kundun's field of dead monks._
 
-It does rhyme with The Last Temptation of Christ, though. Both take a spiritual leader and show a man instead of a god, struggling with human feelings and a political situation way too complicated for anyone to win. But Willem Dafoe plays Jesus manic, like a man fighting his own mind. Tenzin Thuthob Tsarong plays a monk, and he rarely lets an emotion out.
+It does rhyme with [The Last Temptation of Christ](/reviews/the-last-temptation-of-christ/), though. Both take a spiritual leader and show a man instead of a god, struggling with human feelings and a political situation way too complicated for anyone to win. But Willem Dafoe plays Jesus manic, like a man fighting his own mind. Tenzin Thuthob Tsarong plays a monk, and he rarely lets an emotion out.
 
 ![Two frames: Willem Dafoe as Jesus, wide-eyed and shouting at the sky in a crowd, then Tenzin Thuthob Tsarong as the Dalai Lama, eyes lowered, face still.](/images/reviews/kundun/dafoe-manic-tsarong-still.webp)
 

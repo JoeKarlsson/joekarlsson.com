@@ -27,4 +27,4 @@ heroImage: '/images/reviews/escape-room-tournament-of-champions/backdrop.webp'
 heroAlt: 'A still from Escape Room: Tournament of Champions (2021)'
 ---
 
-I don’t want to ever escape the Escape Room franchise
+I don’t want to ever escape the [Escape Room](/reviews/escape-room-2019/) franchise

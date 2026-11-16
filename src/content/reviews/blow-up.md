@@ -27,7 +27,7 @@ heroImage: '/images/reviews/blow-up/backdrop.webp'
 heroAlt: 'A still from Blow-Up (1966)'
 ---
 
-Watching Blow-Up is like watching an idiot try to solve a crime. It's The Big Lebowski, but not funny.
+Watching Blow-Up is like watching an idiot try to solve a crime. It's [The Big Lebowski](/reviews/the-big-lebowski/), but not funny.
 
 For the first hour I wasn't sure who the idiot was: the photographer or the director. I'd never seen a Michelangelo Antonioni film, and this one is distracted and unfocused, wandering away from its own plot every ten minutes. It turns out that's extremely intentional. He did the same thing in L'Avventura, which loses a woman and then stops looking for her.
 

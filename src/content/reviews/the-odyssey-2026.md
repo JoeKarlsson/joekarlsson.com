@@ -31,7 +31,7 @@ Odysseus is a war criminal, a murderer, easily distracted by pussy. Unfortunatel
 
 I want to start by saying, Christopher Nolan has been making the Odyssey his entire career.
 
-Inception opens with Cobb waking up confused on a beach, desperate to return home to his children. Interstellar is Cooper crossing impossible distances while Murph waits decades. Dunkirk is soldiers clawing their way back across the sea. Tenet has Kat escaping a monstrous husband to reunite with her son. Oppenheimer is a man haunted by the horrors he wrought during the war. Men trying to get home. Women waiting. Time bending around the journey. Nolan's been circling this story for twenty years. The Odyssey is the source code.
+Inception opens with Cobb waking up confused on a beach, desperate to return home to his children. [Interstellar](/reviews/interstellar/) is Cooper crossing impossible distances while Murph waits decades. Dunkirk is soldiers clawing their way back across the sea. Tenet has Kat escaping a monstrous husband to reunite with her son. Oppenheimer is a man haunted by the horrors he wrought during the war. Men trying to get home. Women waiting. Time bending around the journey. Nolan's been circling this story for twenty years. The Odyssey is the source code.
 
 ![Three frames: Cobb washed up face-down on a beach in Inception, Cooper reaching for the screen where a grown-up Murph is recording a message in Interstellar, and lines of soldiers queued into the surf toward a ship on the horizon in Dunkirk.](/images/reviews/the-odyssey-2026/nolan-homecomings.webp)
 
@@ -67,7 +67,7 @@ The Hades sequence floored me. One of the set pieces that'll stick with me.
 
 Elliot Page's Sinon and the conversation with him was a highlight.
 
-Benny Safdie as Agamemnon cracked me up - the director of Uncut Gems made to look absolutely jacked, hiding behind that great chin. After Agamemnon returns home and goes soft, they really hide him. Funny choice for the dorkiest guy in the cast.
+Benny Safdie as Agamemnon cracked me up - the director of [Uncut Gems](/reviews/uncut-gems/) made to look absolutely jacked, hiding behind that great chin. After Agamemnon returns home and goes soft, they really hide him. Funny choice for the dorkiest guy in the cast.
 
 John Leguizamo absolutely crushed it.
 

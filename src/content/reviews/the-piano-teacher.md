@@ -54,4 +54,4 @@ I will not spoil the last stretch except to say Haneke makes you sit in it, uncu
 ![Isabelle Huppert as Erika, standing in the crowded concert-hall lobby, holding her purse, while everyone around her looks elsewhere.](/images/reviews/the-piano-teacher/the-lobby.webp 'spoiler')
 _The lobby._
 
-It reminded me of Female Perversions and of Black Swan, other films about women unmade by the demand to be flawless in performance, though Haneke is colder and more merciless than either. It left me with an ache, and the recognition that a hurt planted young can run a whole life if no one ever helps you dig it out.
+It reminded me of [Female Perversions](/reviews/female-perversions/) and of Black Swan, other films about women unmade by the demand to be flawless in performance, though Haneke is colder and more merciless than either. It left me with an ache, and the recognition that a hurt planted young can run a whole life if no one ever helps you dig it out.

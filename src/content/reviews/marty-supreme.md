@@ -39,7 +39,7 @@ The supporting cast is incredible. Fran Drescher, Teller, Mr. Wonderful, Odessa 
 
 The movie is a bit long - there's a perfect 90-minute or two-hour version in there. It drags slightly at the end of the second act before the third act absolutely nails the landing. The dog stuff felt like it could have been trimmed, though I know it gives good character development for Odessa's character.
 
-The soundtrack and score are great. I need to look up who did this, but it felt very Oneohtrix Point Never inspired - the Safdie collaborator on Good Time and Uncut Gems. That sonic anxiety is back.
+The soundtrack and score are great. I need to look up who did this, but it felt very Oneohtrix Point Never inspired - the Safdie collaborator on Good Time and [Uncut Gems](/reviews/uncut-gems/). That sonic anxiety is back.
 
 It's horny, sexy, confident and weird.
 

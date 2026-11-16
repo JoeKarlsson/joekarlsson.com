@@ -27,7 +27,7 @@ heroImage: '/images/reviews/repulsion/backdrop.webp'
 heroAlt: 'A still from Repulsion (1965)'
 ---
 
-I did a “women be crazy” double feature with Possession, watching both back-to-back in my living room. Except calling it that feels wrong after actually watching these films, because both are really about why women should be terrified of men.
+I did a “women be crazy” double feature with [Possession](/reviews/possession/), watching both back-to-back in my living room. Except calling it that feels wrong after actually watching these films, because both are really about why women should be terrified of men.
 
 Roman Polanski, a man who would later plead guilty to raping a 13-year-old girl and flee the country to avoid sentencing, made one of cinema’s most effective films about women’s justified fear and repulsion toward male predation. The irony is sickening. Watching this film knowing what Polanski would go on to do makes every scene of men invading Carol’s space, touching her without consent, forcing themselves into her life feel even more nauseating. He understood male predation intimately because he was a predator. He captured the revulsion women feel toward aggressive male sexuality so well because he was the exact kind of man women should fear.
 

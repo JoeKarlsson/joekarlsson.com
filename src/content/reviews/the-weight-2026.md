@@ -34,4 +34,4 @@ heroImage: '/images/reviews/the-weight-2026/backdrop.webp'
 heroAlt: 'A still from The Weight (2026)'
 ---
 
-Sorcerer meets The Treasure of the Sierra Madre,
+[Sorcerer](/reviews/sorcerer/) meets The Treasure of the Sierra Madre,

@@ -37,4 +37,4 @@ heroImage: '/images/reviews/demonlover/backdrop.webp'
 heroAlt: 'A still from Demonlover (2002)'
 ---
 
-Hentai Cyberpunk Michael Clayton.
+Hentai Cyberpunk [Michael Clayton](/reviews/michael-clayton-2/).

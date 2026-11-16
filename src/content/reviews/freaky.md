@@ -33,4 +33,4 @@ There's something deeply relatable about watching Vince Vaughn essentially be po
 
 But what I really love about this film are the trans and gay allegories running throughout. It's wonderful. Everyone respects pronouns without needing to be lectured about it - they just do it naturally, which feels refreshing and correct. The gore is absolutely disgusting, and I mean that as the highest compliment.
 
-I revisited Freaky right after watching Freakier Friday, and honestly, this is one of the most fun body swap movies out there. I would watch this any day over Freakier Friday.
+I revisited Freaky right after watching [Freakier Friday](/reviews/freakier-friday/), and honestly, this is one of the most fun body swap movies out there. I would watch this any day over Freakier Friday.
