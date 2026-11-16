@@ -27,7 +27,8 @@ fi
 # Lighthouse runs as a matrix, so its jobs are named "Lighthouse CI (0)" and so on
 NOT_BLOCKING=$'^(Lighthouse CI( \\([0-9]+\\))?|Failure Notification)\t'
 echo "Waiting for CI run $RUN_ID on $SHORT_SHA (not for Lighthouse)..."
-for _ in $(seq 1 135); do
+# Every 10s: at 20s a deploy waited 10s on average after CI had already finished
+for _ in $(seq 1 270); do
     JOBS=$(gh run view "$RUN_ID" --json jobs --jq '.jobs[] | "\(.name)\t\(.status)\t\(.conclusion)"')
     BLOCKING=$(grep -vE "$NOT_BLOCKING" <<< "$JOBS" || true)
     FAILED=$(awk -F'\t' '$2 == "completed" && $3 != "success" && $3 != "skipped" {print "  failed: " $1 " (" $3 ")"}' <<< "$BLOCKING")
@@ -41,7 +42,7 @@ for _ in $(seq 1 135); do
         echo "CI passed on $SHORT_SHA (Lighthouse may still be running: gh run view $RUN_ID)"
         exit 0
     fi
-    sleep 20
+    sleep 10
 done
 echo "ERROR: CI on $SHORT_SHA still hadn't finished after 45 minutes. Check GitHub Actions." >&2
 exit 1

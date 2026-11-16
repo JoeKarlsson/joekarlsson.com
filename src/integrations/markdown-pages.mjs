@@ -6,8 +6,10 @@
 // and video. Diagrams become their alt text; the phone copy of a diagram is skipped.
 import { JSDOM } from 'jsdom';
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { availableParallelism } from 'node:os';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { Worker } from 'node:worker_threads';
 import TurndownService from 'turndown';
 
 const SITE_URL = 'https://www.joekarlsson.com';
@@ -244,27 +246,51 @@ export function markdownPathFor(htmlPath) {
 	return htmlPath === 'index.html' ? 'index.md' : htmlPath.replace(/\/index\.html$/, '.md');
 }
 
+/** Writes the Markdown copies of these built pages; returns how many it wrote. */
+export async function writeMarkdownPages(distDir, files) {
+	let written = 0;
+	for (const file of files) {
+		const htmlPath = relative(distDir, file);
+		const urlPath = htmlPath === 'index.html' ? '/' : `/${htmlPath.slice(0, -'index.html'.length)}`;
+		const markdown = pageToMarkdown(readFileSync(file, 'utf8'), `${SITE_URL}${urlPath}`);
+		if (!markdown) continue;
+		writeFileSync(join(distDir, markdownPathFor(htmlPath)), markdown);
+		// The llms.txt spec's own convention, which some agents try first
+		writeFileSync(`${file}.md`, markdown);
+		written += 1;
+		// A closed jsdom window is only freed once the event loop turns
+		await new Promise((resolve) => setImmediate(resolve));
+	}
+	return written;
+}
+
 export default function markdownPages() {
 	return {
 		name: 'markdown-pages',
 		hooks: {
 			'astro:build:done': async ({ dir, logger }) => {
 				const distDir = fileURLToPath(dir);
-				let written = 0;
-				for (const file of listPages(distDir)) {
-					const htmlPath = relative(distDir, file);
-					const urlPath =
-						htmlPath === 'index.html' ? '/' : `/${htmlPath.slice(0, -'index.html'.length)}`;
-					const markdown = pageToMarkdown(readFileSync(file, 'utf8'), `${SITE_URL}${urlPath}`);
-					if (!markdown) continue;
-					writeFileSync(join(distDir, markdownPathFor(htmlPath)), markdown);
-					// The llms.txt spec's own convention, which some agents try first
-					writeFileSync(`${file}.md`, markdown);
-					written += 1;
-					// A closed jsdom window is only freed once the event loop turns
-					await new Promise((resolve) => setImmediate(resolve));
-				}
-				logger.info(`Wrote ${written} Markdown pages`);
+				const pages = listPages(distDir);
+				// jsdom parses on one thread: 770 pages took 26s in CI one at a time. Capped at 4
+				// so a deploy on a Mac busy with other sessions doesn't take every core
+				const workers = Math.min(availableParallelism(), 4);
+				const counts = await Promise.all(
+					Array.from(
+						{ length: workers },
+						(_, i) =>
+							new Promise((resolve, reject) => {
+								const worker = new Worker(new URL('./markdown-pages-worker.mjs', import.meta.url), {
+									workerData: { distDir, files: pages.filter((_, j) => j % workers === i) },
+								});
+								worker.once('message', resolve);
+								worker.once('error', reject);
+								worker.once('exit', (code) => {
+									if (code !== 0) reject(new Error(`markdown-pages worker exited with ${code}`));
+								});
+							}),
+					),
+				);
+				logger.info(`Wrote ${counts.reduce((sum, count) => sum + count, 0)} Markdown pages`);
 			},
 		},
 	};
