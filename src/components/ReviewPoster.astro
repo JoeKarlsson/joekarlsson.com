@@ -16,6 +16,12 @@ const { title, year, rating, poster, slug } = Astro.props.review.data;
 		class="block aspect-[2/3] overflow-hidden rounded-md bg-surface-1 transition-[translate] duration-(--duration-enter) ease-(--ease-enter) group-hover:-translate-y-1 motion-reduce:transition-none"
 		data-morph={`/reviews/${slug}/`}
 	>
+		{/* No poster from Letterboxd: the title, set like one */}
+		{!poster && (
+			<span class="flex size-full items-end p-3 font-display text-2xl leading-none text-paper uppercase">
+				{title}
+			</span>
+		)}
 		{poster && (
 			<img
 				src={poster}
@@ -35,7 +41,8 @@ const { title, year, rating, poster, slug } = Astro.props.review.data;
 			<span class="sr-only">Rated {rating} out of 5</span>
 		</span>
 	)}
-	<span class="block leading-snug text-paper group-hover:text-pink">
+	{/* Two lines at most, so one long title doesn't push its row out of line */}
+	<span class="line-clamp-2 leading-snug text-paper group-hover:text-pink">
 		{title} <span class="text-muted">{year}</span>
 	</span>
 </a>

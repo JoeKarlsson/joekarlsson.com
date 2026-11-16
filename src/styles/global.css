@@ -835,7 +835,7 @@ header nav .sticker {
    pink rule and a thin one, the title fitted to the column (its font size comes from
    utils/masthead.ts in cqi of the article), then the picture and an italic caption */
 .masthead-kicker {
-	@apply border-t-4 border-b border-t-pink border-b-surface-4 py-2 font-display text-base leading-none text-paper uppercase;
+	@apply border-t-4 border-b border-t-pink border-b-surface-4 py-2 font-display text-base leading-tight text-paper uppercase;
 }
 .masthead-title {
 	@apply my-5 font-display leading-[0.95] font-normal text-paper uppercase;
@@ -929,9 +929,13 @@ header nav .sticker {
 		max-width: calc(var(--reading-width) + 18rem);
 		margin-inline: auto;
 	}
-	.post-axis .masthead :is(img, video),
-	.post-axis .masthead-caption {
+	.post-axis .masthead :is(img, video) {
 		max-width: none;
+	}
+	/* The caption keeps the text's measure, on the shared left edge */
+	.post-axis .masthead-caption {
+		max-width: var(--reading-width);
+		margin-inline: 0;
 	}
 }
 
