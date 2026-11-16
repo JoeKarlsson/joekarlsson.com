@@ -78,8 +78,9 @@ import { SECONDARY_BUTTON } from '../utils/ui';
 					root.classList.add('lightbox-closing');
 					growing.forEach((a) => a.reverse());
 					// Shut the dialog as the grow lands back in the post, before that frame paints:
-					// shutting it now would drop the enlarged picture and cancel the transition
-					return Promise.all(growing.map((a) => a.finished)).then(update);
+					// shutting it now would drop the enlarged picture and cancel the transition.
+					// Settled, not all: a grow cut short (another transition) still shuts it
+					return Promise.allSettled(growing.map((a) => a.finished)).then(update);
 				}
 			}
 			root.classList.toggle('lightbox-closing', closing);
