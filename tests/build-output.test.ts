@@ -1104,6 +1104,18 @@ describe('performance guards', () => {
 		}
 	});
 
+	// The minifier folded `animation` plus `animation-timeline` into one shorthand with the
+	// timeline inside, which browsers drop, so the homepage line never drew as you scrolled
+	it("the homepage line's scroll-driven draw survives minifying", () => {
+		const css = readdirSync(resolve(dist, '_astro'))
+			.filter((file) => file.endsWith('.css'))
+			.map((file) => readDist(`_astro/${file}`))
+			.join('\n');
+		const rule = css.match(/\.margin-thread path\{([^}]*)\}/)?.[1];
+		expect(rule).toContain('animation-timeline:scroll(root)');
+		expect(rule).not.toMatch(/animation:[^;]*scroll\(/);
+	});
+
 	// Cards load the .400w/.800w copies, and sharp reads only an animated WebP's first
 	// frame unless told otherwise, which froze the boiling diagram thumbnail
 	it('resized copies of an animated thumbnail stay animated', () => {

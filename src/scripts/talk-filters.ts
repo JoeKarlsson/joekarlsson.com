@@ -42,14 +42,13 @@ export function initTalkFilters() {
 	// The scroll waits until the hidden cards have painted (two frames: one alone runs before
 	// that paint): hiding and scrolling in one frame counted as a big layout shift. Focus
 	// follows, so Tab carries on from the row.
-	if (buttons.some((button) => button.dataset.talkFilter === fromLink)) {
-		apply(fromLink!);
+	const linked = buttons.find((button) => button.dataset.talkFilter === fromLink);
+	if (linked) {
+		apply(linked.dataset.talkFilter!);
 		requestAnimationFrame(() =>
 			requestAnimationFrame(() => {
 				row.scrollIntoView();
-				buttons
-					.find((button) => button.dataset.talkFilter === fromLink)!
-					.focus({ preventScroll: true });
+				linked.focus({ preventScroll: true });
 			}),
 		);
 	}
