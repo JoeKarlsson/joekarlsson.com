@@ -17,7 +17,13 @@ interface Props {
 const { title, accent, href, linkLabel, id, collapse } = Astro.props;
 ---
 
-<header class="relative mb-7 flex items-end justify-between gap-6 border-b-8 border-paper pb-2.5">
+<header
+	class:list={[
+		'relative mb-7 flex items-end justify-between gap-6 border-b-8 border-paper pb-2.5',
+		// A folded era's label sits close under its own rule
+		collapse && 'max-md:mb-3',
+	]}
+>
 	<h2
 		id={id}
 		data-collapse-heading={collapse || undefined}

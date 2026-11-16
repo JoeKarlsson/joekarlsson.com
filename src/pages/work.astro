@@ -99,7 +99,7 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-32';
 					{...MARKS.rays}
 					color="#ff4fd8"
 					duration="8s"
-					class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
+					class="top-[20%] left-[calc(100%+0.3em)] h-[0.45em] w-[0.6em] max-md:hidden"
 				/>
 			</SectionMasthead>
 			<!-- Big rows, the clip alternating sides from md up -->
@@ -240,7 +240,7 @@ const SECTION = 'relative mb-12 scroll-mt-24 md:mb-32';
 						color={i % 2 ? '#ff4fd8' : CHALK}
 						duration="8s"
 						delay={`${i * 0.4}s`}
-						class="-top-[0.45em] -left-[0.4em] h-[0.45em] w-[0.6em]"
+						class="top-[20%] left-[calc(100%+0.3em)] h-[0.45em] w-[0.6em] max-md:hidden"
 					/>
 				</SectionMasthead>
 				<p class={`mb-8 ${HERO_LEAD}`}>{era.label}</p>
