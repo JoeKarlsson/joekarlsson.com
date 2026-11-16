@@ -29,8 +29,21 @@ heroAlt: 'Lindsay Lohan and Jamie Lee Curtis staring at a glowing pink crystal b
 
 Freakier Friday definitely feels like a Disney+ movie production-wise, which is wild considering it stars an Oscar winner. I’m just gonna say it: this was very mid. Slightly below mid, even. But I did laugh and was charmed by moments.
 
+![Jamie Lee Curtis in blue satin pajamas and Lindsay Lohan in peach ones on a couch, the white kitchen behind them evenly lit from end to end.](/images/reviews/freakier-friday/flat-lit-living-room-and-kitchen.webp)
+
 Lindsay Lohan gave a surprisingly good performance that had me chuckling. I wish she’d come back and work more - I’d love to see her in more roles in the future. She’s genuinely funny and reminded me how much I miss the old Lindsay.
-Jamie Lee Curtis was funny too. That lip plumper scene got me. But you could tell her role was massively inflated post-Oscar win, which kind of sucks. I actually found her character a bit distracting in the movie. Having four people swapping places made it hard for me to keep track of who was who, and it felt like they had to do that specifically because of Jamie Lee Curtis’s Oscar. They had to get her into the mix somehow.
+
+![Lindsay Lohan sprawled on her back on a dance studio's wooden floor, eyes half shut, a man's boots beside her.](/images/reviews/freakier-friday/lohan-sprawled-on-the-dance-floor.webp)
+
+Jamie Lee Curtis was funny too. That lip plumper scene got me.
+
+![Jamie Lee Curtis in aviator glasses and a pale blue blazer, pursing glossy, puffed-up lips for a photo against a white backdrop.](/images/reviews/freakier-friday/curtis-plumped-lips-photo.webp)
+
+_Curtis [told TheWrap](https://www.thewrap.com/jamie-lee-curtis-encouraged-freakier-friday-to-roast-her/) she said to the producers, "Just make fun of everything about me you can."_
+
+But you could tell her role was massively inflated post-Oscar win, which kind of sucks. I actually found her character a bit distracting in the movie. Having four people swapping places made it hard for me to keep track of who was who, and it felt like they had to do that specifically because of Jamie Lee Curtis’s Oscar. They had to get her into the mix somehow.
+
+![All four swapped women in one shot: two teenage girls arguing in front of a bookcase, with the backs of Lohan's red hair and Curtis's gray hair in the foreground.](/images/reviews/freakier-friday/all-four-swapped-in-the-living-room.webp)
 
 Can I just say the muscle memory explanation for why accents don’t travel when you mind swap caused a lot of confusion for me? Why didn’t other muscle memory tasks translate, like surfing or playing guitar? Why only accents? I’m guessing it’s because Jamie Lee Curtis couldn’t do a convincing British accent or something. But it was a weird choice that added another confusing wrinkle to the identity swapping - their voices didn’t translate, so people weren’t doing impressions of each other’s performances. I was hoping for a Face/Off or Scooby-Doo movie style body swap situation where actors fully commit to mimicking each other. That would have been more impressive and easier to follow.
 

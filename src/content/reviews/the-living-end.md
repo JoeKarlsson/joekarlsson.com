@@ -21,10 +21,22 @@ heroAlt: 'Two men seen from behind, sitting close together on a desert hill at s
 
 Bonnie and Clyde for the gays. Made in the year AIDS became the number one killer of young American men.
 
+![Faye Dunaway as Bonnie in a beret and Warren Beatty as Clyde in a flat cap, side by side in the front seat of an open car.](/images/reviews/the-living-end/bonnie-and-clyde-then-luke-and-jon-1.webp 'Bonnie and Clyde · 1967') ![Jon at the wheel and Luke, with an earring, in the passenger seat, driving through dry Los Angeles hills.](/images/reviews/the-living-end/bonnie-and-clyde-then-luke-and-jon-2.webp 'The Living End · 1992')
+
+_Bonnie and Clyde in Warner Bros.' [original trailer](https://www.youtube.com/watch?v=nQSKrNZKc7M), and Jon and Luke on the run._
+
 I’ve been on a Gregg Araki binge the last couple weeks, and I’ve been loving it. He makes punk films for the gays. He’s extremely good at deploying anger and rage to give voice to an underrepresented group - and in 1992, when this film came out, that rage was more than justified. This was the peak of the AIDS crisis. The gay community was receiving no help from the federal government. Reagan hadn’t even said the word “AIDS” publicly until 1987. Bush called it “behavioral” - blamed the victims. ACT UP activists were dumping the ashes of their dead lovers on the White House lawn the same year this movie premiered.
+
+!["i blame society" scrawled in black marker on a pillar, lit blue, a hand still finishing the last letter.](/images/reviews/the-living-end/i-blame-society-scrawl.webp)
 
 I get the anger. I’d be furious. This generation of gays didn’t ask for any of this. They inherited a curse. Contracting HIV in 1992 probably did feel like a death sentence. This movie gives a voice and an outlet for that rage - a direction to point the gun.
 
+![Craig Gilmore as Jon, alone in his apartment, wincing as he squeezes a stress ball, a James Dean poster on the wall behind him.](/images/reviews/the-living-end/jon-alone-after-the-diagnosis.webp)
+
 The film has some clunky dialogue and a tiny budget, but Araki really does know how to shoot. The shadows, the darkness, the deployment of film cameras with no money - it works. Plus the leads are really hot. Craig Gilmore as the uptight film critic who just got his diagnosis. Mike Dytri as the reckless drifter who’s already made peace with dying. The chemistry crackles.
 
+![Jon and Luke in the car at night, their faces almost lost in shadow, tunnel lights streaking green and blue across the windshield.](/images/reviews/the-living-end/luke-and-jon-in-the-car-at-night.webp)
+
 And then there’s the ending. ||Somehow this has been one of the few movies where everyone survives|| - and it’s sadder than any of the other movies I’ve seen where they don’t. I’m still sitting with that. Maybe it’s because survival here doesn’t mean hope. It just means more time in a country that wants you dead. The film ends with a dedication to “craig lee (1954-1991) and the hundreds of thousands who’ve died and the hundreds of thousands more who will die because of a big white house full of republican fuckheads.”
+
+![The end card in small lowercase blue type on black, with Craig Lee's name in red: dedicated to craig lee (1954-1991) and the hundreds of thousands who've died and the hundreds of thousands more who will die because of a big white house full of republican fuckheads.](/images/reviews/the-living-end/dedication-to-craig-lee.webp)

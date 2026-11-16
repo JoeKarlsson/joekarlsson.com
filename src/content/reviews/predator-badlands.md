@@ -34,16 +34,30 @@ heroImage: '/images/reviews/predator-badlands/backdrop.webp'
 heroAlt: 'Painted art of a Predator kneeling with a sword on a rocky alien landscape under an eclipsed sun.'
 ---
 
-Predator: Badlands is a violent 80's throwback dark fantasy PG-13 action movie for Disney adults.
+Predator: Badlands is a violent 80's throwback dark fantasy [PG-13](https://en.wikipedia.org/wiki/Predator:_Badlands) action movie for Disney adults.
 
-This was a fun action movie. I wish they made more 80s-style action movies like this - lean, mean, high-concept creature features. Despite having some of its rough edges sanded off for PG-13, I think it's still pretty effective. It's not Prey, but it's solid.
+![Dek, the young Predator, with Thia, the legless synthetic, strapped to his back, both looking over his shoulder in a field of white grass.](/images/reviews/predator-badlands/dek-carries-thia.webp)
+
+This was a fun action movie. I wish they made more 80s-style action movies like this - lean, mean, high-concept creature features. Despite having some of its rough edges sanded off for PG-13, I think it's still pretty effective. It's not [Prey](https://letterboxd.com/film/prey-2022/), but it's solid.
 
 The first 10 minutes set up the entire movie extremely efficiently, which I appreciated. No wasted time, just immediate stakes and world-building. Get in, get moving, let's go.
 
+![Njohrr, horned and draped in white dreadlocks, seen from behind as he looms over his son on the ground, a red blade glowing beside him.](/images/reviews/predator-badlands/njohrr-stands-over-kwei.webp 'spoiler')
+
 The action felt a little cartoony to me even though I'm sure a lot of it was practically shot. You could just tell so much of it had to be transformed with CGI for face replacements and body replacements, and it makes everything feel slightly empty. There's a flatness to some of the action that takes you out of the moment. I missed the tactile, brutal quality of Prey.
 
-This is currently my second favorite in the new Predator trilogy, with Prey still being my number one. What I love is that this movie still remains an underdog cat-and-mouse game with interesting environmental biology thrown in, despite being told from the Predator's perspective this time. That shift in POV could have ruined the formula, but it actually works. The Predator still feels like it's hunting and being hunted at the same time.
+![Dek grabbing the cage of the yellow power-loader mech as Tessa rocks back in the cockpit, in a dark hangar.](/images/reviews/predator-badlands/dek-vs-the-mech-then-naru-vs-the-bear-1.webp 'Predator: Badlands · 2025') ![Naru pinned under the branches of a beaver dam, a hatchet in her raised hand, a grizzly bear's head right over her.](/images/reviews/predator-badlands/dek-vs-the-mech-then-naru-vs-the-bear-2.webp 'Prey · 2022')
 
-Elle Fanning gave a really funny performance, and I always love a doppelgänger/doubles performance. But I didn't quite think her evil twin sister was as compelling as the main character. The contrast between them wasn't sharp enough to make the twin feel like a genuine threat or interesting mirror. It just felt like "here's the mean version."
+_Dek against Tessa's mech here, and Naru against the bear in 20th Century Studios' [Prey trailer](https://www.youtube.com/watch?v=wZ7LytagKlc)._
 
-I'm genuinely shocked they didn't turn this into an Alien vs. Predator movie. I thought for sure that's where this was going, especially with all the Disney/Fox merger implications. But it appears they're setting up a sequel instead, and I wouldn't be surprised if something happens there. Maybe they're saving that crossover for the third act of this new trilogy.
+This is currently my second favorite in the [new Predator trilogy](/reviews/predator-killer-of-killers/), with Prey still being my number one. What I love is that this movie still remains an underdog cat-and-mouse game with interesting environmental biology thrown in, despite being told from the Predator's perspective this time. That shift in POV could have ruined the formula, but it actually works. The Predator still feels like it's hunting and being hunted at the same time.
+
+Elle Fanning gave a really funny performance, and I always love a doppelgänger/doubles performance. But I didn't quite think her evil twin sister was as compelling as the main character.
+
+![Elle Fanning as Thia by a campfire, scuffed and scratched, a vine tied across her chest.](/images/reviews/predator-badlands/thia-then-tessa-1.webp) ![Elle Fanning as Tessa in a clean white jacket, cold-eyed in a misty forest.](/images/reviews/predator-badlands/thia-then-tessa-2.webp)
+
+The contrast between them wasn't sharp enough to make the twin feel like a genuine threat or interesting mirror. It just felt like "here's the mean version."
+
+![Tessa strapped into the cockpit of a yellow power-loader mech, hands on the controls, lit amber.](/images/reviews/predator-badlands/tessa-in-her-mech.webp 'spoiler')
+
+I'm genuinely shocked they didn't turn this into an [Alien vs. Predator](https://letterboxd.com/film/alien-vs-predator/) movie. I thought for sure that's where this was going, especially with all the Disney/Fox merger implications. But it appears they're setting up a sequel instead, and I wouldn't be surprised if something happens there. Maybe they're saving that crossover for the third act of this new trilogy.

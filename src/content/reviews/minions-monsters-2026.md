@@ -31,7 +31,17 @@ I hadn't thought about the Minions since high school, and I did not expect them 
 
 My last Minions-adjacent trip to a theater was Despicable Me, somewhere around high school or college, honestly it's a blur. So I walked into this mostly for the bit, and walked out having had a real blast. It's funny, I laughed out loud more than I'll admit, and it's sweeter and more charming than I was braced for. This is the most approachable film-studies class ever smuggled into a kids' movie.
 
-The whole thing is a love letter to the birth of Hollywood. The Minions crash a 1920s Western shoot, accidentally become silent-film stars, and the movie turns into a giddy tour of early cinema. Silent slapstick in the Keaton and Chaplin tradition, a museum framing device stuffed with the Metropolis robot and George Lucas voicing himself from inside a glass case, and eventually a full pivot into a Universal monster movie, which is the perfect thing for a Universal picture to do. There's a giant island monster named Irene who is basically King Kong with better billing. It's homage stacked on homage, and I know I missed a pile of the references and still caught enough to grin the entire time.
+![A director in a flat cap watches from his canvas chair as a row of Minions in steel helmets faces a crowd of horned Vikings on a painted-sky beach set, an old movie camera in the foreground.](/images/reviews/minions-monsters-2026/minions-and-vikings-on-the-silent-set.webp)
+
+The whole thing is a love letter to the birth of Hollywood. The Minions crash a 1920s Western shoot, accidentally become silent-film stars, and the movie turns into a giddy tour of early cinema.
+
+![A bandit in a black cowboy hat, a sack of loot in his fist, runs screaming down a 1920s street with a tide of Minions rolling after him and over him.](/images/reviews/minions-monsters-2026/bandit-outrunning-the-minions.webp)
+
+Silent slapstick in the Keaton and Chaplin tradition, a museum framing device stuffed with the Metropolis robot and George Lucas voicing himself from inside a glass case, and eventually a full pivot into a Universal monster movie, which is the perfect thing for a Universal picture to do.
+
+![A cartoon George Lucas, white beard and plaid shirt, holding a coffee cup inside a glass display case while a museum guide presents him to a crowd.](/images/reviews/minions-monsters-2026/george-lucas-in-his-glass-case.webp)
+
+There's a giant island monster named Irene who is basically King Kong with better billing. It's homage stacked on homage, and I know I missed a pile of the references and still caught enough to grin the entire time.
 
 And I'll always love the franchise's darkest running joke, that the Minions are immortal henchmen who have served the very worst people in history and the films are extremely careful never to let you study the list of 20th century villains Too closely.
 

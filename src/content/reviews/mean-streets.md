@@ -29,11 +29,19 @@ heroAlt: 'Robert De Niro in a leather jacket grinning beside a man smoking a cig
 
 Johnny Boy struts into the bar in slow motion and cinema never fully recovers.
 
-The whole future of American movies in one strut. This is only his third feature and every signature is already welded on: the needle drops, the lurching handheld, the Catholic guilt caked over everyone, Scorsese narrating Charlie's conscience in his own voice. Half the needle drops I've complained about in other reviews are just guys chasing what he pulled off here on the first swing.
+![Robert De Niro as Johnny Boy, in a fedora and a long overcoat, slipping through the crowd of a red-lit bar.](/images/reviews/mean-streets/johnny-boy-struts-into-the-bar.webp)
+
+The whole future of American movies in one strut. This is only his third feature and every signature is already welded on: the needle drops, the lurching handheld, the Catholic guilt caked over everyone, Scorsese narrating Charlie's conscience in his own voice.
+
+![Harvey Keitel as Charlie in a church, reaching his fingers down toward a votive candle flame, a red candle glass and stained glass blurred around him.](/images/reviews/mean-streets/charlie-reaching-into-the-candle-flame.webp)
+
+Half the needle drops I've complained about in other reviews are just guys chasing what he pulled off here on the first swing.
 
 Then there's the muse. First De Niro collaboration, the opening act of the partnership that carried Scorsese until DiCaprio took over decades later. Johnny Boy's a live wire. Keitel's the quieter miracle, all that religious dread grinding against loyalty behind his eyes, and their best scenes were half invented on the spot.
 
 Also: that haircut. The hat cocked just so, the whole swaggering disaster of a silhouette. I'm obsessed.
+
+![Johnny Boy under a bare bulb in a back room, brown hat tipped back on his head, gray suit and loud tie, talking with his hands to Charlie.](/images/reviews/mean-streets/johnny-boy-in-the-cocked-hat.webp)
 
 And underneath the legend, it's a hangout movie. Guys busting each other's balls in a bar. Shot for about six hundred grand, mostly in LA faking Little Italy, handheld half the time because they couldn't afford to lay track, with Coppola supposedly floating three grand when the mob shook them down at the feast. Pocket lint and Catholic guilt, and it still runs hotter than most things with a hundred times the money.
 

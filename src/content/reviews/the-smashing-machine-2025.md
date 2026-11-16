@@ -22,11 +22,19 @@ heroAlt: "Dwayne Johnson sitting in a fighter's corner of a ring while his corne
 
 I love that Captain Capitalism finally ate shit when he tried to make an earnest play at being a legit drama actor. Schadenfreude tastes sweet. The Rock finally tried to be a serious actor and bombed so hard the movie became a meta-commentary on failure.
 
+After the opening weekend, Johnson [wrote on Instagram](https://www.thewrap.com/dwayne-johnson-reacts-the-smashing-machine-box-office-flop/) that "in our storytelling world, you can't control box office results."
+
 But I'm also genuinely sad that my boy Benny Safdie made a bomb on his solo directorial debut. The man deserves better than this.
 
-I've actually watched the 1999 documentary this is based on, and honestly, I prefer the documentary. This feature film gets a little shaggy in the second act when it should be building momentum. I wish it was a tight 90 minutes instead of meandering around. That pacing problem hurts it.
+I've actually watched the [1999 documentary](/reviews/the-smashing-machine/) this is based on, and honestly, I prefer the documentary. This feature film gets a little shaggy in the second act when it should be building momentum. I wish it was a tight 90 minutes instead of meandering around. That pacing problem hurts it.
+
+![The real Mark Kerr in a navy shirt, talking in a doctor's waiting room beside a purple chair.](/images/reviews/the-smashing-machine-2025/kerr-in-the-documentary-then-johnson-1.webp 'The Smashing Machine · 2002') ![Dwayne Johnson as Kerr in the same navy shirt, talking in a waiting room with teal chairs.](/images/reviews/the-smashing-machine-2025/kerr-in-the-documentary-then-johnson-2.webp 'The Smashing Machine · 2025')
+
+_Kerr in the documentary's [trailer](https://www.youtube.com/watch?v=-7DO5c7gWNw), and Johnson as Kerr in the same waiting room scene._
 
 That said, I do love the 90s aesthetics - the production design, the wardrobe, the costuming. Safdie clearly did his homework on capturing that specific era of MMA when it was still finding its identity. Visually, this nails the grimy, unglamorous world of early mixed martial arts.
+
+![Emily Blunt as Dawn and Johnson as Kerr on a shiny leather sectional with a fluffy white cat, a potted palm and vertical blinds behind them.](/images/reviews/the-smashing-machine-2025/kerr-and-dawn-on-the-leather-couch.webp)
 
 The Rock is actually doing pretty good in this. He gives a solid, grounded performance as Mark Kerr. It's easily his best dramatic work. But I just hate him so much as a man - the corporate brand bullshit, the calculated image management, the Disney shill energy - that I can't bring myself to care. He's good here, but I'm still glad this failed for him personally.
 
