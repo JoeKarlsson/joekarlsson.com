@@ -29,10 +29,6 @@ marginNotes:
     at: 'Organizations can develop custom inventory systems'
     text: "If you build your own, these are the five design principles I'd start from."
     post: 'how-to-design-cloud-asset-inventory-aws'
-  - type: 'update'
-    at: 'CloudQuery is a full solution'
-    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
-    date: 'Mar 2026'
   - type: 'see'
     at: 'Execute the sync to populate your asset inventory'
     text: 'A longer build of the same setup, with dbt models and Grafana dashboards on top.'

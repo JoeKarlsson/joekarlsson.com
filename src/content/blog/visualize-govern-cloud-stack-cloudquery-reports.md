@@ -12,10 +12,6 @@ canonicalUrl: 'https://www.cloudquery.io/blog/visualize-govern-cloud-stack-cloud
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'The dashboard of an old car'
 marginNotes:
-  - type: 'update'
-    at: 'We built Reports to help teams'
-    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
-    date: 'Mar 2026'
   - type: 'see'
     at: 'Get a complete inventory of assets'
     text: 'How to build that inventory yourself across AWS, GCP and Azure, step by step.'

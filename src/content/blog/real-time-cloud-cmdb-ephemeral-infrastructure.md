@@ -28,10 +28,6 @@ marginNotes:
     at: "One-size-fits-all sync schedules don't work"
     text: 'Tiered sync is one of six practices in my cloud CMDB guide for platform engineers.'
     post: 'cloud-cmdb-best-practices-platform-engineers'
-  - type: 'update'
-    at: 'provides a modern approach to building cloud CMDBs'
-    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
-    date: 'Mar 2026'
 ---
 
 Your Kubernetes pods live for 3 minutes. Your Lambda functions for 300 milliseconds. Your CMDB updates weekly. See the problem?

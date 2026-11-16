@@ -17,10 +17,6 @@ marginNotes:
     text: 'Steampipe provides zero-ETL tools for fetching data directly from APIs and services.'
     by: "Steampipe's docs"
     url: 'https://steampipe.io/docs'
-  - type: 'update'
-    at: 'is a cloud asset inventory and governance platform'
-    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
-    date: 'Mar 2026'
   - type: 'see'
     at: 'Run queries without hitting API rate limits'
     text: 'When I benchmarked CloudQuery, rate limits set the pace: 13 GB an hour from AWS APIs against 581 GB an hour from local files.'

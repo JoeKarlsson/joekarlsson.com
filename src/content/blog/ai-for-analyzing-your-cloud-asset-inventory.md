@@ -13,10 +13,6 @@ canonicalUrl: https://www.cloudquery.io/blog/ai-for-analyzing-your-cloud-asset-i
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: "Caravaggio's painting of a fortune teller reading a young man's palm"
 marginNotes:
-  - type: 'update'
-    at: 'CloudQuery already makes it easy for you'
-    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
-    date: 'Mar 2026'
   - type: 'quote'
     at: 'Model Context Protocol (MCP) server to fix this gap'
     text: 'MCP (Model Context Protocol) is an open-source standard for connecting AI applications to external systems.'

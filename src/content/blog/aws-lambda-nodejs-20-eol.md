@@ -34,10 +34,6 @@ marginNotes:
     text: 'Starting with the Node.js 24 runtime, Lambda no longer supports the callback-based handler signature for asynchronous operations.'
     by: 'AWS Compute Blog, Node.js 24 runtime now available in AWS Lambda'
     url: 'https://aws.amazon.com/blogs/compute/node-js-24-runtime-now-available-in-aws-lambda/'
-  - type: 'update'
-    at: 'When you manage dozens of accounts across multiple regions'
-    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
-    date: 'Mar 2026'
 ---
 
 > **TL;DR:** AWS Lambda Node.js 20.x reaches end-of-life on April 30, 2026, after which security patches stop and you progressively lose the ability to create or update functions on this runtime. Upgrade to Node.js 22, test for import assertion syntax changes, native module ABI mismatches, and CA certificate configuration, and use CloudQuery Platform to find every affected function across all your AWS accounts with a single SQL query.

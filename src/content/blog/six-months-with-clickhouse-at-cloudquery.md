@@ -12,10 +12,6 @@ heroAlt: 'A clock on a station wall'
 canonicalUrl: 'https://www.cloudquery.io/blog/six-months-with-clickhouse-at-cloudquery'
 tldr: 'ClickHouse delivered on speed and scale, but JOINs need careful handling (use dictionaries), sorting keys are critical and unchangeable after the fact, materialized views were too unpredictable for us, and it works surprisingly well for logging/observability beyond just analytics.'
 marginNotes:
-  - type: 'update'
-    at: 'our initial goal was simple'
-    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
-    date: 'Mar 2026'
   - type: 'see'
     at: "aggressively terminated by ClickHouse's OvercommitTracker"
     text: 'Big inserts hit the same memory limit. We split them into UUID-range buckets to get under it.'

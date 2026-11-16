@@ -12,10 +12,6 @@ tldr: 'Unicorne cut WAFR engagement time from 50 hours to 20 by automating data 
 heroImage: '/images/blog/unicorne-cloudquery-case-study/thumb-d8a25d3c.webp'
 heroAlt: 'A painted carousel horse'
 marginNotes:
-  - type: 'update'
-    at: 'used CloudQuery to change how it delivers'
-    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
-    date: 'Mar 2026'
   - type: 'term'
     at: 'extracting Cost Usage Reports'
     text: "AWS's most detailed billing export. It breaks spend down by service, resource and hour, and lands as files in an S3 bucket."

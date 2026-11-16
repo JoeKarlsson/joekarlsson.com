@@ -13,10 +13,6 @@ canonicalUrl: 'https://www.cloudquery.io/blog/cloudquery-performance-benchmark-a
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Cars launching down a drag strip at dusk'
 marginNotes:
-  - type: 'update'
-    at: "establish CloudQuery's throughput characteristics"
-    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand, with CloudQuery founder Yevgeny Pats as CTO.'
-    date: 'Mar 2026'
   - type: 'see'
     at: 'Testing was conducted on Apple M4 Pro systems'
     text: 'A few weeks earlier I ran a smaller version of this test: 1 million rows synced in 2 seconds on a MacBook.'

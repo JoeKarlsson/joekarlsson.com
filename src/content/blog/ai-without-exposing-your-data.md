@@ -18,10 +18,6 @@ corrections:
   - date: 2026-11-12
     note: "I removed two stats I couldn't source: 99.7% accuracy in the bank example and a 40% efficiency gain in the manufacturer example."
 marginNotes:
-  - type: 'update'
-    at: 'Managed AI models need vast amounts'
-    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
-    date: 'Mar 2026'
   - type: 'quote'
     at: 'establish memory leakage as a real threat'
     text: 'Large language models (LMs) have been shown to memorize parts of their training data, and when prompted appropriately, they will emit the memorized training data verbatim.'

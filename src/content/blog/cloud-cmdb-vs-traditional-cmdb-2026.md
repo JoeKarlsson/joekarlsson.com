@@ -36,10 +36,6 @@ marginNotes:
     at: 'Each instance lives 30-60 seconds'
     text: 'My follow-up covers how often a cloud CMDB should sync each kind of resource, from every 15 minutes to daily, and what that costs.'
     post: 'real-time-cloud-cmdb-ephemeral-infrastructure'
-  - type: 'update'
-    at: 'Call APIs directly using tools like CloudQuery'
-    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand, with CloudQuery founder Yevgeny Pats as CTO.'
-    date: 'Mar 2026'
 ---
 
 Traditional CMDBs were built for a world where servers had names. In 2026, your infrastructure doesn't even exist until someone invokes it.

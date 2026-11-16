@@ -31,10 +31,6 @@ marginNotes:
     at: 'choose your technical approach'
     text: 'Steampipe queries cloud APIs live, and CloudQuery keeps a synced copy. I wrote up when to use each.'
     post: 'steampipe-vs-cloudquery'
-  - type: 'update'
-    at: 'Managed scheduling via UI (no CronJob management)'
-    text: 'CloudQuery merged with env zero in March 2026, and the combined company runs under the env zero name.'
-    date: 'Mar 2026'
 ---
 
 > **Note:** **6 Cloud CMDB Best Practices:**

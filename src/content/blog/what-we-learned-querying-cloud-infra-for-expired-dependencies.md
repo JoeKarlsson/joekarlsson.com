@@ -16,10 +16,6 @@ corrections:
   - date: 2026-11-12
     note: 'The EKS upgrade command had no values, the RDS query read the version catalog instead of your instances, and the Lambda and runtime joins never matched (`python3.9` against `3.9`).'
 marginNotes:
-  - type: 'update'
-    at: 'CloudQuery lets you pull in data from multiple cloud providers'
-    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
-    date: 'Mar 2026'
   - type: 'quote'
     at: 'which comes with extra charges per vCPU per hour'
     text: 'You will incur charges for all engines enrolled in RDS Extended Support beginning the day after the RDS end of standard support date.'

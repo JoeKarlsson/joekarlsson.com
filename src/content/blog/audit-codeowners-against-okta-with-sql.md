@@ -17,10 +17,6 @@ corrections:
   - date: 2026-11-12
     note: "The Git source config used syntax the plugin doesn't take (`git_files: glob_patterns`). It's `table_options.git_files` with `glob`. `okta_users.email` is `profile->>'email'`."
 marginNotes:
-  - type: 'update'
-    at: 'CODEOWNERS files assign code responsibility'
-    text: 'CloudQuery merged with env zero in March 2026. The combined company runs under the env zero brand.'
-    date: 'Mar 2026'
   - type: 'quote'
     at: 'their GitHub handles remain in CODEOWNERS files'
     text: 'The people you choose as code owners must have write permissions for the repository.'
