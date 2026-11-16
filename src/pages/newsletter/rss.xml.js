@@ -6,6 +6,7 @@ import {
 	postersForFeeds,
 	withoutLinkPreviews,
 	withoutMarginCopies,
+	withoutPageOnlyParts,
 } from '../../utils/feed-html';
 
 // The newsletter for feed readers: every issue, newest first, with the full text so a
@@ -29,8 +30,10 @@ export async function GET(context) {
 				link: `/newsletter/${issue.data.slug}/`,
 				content:
 					issue.rendered?.html &&
-					withoutMarginCopies(
-						withoutLinkPreviews(postersForFeeds(diagramsAsImages(issue.rendered.html))),
+					withoutPageOnlyParts(
+						withoutMarginCopies(
+							withoutLinkPreviews(postersForFeeds(diagramsAsImages(issue.rendered.html))),
+						),
 					),
 			})),
 	});

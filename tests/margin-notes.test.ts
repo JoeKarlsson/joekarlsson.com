@@ -232,4 +232,66 @@ describe('rehypeMarginNotes enrichment', async () => {
 			'Why x is one.',
 		]);
 	});
+	it("links a citation's note to its source and back to its words, sharing their number", async () => {
+		const a = link('https://a.com/x', 'A paper', 'cite: Ames, 2020');
+		const root = await run(p(text('See '), a));
+		const note = root.children![0];
+		const links = (n: HastNode): HastNode[] =>
+			n.tagName === 'a' ? [n] : (n.children ?? []).flatMap(links);
+		expect(links(note).map((l) => l.properties!.href)).toEqual(['#mn-w-1', 'https://a.com/x']);
+		expect(note.properties!.dataNote).toBe('1');
+		expect(a.properties).toMatchObject({ dataNote: '1', id: 'mn-w-1' });
+	});
+	it('copies a footnote into the margin with its links, paired with its number in the line', async () => {
+		const ref: HastNode = {
+			type: 'element',
+			tagName: 'a',
+			properties: { href: '#user-content-fn-t', id: 'user-content-fnref-t', dataFootnoteRef: '' },
+			children: [text('1')],
+		};
+		const sup: HastNode = { type: 'element', tagName: 'sup', properties: {}, children: [ref] };
+		const def: HastNode = {
+			type: 'element',
+			tagName: 'li',
+			properties: { id: 'user-content-fn-t' },
+			children: [p(text('See '), link('https://a.com/', 'this'), text('.'))],
+		};
+		const list: HastNode = { type: 'element', tagName: 'ol', properties: {}, children: [def] };
+		const root = await run(p(text('Text.'), sup), {
+			type: 'element',
+			tagName: 'section',
+			properties: {},
+			children: [list],
+		});
+		const note = root.children![0];
+		expect(textOf(note)).toBe('1 See this.');
+		expect(note.properties!.dataNote).toBe('fn-1');
+		expect(ref.properties!.dataNote).toBe('fn-1');
+	});
+	it('stacks a code note under the one before it when their lines are close', async () => {
+		const line = (code: string): HastNode => ({
+			type: 'element',
+			tagName: 'span',
+			properties: { class: 'line' },
+			children: [text(code)],
+		});
+		const pre: HastNode = {
+			type: 'element',
+			tagName: 'pre',
+			properties: {},
+			children: [
+				{
+					type: 'element',
+					tagName: 'code',
+					properties: {},
+					children: [line('a = 1 # [!margin] One.'), line('b = 2 # [!margin] Two.')],
+				},
+			],
+		};
+		const root = await run(pre);
+		const [first, second] = root.children![0].children!.filter((n) => n.tagName === 'aside');
+		expect(first.properties!.dataNote).toBe('code-1');
+		expect(String(first.properties!.style)).not.toContain('max(');
+		expect(String(second.properties!.style)).toContain('anchor(--code-note-1-note bottom)');
+	});
 });

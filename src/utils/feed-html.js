@@ -28,3 +28,20 @@ export function withoutMarginCopies(html) {
 		'',
 	);
 }
+
+// What only works on the page, with its CSS and scripts: the crayon rings round noted words
+// (an empty box in a reader), heading # links, chapter numerals, FAQ +/- signs, the phone copy
+// of a note's number, citation numbers whose notes the feed drops, and desktop-only embeds,
+// which have no src until a script sets one (their phone link, just before, stays)
+const PAGE_ONLY = [
+	/<svg class="hover-ring[^"]*"[\s\S]*?<\/svg>/g,
+	/<a class="heading-anchor"[^>]*>[\s\S]*?<\/a>/g,
+	/<span class="chapter-num"[^>]*>[^<]*<\/span>/g,
+	/<span class="faq-sign[^"]*"[^>]*>(?:<span[^>]*>[^<]*<\/span>)*<\/span>/g,
+	/<sup class="cite-num mn-num mn-phone">[\s\S]*?<\/sup>/g,
+	/<sup class="cite-num"[^>]*>[^<]*<\/sup>/g,
+	/<div class="[^"]*"[^>]*>\s*<iframe data-desktop-src[\s\S]*?<\/iframe>\s*<\/div>/g,
+];
+export function withoutPageOnlyParts(html) {
+	return PAGE_ONLY.reduce((out, pattern) => out.replace(pattern, ''), html);
+}

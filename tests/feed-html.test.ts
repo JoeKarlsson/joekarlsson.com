@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { withoutMarginCopies } from '../src/utils/feed-html';
+import { withoutMarginCopies, withoutPageOnlyParts } from '../src/utils/feed-html';
 
 describe('withoutMarginCopies', () => {
 	it('drops margin and code notes and leader rules, keeping the line and the code comment', () => {
@@ -17,5 +17,25 @@ describe('withoutMarginCopies', () => {
 		const copy =
 			'<div role="note" class="margin-note mn-update mn-narrow" id="mn-5-narrow" data-note="5">Updated.</div>';
 		expect(withoutMarginCopies(`${note}<p>Text</p>${copy}`)).toBe(`${note}<p>Text</p>`);
+	});
+});
+
+describe('withoutPageOnlyParts', () => {
+	it('drops page-only parts and keeps the words, links and phone fallback', () => {
+		const html =
+			'<div class="heading-group"><h2 id="x">X</h2><a class="heading-anchor" aria-label="Link" href="#x"><span aria-hidden="true">#</span></a></div>' +
+			'<div class="chapter"><span class="chapter-num" aria-hidden="true">01</span></div>' +
+			'<p><span class="mn-words" data-note="1">words<svg class="hover-ring mn-ring" viewBox="0 0 520 150"><g><use href="#hover-ring-0"></use></g></svg></span><sup class="cite-num mn-num"><a href="#mn-1">1</a></sup><sup class="cite-num mn-num mn-phone"><a href="#mn-1">1</a></sup></p>' +
+			'<p><a href="https://a.com/" data-note="2">A</a><sup class="cite-num" aria-hidden="true" data-note="2">2</sup></p>' +
+			'<summary><h3>Q</h3><span class="faq-sign icon-swap" aria-hidden="true"><span data-icon-off="">+</span><span data-icon-on="">–</span></span></summary>' +
+			'<p class="md:hidden">On a phone, <a href="https://g/">open it</a>.</p> <div class="@container max-md:hidden"> <iframe data-desktop-src="https://g/embed" title="G"></iframe> </div>';
+		expect(withoutPageOnlyParts(html)).toBe(
+			'<div class="heading-group"><h2 id="x">X</h2></div>' +
+				'<div class="chapter"></div>' +
+				'<p><span class="mn-words" data-note="1">words</span><sup class="cite-num mn-num"><a href="#mn-1">1</a></sup></p>' +
+				'<p><a href="https://a.com/" data-note="2">A</a></p>' +
+				'<summary><h3>Q</h3></summary>' +
+				'<p class="md:hidden">On a phone, <a href="https://g/">open it</a>.</p> ',
+		);
 	});
 });

@@ -4,7 +4,9 @@
 // Without this script the numbers are plain links between the two.
 
 const pairOf = (n: string) => document.querySelectorAll<HTMLElement>(`.prose [data-note="${n}"]`);
-const isNote = (el: Element) => el.classList.contains('margin-note');
+// A code note (beside its line) pairs with that line the same way
+const isNote = (el: Element) =>
+	el.classList.contains('margin-note') || el.classList.contains('code-note');
 
 function bringIntoView(el: HTMLElement) {
 	const box = el.getBoundingClientRect();
@@ -28,7 +30,11 @@ export function initMarginNotes() {
 		el.addEventListener('focusout', unlight);
 		// A cite link goes to its source; its note is reached from the number beside it
 		if (el.tagName === 'A' && !el.getAttribute('href')?.startsWith('#')) return;
+		// A footnote number goes to the footnote list, the copy a screen reader can read
+		if (el.matches('[data-footnote-ref]')) return;
 		el.addEventListener('click', (event) => {
+			// Selecting text (copying from a code line) isn't asking for the note
+			if (getSelection()?.toString()) return;
 			const link = (event.target as Element).closest('a');
 			// Links inside a note (a quote's source, a see-also card) still go where they point
 			if (link && !link.getAttribute('href')?.startsWith('#')) return;
@@ -41,14 +47,16 @@ export function initMarginNotes() {
 			pair.forEach((x) => x.classList.add('is-held', 'is-lit'));
 			const fromNote = isNote(el) || !!el.closest('.margin-note');
 			// The other end: the words, or whichever copy of the note shows at this width
-			const other = pair.find((x) =>
-				fromNote
-					? !isNote(x) && x.tagName !== 'SUP' && !x.closest('sup')
-					: isNote(x) && x.offsetParent,
-			);
+			// A footnote's words are its number, so a sup is the fallback
+			const other = fromNote
+				? (pair.find((x) => !isNote(x) && x.tagName !== 'SUP' && !x.closest('sup')) ??
+					pair.find((x) => !isNote(x)))
+				: pair.find((x) => isNote(x) && x.offsetParent);
 			if (!other) return;
 			bringIntoView(other);
 			// Focus follows, so a keyboard or screen reader user lands where the link pointed
+			// Never into a note copy hidden from screen readers
+			if (other.closest('[aria-hidden="true"]')) return;
 			other.tabIndex = -1;
 			other.focus({ preventScroll: true });
 		});

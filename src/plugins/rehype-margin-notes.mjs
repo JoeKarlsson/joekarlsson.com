@@ -76,7 +76,14 @@ function siteOf(href) {
 	}
 }
 
-/** The footnote definitions GFM put at the end, by id, without their ↩ back links. */
+/** A note's links, out of the keyboard's way: the note is aria-hidden, a copy of the line's. */
+function untabbable(node) {
+	if (node.type !== 'element') return node;
+	const props = node.tagName === 'a' ? { ...node.properties, tabIndex: -1 } : node.properties;
+	return { ...node, properties: props, children: node.children.map(untabbable) };
+}
+
+/** The footnote definitions GFM put at the end, by id, as inline markup without ↩ back links. */
 function footnoteTexts(tree) {
 	const notes = new Map();
 	const walk = (node) => {
@@ -87,7 +94,10 @@ function footnoteTexts(tree) {
 					: n.children
 						? { ...n, children: n.children.map(strip).filter(Boolean) }
 						: n;
-			notes.set(`#${node.properties.id}`, textOf(strip(node)).trim());
+			const inline = strip(node).children.flatMap((c) =>
+				c.tagName === 'p' ? [text(' '), ...c.children] : c.type === 'element' ? [c] : [],
+			);
+			notes.set(`#${node.properties.id}`, inline.slice(1).map(untabbable));
 			return;
 		}
 		node.children?.forEach(walk);
@@ -99,14 +109,23 @@ function footnoteTexts(tree) {
 // The margin note is aria-hidden, so a quote that's only there would never be heard
 const spokenQuote = (quote) => el('span', { className: ['sr-only'] }, [text(` (“${quote}”)`)]);
 
-function marginNote(number, children, quote = null, paired = false) {
-	const pair = paired ? { dataNote: String(number) } : {};
-	return el('aside', { className: ['margin-note'], ariaHidden: 'true', ...pair }, [
+/**
+ * A citation or footnote note. `pair` is the data-note it shares with its words in the line
+ * (margin-notes.ts lights both on hover), and `back` the id its number links back to.
+ */
+function marginNote(number, children, { quote = null, pair, back }) {
+	return el('aside', { className: ['margin-note'], ariaHidden: 'true', dataNote: pair }, [
 		...(quote ? [el('span', { className: ['margin-quote'] }, [text(`“${quote}”`)])] : []),
-		el('b', {}, [text(`${number} `)]),
+		el('b', {}, [el('a', { href: back, tabIndex: -1 }, [text(String(number))]), text(' ')]),
 		...children,
 	]);
 }
+
+/** A citation's note text, linked to the source, then the site it's on. */
+const sourceLink = (href, words) => {
+	const site = siteOf(href);
+	return [el('a', { href, tabIndex: -1 }, [text(words)]), ...(site ? [text(` ${site}`)] : [])];
+};
 
 /** A paragraph holding only a picture titled `margin: caption`, as a margin figure. */
 function marginPicture(block) {
@@ -121,6 +140,8 @@ function marginPicture(block) {
 	delete img.properties.title;
 	// In the margin at most 15rem wide and 11rem tall, so a portrait is narrower; 7.5rem without one
 	const { width, height } = img.properties;
+	// The margin's 11rem height cap, as a width the browser knows before the picture loads
+	if (width && height) img.properties.style = `--ratio:${(width / height).toFixed(3)}`;
 	img.properties.sizes = `(width >= 80rem) ${width && height ? Math.min(15, (11 * width) / height).toFixed(1) : 15}rem, 7.5rem`;
 	return el('figure', { className: ['margin-figure'] }, [
 		img,
@@ -143,6 +164,7 @@ function codeNotes(tree) {
 		}
 		const code = node.children.find((n) => n.tagName === 'code');
 		const extras = [];
+		let previous = null;
 		for (const line of code?.children ?? []) {
 			// Shiki sets `class` as a string, not hast's className list
 			if (
@@ -166,6 +188,8 @@ function codeNotes(tree) {
 			const withText = (value) =>
 				token.type === 'text' ? text(value) : { ...token, children: [text(value)] };
 			const anchor = `--code-note-${++count}`;
+			// Lit with its note on hover (margin-notes.ts); a key apart from the citations' numbers
+			line.properties.dataNote = `code-${count}`;
 			line.children = [
 				...line.children.slice(0, at),
 				...(before ? [withText(before)] : []),
@@ -176,10 +200,37 @@ function codeNotes(tree) {
 				]),
 			];
 			const placed = { style: `position-anchor:${anchor}`, ariaHidden: 'true' };
-			extras.push(
-				el('span', { className: ['code-note-rule'], ...placed }, []),
-				el('aside', { className: ['code-note'], ...placed }, [text(note)]),
+			// Level with its line, or just under the note before it when lines sit too close
+			const below = previous
+				? `;top:max(calc(anchor(center) - 0.5lh), calc(anchor(${previous} bottom) + 0.75rem))`
+				: '';
+			// A pushed-down note's rule follows it down, so it never ends beside the note above
+			const rule = el(
+				'span',
+				{
+					className: ['code-note-rule'],
+					...placed,
+					...(previous && {
+						style: `${placed.style};top:max(round(down, anchor(center), 1px), round(down, calc(anchor(${anchor}-note top) + 0.6rem), 1px))`,
+					}),
+				},
+				[],
 			);
+			// The note first: an anchor has to come before what's placed on it
+			extras.push(
+				el(
+					'aside',
+					{
+						className: ['code-note'],
+						...placed,
+						style: `${placed.style};anchor-name:${anchor}-note${below}`,
+						dataNote: `code-${count}`,
+					},
+					[text(note)],
+				),
+				rule,
+			);
+			previous = `${anchor}-note`;
 		}
 		if (extras.length) {
 			parent.children[parent.children.indexOf(node)] = el('div', { className: ['code-noted'] }, [
@@ -373,7 +424,16 @@ export default function rehypeMarginNotes() {
 				const href = String(node.properties?.href ?? '');
 				if (node.tagName === 'a' && node.properties?.dataFootnoteRef !== undefined) {
 					const note = footnotes.get(href);
-					if (note) notes.push(marginNote(textOf(node).trim(), [text(note)]));
+					if (!note) return;
+					const label = textOf(node).trim();
+					// Its own key: footnote labels are their own numbers, apart from the notes' count
+					node.properties.dataNote = `fn-${label}`;
+					notes.push(
+						marginNote(label, structuredClone(note), {
+							pair: `fn-${label}`,
+							back: `#${node.properties.id}`,
+						}),
+					);
 					return;
 				}
 				const { rest, quote } = titleParts(node.properties?.title);
@@ -383,7 +443,10 @@ export default function rehypeMarginNotes() {
 					const number = repeat ?? ++count;
 					numberOf.set(href, number);
 					delete node.properties.title;
-					if (!repeat) node.properties.dataNote = String(number);
+					if (!repeat) {
+						node.properties.dataNote = String(number);
+						node.properties.id = `mn-w-${number}`;
+					}
 					const at = parent.children.indexOf(node);
 					// After the link, not in it: the link's name stays its own words
 					parent.children.splice(
@@ -401,17 +464,12 @@ export default function rehypeMarginNotes() {
 					);
 					if (repeat) return;
 					if (quote) parent.children.splice(at + 2, 0, spokenQuote(quote));
-					const site = siteOf(href);
 					notes.push(
-						marginNote(
-							number,
-							[
-								text(`${source[1].trim()}. ${textOf(node).trim()}.`),
-								...(site ? [text(` ${site}`)] : []),
-							],
+						marginNote(number, sourceLink(href, `${source[1].trim()}. ${textOf(node).trim()}.`), {
 							quote,
-							true,
-						),
+							pair: String(number),
+							back: `#mn-w-${number}`,
+						}),
 					);
 					return;
 				}
@@ -427,6 +485,8 @@ export default function rehypeMarginNotes() {
 						before.value = before.value.trimEnd();
 					}
 					node.properties.className = [...(node.properties.className ?? []), 'cite'];
+					node.properties.dataNote = String(count);
+					node.properties.id = `mn-w-${count}`;
 					if (quote) {
 						delete node.properties.title;
 						parent.children.splice(at + 1, 0, spokenQuote(quote));
@@ -436,13 +496,23 @@ export default function rehypeMarginNotes() {
 						el('sup', { className: ['cite-num'] }, [text(String(count))]),
 						el('span', { className: ['cite-text'] }, [text(`${lead}${textOf(node)}`)]),
 					];
-					const site = siteOf(href);
 					notes.push(
-						marginNote(count, [text(`${cited[1]}.`), ...(site ? [text(` ${site}`)] : [])], quote),
+						marginNote(count, sourceLink(href, `${cited[1]}.`), {
+							quote,
+							pair: String(count),
+							back: `#mn-w-${count}`,
+						}),
 					);
 					return;
 				}
-				if (SKIP.has(node.tagName)) return;
+				if (SKIP.has(node.tagName)) {
+					// No phrase goes inside, but a footnote's number is a link inside a sup
+					if (node.tagName === 'sup') {
+						const ref = node.children.find((c) => c.properties?.dataFootnoteRef !== undefined);
+						if (ref) walk(ref, node);
+					}
+					return;
+				}
 				if (node.tagName === 'li') {
 					const [outerNotes, outerAfter] = [notes, after];
 					notes = [];

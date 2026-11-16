@@ -863,8 +863,15 @@ header nav .sticker {
 /* With no margin, a margin picture floats small at the right of its paragraph instead */
 .prose figure.margin-figure {
 	float: right;
+	clear: right;
 	width: 7.5rem;
 	margin: 0.35rem 0 0.75rem 1rem;
+}
+/* Whatever isn't running text starts below it, however short the paragraph beside it */
+@media (width < 80rem) {
+	.prose .margin-figure ~ :not(p, ul, ol, blockquote, aside, .margin-figure) {
+		clear: right;
+	}
 }
 .prose .margin-figure img {
 	width: 100%;
@@ -920,12 +927,11 @@ header nav .sticker {
 		width: 15rem;
 		margin: 0.35rem calc(-1 * var(--margin-col)) 1rem 0;
 	}
+	/* At most 11rem tall: --ratio (set by the plugin) turns that into a width, so a portrait
+	   is narrower, a landscape fills the 15rem, and the space is known before it loads */
 	.prose .margin-figure img {
-		width: auto;
-		max-width: 100%;
-		/* A set height, so the attributes' ratio reserves the space before it loads */
-		height: 11rem;
-		object-fit: contain;
+		width: min(100%, calc(11rem * var(--ratio, 1.364)));
+		height: auto;
 		margin: 0;
 	}
 	/* A code comment marked [!margin] sits level with its line, joined by a pink rule (pick
@@ -958,7 +964,8 @@ header nav .sticker {
 			position: absolute;
 			/* Whole pixels, or the 1px rule smears across two rows and reads grey */
 			top: round(down, anchor(center), 1px);
-			left: calc(anchor(right) + 1rem);
+			/* A line too long for the block still gets a short rule from the block's edge */
+			left: min(calc(anchor(right) + 1rem), calc(100% - 1.5rem));
 			right: calc(15rem - var(--margin-col) + 0.5rem);
 		}
 	}
@@ -1049,8 +1056,24 @@ header nav .sticker {
 .prose .mn-words {
 	@apply relative;
 }
-.prose .mn-words.is-lit {
-	@apply text-pink;
+/* Hovering a note or its words lights both (margin-notes.ts): the words get a pink
+   highlighter, like the note's number chip. A code line gets a soft band, keeping its colors. */
+.prose :is(.mn-words, a[data-note]:not(.cite), a[data-footnote-ref]).is-lit {
+	@apply bg-pink text-ink;
+	box-decoration-break: clone;
+}
+/* A citation's number, and a bracketed citation's only visible part, lights as the note's chip */
+.prose :is(a.cite.is-lit .cite-num, sup.cite-num.is-lit) {
+	@apply bg-pink px-0.5 text-ink;
+}
+.prose .line[data-note].is-lit {
+	background-color: rgb(255 79 216 / 0.2);
+}
+.prose .code-note.is-lit {
+	@apply text-paper;
+}
+.prose :is(.margin-note[data-note], .code-note, .line[data-note]) {
+	@apply cursor-pointer;
 }
 .prose .mn-ring {
 	@apply pointer-events-none absolute -top-[35%] -left-[6%] h-[170%] w-[112%] overflow-visible;
