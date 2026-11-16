@@ -52,6 +52,8 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 - 2026-11-15: Homepage: everything clickable shows it on hover (Joe: "it's not super clear what's clickable... nothing happens when I hover"): every card and clip draws the crayon HoverBox and its title turns pink, posters lift. The Shorts play a short muted montage from the Short itself while hovered or focused (never under reduced motion or a pause). Hot takes skip Clifford. Labels cut to the bone (Joe: "over verbose"): no "Topics:", Most read has no link, "Hot takes" alone with "Letterboxd" by the score, "Podcasts", no label over the terminal, header links read "All posts/works/talks/reviews".
 
+- 2026-11-15: Homepage spacing: wide screens breathe (128px between sections, about 176px above and 128px below "Ship the ugly pot"; Joe: "cramped in a bad way"), phones stay tight (48px; "I still want it tight on mobile"). The TEDx talk clip is two thirds wide, not full bleed ("kind of too big"), with the other two talks stacked beside it.
+
 ## Playful details
 
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.
