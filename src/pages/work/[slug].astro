@@ -1,25 +1,11 @@
 ---
 import { inlineMarkdown } from '../../utils/inline-markdown';
-import {
-	ARTICLE_HEADING,
-	META,
-	MORE_LINK,
-	PAGE_CONTAINER,
-	PRIMARY_BUTTON,
-	SECTION_HEADING,
-} from '../../utils/ui';
+import { ARTICLE_HEADING, META, MORE_LINK, PRIMARY_BUTTON, SECTION_HEADING } from '../../utils/ui';
 import { Code } from 'astro:components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import AuthorBio from '../../components/AuthorBio.astro';
-import BackLink from '../../components/BackLink.astro';
-import Logo from '../../components/Logo.astro';
-import Masthead from '../../components/Masthead.astro';
-import NewsletterAsk from '../../components/NewsletterAsk.astro';
-import InlineToc from '../../components/InlineToc.astro';
+import ArticleFrame from '../../components/ArticleFrame.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import Scribble from '../../components/Scribble.astro';
-import ShareLinks from '../../components/ShareLinks.astro';
-import TableOfContents from '../../components/TableOfContents.astro';
 import { projects, type Project, type ProjectPage } from '../../data/projects';
 import { MARKS } from '../../data/scribbles';
 import { halftoneMode } from '../../utils/halftone';
@@ -109,6 +95,8 @@ if (madeDiagram && !diagram)
 // (.work-wide, global.css)
 
 // The year and any collaborator; a page with a How it's made section lists its stack there
+// The masthead's picture: a clip shows its poster until it plays
+const hero = project.video ? (project.poster ?? project.image) : project.image;
 const byline = [project.date.slice(0, 4), page.credit, !page.made && project.tech.join(', ')];
 
 // The sidebar lists the sections this page has, in page order; ids match the h2s below
@@ -139,414 +127,369 @@ const sections = [
 	imageAlt={project.imageAlt}
 	schemaType="SoftwareSourceCode"
 >
-	{/* The blog post's frame (BlogPost.astro): an "On this page" sidebar beside the article */}
-	<div class={PAGE_CONTAINER}>
-		<div>
-			{/* @container: the wide blocks below size themselves to this column */}
-			<article class="@container min-w-0">
-				{/* The post's masthead (Masthead.astro, DECISIONS.md 2026-11-16 consistency): the
-				year and stack in the kicker, the title fitted to the column, the clip or picture on
-				the shared edge, the tagline as its caption */}
-				<div class="post-axis">
-					<BackLink href="/work/" label="Works" />
-					<Masthead
-						title={project.title}
-						label="Works"
-						caption={page.tagline}
-						heroImage={project.video ? (project.poster ?? project.image) : project.image}
-						heroVideo={project.video}
-						heroAlt={project.imageAlt}
-						width={
-							imageSizes.get(project.video ? (project.poster ?? project.image) : project.image)
-								?.width
-						}
-						height={
-							imageSizes.get(project.video ? (project.poster ?? project.image) : project.image)
-								?.height
-						}
-						halftone={halftoneMode(project.video ?? project.image)}
-					>
-						<MetaParts parts={byline} />
-					</Masthead>
-				</div>
-
-				{/* Everything from here shares one column under the masthead, as in a post */}
-				<div class="margin-column mx-auto max-w-(--reading-width)">
-					{sections.length > 1 && <TableOfContents headings={sections} />}
-					<div class="mb-12 flex flex-wrap items-center gap-x-6 gap-y-3">
-						{page.download && (
-							<a
-								href={page.download.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								class={`plausible-event-name=Project+Download+Click ${PRIMARY_BUTTON}`}
-							>
-								{page.download.label} &rarr;
-							</a>
-						)}
-						{project.demoUrl && (
-							<a
-								href={project.demoUrl}
-								target="_blank"
-								rel="noopener noreferrer"
-								class={`plausible-event-name=Project+Demo+Click ${PRIMARY_BUTTON}`}
-							>
-								See it live &rarr;
-							</a>
-						)}
-						{project.sourceUrl && (
-							<a
-								href={project.sourceUrl}
-								target="_blank"
-								rel="noopener noreferrer"
-								class={`plausible-event-name=Project+Source+Click ${project.demoUrl ? MORE_LINK : PRIMARY_BUTTON}`}
-							>
-								View on GitHub &rarr;
-							</a>
-						)}
-						{project.blogUrl && (
-							<a href={project.blogUrl} class={MORE_LINK}>
-								Read why I built it
-							</a>
-						)}
-					</div>
-
-					<InlineToc headings={sections} />
-
-					{page.introHeading && (
-						<h2 id="statement" class={ARTICLE_HEADING}>
-							{page.introHeading}
-						</h2>
-					)}
-					<div class="prose mt-12 md:mt-16">
-						{page.intro.map((p, i) => (
-							<>
-								<p set:html={inlineMarkdown(p)} />
-								{introFigure && i + 1 === page.introFigure?.after && (
-									<figure
-										class="diagram"
-										data-diagram-src={introFigure.properties.dataDiagramSrc}
-										data-diagram-alt={introFigure.properties.dataDiagramAlt}
-									>
-										{introFigure.children.map((version) => (
-											<div
-												class={version.properties.className[0]}
-												set:html={version.children[0].value}
-											/>
-										))}
-									</figure>
-								)}
-							</>
-						))}
-					</div>
-
-					{page.embedUrl && (
-						<section class="mt-12 md:mt-16" aria-labelledby="play-it">
-							<h2 id="play-it" class={ARTICLE_HEADING}>
-								{page.embedHeading ?? 'Play it'}
-							</h2>
-							<p class="mb-4 text-paper">
-								<span class="embed-small:hidden">
-									{page.embedNote ?? 'Click the game to play.'}
-								</span>{' '}
-								<a
-									href={project.demoUrl ?? page.embedUrl}
-									target="_blank"
-									rel="noopener noreferrer"
-									class={MORE_LINK}
-								>
-									Open it full screen &rarr;
-								</a>
-							</p>
-							<div class="work-wide">
-								{/* Phones get the still, linking to the full-screen version: scaled to a phone's
-								width an embed's text can't be read, and the games want a keyboard and mouse.
-								A light embed that reads at phone size sets embedOnPhones and plays there too */}
-								{!page.embedOnPhones && (
-									<a
-										href={project.demoUrl ?? page.embedUrl}
-										target="_blank"
-										rel="noopener noreferrer"
-										class="embed-phone-poster block embed-large:hidden"
-									>
-										<img
-											src={project.image}
-											alt={project.imageAlt}
-											data-halftone="flat"
-											width="560"
-											height="315"
-											class="block aspect-video w-full object-cover"
-											loading="lazy"
-											decoding="async"
-										/>
-									</a>
-								)}
-								{page.embedHeight ? (
-									<div
-										class:list={[
-											'@container overflow-hidden rounded-lg',
-											{ 'embed-small:hidden': !page.embedOnPhones },
-										]}
-									>
-										<iframe
-											{...embedSource}
-											title={`${project.title}, playable in the browser`}
-											data-embed-project={project.title}
-											class="block w-full"
-											style={`border:0;height:${page.embedHeight}`}
-											allow="fullscreen; gamepad; autoplay"
-											sandbox={EMBED_SANDBOX}
-											allowfullscreen
-											loading="lazy"
-										></iframe>
-									</div>
-								) : (
-									<div
-										class:list={[
-											'aspect-video overflow-hidden rounded-lg',
-											{ 'embed-small:hidden': !page.embedOnPhones },
-										]}
-									>
-										<iframe
-											{...embedSource}
-											title={`${project.title}, playable in the browser`}
-											data-embed-project={project.title}
-											data-native-width="1280"
-											data-native-height="720"
-											style="border:0"
-											allow="fullscreen; gamepad; autoplay"
-											sandbox={EMBED_SANDBOX}
-											allowfullscreen
-											loading="lazy"
-										></iframe>
-									</div>
-								)}
-							</div>
-						</section>
-					)}
-
-					{page.tour && (
-						<section class="mt-12 md:mt-16" aria-labelledby="tour">
-							<h2 id="tour" class={ARTICLE_HEADING}>
-								Tour
-							</h2>
-							{/* Has sound, so no autoplay; inline aspect-ratio and max-width keep the CSS bundle under budget */}
-							<video
-								src={page.tour.video}
-								poster={page.tour.poster}
-								controls
-								playsinline
-								preload="none"
-								aria-label={page.tour.alt}
-								class="mx-auto block w-full bg-ink object-contain"
-								style="aspect-ratio: 9 / 16; max-width: 22rem"
-							>
-								<track kind="captions" srclang="en" label="English" src={page.tour.captions} />
-							</video>
-						</section>
-					)}
-
-					{(page.install || page.example) && (
-						<section class="prose mt-12 md:mt-16" aria-labelledby="try-it">
-							<h2 id="try-it" class:list={['not-prose', ARTICLE_HEADING]}>
-								Try it
-							</h2>
-							{page.install && <Code code={page.install} lang="bash" theme="github-dark" />}
-							{page.example && (
-								<>
-									{page.example.intro && <p set:html={inlineMarkdown(page.example.intro)} />}
-									<Code code={page.example.code} lang={page.example.lang} theme="github-dark" />
-								</>
-							)}
-						</section>
-					)}
-
-					{page.gallery && (
-						<section class="mt-12 md:mt-16" aria-labelledby="examples">
-							<h2 id="examples" class={ARTICLE_HEADING}>
-								{page.galleryTitle ?? 'Gallery'}
-							</h2>
-							{page.galleryNote && (
-								<p class="mb-5 text-paper" set:html={inlineMarkdown(page.galleryNote)} />
-							)}
-							<div
-								class:list={[
-									'work-wide',
-									square ? 'grid gap-5' : 'grid gap-x-6 gap-y-8 sm:grid-cols-2',
-								]}
-								style={gridStyle}
-							>
-								{page.gallery.map((clip) => (
-									<figure class="m-0">
-										{clip.video ? (
-											<video
-												src={clip.video}
-												poster={clip.poster}
-												loop
-												muted
-												playsinline
-												preload="none"
-												aria-label={clip.alt}
-												data-autoplay-in-view
-												data-halftone={halftoneMode(clip.video)}
-												class={clipClass}
-												style={clipStyle}
-											/>
-										) : (
-											<img
-												src={clip.poster}
-												alt={clip.alt}
-												{...imageSizes.get(clip.poster)}
-												loading="lazy"
-												class={clipClass}
-												style={clipStyle}
-											/>
-										)}
-										{clip.caption && (
-											<figcaption class="mt-2 text-sm text-muted">{clip.caption}</figcaption>
-										)}
-									</figure>
-								))}
-							</div>
-						</section>
-					)}
-
-					{/* Screenshots and gallery stills stay in their own colors, so the interface reads as it really looks */}
-					{page.screenshots && (
-						<section
-							class:list={['mt-12 md:mt-16', { 'embed-large:hidden': screenshotsOnlyOnPhones }]}
-							aria-labelledby="screenshots"
-						>
-							<h2 id="screenshots" class={ARTICLE_HEADING}>
-								{page.screenshotsTitle ?? 'Screenshots'}
-							</h2>
-							<div class="work-wide grid gap-4">
-								{page.screenshots.map((shot) => (
-									<figure class="m-0">
-										<img
-											src={shot.poster}
-											alt={shot.alt}
-											{...imageSizes.get(shot.poster)}
-											loading="lazy"
-											class="mx-auto"
-											style="max-height: 720px; max-width: 100%"
-										/>
-										{shot.caption && (
-											<figcaption class="mt-2 text-sm text-muted">{shot.caption}</figcaption>
-										)}
-									</figure>
-								))}
-							</div>
-						</section>
-					)}
-
-					{page.supporting && (
-						<section class="mt-12 md:mt-16" aria-labelledby="supporting">
-							<h2 id="supporting" class={ARTICLE_HEADING}>
-								{page.supporting.heading}
-							</h2>
-							<div class="prose">
-								{page.supporting.text.map((p) => (
-									<p set:html={inlineMarkdown(p)} />
-								))}
-							</div>
-						</section>
-					)}
-
-					{page.made && (
-						<section class="mt-12 md:mt-16" aria-labelledby="how-its-made">
-							<h2 id="how-its-made" class={ARTICLE_HEADING}>
-								How it's made
-							</h2>
-							<p class={`mb-4 ${META}`}>{project.tech.join(', ')}</p>
-							<div class="prose mb-8">
-								{page.made.text.map((p) => (
-									<p set:html={inlineMarkdown(p)} />
-								))}
-							</div>
-							{/* Inline SVG inside .prose, as in a post, so it boils and opens in the lightbox */}
-							{diagram && (
-								<div class="prose mb-10">
-									<figure
-										class="diagram"
-										data-diagram-src={diagram.properties.dataDiagramSrc}
-										data-diagram-alt={diagram.properties.dataDiagramAlt}
-									>
-										{diagram.children.map((version) => (
-											<div
-												class={version.properties.className[0]}
-												set:html={version.children[0].value}
-											/>
-										))}
-									</figure>
-								</div>
-							)}
-						</section>
-					)}
-
-					{lineage.length > 0 && (
-						<section class="mt-12 md:mt-16" aria-labelledby="lineage">
-							<h2 id="lineage" class={ARTICLE_HEADING}>
-								Lineage
-							</h2>
-							<div class="grid gap-8 sm:grid-cols-2">
-								{lineage.map(({ label, project: linked }, i) => (
-									<div>
-										<p class="mb-3 font-semibold text-pink">{label}</p>
-										<ProjectCard project={linked} index={i + 1} />
-									</div>
-								))}
-							</div>
-						</section>
-					)}
-
-					{/* End mark, then the post ending: the ask, sharing, the bio, and more work */}
-					<Logo text="JK" class="text-paper" style="display:block;margin-top:2rem;font-size:20px" />
-
-					<NewsletterAsk
-						location="project-end"
-						blurb={
-							'If you liked this project, you might like what I write: homelab builds, AI tools and open source, by email when I have something to\u00A0say.'
-						}
-					/>
-
-					<ShareLinks
-						url={new URL(`/work/${page.slug}/`, Astro.site).href}
-						title={project.shareTitle || project.title}
-						noun="project"
-						class="mt-10"
-					/>
-
-					<AuthorBio />
-
-					<nav class="mt-12 md:mt-20" aria-labelledby="more-works">
-						<h2 id="more-works" class={SECTION_HEADING}>
-							More works
-						</h2>
-						<div class="relative -mt-4 mb-2 h-[clamp(70px,14vw,150px)]" aria-hidden="true">
-							<Scribble
-								{...MARKS.arrow}
-								color="#ff4fd8"
-								strokeWidth={7}
-								duration="8s"
-								class="inset-0 size-full"
-							/>
-						</div>
-						<div class="grid gap-8 sm:grid-cols-2">
-							{moreWorks.map((other, i) => (
-								<ProjectCard project={other} index={i + 1} />
-							))}
-						</div>
-						<a
-							href="/work/"
-							class="mt-8 inline-block py-2 font-display text-3xl leading-none text-paper uppercase no-underline hover:text-pink"
-						>
-							All my works &rarr;
-						</a>
-					</nav>
-				</div>
-			</article>
+	<ArticleFrame
+		title={project.title}
+		section={{ name: 'Works', path: '/work/' }}
+		caption={page.tagline}
+		heroImage={hero}
+		heroVideo={project.video}
+		heroAlt={project.imageAlt}
+		heroWidth={imageSizes.get(hero)?.width}
+		heroHeight={imageSizes.get(hero)?.height}
+		halftone={halftoneMode(project.video ?? project.image)}
+		toc={sections}
+		inlineToc={sections}
+		share={{
+			url: new URL(`/work/${page.slug}/`, Astro.site).href,
+			title: project.shareTitle || project.title,
+			noun: 'project',
+		}}
+		ask={{
+			location: 'project-end',
+			blurb:
+				'If you liked this project, you might like what I write: homelab builds, AI tools and open source, by email when I have something to\u00A0say.',
+		}}
+	>
+		<MetaParts slot="kicker" parts={byline} />
+		<div slot="top" class="mb-12 flex flex-wrap items-center gap-x-6 gap-y-3">
+			{page.download && (
+				<a
+					href={page.download.url}
+					target="_blank"
+					rel="noopener noreferrer"
+					class={`plausible-event-name=Project+Download+Click ${PRIMARY_BUTTON}`}
+				>
+					{page.download.label} &rarr;
+				</a>
+			)}
+			{project.demoUrl && (
+				<a
+					href={project.demoUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class={`plausible-event-name=Project+Demo+Click ${PRIMARY_BUTTON}`}
+				>
+					See it live &rarr;
+				</a>
+			)}
+			{project.sourceUrl && (
+				<a
+					href={project.sourceUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class={`plausible-event-name=Project+Source+Click ${project.demoUrl ? MORE_LINK : PRIMARY_BUTTON}`}
+				>
+					View on GitHub &rarr;
+				</a>
+			)}
+			{project.blogUrl && (
+				<a href={project.blogUrl} class={MORE_LINK}>
+					Read why I built it
+				</a>
+			)}
 		</div>
-	</div>
+
+		{page.introHeading && (
+			<h2 id="statement" class={ARTICLE_HEADING}>
+				{page.introHeading}
+			</h2>
+		)}
+		<div class="prose mt-12 md:mt-16">
+			{page.intro.map((p, i) => (
+				<>
+					<p set:html={inlineMarkdown(p)} />
+					{introFigure && i + 1 === page.introFigure?.after && (
+						<figure
+							class="diagram"
+							data-diagram-src={introFigure.properties.dataDiagramSrc}
+							data-diagram-alt={introFigure.properties.dataDiagramAlt}
+						>
+							{introFigure.children.map((version) => (
+								<div class={version.properties.className[0]} set:html={version.children[0].value} />
+							))}
+						</figure>
+					)}
+				</>
+			))}
+		</div>
+
+		{page.embedUrl && (
+			<section class="mt-12 md:mt-16" aria-labelledby="play-it">
+				<h2 id="play-it" class={ARTICLE_HEADING}>
+					{page.embedHeading ?? 'Play it'}
+				</h2>
+				<p class="mb-4 text-paper">
+					<span class="embed-small:hidden">{page.embedNote ?? 'Click the game to play.'}</span>{' '}
+					<a
+						href={project.demoUrl ?? page.embedUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class={MORE_LINK}
+					>
+						Open it full screen &rarr;
+					</a>
+				</p>
+				<div class="work-wide">
+					{/* Phones get the still, linking to the full-screen version: scaled to a phone's
+					width an embed's text can't be read, and the games want a keyboard and mouse.
+					A light embed that reads at phone size sets embedOnPhones and plays there too */}
+					{!page.embedOnPhones && (
+						<a
+							href={project.demoUrl ?? page.embedUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="embed-phone-poster block embed-large:hidden"
+						>
+							<img
+								src={project.image}
+								alt={project.imageAlt}
+								data-halftone="flat"
+								width="560"
+								height="315"
+								class="block aspect-video w-full object-cover"
+								loading="lazy"
+								decoding="async"
+							/>
+						</a>
+					)}
+					{page.embedHeight ? (
+						<div
+							class:list={[
+								'@container overflow-hidden rounded-lg',
+								{ 'embed-small:hidden': !page.embedOnPhones },
+							]}
+						>
+							<iframe
+								{...embedSource}
+								title={`${project.title}, playable in the browser`}
+								data-embed-project={project.title}
+								class="block w-full"
+								style={`border:0;height:${page.embedHeight}`}
+								allow="fullscreen; gamepad; autoplay"
+								sandbox={EMBED_SANDBOX}
+								allowfullscreen
+								loading="lazy"
+							></iframe>
+						</div>
+					) : (
+						<div
+							class:list={[
+								'aspect-video overflow-hidden rounded-lg',
+								{ 'embed-small:hidden': !page.embedOnPhones },
+							]}
+						>
+							<iframe
+								{...embedSource}
+								title={`${project.title}, playable in the browser`}
+								data-embed-project={project.title}
+								data-native-width="1280"
+								data-native-height="720"
+								style="border:0"
+								allow="fullscreen; gamepad; autoplay"
+								sandbox={EMBED_SANDBOX}
+								allowfullscreen
+								loading="lazy"
+							></iframe>
+						</div>
+					)}
+				</div>
+			</section>
+		)}
+
+		{page.tour && (
+			<section class="mt-12 md:mt-16" aria-labelledby="tour">
+				<h2 id="tour" class={ARTICLE_HEADING}>
+					Tour
+				</h2>
+				{/* Has sound, so no autoplay; inline aspect-ratio and max-width keep the CSS bundle under budget */}
+				<video
+					src={page.tour.video}
+					poster={page.tour.poster}
+					controls
+					playsinline
+					preload="none"
+					aria-label={page.tour.alt}
+					class="mx-auto block w-full bg-ink object-contain"
+					style="aspect-ratio: 9 / 16; max-width: 22rem"
+				>
+					<track kind="captions" srclang="en" label="English" src={page.tour.captions} />
+				</video>
+			</section>
+		)}
+
+		{(page.install || page.example) && (
+			<section class="prose mt-12 md:mt-16" aria-labelledby="try-it">
+				<h2 id="try-it" class:list={['not-prose', ARTICLE_HEADING]}>
+					Try it
+				</h2>
+				{page.install && <Code code={page.install} lang="bash" theme="github-dark" />}
+				{page.example && (
+					<>
+						{page.example.intro && <p set:html={inlineMarkdown(page.example.intro)} />}
+						<Code code={page.example.code} lang={page.example.lang} theme="github-dark" />
+					</>
+				)}
+			</section>
+		)}
+
+		{page.gallery && (
+			<section class="mt-12 md:mt-16" aria-labelledby="examples">
+				<h2 id="examples" class={ARTICLE_HEADING}>
+					{page.galleryTitle ?? 'Gallery'}
+				</h2>
+				{page.galleryNote && (
+					<p class="mb-5 text-paper" set:html={inlineMarkdown(page.galleryNote)} />
+				)}
+				<div
+					class:list={['work-wide', square ? 'grid gap-5' : 'grid gap-x-6 gap-y-8 sm:grid-cols-2']}
+					style={gridStyle}
+				>
+					{page.gallery.map((clip) => (
+						<figure class="m-0">
+							{clip.video ? (
+								<video
+									src={clip.video}
+									poster={clip.poster}
+									loop
+									muted
+									playsinline
+									preload="none"
+									aria-label={clip.alt}
+									data-autoplay-in-view
+									data-halftone={halftoneMode(clip.video)}
+									class={clipClass}
+									style={clipStyle}
+								/>
+							) : (
+								<img
+									src={clip.poster}
+									alt={clip.alt}
+									{...imageSizes.get(clip.poster)}
+									loading="lazy"
+									class={clipClass}
+									style={clipStyle}
+								/>
+							)}
+							{clip.caption && (
+								<figcaption class="mt-2 text-sm text-muted">{clip.caption}</figcaption>
+							)}
+						</figure>
+					))}
+				</div>
+			</section>
+		)}
+
+		{/* Screenshots and gallery stills stay in their own colors, so the interface reads as it really looks */}
+		{page.screenshots && (
+			<section
+				class:list={['mt-12 md:mt-16', { 'embed-large:hidden': screenshotsOnlyOnPhones }]}
+				aria-labelledby="screenshots"
+			>
+				<h2 id="screenshots" class={ARTICLE_HEADING}>
+					{page.screenshotsTitle ?? 'Screenshots'}
+				</h2>
+				<div class="work-wide grid gap-4">
+					{page.screenshots.map((shot) => (
+						<figure class="m-0">
+							<img
+								src={shot.poster}
+								alt={shot.alt}
+								{...imageSizes.get(shot.poster)}
+								loading="lazy"
+								class="mx-auto"
+								style="max-height: 720px; max-width: 100%"
+							/>
+							{shot.caption && (
+								<figcaption class="mt-2 text-sm text-muted">{shot.caption}</figcaption>
+							)}
+						</figure>
+					))}
+				</div>
+			</section>
+		)}
+
+		{page.supporting && (
+			<section class="mt-12 md:mt-16" aria-labelledby="supporting">
+				<h2 id="supporting" class={ARTICLE_HEADING}>
+					{page.supporting.heading}
+				</h2>
+				<div class="prose">
+					{page.supporting.text.map((p) => (
+						<p set:html={inlineMarkdown(p)} />
+					))}
+				</div>
+			</section>
+		)}
+
+		{page.made && (
+			<section class="mt-12 md:mt-16" aria-labelledby="how-its-made">
+				<h2 id="how-its-made" class={ARTICLE_HEADING}>
+					How it's made
+				</h2>
+				<p class={`mb-4 ${META}`}>{project.tech.join(', ')}</p>
+				<div class="prose mb-8">
+					{page.made.text.map((p) => (
+						<p set:html={inlineMarkdown(p)} />
+					))}
+				</div>
+				{/* Inline SVG inside .prose, as in a post, so it boils and opens in the lightbox */}
+				{diagram && (
+					<div class="prose mb-10">
+						<figure
+							class="diagram"
+							data-diagram-src={diagram.properties.dataDiagramSrc}
+							data-diagram-alt={diagram.properties.dataDiagramAlt}
+						>
+							{diagram.children.map((version) => (
+								<div class={version.properties.className[0]} set:html={version.children[0].value} />
+							))}
+						</figure>
+					</div>
+				)}
+			</section>
+		)}
+
+		{lineage.length > 0 && (
+			<section class="mt-12 md:mt-16" aria-labelledby="lineage">
+				<h2 id="lineage" class={ARTICLE_HEADING}>
+					Lineage
+				</h2>
+				<div class="grid gap-8 sm:grid-cols-2">
+					{lineage.map(({ label, project: linked }, i) => (
+						<div>
+							<p class="mb-3 font-semibold text-pink">{label}</p>
+							<ProjectCard project={linked} index={i + 1} />
+						</div>
+					))}
+				</div>
+			</section>
+		)}
+
+		<nav slot="after" class="mt-12 md:mt-20" aria-labelledby="more-works">
+			<h2 id="more-works" class={SECTION_HEADING}>
+				More works
+			</h2>
+			<div class="relative -mt-4 mb-2 h-[clamp(70px,14vw,150px)]" aria-hidden="true">
+				<Scribble
+					{...MARKS.arrow}
+					color="#ff4fd8"
+					strokeWidth={7}
+					duration="8s"
+					class="inset-0 size-full"
+				/>
+			</div>
+			<div class="grid gap-8 sm:grid-cols-2">
+				{moreWorks.map((other, i) => (
+					<ProjectCard project={other} index={i + 1} />
+				))}
+			</div>
+			<a
+				href="/work/"
+				class="mt-8 inline-block py-2 font-display text-3xl leading-none text-paper uppercase no-underline hover:text-pink"
+			>
+				All my works &rarr;
+			</a>
+		</nav>
+	</ArticleFrame>
 	<ImageLightbox />
 </BaseLayout>

@@ -1,0 +1,98 @@
+---
+// The frame every article-style page shares: blog posts, reviews and talks (BlogPost.astro),
+// newsletter issues and project pages. It owns the masthead, the text column with "On this
+// page", and the ending, so a change to any of them reaches every page type at once
+// (CLAUDE.md, "One frame for every article page"; e2e/consistency.spec.ts holds them to it).
+// A template passes only what's its own: the kicker, the body, and its own "more" section.
+import AuthorBio from './AuthorBio.astro';
+import BackLink from './BackLink.astro';
+import InlineToc from './InlineToc.astro';
+import Logo from './Logo.astro';
+import Masthead from './Masthead.astro';
+import NewsletterAsk from './NewsletterAsk.astro';
+import ShareLinks from './ShareLinks.astro';
+import TableOfContents from './TableOfContents.astro';
+import { PAGE_CONTAINER } from '../utils/ui';
+
+type Heading = { slug: string; text: string; depth?: number };
+
+interface Props {
+	title: string;
+	/** The section: names the back link and leads the caption (Blog, Reviews, Works...) */
+	section: { name: string; path: string };
+	caption?: string;
+	heroImage?: string;
+	heroVideo?: string;
+	heroAlt?: string;
+	heroWidth?: number;
+	heroHeight?: number;
+	halftone?: 'flat';
+	/** "On this page" in the margin, shown for two or more */
+	toc: Heading[];
+	/** The folded list for narrow screens, shown for three or more */
+	inlineToc: Heading[];
+	share: { url: string; title: string; noun: string };
+	ask: { blurb: string; location: string };
+	/** data-* attributes for the article (analytics read them) */
+	articleData?: Record<string, string | number | undefined>;
+}
+
+const {
+	title,
+	section,
+	caption,
+	heroImage,
+	heroVideo,
+	heroAlt,
+	heroWidth,
+	heroHeight,
+	halftone,
+	toc,
+	inlineToc,
+	share,
+	ask,
+	articleData = {},
+} = Astro.props;
+---
+
+<div class={PAGE_CONTAINER}>
+	<div>
+		{/* @container: wide pictures, code and embeds size themselves to this column */}
+		<article class="@container min-w-0" {...articleData}>
+			<div class="post-axis">
+				<BackLink href={section.path} label={section.name} />
+				<Masthead
+					title={title}
+					label={section.name}
+					caption={caption}
+					heroImage={heroImage}
+					heroVideo={heroVideo}
+					heroAlt={heroAlt}
+					width={heroWidth}
+					height={heroHeight}
+					halftone={halftone}
+				>
+					<slot name="kicker" />
+				</Masthead>
+			</div>
+			<div class="margin-column mx-auto max-w-(--reading-width)">
+				{/* Wide screens: "On this page" sticks in the left gutter (1600px+) or heads the right margin */}
+				{toc.length >= 2 && <TableOfContents headings={toc} />}
+				{/* Notes, credits, buttons: whatever a page puts above its text */}
+				<slot name="top" />
+				<InlineToc headings={inlineToc} />
+				<slot />
+				<!-- End mark: the article is over -->
+				<Logo text="JK" class="text-paper" style="display:block;margin-top:2rem;font-size:20px" />
+				<slot name="end" />
+				{/* A review's more reviews come first: a reader who came for a film wants another */}
+				<slot name="related" />
+				<NewsletterAsk blurb={ask.blurb} location={ask.location} />
+				<ShareLinks url={share.url} title={share.title} noun={share.noun} class="mt-10" />
+				<AuthorBio />
+				{/* Keep reading, More works, an issue's prev/next */}
+				<slot name="after" />
+			</div>
+		</article>
+	</div>
+</div>

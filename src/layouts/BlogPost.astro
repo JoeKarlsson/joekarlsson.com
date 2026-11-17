@@ -2,30 +2,22 @@
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
-import BackLink from '../components/BackLink.astro';
 import { categorySlug } from '../utils/categories';
 import { isOwnPost } from '../utils/posts';
 import { AMAZON_DISCLOSURE } from '../utils/affiliate';
-import AuthorBio from '../components/AuthorBio.astro';
+import ArticleFrame from '../components/ArticleFrame.astro';
 import MetaParts from '../components/MetaParts.astro';
-import InlineToc from '../components/InlineToc.astro';
-import Masthead from '../components/Masthead.astro';
-import NewsletterAsk from '../components/NewsletterAsk.astro';
 import { curlyApostrophes } from '../utils/curly-apostrophes.mjs';
 import { inlineMarkdown } from '../utils/inline-markdown';
 import WrittenFor from '../components/WrittenFor.astro';
-import TableOfContents from '../components/TableOfContents.astro';
-import ShareLinks from '../components/ShareLinks.astro';
 import Scribble from '../components/Scribble.astro';
 import KeepExploring from '../components/KeepExploring.astro';
 import ImageLightbox from '../components/ImageLightbox.astro';
-import Logo from '../components/Logo.astro';
 import { MARKS } from '../data/scribbles';
 import { halftoneMode } from '../utils/halftone';
 import { localImageSize } from '../utils/image-size.mjs';
 import { rankRelatedPosts } from '../utils/related-posts';
 import popularPosts from '../data/popular-posts.json';
-import { PAGE_CONTAINER } from '../utils/ui';
 interface Props {
 	title: string;
 	shareTitle?: string;
@@ -109,7 +101,6 @@ const heroSize = heroImage ? await localImageSize(heroImage) : undefined;
 const tocHeadings = (headings || [])
 	.filter((h) => h.depth === 2 || h.depth === 3)
 	.map((h) => ({ ...h, text: h.text.replace(/#$/, '').trim() }));
-const showToc = tocHeadings.length >= 2;
 // Under xl there's no sidebar, so long posts get a folded contents list above the text
 const inlineTocHeadings = tocHeadings.filter((h) => h.depth === 2);
 
@@ -202,306 +193,286 @@ const captionText =
 		aria-hidden="true"
 	></div>
 
-	<div class={PAGE_CONTAINER}>
-		<div>
-			{/* @container: wide pictures and code in the post size themselves to this column */}
-			<article
-				class="@container min-w-0"
-				data-post-title={title}
-				data-post-category={categories?.[0]}
-				data-reading-time={readingTime}
-			>
-				<div class="post-axis">
-					<BackLink href={home.path} label={home.name} />
-					<Masthead
-						title={title}
-						label={home.name}
-						caption={captionText}
-						heroImage={heroImage}
-						heroVideo={heroVideo}
-						heroAlt={heroAlt}
-						width={heroSize?.width}
-						height={heroSize?.height}
-						halftone={halftoneMode(heroVideo ?? heroImage ?? '')}
-					>
-						<MetaParts>
-							<span>
-								<FormattedDate date={date} />
-								{updatedDate && (
-									<>
-										{' '}
-										(Updated <FormattedDate date={updatedDate} />)
-									</>
-								)}
-							</span>{' '}
-							{readingTime && <span>{readingTime} min read</span>}{' '}
-							{categories &&
-								categories.map((cat) => (
-									<>
-										<a
-											href={`/blog/category/${categorySlug(cat)}/`}
-											class="text-pink hover:text-paper"
-										>
-											{cat}
-										</a>{' '}
-									</>
-								))}
-							{writtenFor && <WrittenFor employer={writtenFor} />}
-							<slot name="meta" />
-						</MetaParts>
-					</Masthead>
+	<ArticleFrame
+		title={title}
+		section={home}
+		caption={captionText}
+		heroImage={heroImage}
+		heroVideo={heroVideo}
+		heroAlt={heroAlt}
+		heroWidth={heroSize?.width}
+		heroHeight={heroSize?.height}
+		halftone={halftoneMode(heroVideo ?? heroImage ?? '')}
+		toc={tocHeadings}
+		inlineToc={inlineTocHeadings}
+		share={{
+			url: canonicalUrl || new URL(`${home.path}${slug}/`, Astro.site).href,
+			title: shareTitle || title,
+			noun: section === 'reviews' ? 'review' : 'post',
+		}}
+		ask={{
+			location: 'post-end',
+			blurb:
+				section === 'reviews'
+					? 'If you read this far for a movie review, you might like the rest of what I write: homelab builds, AI tools and open source, by email when I have something to\u00A0say.'
+					: 'Get the next post by email. My newsletter covers homelab builds, AI tools and open source, and it goes out when I have something to\u00A0say.',
+		}}
+		articleData={{
+			'data-post-title': title,
+			'data-post-category': categories?.[0],
+			'data-reading-time': readingTime,
+		}}
+	>
+		<Fragment slot="kicker">
+			<MetaParts>
+				<span>
+					<FormattedDate date={date} />
+					{updatedDate && (
+						<>
+							{' '}
+							(Updated <FormattedDate date={updatedDate} />)
+						</>
+					)}
+				</span>{' '}
+				{readingTime && <span>{readingTime} min read</span>}{' '}
+				{categories &&
+					categories.map((cat) => (
+						<>
+							<a href={`/blog/category/${categorySlug(cat)}/`} class="text-pink hover:text-paper">
+								{cat}
+							</a>{' '}
+						</>
+					))}
+				{writtenFor && <WrittenFor employer={writtenFor} />}
+				<slot name="meta" />
+			</MetaParts>
+		</Fragment>
+		<Fragment slot="top">
+			<slot name="margin" />
+			{updateNote && updatedDate && (
+				<p class="mb-6 border border-pink px-4 py-3 text-sm text-paper" role="note">
+					<strong class="text-pink">
+						Updated <FormattedDate date={updatedDate} />:
+					</strong>{' '}
+					{curlyApostrophes(updateNote)}
+				</p>
+			)}
+			{corrections && corrections.length > 0 && (
+				<div class="mb-6 border border-pink px-4 py-3 text-sm text-paper" role="note">
+					<strong class="text-pink">Corrections</strong>
+					<ul class="mt-1 list-disc pl-5">
+						{corrections
+							.toSorted((a, b) => b.date.valueOf() - a.date.valueOf())
+							.map((correction) => (
+								<li>
+									<strong>
+										<FormattedDate date={correction.date} />:
+									</strong>{' '}
+									<span set:html={inlineMarkdown(correction.note)} />
+								</li>
+							))}
+					</ul>
 				</div>
-				<div class="margin-column mx-auto max-w-(--reading-width)">
-					{/* Wide screens: "On this page" sticks in the left gutter (1600px+) or heads the right margin */}
-					{showToc && <TableOfContents headings={tocHeadings} />}
-					<slot name="margin" />
-					{updateNote && updatedDate && (
-						<p class="mb-6 border border-pink px-4 py-3 text-sm text-paper" role="note">
-							<strong class="text-pink">
-								Updated <FormattedDate date={updatedDate} />:
-							</strong>{' '}
-							{curlyApostrophes(updateNote)}
-						</p>
-					)}
-					{corrections && corrections.length > 0 && (
-						<div class="mb-6 border border-pink px-4 py-3 text-sm text-paper" role="note">
-							<strong class="text-pink">Corrections</strong>
-							<ul class="mt-1 list-disc pl-5">
-								{corrections
-									.toSorted((a, b) => b.date.valueOf() - a.date.valueOf())
-									.map((correction) => (
-										<li>
-											<strong>
-												<FormattedDate date={correction.date} />:
-											</strong>{' '}
-											<span set:html={inlineMarkdown(correction.note)} />
-										</li>
-									))}
-							</ul>
-						</div>
-					)}
-					{noticeMessage && (
-						<p class="mb-6 text-sm text-muted" role="note">
-							<Fragment set:html={noticeHtml} />
-						</p>
-					)}
-					{hasAffiliateLinks && (
-						<p class="mb-6 text-sm text-muted" role="note">
-							{AMAZON_DISCLOSURE}
-						</p>
-					)}
-					{tldr && (
-						<p class="mb-10 border-l-4 border-pink pl-5 text-lg leading-relaxed text-paper">
-							<strong class="font-display text-xl font-normal tracking-wide text-pink uppercase">
-								TL;DR
-							</strong>{' '}
-							{tldr}
-						</p>
-					)}
-					<InlineToc headings={inlineTocHeadings} />
-					<div class:list={['prose wide-media', (heroImage || heroVideo) && 'has-hero']}>
-						<slot />
-					</div>
-					<!-- End mark: the post is over -->
-					<Logo text="JK" class="text-paper" style="display:block;margin-top:2rem;font-size:20px" />
-
-					{/* Drawn once around a code block's Copy when it copies (copy-burst, motion.css) */}
-					<Scribble
-						{...MARKS.burst}
-						color="#ff4fd8"
-						strokeWidth={7}
-						once
-						duration="1.1s"
-						class="copy-burst z-20 size-[110px]"
-					/>
-					<script>
-						import { isMotionPaused } from '../scripts/pause-motion';
-
-						function copyToClipboard(text: string): Promise<void> {
-							return navigator.clipboard.writeText(text);
-						}
-
-						const copyBurst = document.querySelector<SVGSVGElement>('.copy-burst');
-						const motionAllowed = () =>
-							!matchMedia('(prefers-reduced-motion: reduce)').matches && !isMotionPaused();
-						// Centers the starburst on the button and draws it again from the first stroke
-						function drawCopyBurst(button: HTMLElement) {
-							if (!copyBurst || !motionAllowed()) return;
-							// Move it by the gap between where it is and the button's center
-							const burstBox = copyBurst.getBoundingClientRect();
-							const buttonBox = button.getBoundingClientRect();
-							const placed = getComputedStyle(copyBurst);
-							const left = parseFloat(placed.left) + buttonBox.left + buttonBox.width / 2;
-							const top = parseFloat(placed.top) + buttonBox.top + buttonBox.height / 2;
-							copyBurst.style.left = `${left - burstBox.left - burstBox.width / 2}px`;
-							copyBurst.style.top = `${top - burstBox.top - burstBox.height / 2}px`;
-							copyBurst.classList.remove('go');
-							void copyBurst.getBoundingClientRect(); // restart the fade on a second copy
-							for (const stroke of copyBurst.getAnimations({ subtree: true })) {
-								stroke.currentTime = 0;
-								stroke.play();
-							}
-							copyBurst.classList.add('go');
-						}
-
-						// One polite live region says "Copied" for every code block's button
-						const copyStatus = document.createElement('span');
-						copyStatus.setAttribute('role', 'status');
-						copyStatus.className = 'sr-only';
-						document.body.append(copyStatus);
-
-						document.querySelectorAll('.prose pre').forEach((pre) => {
-							const code = pre.querySelector('code');
-
-							// Add language label
-							const lang = pre.getAttribute('data-language');
-							if (lang) {
-								const label = document.createElement('span');
-								label.className = 'code-lang-label';
-								label.textContent = lang;
-								pre.appendChild(label);
-							}
-
-							// Add copy button: Copy and Copied! stacked in one cell, crossfading on
-							// [data-copied] (motion.css)
-							const button = document.createElement('button');
-							button.type = 'button';
-							button.className = 'copy-button';
-							const idleName = lang ? `Copy ${lang} code` : 'Copy code';
-							button.setAttribute('aria-label', idleName);
-							const swap = document.createElement('span');
-							swap.className = 'icon-swap';
-							swap.setAttribute('aria-hidden', 'true');
-							const idleLabel = document.createElement('span');
-							idleLabel.toggleAttribute('data-icon-off', true);
-							idleLabel.textContent = 'Copy';
-							const doneLabel = document.createElement('span');
-							doneLabel.toggleAttribute('data-icon-on', true);
-							doneLabel.textContent = 'Copied!';
-							swap.append(idleLabel, doneLabel);
-							button.append(swap);
-							let resetTimer: ReturnType<typeof setTimeout> | undefined;
-							button.addEventListener('click', async () => {
-								if (!code) return;
-								clearTimeout(resetTimer);
-								copyStatus.textContent = '';
-								try {
-									await copyToClipboard(code.textContent || '');
-									button.toggleAttribute('data-copied', true);
-									copyStatus.textContent = 'Copied';
-									button.classList.remove('copied');
-									void button.offsetWidth; // restart the pop on a second copy
-									button.classList.add('copied');
-									drawCopyBurst(button);
-									if (typeof window.plausible === 'function') {
-										window.plausible('Code Copy', { props: { language: lang || 'unknown' } });
-									}
-								} catch {
-									idleLabel.textContent = 'Failed';
-									copyStatus.textContent = 'Copy failed';
-								}
-								resetTimer = setTimeout(() => {
-									button.removeAttribute('data-copied');
-									idleLabel.textContent = 'Copy';
-								}, 2000);
-							});
-							pre.appendChild(button);
-						});
-					</script>
-
-					<script>
-						(() => {
-							const progressEl = document.getElementById('reading-progress');
-							const article = document.querySelector('article');
-							if (!progressEl || !article) return;
-
-							// Scroll depth tracking milestones
-							const depthMilestones = new Set<number>();
-							const postTitle = article.dataset.postTitle || 'Unknown';
-
-							function trackScrollDepth(pct: number) {
-								const plausible = window.plausible;
-								if (typeof plausible !== 'function') return;
-								[25, 50, 75, 100].forEach((milestone) => {
-									if (pct >= milestone && !depthMilestones.has(milestone)) {
-										depthMilestones.add(milestone);
-										plausible('Scroll Depth', {
-											props: { depth: `${milestone}%`, post: postTitle },
-										});
-										if (milestone === 100) {
-											plausible('Reading Complete', { props: { post: postTitle } });
-										}
-									}
-								});
-							}
-
-							function update() {
-								const rect = article!.getBoundingClientRect();
-								const articleTop = rect.top + window.scrollY;
-								const total = rect.height - window.innerHeight;
-								const scrolled = window.scrollY - articleTop;
-								let pct = total > 0 ? Math.round((scrolled / total) * 100) : 0;
-								pct = Math.max(0, Math.min(100, pct));
-
-								trackScrollDepth(pct);
-								// scale, not width: no layout per scroll. CSS drives it where it can (global.css)
-								if (!CSS.supports('animation-timeline: view()')) {
-									progressEl!.style.scale = `${pct / 100} 1`;
-								}
-							}
-
-							let ticking = false;
-							window.addEventListener(
-								'scroll',
-								() => {
-									if (!ticking) {
-										requestAnimationFrame(() => {
-											update();
-											ticking = false;
-										});
-										ticking = true;
-									}
-								},
-								{ passive: true },
-							);
-
-							update();
-						})();
-					</script>
-
-					{/* A review's more reviews come first: a reader who came for a film wants another */}
-					<slot name="related" />
-
-					<NewsletterAsk
-						location="post-end"
-						blurb={
-							section === 'reviews'
-								? 'If you read this far for a movie review, you might like the rest of what I write: homelab builds, AI tools and open source, by email when I have something to\u00A0say.'
-								: 'Get the next post by email. My newsletter covers homelab builds, AI tools and open source, and it goes out when I have something to\u00A0say.'
-						}
-					/>
-
-					<ShareLinks
-						url={canonicalUrl || new URL(`${home.path}${slug}/`, Astro.site).href}
-						title={shareTitle || title}
-						noun={section === 'reviews' ? 'review' : 'post'}
-						class="mt-10"
-					/>
-
-					<AuthorBio />
-
-					{relatedSlugs.length > 0 && (
-						<KeepExploring
-							heading="Keep reading"
-							from={slug}
-							posts={relatedSlugs}
-							eventName="Related+Post+Click"
-						/>
-					)}
-				</div>
-			</article>
+			)}
+			{noticeMessage && (
+				<p class="mb-6 text-sm text-muted" role="note">
+					<Fragment set:html={noticeHtml} />
+				</p>
+			)}
+			{hasAffiliateLinks && (
+				<p class="mb-6 text-sm text-muted" role="note">
+					{AMAZON_DISCLOSURE}
+				</p>
+			)}
+			{tldr && (
+				<p class="mb-10 border-l-4 border-pink pl-5 text-lg leading-relaxed text-paper">
+					<strong class="font-display text-xl font-normal tracking-wide text-pink uppercase">
+						TL;DR
+					</strong>{' '}
+					{tldr}
+				</p>
+			)}
+		</Fragment>
+		<div class:list={['prose wide-media', (heroImage || heroVideo) && 'has-hero']}>
+			<slot />
 		</div>
-	</div>
+		<Fragment slot="end">
+			{/* Drawn once around a code block's Copy when it copies (copy-burst, motion.css) */}
+			<Scribble
+				{...MARKS.burst}
+				color="#ff4fd8"
+				strokeWidth={7}
+				once
+				duration="1.1s"
+				class="copy-burst z-20 size-[110px]"
+			/>
+			<script>
+				import { isMotionPaused } from '../scripts/pause-motion';
+
+				function copyToClipboard(text: string): Promise<void> {
+					return navigator.clipboard.writeText(text);
+				}
+
+				const copyBurst = document.querySelector<SVGSVGElement>('.copy-burst');
+				const motionAllowed = () =>
+					!matchMedia('(prefers-reduced-motion: reduce)').matches && !isMotionPaused();
+				// Centers the starburst on the button and draws it again from the first stroke
+				function drawCopyBurst(button: HTMLElement) {
+					if (!copyBurst || !motionAllowed()) return;
+					// Move it by the gap between where it is and the button's center
+					const burstBox = copyBurst.getBoundingClientRect();
+					const buttonBox = button.getBoundingClientRect();
+					const placed = getComputedStyle(copyBurst);
+					const left = parseFloat(placed.left) + buttonBox.left + buttonBox.width / 2;
+					const top = parseFloat(placed.top) + buttonBox.top + buttonBox.height / 2;
+					copyBurst.style.left = `${left - burstBox.left - burstBox.width / 2}px`;
+					copyBurst.style.top = `${top - burstBox.top - burstBox.height / 2}px`;
+					copyBurst.classList.remove('go');
+					void copyBurst.getBoundingClientRect(); // restart the fade on a second copy
+					for (const stroke of copyBurst.getAnimations({ subtree: true })) {
+						stroke.currentTime = 0;
+						stroke.play();
+					}
+					copyBurst.classList.add('go');
+				}
+
+				// One polite live region says "Copied" for every code block's button
+				const copyStatus = document.createElement('span');
+				copyStatus.setAttribute('role', 'status');
+				copyStatus.className = 'sr-only';
+				document.body.append(copyStatus);
+
+				document.querySelectorAll('.prose pre').forEach((pre) => {
+					const code = pre.querySelector('code');
+
+					// Add language label
+					const lang = pre.getAttribute('data-language');
+					if (lang) {
+						const label = document.createElement('span');
+						label.className = 'code-lang-label';
+						label.textContent = lang;
+						pre.appendChild(label);
+					}
+
+					// Add copy button: Copy and Copied! stacked in one cell, crossfading on
+					// [data-copied] (motion.css)
+					const button = document.createElement('button');
+					button.type = 'button';
+					button.className = 'copy-button';
+					const idleName = lang ? `Copy ${lang} code` : 'Copy code';
+					button.setAttribute('aria-label', idleName);
+					const swap = document.createElement('span');
+					swap.className = 'icon-swap';
+					swap.setAttribute('aria-hidden', 'true');
+					const idleLabel = document.createElement('span');
+					idleLabel.toggleAttribute('data-icon-off', true);
+					idleLabel.textContent = 'Copy';
+					const doneLabel = document.createElement('span');
+					doneLabel.toggleAttribute('data-icon-on', true);
+					doneLabel.textContent = 'Copied!';
+					swap.append(idleLabel, doneLabel);
+					button.append(swap);
+					let resetTimer: ReturnType<typeof setTimeout> | undefined;
+					button.addEventListener('click', async () => {
+						if (!code) return;
+						clearTimeout(resetTimer);
+						copyStatus.textContent = '';
+						try {
+							await copyToClipboard(code.textContent || '');
+							button.toggleAttribute('data-copied', true);
+							copyStatus.textContent = 'Copied';
+							button.classList.remove('copied');
+							void button.offsetWidth; // restart the pop on a second copy
+							button.classList.add('copied');
+							drawCopyBurst(button);
+							if (typeof window.plausible === 'function') {
+								window.plausible('Code Copy', { props: { language: lang || 'unknown' } });
+							}
+						} catch {
+							idleLabel.textContent = 'Failed';
+							copyStatus.textContent = 'Copy failed';
+						}
+						resetTimer = setTimeout(() => {
+							button.removeAttribute('data-copied');
+							idleLabel.textContent = 'Copy';
+						}, 2000);
+					});
+					pre.appendChild(button);
+				});
+			</script>
+
+			<script>
+				(() => {
+					const progressEl = document.getElementById('reading-progress');
+					const article = document.querySelector('article');
+					if (!progressEl || !article) return;
+
+					// Scroll depth tracking milestones
+					const depthMilestones = new Set<number>();
+					const postTitle = article.dataset.postTitle || 'Unknown';
+
+					function trackScrollDepth(pct: number) {
+						const plausible = window.plausible;
+						if (typeof plausible !== 'function') return;
+						[25, 50, 75, 100].forEach((milestone) => {
+							if (pct >= milestone && !depthMilestones.has(milestone)) {
+								depthMilestones.add(milestone);
+								plausible('Scroll Depth', {
+									props: { depth: `${milestone}%`, post: postTitle },
+								});
+								if (milestone === 100) {
+									plausible('Reading Complete', { props: { post: postTitle } });
+								}
+							}
+						});
+					}
+
+					function update() {
+						const rect = article!.getBoundingClientRect();
+						const articleTop = rect.top + window.scrollY;
+						const total = rect.height - window.innerHeight;
+						const scrolled = window.scrollY - articleTop;
+						let pct = total > 0 ? Math.round((scrolled / total) * 100) : 0;
+						pct = Math.max(0, Math.min(100, pct));
+
+						trackScrollDepth(pct);
+						// scale, not width: no layout per scroll. CSS drives it where it can (global.css)
+						if (!CSS.supports('animation-timeline: view()')) {
+							progressEl!.style.scale = `${pct / 100} 1`;
+						}
+					}
+
+					let ticking = false;
+					window.addEventListener(
+						'scroll',
+						() => {
+							if (!ticking) {
+								requestAnimationFrame(() => {
+									update();
+									ticking = false;
+								});
+								ticking = true;
+							}
+						},
+						{ passive: true },
+					);
+
+					update();
+				})();
+			</script>
+		</Fragment>
+		<slot name="related" slot="related" />
+		<Fragment slot="after">
+			{relatedSlugs.length > 0 && (
+				<KeepExploring
+					heading="Keep reading"
+					from={slug}
+					posts={relatedSlugs}
+					eventName="Related+Post+Click"
+				/>
+			)}
+		</Fragment>
+	</ArticleFrame>
 	<ImageLightbox />
 </BaseLayout>
 
