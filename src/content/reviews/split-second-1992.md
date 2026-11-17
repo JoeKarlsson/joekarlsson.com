@@ -27,7 +27,7 @@ studios:
   ]
 letterboxdAverage: 3
 slug: 'split-second-1992'
-description: 'Split Second is a film that watched Blade Runner, Alien, and The Silence of the Lambs, loved all three, and understood exactly none of them, which is most of...'
+description: 'Split Second is a film that watched Blade Runner, Alien, and The Silence of the Lambs, loved all three, and understood exactly none of them, which is most of…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/split-second-1992/'
 poster: '/images/reviews/split-second-1992/poster.webp'
 heroImage: '/images/reviews/split-second-1992/backdrop.webp'

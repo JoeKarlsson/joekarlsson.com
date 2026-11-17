@@ -12,7 +12,7 @@ language: 'French'
 studios: ['Ciné-Tamaris']
 letterboxdAverage: 4.26
 slug: 'the-gleaners-and-i'
-description: 'I have such a soft spot for early digital documentaries, and The Gleaners and I completely scratches that itch. That lo-fi digital aesthetic - the ad hoc...'
+description: 'I have such a soft spot for early digital documentaries, and The Gleaners and I completely scratches that itch. That lo-fi digital aesthetic - the ad hoc…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-gleaners-and-i/'
 poster: '/images/reviews/the-gleaners-and-i/poster.webp'
 heroImage: '/images/reviews/the-gleaners-and-i/backdrop.webp'

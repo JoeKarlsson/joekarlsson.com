@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Miramax', 'The Producer Circle Co.', 'Storyline Entertainment']
 letterboxdAverage: 4.05
 slug: 'chicago'
-description: 'This movie is trying to say something about how the modern judicial system is just a series of smoke and mirrors meant to entertain the masses. I think along...'
+description: 'This movie is trying to say something about how the modern judicial system is just a series of smoke and mirrors meant to entertain the masses. I think along…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/chicago/'
 poster: '/images/reviews/chicago/poster.webp'
 heroImage: '/images/reviews/chicago/backdrop.webp'

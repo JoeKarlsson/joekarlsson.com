@@ -1,15 +1,16 @@
+import { curlEveryString } from '../utils/curly-apostrophes.mjs';
 // The accounts /contact/ lists, also read by llms.txt so both stay in step
 import { SOCIAL_LINKS } from '../consts';
 
-export const BEST = [
+export const BEST = curlEveryString([
 	{ label: 'LinkedIn', meta: 'Work & speaking', href: SOCIAL_LINKS.linkedin },
 	{ label: 'Bluesky', meta: '@joekarlsson.com', href: SOCIAL_LINKS.bluesky },
-];
+]);
 
 // All personal accounts, ranked: where I post first, then the side places
 // (Letterboxd gets a lot of use, but it's not why people come here), with the
 // ones I've mostly left at the very bottom
-export const SECTIONS = [
+export const SECTIONS = curlEveryString([
 	{
 		heading: 'Where I post',
 		links: [
@@ -32,4 +33,4 @@ export const SECTIONS = [
 			{ label: 'Twitch', meta: 'Old live-coding streams', href: SOCIAL_LINKS.twitch },
 		],
 	},
-];
+]);

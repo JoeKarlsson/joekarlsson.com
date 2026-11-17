@@ -12,7 +12,7 @@ language: 'English'
 studios: ['Bokari']
 letterboxdAverage: 3.99
 slug: 'the-spook-who-sat-by-the-door'
-description: "Watched this as prep for One Battle After Another and haven't gotten there yet, but The Spook Who Sat by the Door got me completely energized. It's..."
+description: "Watched this as prep for One Battle After Another and haven't gotten there yet, but The Spook Who Sat by the Door got me completely energized. It's…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-spook-who-sat-by-the-door/'
 poster: '/images/reviews/the-spook-who-sat-by-the-door/poster.webp'
 heroImage: '/images/reviews/the-spook-who-sat-by-the-door/backdrop.webp'

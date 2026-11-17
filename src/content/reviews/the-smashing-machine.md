@@ -12,7 +12,7 @@ language: 'English'
 studios: ['Solaris Film', 'HBO Documentary Films']
 letterboxdAverage: 3.79
 slug: 'the-smashing-machine'
-description: 'I have a major soft spot in my heart for early 2000s digital documentaries. You can tell the recording technology was not quite there yet, but it adds an...'
+description: 'I have a major soft spot in my heart for early 2000s digital documentaries. You can tell the recording technology was not quite there yet, but it adds an…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-smashing-machine/'
 poster: '/images/reviews/the-smashing-machine/poster.webp'
 heroImage: '/images/reviews/the-smashing-machine/backdrop.webp'

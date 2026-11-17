@@ -20,7 +20,7 @@ language: 'English'
 studios: ['The De Laurentiis Company']
 letterboxdAverage: 2.81
 slug: 'halloween-iii-season-of-the-witch'
-description: "I should love Halloween III more since it's about techno-corporate witchcraft, which is a genuinely fun concept. But this is not a good movie and I don't..."
+description: "I should love Halloween III more since it's about techno-corporate witchcraft, which is a genuinely fun concept. But this is not a good movie and I don't…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/halloween-iii-season-of-the-witch/'
 poster: '/images/reviews/halloween-iii-season-of-the-witch/poster.webp'
 heroImage: '/images/reviews/halloween-iii-season-of-the-witch/backdrop.webp'

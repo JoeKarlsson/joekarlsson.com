@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Walt Disney Pictures', 'Sean Bailey Productions']
 letterboxdAverage: 2.59
 slug: 'tron-ares'
-description: 'Listen, I am reluctantly a cyberpunk Tron guy. As a millennial who came of age during an optimistic time in tech, the aesthetics of Tron Legacy hit hard when...'
+description: 'Listen, I am reluctantly a cyberpunk Tron guy. As a millennial who came of age during an optimistic time in tech, the aesthetics of Tron Legacy hit hard when…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/tron-ares/'
 poster: '/images/reviews/tron-ares/poster.webp'
 heroImage: '/images/reviews/tron-ares/backdrop.webp'

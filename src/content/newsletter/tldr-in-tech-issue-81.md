@@ -4,8 +4,8 @@ date: 2023-06-13
 slug: 'tldr-in-tech-issue-81'
 issue: 81
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-81'
-heroImage: '/images/newsletter/tldr-in-tech-issue-81/card-79b4e234.webp'
-heroAlt: "Works on My Machine card for TL;DR in Tech issue 81, leading with How To Store Your App's Entire State In The URL, with the issue number circled in pink crayon"
+heroImage: '/images/newsletter/tldr-in-tech-issue-81/card-375694e2.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 81, leading with How To Store Your App’s Entire State In The URL, with the issue number circled in pink crayon'
 ---
 
 ## [How To Store Your App's Entire State In The URL](https://www.scottantipa.com/store-app-state-in-urls)

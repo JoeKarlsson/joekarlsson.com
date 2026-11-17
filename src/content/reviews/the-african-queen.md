@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Romulus Films', 'Horizon Pictures']
 letterboxdAverage: 3.72
 slug: 'the-african-queen'
-description: "Just finished The African Queen. I was kinda bored at first, but I was ultimately charmed by Humphrey Bogart and Katherine Hepburn's dynamite chemistry..."
+description: "Just finished The African Queen. I was kinda bored at first, but I was ultimately charmed by Humphrey Bogart and Katherine Hepburn's dynamite chemistry…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-african-queen/'
 poster: '/images/reviews/the-african-queen/poster.webp'
 heroImage: '/images/reviews/the-african-queen/backdrop.webp'

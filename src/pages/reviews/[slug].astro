@@ -131,7 +131,7 @@ const mentions =
 	<nav slot="related" class="mt-12 md:mt-20" aria-labelledby="more-reviews">
 		{sameFilm.length > 0 && (
 			<p class="mb-10 text-lg text-paper">
-				I've reviewed {title}{' '}
+				I’ve reviewed {title}{' '}
 				{sameFilm.length === 1 ? 'one other time' : `${sameFilm.length} other times`}:{' '}
 				{sameFilm.map((r, i) => (
 					<>

@@ -20,7 +20,7 @@ language: 'French'
 studios: ['Jolly Film', 'Specta Films']
 letterboxdAverage: 4.19
 slug: 'playtime'
-description: 'Spent the first 20 minutes convinced my speakers were broken, only to realize Tati intentionally mixed all dialogue to sound like it’s coming from three...'
+description: 'Spent the first 20 minutes convinced my speakers were broken, only to realize Tati intentionally mixed all dialogue to sound like it’s coming from three…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/playtime/'
 poster: '/images/reviews/playtime/poster.webp'
 heroImage: '/images/reviews/playtime/backdrop.webp'

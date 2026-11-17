@@ -13,7 +13,7 @@ language: 'English'
 studios: ['Columbia Pictures', 'Sony Pictures Animation', 'MRC']
 letterboxdAverage: 2.7
 slug: 'hotel-transylvania-3-summer-vacation'
-description: 'There was a chupacabra joke in here, that I think was only for me. How many people out there know that chupacabra loosely translates in English to, goat...'
+description: 'There was a chupacabra joke in here, that I think was only for me. How many people out there know that chupacabra loosely translates in English to, goat…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hotel-transylvania-3-summer-vacation/'
 poster: '/images/reviews/hotel-transylvania-3-summer-vacation/poster.webp'
 heroImage: '/images/reviews/hotel-transylvania-3-summer-vacation/backdrop.webp'

@@ -29,7 +29,7 @@ studios:
   ]
 letterboxdAverage: 2.88
 slug: 'v-h-s-halloween'
-description: 'So this is the eighth installment of the VHS franchise, and of course, with any anthology series, the stories are gonna be hit or miss. This one gave me a...'
+description: 'So this is the eighth installment of the VHS franchise, and of course, with any anthology series, the stories are gonna be hit or miss. This one gave me a…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/v-h-s-halloween/'
 poster: '/images/reviews/v-h-s-halloween/poster.webp'
 heroImage: '/images/reviews/v-h-s-halloween/backdrop.webp'

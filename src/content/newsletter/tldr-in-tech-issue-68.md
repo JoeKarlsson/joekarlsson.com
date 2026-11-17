@@ -5,8 +5,8 @@ slug: 'tldr-in-tech-issue-68'
 description: 'By: Joe Karlsson'
 issue: 68
 substackUrl: 'https://joekarlsson.substack.com/p/tldr-in-tech-issue-68'
-heroImage: '/images/newsletter/tldr-in-tech-issue-68/card-6760378d.webp'
-heroAlt: "Works on My Machine card for TL;DR in Tech issue 68, leading with We Invested 10% To Pay Back Tech Debt; Here's What Happened, with the issue number circled in pink crayon"
+heroImage: '/images/newsletter/tldr-in-tech-issue-68/card-f62820a7.webp'
+heroAlt: 'Works on My Machine card for TL;DR in Tech issue 68, leading with We Invested 10% To Pay Back Tech Debt; Here’s What Happened, with the issue number circled in pink crayon'
 ---
 
 Ahoy, fellow software pirates! It's worth considering the benefits of unionizing to protect our collective power and work towards a more ethical future. Here are three potential reasons why unionizing in tech is important:

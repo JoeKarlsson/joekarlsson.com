@@ -12,7 +12,7 @@ language: 'English'
 studios: ['New Line Cinema', 'Picturehouse Entertainment']
 letterboxdAverage: 4.03
 slug: 'the-king-of-kong-a-fistful-of-quarters'
-description: '"Hey guys, Donkey Kong kill screen coming up..."'
+description: '"Hey guys, Donkey Kong kill screen coming up…"'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-king-of-kong-a-fistful-of-quarters/'
 poster: '/images/reviews/the-king-of-kong-a-fistful-of-quarters/poster.webp'
 heroImage: '/images/reviews/the-king-of-kong-a-fistful-of-quarters/backdrop.webp'

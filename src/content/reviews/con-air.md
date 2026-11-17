@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Touchstone Pictures', 'Jerry Bruckheimer Films']
 letterboxdAverage: 3.47
 slug: 'con-air'
-description: "I've been on an absolute Jerry Bruckheimer tear the last couple weeks, and after binging his entire catalog consecutively, the formula is crystal clear: you..."
+description: "I've been on an absolute Jerry Bruckheimer tear the last couple weeks, and after binging his entire catalog consecutively, the formula is crystal clear: you…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/con-air/'
 poster: '/images/reviews/con-air/poster.webp'
 heroImage: '/images/reviews/con-air/backdrop.webp'

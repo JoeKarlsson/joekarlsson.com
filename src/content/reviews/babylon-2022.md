@@ -19,7 +19,7 @@ studios:
   ]
 letterboxdAverage: 3.88
 slug: 'babylon-2022'
-description: 'I initially avoided Babylon when it came out because I heard terrible things about it. But having finally watched it for the first time, I deeply regret not...'
+description: 'I initially avoided Babylon when it came out because I heard terrible things about it. But having finally watched it for the first time, I deeply regret not…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/babylon-2022/'
 poster: '/images/reviews/babylon-2022/poster.webp'
 heroImage: '/images/reviews/babylon-2022/backdrop.webp'

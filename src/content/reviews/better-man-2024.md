@@ -32,7 +32,7 @@ studios:
   ]
 letterboxdAverage: 3.79
 slug: 'better-man-2024'
-description: 'After watching this movie, I still don’t know who Robbie Williams is, but I had such a fun time watching him. Don’t care for his music, even after watching...'
+description: 'After watching this movie, I still don’t know who Robbie Williams is, but I had such a fun time watching him. Don’t care for his music, even after watching…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/better-man-2024/'
 poster: '/images/reviews/better-man-2024/poster.webp'
 heroImage: '/images/reviews/better-man-2024/backdrop.webp'

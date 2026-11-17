@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Intrepid Pictures']
 letterboxdAverage: 4.08
 slug: 'midnight-mass-2021'
-description: 'This was my first time revisiting Midnight Mass since it dropped in 2021. I initially loved the show and it’s still one of my favorites, but I definitely...'
+description: 'This was my first time revisiting Midnight Mass since it dropped in 2021. I initially loved the show and it’s still one of my favorites, but I definitely…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/midnight-mass-2021/'
 poster: '/images/reviews/midnight-mass-2021/poster.webp'
 heroImage: '/images/reviews/midnight-mass-2021/backdrop.webp'

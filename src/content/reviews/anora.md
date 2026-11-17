@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Cre Film', 'FilmNation Entertainment']
 letterboxdAverage: 3.76
 slug: 'anora'
-description: 'Florida Project is still my favorite Sean Baker flick, but this one is so good. I had no idea where it was going and was consistently surprised. Sean...'
+description: 'Florida Project is still my favorite Sean Baker flick, but this one is so good. I had no idea where it was going and was consistently surprised. Sean…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/anora/'
 poster: '/images/reviews/anora/poster.webp'
 heroImage: '/images/reviews/anora/backdrop.webp'

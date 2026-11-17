@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Cinereach', 'Significant Productions', 'MACRO', 'MNM Creative', 'The Space Program']
 letterboxdAverage: 3.73
 slug: 'sorry-to-bother-you'
-description: 'I love this movie - and i want to know about HOW and WHO allowed Boots to make this movie. Is audacious and hilarious. The third act works for me and i love...'
+description: 'I love this movie - and i want to know about HOW and WHO allowed Boots to make this movie. Is audacious and hilarious. The third act works for me and i love…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sorry-to-bother-you/'
 poster: '/images/reviews/sorry-to-bother-you/poster.webp'
 heroImage: '/images/reviews/sorry-to-bother-you/backdrop.webp'

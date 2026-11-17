@@ -1,3 +1,4 @@
+import { curlEveryString } from '../utils/curly-apostrophes.mjs';
 import nowFeed from './now-feed.json';
 
 export interface BulletLink {
@@ -20,7 +21,7 @@ export interface Role {
 	summary: string;
 }
 
-export const roles: Role[] = [
+export const roles: Role[] = curlEveryString([
 	{
 		company: 'CData',
 		title: 'Principal Developer Marketing Engineer',
@@ -160,17 +161,17 @@ export const roles: Role[] = [
 			'Wrote the curriculum for its 12-week courses, led workshops, and mentored students into engineering jobs at local and national companies',
 		],
 	},
-];
+]);
 
-export const highlights = [
+export const highlights = curlEveryString([
 	'TEDx Speaker: "The Art of Computer Science" (delivered as TEDx talk and keynote at multiple conferences)',
 	'100+ conference talks, workshops and podcasts since 2019, including a keynote at MongoDB World',
 	'Ranked #1 on "10 Must-Follow Developers on TikTok"; 25K+ followers, 844K+ likes',
 	'Hackathon organizer: co-organized "Stupid Shit No One In Hawaii Needs" (2016), sponsored by GitHub & Frontend Masters',
 	'Published on the CData, CloudQuery, Tinybird, SingleStore and MongoDB developer blogs, The New Stack, Medium and DEV Community',
-];
+]);
 
-export const openSource = [
+export const openSource = curlEveryString([
 	{
 		name: 'Connect AI × DOOM',
 		description:
@@ -212,15 +213,15 @@ export const openSource = [
 		tech: ['Proxmox', 'LXC', 'OpenTofu', 'Prometheus', 'Home Assistant'],
 		url: '/blog/how-to-get-started-building-a-homelab-server/',
 	},
-];
+]);
 
-export const education = {
+export const education = curlEveryString({
 	school: 'Gustavus Adolphus College',
 	degree: 'Bachelor of Arts in Computer Science',
 	years: '2008–2012',
 	gpa: '3.5',
 	minors: ['Art History', 'Math'],
-};
+});
 
 export interface WritingSample {
 	title: string;
@@ -234,7 +235,7 @@ export interface WritingSampleGroup {
 	items: WritingSample[];
 }
 
-export const writingSamples: WritingSampleGroup[] = [
+export const writingSamples: WritingSampleGroup[] = curlEveryString([
 	{
 		category: 'AI Agents & MCP',
 		items: [
@@ -382,9 +383,9 @@ export const writingSamples: WritingSampleGroup[] = [
 			},
 		],
 	},
-];
+]);
 
-export const skills = [
+export const skills = curlEveryString([
 	{
 		category: 'Languages',
 		items: ['JavaScript', 'TypeScript', 'Python', 'Go', 'Swift', 'SQL'],
@@ -441,4 +442,4 @@ export const skills = [
 			'Webinars',
 		],
 	},
-];
+]);

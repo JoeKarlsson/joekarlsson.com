@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Glanderco']
 letterboxdAverage: 3.69
 slug: 'boys-go-to-jupiter'
-description: 'Cute surrealists comedy about surviving in late stage capitalist gig economy. It also stars all of my favorite modern old comics on one place, which is...'
+description: 'Cute surrealists comedy about surviving in late stage capitalist gig economy. It also stars all of my favorite modern old comics on one place, which is…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/boys-go-to-jupiter/'
 poster: '/images/reviews/boys-go-to-jupiter/poster.webp'
 heroImage: '/images/reviews/boys-go-to-jupiter/backdrop.webp'

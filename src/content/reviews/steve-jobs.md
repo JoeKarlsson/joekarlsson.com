@@ -29,7 +29,7 @@ studios:
   ]
 letterboxdAverage: 3.65
 slug: 'steve-jobs'
-description: 'It’s funny how little Sorkin cares about Jobs. And honestly, it feels like it’s more of a play about being a father. Boyle definitely got some touches in...'
+description: 'It’s funny how little Sorkin cares about Jobs. And honestly, it feels like it’s more of a play about being a father. Boyle definitely got some touches in…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/steve-jobs/'
 poster: '/images/reviews/steve-jobs/poster.webp'
 heroImage: '/images/reviews/steve-jobs/backdrop.webp'

@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Universal Pictures', 'Syncopy']
 letterboxdAverage: 4.34
 slug: 'the-odyssey-2026'
-description: 'Odysseus is a war criminal, a murderer, easily distracted by pussy. Unfortunately, he’s played by a ripped and charming Matt Damon, so idiots will idolize...'
+description: 'Odysseus is a war criminal, a murderer, easily distracted by pussy. Unfortunately, he’s played by a ripped and charming Matt Damon, so idiots will idolize…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-odyssey-2026/'
 poster: '/images/reviews/the-odyssey-2026/poster.webp'
 heroImage: '/images/reviews/the-odyssey-2026/backdrop.webp'
@@ -37,7 +37,7 @@ Inception opens with Cobb waking up confused on a beach, desperate to return hom
 
 _Inception, Interstellar, Dunkirk._
 
-And now that he's finally adapting it directly, the feminist reading feels almost unavoidable. This is a story about men being absolute monsters - pigs, sociopaths, murderers - taking advantage of women over and over while defining the rules of society to bend in their favor. The women are forced to bear it. Penelope tells Telemachus she's not allowed to make the rules because she's a woman. Circe, transforming Odysseus's men back from pigs, says something like " return to your disguise” which is commenting directly about masculinity as performance. As disguise.
+And now that he's finally adapting it directly, the feminist reading feels almost unavoidable. This is a story about men being absolute monsters - pigs, sociopaths, murderers - taking advantage of women over and over while defining the rules of society to bend in their favor. The women are forced to bear it. Penelope tells Telemachus she's not allowed to make the rules because she's a woman. Circe, transforming Odysseus's men back from pigs, says something like “return to your disguise” which is commenting directly about masculinity as performance. As disguise.
 
 ![Odysseus's men lying as pigs in Circe's house.](/images/reviews/the-odyssey-2026/circe-pigs-to-men-1.webp) ![One of them climbing back out of a pig's body as a man.](/images/reviews/the-odyssey-2026/circe-pigs-to-men-2.webp)
 _Circe singing the men back out of the pigs._

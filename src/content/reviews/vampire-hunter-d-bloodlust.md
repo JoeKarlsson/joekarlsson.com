@@ -21,7 +21,7 @@ studios:
   ['Madhouse', 'Goodhill Vision', 'Filmlink International', 'BMG Funhouse', 'movic', 'Softcapital']
 letterboxdAverage: 4.2
 slug: 'vampire-hunter-d-bloodlust'
-description: "Boy, they sure don't make them like they used to. This film is simply gorgeous. Gothic, bloody violent, dark, elegant, and well animated. I gotta say, I love..."
+description: "Boy, they sure don't make them like they used to. This film is simply gorgeous. Gothic, bloody violent, dark, elegant, and well animated. I gotta say, I love…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/vampire-hunter-d-bloodlust/'
 poster: '/images/reviews/vampire-hunter-d-bloodlust/poster.webp'
 heroImage: '/images/reviews/vampire-hunter-d-bloodlust/backdrop.webp'

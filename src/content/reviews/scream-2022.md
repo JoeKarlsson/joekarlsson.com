@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Paramount Pictures', 'Project X Entertainment', 'Radio Silence', 'Spyglass Media Group']
 letterboxdAverage: 3.26
 slug: 'scream-2022'
-description: 'Did I miss some thing, I did not like this movie. It feels like a who done it, but there’s no way to know who done it until the end monologue. And I felt...'
+description: 'Did I miss some thing, I did not like this movie. It feels like a who done it, but there’s no way to know who done it until the end monologue. And I felt…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scream-2022/'
 poster: '/images/reviews/scream-2022/poster.webp'
 heroImage: '/images/reviews/scream-2022/backdrop.webp'

@@ -24,7 +24,7 @@ studios:
   ]
 letterboxdAverage: 3.89
 slug: 'the-brutalist'
-description: 'If you liked, there will be blood, you would love this movie. Mercifully has a 60 second intermission in the middle, which I used to go to the bathroom and...'
+description: 'If you liked, there will be blood, you would love this movie. Mercifully has a 60 second intermission in the middle, which I used to go to the bathroom and…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-brutalist/'
 poster: '/images/reviews/the-brutalist/poster.webp'
 heroImage: '/images/reviews/the-brutalist/backdrop.webp'

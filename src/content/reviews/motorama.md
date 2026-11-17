@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Proletariat Productions Corporation', 'Planet Productions']
 letterboxdAverage: 3.44
 slug: 'motorama'
-description: "Answers the age-old question of what would happen if you combined The Adventures of Pete and Pete and Pee-wee's Big Adventure and made it rated R. The answer..."
+description: "Answers the age-old question of what would happen if you combined The Adventures of Pete and Pete and Pee-wee's Big Adventure and made it rated R. The answer…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/motorama/'
 poster: '/images/reviews/motorama/poster.webp'
 heroImage: '/images/reviews/motorama/backdrop.webp'

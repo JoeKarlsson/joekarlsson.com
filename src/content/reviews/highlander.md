@@ -21,7 +21,7 @@ studios:
   ['Davis-Panzer Productions', 'Thorn EMI Screen Entertainment', 'Highlander Productions Limited']
 letterboxdAverage: 3.33
 slug: 'highlander'
-description: "This was my first time ever watching Highlander, which honestly shocks me. I've known about it my entire life and just had zero interest until now. Initial..."
+description: "This was my first time ever watching Highlander, which honestly shocks me. I've known about it my entire life and just had zero interest until now. Initial…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/highlander/'
 poster: '/images/reviews/highlander/poster.webp'
 heroImage: '/images/reviews/highlander/backdrop.webp'

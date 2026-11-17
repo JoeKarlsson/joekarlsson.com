@@ -20,7 +20,7 @@ language: 'Japanese'
 studios: ['ufotable', 'Aniplex', 'Shueisha']
 letterboxdAverage: 4.07
 slug: 'demon-slayer-kimetsu-no-yaiba-infinity-castle'
-description: "I've seen two seasons of Demon slayer, and I mistakenly thought I would be able to catch up with the lore in order to watch and comprehend, what was..."
+description: "I've seen two seasons of Demon slayer, and I mistakenly thought I would be able to catch up with the lore in order to watch and comprehend, what was…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/demon-slayer-kimetsu-no-yaiba-infinity-castle/'
 poster: '/images/reviews/demon-slayer-kimetsu-no-yaiba-infinity-castle/poster.webp'
 heroImage: '/images/reviews/demon-slayer-kimetsu-no-yaiba-infinity-castle/backdrop.webp'

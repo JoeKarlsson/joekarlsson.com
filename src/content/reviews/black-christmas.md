@@ -20,7 +20,7 @@ studios:
   ]
 letterboxdAverage: 3.83
 slug: 'black-christmas'
-description: 'The same guy who directed A Christmas Story directed this. Bob Clark made a cozy holiday classic about a kid and a BB gun, and he also made one of the most...'
+description: 'The same guy who directed A Christmas Story directed this. Bob Clark made a cozy holiday classic about a kid and a BB gun, and he also made one of the most…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/black-christmas/'
 poster: '/images/reviews/black-christmas/poster.webp'
 heroImage: '/images/reviews/black-christmas/backdrop.webp'

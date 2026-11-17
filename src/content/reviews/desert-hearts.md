@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Desert Hearts Productions', 'The Samuel Goldwyn Company']
 letterboxdAverage: 3.8
 slug: 'desert-hearts'
-description: 'A gorgeous movie about repression and finding yourself at any age or point in your life. And one of the few queer movies from this era where the it’s not a...'
+description: 'A gorgeous movie about repression and finding yourself at any age or point in your life. And one of the few queer movies from this era where the it’s not a…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/desert-hearts/'
 poster: '/images/reviews/desert-hearts/poster.webp'
 heroImage: '/images/reviews/desert-hearts/backdrop.webp'

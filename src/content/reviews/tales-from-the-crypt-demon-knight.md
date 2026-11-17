@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Tales From The Crypt Holdings', 'Universal Pictures']
 letterboxdAverage: 3.44
 slug: 'tales-from-the-crypt-demon-knight'
-description: 'Never in a million years would I have guessed the blood of Christ and the literal crucifixion would be such a core part of this movie. Tales from the Crypt...'
+description: 'Never in a million years would I have guessed the blood of Christ and the literal crucifixion would be such a core part of this movie. Tales from the Crypt…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/tales-from-the-crypt-demon-knight/'
 poster: '/images/reviews/tales-from-the-crypt-demon-knight/poster.webp'
 heroImage: '/images/reviews/tales-from-the-crypt-demon-knight/backdrop.webp'

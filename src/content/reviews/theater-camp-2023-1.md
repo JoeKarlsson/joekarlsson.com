@@ -12,7 +12,7 @@ language: 'English'
 studios: ['Gloria Sanchez Productions', 'Topic Studios', 'Picturestart']
 letterboxdAverage: 3.77
 slug: 'theater-camp-2023-1'
-description: 'How do you say, this movie really snuck up on me. I had super low expectations going in, but I honestly cried during the final song. It’s impossible not to...'
+description: 'How do you say, this movie really snuck up on me. I had super low expectations going in, but I honestly cried during the final song. It’s impossible not to…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/theater-camp-2023/1/'
 poster: '/images/reviews/theater-camp-2023-1/poster.webp'
 heroImage: '/images/reviews/theater-camp-2023-1/backdrop.webp'

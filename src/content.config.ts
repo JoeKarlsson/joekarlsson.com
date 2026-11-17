@@ -151,11 +151,11 @@ const reviews = defineCollection({
 		rating: z.number().min(0.5).max(5).multipleOf(0.5).optional(),
 		rewatch: z.boolean().optional().default(false),
 		spoilers: z.boolean().optional().default(false),
-		director: z.string().optional(),
+		director: prose.optional(),
 		genres: z.array(z.string()).optional().default([]),
 		// From the film's Letterboxd page, for /reviews/stats/ (scripts/update-reviews.mjs)
 		runtime: z.number().int().optional(),
-		cast: z.array(z.string()).optional().default([]),
+		cast: z.array(prose).optional().default([]),
 		countries: z.array(z.string()).optional().default([]),
 		language: z.string().optional(),
 		studios: z.array(z.string()).optional().default([]),

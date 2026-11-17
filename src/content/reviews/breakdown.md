@@ -13,7 +13,7 @@ language: 'English'
 studios: ['Spelling Films', 'Paramount Pictures', 'DDL Cinematografica']
 letterboxdAverage: 3.62
 slug: 'breakdown'
-description: "Super taut, underrated and action-packed thriller. It's minimalist and fun and reminded me so much of Spielberg's debut, Duel. Russell's great in it. They..."
+description: "Super taut, underrated and action-packed thriller. It's minimalist and fun and reminded me so much of Spielberg's debut, Duel. Russell's great in it. They…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/breakdown/'
 poster: '/images/reviews/breakdown/poster.webp'
 heroImage: '/images/reviews/breakdown/backdrop.webp'

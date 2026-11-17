@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Le Studio Canal+', 'Polar Entertainment']
 letterboxdAverage: 3.92
 slug: 'cecil-b-demented'
-description: "“That's just it, Honey, I'm not gay. I'm straight and I fucking hate it! Petey loves me and I can't love him back. I tried. I kiss him, and all I feel is..."
+description: "“That's just it, Honey, I'm not gay. I'm straight and I fucking hate it! Petey loves me and I can't love him back. I tried. I kiss him, and all I feel is…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/cecil-b-demented/'
 poster: '/images/reviews/cecil-b-demented/poster.webp'
 heroImage: '/images/reviews/cecil-b-demented/backdrop.webp'

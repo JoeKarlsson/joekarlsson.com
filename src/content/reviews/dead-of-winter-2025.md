@@ -29,7 +29,7 @@ studios:
   ]
 letterboxdAverage: 2.87
 slug: 'dead-of-winter-2025'
-description: "As a Minnesotan, I was legally required to see Dead of Winter in theaters with some other Minnesotan friends. I didn't know it was actually filmed in Finland..."
+description: "As a Minnesotan, I was legally required to see Dead of Winter in theaters with some other Minnesotan friends. I didn't know it was actually filmed in Finland…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dead-of-winter-2025/'
 poster: '/images/reviews/dead-of-winter-2025/poster.webp'
 heroImage: '/images/reviews/dead-of-winter-2025/backdrop.webp'

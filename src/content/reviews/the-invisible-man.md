@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Universal Pictures']
 letterboxdAverage: 3.88
 slug: 'the-invisible-man'
-description: 'The central question of The Invisible Man is: what would you do if you had the power of invisibility? And more specifically, what would a man do with that...'
+description: 'The central question of The Invisible Man is: what would you do if you had the power of invisibility? And more specifically, what would a man do with that…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-invisible-man/'
 poster: '/images/reviews/the-invisible-man/poster.webp'
 heroImage: '/images/reviews/the-invisible-man/backdrop.webp'

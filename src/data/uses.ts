@@ -1,3 +1,4 @@
+import { curlEveryString } from '../utils/curly-apostrophes.mjs';
 // Everything on /uses: sections, the photo each one is built around, and the gear in it.
 // descHtml/introHtml/nameHtml are trusted HTML from this file; their links carry
 // data-text-link, which uses.astro turns into the TEXT_LINK style. {runningContainers}
@@ -20,7 +21,7 @@ export interface UsesSection {
 	groups: { name: string; items: UsesItem[] }[];
 }
 
-export const USES_SECTIONS: UsesSection[] = [
+export const USES_SECTIONS: UsesSection[] = curlEveryString([
 	{
 		slug: 'hardware',
 		name: 'Computers, camera and mic',
@@ -827,4 +828,4 @@ export const USES_SECTIONS: UsesSection[] = [
 			tall: false,
 		},
 	},
-];
+]);

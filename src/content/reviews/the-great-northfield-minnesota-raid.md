@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Universal Pictures', 'Robertson and Associates']
 letterboxdAverage: 3.19
 slug: 'the-great-northfield-minnesota-raid'
-description: "I put this on because I'm a native Minnesotan who's been to Northfield many times, even for Jesse James Days, which are documented in this film. But..."
+description: "I put this on because I'm a native Minnesotan who's been to Northfield many times, even for Jesse James Days, which are documented in this film. But…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-great-northfield-minnesota-raid/'
 poster: '/images/reviews/the-great-northfield-minnesota-raid/poster.webp'
 heroImage: '/images/reviews/the-great-northfield-minnesota-raid/backdrop.webp'

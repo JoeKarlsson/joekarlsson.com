@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Warner Bros. Pictures', 'Ghoulardi Film Company', 'Domain Entertainment']
 letterboxdAverage: 4.11
 slug: 'one-battle-after-another'
-description: "I walked into One Battle After Another with astronomical hype - and still left the theater knowing in my gut that I'd just witnessed a five out of five star..."
+description: "I walked into One Battle After Another with astronomical hype - and still left the theater knowing in my gut that I'd just witnessed a five out of five star…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/one-battle-after-another/'
 poster: '/images/reviews/one-battle-after-another/poster.webp'
 heroImage: '/images/reviews/one-battle-after-another/backdrop.webp'

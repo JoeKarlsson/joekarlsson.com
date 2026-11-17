@@ -13,7 +13,7 @@ language: 'English'
 studios: ['A24', 'Seven Bucks Productions', 'Out for the Count', 'Magnetic Fields Entertainment']
 letterboxdAverage: 3.21
 slug: 'the-smashing-machine-2025'
-description: 'I love that Captain Capitalism finally ate shit when he tried to make an earnest play at being a legit drama actor. Schadenfreude tastes sweet. The Rock...'
+description: 'I love that Captain Capitalism finally ate shit when he tried to make an earnest play at being a legit drama actor. Schadenfreude tastes sweet. The Rock…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-smashing-machine-2025/'
 poster: '/images/reviews/the-smashing-machine-2025/poster.webp'
 heroImage: '/images/reviews/the-smashing-machine-2025/backdrop.webp'

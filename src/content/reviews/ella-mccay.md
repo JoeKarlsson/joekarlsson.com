@@ -20,7 +20,7 @@ language: 'English'
 studios: ['20th Century Studios', 'Gracie Films', 'TSG Entertainment']
 letterboxdAverage: 2.48
 slug: 'ella-mccay'
-description: 'This feels like a nearly four hour long neoliberal fever dream that asks us to find the good in a terrible system. You can tell this is written by a...'
+description: 'This feels like a nearly four hour long neoliberal fever dream that asks us to find the good in a terrible system. You can tell this is written by a…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/ella-mccay/'
 poster: '/images/reviews/ella-mccay/poster.webp'
 heroImage: '/images/reviews/ella-mccay/backdrop.webp'

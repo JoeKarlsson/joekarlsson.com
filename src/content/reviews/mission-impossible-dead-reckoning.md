@@ -13,7 +13,7 @@ language: 'English'
 studios: ['Paramount Pictures', 'Skydance Media', 'TC Productions']
 letterboxdAverage: 3.7
 slug: 'mission-impossible-dead-reckoning'
-description: 'This is the exact moment the series started to lose me...'
+description: 'This is the exact moment the series started to lose me…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mission-impossible-dead-reckoning/'
 poster: '/images/reviews/mission-impossible-dead-reckoning/poster.webp'
 heroImage: '/images/reviews/mission-impossible-dead-reckoning/backdrop.webp'

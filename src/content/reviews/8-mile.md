@@ -13,7 +13,7 @@ language: 'English'
 studios: ['Mikona Productions', 'Imagine Entertainment']
 letterboxdAverage: 3.65
 slug: '8-mile'
-description: 'Coming to 8 Mile in 2025 hits different when you’ve spent your entire life marinating in its cultural residue without ever actually watching it. The film is...'
+description: 'Coming to 8 Mile in 2025 hits different when you’ve spent your entire life marinating in its cultural residue without ever actually watching it. The film is…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/8-mile/'
 poster: '/images/reviews/8-mile/poster.webp'
 heroImage: '/images/reviews/8-mile/backdrop.webp'

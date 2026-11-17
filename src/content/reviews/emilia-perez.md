@@ -35,7 +35,7 @@ studios:
   ]
 letterboxdAverage: 2.01
 slug: 'emilia-perez'
-description: 'Emilia Pérez was bad and self serious and boring. If it held the energy of the penis to vagina song for two hours, it would have been an instant camp classic...'
+description: 'Emilia Pérez was bad and self serious and boring. If it held the energy of the penis to vagina song for two hours, it would have been an instant camp classic…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/emilia-perez/'
 poster: '/images/reviews/emilia-perez/poster.webp'
 heroImage: '/images/reviews/emilia-perez/backdrop.webp'

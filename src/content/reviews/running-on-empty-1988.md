@@ -13,7 +13,7 @@ language: 'English'
 studios: ['Double Play', 'Lorimar Film Entertainment']
 letterboxdAverage: 4.03
 slug: 'running-on-empty-1988'
-description: 'Running on Empty is a surprisingly gentle film given its radical setup. I watched this shortly after One Battle After Another and honestly expected something...'
+description: 'Running on Empty is a surprisingly gentle film given its radical setup. I watched this shortly after One Battle After Another and honestly expected something…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/running-on-empty-1988/'
 poster: '/images/reviews/running-on-empty-1988/poster.webp'
 heroImage: '/images/reviews/running-on-empty-1988/backdrop.webp'

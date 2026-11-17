@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Legendary Pictures', 'Syncopy', 'Lynda Obst Productions']
 letterboxdAverage: 4.46
 slug: 'interstellar'
-description: 'A beautiful audacious film. This worked so much better for me the second time re-watching this film. Also, Matt Damon fulfilled his destiny of being the most...'
+description: 'A beautiful audacious film. This worked so much better for me the second time re-watching this film. Also, Matt Damon fulfilled his destiny of being the most…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/interstellar/'
 poster: '/images/reviews/interstellar/poster.webp'
 heroImage: '/images/reviews/interstellar/backdrop.webp'

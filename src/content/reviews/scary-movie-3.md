@@ -13,7 +13,7 @@ language: 'English'
 studios: ['Brad Grey Pictures', 'Dimension Films']
 letterboxdAverage: 2.81
 slug: 'scary-movie-3'
-description: "I hate to say it, but this is still genuinely funny. Revisiting this after writing it off for the last 20 years, and I'm shocked at how much I laughed. It's..."
+description: "I hate to say it, but this is still genuinely funny. Revisiting this after writing it off for the last 20 years, and I'm shocked at how much I laughed. It's…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scary-movie-3/'
 poster: '/images/reviews/scary-movie-3/poster.webp'
 heroImage: '/images/reviews/scary-movie-3/backdrop.webp'

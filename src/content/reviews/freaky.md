@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Universal Pictures', 'Blumhouse Productions', 'Divide / Conquer']
 letterboxdAverage: 3.09
 slug: 'freaky'
-description: "I love Vince Vaughn's later-career pivot to embracing how massive his body is and how physically intimidating he can be. Brawl in Cell Block 99 is a great..."
+description: "I love Vince Vaughn's later-career pivot to embracing how massive his body is and how physically intimidating he can be. Brawl in Cell Block 99 is a great…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/freaky/'
 poster: '/images/reviews/freaky/poster.webp'
 heroImage: '/images/reviews/freaky/backdrop.webp'

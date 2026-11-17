@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Universal Pictures', 'James Whale Productions']
 letterboxdAverage: 3.95
 slug: 'bride-of-frankenstein'
-description: 'After decades of revisiting the original Frankenstein, I finally caught up with Bride of Frankenstein - and honestly, what took me so long? This film is...'
+description: 'After decades of revisiting the original Frankenstein, I finally caught up with Bride of Frankenstein - and honestly, what took me so long? This film is…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bride-of-frankenstein/'
 poster: '/images/reviews/bride-of-frankenstein/poster.webp'
 heroImage: '/images/reviews/bride-of-frankenstein/backdrop.webp'

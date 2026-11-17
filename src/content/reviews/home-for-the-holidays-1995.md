@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Egg Pictures', 'PolyGram Filmed Entertainment']
 letterboxdAverage: 3.3
 slug: 'home-for-the-holidays-1995'
-description: 'I’ve been wrestling with this movie for days. I thought it was cute and I have a big crush on Holly Hunter and an extremely intoxicated RDJ - but it’s a...'
+description: 'I’ve been wrestling with this movie for days. I thought it was cute and I have a big crush on Holly Hunter and an extremely intoxicated RDJ - but it’s a…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/home-for-the-holidays-1995/'
 poster: '/images/reviews/home-for-the-holidays-1995/poster.webp'
 heroImage: '/images/reviews/home-for-the-holidays-1995/backdrop.webp'

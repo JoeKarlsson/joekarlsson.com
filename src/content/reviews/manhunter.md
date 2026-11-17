@@ -13,7 +13,7 @@ language: 'English'
 studios: ['DEG', 'Red Dragon Productions S.A.']
 letterboxdAverage: 3.86
 slug: 'manhunter'
-description: "Manhunter feels like an aquarium trapped in time from 1986. It's slick and cool and undeniably aesthetic, really capturing the essence of an era - but I..."
+description: "Manhunter feels like an aquarium trapped in time from 1986. It's slick and cool and undeniably aesthetic, really capturing the essence of an era - but I…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/manhunter/'
 poster: '/images/reviews/manhunter/poster.webp'
 heroImage: '/images/reviews/manhunter/backdrop.webp'

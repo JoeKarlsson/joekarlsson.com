@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Columbia Pictures', 'DNA Films', 'Decibel Films', 'TSG Entertainment']
 letterboxdAverage: 3.43
 slug: '28-years-later'
-description: "Elevated horror for sure - it definitely felt like a Danny Boyle and Alex Garland film. It wasn't what I expected, and it was a bit too British for my..."
+description: "Elevated horror for sure - it definitely felt like a Danny Boyle and Alex Garland film. It wasn't what I expected, and it was a bit too British for my…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/28-years-later/'
 poster: '/images/reviews/28-years-later/poster.webp'
 heroImage: '/images/reviews/28-years-later/backdrop.webp'

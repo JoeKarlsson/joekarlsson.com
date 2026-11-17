@@ -20,7 +20,7 @@ language: 'English'
 studios: ['DNA Films', 'A24']
 letterboxdAverage: 3.53
 slug: 'warfare'
-description: 'I went into Warfare knowing nothing about the context, which left me with one nagging question through the entire runtime: why the hell did Alex Garland - a...'
+description: 'I went into Warfare knowing nothing about the context, which left me with one nagging question through the entire runtime: why the hell did Alex Garland - a…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/warfare/'
 poster: '/images/reviews/warfare/poster.webp'
 heroImage: '/images/reviews/warfare/backdrop.webp'

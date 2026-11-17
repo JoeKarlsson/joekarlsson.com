@@ -13,7 +13,7 @@ language: 'English'
 studios: ['Legendary Pictures', 'Troma Entertainment']
 letterboxdAverage: 2.93
 slug: 'the-toxic-avenger-2023'
-description: 'I’m sure everyone had a really fun time making this movie. But I just never connected with it. But it paid spirit to the Troma films, even though it never...'
+description: 'I’m sure everyone had a really fun time making this movie. But I just never connected with it. But it paid spirit to the Troma films, even though it never…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-toxic-avenger-2023/'
 poster: '/images/reviews/the-toxic-avenger-2023/poster.webp'
 heroImage: '/images/reviews/the-toxic-avenger-2023/backdrop.webp'

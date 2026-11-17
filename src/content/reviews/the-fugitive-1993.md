@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Warner Bros. Pictures']
 letterboxdAverage: 3.92
 slug: 'the-fugitive-1993'
-description: 'Great direction and editing. Amazing cat and mouse. Tommy Lee Jones is one of my favorite cops of all time (ACAB). I love the minimalist screenplay with...'
+description: 'Great direction and editing. Amazing cat and mouse. Tommy Lee Jones is one of my favorite cops of all time (ACAB). I love the minimalist screenplay with…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-fugitive-1993/'
 poster: '/images/reviews/the-fugitive-1993/poster.webp'
 heroImage: '/images/reviews/the-fugitive-1993/backdrop.webp'

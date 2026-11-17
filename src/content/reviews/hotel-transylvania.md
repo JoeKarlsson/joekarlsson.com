@@ -13,7 +13,7 @@ language: 'English'
 studios: ['Columbia Pictures', 'Sony Pictures Animation']
 letterboxdAverage: 3.43
 slug: 'hotel-transylvania'
-description: 'Watch this to be a Genndy completionist (and also because of Blank Check). I had rock bottom expectations for this movie, and it ended up being moderately...'
+description: 'Watch this to be a Genndy completionist (and also because of Blank Check). I had rock bottom expectations for this movie, and it ended up being moderately…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hotel-transylvania/'
 poster: '/images/reviews/hotel-transylvania/poster.webp'
 heroImage: '/images/reviews/hotel-transylvania/backdrop.webp'

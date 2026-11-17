@@ -20,7 +20,7 @@ language: 'Russian'
 studios: ['Mosfilm']
 letterboxdAverage: 4.39
 slug: 'stalker'
-description: 'This took me three days to watch. Not because I wasn’t engaged, but because Tarkovsky demands you sit with each moment, each lingering shot of industrial...'
+description: 'This took me three days to watch. Not because I wasn’t engaged, but because Tarkovsky demands you sit with each moment, each lingering shot of industrial…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/stalker/'
 poster: '/images/reviews/stalker/poster.webp'
 heroImage: '/images/reviews/stalker/backdrop.webp'

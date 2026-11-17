@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Lucasfilm Ltd.', 'Fairview Entertainment']
 letterboxdAverage: 3.07
 slug: 'the-mandalorian-and-grogu'
-description: 'The only character growth in this movie is that Mando let Grogu push the hyperspace button. Who cares??? This felt like the Seinfeld of Star Wars movies...'
+description: 'The only character growth in this movie is that Mando let Grogu push the hyperspace button. Who cares??? This felt like the Seinfeld of Star Wars movies…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-mandalorian-and-grogu/'
 poster: '/images/reviews/the-mandalorian-and-grogu/poster.webp'
 heroImage: '/images/reviews/the-mandalorian-and-grogu/backdrop.webp'

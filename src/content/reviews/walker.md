@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Pressman Film', 'Incine', 'Northern', 'Walker Films Limited']
 letterboxdAverage: 3.84
 slug: 'walker'
-description: 'I don’t think a movie like this will ever get created ever again. If you hate Ronald Reagan, this is the movie for you. This is a big studio film that’s...'
+description: 'I don’t think a movie like this will ever get created ever again. If you hate Ronald Reagan, this is the movie for you. This is a big studio film that’s…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/walker/'
 poster: '/images/reviews/walker/poster.webp'
 heroImage: '/images/reviews/walker/backdrop.webp'

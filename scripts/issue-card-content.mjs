@@ -4,6 +4,7 @@
  * the number and which crayon marks go where, so it can be tested without a browser.
  */
 import { parse as parseYaml } from 'yaml';
+import { curlyApostrophes } from '../src/utils/curly-apostrophes.mjs';
 
 const FRONTMATTER = /^---\n([\s\S]*?)\n---\n?/;
 
@@ -32,13 +33,14 @@ export function issueNumber(data) {
  */
 export function extractHeadlines(body) {
 	return [...body.matchAll(/^(?:## |\*\*)\[(.+?)\]\(/gm)]
-		.map((match) => match[1].trim())
+		.map((match) => curlyApostrophes(match[1].trim()))
 		.filter((headline) => !/^tl;dr/i.test(headline));
 }
 
-/** Essay titles drop emoji ("Why I Joined Viam 🤖"): Anton has no glyphs for them. */
+/** Essay titles drop emoji ("Why I Joined Viam 🤖"): Anton has no glyphs for them. Quotes
+ * curl like the page title's (content.config.ts). */
 function cleanTitle(title) {
-	return title.replace(/\s*\p{Extended_Pictographic}️?/gu, '').trim();
+	return curlyApostrophes(title.replace(/\s*\p{Extended_Pictographic}️?/gu, '').trim());
 }
 
 /** FNV-1a, so a slug always picks the same marks and a rerun never changes a card. */

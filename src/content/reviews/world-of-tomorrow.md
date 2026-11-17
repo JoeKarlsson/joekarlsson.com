@@ -12,7 +12,7 @@ language: 'English'
 studios: ['Bitter Films']
 letterboxdAverage: 4.32
 slug: 'world-of-tomorrow'
-description: 'Fun lil short film. I was surprised this artist has such a well regarded film out there. Sad and true. It manages to tell the story of everything in about 16...'
+description: 'Fun lil short film. I was surprised this artist has such a well regarded film out there. Sad and true. It manages to tell the story of everything in about 16…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/world-of-tomorrow/'
 poster: '/images/reviews/world-of-tomorrow/poster.webp'
 heroImage: '/images/reviews/world-of-tomorrow/backdrop.webp'

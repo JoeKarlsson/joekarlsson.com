@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Palomar Pictures International', 'Palladium Productions']
 letterboxdAverage: 4.07
 slug: 'the-taking-of-pelham-one-two-three'
-description: "I was shocked at how well-paced The Taking of Pelham One Two Three is. But honestly, I shouldn't be surprised - this came on the heels of The French..."
+description: "I was shocked at how well-paced The Taking of Pelham One Two Three is. But honestly, I shouldn't be surprised - this came on the heels of The French…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-taking-of-pelham-one-two-three/'
 poster: '/images/reviews/the-taking-of-pelham-one-two-three/poster.webp'
 heroImage: '/images/reviews/the-taking-of-pelham-one-two-three/backdrop.webp'

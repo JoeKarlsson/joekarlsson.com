@@ -1,12 +1,12 @@
 /**
  * Curls the quotes in plain text that skips markdown's smart quotes (front matter, project
  * data, component strings): doesn't, Buffalo ’66, Nuke ’Em, “now playing”. `code` spans
- * keep theirs.
+ * and HTML tags (an href's quotes) keep theirs.
  * @param {string} text
  */
 export function curlyApostrophes(text) {
 	return text
-		.split(/(`[^`]+`)/)
+		.split(/(`[^`]+`|<[^>]+>)/)
 		.map((part, i) =>
 			i % 2
 				? part
@@ -16,7 +16,8 @@ export function curlyApostrophes(text) {
 						.replace(/(^|[\s(])'(?=\d|(?:em|til|n|cause)\b)/gi, '$1’')
 						.replace(/(^|[\s([—-])'(?=\S)/g, '$1‘')
 						.replace(/(^|[\s([—-])"(?=\S)/g, '$1“')
-						.replace(/"/g, '”'),
+						// After a digit it's an inch mark (14" MacBook), which stays straight
+						.replace(/(?<!\d)"/g, '”'),
 		)
 		.join('');
 }

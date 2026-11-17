@@ -12,7 +12,7 @@ language: 'English'
 studios: ['Fox Atomic', 'Dubiecki/Novick/Reitman Productions', 'Dune Entertainment']
 letterboxdAverage: 3.46
 slug: 'jennifers-body'
-description: "As a Minnesotan, I am required by law to love Diablo Cody's movies. I think she captures a Gen X view of small-town America, but I still appreciate it..."
+description: "As a Minnesotan, I am required by law to love Diablo Cody's movies. I think she captures a Gen X view of small-town America, but I still appreciate it…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jennifers-body/'
 poster: '/images/reviews/jennifers-body/poster.webp'
 heroImage: '/images/reviews/jennifers-body/backdrop.webp'

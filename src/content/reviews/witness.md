@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Paramount Pictures']
 letterboxdAverage: 3.7
 slug: 'witness'
-description: 'I felt so sad for Kelly McGillis when she handed Harrison Ford a tall glass of homemade lemonade, and he chugged it all at once without even enjoying it. He...'
+description: 'I felt so sad for Kelly McGillis when she handed Harrison Ford a tall glass of homemade lemonade, and he chugged it all at once without even enjoying it. He…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/witness/'
 poster: '/images/reviews/witness/poster.webp'
 heroImage: '/images/reviews/witness/backdrop.webp'

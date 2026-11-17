@@ -20,7 +20,7 @@ language: 'English'
 studios: ['The Ladd Company', 'Icon Productions']
 letterboxdAverage: 3.94
 slug: 'braveheart'
-description: "I thought Braveheart was stupid and bad, packed with so many things I hate about films.It's overly violent and overly masculine in the worst possible ways..."
+description: "I thought Braveheart was stupid and bad, packed with so many things I hate about films.It's overly violent and overly masculine in the worst possible ways…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/braveheart/'
 poster: '/images/reviews/braveheart/poster.webp'
 heroImage: '/images/reviews/braveheart/backdrop.webp'

@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Protozoa Pictures', 'TSG Entertainment', 'Columbia Pictures']
 letterboxdAverage: 3.41
 slug: 'caught-stealing'
-description: 'This movie did not work for me. I thought it was kind of boring. But, I have to admit Butler is a star. He’s so handsome so cute and so vulnerable. And I...'
+description: 'This movie did not work for me. I thought it was kind of boring. But, I have to admit Butler is a star. He’s so handsome so cute and so vulnerable. And I…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/caught-stealing/'
 poster: '/images/reviews/caught-stealing/poster.webp'
 heroImage: '/images/reviews/caught-stealing/backdrop.webp'

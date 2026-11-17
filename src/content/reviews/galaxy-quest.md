@@ -20,7 +20,7 @@ language: 'English'
 studios: ['DreamWorks Pictures', 'Gran Via Productions']
 letterboxdAverage: 3.73
 slug: 'galaxy-quest'
-description: 'Is this my favorite Star Trek movie? First contact might still be my number one. However, this one’s so much fun. I’ve probably seen it five times now, and...'
+description: 'Is this my favorite Star Trek movie? First contact might still be my number one. However, this one’s so much fun. I’ve probably seen it five times now, and…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/galaxy-quest/'
 poster: '/images/reviews/galaxy-quest/poster.webp'
 heroImage: '/images/reviews/galaxy-quest/backdrop.webp'

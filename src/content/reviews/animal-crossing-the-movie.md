@@ -30,7 +30,7 @@ studios:
   ]
 letterboxdAverage: 3.63
 slug: 'animal-crossing-the-movie'
-description: 'How did I not know this movie existed, even at the peak of my Animal Crossing New Horizons obsession? The 2006 Animal Crossing film is beautifully animated...'
+description: 'How did I not know this movie existed, even at the peak of my Animal Crossing New Horizons obsession? The 2006 Animal Crossing film is beautifully animated…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/animal-crossing-the-movie/'
 poster: '/images/reviews/animal-crossing-the-movie/poster.webp'
 heroImage: '/images/reviews/animal-crossing-the-movie/backdrop.webp'

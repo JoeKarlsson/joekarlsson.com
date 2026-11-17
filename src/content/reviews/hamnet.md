@@ -12,7 +12,7 @@ language: 'English'
 studios: ['Hera Pictures', 'Neal Street Productions', 'Amblin Entertainment', 'Book of Shadows']
 letterboxdAverage: 4.2
 slug: 'hamnet'
-description: 'I’m writing this fresh out of the theater, tears still wet. This is a raw reaction. The whole theater was sniffling - we basically cried together for two...'
+description: 'I’m writing this fresh out of the theater, tears still wet. This is a raw reaction. The whole theater was sniffling - we basically cried together for two…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hamnet/'
 poster: '/images/reviews/hamnet/poster.webp'
 heroImage: '/images/reviews/hamnet/backdrop.webp'

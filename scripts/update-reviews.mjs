@@ -11,7 +11,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { format, resolveConfig } from 'prettier';
 import sharp from 'sharp';
-// 157 + the "..." truncateAtWord adds = the 160 characters search results show
+// 159 + the "…" truncateAtWord adds = the 160 characters search results show
 import { truncateAtWord } from './now-feed-parsing.mjs';
 
 const USER = 'joekarlsson';
@@ -166,7 +166,7 @@ export async function importReview(r) {
 		film.genres.length ? `genres: [${film.genres.map(yamlString).join(', ')}]` : null,
 		...filmStatsFront(film),
 		`slug: ${yamlString(slug)}`,
-		`description: ${yamlString(truncateAtWord(body.split('\n\n')[0].replace(/[*]/g, '').replace(/\s+/g, ' '), 157))}`,
+		`description: ${yamlString(truncateAtWord(body.split('\n\n')[0].replace(/[*]/g, '').replace(/\s+/g, ' '), 159))}`,
 		`letterboxdUrl: ${yamlString(r.url)}`,
 	];
 	if (film.poster) {

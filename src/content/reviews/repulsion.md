@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Compton Films', 'Tekli British Productions']
 letterboxdAverage: 3.91
 slug: 'repulsion'
-description: 'I did a “women be crazy” double feature with Possession, watching both back-to-back in my living room. Except calling it that feels wrong after actually...'
+description: 'I did a “women be crazy” double feature with Possession, watching both back-to-back in my living room. Except calling it that feels wrong after actually…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/repulsion/'
 poster: '/images/reviews/repulsion/poster.webp'
 heroImage: '/images/reviews/repulsion/backdrop.webp'

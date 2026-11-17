@@ -20,7 +20,7 @@ language: 'Japanese'
 studios: ['Bandai Visual', 'Shochiku', 'Madhouse', 'Kodansha', 'STUDIO4℃']
 letterboxdAverage: 4.04
 slug: 'memories'
-description: "I finished Memories a couple hours ago and I'm still noodling on it. This was much deeper than I ever expected, and the subjects it touched on feel like they..."
+description: "I finished Memories a couple hours ago and I'm still noodling on it. This was much deeper than I ever expected, and the subjects it touched on feel like they…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/memories/'
 poster: '/images/reviews/memories/poster.webp'
 heroImage: '/images/reviews/memories/backdrop.webp'

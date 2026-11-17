@@ -26,7 +26,7 @@ studios:
   ]
 letterboxdAverage: 2.09
 slug: 'jupiter-ascending'
-description: "Channing Tatum plays a shirtless wolf man on roller skates and Eddie Redmayne whisper-screams about bureaucracy. This should be perfect but it's just..."
+description: "Channing Tatum plays a shirtless wolf man on roller skates and Eddie Redmayne whisper-screams about bureaucracy. This should be perfect but it's just…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jupiter-ascending/'
 poster: '/images/reviews/jupiter-ascending/poster.webp'
 heroImage: '/images/reviews/jupiter-ascending/backdrop.webp'

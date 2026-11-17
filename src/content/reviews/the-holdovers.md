@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Miramax', 'Gran Via Productions']
 letterboxdAverage: 4.27
 slug: 'the-holdovers'
-description: 'I really thought this movie was sweet, and will probably be on my Christmas rewatch list in the near Christmas future. It feels like a spiritual Christmas...'
+description: 'I really thought this movie was sweet, and will probably be on my Christmas rewatch list in the near Christmas future. It feels like a spiritual Christmas…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-holdovers/'
 poster: '/images/reviews/the-holdovers/poster.webp'
 heroImage: '/images/reviews/the-holdovers/backdrop.webp'

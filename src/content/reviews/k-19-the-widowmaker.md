@@ -30,7 +30,7 @@ studios:
   ]
 letterboxdAverage: 3.2
 slug: 'k-19-the-widowmaker'
-description: "This movie was boring and slightly derivative (they basically did the ending of Schindler's list here), but I do commend Bigelow for creating a big budget..."
+description: "This movie was boring and slightly derivative (they basically did the ending of Schindler's list here), but I do commend Bigelow for creating a big budget…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/k-19-the-widowmaker/'
 poster: '/images/reviews/k-19-the-widowmaker/poster.webp'
 heroImage: '/images/reviews/k-19-the-widowmaker/backdrop.webp'

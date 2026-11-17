@@ -12,7 +12,7 @@ language: 'English'
 studios: ['Original Film', 'Village Roadshow Pictures', 'Warner Bros. Pictures']
 letterboxdAverage: 2.54
 slug: 'torque'
-description: 'Wild that this movie dunks on Fast and Furious while being the same thing but with motorcycles. I wanted to absolutely love this movie. It kind of worked for...'
+description: 'Wild that this movie dunks on Fast and Furious while being the same thing but with motorcycles. I wanted to absolutely love this movie. It kind of worked for…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/torque/'
 poster: '/images/reviews/torque/poster.webp'
 heroImage: '/images/reviews/torque/backdrop.webp'

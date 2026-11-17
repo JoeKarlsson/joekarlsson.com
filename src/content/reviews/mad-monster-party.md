@@ -12,7 +12,7 @@ language: 'English'
 studios: ['Rankin/Bass Productions', 'Videocraft International', 'Embassy Pictures Corporation']
 letterboxdAverage: 3.31
 slug: 'mad-monster-party'
-description: 'This is basically Hotel Transylvania but without Adam Sandler, with worse jokes, moving much slower, and featuring incredible stop-motion animation instead...'
+description: 'This is basically Hotel Transylvania but without Adam Sandler, with worse jokes, moving much slower, and featuring incredible stop-motion animation instead…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mad-monster-party/'
 poster: '/images/reviews/mad-monster-party/poster.webp'
 heroImage: '/images/reviews/mad-monster-party/backdrop.webp'

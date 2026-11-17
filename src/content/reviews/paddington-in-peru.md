@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Marmalade Pictures', 'StudioCanal']
 letterboxdAverage: 3.4
 slug: 'paddington-in-peru'
-description: 'I really wanted to love this movie. However, I was not able to get this movie to live up to the hype in my head. I know there was some changes in directors...'
+description: 'I really wanted to love this movie. However, I was not able to get this movie to live up to the hype in my head. I know there was some changes in directors…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/paddington-in-peru/'
 poster: '/images/reviews/paddington-in-peru/poster.webp'
 heroImage: '/images/reviews/paddington-in-peru/backdrop.webp'

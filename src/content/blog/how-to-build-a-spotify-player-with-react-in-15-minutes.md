@@ -79,7 +79,7 @@ Any application can request data from Spotify Web API endpoints and many endpoin
 
 You can [register your application](https://developer.spotify.com/documentation/web-api/quick-start/), even before you have created it.
 
-Go to the [Dashboard](https://developer.spotify.com/dashboard) page at the Spotify Developer website, and click on ‘My New App.”
+Go to the [Dashboard](https://developer.spotify.com/dashboard) page at the Spotify Developer website, and click on “My New App.”
 
 ![Spotify Developer Dashboard showing My New App button](/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/spotify-dashboard-setup.webp)
 

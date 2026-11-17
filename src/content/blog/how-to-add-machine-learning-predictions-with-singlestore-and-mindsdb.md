@@ -66,7 +66,7 @@ For this demo, we are going to be using a demo dataset containing health insuran
 
 This dataset includes information including age, sex, BMI, children, smoker, region, and charges from a fictitious insurance company. We will be using this dataset to eventually connect this data stored in SingleStore to MindsDB and run predictions and queries, such as predicting the average BMI of a male smoker.
 
-Head over to the [SQL Editor](https://docs.singlestore.com/cloud/getting-started-with-singlestoredb-cloud/) on the SingleStore portal. We will now create a new database and table where we are going to save our insurance data. Run this SQL script by copying this code into the editor and press ‘Run.” Check the logs to ensure that no errors occurred.
+Head over to the [SQL Editor](https://docs.singlestore.com/cloud/getting-started-with-singlestoredb-cloud/) on the SingleStore portal. We will now create a new database and table where we are going to save our insurance data. Run this SQL script by copying this code into the editor and press “Run.” Check the logs to ensure that no errors occurred.
 
 ```sql
 CREATE DATABASE IF NOT EXISTS health_insurance;

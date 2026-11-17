@@ -235,7 +235,7 @@ The performance improvements we achieved were substantial, especially for challe
 
 ![Median query time on the basic-frequent benchmark, where the search matched about 72% of rows: ungrouped-limited about 385 ms, ungrouped about 2,730 ms, naive about 3,820 ms and sumIf about 3,810 ms.](/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/frequent-median.svg)
 
-The ungrouped-limited strategy is a practical compromise for situations where a user queries something that would return millions of results. It's based on the assumption that users would prefer to get approximate results quickly rather than waiting a minute or more for exact results. The "\*-frequent" benchmarks represent worst-case scenarios for our system, not necessarily the most common user queries (as we don't yet have full data on actual search patterns).
+The ungrouped-limited strategy is a practical compromise for situations where a user queries something that would return millions of results. It's based on the assumption that users would prefer to get approximate results quickly rather than waiting a minute or more for exact results. The “\*-frequent” benchmarks represent worst-case scenarios for our system, not necessarily the most common user queries (as we don't yet have full data on actual search patterns).
 
 This performance came with tradeoffs. In ungrouped and ungrouped-limited, we sacrifice some precision and relevance scoring, especially when conditions match a large number of results. This is due to the nature of our dataset, where common substrings appear frequently and can overwhelm result sets. In these cases, traditional relevance heuristics become less meaningful, and speed becomes the priority.
 

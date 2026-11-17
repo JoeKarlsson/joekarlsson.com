@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Miramax', 'Cedar Park Entertainment', 'Punch Palace Productions']
 letterboxdAverage: 2.75
 slug: 'the-beekeeper-2024'
-description: 'A blatant John Wick rip-off with worse choreo and a somehow more incomprehensible plot - which is genuinely impressive, because I already hate the...'
+description: 'A blatant John Wick rip-off with worse choreo and a somehow more incomprehensible plot - which is genuinely impressive, because I already hate the…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-beekeeper-2024/'
 poster: '/images/reviews/the-beekeeper-2024/poster.webp'
 heroImage: '/images/reviews/the-beekeeper-2024/backdrop.webp'

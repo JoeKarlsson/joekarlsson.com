@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Walt Disney Pictures', 'Burr! Productions', 'Gunn Films']
 letterboxdAverage: 3.06
 slug: 'freakier-friday'
-description: 'Freakier Friday definitely feels like a Disney+ movie production-wise, which is wild considering it stars an Oscar winner. I’m just gonna say it: this was...'
+description: 'Freakier Friday definitely feels like a Disney+ movie production-wise, which is wild considering it stars an Oscar winner. I’m just gonna say it: this was…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/freakier-friday/'
 poster: '/images/reviews/freakier-friday/poster.webp'
 heroImage: '/images/reviews/freakier-friday/backdrop.webp'

@@ -20,7 +20,7 @@ language: 'English'
 studios: ['Paramount Pictures']
 letterboxdAverage: 3.23
 slug: 'holiday-inn'
-description: "A Christmas movie about every holiday, including one particularly memorable one we don't celebrate anymore... Cough cough, Abraham Lincoln's birthday, cough..."
+description: "A Christmas movie about every holiday, including one particularly memorable one we don't celebrate anymore… Cough cough, Abraham Lincoln's birthday, cough…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/holiday-inn/'
 poster: '/images/reviews/holiday-inn/poster.webp'
 heroImage: '/images/reviews/holiday-inn/backdrop.webp'
