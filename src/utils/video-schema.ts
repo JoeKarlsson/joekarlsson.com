@@ -37,7 +37,8 @@ export function videoObject(
 		name: video.title,
 		description,
 		thumbnailUrl: `${SITE_URL}/images/youtube/${id}.webp`,
-		uploadDate: video.date,
+		// Google wants a full datetime with a timezone, not the bare date YouTube gives
+		uploadDate: `${video.date}T00:00:00Z`,
 		duration: isoDuration(video.durationSeconds),
 		embedUrl: `https://www.youtube.com/embed/${id}`,
 		url: watch,

@@ -508,7 +508,7 @@ describe('talk pages', () => {
 					expect(video[field], `${slug} ${field}`).toBeTruthy();
 				}
 				expect(video.duration, slug).toMatch(/^PT(\d+H)?(\d+M)?(\d+S)?$/);
-				expect(video.uploadDate, slug).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+				expect(video.uploadDate, slug).toMatch(/^\d{4}-\d{2}-\d{2}T00:00:00Z$/);
 				expect(existsSync(resolve(dist, new URL(video.thumbnailUrl).pathname.slice(1))), slug).toBe(
 					true,
 				);
