@@ -45,6 +45,7 @@ const imageSizes = new Map(
 	await Promise.all(
 		[
 			project.image,
+			project.poster,
 			...(page.gallery ?? []).filter((clip) => !clip.video).map((clip) => clip.poster),
 			...(page.screenshots ?? []).map((shot) => shot.poster),
 		]
@@ -155,8 +156,14 @@ const sections = [
 						heroImage={project.video ? (project.poster ?? project.image) : project.image}
 						heroVideo={project.video}
 						heroAlt={project.imageAlt}
-						width={imageSizes.get(project.image)?.width}
-						height={imageSizes.get(project.image)?.height}
+						width={
+							imageSizes.get(project.video ? (project.poster ?? project.image) : project.image)
+								?.width
+						}
+						height={
+							imageSizes.get(project.video ? (project.poster ?? project.image) : project.image)
+								?.height
+						}
 						halftone={halftoneMode(project.video ?? project.image)}
 					>
 						<MetaParts parts={byline} />
@@ -211,7 +218,7 @@ const sections = [
 							{page.introHeading}
 						</h2>
 					)}
-					<div class="prose mb-12 md:mb-16">
+					<div class="prose mt-12 md:mt-16">
 						{page.intro.map((p, i) => (
 							<>
 								<p set:html={inlineMarkdown(p)} />
@@ -234,7 +241,7 @@ const sections = [
 					</div>
 
 					{page.embedUrl && (
-						<section class="mb-12 md:mb-16" aria-labelledby="play-it">
+						<section class="mt-12 md:mt-16" aria-labelledby="play-it">
 							<h2 id="play-it" class={ARTICLE_HEADING}>
 								{page.embedHeading ?? 'Play it'}
 							</h2>
@@ -319,7 +326,7 @@ const sections = [
 					)}
 
 					{page.tour && (
-						<section class="mb-12 md:mb-16" aria-labelledby="tour">
+						<section class="mt-12 md:mt-16" aria-labelledby="tour">
 							<h2 id="tour" class={ARTICLE_HEADING}>
 								Tour
 							</h2>
@@ -340,7 +347,7 @@ const sections = [
 					)}
 
 					{(page.install || page.example) && (
-						<section class="prose mb-12 md:mb-16" aria-labelledby="try-it">
+						<section class="prose mt-12 md:mt-16" aria-labelledby="try-it">
 							<h2 id="try-it" class:list={['not-prose', ARTICLE_HEADING]}>
 								Try it
 							</h2>
@@ -355,7 +362,7 @@ const sections = [
 					)}
 
 					{page.gallery && (
-						<section class="mb-12 md:mb-16" aria-labelledby="examples">
+						<section class="mt-12 md:mt-16" aria-labelledby="examples">
 							<h2 id="examples" class={ARTICLE_HEADING}>
 								{page.galleryTitle ?? 'Gallery'}
 							</h2>
@@ -407,7 +414,7 @@ const sections = [
 					{/* Screenshots and gallery stills stay in their own colors, so the interface reads as it really looks */}
 					{page.screenshots && (
 						<section
-							class:list={['mb-12 md:mb-16', { 'embed-large:hidden': screenshotsOnlyOnPhones }]}
+							class:list={['mt-12 md:mt-16', { 'embed-large:hidden': screenshotsOnlyOnPhones }]}
 							aria-labelledby="screenshots"
 						>
 							<h2 id="screenshots" class={ARTICLE_HEADING}>
@@ -434,7 +441,7 @@ const sections = [
 					)}
 
 					{page.supporting && (
-						<section class="mb-12 md:mb-16" aria-labelledby="supporting">
+						<section class="mt-12 md:mt-16" aria-labelledby="supporting">
 							<h2 id="supporting" class={ARTICLE_HEADING}>
 								{page.supporting.heading}
 							</h2>
@@ -447,7 +454,7 @@ const sections = [
 					)}
 
 					{page.made && (
-						<section class="mb-12 md:mb-16" aria-labelledby="how-its-made">
+						<section class="mt-12 md:mt-16" aria-labelledby="how-its-made">
 							<h2 id="how-its-made" class={ARTICLE_HEADING}>
 								How it's made
 							</h2>
@@ -478,7 +485,7 @@ const sections = [
 					)}
 
 					{lineage.length > 0 && (
-						<section class="mb-12 md:mb-16" aria-labelledby="lineage">
+						<section class="mt-12 md:mt-16" aria-labelledby="lineage">
 							<h2 id="lineage" class={ARTICLE_HEADING}>
 								Lineage
 							</h2>

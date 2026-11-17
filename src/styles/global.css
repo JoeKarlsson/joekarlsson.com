@@ -618,8 +618,14 @@ pre.astro-code {
 	content: '|' / '';
 	display: inline-block;
 	width: 1.4em;
+	/* hung in the part's padding, so a part that wraps starts its next line after the
+	   clipped strip, not inside it (a long credit lost its "and" on phones) */
+	margin-left: -1.4em;
 	text-align: center;
 	@apply text-surface-4;
+}
+.meta-parts > * {
+	padding-left: 1.4em;
 }
 
 /* Reading progress (BlogPost's #reading-progress, the phone bar's .read-line) follows the
@@ -965,12 +971,6 @@ header nav .sticker {
 		margin: 0;
 		left: -14.5rem;
 	}
-	/* Beside it, a project's wide pictures start at the text's edge and run into the right
-	   margin instead, so they don't slide under the list */
-	.margin-column:has(> .margin-toc) .work-wide {
-		width: calc(100% + var(--margin-col));
-		margin-inline: 0;
-	}
 	.margin-column > .margin-toc > nav {
 		position: sticky;
 		top: 6rem;
@@ -1195,6 +1195,11 @@ header nav .sticker {
 	}
 	.margin-column:has(> .margin-toc) .prose.wide-media > figure.portrait-video {
 		margin-right: 0;
+	}
+	/* A project page's wide blocks keep to the text beside its contents list, as a post's do */
+	.margin-column:has(> .margin-toc) .work-wide {
+		width: 100%;
+		margin-inline: 0;
 	}
 	/* A frame pair runs across the text and the margin, on the text's left edge; beside a
 	   contents list it keeps to the text, like other wide media */

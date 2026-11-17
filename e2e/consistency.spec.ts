@@ -90,4 +90,26 @@ test.describe('Consistency across page types', () => {
 			expect(navBox!.x + navBox!.width).toBeLessThan(textBox!.x);
 		});
 	}
+
+	test("a project's hero clip shows its whole frame, and its wide blocks keep to the text", async ({
+		page,
+	}) => {
+		for (const width of [1280, 1960]) {
+			await page.setViewportSize({ width, height: 1100 });
+			await page.goto('/work/connect-ai-doom/');
+			const hero = page.locator('.masthead video');
+			const [box, ratio] = await Promise.all([
+				hero.boundingBox(),
+				hero.evaluate((v) => Number(v.getAttribute('width')) / Number(v.getAttribute('height'))),
+			]);
+			expect(Math.abs(box!.width / box!.height - ratio), `${width}: hero cropped`).toBeLessThan(
+				0.02,
+			);
+			const text = (await page.locator('.margin-column').boundingBox())!;
+			for (const wide of await page.locator('.work-wide:visible').all()) {
+				const b = (await wide.boundingBox())!;
+				expect(b.x, `${width}: wide block left edge`).toBeGreaterThanOrEqual(text.x - 1);
+			}
+		}
+	});
 });
