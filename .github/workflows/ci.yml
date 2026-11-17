@@ -311,7 +311,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm audit --omit=dev
+      # npm audit --omit=dev, with the accepted advisories in scripts/audit-exceptions.json
+      - run: node scripts/audit-gate.mjs
 
   e2e:
     name: E2E Tests (Playwright)

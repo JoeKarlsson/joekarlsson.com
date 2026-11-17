@@ -18,7 +18,7 @@ paths:
 
 - `deps.yml` (Mondays) opens "Outdated npm dependencies detected" and "npm security vulnerabilities detected" issues. Re-check after a fix with `gh workflow run deps.yml`. Despite `update-existing: true` it has opened a new issue while an old one was open, so close duplicates by hand. The security issue auto-closes when `npm audit` runs clean.
 - `links.yml` (weekly) opens "Broken external links detected" issues for 404/timeout/503 URLs.
-- CI's audit gate is `npm audit --omit=dev` (`.github/workflows/ci.yml`), so dev-only advisories never fail CI.
+- CI's audit gate is `node scripts/audit-gate.mjs` (`.github/workflows/ci.yml`): `npm audit --omit=dev`, so dev-only advisories never fail CI, failing on any high or critical advisory not listed in `scripts/audit-exceptions.json`. An exception needs its reason (why it can't reach the live site) and Joe's OK; it fails CI again once a patched version is out or the audit stops reporting it, so drop it then.
 
 ## Not-actionable audit items
 
