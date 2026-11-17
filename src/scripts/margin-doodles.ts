@@ -141,9 +141,11 @@ const layer = document.querySelector<HTMLElement>('.margin-doodles');
 if (layer) {
 	const wide = matchMedia(`(min-width: ${layer.dataset.from}px)`);
 	const thread = layer.hasAttribute('data-thread');
-	// Where doodles draw (1600px+), "On this page" is on the left: in the gutter on posts and
-	// project pages, in the grid's left column on About. So doodles keep right
-	const leftToc = document.querySelector('.margin-toc') !== null;
+	// Where doodles draw (1600px+), "On this page" sits on the left (in the gutter on posts and
+	// project pages, in the grid's left column on About). Left doodles keep to the room
+	// between the window edge and the list (--left-room, set in fit), so both sides still
+	// get doodles; it's sticky, so it holds that strip the whole way down
+	const toc = document.querySelector<HTMLElement>('.margin-toc');
 	layer.hidden = false;
 	const random = seededRandom(
 		[...location.pathname].reduce((sum, c) => (sum * 31 + c.charCodeAt(0)) | 0, 7),
@@ -176,7 +178,7 @@ if (layer) {
 		const color = random() < 0.55 ? CHALK : PINK;
 		// Drawn either way, so a page's layout doesn't change with the thread
 		const coin = random() < 0.5 ? 'left' : 'right';
-		const side = thread || leftToc ? 'right' : coin;
+		const side = thread ? 'right' : coin;
 		const top = Math.max(cursor, nextFree[side]);
 		// Fraction of the margin's free width, from the window edge (0) to the text (1)
 		const across = random().toFixed(3);
@@ -184,7 +186,13 @@ if (layer) {
 		const doodle = document.createElement('div');
 		doodle.className = 'absolute';
 		doodle.dataset.bottom = String(Math.round(top + h));
-		doodle.style.cssText = `top:${Math.round(top)}px;${side}:calc(${MARGIN_INSET}px + ((100% - var(--doodle-column)) / 2 - ${w + 2 * MARGIN_INSET}px) * ${across});width:${w}px;height:${h}px;transform:rotate(${tilt}deg)`;
+		doodle.dataset.room = String(w + 2 * MARGIN_INSET);
+		if (side === 'left') doodle.dataset.left = '';
+		const margin =
+			side === 'left'
+				? 'var(--left-room, (100% - var(--doodle-column)) / 2)'
+				: '((100% - var(--doodle-column)) / 2)';
+		doodle.style.cssText = `top:${Math.round(top)}px;${side}:calc(${MARGIN_INSET}px + (${margin} - ${w + 2 * MARGIN_INSET}px) * ${across});width:${w}px;height:${h}px;transform:rotate(${tilt}deg)`;
 		doodle.append(drawDoodle(mark, color));
 		layer.append(doodle);
 
@@ -218,8 +226,17 @@ if (layer) {
 	const threadSeed = random() * 2 ** 32;
 	// From the markup, not offsetTop: a hidden doodle measures 0 and would flip back on
 	const fit = () => {
+		// The room left of a shown contents list; a doodle too wide for it stays off
+		const tocLeft = toc?.offsetParent ? toc.getBoundingClientRect().left : null;
+		const leftRoom = tocLeft === null ? null : tocLeft - layer.getBoundingClientRect().left;
+		if (leftRoom === null) layer.style.removeProperty('--left-room');
+		else layer.style.setProperty('--left-room', `${leftRoom}px`);
 		for (const doodle of doodles)
-			doodle.hidden = Number(doodle.dataset.bottom) > layer.clientHeight - BOTTOM_CLEARANCE;
+			doodle.hidden =
+				Number(doodle.dataset.bottom) > layer.clientHeight - BOTTOM_CLEARANCE ||
+				(leftRoom !== null &&
+					doodle.dataset.left !== undefined &&
+					Number(doodle.dataset.room) > leftRoom);
 		if (thread && !layer.hidden) {
 			layer.querySelector('.margin-thread')?.remove();
 			// Same seed each time, so a resize redraws the same line at the new size

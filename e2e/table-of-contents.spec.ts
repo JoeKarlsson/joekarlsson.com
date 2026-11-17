@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 // From 1600px "On this page" sits left of a post's text and stays in view the whole way
-// down (global.css), and the margin doodles keep to the right (margin-doodles.ts).
+// down (global.css), and the margin doodles on its side stay clear of it (margin-doodles.ts).
 test.describe('On this page', () => {
 	test('follows the reader down the left gutter on wide screens', async ({ page }) => {
 		await page.setViewportSize({ width: 1600, height: 1000 });
@@ -12,15 +12,14 @@ test.describe('On this page', () => {
 		const [navBox, textBox] = [await nav.boundingBox(), await page.locator('.prose').boundingBox()];
 		expect(navBox!.x + navBox!.width).toBeLessThan(textBox!.x);
 
-		const sides = await page
-			.locator('.margin-doodles')
-			.evaluate((l) =>
-				[...l.children]
-					.filter((d) => d instanceof HTMLElement && d.style.top)
-					.map((d) => ((d as HTMLElement).style.left ? 'left' : 'right')),
-			);
-		expect(sides.length).toBeGreaterThan(0);
-		expect(new Set(sides)).toEqual(new Set(['right']));
+		// Doodles stay on both sides, the left ones clear of the list
+		await page.setViewportSize({ width: 1960, height: 1100 });
+		const tocLeft = (await page.locator('.margin-toc').boundingBox())!.x;
+		const left = await page
+			.locator('.margin-doodles > div[data-left]:not([hidden])')
+			.evaluateAll((doodles) => doodles.map((d) => d.getBoundingClientRect().right));
+		expect(left.length).toBeGreaterThan(0);
+		for (const right of left) expect(right).toBeLessThanOrEqual(tocLeft);
 	});
 
 	test('a long list scrolls itself to keep the current section in view', async ({ page }) => {
