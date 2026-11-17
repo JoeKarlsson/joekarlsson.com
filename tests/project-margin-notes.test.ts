@@ -21,6 +21,12 @@ describe('project page margin notes', () => {
 		expect(intro).toMatch(/^<div[^>]*id="mn-1"[\s\S]*<\/div><p>/);
 		expect(made).toMatch(/^<figure class="margin-figure">[\s\S]*<div[^>]*id="mn-2"[\s\S]*<p>Then/);
 	});
+	it('matches an anchor holding angle brackets as text, not as a tag', async () => {
+		const notes = parseProjectNotes('demo', [{ type: 'term', at: 'the <p> tag', text: 'x' }]);
+		const placed = { count: 0, used: new Set<(typeof notes)[number]>() };
+		await annotate(['Then the <p> tag.'], notes, placed);
+		checkAllPlaced('demo', notes, placed);
+	});
 	it('fails the build on a note that matches no paragraph, or a quote with no author', () => {
 		const notes = parseProjectNotes('demo', [{ type: 'term', at: 'nowhere', text: 'x' }]);
 		expect(() => checkAllPlaced('demo', notes, { used: new Set() })).toThrow(/"nowhere"/);

@@ -6,16 +6,11 @@ import { inlineMarkdown } from './inline-markdown';
 import { projectMarginNotes, type ProjectMarginNote } from './margin-notes-schema';
 import { straight } from '../plugins/rehype-margin-notes.mjs';
 
-// Matched the way the plugin matches a post's text: tags and entities out, quotes straightened
-const plain = (s: string) =>
-	straight(
-		s
-			.replace(/<[^>]+>/g, '')
-			.replace(/&amp;/g, '&')
-			.replace(/&quot;/g, '"')
-			.replace(/&lt;/g, '<')
-			.replace(/&gt;/g, '>'),
-	);
+// Matched the way the plugin matches a post's text: the paragraph's text nodes against the plain-text anchor, quotes straightened
+type Node = { type: string; value?: string; children?: Node[] };
+const textOf = (n: Node): string =>
+	n.type === 'text' ? (n.value ?? '') : (n.children ?? []).map(textOf).join('');
+const plain = (s: string) => straight(textOf(fromHtml(s, { fragment: true })));
 
 /** A project's notes, checked like a post's front matter: a quote without `by` fails the build. */
 export function parseProjectNotes(slug: string, notes: unknown = []): ProjectMarginNote[] {
@@ -37,7 +32,7 @@ export async function annotate(
 	const out: string[] = [];
 	for (const paragraph of paragraphs) {
 		const html = inlineMarkdown(paragraph);
-		const mine = notes.filter((n) => !placed.used.has(n) && plain(html).includes(plain(n.at)));
+		const mine = notes.filter((n) => !placed.used.has(n) && plain(html).includes(straight(n.at)));
 		mine.forEach((n) => placed.used.add(n));
 		const pictures = await Promise.all(
 			mine
