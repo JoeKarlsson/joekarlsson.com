@@ -17,7 +17,7 @@ I've gotten [some wins](https://www.joekarlsson.com/blog/reversing-seo-traffic-d
 
 I've been feeling creatively inspired again and wanted an outlet for all of it, so I'm bringing this newsletter back as **Works on My Machine**. Instead of a link roundup, it'll be about AI, the tech market, writing, open source and whatever I'm building in my homelab, whenever I have something to say. If you signed up for the links and this isn't for you, the unsubscribe link is at the bottom.
 
-## Taste matters more with AI
+## Why taste matters more now
 
 Models can turn out competent writing and code on demand now, and so much of it comes out sanded down to the same average. I've been seeing a lot more of that slop in my feeds lately, and the stuff that stands out to me is the stuff where someone with taste made the calls. I think taste is going to be one of the things that matters most in the AI era.
 
