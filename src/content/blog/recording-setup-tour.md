@@ -55,6 +55,7 @@ marginNotes:
   - type: 'exhibit'
     at: 'the two costs most people could skip'
     text: 'Together the dock and desk cost $865, the same as the camera, and about a third of the $2,707 total.'
+mastheadImage: '/images/blog/recording-setup-tour/masthead-53ed1a3c.webp'
 ---
 
 My whole recording setup lives on one standing desk that rolls. When I'm done, I push it into the corner. Most of the gear went together without much trouble, but lighting took weeks of experimenting, and I'm still working on it.

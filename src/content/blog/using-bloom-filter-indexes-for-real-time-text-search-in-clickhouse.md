@@ -32,6 +32,7 @@ marginNotes:
     at: 'However, we did enable them for this Enterprise customer'
     text: "Tinybird's datasource files now take an INDEXES block, so you can define data skipping indexes, Bloom filters included, yourself."
     date: 'Nov 2026'
+mastheadImage: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/masthead-c0ed331d.webp'
 ---
 
 Efficient text search is one of the hardest problems in data engineering. Text-based data presents a unique set of problems, especially when you need to check if the text is contained within some text (and you need to do this in real-time!). The contents of this blog post describe an exploration our team did that was born out of a challenging use case presented by one of our customers. They had billions of rows of log-based text data and wanted to know how they might scour through this data without having to do a full scan every time.

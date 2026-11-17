@@ -28,6 +28,7 @@ marginNotes:
     at: 'check which certificates are about to expire'
     text: 'In April 2025 the CA/Browser Forum voted to cut the maximum life of a public TLS certificate from 398 days to 47, in steps from March 2026 to March 2029. Expiry checks matter more every year.'
     date: 'Apr 2025'
+mastheadImage: '/images/blog/query-cloud-like-database-stop-wasting-time/masthead-7e7ca836.webp'
 ---
 
 Managing cloud infrastructure shouldn't feel like looking for a lost sock in the laundry - except the laundry is on fire, and the sock is in another house. Yet, that's exactly how it feels when you're trying to track down misconfigured resources, security risks, or compliance violations across cloud providers like, AWS, GCP, Azure, and Kubernetes.

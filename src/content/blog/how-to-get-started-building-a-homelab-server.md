@@ -52,6 +52,7 @@ marginNotes:
     at: 'want to run a gaming VM'
     text: 'I now share two GPUs, an 8GB Quadro RTX 4000 and a 16GB RTX A4000, across seven services in LXC containers.'
     post: 'proxmox-gpu-passthrough-multi-service'
+mastheadImage: '/images/blog/how-to-get-started-building-a-homelab-server/masthead-586007f3.webp'
 ---
 
 Look, if you've been lurking on r/homelab or watching YouTube videos of people with full server racks in their basements, I get it. It looks intimidating and expensive, like you need an IT degree and a dedicated room in your house just to get started.

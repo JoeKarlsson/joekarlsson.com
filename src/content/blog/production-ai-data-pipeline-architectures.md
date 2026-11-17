@@ -29,6 +29,7 @@ marginNotes:
     text: 'More developers actively distrust the accuracy of AI tools (46%) than trust it (33%), and only a fraction (3%) report "highly trusting" the output.'
     by: 'Stack Overflow Developer Survey, 2025'
     url: 'https://survey.stackoverflow.co/2025/ai'
+mastheadImage: '/images/blog/production-ai-data-pipeline-architectures/masthead-7b721f50.webp'
 ---
 
 > **Note:** **TL;DR:**

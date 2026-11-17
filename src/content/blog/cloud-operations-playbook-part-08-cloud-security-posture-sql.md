@@ -28,6 +28,7 @@ marginNotes:
     at: 'One query returns both providers in the same result set'
     text: 'I wrote the same kind of cross-cloud check for databases open to the internet across AWS, Azure and GCP.'
     post: 'detect-public-databases-across-aws-azure-gcp'
+mastheadImage: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/masthead-6dc2edaf.webp'
 ---
 
 > **Note:** Traditional CSPM tools force you to learn proprietary policy languages like Rego or vendor-specific DSLs. But if your cloud asset data lives in a database, you can write security checks in SQL instead. Your security team writes checks that engineering can actually read. Your checks live in version control next to your infrastructure code. And the same query that finds a misconfiguration can serve as compliance evidence, investigation tool, and automated policy check all at once.

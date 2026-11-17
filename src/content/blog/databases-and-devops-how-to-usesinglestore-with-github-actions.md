@@ -17,6 +17,7 @@ marginNotes:
     at: 'This license allows you to run up to 4 nodes up to 32 gigs'
     text: 'The SingleStore Dev Image now runs without a license on a machine with up to 8 cores and 64 GB of RAM.'
     date: 'Nov 2026'
+mastheadImage: '/images/blog/databases-and-devops-how-to-usesinglestore-with-github-actions/masthead-b31767cc.webp'
 ---
 
 Databases are frequently not included when transforming an application and engineering culture toward a DevOps, or continuous deployment engineering organization. And, you could be forgiven for this because setting up repeatable, fast, and up-to-date database environments for an application is hard!

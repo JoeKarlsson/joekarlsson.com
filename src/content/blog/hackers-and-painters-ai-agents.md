@@ -24,6 +24,7 @@ marginNotes:
     at: 'The painter changed their mind on the canvas'
     text: "an earlier version that shows through after a painter changed their mind and painted over it. The x-ray at the top of this post shows the ones in Vermeer's A Maid Asleep."
     term: 'Pentimento'
+mastheadImage: '/images/blog/hackers-and-painters-ai-agents/masthead-481c681f.webp'
 ---
 
 In 2003 Paul Graham turned a Harvard guest lecture into an essay called [Hackers and Painters](https://www.paulgraham.com/hp.html 'cite: Graham, May 2003'). He'd finished grad school in computer science and then gone to art school to study painting, and people kept acting surprised that one person would want both. His answer was that hackers and painters are both makers: "what hackers and painters are trying to do is make good things."

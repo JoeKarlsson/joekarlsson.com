@@ -30,6 +30,7 @@ marginNotes:
     at: 'If your Lambda functions are running Python 3.8 or older'
     text: 'Python 3.9 lost its Lambda security patches in December 2025. I wrote up how to find those functions across every account.'
     post: 'python-39-lambda-deprecation'
+mastheadImage: '/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/masthead-81b904b2.webp'
 ---
 
 Every cloud engineer has, at some point, found themselves frantically searching for unsupported software lurking in their environment. Maybe it's an _EKS cluster running an ancient Kubernetes version_, or a _Lambda function still clinging to Python 3.7_ like it's 2019. Whatever it is, finding it is always a pain, especially when you have multiple cloud providers in the mix.

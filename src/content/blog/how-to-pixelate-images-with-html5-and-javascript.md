@@ -23,6 +23,7 @@ marginNotes:
     text: 'This property is useful for games and other apps that use pixel art.'
     by: 'MDN, on imageSmoothingEnabled'
     url: 'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled'
+mastheadImage: '/images/blog/how-to-pixelate-images-with-html5-and-javascript/masthead-73355dec.webp'
 ---
 
 > **Note:** This post was written in 2015. The code uses patterns like `var`, `window.onload`, and browser-prefixed APIs (`mozImageSmoothingEnabled`) that are outdated. The pixelation technique still works, but modern JavaScript would use `let`/`const` and `imageSmoothingEnabled` is now standard without prefixes.

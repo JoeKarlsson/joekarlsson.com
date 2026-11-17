@@ -271,7 +271,8 @@
    left alone: they're big, and the halftone canvas is already moving. Off under
    reduced motion and while motion is paused, where a frozen wobble would just look blurry. */
 @media (prefers-reduced-motion: no-preference) {
-	html:not(.motion-paused) a:hover:not(:has(img, video, canvas)) {
+	/* A card's stretched title link stays still: a filter would shrink its row-wide ::after to the title */
+	html:not(.motion-paused) a:hover:not(:has(img, video, canvas), .card-link) {
 		filter: url(#warble);
 	}
 }

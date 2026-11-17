@@ -19,6 +19,7 @@ marginNotes:
     at: 'Google Sheets has built-in capabilities for charts'
     text: 'My step-by-step build of a real-time dashboard with Tinybird, Tremor and Next.js.'
     post: 'a-step-by-step-guide-to-build-a-real-time-dashboard'
+mastheadImage: '/images/blog/how-to-query-google-sheets-with-sql-in-real-time/masthead-3b2f756d.webp'
 ---
 
 Sick of manually wrestling with Google Sheets like it’s an Excel spreadsheet from 2005? Feel like force-quitting Chrome every time you attempt to sift through just 10,000 rows of data? 

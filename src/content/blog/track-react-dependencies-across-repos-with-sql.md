@@ -24,6 +24,7 @@ marginNotes:
     text: 'This allows them to reference columns provided by preceding FROM items.'
     by: 'The PostgreSQL docs on LATERAL'
     url: 'https://www.postgresql.org/docs/current/queries-table-expressions.html'
+mastheadImage: '/images/blog/track-react-dependencies-across-repos-with-sql/masthead-109723ef.webp'
 ---
 
 You need to upgrade React across 50 repositories. Which repos use React? Which versions? Are they using React 16, 17, or 18? What about `devDependencies` vs `dependencies`? The manual approach: clone repos, grep package.json files, parse JSON, compile spreadsheets, track progress. And that spreadsheet is outdated the moment someone merges a dependency update.

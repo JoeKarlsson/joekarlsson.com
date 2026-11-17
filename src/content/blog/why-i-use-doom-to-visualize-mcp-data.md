@@ -47,6 +47,7 @@ marginNotes:
     text: "The side panel: one room per app, the red door, and Claude's feed of every tool call."
     image: '/images/blog/why-i-use-doom-to-visualize-mcp-data/game-and-panel.webp'
     alt: "Doom on the left and the side panel on the right, listing each app's room and every tool call Claude made"
+mastheadImage: '/images/blog/why-i-use-doom-to-visualize-mcp-data/masthead-55290368.webp'
 ---
 
 I've been a database developer advocate for years, and the hard part of the job has never been explaining databases. It's making them look like anything. Data is rows and columns (like a boring Excel spreadsheet), and MCP servers, which is what I work with now, hand back JSON. Put a chat window on a projector at a conference booth and let an AI agent query five apps, and to everyone walking past, it looks like someone reading their email.
@@ -60,7 +61,7 @@ You can play it right here. Claude built this level from a demo company's Salesf
 <p class="md:hidden">The game needs a keyboard and mouse, so on a phone, <a href="https://cdatasoftware.github.io/connect-ai-doom/">open the full version</a> and watch Claude play.</p>
 
 <div class="@container overflow-hidden rounded-lg max-md:hidden">
-  <iframe data-desktop-src="https://cdatasoftware.github.io/connect-ai-doom/embed.html" title="Connect AI × DOOM, playable in the browser: a Doom level built from a demo company's Salesforce, Zendesk and Stripe data" data-embed-project="Connect AI × DOOM" class="block w-full" style="border:0;height:calc(75cqw + 136px)" allow="fullscreen; gamepad; autoplay" allowfullscreen sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-forms allow-modals allow-downloads" loading="lazy"></iframe>
+  <iframe data-desktop-src="https://cdatasoftware.github.io/connect-ai-doom/embed.html" title="Connect AI × DOOM, playable in the browser: a Doom level built from a demo company's Salesforce, Zendesk and Stripe data" data-embed-project="Connect AI × DOOM" class="block w-full" style="border:0;height:calc(75cqw + 136px)" allow="fullscreen; gamepad; autoplay" sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-forms allow-modals allow-downloads" loading="lazy"></iframe>
 </div>
 
 ## Data is hard to show

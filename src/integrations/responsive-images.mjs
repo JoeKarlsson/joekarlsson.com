@@ -57,6 +57,11 @@ export function stillPath(src) {
 	return src.replace(/\.webp$/, '.still.webp');
 }
 
+/** A thumbnail's srcset with every copy swapped for the same-width copy of its still */
+export function stillSrcset(srcset) {
+	return srcset.replace(/(thumb-[0-9a-f]{8})(\.\d+w)?\.webp/g, '$1.still$2.webp');
+}
+
 const ANIMATED_CANDIDATE = /^\/images\/.+\/thumb-[0-9a-f]{8}\.webp$/;
 
 /** Every <img> whose src `stillOf(src)` answers gets data-still with that answer */
@@ -71,7 +76,11 @@ export function addStills(html, stillOf) {
 		if (/\sdata-still-only[\s>=]/.test(tag)) {
 			return tag.replace(/\ssrcset="[^"]*"/, '').replace(/\ssrc="[^"]+"/, ` src="${still}"`);
 		}
-		return tag.replace(/^<img\b/, `<img data-still="${still}"`);
+		// The still comes in the same widths, so a phone's 112px card doesn't swap a 10 KB
+		// animation for the 1200px still
+		const srcset = tag.match(/\ssrcset="([^"]+)"/)?.[1];
+		const stillSet = srcset ? ` data-still-srcset="${stillSrcset(srcset)}"` : '';
+		return tag.replace(/^<img\b/, `<img data-still="${still}"${stillSet}`);
 	});
 }
 
@@ -174,6 +183,15 @@ export default function responsiveImages() {
 						writeFileSync(`${cached}.src`, sourceHash(src));
 					}
 					copyFileSync(cached, join(distDir, stillPath(src)));
+					// The still's own smaller copies, for data-still-srcset (addStills)
+					for (const w of VARIANT_WIDTHS.filter((w) => w < (widths.get(src) ?? 0))) {
+						const variant = join(cacheDir, variantPath(stillPath(src), w));
+						if (!cacheIsFresh(variant, sourceHash(src))) {
+							await sharp(cached).resize({ width: w }).webp({ quality: 80 }).toFile(variant);
+							writeFileSync(`${variant}.src`, sourceHash(src));
+						}
+						copyFileSync(variant, join(distDir, variantPath(stillPath(src), w)));
+					}
 					stills.set(src, stillPath(src));
 				}
 

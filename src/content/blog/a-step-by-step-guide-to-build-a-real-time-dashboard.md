@@ -32,6 +32,7 @@ marginNotes:
     at: 'fine-tuned indexes, Materialized Views'
     text: 'a table that stores the result of a query and updates as new rows arrive, so the dashboard reads numbers already computed instead of scanning raw events.'
     term: 'Materialized view'
+mastheadImage: '/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/masthead-1949591c.webp'
 ---
 
 Can you imagine shipping a new user-facing dashboard only to have your users met with a visualization that takes several seconds or even _minutes_ to load? No way, right? Your users would get frustrated by the opportunities missed, efficiencies destroyed, and decisions delayed based on outdated information and a horrible user experience.

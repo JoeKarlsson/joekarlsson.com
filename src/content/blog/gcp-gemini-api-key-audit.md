@@ -25,6 +25,7 @@ marginNotes:
     at: 'This is the same approach used for'
     text: 'Part 8 of my cloud operations playbook has more security posture checks written as SQL.'
     post: 'cloud-operations-playbook-part-08-cloud-security-posture-sql'
+mastheadImage: '/images/blog/gcp-gemini-api-key-audit/masthead-93bff7ac.webp'
 ---
 
 Google spent years telling developers that API keys aren't secrets - you could embed them in client-side JavaScript, ship them in mobile apps, commit them to public repos. That was the design. Keys for services like Google Maps have always been intended for public environments, scoped only by referrer restrictions or usage quotas.

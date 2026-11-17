@@ -24,6 +24,7 @@ marginNotes:
     at: 'How To Use The MongoDB Visual Studio Code Plugin'
     text: 'Here it is: connecting to Atlas, browsing collections and running queries in a Playground.'
     post: 'how-to-use-the-mongodb-visual-studio-code-plugin'
+mastheadImage: '/images/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/masthead-290590bd.webp'
 ---
 
 Many devs coming to MongoDB are joining the community with a strong background in SQL. I would personally include myself in this subset of MongoDB devs. I think it’s useful to map terms and concepts you might be familiar with in SQL to help “[translate](https://docs.mongodb.com/manual/reference/sql-comparison/)” your work into MongoDB Query Language (MQL). More specifically, in this post, I will be walking through translating the MongoDB Aggregation Pipeline Queries vs SQL Queries.

@@ -38,6 +38,7 @@ marginNotes:
 corrections:
   - date: 2026-11-16
     note: "Four citations were wrong. Lost in the Middle is by Liu et al., not Xiong et al., and it found that models make the worst use of the middle of a long context, not that they forget earlier tokens. Toolformer is from Meta AI, not Microsoft, and reports neither the 30% nor the 40% figure I gave it, so both are gone. The MT-Bench and emergent-abilities papers aren't about tool descriptions, so I removed those citations."
+mastheadImage: '/images/blog/mcp-server-gotchas-we-learned-the-hard-way/masthead-96f6aa11.webp'
 ---
 
 _Co-authored with Mariano Gappa at CloudQuery._

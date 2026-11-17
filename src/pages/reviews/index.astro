@@ -4,6 +4,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewFinder from '../../components/ReviewFinder.astro';
+import KeepExploring from '../../components/KeepExploring.astro';
 import PosterHero from '../../components/PosterHero.astro';
 import HoverBox from '../../components/HoverBox.astro';
 import Scribble from '../../components/Scribble.astro';
@@ -53,6 +54,7 @@ const firstYear = Math.min(...reviews.map((r) => r.data.date.getUTCFullYear()));
 						sizes="(min-width: 768px) 50vw, 100vw"
 						class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
 						loading="eager"
+						data-morph={`/reviews/${newest.data.slug}/`}
 						fetchpriority="high"
 					/>
 					<span class="block bg-ink px-6 pt-4 pb-5 md:absolute md:inset-x-0 md:bottom-0 md:z-10">
@@ -83,5 +85,15 @@ const firstYear = Math.min(...reviews.map((r) => r.data.date.getUTCFullYear()));
 		</PosterHero>
 
 		<ReviewFinder reviews={reviews} />
+		<KeepExploring
+			heading="By the numbers"
+			from="/reviews/"
+			door={{
+				href: '/reviews/stats/',
+				label: 'See the stats',
+				blurb:
+					'Every rating, decade and director, and the films where I part ways with Letterboxd.',
+			}}
+		/>
 	</div>
 </BaseLayout>

@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 import { hasAmazonLink } from '../../utils/affiliate';
+import { getReadingTime } from '../../utils/posts';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -15,7 +16,7 @@ type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
 const { Content, headings } = await render(post);
 const words = (post.body || '').trim().split(/\s+/).length;
-const readingTime = Math.max(1, Math.ceil(words / 250));
+const readingTime = getReadingTime(post.body || '');
 ---
 
 <BlogPost
@@ -28,6 +29,7 @@ const readingTime = Math.max(1, Math.ceil(words / 250));
 	updateNote={post.data.updateNote}
 	corrections={post.data.corrections}
 	heroImage={post.data.heroImage}
+	mastheadImage={post.data.mastheadImage}
 	heroAlt={post.data.heroAlt}
 	heroVideo={post.data.heroVideo}
 	categories={post.data.categories}

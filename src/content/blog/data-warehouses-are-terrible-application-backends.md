@@ -27,6 +27,7 @@ marginNotes:
     at: 'For building user-facing applications, you should turn to'
     text: 'Tinybird is built on ClickHouse. I wrote up why ClickHouse is fast at this the same week.'
     post: 'why-clickhouse-should-be-your-next-database'
+mastheadImage: '/images/blog/data-warehouses-are-terrible-application-backends/masthead-bcc64d76.webp'
 ---
 
 Developers have more data to work with than ever. According to [an IDC report for Seagate](https://www.seagate.com/www-content/our-story/trends/files/Seagate-WP-DataAge2025-March-2017.pdf 'cite: Reinsel, Gantz and Rydning (IDC), November 2018'), worldwide data will grow from 33 zettabytes in 2018 to 175 zettabytes by 2025. More data should mean deeper insights and better user experiences, but it also leads to problems.

@@ -9,8 +9,9 @@ import BlogFilterNav from './BlogFilterNav.astro';
 import Scribble from './Scribble.astro';
 import { ARROW } from '../data/scribbles';
 import popularPosts from '../data/popular-posts.json';
-import type { FeedPost } from '../utils/posts';
+import { type FeedPost, getReadingTime } from '../utils/posts';
 import { categorySlug } from '../utils/categories';
+import { SECONDARY_BUTTON } from '../utils/ui';
 
 interface Props {
 	posts: FeedPost[];
@@ -23,11 +24,6 @@ const { posts, filter } = Astro.props;
 // A category or written-for page doesn't repeat its own tag on every row
 const isPageTag = (name: string, basePath: typeof filter.basePath) =>
 	filter.basePath === basePath && categorySlug(name) === filter.currentSlug;
-
-function getReadingTime(body: string): number {
-	const words = body.trim().split(/\s+/).length;
-	return Math.max(1, Math.ceil(words / 250));
-}
 
 const POSTS_PER_PAGE = 12;
 
@@ -151,15 +147,19 @@ const SORT_INACTIVE =
 	))}
 </ul>
 
-<!-- Infinite scroll sentinel -->
-<div id="load-more-sentinel" class="mt-8 h-4"></div>
+<!-- More posts on a click, not as you scroll, so the page's ending and footer stay reachable -->
+<div id="load-more" class="mt-8 flex justify-center">
+	<button type="button" class={SECONDARY_BUTTON}>
+		Show more posts
+	</button>
+</div>
 
 <script is:inline define:vars={{ visitors, POSTS_PER_PAGE, SORT_ACTIVE, SORT_INACTIVE }}>
 	(function () {
 		const grid = document.getElementById('posts-grid');
 		const cards = Array.from(grid.children);
 		const searchInput = document.getElementById('blog-search');
-		const sentinel = document.getElementById('load-more-sentinel');
+		const sentinel = document.getElementById('load-more');
 		const noResults = document.getElementById('no-results');
 		const resultsCount = document.getElementById('results-count');
 		let countTimer;
@@ -318,7 +318,7 @@ const SORT_INACTIVE =
 			noResults.classList.toggle('hidden', total > 0);
 			grid.classList.toggle('hidden', total === 0);
 
-			// Hide sentinel when all posts visible or searching
+			// Hide the button when all posts are showing or while searching
 			sentinel.classList.toggle('hidden', showing >= total || searchQuery !== '');
 		}
 
@@ -373,17 +373,14 @@ const SORT_INACTIVE =
 			});
 		});
 
-		// Infinite scroll
-		const observer = new IntersectionObserver(
-			(entries) => {
-				if (entries[0].isIntersecting) {
-					visibleCount += POSTS_PER_PAGE;
-					render();
-				}
-			},
-			{ rootMargin: '200px' },
-		);
-		observer.observe(sentinel);
+		// Focus moves to the first new post: the button may hide once everything shows, and
+		// the new rows sit before it in the tab order
+		sentinel.querySelector('button').addEventListener('click', () => {
+			visibleCount += POSTS_PER_PAGE;
+			render();
+			const firstNew = getFiltered()[visibleCount - POSTS_PER_PAGE];
+			firstNew?.el.querySelector('a:not([tabindex="-1"])')?.focus();
+		});
 
 		// Initial render - hide posts beyond first page
 		render();

@@ -25,6 +25,7 @@ videos:
       - { at: '24:06', name: 'Many-to-many' }
       - { at: '26:23', name: 'Recap' }
       - { at: '33:11', name: "Questions and what's next" }
+mastheadImage: '/images/blog/mongodb-schema-design-best-practices/masthead-205ab989.webp'
 ---
 
 "How do I model my schema for my application?" It's one of the most common questions developers ask about MongoDB, and the answer is: it depends. This talk is how I think about that answer, with real examples, for anyone coming to document databases from SQL.

@@ -29,6 +29,7 @@ marginNotes:
     at: 'These queries form the basis of access reviews'
     text: 'My SOC 2 explainer covers the audit these access reviews feed into.'
     post: 'soc2'
+mastheadImage: '/images/blog/aws-identity-center-guide/masthead-78881f68.webp'
 ---
 
 > **TL;DR:** AWS IAM Identity Center is the recommended way to manage human access to multiple AWS accounts without static access keys. It connects to your identity provider (Okta, Entra ID, Google Workspace), handles token refresh automatically, and has no additional AWS charge. This guide covers setup from scratch, CLI configuration, permission sets, and auditing access across all your accounts with SQL.

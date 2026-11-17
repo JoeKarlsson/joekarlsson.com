@@ -8,13 +8,28 @@
 export const DESKTOP_EMBED_QUERY = '(width >= 48rem) and (height >= 32rem)';
 const desktopQuery = matchMedia(DESKTOP_EMBED_QUERY);
 
+// Even on desktop a game waits until it is about a screen away: the DOOM build is 8 MB,
+// too much to pull at page open for readers who never scroll down to it. Created on the
+// first wide match, so a phone never makes one.
+let nearScreen: IntersectionObserver | undefined;
+
 function loadDesktopEmbedsWhenWide() {
 	if (!desktopQuery.matches) return;
+	nearScreen ??= new IntersectionObserver(
+		(entries) => {
+			for (const { target, isIntersecting } of entries) {
+				// Narrowed to a phone since it was observed: wait for the next wide match
+				if (!isIntersecting || !desktopQuery.matches) continue;
+				const frame = target as HTMLIFrameElement;
+				nearScreen!.unobserve(frame);
+				frame.src = frame.dataset.desktopSrc!;
+			}
+		},
+		{ rootMargin: '100% 0px' },
+	);
 	document
 		.querySelectorAll<HTMLIFrameElement>('iframe[data-desktop-src]:not([src])')
-		.forEach((frame) => {
-			frame.src = frame.dataset.desktopSrc!;
-		});
+		.forEach((frame) => nearScreen!.observe(frame));
 }
 
 loadDesktopEmbedsWhenWide();

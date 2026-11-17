@@ -11,12 +11,7 @@ import { CHALK, MARKS } from '../../data/scribbles';
 import PosterHero from '../../components/PosterHero.astro';
 import PostFinder from '../../components/PostFinder.astro';
 import { getCategoryCounts } from '../../utils/categories';
-import { getFeedPosts } from '../../utils/posts';
-
-function getReadingTime(body: string): number {
-	const words = body.trim().split(/\s+/).length;
-	return Math.max(1, Math.ceil(words / 250));
-}
+import { getFeedPosts, getReadingTime } from '../../utils/posts';
 
 const allPosts = await getFeedPosts();
 
@@ -72,6 +67,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 							sizes="(min-width: 768px) 50vw, 100vw"
 							class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
 							loading="eager"
+							data-morph={featuredPost.href}
 							fetchpriority="high"
 						/>
 						<span class="block bg-ink px-6 pt-4 pb-5 md:absolute md:inset-x-0 md:bottom-0 md:z-10">

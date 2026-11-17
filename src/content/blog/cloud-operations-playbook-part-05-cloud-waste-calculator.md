@@ -26,6 +26,7 @@ marginNotes:
     at: 'Average cloud waste sits between 27% and 35%'
     text: "Flexera's 2026 report, out in March, puts wasted cloud spend at 29%. It's the first rise in five years, and Flexera ties it to AI workloads."
     date: 'Mar 2026'
+mastheadImage: '/images/blog/cloud-operations-playbook-part-05-cloud-waste-calculator/masthead-6ef9fc60.webp'
 ---
 
 > **Note:** **TL;DR:** Fragmented cloud visibility doesn't just slow teams down, it bleeds money. A mid-size engineering team of 10 people loses roughly 26 hours per week to infrastructure toil: investigating security alerts, gathering compliance evidence, tracking down cost attribution, answering inventory questions, and pulling incident context from scattered systems. That's $117,600/year in direct costs. Factor in the opportunity cost of senior engineers not building automation or reducing tech debt, and the real number lands between $47K and $90K per engineer per year. This post breaks down each category of toil and gives you the math to calculate it for your own team.

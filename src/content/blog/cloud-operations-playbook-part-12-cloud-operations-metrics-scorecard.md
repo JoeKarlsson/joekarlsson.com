@@ -23,6 +23,7 @@ marginNotes:
     text: 'Our SRE organization has an advertised goal of keeping operational work (i.e., toil) below 50% of each SRE’s time.'
     by: "Google's Site Reliability Engineering book"
     url: 'https://sre.google/sre-book/eliminating-toil/'
+mastheadImage: '/images/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard/masthead-afdce31d.webp'
 ---
 
 > **Note:** You've built the visibility layer, set governance rules, and started automating. Now you need to prove it's working. This post covers the five metric categories that matter for cloud operations, a one-page leadership scorecard you can present to your VP or CxO, and how to re-take the maturity self-assessment from Part 2 to measure real progress.

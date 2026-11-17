@@ -30,6 +30,8 @@ interface Props {
 	/** What the last refresh changed, shown in a banner under the title */
 	updateNote?: string;
 	heroImage?: string;
+	// What the masthead shows when it isn't heroImage (a taped card's flat copy)
+	mastheadImage?: string;
 	heroAlt?: string;
 	/** Who or what the hero shows, in place of the description as its caption */
 	heroCaption?: string;
@@ -68,6 +70,7 @@ const {
 	updateNote,
 	corrections,
 	heroImage,
+	mastheadImage = heroImage,
 	heroAlt,
 	heroCaption,
 	heroVideo,
@@ -96,7 +99,7 @@ const SECTIONS = {
 const home = SECTIONS[section];
 // The hero's real size, so a phone reserves the right height before it loads:
 // the old fixed 1120x440 made square heroes jump the title down (CLS 0.15)
-const heroSize = heroImage ? await localImageSize(heroImage) : undefined;
+const heroSize = mastheadImage ? await localImageSize(mastheadImage) : undefined;
 
 const tocHeadings = (headings || [])
 	.filter((h) => h.depth === 2 || h.depth === 3)
@@ -188,23 +191,16 @@ const captionText =
 	section={home}
 	videoObjects={videoObjects}
 >
-	{/* Phones show progress in the nav bar instead (reading-context.ts) */}
-	<div
-		id="reading-progress"
-		class="fixed top-0 left-0 z-50 h-1 w-full origin-left bg-pink [scale:0_1] max-md:hidden"
-		aria-hidden="true"
-	></div>
-
 	<ArticleFrame
 		title={title}
 		section={home}
 		caption={captionText}
-		heroImage={heroImage}
+		heroImage={mastheadImage}
 		heroVideo={heroVideo}
 		heroAlt={heroAlt}
 		heroWidth={heroSize?.width}
 		heroHeight={heroSize?.height}
-		halftone={halftoneMode(heroVideo ?? heroImage ?? '')}
+		halftone={halftoneMode(heroVideo ?? mastheadImage ?? '')}
 		toc={tocHeadings}
 		inlineToc={inlineTocHeadings}
 		share={{
@@ -401,66 +397,6 @@ const captionText =
 					});
 					pre.appendChild(button);
 				});
-			</script>
-
-			<script>
-				(() => {
-					const progressEl = document.getElementById('reading-progress');
-					const article = document.querySelector('article');
-					if (!progressEl || !article) return;
-
-					// Scroll depth tracking milestones
-					const depthMilestones = new Set<number>();
-					const postTitle = article.dataset.postTitle || 'Unknown';
-
-					function trackScrollDepth(pct: number) {
-						const plausible = window.plausible;
-						if (typeof plausible !== 'function') return;
-						[25, 50, 75, 100].forEach((milestone) => {
-							if (pct >= milestone && !depthMilestones.has(milestone)) {
-								depthMilestones.add(milestone);
-								plausible('Scroll Depth', {
-									props: { depth: `${milestone}%`, post: postTitle },
-								});
-								if (milestone === 100) {
-									plausible('Reading Complete', { props: { post: postTitle } });
-								}
-							}
-						});
-					}
-
-					function update() {
-						const rect = article!.getBoundingClientRect();
-						const articleTop = rect.top + window.scrollY;
-						const total = rect.height - window.innerHeight;
-						const scrolled = window.scrollY - articleTop;
-						let pct = total > 0 ? Math.round((scrolled / total) * 100) : 0;
-						pct = Math.max(0, Math.min(100, pct));
-
-						trackScrollDepth(pct);
-						// scale, not width: no layout per scroll. CSS drives it where it can (global.css)
-						if (!CSS.supports('animation-timeline: view()')) {
-							progressEl!.style.scale = `${pct / 100} 1`;
-						}
-					}
-
-					let ticking = false;
-					window.addEventListener(
-						'scroll',
-						() => {
-							if (!ticking) {
-								requestAnimationFrame(() => {
-									update();
-									ticking = false;
-								});
-								ticking = true;
-							}
-						},
-						{ passive: true },
-					);
-
-					update();
-				})();
 			</script>
 		</Fragment>
 		<slot name="related" slot="related" />

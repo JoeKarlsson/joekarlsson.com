@@ -29,6 +29,7 @@ marginNotes:
     text: 'lazy materialization, which delays reading column data until it’s actually needed.'
     by: 'Tom Schreiber, ClickHouse blog, April 2025'
     url: 'https://clickhouse.com/blog/clickhouse-gets-lazier-and-faster-introducing-lazy-materialization'
+mastheadImage: '/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/masthead-71d9480c.webp'
 ---
 
 _Co-authored with James Riley at CloudQuery._

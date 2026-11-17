@@ -8,6 +8,7 @@ heroImage: '/images/blog/my-top-50-records/thumb-1c6b1a25.webp'
 heroAlt: 'A 1938 Wurlitzer jukebox lit up, its stack of records behind the glass'
 contentNotice: false
 tldr: 'My top 50 records of all time, with a Spotify playlist.'
+mastheadImage: '/images/blog/my-top-50-records/masthead-b0931b68.webp'
 ---
 
 Every couple of years, I like to compile a list of my 50 all-time favorite records. These tend to be the records that I listen to the most or that have had the greatest impact on me. The order doesn’t matter, as it’s hard to determine which ones are my favorite, favorite (if you know what I mean ;P)

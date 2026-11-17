@@ -19,3 +19,11 @@ export function mayBoil(conditions: BoilConditions): boolean {
 	if (conditions.saveData) return false;
 	return !SLOW_CONNECTIONS.has(conditions.effectiveType ?? '');
 }
+
+/** The browser's Save-Data and connection speed hints, where it has them (Chromium) */
+export function connectionHints(): Pick<BoilConditions, 'saveData' | 'effectiveType'> {
+	const connection = (
+		navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }
+	).connection;
+	return { saveData: connection?.saveData, effectiveType: connection?.effectiveType };
+}

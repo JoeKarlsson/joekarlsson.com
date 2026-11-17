@@ -23,6 +23,7 @@ marginNotes:
     at: 'If every cloud change requires CCOE approval'
     text: 'I wrote about telling a kiln, review that makes the work better, from a gate that only adds time.'
     post: 'ship-the-ugly-pot'
+mastheadImage: '/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/masthead-66578f00.webp'
 ---
 
 **About This Series:** This is Part 2 of our 5-part series on Cloud Centers of Excellence (CCOEs). If you missed it, start with **Part 1: Introduction and Organizational Structure** to understand the foundational concepts.

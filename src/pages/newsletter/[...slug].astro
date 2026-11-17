@@ -7,7 +7,8 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import KeepExploring from '../../components/KeepExploring.astro';
 import ImageLightbox from '../../components/ImageLightbox.astro';
 import popularPosts from '../../data/popular-posts.json';
-import { isOwnPost } from '../../utils/posts';
+import { getReadingTime, isOwnPost } from '../../utils/posts';
+import MetaParts from '../../components/MetaParts.astro';
 import { isSent } from '../../utils/sent';
 import { rankRelatedPosts } from '../../utils/related-posts';
 import { localImageSize } from '../../utils/image-size.mjs';
@@ -48,6 +49,7 @@ const photoSize = cardPhoto ? await localImageSize(cardPhoto) : undefined;
 // A recap condenses a blog post, so search engines should index the post instead.
 const canonicalUrl = recapOf ? new URL(`/blog/${recapOf}/`, Astro.site).href : undefined;
 const { Content, headings } = await render(issue);
+const readingTime = getReadingTime(issue.body || '');
 // The same sidebar as a blog post (BlogPost.astro)
 const tocHeadings = headings
 	.filter((h) => h.depth === 2 || h.depth === 3)
@@ -104,9 +106,15 @@ const relatedSlugs = rankRelatedPosts(
 			blurb:
 				'Get the next issue by email. It covers homelab builds, AI tools and open source, and it goes out when I have something to\u00A0say.',
 		}}
-		articleData={{ 'data-post-title': title, 'data-post-category': 'Newsletter' }}
+		articleData={{
+			'data-post-title': title,
+			'data-post-category': 'Newsletter',
+			'data-reading-time': readingTime,
+		}}
 	>
-		<FormattedDate slot="kicker" date={date} />
+		<MetaParts slot="kicker">
+			<FormattedDate date={date} /> <span>{readingTime} min read</span>
+		</MetaParts>
 		{substackUrl && (
 			<p slot="top" class="mb-6 text-sm text-muted" role="note">
 				From the TL;DR in Tech archive, originally sent on Substack. Some links may have died since.
@@ -116,23 +124,6 @@ const relatedSlugs = rankRelatedPosts(
 			<Content />
 		</div>
 		<Fragment slot="after">
-			<nav
-				class="mt-12 flex justify-between gap-4 border-t border-surface-4 pt-5"
-				aria-label="Newsletter issues"
-			>
-				{prev ? (
-					<a href={`/newsletter/${prev.data.slug}/`} class={MORE_LINK}>
-						&larr; {prev.data.title}
-					</a>
-				) : (
-					<span />
-				)}
-				{next && (
-					<a href={`/newsletter/${next.data.slug}/`} class={`${MORE_LINK} text-right`}>
-						{next.data.title} &rarr;
-					</a>
-				)}
-			</nav>
 			{relatedSlugs.length > 0 && (
 				<KeepExploring
 					heading="Keep reading"
@@ -140,43 +131,21 @@ const relatedSlugs = rankRelatedPosts(
 					posts={relatedSlugs}
 				/>
 			)}
+			<nav class="mt-12 flex justify-between gap-4" aria-label="Newsletter issues">
+				{prev ? (
+					<a href={`/newsletter/${prev.data.slug}/`} class={MORE_LINK}>
+						Previous issue: {prev.data.title}
+					</a>
+				) : (
+					<span />
+				)}
+				{next && (
+					<a href={`/newsletter/${next.data.slug}/`} class={`${MORE_LINK} text-right`}>
+						Next issue: {next.data.title}
+					</a>
+				)}
+			</nav>
 		</Fragment>
 	</ArticleFrame>
 	<ImageLightbox />
 </BaseLayout>
-
-<script>
-	// Same events and props as blog posts (BlogPost.astro), so the Scroll Depth and
-	// Reading Complete goals cover issues too; filter on /newsletter/ to split them.
-	const article = document.querySelector<HTMLElement>('article[data-post-title]');
-	if (article) {
-		const post = article.dataset.postTitle || 'Unknown';
-		const reached = new Set<number>();
-		let ticking = false;
-
-		const update = () => {
-			ticking = false;
-			const plausible = window.plausible;
-			if (typeof plausible !== 'function') return;
-			const articleTop = article.getBoundingClientRect().top + window.scrollY;
-			const total = article.offsetHeight - window.innerHeight;
-			const pct = total > 0 ? Math.round(((window.scrollY - articleTop) / total) * 100) : 0;
-			[25, 50, 75, 100].forEach((milestone) => {
-				if (pct < milestone || reached.has(milestone)) return;
-				reached.add(milestone);
-				plausible('Scroll Depth', { props: { depth: `${milestone}%`, post } });
-				if (milestone === 100) plausible('Reading Complete', { props: { post } });
-			});
-		};
-
-		window.addEventListener(
-			'scroll',
-			() => {
-				if (ticking) return;
-				ticking = true;
-				requestAnimationFrame(update);
-			},
-			{ passive: true },
-		);
-	}
-</script>

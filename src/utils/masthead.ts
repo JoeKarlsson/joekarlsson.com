@@ -7,7 +7,15 @@
 const CHAR_WIDTH_EM = 0.5;
 
 export function mastheadLines(title: string): string[] {
-	const words = title.split(/\s+/).filter(Boolean);
+	// A lone dash ("TL;DR in Tech - Issue #106") stays with the word before it, so no line opens on it
+	const words = title
+		.split(/\s+/)
+		.filter(Boolean)
+		.reduce<string[]>((joined, word) => {
+			if (/^[-–—]$/.test(word) && joined.length) joined[joined.length - 1] += ` ${word}`;
+			else joined.push(word);
+			return joined;
+		}, []);
 	const count = Math.min(words.length, title.length <= 16 ? 1 : title.length <= 34 ? 2 : 3);
 	const target = title.length / count;
 	const lines: string[] = [];

@@ -30,6 +30,7 @@ marginNotes:
     at: "Add Assist, Home Assistant's own voice assistant"
     text: 'I run Assist on a GPU in my rack, with faster-whisper, Piper and Ollama.'
     post: 'local-voice-ai-home-assistant-gpu'
+mastheadImage: '/images/blog/how-to-get-started-with-home-assistant/masthead-d3a07677.webp'
 ---
 
 I started on Alexa and ended up on [Home Assistant](https://www.home-assistant.io/). This is what I'd tell someone starting now.

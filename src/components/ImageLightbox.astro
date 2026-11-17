@@ -5,10 +5,12 @@
 import { SECONDARY_BUTTON } from '../utils/ui';
 ---
 
+<!-- overscroll-contain on the dialog and its backdrop: a wheel or swipe over the open
+lightbox doesn't scroll the page behind (Safari: the wheel listener in lightbox-gestures) -->
 <dialog
 	id="image-lightbox"
 	aria-label="Enlarged image"
-	class="m-0 h-dvh max-h-none w-dvw max-w-none cursor-zoom-out place-items-center bg-ink p-4 backdrop:bg-ink open:grid sm:p-8"
+	class="m-0 h-dvh max-h-none w-dvw max-w-none cursor-zoom-out place-items-center overscroll-contain bg-ink p-4 backdrop:overflow-hidden backdrop:overscroll-contain backdrop:bg-ink open:grid sm:p-8"
 >
 	<button type="button" class={`${SECONDARY_BUTTON} fixed top-4 right-4 z-10 bg-ink`}>
 		Close

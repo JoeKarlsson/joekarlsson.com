@@ -33,6 +33,7 @@ marginNotes:
     at: 'Execute the sync to populate your asset inventory'
     text: 'A longer build of the same setup, with dbt models and Grafana dashboards on top.'
     post: 'building-cloud-asset-inventory-with-aws'
+mastheadImage: '/images/blog/what-is-an-aws-cloud-asset-inventory/masthead-0be55f4e.webp'
 ---
 
 An AWS Cloud Asset Inventory refers to a centralized record of all resources and services deployed and used within an organization's Amazon Web Services (AWS) environment. This inventory provides a detailed overview of various cloud assets, including but not limited to:

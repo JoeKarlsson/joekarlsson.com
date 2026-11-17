@@ -757,7 +757,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 										alt=""
 										aria-hidden="true"
 										loading="lazy"
-										class="block aspect-[2/3] w-full object-cover transition-transform duration-200 group-hover:-translate-y-1"
+										class="block aspect-[2/3] w-full object-cover transition-[translate] duration-(--duration-enter) ease-(--ease-enter) group-hover:-translate-y-1 motion-reduce:transition-none"
 									/>
 								)}
 								<span>
@@ -802,7 +802,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 									alt={p.name}
 									data-halftone="flat"
 									loading="lazy"
-									class="block aspect-square w-full object-cover transition-transform duration-200 group-hover:-translate-y-1"
+									class="block aspect-square w-full object-cover transition-[translate] duration-(--duration-enter) ease-(--ease-enter) group-hover:-translate-y-1 motion-reduce:transition-none"
 								/>
 							</a>
 						</li>

@@ -43,6 +43,7 @@ marginNotes:
     at: 'handles my personal music collection beautifully'
     text: 'Why I still find music on Apple Music and file the keepers into Navidrome by hand.'
     post: 'self-hosted-music-still-sucks-in-2026'
+mastheadImage: '/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/masthead-0f21aace.webp'
 ---
 
 After five years of building automations in [Home Assistant](https://www.home-assistant.io/) (I wrote about [how I first got started with Home Assistant](/blog/how-to-get-started-with-home-assistant/) a while back), I finally pulled the trigger on something I’d been contemplating for months: completely replacing my Amazon Alexa ecosystem with Home Assistant’s Voice Preview Edition. Recent privacy changes from Amazon were the final straw, but what I discovered during this migration was both more challenging and more technically satisfying than I anticipated.

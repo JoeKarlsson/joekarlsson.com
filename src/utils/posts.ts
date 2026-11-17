@@ -9,6 +9,12 @@ export async function getSentIssues() {
 	return getCollection('newsletter', (issue) => isSent(issue.data.date));
 }
 
+/** Minutes to read a post's Markdown body, at 250 words a minute and never under one. */
+export function getReadingTime(body: string): number {
+	const words = body.trim().split(/\s+/).length;
+	return Math.max(1, Math.ceil(words / 250));
+}
+
 // Joe's own posts, not ones written for an employer (`writtenFor`). Anywhere the site
 // suggests what to read next it suggests these; employer posts still appear in the
 // full archive, their category pages and their /blog/written-for/ page.
@@ -58,7 +64,13 @@ export async function getFeedPosts(): Promise<FeedPost[]> {
 			html: p.rendered?.html,
 			href: `/newsletter/${p.data.slug}/`,
 			isNewsletter: true,
-			data: { ...p.data, categories: ['Newsletter'] },
+			// In lists an issue shows its card photo, the picture its page opens with, so the
+			// thumbnail grows into that header; the text card stays the share and email image
+			data: {
+				...p.data,
+				categories: ['Newsletter'],
+				heroImage: p.data.cardPhoto ?? p.data.heroImage,
+			},
 		}));
 	return [...blog, ...newsletter].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 }

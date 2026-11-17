@@ -15,6 +15,7 @@ describe('halftoneMode', () => {
 
 	it('leaves generated work-post thumbnails alone, everywhere', () => {
 		expect(halftoneMode('/images/blog/soc2/thumb-0a1b2c3d.webp')).toBeUndefined();
+		expect(halftoneMode('/images/blog/soc2/masthead-0a1b2c3d.webp')).toBeUndefined();
 		expect(halftoneMode('/images/blog/soc2/thumbnail.webp')).toBe('flat');
 		expect(halftoneMode('/images/blog/soc2/nested/thumb-0a1b2c3d.webp')).toBe('flat');
 		// Boiling diagram cards for projects are animated; a live canvas copy would freeze them

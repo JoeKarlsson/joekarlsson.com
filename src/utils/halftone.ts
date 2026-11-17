@@ -2,7 +2,7 @@
 // every one gets the clear pink-and-black tone, except files that come pre-graded.
 
 /**
- * Finished thumbnails named thumb-<hash>.webp, for posts and projects, already carry their look, so the
+ * Finished thumbnails named thumb-<hash>.webp (and a taped card's flat masthead-<hash>.webp), for posts and projects, already carry their look, so the
  * live pink pass leaves them alone: work-post cards (scripts/generate-work-thumbnails.mjs) come out
  * graded pink with a taped print's border and tape kept, and boiling diagram cards
  * (scripts/boiling-thumbnail.mjs) are animated, which a live canvas copy would freeze.
@@ -11,7 +11,7 @@
  */
 export function isPretreatedThumbnail(src: string): boolean {
 	return (
-		/^\/images\/(blog|projects)\/[^/]+\/thumb-[0-9a-f]{8}\.webp$/.test(src) ||
+		/^\/images\/(blog|projects)\/[^/]+\/(thumb|masthead)-[0-9a-f]{8}\.webp$/.test(src) ||
 		/^\/images\/talks\/(events|posters)\/[\w-]+\.webp$/.test(src) ||
 		// Film posters, graded pink when imported (scripts/update-reviews.mjs)
 		/^\/images\/reviews\/[^/]+\/poster\.webp$/.test(src)

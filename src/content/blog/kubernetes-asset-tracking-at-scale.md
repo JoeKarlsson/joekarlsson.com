@@ -36,6 +36,7 @@ marginNotes:
     at: 'Identifying workloads stuck in CrashLoopBackOff'
     text: 'a pod whose container keeps crashing. Kubernetes keeps restarting it and waits longer between each try.'
     term: 'CrashLoopBackOff'
+mastheadImage: '/images/blog/kubernetes-asset-tracking-at-scale/masthead-35791b08.webp'
 ---
 
 > **TL;DR:**

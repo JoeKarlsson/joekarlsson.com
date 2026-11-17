@@ -71,6 +71,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-16: More hand-drawn marks on the homepage: the sketchbook margin doodles turn on there, plus one long crayon line that wanders down the page from section to section. No crayon circles around content: "they always cut stuff off and aren't centered right." Arrows and underlines on content are fine.
 - 2026-11-16: Odds & ends gets a link under each group (All Shorts to /talks/'s Shorts row, All reviews, All podcasts to /talks/ with Podcasts on), approved as mocked.
 - 2026-11-16: Joe approved the built preview of the consistency round (pink Anton headers over a full-width crayon line on every page, full-width homepage hero and board, homepage doodles on the right from 2020px with the scroll-drawn line down the left, Odds & ends links, circles removed): "y" to ship once the design and web-standards reviews pass.
+- 2026-11-16: Site audit remediation (phases 1-3) approved from the before/after preview (Joe: "y"): the newsletter page reuses Blog's hero and Works' section headers, issues show their card photo in every list, taped cards get a flat masthead copy (mastheadImage), Blog and Reviews load more with a Show more button instead of infinite scroll, /reviews/ ends with a door to its stats, and the project kicker shows the stack again.
 
 ## Playful details
 

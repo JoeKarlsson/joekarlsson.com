@@ -22,6 +22,9 @@ interface Props {
 const { title, label, caption, heroImage, heroVideo, heroAlt, width, height, halftone } =
 	Astro.props;
 const lines = mastheadLines(title);
+// A portrait photo (some newsletter card photos) is cropped to 16:9 like every other masthead,
+// so on a phone it doesn't fill the first screen before any text
+const portrait = Boolean(width && height && height > width);
 ---
 
 <header class="masthead mb-10">
@@ -48,6 +51,7 @@ const lines = mastheadLines(title);
 			data-halftone={halftone}
 			poster={heroImage}
 			data-autoplay-in-view
+			data-phone-still
 			loop
 			muted
 			playsinline
@@ -72,7 +76,10 @@ const lines = mastheadLines(title);
 				sizes="(min-width: 1024px) 856px, 100vw"
 				loading="eager"
 				fetchpriority="high"
-				class="mx-auto h-auto max-h-[min(75vh,640px)] w-full max-w-[856px] object-cover"
+				class:list={[
+					'mx-auto h-auto max-h-[min(75vh,640px)] w-full max-w-[856px] object-cover',
+					portrait && 'aspect-video',
+				]}
 			/>
 		)
 	)}

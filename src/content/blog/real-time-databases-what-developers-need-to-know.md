@@ -32,6 +32,7 @@ marginNotes:
     at: 'Rockset'
     text: 'OpenAI bought Rockset in June 2024. Paying customers had until September 30, 2024 to move off the service.'
     date: 'Jun 2024'
+mastheadImage: '/images/blog/real-time-databases-what-developers-need-to-know/masthead-b0a6dcc5.webp'
 ---
 
 Selecting the right application database can be a challenge for developers, especially so when you need a [database for building real-time applications](https://www.tinybird.co/blog-posts/best-database-for-real-time-analytics). Real-time data has become an essential component in building user-facing experiences or creating automated decision systems, and developers need a database to match their needs.

@@ -9,7 +9,7 @@
 import { mostlyInView } from './filter-animations';
 import { DESKTOP_EMBED_QUERY } from './load-desktop-embeds';
 import { MOTION_RESUMED_EVENT, isMotionPaused } from './pause-motion';
-import { mayBoil } from '../utils/paper-hero-motion';
+import { connectionHints, mayBoil } from '../utils/paper-hero-motion';
 
 // A clip marked data-phone-still (a post's montage loops) only autoplays where a paper
 // hero may boil: a wide screen, motion allowed, no Save-Data, no 2g/3g. Everywhere else
@@ -17,15 +17,11 @@ import { mayBoil } from '../utils/paper-hero-motion';
 const wideScreen = matchMedia(DESKTOP_EMBED_QUERY);
 function mayAutoplay(video: HTMLVideoElement): boolean {
 	if (!video.hasAttribute('data-phone-still')) return true;
-	const connection = (
-		navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }
-	).connection;
 	return mayBoil({
 		reducedMotion: false,
 		motionPaused: isMotionPaused(),
 		wideScreen: wideScreen.matches,
-		saveData: connection?.saveData,
-		effectiveType: connection?.effectiveType,
+		...connectionHints(),
 	});
 }
 

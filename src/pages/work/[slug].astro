@@ -94,10 +94,10 @@ if (madeDiagram && !diagram)
 // break-out centers on the column plus that margin, or it slides left under the spine
 // (.work-wide, global.css)
 
-// The year and any collaborator; a page with a How it's made section lists its stack there
+// The year, any collaborator and the stack (DECISIONS.md 2026-11-16: year and stack in the kicker)
 // The masthead's picture: a clip shows its poster until it plays
 const hero = project.video ? (project.poster ?? project.image) : project.image;
-const byline = [project.date.slice(0, 4), page.credit, !page.made && project.tech.join(', ')];
+const byline = [project.date.slice(0, 4), page.credit, project.tech.join(', ')];
 
 // The sidebar lists the sections this page has, in page order; ids match the h2s below
 const sections = [

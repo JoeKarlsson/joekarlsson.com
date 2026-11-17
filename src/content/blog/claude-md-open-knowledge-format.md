@@ -52,6 +52,7 @@ marginNotes:
     at: 'saved 312 tokens'
     text: "What's in that global file: its testing and git rules, and how chezmoi copies it to every machine."
     post: 'my-development-setup-2026'
+mastheadImage: '/images/blog/claude-md-open-knowledge-format/masthead-2178734a.webp'
 ---
 
 I'd been hearing about Google's [Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) (OKF) and wanted to try it on my Claude Code second brain. That's the pile of CLAUDE.md files, rules and auto-memory that teaches Claude how my homelab works. Would converting it to OKF make Claude more accurate, or cheaper to run, or neither?

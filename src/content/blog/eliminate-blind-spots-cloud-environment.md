@@ -21,6 +21,7 @@ marginNotes:
     text: 'code, pipeline, and cloud risks can be correlated back to a single issue and owner.'
     by: "Wiz's 2025 cloud security predictions"
     url: 'https://www.wiz.io/blog/2025-cloud-security-predictions'
+mastheadImage: '/images/blog/eliminate-blind-spots-cloud-environment/masthead-6aec7685.webp'
 ---
 
 > **Note:** It's now even easier to monitor your assets across multiple cloud platforms using our [Multi-Cloud Asset Inventory Report](https://www.cloudquery.io/hub/reports/multi-cloud-asset-inventory). Want to see it in action? Try our [free online demo](https://www.cloudquery.io/contact-us) now.

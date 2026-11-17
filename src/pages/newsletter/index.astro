@@ -1,7 +1,10 @@
 ---
 import KeepExploring from '../../components/KeepExploring.astro';
-import { getSentIssues } from '../../utils/posts';
-import { HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK, formatDate } from '../../utils/ui';
+import { getReadingTime, getSentIssues } from '../../utils/posts';
+import { HERO_LEAD, PAGE_CONTAINER, TEXT_LINK, formatDate } from '../../utils/ui';
+import { halftoneMode } from '../../utils/halftone';
+import MetaParts from '../../components/MetaParts.astro';
+import SectionMasthead from '../../components/SectionMasthead.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
@@ -10,10 +13,18 @@ import HoverBox from '../../components/HoverBox.astro';
 import Scribble from '../../components/Scribble.astro';
 import PosterHero from '../../components/PosterHero.astro';
 import { CHALK, MARKS } from '../../data/scribbles';
+import { DEFAULT_HERO_IMAGE } from '../../consts';
 
 const issues = (await getSentIssues()).sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
+
+// An issue's picture in lists and the hero is its card photo, the same picture its page opens
+// with, so the thumbnail grows into that header; the text card stays the share and email image
+const issueImage = (issue: (typeof issues)[number]) =>
+	issue.data.cardPhoto ?? issue.data.heroImage ?? DEFAULT_HERO_IMAGE;
+// The section spacing Works and Talks use
+const SECTION = 'relative mb-12 md:mb-32';
 
 // Works on My Machine posts get cards with their header image, like the blog list; the
 // imported TL;DR in Tech link roundups (substackUrl) stay a compact list by year.
@@ -23,6 +34,7 @@ const posts = issues.filter((i) => !i.data.substackUrl);
 const [latest, lastIssue] = posts;
 // The pink band pushes the issue before it
 if (!lastIssue) throw new Error('No earlier issue for the featured band');
+const latestImage = issueImage(latest!);
 const backIssues = issues.filter((i) => i.data.substackUrl);
 
 const byYear = new Map<number, typeof issues>();
@@ -30,7 +42,6 @@ for (const issue of backIssues) {
 	const year = issue.data.date.getUTCFullYear();
 	byYear.set(year, [...(byYear.get(year) ?? []), issue]);
 }
-import SectionRule from '../../components/SectionRule.astro';
 ---
 
 <BaseLayout
@@ -39,10 +50,9 @@ import SectionRule from '../../components/SectionRule.astro';
 	schemaType="CollectionPage"
 >
 	<div class={PAGE_CONTAINER}>
-		<!-- The latest issue on the left (its image shown whole: issue images are title
-		cards, so they're never cropped), the issue before it in the pink band, and the
-		newsletter's name, pitch and signup in the dark panel above NEWSLETTER (the same
-		top as every main page) -->
+		<!-- The same top as Blog: the latest issue's photo filling the cell with its title on a
+		dark strip, the issue before it in the pink band, and the newsletter's name, pitch and
+		signup in the dark panel above NEWSLETTER -->
 		<PosterHero
 			title="Newsletter"
 			wordRatio={4.7}
@@ -57,41 +67,32 @@ import SectionRule from '../../components/SectionRule.astro';
 				<a
 					slot="media"
 					href={`/newsletter/${latest.data.slug}/`}
-					class="ring-host group relative z-10 flex flex-col no-underline"
+					class="ring-host group relative z-10 block no-underline"
 				>
-					<!-- Issue images are title cards, so they show whole, never cropped -->
-					<span class="flex flex-1 flex-col overflow-hidden rounded-xl bg-ink">
-						{latest.data.heroImage && (
-							<span class="relative block">
-								<img
-									src={latest.data.heroImage}
-									alt=""
-									aria-hidden="true"
-									data-halftone="flat"
-									width="1200"
-									height="630"
-									class="block aspect-[40/21] w-full object-cover"
-									loading="eager"
-									fetchpriority="high"
-								/>
-							</span>
-						)}
-						<span class="block px-6 pt-5 pb-6">
-							{/* The card already prints the title, so the text title is only for screen readers */}
-							<span
-								class:list={[
-									'block font-display text-[clamp(1.75rem,2.8vw,2.75rem)] leading-[0.95] text-paper uppercase group-hover:text-pink',
-									latest.data.heroImage && 'sr-only',
-								]}
-							>
+					<span class="block overflow-hidden rounded-xl bg-ink md:absolute md:inset-0">
+						<img
+							src={latestImage}
+							alt=""
+							aria-hidden="true"
+							data-halftone={halftoneMode(latestImage)}
+							width="1120"
+							height="630"
+							sizes="(min-width: 768px) 50vw, 100vw"
+							class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
+							loading="eager"
+							fetchpriority="high"
+						/>
+						<span class="block bg-ink px-6 pt-4 pb-5 md:absolute md:inset-x-0 md:bottom-0 md:z-10">
+							<span class="block font-display text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[0.95] text-paper uppercase group-hover:text-pink">
 								{latest.data.title}
 							</span>
-							{latest.data.description && (
-								<span class="line-clamp-3 block text-muted">{latest.data.description}</span>
-							)}
-							<span class="mt-2 block text-sm text-muted">
-								<FormattedDate date={latest.data.date} />
-							</span>
+							<MetaParts
+								class="mt-2 text-sm text-muted"
+								parts={[
+									formatDate(latest.data.date),
+									`${getReadingTime(latest.body || '')} min read`,
+								]}
+							/>
 						</span>
 					</span>
 					<Scribble
@@ -102,28 +103,18 @@ import SectionRule from '../../components/SectionRule.astro';
 						delay="1.6s"
 						class="-top-[7%] -left-[7%] z-10 size-[22%]"
 					/>
-					<!-- The space under the caption gets a crayon arrow over to the signup form, and a tally -->
 					<Scribble
-						{...MARKS.arrow}
-						color="#ff4fd8"
-						strokeWidth={7}
-						duration="10s"
-						delay="2.4s"
-						class="right-[-6%] bottom-[7%] z-10 hidden h-[16%] w-[86%] md:block"
-					/>
-					<Scribble
-						{...MARKS.tally}
+						{...MARKS.lines}
 						color={CHALK}
-						strokeWidth={6}
-						duration="9s"
-						delay="3.4s"
-						class="bottom-[22%] left-[6%] z-10 hidden h-[9%] w-[16%] md:block"
+						duration="11s"
+						delay="1s"
+						class="-bottom-[7%] -left-[6%] z-10 h-[12%] w-[70%]"
 					/>
 					<HoverBox featured index={2} />
 				</a>
 			)}
 			<p class="font-display text-[clamp(2.25rem,3.6vw,3.5rem)] leading-none text-paper uppercase">
-				Works on <span class="text-pink">My Machine</span>
+				Works on My Machine
 			</p>
 			<p class={`mt-4 ${HERO_LEAD}`}>
 				Short write-ups on tech writing, AI, homelab builds and open source. It goes out when I have
@@ -147,68 +138,71 @@ import SectionRule from '../../components/SectionRule.astro';
 			</div>
 		</PosterHero>
 
-		<h2 class={SECTION_HEADING}>Past issues</h2>
-		<SectionRule />
-		<ul class="mb-12 md:mb-20">
-			{posts.map((post, i) => (
-				<BlogCard
-					title={post.data.title}
-					description={post.data.description}
-					date={post.data.date}
-					slug={post.data.slug}
-					heroImage={post.data.heroImage}
-					href={`/newsletter/${post.data.slug}/`}
-					index={i}
-				/>
-			))}
-		</ul>
+		<section class={SECTION}>
+			<SectionMasthead title="Past issues" />
+			<ul>
+				{posts.map((post, i) => (
+					<BlogCard
+						title={post.data.title}
+						description={post.data.description}
+						date={post.data.date}
+						slug={post.data.slug}
+						heroImage={issueImage(post)}
+						readingTime={getReadingTime(post.body || '')}
+						href={`/newsletter/${post.data.slug}/`}
+						index={i}
+						markIndex={i % 5 === 2 ? Math.floor(i / 5) : undefined}
+					/>
+				))}
+			</ul>
+		</section>
 
-		<h2 class={`${SECTION_HEADING} !mb-2`}>TL;DR in Tech</h2>
-		<!-- Close under the heading and over its one-line subtitle -->
-		<SectionRule class="mb-2" />
-		<p class="mb-8 text-muted">
-			The weekly link roundup this newsletter used to be, from 2021 to 2024.
-		</p>
+		<section class={SECTION}>
+			<SectionMasthead title="TL;DR in Tech" />
+			<p class={`mb-8 ${HERO_LEAD}`}>
+				The weekly link roundup this newsletter used to be, from 2021 to 2024.
+			</p>
 
-		<!-- A year per toggle, newest open: about a hundred issues would otherwise run eight
+			<!-- A year per toggle, newest open: about a hundred issues would otherwise run eight
 		screens on a phone. Browsers open a closed year when a #year link or find-in-page
 		lands inside it -->
-		<div class="border-b border-surface-4">
-			{[...byYear.entries()].map(([year, list], i) => (
-				<details id={String(year)} open={i === 0} class="tldr-year group/year">
-					<summary class="flex cursor-pointer list-none items-baseline justify-between gap-4 border-t border-surface-4 py-3 [&::-webkit-details-marker]:hidden">
-						<h3 class="font-display text-[clamp(2.25rem,4vw,3.5rem)] leading-none font-normal text-pink">
-							{year}
-						</h3>
-						<span class="text-sm text-muted">
-							{list.length} issues
-							<span
-								aria-hidden="true"
-								class="ml-2 inline-block w-6 text-center align-middle font-display text-4xl leading-none text-pink"
-							>
-								<span class="icon-swap">
-									<span data-icon-off>+</span>
-									<span data-icon-on>–</span>
+			<div class="border-b border-surface-4">
+				{[...byYear.entries()].map(([year, list], i) => (
+					<details id={String(year)} open={i === 0} class="tldr-year group/year">
+						<summary class="flex cursor-pointer list-none items-baseline justify-between gap-4 border-t border-surface-4 py-3 [&::-webkit-details-marker]:hidden">
+							<h3 class="font-display text-[clamp(2.25rem,4vw,3.5rem)] leading-none font-normal text-pink">
+								{year}
+							</h3>
+							<span class="text-sm text-muted">
+								{list.length} issues
+								<span
+									aria-hidden="true"
+									class="ml-2 inline-block w-6 text-center align-middle font-display text-4xl leading-none text-pink"
+								>
+									<span class="icon-swap">
+										<span data-icon-off>+</span>
+										<span data-icon-on>–</span>
+									</span>
 								</span>
 							</span>
-						</span>
-					</summary>
-					<ul class="mb-6 gap-x-10 pt-2 xl:columns-2">
-						{list.map((issue) => (
-							<li class="mb-2 flex break-inside-avoid flex-col gap-x-4 max-md:mb-1 sm:flex-row sm:items-baseline">
-								<span class="w-32 shrink-0 text-sm text-muted">
-									<FormattedDate date={issue.data.date} />
-								</span>
-								{/* Phones: py-2.5 makes each issue a 44px tap target */}
-								<a href={`/newsletter/${issue.data.slug}/`} class={`${TEXT_LINK} max-md:py-2.5`}>
-									{issue.data.title}
-								</a>
-							</li>
-						))}
-					</ul>
-				</details>
-			))}
-		</div>
+						</summary>
+						<ul class="mb-6 gap-x-10 pt-2 xl:columns-2">
+							{list.map((issue) => (
+								<li class="mb-2 flex break-inside-avoid flex-col gap-x-4 max-md:mb-1 sm:flex-row sm:items-baseline">
+									<span class="w-32 shrink-0 text-sm text-muted">
+										<FormattedDate date={issue.data.date} />
+									</span>
+									{/* Phones: py-2.5 makes each issue a 44px tap target */}
+									<a href={`/newsletter/${issue.data.slug}/`} class={`${TEXT_LINK} max-md:py-2.5`}>
+										{issue.data.title}
+									</a>
+								</li>
+							))}
+						</ul>
+					</details>
+				))}
+			</div>
+		</section>
 		<KeepExploring heading="From the blog" from="/newsletter/" newest={3} />
 	</div>
 </BaseLayout>

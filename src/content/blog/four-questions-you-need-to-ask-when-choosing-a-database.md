@@ -31,6 +31,7 @@ marginNotes:
     at: 'does it use a custom language'
     text: "If your team speaks SQL and the database doesn't: my SQL-to-aggregation-pipeline cheat sheet."
     post: 'mongodb-aggregation-pipeline-queries-vs-sql-queries'
+mastheadImage: '/images/blog/four-questions-you-need-to-ask-when-choosing-a-database/masthead-680765ca.webp'
 ---
 
 Are you overwhelmed by the sheer amount of databases on the market today, and not sure where to start? Let’s say that you are a Software Developer, and you need to select a database for a brand new application or maybe you need to figure out a database to replace and upgrade your legacy database. There are so many databases out there on the market today and they often promise to do it all or they perform niche functions. When picking your next database, it’s important to understand what problems you are attempting to solve, so you can pick one that will fit your needs today, as well as in the future. So, what should you be considering when you are choosing your next database? Well, I’m glad you asked, because I’m here to help you. There is no silver bullet for picking a database for your application. That’s why it’s important to dig into your current and future needs by asking yourself these four questions. Be sure that you are asking yourself, your team, and the business these questions when you are evaluating databases.

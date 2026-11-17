@@ -21,6 +21,7 @@ marginNotes:
     at: 'This is the easy way to try SingleStore'
     text: "SingleStore's managed cloud service is now called SingleStore Helios."
     date: 'Nov 2026'
+mastheadImage: '/images/blog/how-to-use-singlestore-and-node-js/masthead-9aae4b9b.webp'
 ---
 
 Do you need to get a basic SingleStore application setup quickly using Node.js? Well, this guide’s got you covered. We will be covering how to use SingleStore and Node.js by setting up a database, connecting to that database using Node.js, and then performing CRUD (create, read, update, delete) operations on that database using Node.js.

@@ -9,11 +9,27 @@ test.describe('Blog Index Page', () => {
 		await page.goto('/blog');
 	});
 
-	test('shows the first page of posts, and more load on scroll', async ({ page }) => {
+	test('shows the first page of posts, and more on Show more', async ({ page }) => {
 		await expect(page.locator(SHOWN_ROWS)).toHaveCount(POSTS_PER_PAGE);
 
-		await page.locator('#load-more-sentinel').scrollIntoViewIfNeeded();
+		await page.getByRole('button', { name: 'Show more posts' }).click();
 		await expect(page.locator(SHOWN_ROWS)).toHaveCount(POSTS_PER_PAGE * 2);
+	});
+
+	test('a row opens its post from anywhere, and its Written for link still opens its own page', async ({
+		page,
+	}) => {
+		const row = page.locator('#posts-grid > li:visible').first();
+		const href = await row.locator('a.card-link').getAttribute('href');
+		// A real click on the description, which the title link's ::after covers
+		await row.scrollIntoViewIfNeeded();
+		const box = (await row.locator('p').first().boundingBox())!;
+		await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+		await expect(page).toHaveURL(new RegExp(`${href}$`));
+
+		await page.goto('/blog');
+		await page.locator('#posts-grid a[href^="/blog/written-for/"]').first().click();
+		await expect(page).toHaveURL(/\/blog\/written-for\/[\w-]+\/$/);
 	});
 
 	test('search narrows the list to matching posts and counts them', async ({ page }) => {

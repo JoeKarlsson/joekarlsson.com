@@ -25,6 +25,7 @@ videos:
       - { at: '13:09', name: 'Query faster' }
       - { at: '14:01', name: 'Scale cheaper' }
       - { at: '15:30', name: "What's next for you" }
+mastheadImage: '/images/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/masthead-8b46d51c.webp'
 ---
 
 When you need to model data, is your first instinct to start breaking it down into rows and columns? Mine used to be too. This is my gentle introduction to NoSQL for developers who already know some SQL, using MongoDB as the example, recorded at ConFoo Montreal in February 2020.

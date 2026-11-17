@@ -31,6 +31,7 @@ marginNotes:
     at: 'multi-cloud database security policy that detects databases'
     text: 'Five more security checks written as plain SQL, covering public buckets, MFA and encryption.'
     post: 'cloud-operations-playbook-part-08-cloud-security-posture-sql'
+mastheadImage: '/images/blog/detect-public-databases-across-aws-azure-gcp/masthead-20421ccf.webp'
 ---
 
 CloudQuery Policies let you write ClickHouse SQL queries that flag infrastructure violations across all your cloud providers. We [recently launched this feature](https://www.cloudquery.io/blog/introducing-cloudquery-platform-policies), and this post shows how to put it to work.

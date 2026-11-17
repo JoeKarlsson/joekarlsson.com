@@ -25,6 +25,7 @@ marginNotes:
     at: 'we can repeat this process for GCP'
     text: 'The GCP side in more depth, with dbt models that clean up the synced data before you query it.'
     post: 'building-cloud-asset-inventory-with-gcp'
+mastheadImage: '/images/blog/complete-guide-building-multi-cloud-asset-inventory/masthead-bb28bc6e.webp'
 ---
 
 Managing assets across multiple cloud providers like AWS and GCP can be challenging, especially when you are trying to keep track of everything in one place. In this live coding session, we'll centralize that data and make it easy to query. Using **CloudQuery**, we'll demonstrate how to pull cloud asset data from [**AWS**](https://www.cloudquery.io/hub/plugins/source/cloudquery/aws/latest/docs) and [**GCP**](https://www.cloudquery.io/hub/plugins/source/cloudquery/gcp/latest/docs) and store it in a [**PostgreSQL**](https://www.cloudquery.io/hub/plugins/destination/cloudquery/postgresql/latest/docs) database for easy access and analysis.

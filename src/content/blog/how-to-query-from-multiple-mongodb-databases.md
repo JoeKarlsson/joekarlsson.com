@@ -22,6 +22,7 @@ marginNotes:
     at: 'even in different formats, including S3 blob storage'
     text: 'Online Archive uses the same idea to move old documents to cheap object storage and still query them from one endpoint.'
     post: 'how-to-manage-mongodb-data-at-scale'
+mastheadImage: '/images/blog/how-to-query-from-multiple-mongodb-databases/masthead-285bc56b.webp'
 ---
 
 Have you ever needed to make queries across databases, clusters, data centers, or even mix it with data stored in an AWS S3 blob? You probably haven’t had to do all of these at once, but I’m guessing you’ve needed to do at least one of these at some point in your career. I’ll also bet that you didn’t know that this is possible (and easy) to do with MongoDB federated queries on a MongoDB Atlas Data Lake! These allow you to configure multiple remote MongoDB deployments, and enable federated queries across all the configured deployments.

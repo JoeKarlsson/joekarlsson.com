@@ -29,6 +29,7 @@ marginNotes:
     at: 'a persistent detective control'
     text: 'a check that finds a problem after it exists. A preventive control blocks it up front.'
     term: 'Detective control'
+mastheadImage: '/images/blog/python-39-lambda-deprecation/masthead-79dbb354.webp'
 ---
 
 > **TL;DR**

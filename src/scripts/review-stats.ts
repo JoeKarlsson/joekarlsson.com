@@ -4,7 +4,7 @@
 // as they scroll into view, and the Most watched / Highest rated toggles. Built with DOM
 // calls only: the page's Trusted Types policy blocks HTML strings.
 import { isMotionPaused } from './pause-motion';
-import { mayBoil } from '../utils/paper-hero-motion';
+import { connectionHints, mayBoil } from '../utils/paper-hero-motion';
 import { FILTER_ACTIVE, FILTER_INACTIVE } from '../utils/ui';
 
 type Film = [
@@ -223,15 +223,11 @@ function initNotes(root: HTMLElement) {
  * then print their values (the site's chart kit, DECISIONS.md). Only where decoration
  * may boil; phones, reduced motion and slow connections keep the finished chart. */
 function initBuild(root: HTMLElement) {
-	const connection = (
-		navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }
-	).connection;
 	const allowed = mayBoil({
 		reducedMotion: still(),
 		motionPaused: false,
 		wideScreen: matchMedia('(width >= 48rem)').matches,
-		saveData: connection?.saveData,
-		effectiveType: connection?.effectiveType,
+		...connectionHints(),
 	});
 	if (!allowed) return;
 	const built = new IntersectionObserver(

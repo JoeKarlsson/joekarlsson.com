@@ -17,6 +17,7 @@ marginNotes:
     at: 'to follow people you like, discover what they do'
     text: 'Twitter renamed itself X in July 2023.'
     date: 'Jul 2023'
+mastheadImage: '/images/blog/my-top-resources-for-learning-how-to-code/masthead-6dd0863b.webp'
 ---
 
 So, you want to learn how to code? Here’s What You Need To Know to get started. This is a list of my favorite programming books, talks, podcasts, newsletters, websites, and general tips for learning more about programming. HMU if you have any additions you want to make to my list!

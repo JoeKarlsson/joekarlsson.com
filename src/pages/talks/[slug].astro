@@ -5,6 +5,7 @@
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 import { videoObject } from '../../utils/video-schema';
+import { getReadingTime } from '../../utils/posts';
 
 export async function getStaticPaths() {
 	const talks = await getCollection('talks');
@@ -15,7 +16,7 @@ type Props = CollectionEntry<'talks'>;
 const talk = Astro.props;
 const { Content, headings } = await render(talk);
 const words = (talk.body || '').trim().split(/\s+/).length;
-const readingTime = Math.max(1, Math.ceil(words / 250));
+const readingTime = getReadingTime(talk.body || '');
 const videoObjects = talk.data.videos.map(({ id, chapters }) =>
 	videoObject(id, { description: talk.data.description, chapters }),
 );
@@ -34,6 +35,7 @@ const videoObjects = talk.data.videos.map(({ id, chapters }) =>
 	updateNote={talk.data.updateNote}
 	corrections={talk.data.corrections}
 	heroImage={talk.data.heroImage}
+	mastheadImage={talk.data.mastheadImage}
 	heroAlt={talk.data.heroAlt}
 	heroVideo={talk.data.heroVideo}
 	categories={talk.data.categories}

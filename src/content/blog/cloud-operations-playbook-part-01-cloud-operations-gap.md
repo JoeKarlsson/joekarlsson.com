@@ -25,6 +25,7 @@ marginNotes:
     at: 'Configuration drift is silent and constant'
     text: "a resource's live settings no longer match its code or baseline, usually after a manual fix that never made it back into the code."
     term: 'Configuration drift'
+mastheadImage: '/images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/masthead-e176e937.webp'
 ---
 
 > **Note:** **TL;DR:** The "Cloud Operations Gap" is the distance between what leadership thinks they know about cloud infrastructure and what's actually running. 89% of organizations now operate across multiple clouds, yet only 8% qualify as highly cloud-mature. Fragmented tooling traps critical context in silos, making basic questions like "how many S3 buckets do we have?" surprisingly hard to answer. This post explains why the gap exists, why it's getting worse, and how to start measuring it.

@@ -633,15 +633,15 @@ pre.astro-code {
 	padding-left: 1.4em;
 }
 
-/* Reading progress (BlogPost's #reading-progress, the phone bar's .read-line) follows the
-   scroll in CSS where the browser can; reading-context.ts and BlogPost's script set it
+/* Reading progress (ArticleFrame's #reading-progress, the phone bar's .read-line) follows the
+   scroll in CSS where the browser can; reading-context.ts and ArticleFrame's script set it
    elsewhere. Same ranges as their readingProgress math: 0 as the text's top reaches the
    bar, 1 once its bottom is on screen */
 @supports (animation-timeline: view()) {
 	body {
 		timeline-scope: --post, --post-body;
 	}
-	article[data-post-title] {
+	article.article-frame {
 		view-timeline: --post block;
 	}
 	article[data-post-title] .prose {
@@ -1183,6 +1183,17 @@ header nav .sticker {
 	visibility: visible;
 	stroke-dashoffset: 0;
 }
+/* The masthead keeps to the text column, so title, picture and text share one left edge
+   (ArticleFrame.astro). It's the title's container, so the title still fits its width */
+.post-axis {
+	container-type: inline-size;
+	max-width: var(--reading-width);
+	margin-inline: auto;
+}
+/* The caption sits on the shared left edge */
+.post-axis .masthead-caption {
+	margin-inline: 0;
+}
 @media (width >= 80rem) {
 	.margin-column
 		.prose.wide-media
@@ -1218,19 +1229,13 @@ header nav .sticker {
 	.margin-column .prose.wide-media > figure.frame-pair.beside-credits {
 		width: 100%;
 	}
-	/* The masthead spans the text and the margin, so title, picture and text share one left
-	   edge (BlogPost.astro). It's the title's container, so the title still fits its width */
+	/* Here the masthead spans the text and the margin, so title, picture and text still share
+	   one left edge */
 	.post-axis {
-		container-type: inline-size;
 		max-width: calc(var(--reading-width) + 18rem);
-		margin-inline: auto;
 	}
 	.post-axis .masthead :is(img, video, canvas) {
 		max-width: none;
-	}
-	/* The caption sits on the shared left edge */
-	.post-axis .masthead-caption {
-		margin-inline: 0;
 	}
 }
 

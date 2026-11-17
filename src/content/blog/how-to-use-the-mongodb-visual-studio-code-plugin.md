@@ -22,6 +22,7 @@ marginNotes:
     at: 'Aggregation pipelines consist of'
     text: 'If you think in SQL, I mapped each pipeline stage to the SQL clause it replaces.'
     post: 'mongodb-aggregation-pipeline-queries-vs-sql-queries'
+mastheadImage: '/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/masthead-6a6ba116.webp'
 ---
 
 To make developers more productive when working with MongoDB, we built [MongoDB for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode), an extension that allows you to quickly connect to MongoDB and [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and work with your data to build applications right inside your code editor. With the MongoDB Visual Studio Code Plugin, you can:

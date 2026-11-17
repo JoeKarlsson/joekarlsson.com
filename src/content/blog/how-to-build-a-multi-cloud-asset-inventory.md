@@ -25,6 +25,7 @@ marginNotes:
     at: 'uniform bucket-level access turned on'
     text: 'a Cloud Storage setting that turns off per-object ACLs, so IAM alone decides who can read what in a bucket.'
     term: 'Uniform bucket-level access'
+mastheadImage: '/images/blog/how-to-build-a-multi-cloud-asset-inventory/masthead-59448314.webp'
 ---
 
 Managing multi-cloud environments can overwhelm even experienced cloud architects. Each cloud provider has its own set of tools, APIs, and management practices, leading to fragmented visibility and control. Without a unified view, identifying and managing cloud assets across AWS, Azure, GCP, and other providers becomes daunting.

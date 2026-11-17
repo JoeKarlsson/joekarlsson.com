@@ -2,7 +2,7 @@
 // The /reviews/ poster wall with Letterboxd-style controls in one panel: search (film or
 // director), then dropdowns to sort and to filter by genre, release decade, stars and the year
 // Joe watched it. It all runs in the browser over data-* attributes on each poster (no extra
-// JSON), and the wall shows 48 posters at a time, more as you scroll, like the blog's list.
+// JSON), and the wall shows 48 posters at a time, more on a click, like the blog's list.
 import type { CollectionEntry } from 'astro:content';
 import ReviewPoster from './ReviewPoster.astro';
 import { SECONDARY_BUTTON } from '../utils/ui';
@@ -187,10 +187,15 @@ const SELECT =
 		</li>
 	))}
 </ul>
-<div class="h-px" data-review-more></div>
+<!-- More posters on a click, not as you scroll, so the page's ending and footer stay reachable -->
+<div class="mt-8 flex justify-center" data-review-more>
+	<button type="button" class={SECONDARY_BUTTON}>
+		Show more reviews
+	</button>
+</div>
 
 <script>
-	// Posters past this many wait until the reader scrolls near the end of the wall
+	// Posters past this many wait for the Show more button
 	const PAGE_SIZE = 48;
 
 	document.querySelectorAll<HTMLElement>('[data-review-finder]').forEach((finder) => {
@@ -222,6 +227,7 @@ const SELECT =
 			matches.forEach((li, i) =>
 				i < limit ? li.removeAttribute('hidden') : li.setAttribute('hidden', 'until-found'),
 			);
+			more.classList.toggle('hidden', limit >= matches.length);
 		}
 		grid.addEventListener(
 			'beforematch',
@@ -273,14 +279,12 @@ const SELECT =
 				update();
 			}),
 		);
-		new IntersectionObserver(
-			(entries) => {
-				if (entries[0].isIntersecting && limit < matches.length) {
-					limit += PAGE_SIZE;
-					show();
-				}
-			},
-			{ rootMargin: '600px 0px' },
-		).observe(more);
+		// Focus moves to the first new poster: the button may hide once everything shows, and
+		// the new posters sit before it in the tab order
+		more.querySelector('button')!.addEventListener('click', () => {
+			limit += PAGE_SIZE;
+			show();
+			matches[limit - PAGE_SIZE]?.querySelector<HTMLAnchorElement>('a')?.focus();
+		});
 	});
 </script>

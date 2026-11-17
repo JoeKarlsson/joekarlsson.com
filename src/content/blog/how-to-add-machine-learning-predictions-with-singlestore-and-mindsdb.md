@@ -23,6 +23,7 @@ marginNotes:
     at: 'saved in an AI Table'
     text: "MindsDB's name for a trained model you query like a table: SELECT from it with the inputs in WHERE, and the prediction comes back as a column."
     term: 'AI Table'
+mastheadImage: '/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/masthead-fafa4564.webp'
 ---
 
 Personally, I know this used to be massively complicated. It usually involved needing to write application code to connect a third-party machine learning system, and then connecting the output of the model back into your application. This is how I usually feel when setting up a new machine learning project. But now, with SingleStore and [MindsDB](https://mindsdb.com/), setting up a modern machine learning model has never been easier.

@@ -30,9 +30,14 @@
  *
  * Commons photos are downloaded once into media-sources/work-thumbnails/ (git-ignored).
  *
+ * A taped card's print is tilted and taped, but a post's masthead shows its picture flat
+ * (DECISIONS.md, round 4 C), so each taped entry also gets a still flat copy,
+ * masthead-<hash>.webp, set as the post's mastheadImage. The feed keeps the taped card.
+ *
  * Usage:
  *   node scripts/generate-work-thumbnails.mjs            # every post in the plan
  *   node scripts/generate-work-thumbnails.mjs <slug...>  # these posts
+ *   node scripts/generate-work-thumbnails.mjs --mastheads [slug...]  # only the flat masthead stills
  */
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -67,8 +72,8 @@ const CLIP_FPS = 10;
 const CLIP_WIDTH = 960;
 const MAX_ANIMATED_BYTES = 256 * 1024;
 // Images are cached for 30 days, so a redrawn card needs a new URL: the name carries a hash of its bytes
-const thumbPath = (slug, webp) =>
-	`/images/blog/${slug}/thumb-${createHash('sha256').update(webp).digest('hex').slice(0, 8)}.webp`;
+const thumbPath = (slug, webp, name = 'thumb') =>
+	`/images/blog/${slug}/${name}-${createHash('sha256').update(webp).digest('hex').slice(0, 8)}.webp`;
 
 async function download(url, file) {
 	const response = await fetch(url, {
@@ -304,7 +309,8 @@ function cardHtml(entry, picture, { MARKS, RINGS }, seed) {
 		const top = (HEIGHT - picture.height - 32) / 2;
 		body = `<div class="print" style="left:${left}px;top:${top}px;width:${picture.width + 32}px;height:${picture.height + 32}px;transform:rotate(${entry.tilt ?? -3}deg)"><img src="${picture.uri}" alt="">${entry.ring ? ringSvg(RINGS, entry.ring) : ''}<span class="tape t1${boil}"></span><span class="tape t2${boil}"></span></div>`;
 	} else {
-		body = `<img class="full" src="${picture.uri}" alt="">`;
+		// A whole picture (a meme) keeps its shape on black, so its caption survives
+		body = `<img class="full" src="${picture.uri}" alt=""${entry.whole ? ' style="object-fit:contain"' : ''}>`;
 	}
 	return `<!doctype html><html><head><meta charset="utf-8">
 <style>
@@ -335,8 +341,28 @@ function validate(slug, entry) {
 		throw new Error(`${slug}: a clip needs picture.video`);
 }
 
+/** The flat, still copy of a taped card, for the post's masthead (mastheadImage) */
+async function writeMasthead(page, sharp, slug, entry, scribbles, post) {
+	const flat = { ...entry, look: 'flat', motion: undefined };
+	const [[png]] = await cardFrames(page, sharp, slug, flat, scribbles);
+	const webp = await sharp(png).webp({ quality: 72 }).toBuffer();
+	const masthead = thumbPath(slug, webp, 'masthead');
+	const dir = join(ROOT, 'public/images/blog', slug);
+	mkdirSync(dir, { recursive: true });
+	for (const file of readdirSync(dir))
+		if (/^masthead-[0-9a-f]{8}\.webp$/.test(file)) rmSync(join(dir, file));
+	writeFileSync(join(ROOT, 'public', masthead), webp);
+	writeFileSync(
+		post,
+		setFrontmatterFields(readFileSync(post, 'utf8'), { mastheadImage: masthead }),
+	);
+	console.log(`masthead: ${slug}`);
+}
+
 async function main() {
-	const slugs = process.argv.slice(2);
+	const args = process.argv.slice(2);
+	const mastheadsOnly = args.includes('--mastheads');
+	const slugs = args.filter((arg) => arg !== '--mastheads');
 	const unknown = slugs.filter((slug) => !PLAN[slug]);
 	if (unknown.length)
 		throw new Error(`Not in scripts/work-thumbnail-plan.json: ${unknown.join(', ')}`);
@@ -358,6 +384,10 @@ async function main() {
 				.map((dir) => join(ROOT, 'src/content', dir, `${slug}.md`))
 				.find((file) => existsSync(file));
 			if (!post) throw new Error(`${slug}: no post in src/content/blog or src/content/talks`);
+			if (mastheadsOnly) {
+				if (entry.look === 'taped') await writeMasthead(page, sharp, slug, entry, scribbles, post);
+				continue;
+			}
 			const frames = await cardFrames(page, sharp, slug, entry, scribbles);
 			const webp =
 				frames.length === 1
@@ -379,6 +409,7 @@ async function main() {
 			const markdown = readFileSync(post, 'utf8');
 			writeFileSync(post, setFrontmatterFields(markdown, { heroImage: hero, heroAlt: entry.alt }));
 			console.log(`thumbnail: ${slug}`);
+			if (entry.look === 'taped') await writeMasthead(page, sharp, slug, entry, scribbles, post);
 		}
 	} finally {
 		await browser.close();

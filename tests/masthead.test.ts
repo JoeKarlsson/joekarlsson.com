@@ -13,6 +13,11 @@ describe('mastheadLines', () => {
 		const lengths = lines.map((l) => l.length);
 		expect(Math.max(...lengths) - Math.min(...lengths)).toBeLessThan(12);
 	});
+	it('never opens a line on a lone dash', () => {
+		const lines = mastheadLines('tl;dr in tech - Issue #106');
+		expect(lines.some((line) => /^[-–—]/.test(line))).toBe(false);
+		expect(lines.join(' ')).toBe('tl;dr in tech - Issue #106');
+	});
 	it('never splits a single word', () => {
 		expect(mastheadLines('Supercalifragilisticexpialidocious')).toHaveLength(1);
 	});

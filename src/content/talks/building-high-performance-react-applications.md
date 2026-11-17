@@ -11,6 +11,7 @@ videos:
   - id: 'JNs1ZvRzOYM'
   - id: 'xJYOipHkwNM'
   - id: '6z4g27TSO5I'
+mastheadImage: '/images/blog/building-high-performance-react-applications/masthead-e37f91c9.webp'
 ---
 
 > **Note:** I wrote this in 2018 for React 16 class components. Modern React uses function components with hooks (`React.memo`, `useMemo`, `useCallback`) for performance optimization. The concepts here are still useful background, but check the [current React docs](https://react.dev/reference/react/memo) for up-to-date guidance.

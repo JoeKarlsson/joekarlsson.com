@@ -19,7 +19,7 @@ const internal = (href: string) => href.startsWith('/');
 				href={href}
 				target={internal(href) ? undefined : '_blank'}
 				rel={internal(href) ? undefined : 'noopener noreferrer'}
-				class="flex items-center gap-1 text-sm text-pink no-underline hover:text-paper"
+				class="flex min-h-6 items-center gap-1 text-sm text-pink no-underline hover:text-paper"
 			>
 				<svg
 					aria-hidden="true"

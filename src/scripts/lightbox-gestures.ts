@@ -212,9 +212,12 @@ export function initLightboxGestures(
 	dialog.addEventListener(
 		'wheel',
 		(event) => {
-			if (!event.ctrlKey) return;
-			// A trackpad pinch arrives as ctrl+wheel; without this the page would zoom
+			// The picture fills the screen and nothing in the dialog scrolls, so a wheel over it
+			// must not scroll the page behind. overscroll-behavior on the dialog covers that in
+			// Chrome and Firefox but not Safari. A trackpad pinch arrives as ctrl+wheel, and
+			// without this the page would zoom instead of the picture.
 			event.preventDefault();
+			if (!event.ctrlKey) return;
 			zoomAt(
 				Math.min(MAX_ZOOM, Math.max(1, scale * Math.exp(-event.deltaY * 0.01))),
 				event.clientX,

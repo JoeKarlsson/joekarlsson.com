@@ -22,6 +22,7 @@ marginNotes:
 corrections:
   - date: 2026-11-16
     note: "I credited a 2011 paper by Murtagh, Ganz and Reddington for lines that came from Hoyt, Ponto and Roy's 2014 ScripThreads paper, and I'd copied several of their sentences nearly word for word. The credit now goes to them, and those sentences are in my own words."
+mastheadImage: '/images/blog/bechdel-test-script-parser-works/masthead-91ee2b6d.webp'
 ---
 
 [The Bechdel Test Script Parser](https://bechdel.joekarlsson.com/) was a collaborative digital humanities project between myself and my sister, Laurel Karlsson. It is the product of a shared passion for film, feminism, and the creative potential of technology. By combining the talents and interests of myself, a software engineer, and my sister, an English Scholar, we’ve been able to create an innovative data mining tool for a film analysis that we hope to continue to work on and improve. You can check out the project on our website, and the open-source code can be viewed [here](https://github.com/JoeKarlsson/bechdel-test). I also gave a [talk about how we used JavaScript to help make film more inclusive](/talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/) with this project. In 2026 I [started it over as a static site](/blog/hackers-and-painters-ai-agents/).

@@ -55,10 +55,17 @@ const {
 } = Astro.props;
 ---
 
+{/* How far through the article, on every article type. Phones show it in the nav bar instead (reading-context.ts) */}
+<div
+	id="reading-progress"
+	class="fixed top-0 left-0 z-50 h-1 w-full origin-left bg-pink [scale:0_1] max-md:hidden"
+	aria-hidden="true"
+></div>
+
 <div class={PAGE_CONTAINER}>
 	<div>
 		{/* @container: wide pictures, code and embeds size themselves to this column */}
-		<article class="@container min-w-0" {...articleData}>
+		<article class="article-frame @container min-w-0" {...articleData}>
 			<div class="post-axis">
 				<BackLink href={section.path} label={section.name} />
 				<Masthead
@@ -96,3 +103,52 @@ const {
 		</article>
 	</div>
 </div>
+
+<script>
+	// The desktop reading line where CSS scroll timelines aren't supported (global.css), and
+	// the Scroll Depth and Reading Complete goals for every article type: filter on the path
+	// (/blog/, /newsletter/, /reviews/, /work/, /talks/) to split them
+	const progressEl = document.getElementById('reading-progress');
+	const article = document.querySelector<HTMLElement>('article.article-frame');
+	if (progressEl && article) {
+		const depthMilestones = new Set<number>();
+		const postTitle =
+			article.dataset.postTitle || article.querySelector('h1')?.textContent?.trim() || 'Unknown';
+
+		const trackScrollDepth = (pct: number) => {
+			const plausible = window.plausible;
+			if (typeof plausible !== 'function') return;
+			[25, 50, 75, 100].forEach((milestone) => {
+				if (pct < milestone || depthMilestones.has(milestone)) return;
+				depthMilestones.add(milestone);
+				plausible('Scroll Depth', { props: { depth: `${milestone}%`, post: postTitle } });
+				if (milestone === 100) plausible('Reading Complete', { props: { post: postTitle } });
+			});
+		};
+
+		const update = () => {
+			const rect = article.getBoundingClientRect();
+			const total = rect.height - window.innerHeight;
+			const scrolled = -rect.top;
+			const pct = Math.max(0, Math.min(100, total > 0 ? Math.round((scrolled / total) * 100) : 0));
+			trackScrollDepth(pct);
+			// scale, not width: no layout per scroll. CSS drives it where it can (global.css)
+			if (!CSS.supports('animation-timeline: view()')) progressEl.style.scale = `${pct / 100} 1`;
+		};
+
+		let ticking = false;
+		window.addEventListener(
+			'scroll',
+			() => {
+				if (ticking) return;
+				ticking = true;
+				requestAnimationFrame(() => {
+					update();
+					ticking = false;
+				});
+			},
+			{ passive: true },
+		);
+		update();
+	}
+</script>

@@ -36,6 +36,7 @@ marginNotes:
     text: 'For smaller 2-node clusters, the QDevice can be used to provide a 3rd vote.'
     by: "Proxmox VE's cluster docs"
     url: 'https://pve.proxmox.com/wiki/Cluster_Manager'
+mastheadImage: '/images/blog/homelab-gift-ideas-2026/masthead-f7ba128f.webp'
 ---
 
 These are my homelab gift ideas for 2026, for software engineers, homelabbers and anyone who works at a computer all day.

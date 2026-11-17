@@ -35,6 +35,7 @@ marginNotes:
     at: 'Run game days or simulations'
     text: 'a scheduled drill where a team breaks something on purpose, like failing over a database, to practice recovering before a real outage.'
     term: 'Game day'
+mastheadImage: '/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/masthead-65834b5e.webp'
 ---
 
 **About This Series:** This is Part 4 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:

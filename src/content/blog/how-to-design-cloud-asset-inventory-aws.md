@@ -24,6 +24,7 @@ marginNotes:
     at: 'Solutions like AWS Config, CloudQuery'
     text: 'I compared AWS Config, Systems Manager and CloudQuery as AWS inventory options.'
     post: 'what-is-an-aws-cloud-asset-inventory'
+mastheadImage: '/images/blog/how-to-design-cloud-asset-inventory-aws/masthead-33b20cf5.webp'
 ---
 
 Your security team discovers a critical vulnerability affecting unencrypted databases. How long does it take you to identify and remediate all affected systems?

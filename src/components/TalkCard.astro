@@ -24,6 +24,7 @@ import {
 import { CHALK } from '../data/scribbles';
 import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 import { ITEM_TITLE, META, TEXT_LINK } from '../utils/ui';
+import HoverBox from './HoverBox.astro';
 import MetaParts from './MetaParts.astro';
 import TalkLinks from './TalkLinks.astro';
 import YouTubeFacade from './YouTubeFacade.astro';
@@ -93,7 +94,7 @@ const TILTS = ['-rotate-1', 'rotate-[0.6deg]', '-rotate-[0.4deg]', 'rotate-1'];
 				rel="noopener noreferrer"
 				tabindex="-1"
 				aria-hidden="true"
-				class="block"
+				class="ring-host relative block"
 			>
 				<img
 					src={talk.cover}
@@ -104,6 +105,8 @@ const TILTS = ['-rotate-1', 'rotate-[0.6deg]', '-rotate-[0.4deg]', 'rotate-1'];
 					decoding="async"
 					class="block aspect-video w-full rounded-lg bg-ink object-cover"
 				/>
+				{/* A picture that links out draws the crayon box on hover, like every other card */}
+				<HoverBox index={index} />
 			</a>
 		) : talk.cover ? (
 			<img

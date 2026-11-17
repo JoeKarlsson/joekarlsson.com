@@ -20,6 +20,7 @@ marginNotes:
     at: 'Our team can walk you through a tailored demo'
     text: 'CloudQuery merged with env zero in March 2026, and the combined company runs under the env zero name.'
     date: 'Mar 2026'
+mastheadImage: '/images/blog/best-way-keep-cloud-inventory-up-to-date/masthead-ed6ee28f.webp'
 ---
 
 Cloud environments change constantly. New resources spin up, policies shift, and security risks emerge. Keeping cloud asset data accurate and up to date is a challenge, especially when working across multiple providers. For years, keeping cloud asset data up to date has meant:

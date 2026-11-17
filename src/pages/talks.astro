@@ -82,6 +82,7 @@ const FILTERS = [
 					poster="/images/talks/joe-talks-poster.webp"
 					data-halftone="flat"
 					data-autoplay-in-view
+					data-phone-still
 					muted
 					loop
 					playsinline
@@ -168,25 +169,22 @@ const FILTERS = [
 			))}
 		</nav>
 
-		<!-- Hidden until talk-filter's script runs: without JavaScript everything shows -->
-		<div
-			id="talk-filters"
-			class={`mb-8 ${FILTER_ROW}`}
-			role="group"
-			aria-label="Show"
-			data-talk-filters
-			hidden
-		>
-			{FILTERS.map((filter, i) => (
-				<button
-					type="button"
-					class={i === 0 ? FILTER_ACTIVE : FILTER_INACTIVE}
-					aria-pressed={i === 0 ? 'true' : 'false'}
-					data-talk-filter={filter.value}
-				>
-					{filter.label}
-				</button>
-			))}
+		<!-- Hidden until talk-filter's script runs: without JavaScript everything shows.
+			The filters sit in a panel like the Blog and Reviews finders, from tablet width up: on a
+			phone the panel's padding would cut the scrolling row short. -->
+		<div class="mb-8 md:rounded-xl md:bg-surface-1 md:p-7" data-talk-filters hidden>
+			<div id="talk-filters" class={FILTER_ROW} role="group" aria-label="Show">
+				{FILTERS.map((filter, i) => (
+					<button
+						type="button"
+						class={i === 0 ? FILTER_ACTIVE : FILTER_INACTIVE}
+						aria-pressed={i === 0 ? 'true' : 'false'}
+						data-talk-filter={filter.value}
+					>
+						{filter.label}
+					</button>
+				))}
+			</div>
 		</div>
 
 		<!-- Phones open on the two newest eras; older ones fold behind a + (phone-collapse.ts) -->

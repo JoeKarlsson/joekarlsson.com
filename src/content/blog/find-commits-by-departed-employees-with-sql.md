@@ -29,6 +29,7 @@ marginNotes:
     at: 'import into your GRC platform'
     text: "governance, risk and compliance. GRC software tracks a company's controls, risks and audit evidence in one place."
     term: 'GRC'
+mastheadImage: '/images/blog/find-commits-by-departed-employees-with-sql/masthead-80b50392.webp'
 ---
 
 An engineer leaves your company. Their access gets revoked, their laptop returned. But their commits remain across dozens of repositories. For compliance audits, security reviews, or understanding code ownership, you need to identify which code was authored by former employees. The manual approach: export HR data, clone repos, run `git log`, correlate email addresses, compile spreadsheets. Repeat quarterly.

@@ -35,6 +35,9 @@ const postSchema = z.object({
 	// Looping MP4 shown in place of heroImage on the post page. heroImage is
 	// still required as its poster and for og:image and blog cards.
 	heroVideo: z.string().optional(),
+	// A flat, still copy of a taped card for the masthead, which shows pictures with no tilt
+	// or tape (scripts/generate-work-thumbnails.mjs); the feed and og:image keep heroImage
+	mastheadImage: z.string().optional(),
 	updatedDate: z.coerce.date().optional(),
 	// What a refresh changed, shown in a banner at the top of the post with the updatedDate
 	// ("Updated November 2026: ..."). Needs updatedDate (tests/content-schema.test.ts).

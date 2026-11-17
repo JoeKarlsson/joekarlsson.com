@@ -32,6 +32,7 @@ marginNotes:
     at: "One-size-fits-all sync schedules don't work"
     text: 'Tiered sync is one of six practices in my cloud CMDB guide for platform engineers.'
     post: 'cloud-cmdb-best-practices-platform-engineers'
+mastheadImage: '/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/masthead-558fc388.webp'
 ---
 
 Your Kubernetes pods live for 3 minutes. Your Lambda functions for 300 milliseconds. Your CMDB updates weekly. See the problem?

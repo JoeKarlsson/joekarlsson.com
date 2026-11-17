@@ -72,10 +72,16 @@ const LINK =
 			title
 		)}
 	</h3>
-	{/* Every run on desktop; phones show the newest PHONE_RUNS and fold the rest behind "+ N more" */}
+	{/* Every run on desktop; phones show the newest PHONE_RUNS and fold the rest behind "+ N more".
+	A run's recording link is a 24px target on desktop and 44px on phones, like ProjectCard's links */}
 	<ul class="mt-2 max-md:col-start-2">
 		{runs.map((t, i) => (
-			<li class:list={[`${META} flex gap-2 md:min-h-6`, i >= PHONE_RUNS && 'max-md:hidden']}>
+			<li
+				class:list={[
+					`${META} flex gap-2 md:min-h-7 [&>a]:min-h-6 max-md:[&>a]:min-h-11`,
+					i >= PHONE_RUNS && 'max-md:hidden',
+				]}
+			>
 				<span class="shrink-0" style="width:4.5rem;font-variant-numeric:tabular-nums">
 					{shortDate(t)}
 				</span>
@@ -88,7 +94,7 @@ const LINK =
 			<summary class={`${LINK} cursor-pointer`}>+ {runs.length - PHONE_RUNS} more</summary>
 			<ul>
 				{runs.slice(PHONE_RUNS).map((t) => (
-					<li class={`${META} flex gap-2 md:min-h-6`}>
+					<li class={`${META} flex gap-2 md:min-h-7 [&>a]:min-h-6 max-md:[&>a]:min-h-11`}>
 						<span class="shrink-0" style="width:4.5rem;font-variant-numeric:tabular-nums">
 							{shortDate(t)}
 						</span>

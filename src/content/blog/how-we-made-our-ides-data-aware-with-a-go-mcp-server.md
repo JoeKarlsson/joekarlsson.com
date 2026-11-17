@@ -29,6 +29,7 @@ marginNotes:
     at: 'the technical gotchas nobody talks about'
     text: 'The gotchas got their own post: tool descriptions, naming, context limits and how we fixed each one.'
     post: 'mcp-server-gotchas-we-learned-the-hard-way'
+mastheadImage: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/masthead-d1c021ee.webp'
 ---
 
 _Co-authored with Mariano Gappa at CloudQuery._

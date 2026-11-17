@@ -28,6 +28,7 @@ marginNotes:
     at: 'certificate transparency logs'
     text: "public, append-only logs of the TLS certificates that certificate authorities issue. Anyone can search them for a company's hostnames."
     term: 'Certificate Transparency'
+mastheadImage: '/images/blog/what-is-attack-surface-management/masthead-e7101dbd.webp'
 ---
 
 > **Note:** Attack surface management finds what attackers can reach, including resources your security team doesn't know exist. Unlike CSPM (which audits known configurations) or vulnerability management (which scans for CVEs), ASM starts from the attacker's perspective and asks what's reachable from outside. CloudQuery gives cloud teams a continuously updated attack surface inventory across AWS, GCP, and Azure, queryable in SQL.

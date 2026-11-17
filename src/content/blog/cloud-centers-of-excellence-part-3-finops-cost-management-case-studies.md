@@ -38,6 +38,7 @@ marginNotes:
     at: 'A capable CCOE/FinOps effort targets that waste'
     text: 'Idle resources are one kind of waste. Engineering time lost to scattered cloud data is another, and I built a calculator to measure it.'
     post: 'cloud-operations-playbook-part-05-cloud-waste-calculator'
+mastheadImage: '/images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/masthead-20fab423.webp'
 ---
 
 **About This Series:** This is Part 3 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:

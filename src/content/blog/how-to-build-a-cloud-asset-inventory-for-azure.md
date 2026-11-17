@@ -26,6 +26,7 @@ marginNotes:
     at: 'CIS, and Foundational Security Best Practices'
     text: 'the CIS Benchmarks, secure configuration checklists for each cloud and operating system from the Center for Internet Security.'
     term: 'CIS'
+mastheadImage: '/images/blog/how-to-build-a-cloud-asset-inventory-for-azure/masthead-95ff8f09.webp'
 ---
 
 If you're struggling to keep track of your Azure assets, stay compliant, and keep things secure, a cloud asset inventory can help.

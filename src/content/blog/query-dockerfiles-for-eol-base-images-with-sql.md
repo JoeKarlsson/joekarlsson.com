@@ -30,6 +30,7 @@ marginNotes:
     text: 'We have decided that January 1, 2020, was the day that we sunset Python 2.'
     by: 'Python Software Foundation'
     url: 'https://www.python.org/doc/sunset-python-2/'
+mastheadImage: '/images/blog/query-dockerfiles-for-eol-base-images-with-sql/masthead-51301d93.webp'
 ---
 
 [Node 18 reached end-of-life in April 2025](https://github.com/nodejs/release#release-schedule). You need to find which Dockerfiles across your organization still reference `node:18` base images. The manual approach: clone every repo, grep for Dockerfiles, parse the FROM lines, compile results, email teams, track remediation. Multiply that across hundreds of repos and multiple EOL versions.
