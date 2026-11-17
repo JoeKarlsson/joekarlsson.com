@@ -74,6 +74,8 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-16: Joe approved the built preview of the consistency round (pink Anton headers over a full-width crayon line on every page, full-width homepage hero and board, homepage doodles on the right from 2020px with the scroll-drawn line down the left, Odds & ends links, circles removed): "y" to ship once the design and web-standards reviews pass.
 - 2026-11-16: Site audit remediation (phases 1-3) approved from the before/after preview (Joe: "y"): the newsletter page reuses Blog's hero and Works' section headers, issues show their card photo in every list, taped cards get a flat masthead copy (mastheadImage), Blog and Reviews load more with a Show more button instead of infinite scroll, /reviews/ ends with a door to its stats, and the project kicker shows the stack again.
 
+- 2026-11-17: Whole-site review fixes approved (Joe: "lgtm" on ~/mockups/joekarlsson-review-fixes): the homepage bio grows with the screen's height to fill the name panel, the Works header card shows each reel piece's tagline under its title (repeating the first card's tagline is fine), and form fields get light gray borders. Reviews never smooth off the personality (Joe: "My fear is that we smooth off stuff until it like becomes homogeneous"): fix access around the quirks, never remove them.
+
 ## Playful details
 
 - 2026-11-13: Corrections on a post are a dated list in a box at the top; the wrong sentence is replaced, not crossed out in the text.
