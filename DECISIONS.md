@@ -4,6 +4,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 ## Look
 
+- 2026-11-16: Project pages and newsletter issues share the blog post's frame (Joe: "lgtm" on ~/mockups/joekarlsson-consistency-round2): the post masthead (year and stack in the kicker, tagline as the caption, the clip's whole frame), square pictures, galleries at the text width, and the post ending (JK mark, newsletter ask, sharing, bio, then More works / Keep reading under the arrow). e2e/consistency.spec.ts holds every article page type to it.
 - 2026-11-16: "On this page" moves left of the text and stays in view as you scroll, wherever the gutter fits it (1600px and up); margin notes keep the right side. Doodles stay on both sides, the left ones kept left of the list (Joe, same day, on right-only doodles: "That looks fucking terrible"). Joe: "I just miss having the table of contents... that scroll down with you." Replaces 7B's right-margin list that scrolled away. Same day: the hero must line up with the masthead rules ("Feels like a sloppy oversight"), and the spine word sits evenly in its rail, top, left and right.
 - 2026-11-05: No wavy or warping effects on the hero videos. Dithering is fine, varied and light.
 - 2026-11-05: Dithering stays light: heavy dithering made the hero videos and blog thumbnails hard to see. 2026-11-10: "Less dithering, but I like the pink and black."
