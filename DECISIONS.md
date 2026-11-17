@@ -4,7 +4,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 ## Look
 
-- 2026-11-16: "On this page" moves left of the text and stays in view as you scroll, wherever the gutter fits it (1600px and up); margin notes keep the right side, and doodles go right-only on those pages. Joe: "I just miss having the table of contents... that scroll down with you." Replaces 7B's right-margin list that scrolled away. Same day: the hero must line up with the masthead rules ("Feels like a sloppy oversight"), and the spine word sits evenly in its rail, top, left and right.
+- 2026-11-16: "On this page" moves left of the text and stays in view as you scroll, wherever the gutter fits it (1600px and up); margin notes keep the right side. Doodles stay on both sides, the left ones kept left of the list (Joe, same day, on right-only doodles: "That looks fucking terrible"). Joe: "I just miss having the table of contents... that scroll down with you." Replaces 7B's right-margin list that scrolled away. Same day: the hero must line up with the masthead rules ("Feels like a sloppy oversight"), and the spine word sits evenly in its rail, top, left and right.
 - 2026-11-05: No wavy or warping effects on the hero videos. Dithering is fine, varied and light.
 - 2026-11-05: Dithering stays light: heavy dithering made the hero videos and blog thumbnails hard to see. 2026-11-10: "Less dithering, but I like the pink and black."
 - 2026-11-06: Images and video get the site's pink color grading. Never drop it (2026-11-09: "why did you take the pink off of it?").
