@@ -63,7 +63,7 @@ marginNotes:
     date: 'Oct 2026'
 ---
 
-The biggest change to my development setup in 2026 is **concurrency.** I rarely have only one agent working anymore. I usually have three to six Claude Code sessions going at once, on different tasks, until my brain starts to melt from the context switching. Agents make whatever environment you give them go faster, including the mess, so most of what's below exists to make running several at once fast and safe.
+The biggest change to my development setup in 2026 is **concurrency.** I rarely have only one agent working anymore. I usually have three to six Claude Code sessions going at once, on different tasks, until [my brain starts to melt from the context switching](/newsletter/context-switching-ai-coding-agents/). Agents make whatever environment you give them go faster, including the mess, so most of what's below exists to make running several at once fast and safe.
 
 I use this setup every day at my day job, and the worktree pattern came from work: five agents in one docs repo. It's built around four goals:
 
