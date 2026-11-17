@@ -744,7 +744,7 @@ When Joe asks for the piece as a newsletter, it's an original Works on My Machin
 1. **Email images:** JPEG copies in `public/email/{slug}/` (photos and memes with ffmpeg, diagrams with `.claude/skills/blog-to-newsletter/scripts/svg-to-email.mjs`; for an animated figure, show its `.anim-still` layer first). Commit, push, deploy. Don't curl `/email/` URLs before the deploy (Cloudflare caches the 404).
 2. **Email draft:** `~/newsletter-drafts/<send date>-{slug}.md` with `subject` ("Works on My Machine: <Title in title case>"), `description` (the dek, 90-140 characters) and `send_at` (next free Tuesday to Friday at 9:00 Central, one issue a day; check the folder for taken days). The body is the page's body with images swapped for their `https://www.joekarlsson.com/email/{slug}/...` copies, `[!margin]` code comments and `cite:`/`quote:` link titles stripped, and site-relative links made absolute. Run `vale --config ~/newsletter-drafts/.vale.ini` on it.
 3. **listmonk:** follow the `newsletter` skill (`~/claude/.claude/skills/newsletter/SKILL.md`) step 4: `push`, `preview`, screenshot at 800px and 390px, and check the tracked links. Then ask Joe one question: send the test email? Scheduling (step 5) only after he approves the test and the slot. The site page is already live, so skip its `publish` step.
-4. **Social:** run `/social` with the issue URL and queue the posts in Postiz around the send date.
+4. **Social:** run `/social` with the issue URL and draft the posts for after the send date. Its rules hold: Joe approves the copy before anything is scheduled in Postiz.
 
 ---
 
