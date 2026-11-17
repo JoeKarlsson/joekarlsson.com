@@ -44,7 +44,7 @@ If another session has uncommitted work in the repo, leave it alone. Never run `
 The file takes CData's slug, and the post's URL becomes `/blog/{slug}`. CData's slug was written for CData's blog, where the product context is implied. Check it against this site's rules:
 
 - **It stands alone.** A reader who has never heard of CData can tell what the post is about (2026-10-26: `muse` became `connect-business-apps-meta-muse`).
-- **It carries the primary keyword** the post's title and H1 target, the way `/write-post` 1b puts it in the slug.
+- **It carries the primary keyword** the post's title and H1 target, the way `/blog-new` 1b puts it in the slug.
 - **No year** unless the post is about a dated thing (`mcp-2026-07-28-release-explained` names a release). Evergreen posts lost their years on 2026-11-09, so a refresh only changes the title.
 - **Short and plain**: 3-6 lowercase words with hyphens, no stop words or filler (`the`, `a`, `how-to-` when the keyword doesn't need it), and no `cdata` unless CData's product is the subject (`litellm-vs-cdata-connect-ai`).
 - **No collision** with an existing file in `src/content/blog/` or a key in `astro.config.mjs` `redirects`.
@@ -86,7 +86,7 @@ Follow the skill's workflow through step 3, its preview (`npm run diagrams -- <s
 
 ## 6. Memes, where a joke fits
 
-Run `/write-post`'s **Meme generation step** (format rotation, a fresh `templates` sample, never a format from memory or the off-the-table list) for 1-2 memes per post. Each one jokes about a specific line in the post and sits after the point it's about, never in the first screen. If no joke fits, skip it and say so. The joke is never on CData, its customers or Joe's coworkers.
+Run `/blog-new`'s **Meme generation step** (format rotation, a fresh `templates` sample, never a format from memory or the off-the-table list) for 1-2 memes per post. Each one jokes about a specific line in the post and sits after the point it's about, never in the first screen. If no joke fits, skip it and say so. The joke is never on CData, its customers or Joe's coworkers.
 
 ## 7. Thumbnail in the site's look
 

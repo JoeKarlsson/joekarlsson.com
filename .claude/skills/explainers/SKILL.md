@@ -1,6 +1,6 @@
 ---
 name: explainers
-description: Make paper-collage stop-motion explainers for joekarlsson.com posts and Joe's videos, the pasteup look - a flat color field, black-and-white cut-out photos with a paper keyline and soft shadow, built from empty one piece at a time on twos, with a real-type label last. Use in /write-post's animation phase, or when Joe asks for an animation, an animated explainer, a collage, a Vox-style clip, b-roll for a video, or "make this move".
+description: Make paper-collage stop-motion explainers for joekarlsson.com posts and Joe's videos, the pasteup look - a flat color field, black-and-white cut-out photos with a paper keyline and soft shadow, built from empty one piece at a time on twos, with a real-type label last. Use in /blog-new's animation phase, or when Joe asks for an animation, an animated explainer, a collage, a Vox-style clip, b-roll for a video, or "make this move".
 ---
 
 # Collage explainers
