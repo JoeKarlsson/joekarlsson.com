@@ -24,6 +24,7 @@ videos:
       - { at: '11:40', name: 'Digital humanities needs developers' }
       - { at: '12:48', name: 'A Bechdel Test for code' }
       - { at: '13:35', name: 'Links and questions' }
+mastheadImage: '/images/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/masthead-f5107eff.webp'
 ---
 
 What do The Social Network, Lord of the Rings, Harry Potter and Citizen Kane have in common? They're some of the most beloved films of all time, and none of them pass the Bechdel Test. My sister Laurel Karlsson and I built bechdel.io to check film scripts for it automatically, and this talk is how it works and what we learned. Laurel is an American Studies scholar and has used the code in her research. This recording is the two of us at MongoDB World 2020.

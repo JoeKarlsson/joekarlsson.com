@@ -1777,6 +1777,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Sharon_Cinema_Herzliya_1958_Beit_HaRishonim_10210.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Sharon_Cinema_Herzliya_1958_Beit_HaRishonim_10210.jpg"
 		},
+		"inset": 1,
 		"look": "taped",
 		"alt": "A packed movie theater audience watching the screen",
 		"focus": 0.5,

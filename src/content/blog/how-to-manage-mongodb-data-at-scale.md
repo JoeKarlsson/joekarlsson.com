@@ -18,6 +18,7 @@ marginNotes:
     at: 'archive the older readings to an S3 bucket with Atlas Data Lake'
     text: 'In June 2022 MongoDB renamed the Atlas Data Lake query engine to Atlas Data Federation.'
     date: 'Jun 2022'
+mastheadImage: '/images/blog/how-to-manage-mongodb-data-at-scale/masthead-e85c286f.webp'
 ---
 
 This post grew out of my talk Save the World (and Money) with MongoDB Data Lakes, which I gave at Conf42 Cloud Native 2021. Data centers are expensive, and they're not very good for the environment.
