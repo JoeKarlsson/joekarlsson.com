@@ -1,6 +1,6 @@
 ---
 import { inlineMarkdown } from '../../utils/inline-markdown';
-import { annotate, checkAllPlaced } from '../../utils/project-margin-notes';
+import { annotate, checkAllPlaced, parseProjectNotes } from '../../utils/project-margin-notes';
 import { ARTICLE_HEADING, META, MORE_LINK, PRIMARY_BUTTON, SECTION_HEADING } from '../../utils/ui';
 import { Code } from 'astro:components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -90,12 +90,13 @@ if (madeDiagram && !diagram)
 	throw new Error(`${project.title}'s diagram ${madeDiagram.src} isn't in public/`);
 
 // Margin notes beside the statement, supporting text and How it's made, numbered in page order
-const placed = { count: 0, used: new Set<NonNullable<ProjectPage['marginNotes']>[number]>() };
-const introHtml = await annotate(page.intro, page.marginNotes, placed);
+const marginNotes = parseProjectNotes(page.slug, page.marginNotes);
+const placed = { count: 0, used: new Set<(typeof marginNotes)[number]>() };
+const introHtml = await annotate(page.intro, marginNotes, placed);
 const supportingHtml =
-	page.supporting && (await annotate(page.supporting.text, page.marginNotes, placed));
-const madeHtml = page.made && (await annotate(page.made.text, page.marginNotes, placed));
-checkAllPlaced(page.slug, page.marginNotes, placed);
+	page.supporting && (await annotate(page.supporting.text, marginNotes, placed));
+const madeHtml = page.made && (await annotate(page.made.text, marginNotes, placed));
+checkAllPlaced(page.slug, marginNotes, placed);
 
 // Like a blog post (BlogPost.astro), text keeps to one centered reading column and
 // pictures, embeds and grids break out to the article's full width (prose wide-media). On

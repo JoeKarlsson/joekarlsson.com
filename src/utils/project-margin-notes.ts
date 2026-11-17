@@ -3,33 +3,26 @@ import { toHtml } from 'hast-util-to-html';
 import rehypeMarginNotes from '../plugins/rehype-margin-notes.mjs';
 import { localImageSize } from './image-size.mjs';
 import { inlineMarkdown } from './inline-markdown';
+import { projectMarginNotes, type ProjectMarginNote } from './margin-notes-schema';
+import { straight } from '../plugins/rehype-margin-notes.mjs';
 
-// A project page's margin notes (src/data/projects.ts): the post kinds (content.config.ts's
-// marginNotes), plus a `picture`, a small captioned photo beside the paragraph holding `at`
-export type ProjectMarginNote = {
-	type: 'quote' | 'term' | 'update' | 'see' | 'exhibit' | 'aside' | 'picture';
-	at: string;
-	text: string;
-	by?: string;
-	url?: string;
-	term?: string;
-	date?: string;
-	post?: string;
-	title?: string;
-	image?: string;
-	alt?: string;
-};
-
+// Matched the way the plugin matches a post's text: tags and entities out, quotes straightened
 const plain = (s: string) =>
-	s
-		.replace(/<[^>]+>/g, '')
-		.replace(/&amp;/g, '&')
-		.replace(/&quot;/g, '"')
-		.replace(/&lt;/g, '<')
-		.replace(/&gt;/g, '>')
-		.replace(/[‘’]/g, "'")
-		.replace(/[“”]/g, '"')
-		.replace(/\u00A0/g, ' ');
+	straight(
+		s
+			.replace(/<[^>]+>/g, '')
+			.replace(/&amp;/g, '&')
+			.replace(/&quot;/g, '"')
+			.replace(/&lt;/g, '<')
+			.replace(/&gt;/g, '>'),
+	);
+
+/** A project's notes, checked like a post's front matter: a quote without `by` fails the build. */
+export function parseProjectNotes(slug: string, notes: unknown = []): ProjectMarginNote[] {
+	const parsed = projectMarginNotes.safeParse(notes);
+	if (!parsed.success) throw new Error(`work/${slug} marginNotes: ${parsed.error.message}`);
+	return parsed.data;
+}
 
 /**
  * One section's paragraphs as HTML, each led by its margin notes the way a post's are
@@ -48,7 +41,7 @@ export async function annotate(
 		mine.forEach((n) => placed.used.add(n));
 		const pictures = await Promise.all(
 			mine
-				.filter((n) => n.type === 'picture')
+				.filter((n): n is Extract<ProjectMarginNote, { type: 'picture' }> => n.type === 'picture')
 				.map(async (n) => ({
 					type: 'element' as const,
 					tagName: 'p',

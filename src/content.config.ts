@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { glob } from 'astro/loaders';
 import { BLOG_CATEGORIES, EMPLOYERS } from './utils/categories';
 import { curlyApostrophes } from './utils/curly-apostrophes.mjs';
+import { marginNotes } from './utils/margin-notes-schema';
 
 // Text shown as written, curled once here so every page, card and feed gets “” and ’
 const prose = z.string().transform(curlyApostrophes);
@@ -17,54 +18,6 @@ const shareTitle = z.string().max(SHARE_TITLE_MAX).transform(curlyApostrophes).o
 // the page heading keeps the full title (tests/content-schema.test.ts enforces this).
 export const SEO_TITLE_MAX = 45;
 const seoTitle = z.string().max(SEO_TITLE_MAX).transform(curlyApostrophes).optional();
-
-// Notes in the right margin tied to a short phrase of the text, `at` (rehype-margin-notes.mjs).
-// A quote needs `by` (and `url` for its source), an update its `date` ("Oct 2026"), a
-// see-also its `post` (a blog slug, or reviews/x, newsletter/x, talks/x, or work/x with a
-// `title`), an exhibit an `image` with `alt` or just a number in `text`, an aside an optional
-// source `url`. Posts, talks, newsletter issues and reviews all take them.
-export const marginNotes = z
-	.array(
-		z.discriminatedUnion('type', [
-			z.object({
-				type: z.literal('quote'),
-				at: z.string(),
-				text: z.string(),
-				by: z.string(),
-				url: z.url().optional(),
-			}),
-			z.object({
-				type: z.literal('term'),
-				at: z.string(),
-				text: z.string(),
-				term: z.string().optional(),
-			}),
-			z.object({ type: z.literal('update'), at: z.string(), text: z.string(), date: z.string() }),
-			z.object({
-				type: z.literal('see'),
-				at: z.string(),
-				text: z.string(),
-				post: z.string(),
-				title: z.string().optional(),
-			}),
-			z
-				.object({
-					type: z.literal('exhibit'),
-					at: z.string(),
-					text: z.string(),
-					image: z.string().optional(),
-					alt: z.string().optional(),
-				})
-				.refine((n) => !n.image || n.alt, 'an exhibit picture needs alt text'),
-			z.object({
-				type: z.literal('aside'),
-				at: z.string(),
-				text: z.string(),
-				url: z.url().optional(),
-			}),
-		]),
-	)
-	.optional();
 
 const postSchema = z.object({
 	title: prose,

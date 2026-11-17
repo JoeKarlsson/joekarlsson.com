@@ -1,5 +1,5 @@
 import { curlEveryString } from '../utils/curly-apostrophes.mjs';
-import type { ProjectMarginNote } from '../utils/project-margin-notes';
+import type { ProjectMarginNote } from '../utils/margin-notes-schema';
 
 // A gallery item: a hover-to-play clip when `video` is set, otherwise just the
 // `poster` as a still image.
