@@ -268,6 +268,7 @@
 	@apply cursor-pointer font-sans text-base text-pink;
 }
 .prose code {
+	/* design-ok: inline code, the one place mono belongs */
 	@apply font-mono text-paper bg-surface-3 px-1.5 py-0.5 rounded-sm;
 	font-size: 0.8em;
 	/* A long identifier breaks instead of running off a phone's edge */
@@ -298,7 +299,7 @@
 pre.astro-code {
 	background-color: var(--color-surface-2) !important;
 }
-/* Shiki sets some tokens in italic, and JetBrains Mono loads no italic face: draw them
+/* design-ok: about the code font. Shiki sets some tokens in italic, and JetBrains Mono loads no italic face: draw them
    upright instead of letting the browser slant the roman */
 pre.astro-code {
 	font-synthesis-style: none;
@@ -626,7 +627,7 @@ pre.astro-code {
 	clip-path: inset(0);
 }
 .spoiler-frame::after {
-	@apply pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ink/80 px-4 py-2 text-sm font-semibold text-paper;
+	@apply pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-ink px-4 py-2 text-sm font-semibold text-paper;
 	content: 'Show spoiler' / '';
 }
 /* the picture's zoom-in cursor waits until it's shown: the first click shows, it doesn't enlarge */
@@ -669,6 +670,7 @@ pre.astro-code {
    scroll in CSS where the browser can; reading-context.ts and ArticleFrame's script set it
    elsewhere. Same ranges as their readingProgress math: 0 as the text's top reaches the
    bar, 1 once its bottom is on screen */
+/* design-ok: the reading line tracks how far you've read; nothing fades or slides in */
 @supports (animation-timeline: view()) {
 	body {
 		timeline-scope: --post, --post-body;
@@ -828,6 +830,7 @@ header nav .sticker {
 }
 @media (hover: hover) {
 	.prose a:not(.heading-anchor, :has(img, picture, video)) {
+		/* design-ok: a hard-edged sweep of solid pink on hover, not a visible blend */
 		background: linear-gradient(
 				100deg,
 				#ff4fd8 calc(var(--highlight) - 2%),
@@ -1207,7 +1210,8 @@ header nav .sticker {
 	@apply bg-pink px-0.5 text-ink;
 }
 .prose .line[data-note].is-lit {
-	background-color: rgb(255 79 216 / 0.2);
+	/* The pink at 20% over the page black the code block shows, as one solid color */
+	background-color: #33102b;
 }
 .prose .code-note.is-lit {
 	@apply text-paper;
