@@ -18,11 +18,26 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/frankenstein-2025/'
 poster: '/images/reviews/frankenstein-2025/poster.webp'
 heroImage: '/images/reviews/frankenstein-2025/backdrop.webp'
 heroAlt: 'Oscar Isaac as Victor Frankenstein, bent over a body on a slab in a candlelit stone lab.'
+marginNotes:
+  - type: aside
+    at: Guillermo's production design is top-notch
+    text: 'The Academy agreed: it won Best Production Design, plus Costume Design and Makeup and Hairstyling, from nine nominations.'
+    url: https://en.wikipedia.org/wiki/Frankenstein_(2025_film)
+  - type: see
+    at: Del Toro remains undefeated
+    text: 'His other gothic house of horrors: Crimson Peak (2015).'
+    post: reviews/crimson-peak
+  - type: aside
+    at: Jacob Elordi I thought did okay
+    text: Okay enough for a Best Supporting Actor nomination.
+    url: https://en.wikipedia.org/wiki/Frankenstein_(2025_film)
 ---
 
 The least subtle screenplay ever made, but the production design goes so hard I don't even care.
 
 I liked this more than I thought I would. It's an overly indulgent Guillermo del Toro film with lots of detailed creature dissection and biology, which is exactly what you'd expect from him. I was on board for all of it - the gross anatomy, the meticulous creature design, the obsessive attention to how bodies work and fail. That's del Toro's wheelhouse and he delivers.
+
+![An engraving of Victor fleeing a lab as his creature sits up on the floor beside a skeleton.](/images/reviews/frankenstein-2025/the-1831-editions-frontispiece-wikimedia-commons.webp "margin: The 1831 edition's frontispiece. Wikimedia Commons, public domain.")
 
 The screenplay is one of the least subtle I've ever seen. At the end, Jacob Elordi's ||creature literally tells Oscar Isaac's Victor Frankenstein, "You're the monster,"|| just in case you somehow missed the entire point of the 200-year-old novel. It's almost hilariously on-the-nose, but you know what? It still works.
 
@@ -30,6 +45,8 @@ The screenplay is one of the least subtle I've ever seen. At the end, Jacob Elor
 _William, to Victor._
 
 I did pick up on a strong thread of Christian pro-life hypocrisy in this watch. It felt like an allegory for someone who forces a birth that no one wanted, then just abuses and neglects what they created. They want life for the sake of life without dealing with the consequences of that choice. And then when they do have to face those consequences, they react with violence and rejection. I don't know if that's the intended read, but that's what I took away this time, and it made the whole thing feel urgently relevant.
+
+![A curly-haired man in a loose white shirt looks back over his shoulder in a candlelit stone lab, a body strapped to a table beside him and a huge Medusa head carved on the wall.](/images/reviews/frankenstein-2025/oscar-isaacs-victor-in-his-lab.webp "margin: Oscar Isaac's Victor in his lab, under a stone Medusa.")
 
 As always, Guillermo's production design is top-notch. The gothic laboratory, the creature's physicality, the period detail - it's all gorgeous and tactile and feels fully realized. Del Toro remains undefeated when it comes to making things look incredible.
 

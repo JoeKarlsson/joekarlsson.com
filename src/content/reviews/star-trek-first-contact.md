@@ -25,7 +25,14 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/star-trek-first-contact/
 poster: '/images/reviews/star-trek-first-contact/poster.webp'
 heroImage: '/images/reviews/star-trek-first-contact/backdrop.webp'
 heroAlt: 'A starship firing blue beams across the vast, glowing, circuit-covered hull of a Borg cube in space.'
+marginNotes:
+  - type: aside
+    at: Frakes really directed the shit out of this movie
+    text: It was his feature directing debut, and he also plays Riker.
+    url: https://en.wikipedia.org/wiki/Star_Trek:_First_Contact
 ---
+
+![A pale, bald woman in a black ribbed bodysuit with cables running from her shoulders stands in a dim machine-filled chamber.](/images/reviews/star-trek-first-contact/alice-krige-as-the-borg-queen.webp 'margin: Alice Krige as the Borg Queen.')
 
 Frakes really directed the shit out of this movie. It looks incredible, and I’d even go so far to say that the aesthetics of the Borg in this film directly influenced the look of the real world in [The Matrix](/reviews/the-matrix/).
 

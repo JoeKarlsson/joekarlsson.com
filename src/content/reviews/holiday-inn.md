@@ -25,9 +25,20 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/holiday-inn/'
 poster: '/images/reviews/holiday-inn/poster.webp'
 heroImage: '/images/reviews/holiday-inn/backdrop.webp'
 heroAlt: 'Bing Crosby and Fred Astaire in suits sitting beside two women in a black-and-white publicity photo.'
+marginNotes:
+  - type: aside
+    at: The Abraham Lincoln number
+    text: '"Abraham" is performed in blackface. Some TV broadcasts have cut it since the 1980s.'
+    url: https://en.wikipedia.org/wiki/Holiday_Inn_(film)
+  - type: aside
+    at: they knew they had a banger with that song
+    text: '"White Christmas" won the 1943 Oscar for Best Original Song, and the 1954 film was made off its success.'
+    url: https://en.wikipedia.org/wiki/Holiday_Inn_(film)
 ---
 
 A Christmas movie about every holiday, including one particularly memorable one we don't celebrate anymore... Cough cough, Abraham Lincoln's birthday, cough cough.
+
+![A theater marquee reading Holiday Inn starring Bing Crosby and Fred Astaire above a busy sidewalk.](/images/reviews/holiday-inn/holiday-inns-premiere-at-the-paramount.webp "margin: Holiday Inn's premiere at the Paramount, Times Square, 1942. Wikimedia Commons, public domain.")
 
 I watched this for the obvious connection to White Christmas - Holiday Inn is the loose inspiration, and you can tell they knew they had a banger with that song because they spun an entire movie out of it later. They were absolutely right. White Christmas is iconic.
 

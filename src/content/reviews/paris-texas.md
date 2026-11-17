@@ -25,6 +25,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/paris-texas/'
 poster: '/images/reviews/paris-texas/poster.webp'
 heroImage: '/images/reviews/paris-texas/backdrop.webp'
 heroAlt: 'Nastassja Kinski in a pink mohair sweater, looking straight ahead in a pink room.'
+marginNotes:
+  - type: aside
+    at: why so many people consider this a masterpiece
+    text: It won the Palme d'Or at Cannes in 1984, plus the FIPRESCI and Ecumenical Jury prizes.
+    url: https://en.wikipedia.org/wiki/Paris,_Texas_(film)
+  - type: aside
+    at: gorgeously shot movie about identity
+    text: Robby Müller shot it, a regular Wenders collaborator. Sam Shepard wrote it, with an adaptation by L. M. Kit Carson.
+    url: https://en.wikipedia.org/wiki/Paris,_Texas_(film)
 ---
 
 Paris, Texas is [The Searchers](/reviews/the-searchers/) ||if John Wayne decided at the end that actually, he's not equipped to bring anyone home, including himself||.
@@ -44,9 +53,13 @@ But maybe that's the point. Maybe the film isn't endorsing his choices - maybe i
 
 Harry Dean Stanton's performance is impressive, but it feels overly gentle for a character who should be filled with so much rage. I could feel the grief and sadness radiating from him, but I didn't feel the violence and anger bubbling underneath. For a man who did what he did, there should be more darkness visible in that performance. The gentleness feels like it's letting him off the hook.
 
+![Harry Dean Stanton, bearded, in a red cap and a dusty pinstripe suit and tie, stands in front of pale desert rock spires.](/images/reviews/paris-texas/travis-walks-out-of-the-desert.webp "margin: Travis walks out of the desert, in Criterion's trailer.")
+
 The structure works like a parable - a man who literally vanishes into the desert for four years, comes back like some kind of wandering ghost, and has to reckon with the consequences of his actions. Except he doesn't really reckon with them. He just creates a new wound and leaves again.
 
 I can understand why so many people consider this a masterpiece. I also feel utterly repulsed by the characters in it, which is probably the point. It's a deconstruction of Boomer parenting in the 1980s, a rejection of the Leave It to Beaver fantasy of the perfect American father. Travis is what's underneath that myth - absence, violence, ego, and ultimately more absence.
+
+![A small black steel replica of the Eiffel Tower topped with a giant red cowboy hat, against a blue sky with white clouds.](/images/reviews/paris-texas/the-cowboyhatted-eiffel-tower-in-paris.webp 'margin: The cowboy-hatted Eiffel Tower in Paris, Texas, by Carol M. Highsmith. Wikimedia Commons, public domain.')
 
 The title itself is about identity and misunderstanding. Paris, Texas is often mistaken for Paris, France - people pretending to be something they're not, aspiring to something more cultured or sophisticated than what they actually are. Travis is doing the same thing - trying to put on the appearance of a father while fundamentally misunderstanding what that actually means or requires.
 

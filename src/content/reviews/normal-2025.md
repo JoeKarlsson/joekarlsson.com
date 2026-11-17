@@ -26,6 +26,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/normal-2025/'
 poster: '/images/reviews/normal-2025/poster.webp'
 heroImage: '/images/reviews/normal-2025/backdrop.webp'
 heroAlt: "Bob Odenkirk in a sheriff's jacket holding his hands up in a snowy parking lot full of cars."
+marginNotes:
+  - type: aside
+    at: John Wick is fun. Nobody is fun.
+    text: "Same writer: Derek Kolstad wrote John Wick and Nobody, and wrote Normal's screenplay from a story with Odenkirk."
+    url: https://en.wikipedia.org/wiki/Normal_(2025_film)
+  - type: aside
+    at: takes place in my native Minnesota
+    text: Set in Minnesota, shot in Winnipeg.
+    url: https://en.wikipedia.org/wiki/Normal_(2025_film)
 ---
 
 Ninety minutes, simple story, killer kills. Give me more of these. Too bad this is copaganda.
@@ -35,6 +44,8 @@ I love these weird mid-budget action movies Bob Odenkirk’s been making lately.
 I always struggle with these films though. The one man army trope is pretty toxic to most American men, and I vehemently disagree with the messaging. I also hate that this movie is about a lovable cop - which, coming from Minnesota where we have horrible police brutality problems (George Floyd, Philando Castile, cops helping ICE during the federal ICE occupation in Minneapolis last winter), the lovable Minnesota cop does not exist. It’s unfortunate that’s the character.
 
 But despite all that, this is a fun movie. John Wick is fun. Nobody is fun. Normal is fun. The formula works. The kills are a blast, the story is simple, and I love how tight it is. Ninety minutes. Hell yeah. I always want more ninety minute movies, and this brings everything I love - tight screenplay, killer performance from Bob Odenkirk, and it takes place in my native Minnesota.
+
+![A blue "Welcome to Normal" sign beside a snowy rural highway under a gray sky.](/images/reviews/normal-2025/the-welcome-sign-for-normal-minnesota.webp 'margin: The welcome sign for Normal, Minnesota.')
 
 The MN representation mostly worked. Light on the accents - I actually could have used a bit more. A town like Normal has some intense Minnesota accents. But the film has some [Fargo](/reviews/fargo-1/) energy to it, exposing the coastal idea of what a “normal” Minnesotan is and then turning it over to show the darkness underneath. Similar to what the Coens did.
 

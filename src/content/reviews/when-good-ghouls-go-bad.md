@@ -31,6 +31,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/when-good-ghouls-go-bad/
 poster: '/images/reviews/when-good-ghouls-go-bad/poster.webp'
 heroImage: '/images/reviews/when-good-ghouls-go-bad/backdrop.webp'
 heroAlt: 'Christopher Lloyd in pale ghoul makeup leaning close to a man.'
+marginNotes:
+  - type: aside
+    at: even though it's just for a Fox TV movie
+    text: It came from an R. L. Stine idea and aired on Fox Family on October 21, 2001.
+    url: https://en.wikipedia.org/wiki/When_Good_Ghouls_Go_Bad
 ---
 
 This was a surprisingly tight, well-paced, well-executed TV movie and one of my favorite cozy Halloween watches of the year.

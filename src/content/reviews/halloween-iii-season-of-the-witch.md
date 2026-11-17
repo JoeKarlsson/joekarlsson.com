@@ -25,7 +25,26 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/halloween-iii-season-of-
 poster: '/images/reviews/halloween-iii-season-of-the-witch/poster.webp'
 heroImage: '/images/reviews/halloween-iii-season-of-the-witch/backdrop.webp'
 heroAlt: "Three trick-or-treaters in witch, skeleton and jack-o'-lantern masks holding out their bags in the dark."
+marginNotes:
+  - type: aside
+    at: converting the Halloween franchise into an anthology series
+    text: Carpenter and Debra Hill pictured Halloween as a Twilight Zone-style anthology, one new story each Halloween night; Wallace said this was meant to be the first.
+    url: https://en.wikipedia.org/wiki/Halloween_III:_Season_of_the_Witch
+  - type: aside
+    at: It's plotted really poorly
+    text: Nigel Kneale, the Quatermass writer, wrote the first script, built on psychological shocks. He said De Laurentiis wanted more gore and took his name off; Tommy Lee Wallace rewrote it.
+    url: https://en.wikipedia.org/wiki/Halloween_III:_Season_of_the_Witch
+  - type: aside
+    at: I loved the Silver Shamrock jingle
+    text: It's set to 'London Bridge Is Falling Down.'
+    url: https://en.wikipedia.org/wiki/Halloween_III:_Season_of_the_Witch
+  - type: aside
+    at: Jamie Lee Curtis made a surprise cameo
+    text: 'Voice only, uncredited: the Santa Mira curfew announcer and the telephone operator.'
+    url: https://en.wikipedia.org/wiki/Halloween_III:_Season_of_the_Witch
 ---
+
+![Rubber Halloween masks on a store shelf: orange jack-o'-lanterns, white skulls and a green witch.](/images/reviews/halloween-iii-season-of-the-witch/silver-shamrocks-pumpkin-skull-and-witch.webp "margin: Silver Shamrock's pumpkin, skull and witch masks, in Shout! Studios' trailer.")
 
 I should love Halloween III more since it's about techno-corporate witchcraft, which is a genuinely fun concept. But this is not a good movie and I don't think it's aged particularly well.
 

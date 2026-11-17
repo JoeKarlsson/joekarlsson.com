@@ -25,6 +25,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/minions-monsters-2026/'
 poster: '/images/reviews/minions-monsters-2026/poster.webp'
 heroImage: '/images/reviews/minions-monsters-2026/backdrop.webp'
 heroAlt: 'A crowd of yellow Minions in overalls, one in the middle filming with an old movie camera.'
+marginNotes:
+  - type: aside
+    at: crash a 1920s Western shoot
+    text: Specifically 1927, the year Hollywood moved from silent film to sound.
+    url: https://en.wikipedia.org/wiki/Minions_%26_Monsters
+  - type: aside
+    at: George Lucas voicing himself
+    text: He recorded it during a visit to the studio in France.
+    url: https://en.wikipedia.org/wiki/Minions_%26_Monsters
 ---
 
 I hadn't thought about the Minions since high school, and I did not expect them to come back as a silent-comedy history lesson.
@@ -36,6 +45,10 @@ My last Minions-adjacent trip to a theater was Despicable Me, somewhere around h
 The whole thing is a love letter to the birth of Hollywood. The Minions crash a 1920s Western shoot, accidentally become silent-film stars, and the movie turns into a giddy tour of early cinema.
 
 ![A bandit in a black cowboy hat, a sack of loot in his fist, runs screaming down a 1920s street with a tide of Minions rolling after him and over him.](/images/reviews/minions-monsters-2026/bandit-outrunning-the-minions.webp)
+
+![A wild-haired man raises a gloved hand beside a gleaming metal robot woman while another man looks on.](/images/reviews/minions-monsters-2026/rotwang-and-the-robot-on-the.webp 'margin: Rotwang and the robot on the set of Metropolis, 1926. Wikimedia Commons, public domain.')
+
+![A bandaged mummy lurches out of a sarcophagus in an Egyptian tomb while a line of Minions in pith helmets holds torches.](/images/reviews/minions-monsters-2026/a-mummy-wakes-up-on-a.webp 'margin: A mummy wakes up on a row of Minions in pith helmets.')
 
 Silent slapstick in the Keaton and Chaplin tradition, a museum framing device stuffed with the Metropolis robot and George Lucas voicing himself from inside a glass case, and eventually a full pivot into a Universal monster movie, which is the perfect thing for a Universal picture to do.
 

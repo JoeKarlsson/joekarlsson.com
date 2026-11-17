@@ -25,6 +25,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/tron-ares/'
 poster: '/images/reviews/tron-ares/poster.webp'
 heroImage: '/images/reviews/tron-ares/backdrop.webp'
 heroAlt: 'A rider in a black suit and helmet among glowing red light trails.'
+marginNotes:
+  - type: see
+    at: Arnold did it in T2
+    text: My review of Terminator 2, the robot performance to beat.
+    post: reviews/terminator-2-judgment-day
 ---
 
 Listen, I am reluctantly a cyberpunk Tron guy. As a millennial who came of age during an optimistic time in tech, the aesthetics of Tron Legacy hit hard when that came out in 2010. I was too stoned to remember the plot, but I played that Daft Punk soundtrack endlessly. Tron Legacy remains one of the coolest looking and sounding films of all time despite its horrible, terrible, boring flaws.
@@ -38,6 +43,8 @@ But here's what made me angry: in 2025, mega-corporation Disney is trying to con
 This movie does have things to say -it's just that they're just pro-big tech, pro-AI, pro-billionaire. Also, Gary Vaynerchuk is in this movie. If that gives you any idea of what this film represents.
 
 The plot is not good. Some of the ADR is Madame Web bad - lips aren't moving but words are coming out, lots of crazy cutting to mask terrible ADR. That said, I wasn't there for the plot. I was there for a two-hour Nine Inch Nails electronic dance bio-jazz soundtrack, and I mostly got it. It was basically an extended chase sequence.
+
+![An older, white-bearded Jeff Bridges in a glowing white robe smiles at a figure in a black suit with red lights, seen from behind.](/images/reviews/tron-ares/jeff-bridges-as-kevin-flynn-in.webp "margin: Jeff Bridges as Kevin Flynn, in Disney's trailer.")
 
 The most shocking part was how the pacing absolutely fell off a cliff the second Jeff Bridges showed up on screen. Why was that so boring? Bridges was at least bringing some fun and levity to counter Jared Leto's absolutely flat performance. But jesus - that scene killed any momentum the film had.
 

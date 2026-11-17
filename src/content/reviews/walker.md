@@ -27,4 +27,6 @@ heroImage: '/images/reviews/walker/backdrop.webp'
 heroAlt: 'Ed Harris in a wide-brimmed black hat and high collar against an orange sunset sea.'
 ---
 
+![A thin young man in a dark frock coat and bow tie, leaning on a pedestal in a studio portrait.](/images/reviews/walker/the-real-william-walker-photographed-by.webp 'margin: The real William Walker, photographed by Mathew Brady. Wikimedia Commons, public domain.')
+
 I don’t think a movie like this will ever get created ever again. If you hate Ronald Reagan, this is the movie for you. This is a big studio film that’s angry, surreal, and violent.

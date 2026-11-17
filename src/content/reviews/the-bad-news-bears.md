@@ -25,6 +25,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-bad-news-bears/'
 poster: '/images/reviews/the-bad-news-bears/poster.webp'
 heroImage: '/images/reviews/the-bad-news-bears/backdrop.webp'
 heroAlt: 'Walter Matthau and young players in Bears uniforms yelling from behind a chain-link dugout fence.'
+marginNotes:
+  - type: see
+    at: Walter Matthau is perfect casting
+    text: 'Matthau being grumpy in Minnesota: my review of Grumpy Old Men.'
+    post: reviews/grumpy-old-men
 ---
 
 They don't let kids be mean in movies anymore and we are worse for it.

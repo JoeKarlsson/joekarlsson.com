@@ -28,11 +28,11 @@ mastheadImage: '/images/blog/cloud-centers-of-excellence-part-2-governance-secur
 
 **About This Series:** This is Part 2 of our 5-part series on Cloud Centers of Excellence (CCOEs). If you missed it, start with **Part 1: Introduction and Organizational Structure** to understand the foundational concepts.
 
-- [**Part 1**: Introduction and Organizational Structure](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance)
+- [**Part 1**: Introduction and Organizational Structure](/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/)
 - **Part 2** (This post): Governance, Security, and Compliance
-- [**Part 3**: FinOps, Cost Management, and Real-World Case Studies](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies)
-- [**Part 4**: Implementation Best Practices and Common Pitfalls](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls)
-- [**Part 5**: The Future of CCOEs and Getting Started](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started)
+- [**Part 3**: FinOps, Cost Management, and Real-World Case Studies](/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/)
+- [**Part 4**: Implementation Best Practices and Common Pitfalls](/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/)
+- [**Part 5**: The Future of CCOEs and Getting Started](/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/)
 
 Each post builds on the previous ones, so read them in order for the complete CCOE implementation roadmap.
 
@@ -90,4 +90,4 @@ Done this way, compliance goes past checking boxes: it gives teams room to build
 
 In Part 3 of this series, we'll explore how CCOEs have evolved to tackle the challenge that has overtaken security as the #1 cloud concern: cost management. We'll cover FinOps practices, examine real-world case studies from companies like Capital One and Commerzbank, and show how mature CCOEs balance innovation with financial discipline.
 
-[**Continue to Part 3: FinOps, Cost Management, and Case Studies**](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies)
+[**Continue to Part 3: FinOps, Cost Management, and Case Studies**](/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/)

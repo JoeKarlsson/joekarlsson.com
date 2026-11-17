@@ -31,6 +31,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jupiter-ascending/'
 poster: '/images/reviews/jupiter-ascending/poster.webp'
 heroImage: '/images/reviews/jupiter-ascending/backdrop.webp'
 heroAlt: 'Poster art of Channing Tatum and Mila Kunis standing on a futuristic city ledge before a giant Jupiter, with spaceships flying past.'
+marginNotes:
+  - type: aside
+    at: wildly expensive
+    text: It cost $176 to $210 million and grossed $184 million in theaters.
+    url: https://en.wikipedia.org/wiki/Jupiter_Ascending
+  - type: aside
+    at: Eddie Redmayne has a much-maligned performance
+    text: Maligned enough to win the Razzie for Worst Supporting Actor, the same season he won the Best Actor Oscar for The Theory of Everything.
+    url: https://en.wikipedia.org/wiki/Jupiter_Ascending
 ---
 
 Channing Tatum plays a shirtless wolf man on roller skates and Eddie Redmayne whisper-screams about bureaucracy. This should be perfect but it's just... fine.
@@ -42,6 +51,8 @@ Channing Tatum plays a shirtless wolf man on roller skates and Eddie Redmayne wh
 _Redmayne's Balem, to Jupiter at his refinery._
 
 I want to respect this film and there are parts I really admire. This is an audacious, wildly expensive, ambitious sci-fi opera made by some of the most creative [sci-fi visionaries](/reviews/the-matrix/) of our lifetime - and yet it still feels boring and drags in places. That shouldn't be possible, but here we are.
+
+![A figure in black armor leaps through a fireball beside a lit sign reading Regency Chicago, between tall buildings at dusk.](/images/reviews/jupiter-ascending/caine-leaps-through-an-explosion-outside.webp 'margin: Caine leaps through an explosion outside the Hyatt Regency Chicago.')
 
 I know they filmed a lot of this practically. That famous Chicago gravity-surfing sequence? They spent six months capturing real light and real locations to make it feel tangible. Double Negative's David Vickery remembers flying helicopter camera rigs over Chicago before sunrise, ["waiting for that perfect 30 minutes of light."](https://www.fxguide.com/fxfeatured/shooting-and-stitching-making-jupiter-ascendings-chicago-chase/) And that effort does not translate to the final product at all.
 

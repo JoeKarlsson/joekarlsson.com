@@ -12,19 +12,23 @@ heroAlt: 'Visitors looking at a cast of the Rosetta Stone'
 canonicalUrl: 'https://www.cloudquery.io/blog/we-built-a-search-language-for-cloudquery'
 tldr: 'A "simple" search bar turned into a full domain-specific language (DSL) for cloud queries. Regex melted. Peggy rescued us. Along the way we learned more about Chomsky, compilers, and a few surprises about UX.'
 marginNotes:
-  - type: 'see'
-    at: 'support full-text search (FTS) and logical expressions'
-    text: 'The full-text search behind this bar runs on ClickHouse. We wrote up how we built it the next day.'
-    post: 'why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse'
-  - type: 'term'
-    at: 'Parsing Expression Grammars (PEGs)'
-    text: 'a grammar where alternatives are tried in order and the first match wins, so every input has at most one parse.'
-    term: 'PEG'
-  - type: 'quote'
-    at: 'We jumped from Type 3 (regex) to Type 2 (PEG.js)'
-    text: 'Peggy is the successor of PEG.js.'
-    by: "Peggy's README. PEG.js hasn't had a release since 2016"
-    url: 'https://github.com/peggyjs/peggy'
+  - type: see
+    at: support full-text search (FTS) and logical expressions
+    text: The full-text search behind this bar runs on ClickHouse. We wrote up how we built it the next day.
+    post: why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse
+  - type: term
+    at: Parsing Expression Grammars (PEGs)
+    text: a grammar where alternatives are tried in order and the first match wins, so every input has at most one parse.
+    term: PEG
+  - type: quote
+    at: We jumped from Type 3 (regex) to Type 2 (PEG.js)
+    text: Peggy is the successor of PEG.js.
+    by: Peggy's README. PEG.js hasn't had a release since 2016
+    url: https://github.com/peggyjs/peggy
+  - type: aside
+    at: still shapes how we think about parsing
+    text: Noam Chomsky, "On certain formal properties of grammars," Information and Control 2, June 1959, pp. 137-167. The paper that sorts grammars into types 0 to 3.
+    url: https://doi.org/10.1016/S0019-9958(59)90362-6
 ---
 
 _Co-authored with Christopher Duflo at CloudQuery._
@@ -143,6 +147,8 @@ This rule matches expressions like `region="us-west-2"` and builds a structured 
 ## Chomsky and Compilers
 
 By this point, it was clear: we weren't just building a search bar. We were designing a [domain-specific language (DSL)](https://en.wikipedia.org/wiki/Domain-specific_language) for querying cloud infrastructure.
+
+![Black-and-white studio portrait of a young Noam Chomsky in round clear glasses, a tweed jacket and a dark tie.](/images/blog/how-we-accidentally-invented-a-cloud-search-language/noam-chomsky-in-1961-two-years.webp 'margin: Noam Chomsky in 1961, two years after the grammar paper. Wikimedia Commons, public domain.')
 
 It turns out our journey from regex to formal grammar has deep theoretical roots. In the 1950s, linguist [Noam Chomsky developed a hierarchy of formal grammars](https://en.wikipedia.org/wiki/Chomsky_hierarchy) that still shapes how we think about parsing and language processing today.
 

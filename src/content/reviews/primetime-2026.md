@@ -25,6 +25,14 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/primetime-2026/'
 poster: '/images/reviews/primetime-2026/poster.webp'
 heroImage: '/images/reviews/primetime-2026/backdrop.webp'
 heroAlt: 'A man in a kitchen looks up at another man standing on a staircase in warm evening light.'
+marginNotes:
+  - type: term
+    at: the donors of Spermworld
+    text: Oppenheim's 2024 FX documentary about three sperm donors and the people who find them in unregulated online groups.
+  - type: aside
+    at: Bill Conradt shoots himself
+    text: Conradt was a Texas assistant district attorney. He shot himself at home on November 5, 2006, as police and an NBC crew came in; Dateline aired it in February 2007.
+    url: https://en.wikipedia.org/wiki/To_Catch_a_Predator
 ---
 
 Robert Pattinson's 2026 has been one long argument that he's the best creep in Hollywood

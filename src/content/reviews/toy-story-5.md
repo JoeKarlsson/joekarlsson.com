@@ -17,6 +17,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/toy-story-5/'
 poster: '/images/reviews/toy-story-5/poster.webp'
 heroImage: '/images/reviews/toy-story-5/backdrop.webp'
 heroAlt: 'Jessie, Buzz Lightyear and Woody standing together in front of shelves of toys.'
+marginNotes:
+  - type: see
+    at: my final Toy Story rankings
+    text: My review of Toy Story 2, still number one.
+    post: reviews/toy-story-2
 ---
 
 The theme for kids (and adults): get off your fucking iPads and get outside.
@@ -28,6 +33,8 @@ The secondary theme, aimed at the kids, is get off your fucking iPads and get ou
 I was excited to see Jessie finally have something meaningful to do in this franchise. I loved her character arc, and I was absolutely shattered by the third act reveal about Emily. It worked. I also loved the B plot with the high tech Buzz Lightyear clones.
 
 Also - great to see a dad in a Toy Story movie for once.
+
+![A green frog-shaped kids tablet with big cartoon eyes, its blue screen reading Hi., held up over an open shipping box.](/images/reviews/toy-story-5/lilypad-the-frogshaped-tablet-says-hi.webp 'margin: Lilypad, the frog-shaped tablet, says hi.')
 
 About that lily pad though. That thing needs mental health intervention and some support. Genuinely wild choice.
 

@@ -27,11 +27,32 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/kikis-delivery-service/1
 poster: '/images/reviews/kikis-delivery-service-1/poster.webp'
 heroImage: '/images/reviews/kikis-delivery-service-1/backdrop.webp'
 heroAlt: "A still from Kiki's Delivery Service (1989)"
+marginNotes:
+  - type: aside
+    at: called millennials the burnout generation
+    text: 'Anne Helen Petersen, ''How Millennials Became The Burnout Generation'', BuzzFeed News, January 5, 2019. Quote: "It’s not a temporary affliction: It’s the millennial condition."'
+    url: https://www.buzzfeednews.com/article/annehelenpetersen/millennials-burnout-generation-debt-work
+  - type: see
+    at: halfway through Julia Cameron's The Artist's Way
+    text: 'What the book has done to how I work: Ship the Ugly Pot.'
+    post: ship-the-ugly-pot
+  - type: aside
+    at: Producer Toshio Suzuki has said
+    text: 'Oona McGee, ''Studio Ghibli reveals real reason why Jiji stops talking at the end of Kiki''s Delivery Service'', SoraNews24, May 3, 2022. Quote: "So when she’s conversing with Jiji, she’s really just talking to herself."'
+    url: https://soranews24.com/2022/05/03/studio-ghibli-reveals-real-reason-why-jiji-stops-talking-at-the-end-of-kikis-delivery-service/
+  - type: see
+    at: Out of every fictional universe ever made
+    text: My first review of Kiki, from an earlier watch.
+    post: reviews/kikis-delivery-service
 ---
 
 Out of every fictional universe ever made, this is the one I'd move to.
 
+![An animated European city of pastel stone buildings with a green-roofed clock tower against a blue sky, and tiny Kiki on her broom flying past.](/images/reviews/kikis-delivery-service-1/kiki-flies-in-over-korikos-clock.webp 'margin: Kiki flies in over Koriko’s clock tower.')
+
 It's the one place out of everything anyone has ever made up where I'd actually want to live. Kiki flies into a seaside town that looks like a Europe WW2 never touched: bakeries, a clock tower, a blimp over the harbor, nobody trying to kill anybody. A world at peace is so rare in fiction. Nobody is coming for Kiki, so what goes wrong in this movie is mostly Kiki working herself too hard.
+
+![An animated girl in a pink strapless party dress and choker holds a wicker basket in a doorway, frowning.](/images/reviews/kikis-delivery-service-1/the-granddaughter-takes-the-herring-pie.webp 'margin: The granddaughter takes the herring pie at the door.')
 
 I've always read Kiki's Delivery Service as a movie about burnout, and specifically millennial burnout. Kiki is 13 and she's already living the career advice my generation grew up on: find the thing you love and make it your job. Her one gift is flying, so she turns it into a delivery service. The work she loves is care work for strangers, and the customer who matters most to her is a granddaughter who hates her grandma's herring pie and shuts the door on Kiki after she's carried it through a rainstorm and missed the party she'd been waiting for. When Tombo's friends hear the delivery girl is already working, one of them calls it admirable. Everybody around her applauds a 13-year-old for having a job, and she takes the praise as a reason to leave and get back to work.
 
@@ -52,6 +73,8 @@ Kiki is a kid and she's already learning this, even if the cabin doesn't fix her
 I'm a lot older than 13 and I'm still working on it. I think we can all learn a lesson from Kiki.
 
 Stray thoughts:
+
+![An animated father in glasses and a red sweater vest lifts his laughing daughter, who wears a red bow, high in a cozy bedroom.](/images/reviews/kikis-delivery-service-1/okino-lifts-kiki-up-one-last.webp 'margin: Okino lifts Kiki up one last time before she leaves.')
 
 - I cry at two parts of Kiki's Delivery Service every time. The first is the goodbye at the start, when Kiki asks her dad, Okino, to lift her up high like when she was little, and he can't believe how big she's gotten. You can tell he's supportive and heartbroken and wants her to stay, and it kills me.
 - The second is when Kiki ||loses the ability to talk to her cat, Jiji, and (in the original, anyway) never gets it back||. Something from her childhood is lost and never recovered. I read Jiji as her childlike wonder, and losing his voice as her finding a more adult way forward. Producer Toshio Suzuki has said Jiji is "another self" for Kiki, so I'm taking that as permission.

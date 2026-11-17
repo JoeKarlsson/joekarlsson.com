@@ -24,6 +24,18 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/silver-bullet/'
 poster: '/images/reviews/silver-bullet/poster.webp'
 heroImage: '/images/reviews/silver-bullet/backdrop.webp'
 heroAlt: 'A boy on a souped-up motorized wheelchair in a park, with a man and a girl leaning in to talk to him.'
+marginNotes:
+  - type: term
+    at: I think coked-out schlock King
+    text: Silver Bullet is King's own screenplay of his 1983 novella Cycle of the Werewolf.
+  - type: aside
+    at: People call it the werebear
+    text: Carlo Rambaldi built the suit at King's request. Dino De Laurentiis hated it and demanded changes; King and Rambaldi refused. Everett McGill, the reverend, ended up wearing it for most scenes.
+    url: https://en.wikipedia.org/wiki/Silver_Bullet_(film)
+  - type: aside
+    at: Dan Attias has said the gun shop scene
+    text: Busey was allowed to ad-lib all his lines in some takes, and King and Attias kept most of those in the final cut.
+    url: https://en.wikipedia.org/wiki/Silver_Bullet_(film)
 ---
 
 Gary Busey as a drunk uncle is the best casting I've ever heard of in my entire life.
@@ -43,6 +55,8 @@ Marty's sister Jane (Megan Follows) asks, "Well, what are we gonna do?" Marty sa
 ![Marty holding up a sheet of paper covered in letters cut out of newspapers and glued down in a ransom-note jumble.](/images/reviews/silver-bullet/marty-kill-yourself-note.webp 'spoiler')
 
 I think coked-out schlock King is my favorite version of King. He wrote this the year before [Maximum Overdrive](/reviews/maximum-overdrive/), the one [he's said he was coked out of his mind for](https://en.wikipedia.org/wiki/Maximum_Overdrive#Production).
+
+![A shaggy black creature with a bear-like snout and bared teeth against wood paneling.](/images/reviews/silver-bullet/the-werebear-up-close.webp 'margin: The werebear, up close.')
 
 The effects looked terrible. I loved them. King wanted a werewolf you could barely see, and the suit they ended up with looks like a black bear having a bad night. People call it the werebear.
 

@@ -18,6 +18,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/twin-peaks-fire-walk-wit
 poster: '/images/reviews/twin-peaks-fire-walk-with-me/poster.webp'
 heroImage: '/images/reviews/twin-peaks-fire-walk-with-me/backdrop.webp'
 heroAlt: 'Sheryl Lee in a black dress seated in a red-curtained room beside a man in a dark suit and a white statue.'
+marginNotes:
+  - type: see
+    at: Still love DL though
+    text: 'More on why: my review of David Lynch: The Art Life.'
+    post: reviews/david-lynch-the-art-life
 ---
 
 A tough watch. Still love DL though

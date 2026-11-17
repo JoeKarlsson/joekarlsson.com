@@ -13,6 +13,11 @@ canonicalUrl: 'https://www.cdata.com/blog/what-i-learned-proving-my-work-mattere
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/what-i-learned-proving-my-work-mattered).'
 tldr: 'I spent years producing content without knowing if any of it converted to actual business results. Getting read access to the CRM data - an afternoon of work I kept assuming would take weeks - changed how I understood my own impact.'
 mastheadImage: '/images/blog/proving-my-work-mattered/masthead-2b5b8f21.webp'
+marginNotes:
+  - type: term
+    at: started working for the scorecard
+    term: Goodhart's law
+    text: when a measure becomes a target, it stops being a good measure. It's named for the economist Charles Goodhart.
 ---
 
 For most of my last job, I couldn't answer the most obvious question about my work.

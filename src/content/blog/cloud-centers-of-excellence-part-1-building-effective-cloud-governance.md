@@ -35,10 +35,10 @@ marginNotes:
 **About This Series:** This is Part 1 of our full 5-part series on Cloud Centers of Excellence (CCOEs). Over the next few weeks, we'll cover how to build and run cloud governance through a CCOE. Here's what's coming:
 
 - **Part 1** (This post): Introduction and Organizational Structure
-- [**Part 2**: Governance, Security, and Compliance](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-2-governance-security-compliance)
-- [**Part 3**: FinOps, Cost Management, and Real-World Case Studies](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies)
-- [**Part 4**: Implementation Best Practices and Common Pitfalls](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls)
-- [**Part 5**: The Future of CCOEs and Getting Started](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started)
+- [**Part 2**: Governance, Security, and Compliance](/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/)
+- [**Part 3**: FinOps, Cost Management, and Real-World Case Studies](/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/)
+- [**Part 4**: Implementation Best Practices and Common Pitfalls](/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/)
+- [**Part 5**: The Future of CCOEs and Getting Started](/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/)
 
 Each post builds on the previous ones, so read them in order for the complete CCOE implementation roadmap.
 
@@ -99,4 +99,4 @@ The most effective CCOEs we've studied share common characteristics: they have s
 
 In Part 2 of this series, we'll cover the technical side of CCOEs: how they establish governance frameworks, implement security controls, and ensure compliance with regulations like GDPR, PCI DSS, and HIPAA. We'll explore real-world examples of how financial institutions and other highly regulated organizations use CCOEs to safely adopt cloud technologies while meeting strict compliance requirements.
 
-[**Continue to Part 2: Governance, Security, and Compliance**](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-2-governance-security-compliance)
+[**Continue to Part 2: Governance, Security, and Compliance**](/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/)

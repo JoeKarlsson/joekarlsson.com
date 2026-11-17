@@ -9,17 +9,15 @@ heroImage: '/images/blog/building-a-real-time-digital-graffiti-wall/thumb-b83870
 heroAlt: 'A 32 by 32 LED wall lighting up pixel by pixel as people draw a heart, a smiley face and the word HI'
 tldr: 'The Digital Graffiti Wall is an interactive art installation where audiences draw on a shared 32x32 pixel canvas in their browsers, and their artwork appears in real-time on a physical RGB LED grid. MongoDB Realm stored the pixels, with anonymous auth and atomic updates, and every client polled the grid every 5 seconds.'
 contentNotice: 'MongoDB ended support for the Realm Web SDK (later Atlas Device SDK) on September 30, 2025, so the sync code here shows how the wall worked, not code you can run today.'
-updatedDate: 2026-11-12
+updatedDate: 2026-11-17
 corrections:
+  - date: 2026-11-17
+    note: 'I said the display was WS2812B LED strips wired in a serpentine pattern and run by a microcontroller. It was a 32x32 HUB75 panel run by a Raspberry Pi with the rpi-rgb-led-matrix library.'
   - date: 2026-11-12
     note: 'The TL;DR said Realm synced pixels between clients in real time. Realm stored them; every client polled the grid every 5 seconds.'
   - date: 2026-11-12
     note: "`cell.id.split(' ')` passed the coordinates on as strings. It now maps them to numbers."
 marginNotes:
-  - type: 'term'
-    at: 'arranged in a serpentine pattern'
-    text: 'the LED strip snakes back and forth across the panel, so every other row runs right to left and the code has to flip x on those rows.'
-    term: 'Serpentine wiring'
   - type: 'quote'
     at: 'instead of MongoDB change streams'
     text: 'Change streams allow applications to access real-time data changes without the prior complexity and risk of manually tailing the oplog.'
@@ -124,7 +122,9 @@ If two people paint the same pixel at the same time, last-write-wins. At a 32x32
 
 ## The Physical Display
 
-The 32x32 grid size isn't arbitrary - it maps to standard addressable RGB LED matrices. [WS2812B](https://learn.adafruit.com/adafruit-neopixel-uberguide) LED strips arranged in a serpentine pattern create a physical display that a microcontroller drives by reading pixel state from the same MongoDB collection.
+![A square LED panel glowing in a green-to-purple gradient, propped on a desk in front of a monitor showing a terminal, with red and black wires running to it.](/images/blog/building-a-real-time-digital-graffiti-wall/the-32x32-panel-on-my-desk.webp 'margin: The 32x32 panel on my desk while I wired it up, Nov 2020.')
+
+The 32x32 grid size isn't arbitrary - it's the size of a standard HUB75 RGB LED panel. A Raspberry Pi drives the panel through an Adafruit RGB Matrix HAT with the [rpi-rgb-led-matrix](https://github.com/hzeller/rpi-rgb-led-matrix) library, reading pixel state from the same MongoDB collection.
 
 The data flow is simple: browser writes pixel to database, LED controller reads pixel from database, physical LED updates. The 5-second polling interval means there's a slight delay between drawing and physical display, but at an event with 50+ people drawing simultaneously, the wall is constantly changing anyway.
 

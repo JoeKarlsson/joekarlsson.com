@@ -10,15 +10,20 @@ heroAlt: 'A pilot in the cockpit working through a checklist before takeoff'
 contentNotice: false
 tldr: 'A checklist I give my engineering team covering everything from test coverage to accessibility audits to help answer the question "when is this project actually done?"'
 marginNotes:
-  - type: 'quote'
-    at: 'minimum code coverage of 85%'
-    text: 'The trouble is that high coverage numbers are too easy to reach with low quality testing.'
-    by: 'Martin Fowler, TestCoverage, 2012'
-    url: 'https://martinfowler.com/bliki/TestCoverage.html'
-  - type: 'term'
-    at: 'not dogmatic about following TDD'
-    text: 'test-driven development. You write a failing test first, then just enough code to make it pass.'
-    term: 'TDD'
+  - type: quote
+    at: minimum code coverage of 85%
+    text: The trouble is that high coverage numbers are too easy to reach with low quality testing.
+    by: Martin Fowler, TestCoverage, 2012
+    url: https://martinfowler.com/bliki/TestCoverage.html
+  - type: term
+    at: not dogmatic about following TDD
+    text: test-driven development. You write a failing test first, then just enough code to make it pass.
+    term: TDD
+  - type: quote
+    at: DORA’s Accelerate study
+    text: DORA's research has repeatedly demonstrated that speed and stability are not tradeoffs.
+    by: DORA's guide to the four keys
+    url: https://dora.dev/guides/dora-metrics-four-keys/
 ---
 
 Have you ever started a project and thought to yourself, “When can I call this done?” Then this listicle is for you! This guide is intended to be a general list of things your personal or professional project should include in order for you to be “finished.” It’s something I distribute to my team of professional engineers to help them know when they are done. You or your team might have different standards of what it means to be complete, and that’s totally fine with me. One of the new engineers on my team actually asked me for this list and I started looking around online for something like this, and I found nothing, so here is my attempt to rectify that.

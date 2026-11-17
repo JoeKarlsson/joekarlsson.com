@@ -26,6 +26,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/secretary/'
 poster: '/images/reviews/secretary/poster.webp'
 heroImage: '/images/reviews/secretary/backdrop.webp'
 heroAlt: 'Maggie Gyllenhaal crawling on all fours across a carpet with a letter held in her mouth.'
+marginNotes:
+  - type: aside
+    at: This movie has shifted a lot
+    text: "That ending is the film's own: it adapts Mary Gaitskill's 1988 short story from Bad Behavior, and the filmmakers changed the ending to give the relationship a happier outcome."
+    url: https://en.wikipedia.org/wiki/Secretary_(2002_film)
+  - type: aside
+    at: you can tell it’s low budget
+    text: About $4 million. It won a Special Jury Prize for originality at Sundance in 2002.
+    url: https://en.wikipedia.org/wiki/Secretary_(2002_film)
 ---
 
 I’d let James Spader spank me….

@@ -24,11 +24,26 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/babylon-2022/'
 poster: '/images/reviews/babylon-2022/poster.webp'
 heroImage: '/images/reviews/babylon-2022/backdrop.webp'
 heroAlt: 'Margot Robbie in a red dress with a cigarette in her mouth, arms spread, leaning back against a large ornate disc.'
+marginNotes:
+  - type: aside
+    at: I heard terrible things about it
+    text: "It flopped: about $63 million worldwide on a $78-80 million budget; Deadline put Paramount's loss at $87.4 million."
+    url: https://en.wikipedia.org/wiki/Babylon_(2022_film)
+  - type: aside
+    at: some incredible performances
+    text: Robbie's Nellie LaRoy is inspired by Clara Bow, Pitt's Jack Conrad by John Gilbert.
+    url: https://en.wikipedia.org/wiki/Babylon_(2022_film)
+  - type: see
+    at: packed with sicko freaks
+    text: Robbie in The Wolf of Wall Street, the other great sicko-freak movie, my review.
+    post: reviews/the-wolf-of-wall-street
 ---
 
 I initially avoided Babylon when it came out because I heard terrible things about it. But having finally watched it for the first time, I deeply regret not seeing this in IMAX.
 
 I'm writing this a couple days after my initial viewing and I have a lot of conflicted feelings. I think I mostly love this movie - but I don't love the ending.
+
+![A night party crowd of shirtless men in briefs cheering, a woman held up on someone's shoulders waving sparklers.](/images/reviews/babylon-2022/margot-robbies-nellie-on-shoulders-at.webp "margin: Margot Robbie's Nellie on shoulders at the opening party.")
 
 The first half is a fucking blast. It's a maximalist joyride through the golden age of Hollywood with some incredible performances, stunning cinematography, and absolutely wild party and action sequences. I just love a movie packed with sicko freaks, and this movie delivers on that front the entire time. Chazelle commits fully to the excess and depravity, and it's exhilarating to watch.
 

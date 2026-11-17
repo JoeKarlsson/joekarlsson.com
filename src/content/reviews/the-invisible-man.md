@@ -25,7 +25,16 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-invisible-man/'
 poster: '/images/reviews/the-invisible-man/poster.webp'
 heroImage: '/images/reviews/the-invisible-man/backdrop.webp'
 heroAlt: 'Claude Rains, his head wrapped in bandages and dark goggles, leaning over a lab bench of glassware in black and white.'
+marginNotes:
+  - type: see
+    at: What's interesting about the 1933 version
+    text: "Whale's next monster: my review of Bride of Frankenstein."
+    post: reviews/bride-of-frankenstein
 ---
+
+![Black-and-white still of a man with his head wrapped in bandages and dark goggles kissing the hand of a blonde woman in a fur stole and knit cap.](/images/reviews/the-invisible-man/claude-rains-bandaged-with-gloria-stuart.webp 'margin: Claude Rains, bandaged, with Gloria Stuart. Wikimedia Commons, public domain.')
+
+![Black-and-white shot of Claude Rains's face, eyes closed, lying on a hospital pillow as it fades into view.](/images/reviews/the-invisible-man/griffins-face-finally-appears-on-the.webp "margin: Griffin's face finally appears on the pillow.")
 
 The central question of The Invisible Man is: what would you do if you had the power of invisibility? And more specifically, what would a man do with that power?
 I can think of some pretty terrible things, and I'm sure most men would do them - the film definitely hints at this. I'd actually seen the more recent remake with Elisabeth Moss first, and I think that version really shows the abuse of power men would inflict with invisibility. There's a common axiom in software security: if you give people access to location trackers, someone is guaranteed to abuse it and track an ex-girlfriend. The new film nails that.

@@ -11,6 +11,8 @@ tldr: 'My top 50 records of all time, with a Spotify playlist.'
 mastheadImage: '/images/blog/my-top-50-records/masthead-b0931b68.webp'
 ---
 
+![A black cube shelf with a turntable, a salt lamp and a speaker on top and vinyl records in the cubbies, under a pegboard with tools and a Kacey Musgraves Golden Hour album sleeve.](/images/blog/my-top-50-records/my-turntable-and-records-june-2019.webp 'margin: My turntable and records, June 2019, Golden Hour on the wall.')
+
 Every couple of years, I like to compile a list of my 50 all-time favorite records. These tend to be the records that I listen to the most or that have had the greatest impact on me. The order doesn’t matter, as it’s hard to determine which ones are my favorite, favorite (if you know what I mean ;P)
 
 Here is a link to the Spotify Playlist:

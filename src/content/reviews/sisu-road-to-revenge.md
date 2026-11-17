@@ -18,6 +18,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sisu-road-to-revenge/'
 poster: '/images/reviews/sisu-road-to-revenge/poster.webp'
 heroImage: '/images/reviews/sisu-road-to-revenge/backdrop.webp'
 heroAlt: 'Jorma Tommila, grey-bearded and grimy, gripping a steering wheel behind a windshield cracked by bullet holes.'
+marginNotes:
+  - type: term
+    at: I love seeing Finnish stoicism
+    term: Sisu
+    text: '"extraordinary determination in the face of extreme adversity, and courage."'
 ---
 
 Sisu 2: Fury Road.
@@ -25,5 +30,7 @@ Sisu 2: Fury Road.
 This movie is brutal - sometimes genuinely hard to watch - but it's so propulsive that looking away feels impossible. The Nazis are gone this time, which I do miss, but watching cold-blooded Soviets get what's coming to them scratches a similar itch. Let's be honest about what this is, though: it's a superhero movie. Aatami Korpi is an indestructible man, and the film knows it.
 
 As a Scandinavian living in the Midwest, I love seeing Finnish stoicism portrayed on screen. There's something deeply satisfying about a protagonist who just does not talk and does not stop.
+
+![A curly white Bedlington-type dog with its tongue out leans out of a rusty truck cab window.](/images/reviews/sisu-road-to-revenge/the-dog-riding-shotgun-in-sonys.webp "margin: The dog, riding shotgun, in Sony's trailer.")
 
 Also - and this is critical - the dog never gets hurt. I was clenched the entire runtime waiting for the worst. The dog is fine.

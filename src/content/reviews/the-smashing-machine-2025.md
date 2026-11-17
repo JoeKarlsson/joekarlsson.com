@@ -18,6 +18,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-smashing-machine-202
 poster: '/images/reviews/the-smashing-machine-2025/poster.webp'
 heroImage: '/images/reviews/the-smashing-machine-2025/backdrop.webp'
 heroAlt: "Dwayne Johnson sitting in a fighter's corner of a ring while his cornermen tend to him."
+marginNotes:
+  - type: aside
+    at: bombed so hard
+    text: $5.8 million opening, the lowest of Johnson's career, and $21.1 million worldwide on a $50 million budget.
+    url: https://en.wikipedia.org/wiki/The_Smashing_Machine_(2025_film)
+  - type: aside
+    at: my boy Benny Safdie made a bomb
+    text: It did win him the Silver Lion for Best Director at Venice.
+    url: https://en.wikipedia.org/wiki/The_Smashing_Machine_(2025_film)
 ---
 
 I love that Captain Capitalism finally ate shit when he tried to make an earnest play at being a legit drama actor. Schadenfreude tastes sweet. The Rock finally tried to be a serious actor and bombed so hard the movie became a meta-commentary on failure.
@@ -31,6 +40,8 @@ I've actually watched the [1999 documentary](/reviews/the-smashing-machine/) thi
 ![The real Mark Kerr in a navy shirt, talking in a doctor's waiting room beside a purple chair.](/images/reviews/the-smashing-machine-2025/kerr-in-the-documentary-then-johnson-1.webp 'The Smashing Machine · 2002') ![Dwayne Johnson as Kerr in the same navy shirt, talking in a waiting room with teal chairs.](/images/reviews/the-smashing-machine-2025/kerr-in-the-documentary-then-johnson-2.webp 'The Smashing Machine · 2025')
 
 _Kerr in the documentary's [trailer](https://www.youtube.com/watch?v=-7DO5c7gWNw), and Johnson as Kerr in the same waiting room scene._
+
+![Two fighters grapple in a white-roped ring under a referee's eye, a packed dark arena around them.](/images/reviews/the-smashing-machine-2025/a-bout-in-a-japanese-arena.webp "margin: A bout in a Japanese arena ring, in A24's trailer.")
 
 That said, I do love the 90s aesthetics - the production design, the wardrobe, the costuming. Safdie clearly did his homework on capturing that specific era of MMA when it was still finding its identity. Visually, this nails the grimy, unglamorous world of early mixed martial arts.
 

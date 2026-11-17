@@ -29,6 +29,23 @@ updatedDate: 2026-11-17
 corrections:
   - date: 2026-11-17
     note: 'I said his previous film was banned. The banned one was The Devil (1972); his next, On the Silver Globe, was shut down mid-shoot.'
+marginNotes:
+  - type: aside
+    at: his marriage fell apart in the process
+    text: He wrote the screenplay in the aftermath of his divorce from the actress Małgorzata Braunek. A scene of his young son alone in their apartment, smeared with jam, went straight into the film.
+    url: https://en.wikipedia.org/wiki/Possession_(1981_film)
+  - type: aside
+    at: Filming this right next to the Berlin Wall
+    text: Most of it was shot beside the Wall in Kreuzberg, West Berlin, in 1980.
+    url: https://en.wikipedia.org/wiki/Possession_(1981_film)
+  - type: aside
+    at: though I get why it was marketed that way
+    text: The US release was an 81-minute cut that pushed the creature and dropped most of the marriage. In the UK it was banned as a 'video nasty' until a 2000 uncut release.
+    url: https://en.wikipedia.org/wiki/Possession_(1981_film)
+  - type: aside
+    at: Adjani’s performance in that sequence
+    text: It won her Best Actress at Cannes in 1981.
+    url: https://en.wikipedia.org/wiki/Possession_(1981_film)
 ---
 
 It’s like Kramer vs. Kramer with a little bit of tentacle hentai sprinkled in for flavor.

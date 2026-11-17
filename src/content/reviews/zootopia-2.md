@@ -25,6 +25,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/zootopia-2/'
 poster: '/images/reviews/zootopia-2/poster.webp'
 heroImage: '/images/reviews/zootopia-2/backdrop.webp'
 heroAlt: 'A fox, a rabbit and a grinning blue snake posing on a wooden boardwalk in a marsh.'
+marginNotes:
+  - type: aside
+    at: they all got up and danced to Shakira
+    text: The song is "Zoo", which Shakira wrote with Ed Sheeran and Blake Slatkin.
+    url: https://en.wikipedia.org/wiki/Zootopia_2
 ---
 
 A neoliberal nightmare wrapped in gorgeous animation and a Shakira bop.
@@ -34,6 +39,8 @@ ACAB includes zoo animals, unfortunately.
 This felt like a neoliberal nightmare film to me. Zootopia 2 is still deeply invested in the "one good cop" myth and the idea that you can fix the system from the inside - a premise I reject. And the ultimate message seems to be that society gets better if we all just talk to each other. Which, sure, fine, we should talk. But in 2025, this feels tone deaf. Systemic change requires fundamentally restructuring systems, not individual cops with good hearts navigating corrupt institutions. I was in Minneapolis during the George Floyd uprising. I've seen what "reform from within" actually looks like.
 
 That said - ||the billionaires do end up in prison at the end||. So kudos for that, I guess.
+
+![A fox in a bucket hat holding a big fish and a rabbit in a cap stand on a wooden dock in a green, misty swamp while a huge walrus wades in the water.](/images/reviews/zootopia-2/nick-and-judy-in-disguise-on.webp 'margin: Nick and Judy, in disguise, on a sunlit swamp dock.')
 
 Here's the thing though: this movie is fun. I laughed throughout. The animation looks gorgeous. The script moves. I saw it in a theater full of kids and they were having a blast - they all got up and danced to Shakira during the credits, which was genuinely delightful to witness.
 

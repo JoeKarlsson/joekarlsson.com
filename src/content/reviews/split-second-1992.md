@@ -32,6 +32,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/split-second-1992/'
 poster: '/images/reviews/split-second-1992/poster.webp'
 heroImage: '/images/reviews/split-second-1992/backdrop.webp'
 heroAlt: 'Painted art of Rutger Hauer in round orange sunglasses holding a huge pistol, a bound woman and a fanged creature behind him.'
+marginNotes:
+  - type: aside
+    at: Tony Maylam's 1992 cult curio
+    text: Maylam stepped back before it was finished; Ian Sharp shot the flooded-subway finale and some other scenes and is credited as co-director.
+    url: https://en.wikipedia.org/wiki/Split_Second_(1992_film)
+  - type: aside
+    at: looks assembled the night before the shoot
+    text: 'Close: after many discussions about its look, Stephen Norrington was left with three weeks to design the creature.'
+    url: https://en.wikipedia.org/wiki/Split_Second_(1992_film)
+  - type: aside
+    at: flooded near-future London
+    text: The film is set in 2008, a London flooded by rain and global warming.
+    url: https://en.wikipedia.org/wiki/Split_Second_(1992_film)
 ---
 
 Split Second is a film that watched Blade Runner, [Alien](/reviews/alien/), and [The Silence of the Lambs](/reviews/the-silence-of-the-lambs/), loved all three, and understood exactly none of them, which is most of its charm.
@@ -39,6 +52,8 @@ Split Second is a film that watched Blade Runner, [Alien](/reviews/alien/), and 
 ![A figure in a long coat walking down a wet Los Angeles street at night past a huge neon sign, steam rising from the pavement.](/images/reviews/split-second-1992/blade-runner-then-split-second-neon-1.webp 'Blade Runner · 1982') ![Rutger Hauer as Harley Stone in a long leather coat, walking along a flooded, graffitied London street toward a club lit with red and blue neon.](/images/reviews/split-second-1992/blade-runner-then-split-second-neon-2.webp 'Split Second · 1992')
 
 _Los Angeles in Warner Bros.' [Blade Runner: The Final Cut trailer](https://www.youtube.com/watch?v=qoEyZoOTtss), and Stone's London._
+
+![Rutger Hauer in a long dark coat walks down a glowing yellow corridor holding a huge gun up by his shoulder.](/images/reviews/split-second-1992/rutger-hauers-stone-big-gun-raised.webp "margin: Rutger Hauer's Stone, big gun raised.")
 
 Tony Maylam's 1992 cult curio drops Rutger Hauer into a flooded near-future London as Harley Stone, a chain-smoking, chocolate-inhaling supercop hunting the demonic serial killer who gutted his partner. On paper this is a genre nerd's dream, dystopian noir crossed with creature horror crossed with a Hannibal Lecter riff, and for long stretches of its lean ninety minutes it delivers exactly the disreputable pleasure that combination promises. The budget is visible in every waterlogged frame, but the film spends what little it has with real conviction, and Hauer is magnetic, a behemoth who understands that the entire job is to scowl beautifully and pose with an absurdly large pistol.
 

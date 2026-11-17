@@ -33,9 +33,16 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hokum/'
 poster: '/images/reviews/hokum/poster.webp'
 heroImage: '/images/reviews/hokum/backdrop.webp'
 heroAlt: 'Adam Scott, unshaven, with glasses and messy dark hair, sitting by a gray curtain in a dim room.'
+marginNotes:
+  - type: see
+    at: see Adam Scott play an asshole
+    text: 'Adam Scott 22 years earlier, funny in a motorcycle movie: my review of Torque.'
+    post: reviews/torque
 ---
 
 A tight, well-plotted whodunit that also made me scream.
+
+![A man in a long tan coat walks through a dim, wood-paneled hotel lobby with a grand double staircase under a stained-glass window.](/images/reviews/hokum/adam-scott-checks-into-the-old.webp 'margin: Adam Scott checks into the old Irish hotel.')
 
 Hokum is a little bit [Barton Fink](/reviews/barton-fink/), a little bit [The Shining](/reviews/the-shining/), some 1408, mixed with Irish folklore. It’s really well paced, an interesting whodunit that’s so tightly plotted and well edited. The ending was satisfying - it actually sticks the landing, which horror so often fumbles.
 

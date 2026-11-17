@@ -16,18 +16,22 @@ corrections:
   - date: 2026-11-12
     note: 'Same fixes as part 7 (MFA from `aws_iam_credential_reports`, rules from `aws_ec2_security_group_rules`), and GCP bucket IAM comes from `gcp_storage_bucket_policies`, not an `iam_policy` column.'
 marginNotes:
-  - type: 'term'
-    at: 'built an entirely custom DSL'
+  - type: term
+    at: built an entirely custom DSL
     text: "domain-specific language: a small language made for one job, like a scanner's rule syntax."
-    term: 'DSL'
-  - type: 'see'
-    at: 'that question becomes a SQL query'
+    term: DSL
+  - type: see
+    at: that question becomes a SQL query
     text: 'Steampipe gets to SQL another way: it queries the cloud APIs live instead of syncing them into a database. I compared the two designs.'
-    post: 'steampipe-vs-cloudquery'
-  - type: 'see'
-    at: 'One query returns both providers in the same result set'
-    text: 'I wrote the same kind of cross-cloud check for databases open to the internet across AWS, Azure and GCP.'
-    post: 'detect-public-databases-across-aws-azure-gcp'
+    post: steampipe-vs-cloudquery
+  - type: see
+    at: One query returns both providers in the same result set
+    text: I wrote the same kind of cross-cloud check for databases open to the internet across AWS, Azure and GCP.
+    post: detect-public-databases-across-aws-azure-gcp
+  - type: term
+    at: One vendor wants you to write Rego
+    term: Rego
+    text: the policy language of Open Policy Agent. Sentinel is HashiCorp's policy language, used to gate Terraform runs.
 mastheadImage: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/masthead-6dc2edaf.webp'
 ---
 
@@ -51,6 +55,8 @@ Think about what a security check actually is. It's a question about the current
 If your [cloud asset inventory](https://www.cloudquery.io/product/cloud-asset-inventory) lives in a database, that question becomes a SQL query. Not a policy written in a language your engineering team can't read. Not a rule locked inside a vendor platform you can't export from. Just a query.
 
 This changes the dynamics completely. Your security team writes a check, and your platform engineers can review it in the same PR where they review Terraform changes. Your compliance team needs evidence for an auditor, and the query result IS the evidence. You're investigating an incident at 2 a.m., and you use the same query language you use for everything else.
+
+![An empty trade show booth with a black wall reading Cloud asset inventory for security and platform, and a white counter printed with select * from cloud.](/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/cloudquerys-booth-at-aws-reinvent-december.webp "margin: CloudQuery's booth at AWS re:Invent, December 2025.")
 
 You don't have to learn a new language or a new tool, and your security policies aren't locked into a vendor.
 

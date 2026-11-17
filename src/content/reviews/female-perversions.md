@@ -18,6 +18,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/female-perversions/'
 poster: '/images/reviews/female-perversions/poster.webp'
 heroImage: '/images/reviews/female-perversions/backdrop.webp'
 heroAlt: 'Two women in a tiled bathroom, one smoking on the edge of the tub, the other hugging her knees on the floor.'
+marginNotes:
+  - type: aside
+    at: based on a theoretical psychological text
+    text: 'The book is Female Perversions: The Temptations of Emma Bovary (1991) by psychoanalyst Louise J. Kaplan.'
+    url: https://en.wikipedia.org/wiki/Female_Perversions
 ---
 
 What was deviant in 1996 is vanilla now. The anxiety is still real though.

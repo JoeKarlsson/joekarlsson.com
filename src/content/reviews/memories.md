@@ -25,11 +25,22 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/memories/'
 poster: '/images/reviews/memories/poster.webp'
 heroImage: '/images/reviews/memories/backdrop.webp'
 heroAlt: 'A pale blue animated sketch of a family seated around a dinner table, the room and furniture crusted with dripping debris.'
+marginNotes:
+  - type: aside
+    at: Magnetic Rose, resonated with me the most
+    text: Satoshi Kon wrote Magnetic Rose, before he directed Perfect Blue. Koji Morimoto directed it.
+    url: https://en.wikipedia.org/wiki/Memories_(1995_film)
+  - type: aside
+    at: The final segment about fascism
+    text: That's Cannon Fodder, written and directed by Katsuhiro Otomo.
+    url: https://en.wikipedia.org/wiki/Memories_(1995_film)
 ---
 
 I finished Memories a couple hours ago and I'm still noodling on it. This was much deeper than I ever expected, and the subjects it touched on feel like they need more time to process than a quick 90-minute runtime allows.
 
 The first segment, Magnetic Rose, resonated with me the most. It's essentially a sci-fi animated haunted house movie about how pain gets trapped and repeated like a ghost in a machine forever - sucking those who enter into its simulation of reality and destroying them in the process. I want to know more about what we see, but I also know that would ruin it. I just can't stop thinking about it.
+
+![Animated sky full of dark attack helicopters flying over snowy mountains.](/images/reviews/memories/stink-bomb-the-military-swarms-in.webp 'margin: Stink Bomb: the military swarms in after one man.')
 
 Stink Bomb was more of a comedy and reminded me of the Creepshow segment with Stephen King where moss overcomes everybody and eventually kills everyone. It's kind of a comedy and honestly isn't that good either, but it's okay.
 

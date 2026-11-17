@@ -27,4 +27,6 @@ heroImage: '/images/reviews/nosferatu-2024/backdrop.webp'
 heroAlt: 'Lily-Rose Depp in a black mourning bonnet and cloak standing in a snowy, shadowed street.'
 ---
 
+![Lily-Rose Depp lies on her side in bed in pale light, staring ahead.](/images/reviews/nosferatu-2024/lilyrose-depp-as-ellen.webp 'margin: Lily-Rose Depp as Ellen.')
+
 I have to admit, I cried at the end of this film. The reports of this being scandalous are vastly overblown, and I loved the story and Lily-Rose Depp’s performance.

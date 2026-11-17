@@ -9,6 +9,25 @@ cardPhoto: '/images/blog/recording-setup-tour/nook-wide.webp'
 cardPhotoAlt: "Joe's recording nook: the rolling desk with its green cutting mat and mic arm, an orange chair, an LED panel on a stand, and a 3D printer glowing on the shelf"
 heroImage: '/images/newsletter/my-recording-setup-is-one-desk-on-wheels/card-090d3bb6.webp'
 heroAlt: "Works on My Machine card for My Whole Recording Setup Is One Desk on Wheels, with Joe's recording nook: the rolling desk with its green cutting mat and mic arm, an orange chair, an LED panel on a stand, and a 3D printer glowing on the shelf framed in a pink crayon box"
+marginNotes:
+  - type: aside
+    at: read a script while looking straight into the lens
+    text: Keep the prompter text to three or four words a line, centered over the lens. With a wide column my eyes sweep on every line, and viewers notice.
+  - type: term
+    at: I shoot in aperture priority
+    term: Aperture priority
+    text: I set the aperture and the camera picks the shutter speed and ISO, so in a dark room it raises the gain on its own.
+  - type: see
+    at: the settings took a lot of fiddling
+    text: My Wave:3 settings, with before-and-after audio from my phone and the mic, are in the full tour.
+    post: recording-setup-tour
+  - type: see
+    at: My Prusa has great LEDs
+    text: It hasn't always been a prop. I printed the pots for my postcard-rack planter tower on it.
+    post: from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack
+  - type: exhibit
+    at: the two costs most people could skip
+    text: Together the dock and desk cost $865, the same as the camera, and about a third of the $2,707 total.
 ---
 
 In August my work videos were webcam selfies in the living room. Now I roll a desk out of the corner, say "I'm recording," and the camera, lights and teleprompter come on by themselves. It cost about $2,700, and the lighting took three tries.
@@ -32,6 +51,8 @@ So the camera, prompter and mic clamp to a [FlexiSpot standing desk](https://www
 _With a painting drying on the mat._
 
 ## Camera, prompter and mic
+
+![The ZV-E10 from behind, tucked under the Prompter's hood.](/images/blog/recording-setup-tour/camera-behind-prompter.webp "margin: The ZV-E10 from behind, tucked under the Prompter's hood.")
 
 The camera is a Sony ZV-E10 behind an [Elgato Prompter](https://www.elgato.com/us/en/p/prompter), so I can read a script while looking straight into the lens. The script runs in [FollowSpot](https://www.joekarlsson.com/blog/followspot-local-whisper-teleprompter/), the teleprompter app I wrote that follows my voice. A Cam Link 4K turns the camera into a video source on my Mac, and a dummy battery runs it off wall power, because a real battery doesn't last long and I don't want to find that out halfway through a take.
 

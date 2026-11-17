@@ -25,6 +25,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/cape-fear-1991/'
 poster: '/images/reviews/cape-fear-1991/poster.webp'
 heroImage: '/images/reviews/cape-fear-1991/backdrop.webp'
 heroAlt: 'A close-up of Robert De Niro, long-haired and sneering.'
+marginNotes:
+  - type: aside
+    at: He's playing with Hitchcock and Brian De Palma here
+    text: "He brings back the 1962 cast too: Robert Mitchum, Gregory Peck and Martin Balsam all turn up. It was Peck's last big-screen role."
+    url: https://en.wikipedia.org/wiki/Cape_Fear_(1991_film)
+  - type: aside
+    at: He's never scarier than when he's laughing.
+    text: It got him a Best Actor nomination, and Juliette Lewis one for Supporting Actress.
+    url: https://en.wikipedia.org/wiki/Cape_Fear_(1991_film)
+  - type: see
+    at: all the way down to
+    text: 'My favorite De Palma: Phantom of the Paradise (1974).'
+    post: reviews/phantom-of-the-paradise
 ---
 
 Max Cady cackling through Problem Child with a lit cigar is the worst movie date ever filmed.

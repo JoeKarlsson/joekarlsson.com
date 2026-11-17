@@ -17,6 +17,14 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-pillow-book/'
 poster: '/images/reviews/the-pillow-book/poster.webp'
 heroImage: '/images/reviews/the-pillow-book/backdrop.webp'
 heroAlt: 'A woman lying on a bed while a man writes calligraphy across her bare back.'
+marginNotes:
+  - type: term
+    at: Never thought calligraphy could be erotic
+    text: The title comes from The Pillow Book of Sei Shōnagon, a Japanese court lady's book of observations from around the year 1000; her real name is believed to have been Kiyohara Nagiko, the heroine's name.
+  - type: see
+    at: Ewan got some here
+    text: Ewan McGregor turns up again in The End of Oak Street.
+    post: reviews/the-end-of-oak-street
 ---
 
 Never thought calligraphy could be erotic. I WAS WRONG.
@@ -26,7 +34,11 @@ The film opens with Nagiko as a child, her father painting calligraphy on her fa
 ![A black-and-white close-up of young Nagiko as her father's brush paints a character on her cheek.](/images/reviews/the-pillow-book/fathers-brush.webp)
 _The birthday ritual._
 
+![A rectangular inset of one hand writing with a brush on another person's open palm, laid over a dim restaurant scene with diners and red ribbons.](/images/reviews/the-pillow-book/a-hand-writing-on-a-palm.webp 'margin: A hand writing on a palm, inset over a dinner party.')
+
 The lo-fi aesthetics feel almost DIY (by today’s standards), which I loved - Greenaway isn't precious about polish. The experimental framing and picture-in-picture compositions are interesting and novel, stacking images on top of each other, letting scenes bleed into scenes. It all feels like memory - hazy, dreamy, someone trying to recall what happened but not quite getting it all. Reminded me of Aftersun in that way.
+
+![A woman seen from behind in a white robe slipped off her shoulders, red calligraphy painted down the back of her neck, in a gray tint.](/images/reviews/the-pillow-book/red-characters-brushed-on-a-womans.webp "margin: Red characters brushed on a woman's neck, from the trailer.")
 
 I watched [The Handmaiden](/reviews/the-handmaiden/) this same weekend, and the connections run deep. Both are very gay. Both are about women trying to navigate a patriarchy that wants to use them, suppress them, fuck them, control them. Both feature men obsessed with books - or publishing them - as antagonists. And both are about the body as text: Hideko trained to read pornography aloud, her literacy weaponized against her; Nagiko written on since childhood, spending her life turning that ritual into something erotic and autonomous and hers.
 

@@ -32,6 +32,8 @@ marginNotes:
 
 > **Note:** I wrote this tutorial in 2020 using MongoDB Node.js driver v3.x. The code below now runs on the current driver (v7), which rejects the old `useNewUrlParser` and `useUnifiedTopology` options and returns `result.insertedId` instead of `result.ops[0]`. The linked list concepts are still accurate.
 
+![Black-and-white portrait of a smiling middle-aged man in a suit and tie.](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/herbert-simon-coinventor-of-the-linked.webp 'margin: Herbert Simon, co-inventor of the linked list, in 1981. Wikimedia Commons, public domain.')
+
 Are you new to data structures and algorithms? In this post, you will learn about one of the most important data structures in Computer Science, the Linked List, implemented with a MongoDB twist. This post will cover the fundamentals of the linked list data structure. It will also answer questions like, “How do linked lists differ from arrays?” and “What are the pros and cons of using a linked list?”
 
 ## Intro to Linked Lists
@@ -39,6 +41,8 @@ Are you new to data structures and algorithms? In this post, you will learn abou
 Did you know that linked lists are one of the foundational data structures in Computer Science? If you are like many devs that are self-taught or you graduated from a developer boot camp, then you might need a little lesson in how this data structure works. Or, if you’re like me, you might need a refresher if it’s been a couple of years since your last Computer Science lecture on data structures and algorithms. In this post, I will be walking through how to implement a linked list from scratch using Node.js and MongoDB. This is also a great place to start for getting a handle on the basics of MongoDB CRUD operations and this legendary data structure. Let’s get started with the basics.
 
 ![A singly linked list: "Cat" points to "Dog", "Dog" points to "Bird", and "Bird" points to null. "Cat" is the head and "Bird" is the tail.](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/singly-linked-list.svg)
+
+![The bottom of a printed Latin page, with the word dos set alone under the last line at the right edge.](/images/blog/linked-lists-and-mongodb-a-gentle-introduction/a-1593-page-points-to-the.webp 'margin: A 1593 page points to the next with a catchword. Wikimedia Commons, public domain.')
 
 A linked list is a data structure that contains a list of nodes that are connected using references or pointers. A node is an object in memory. It usually contains at most two pieces of information, a data value, and a pointer to next node in the linked list. Linked lists also have separate pointer references to the head and the tail of the linked list. The head is the first node in the list, while the tail is the last object in the list.
 

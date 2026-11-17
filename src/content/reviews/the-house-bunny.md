@@ -19,6 +19,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-house-bunny/'
 poster: '/images/reviews/the-house-bunny/poster.webp'
 heroImage: '/images/reviews/the-house-bunny/backdrop.webp'
 heroAlt: 'Anna Faris walking arm in arm with seven young women in bright outfits down a sunny campus street.'
+marginNotes:
+  - type: see
+    at: Anna Faris is so funny
+    text: "Faris's breakout: my review of Scary Movie (2000)."
+    post: reviews/scary-movie-2000
 ---
 
 Anna Faris is so funny. They need to start making more 90-minute Hollywood comedies just to give Anna Faris more films to do.
@@ -28,6 +33,8 @@ I avoided watching The House Bunny when it originally premiered because I was an
 Seriously, why didn’t anyone tell me how funny this movie was?
 
 Faris commits so completely to the bit without ever winking at the camera or treating the character like she’s above the material. She plays Shelley with genuine sweetness and sincerity, which makes the comedy land even harder. The movie could have been mean-spirited or cynical, but instead it’s actually kind of heartwarming while still being hilarious.
+
+![A young woman in glasses and a gray cardigan gestures with both hands in a lamp-lit living room.](/images/reviews/the-house-bunny/emma-stone-as-natalie-the-sororitys.webp "margin: Emma Stone as Natalie, the sorority's president.")
 
 Emma Stone is great in it too - you can see the star she was about to become. The whole cast clearly understood the assignment and just went for it.
 

@@ -25,11 +25,30 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/his-girl-friday/'
 poster: '/images/reviews/his-girl-friday/poster.webp'
 heroImage: '/images/reviews/his-girl-friday/backdrop.webp'
 heroAlt: 'Cary Grant holding two telephones beside Rosalind Russell at a typewriter, in black and white.'
+marginNotes:
+  - type: aside
+    at: reportedly hired her own writer
+    text: From her own autobiography, Life Is a Banquet. Only Grant caught on; he'd greet her each morning by asking what she had that day.
+    url: https://en.wikipedia.org/wiki/His_Girl_Friday
+  - type: aside
+    at: Hawks intentionally overlapped the actors' lines
+    text: With no multitrack recording, the sound mixer switched the overhead mics on and off live, up to 35 times in one scene.
+    url: https://en.wikipedia.org/wiki/His_Girl_Friday
+  - type: aside
+    at: around 240 words per minute
+    text: Average American speech runs about 140.
+    url: https://en.wikipedia.org/wiki/His_Girl_Friday
+  - type: see
+    at: Howard Hawks' rapid-fire adaptation
+    text: 'Hawks and Grant two years earlier: Bringing Up Baby, my review.'
+    post: reviews/bringing-up-baby
 ---
 
 I was promised a girl named Friday. There is no girl named Friday. I felt lied to, but I forgive them.
 
 His Girl Friday is Howard Hawks' rapid-fire adaptation of the 1928 play The Front Page, with one brilliant change: the star reporter character was rewritten as a woman, transforming a buddy comedy into a screwball rom-com. Rosalind Russell reportedly hired her own writer to punch up her lines because she felt the script favored Cary Grant. It shows - she's electric, matching him word for word. The film was considered a flop on release and has since been reappraised as one of the greatest comedies ever made. The dialogue reportedly clocks at around 240 words per minute, nearly twice the speed of normal conversation. Hawks intentionally overlapped the actors' lines, creating a rhythm that feels almost musical.
+
+![Black-and-white shot of Rosalind Russell in a pinstripe suit leaning over a desk crowded with candlestick telephones, a receiver at her ear.](/images/reviews/his-girl-friday/rosalind-russell-as-hildy-phoning-in.webp 'margin: Rosalind Russell as Hildy, phoning in a story from the press room.')
 
 I expected a run-of-the-mill 40s rom-com. I was absolutely not prepared for how funny this is. How modern the politics are. How progressive the characters feel. Hildy Johnson is a career woman who's great at her job and knows it. The film never asks her to apologize for her ambition.
 

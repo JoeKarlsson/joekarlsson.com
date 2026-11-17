@@ -25,11 +25,18 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/black-christmas/'
 poster: '/images/reviews/black-christmas/poster.webp'
 heroImage: '/images/reviews/black-christmas/backdrop.webp'
 heroAlt: 'Olivia Hussey listening on a telephone receiver in front of blurred Christmas tree lights.'
+marginNotes:
+  - type: aside
+    at: a direct line from this to Halloween
+    text: Carpenter's Halloween was reportedly inspired by Clark describing what a Black Christmas sequel would be.
+    url: https://en.wikipedia.org/wiki/Black_Christmas_(1974_film)
 ---
 
 The same guy who directed A Christmas Story directed this. Bob Clark made a cozy holiday classic about a kid and a BB gun, and he also made one of the most influential slasher films ever. Cinema is genuinely insane.
 
 Black Christmas is seminal - you can draw a direct line from this to Halloween to everything that followed. Seeing it in a theater, I was scared at parts. It holds up.
+
+![A man in a plaid shirt runs down a long narrow aisle between tall racks of grey telephone switching equipment.](/images/reviews/black-christmas/a-phone-company-man-runs-the.webp 'margin: A phone company man runs the trace through the relays.')
 
 That said, this is a very phone-heavy plot, and I got a bit of a headache from all the ringing. But as a computer guy, I was obsessed with the vintage AT&T phone centers in action. Watching how phone tapping and tracing worked in the analog days - the physical switches, the manual labor of tracking a call - was fascinating. That stuff ruled.
 

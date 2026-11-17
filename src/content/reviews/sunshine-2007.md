@@ -31,4 +31,6 @@ I think this is a desperately underrated modern sci-fi movie. I think the first 
 
 I first watched this movie when a video rental shop went out of business near me and it was on sale for like $1.50, and I took it home and watch it. And loved it.
 
+![A dark red disc fills the frame, ringed by the blinding white and orange glow of the sun.](/images/reviews/sunshine-2007/mercury-crossing-the-face-of-the.webp 'margin: Mercury crossing the face of the sun.')
+
 Also - I think the special effects still hold up to this day..

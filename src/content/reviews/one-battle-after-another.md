@@ -25,6 +25,23 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/one-battle-after-another
 poster: '/images/reviews/one-battle-after-another/poster.webp'
 heroImage: '/images/reviews/one-battle-after-another/backdrop.webp'
 heroAlt: 'Leonardo DiCaprio in a beanie, dark glasses and plaid robe talking on a pay phone against a tan wall.'
+marginNotes:
+  - type: aside
+    at: the best film of 2025
+    text: 'The Academy agreed: Best Picture, one of six Oscars from 13 nominations, including Director, Adapted Screenplay and Supporting Actor for Sean Penn.'
+    url: https://en.wikipedia.org/wiki/One_Battle_After_Another
+  - type: see
+    at: Paul Thomas Anderson is trying to make a populist action movie
+    text: It's inspired by Thomas Pynchon's 1990 novel Vineland. Anderson's other Pynchon movie is Inherent Vice.
+    post: reviews/inherent-vice
+  - type: aside
+    at: I caught this in IMAX
+    text: Anderson shot most of it in VistaVision, Paramount's 1954 widescreen format that runs 35mm film sideways through the camera. It was also his first film released in IMAX.
+    url: https://en.wikipedia.org/wiki/VistaVision ; https://en.wikipedia.org/wiki/One_Battle_After_Another
+  - type: see
+    at: knowing in my gut that I'd just witnessed
+    text: I went back. My rewatch review.
+    post: reviews/one-battle-after-another-1
 ---
 
 I walked into One Battle After Another with astronomical hype - and still left the theater knowing in my gut that I'd just witnessed a five out of five star masterpiece.

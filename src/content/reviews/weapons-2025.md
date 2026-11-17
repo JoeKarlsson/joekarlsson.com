@@ -32,6 +32,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/weapons-2025/'
 poster: '/images/reviews/weapons-2025/poster.webp'
 heroImage: '/images/reviews/weapons-2025/backdrop.webp'
 heroAlt: 'Julia Garner lying on a patterned pillow in the dark, staring upward.'
+marginNotes:
+  - type: term
+    at: Naruto run to the theater
+    term: Naruto run
+    text: sprinting with your arms swept straight back, like the ninjas in the anime Naruto. The missing kids in Weapons run this way.
 ---
 
 You better Naruto run to the theater to see this movie

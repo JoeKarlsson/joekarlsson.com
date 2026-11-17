@@ -25,6 +25,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/galaxy-quest/'
 poster: '/images/reviews/galaxy-quest/poster.webp'
 heroImage: '/images/reviews/galaxy-quest/backdrop.webp'
 heroAlt: 'Tim Allen, Sigourney Weaver, Alan Rickman and the rest of the crew posing in matching space uniforms among desert rocks.'
+marginNotes:
+  - type: see
+    at: First contact might still be
+    text: My review of First Contact, the one Galaxy Quest is up against.
+    post: reviews/star-trek-first-contact
 ---
 
 Is this my favorite Star Trek movie? First contact might still be my number one. However, this one’s so much fun. I’ve probably seen it five times now, and it doesn’t get old. I even started crying during my last watch. Did not see that coming.

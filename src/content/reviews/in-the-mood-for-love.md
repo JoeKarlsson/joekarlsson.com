@@ -29,17 +29,30 @@ updatedDate: 2026-11-17
 corrections:
   - date: 2026-11-17
     note: "I gave the runtime as 90 minutes. It's 98."
+marginNotes:
+  - type: aside
+    at: The filming locations are incredible
+    text: Set in 1962 Hong Kong, but the outdoor and hotel scenes were shot in older neighborhoods of Bangkok.
+    url: https://en.wikipedia.org/wiki/In_the_Mood_for_Love
+  - type: aside
+    at: one of cinema's greatest romances
+    text: "Critics agree: it ranked fifth in Sight and Sound's 2022 poll of the greatest films. Tony Leung won Best Actor at Cannes, the first Hong Kong actor to do so."
+    url: https://en.wikipedia.org/wiki/In_the_Mood_for_Love
 ---
 
 Two attractive people in tight quarters with incredible chemistry spend 98 minutes not fucking, and it's one of cinema's greatest romances.
 
 I don't think I picked up on everything in this movie. There's a lot going on beneath the surface with very subtle performances that are really impressive. Maggie Cheung and Tony Leung are doing so much with just glances and small gestures - the kind of acting that reveals more on repeat viewings. I suspect I missed entire layers of meaning on this first watch.
 
+![Tony Leung in a dark suit, head bowed, and Maggie Cheung in a floral dress pressed close behind him against worn wooden walls.](/images/reviews/in-the-mood-for-love/chow-and-mrs-chan-squeeze-past.webp 'margin: Chow and Mrs. Chan squeeze past each other in a narrow passage.')
+
 The filming locations are incredible. Every frame looks meticulously composed, from the cramped hallways to those gorgeous patterned walls. Wong Kar-wai turns these tiny apartments into entire emotional worlds. The way he uses space and color is just stunning.
 
 I also loved picking up on how much the Daniels reference this movie in Everything Everywhere All at Once - the hallway scenes, the visual composition, even some of the emotional beats. Seeing the source material makes those homages hit different.
 
 It's a short movie at 98 minutes, but it does feel a bit long in places. The deliberate pacing works for what the film is doing, but I'd be lying if I said my attention didn't drift occasionally. I'm glad I watched it though, and I suspect it'll grow on me even more with time.
+
+![Maggie Cheung in red with red lipstick in sharp profile, Tony Leung in a gray suit watching her, soft focus behind.](/images/reviews/in-the-mood-for-love/maggie-cheung-and-tony-leung-in.webp 'margin: Maggie Cheung and Tony Leung in a red booth.')
 
 But mostly, god, the lead performers are so hot. I was genuinely stricken by their beauty the entire time. Maggie Cheung in those qipaos and Tony Leung in those suits - it's almost unfair how attractive they both are. The film knows it too and uses their beauty as part of the tragedy.
 

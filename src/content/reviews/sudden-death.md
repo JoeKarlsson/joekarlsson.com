@@ -31,7 +31,18 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sudden-death/'
 poster: '/images/reviews/sudden-death/poster.webp'
 heroImage: '/images/reviews/sudden-death/backdrop.webp'
 heroAlt: 'Jean-Claude Van Damme in a blue work shirt, his face cut and bloodied, glaring in close-up.'
+marginNotes:
+  - type: aside
+    at: the most empty stadium I've ever seen
+    text: "They tried: invited Penguins fans and paid extras, usually 2,000 to 3,000 and up to 10,000 in some scenes, plus cardboard cutouts, in Pittsburgh's Civic Arena. The hockey footage came from exhibition games after a lockout."
+    url: https://en.wikipedia.org/wiki/Sudden_Death_(1995_film)
+  - type: aside
+    at: saves the Stanley Cup Finals
+    text: A fictional Game 7 between the Penguins and the Blackhawks, a rematch of the 1992 Final.
+    url: https://en.wikipedia.org/wiki/Sudden_Death_(1995_film)
 ---
+
+![A steel-domed arena glowing blue at night, ringed by traffic, with downtown towers behind it.](/images/reviews/sudden-death/pittsburghs-civic-arena-lit-up-at.webp "margin: Pittsburgh's Civic Arena, lit up at night in the film.")
 
 Jean-Claude Van Damme saves the Stanley Cup Finals from terrorists in the emptiest arena in sports history.
 

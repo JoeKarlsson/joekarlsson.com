@@ -25,6 +25,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/straight-to-hell/'
 poster: '/images/reviews/straight-to-hell/poster.webp'
 heroImage: '/images/reviews/straight-to-hell/backdrop.webp'
 heroAlt: 'Courtney Love in a polka-dot dress facing a figure in a bowler hat and suspenders on a dusty desert street.'
+marginNotes:
+  - type: aside
+    at: an excuse for a bunch of punks to party in the desert
+    text: "Close: it began as a Nicaragua concert tour with Joe Strummer and The Pogues that got cancelled, so Cox took everyone to Almería, Spain instead. Cox and Dick Rude wrote it in three days; when the money ran out halfway, they finished on traveller's cheques and credit cards."
+    url: https://en.wikipedia.org/wiki/Straight_to_Hell_(film)
+  - type: aside
+    at: The insane fascination with black coffee
+    text: The town is full of 'coffee-addicted killers'; the cowboys arrive carrying espresso machines.
+    url: https://en.wikipedia.org/wiki/Straight_to_Hell_(film)
+  - type: see
+    at: I went down an Alex Cox rabbit hole
+    text: 'Where the rabbit hole went: Walker, my review.'
+    post: reviews/walker
 ---
 
 The Quick and the Dead did this so much better.

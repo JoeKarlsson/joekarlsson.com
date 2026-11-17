@@ -25,11 +25,28 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/obsession-2025/'
 poster: '/images/reviews/obsession-2025/poster.webp'
 heroImage: '/images/reviews/obsession-2025/backdrop.webp'
 heroAlt: 'A dark figure standing on the lit porch of a small house at night, with a car parked in the foreground.'
+marginNotes:
+  - type: aside
+    at: one of the unsung heroes in female horror performances
+    text: "Not unsung after all: Navarrette won a Critics' Choice Super Award for Best Actress in a Horror Movie, and the film made $524.5 million worldwide on a budget under $750,000."
+    url: https://en.wikipedia.org/wiki/Obsession_(2025_film)
+  - type: see
+    at: Demi Moore, Amy Madigan and Mia Goth
+    text: Moore in The Substance and Madigan in Weapons, my reviews.
+    post: reviews/the-substance
+  - type: aside
+    at: As a certified cat guy
+    text: "Curry Barker came up on YouTube: half of the sketch duo That's a Bad Idea, and his first feature, Milk & Serial, went up free on YouTube in 2024."
+    url: https://en.wikipedia.org/wiki/Obsession_(2025_film)
 ---
 
 As a certified cat guy, this was a tough watch.
 
+![A young woman with long dark hair in a red zebra-print top, mid-word, in a wood-paneled bar.](/images/reviews/obsession-2025/inde-navarrette-in-obsession.webp 'margin: Inde Navarrette in Obsession.')
+
 Inde Navarrette is absolutely incredible in this. Her ability to shift tones - from so sweet to so scary to so funny - is a magic act. I was blown away. I fear this will go down as one of the unsung heroes in female horror performances, though maybe the tide is turning. Demi Moore, Amy Madigan and Mia Goth have been shifting the narrative lately.
+
+![Two hands hold up a cream and red cardboard novelty strip printed One Wish Willow, Amaze your friends, You only get one wish.](/images/reviews/obsession-2025/the-one-wish-willow-you-only.webp 'margin: The One Wish Willow: “You only get one wish.“')
 
 What works most for me is how this film acknowledges how complicated modern relationships are, how difficult communication is. The film hints at there being a path to intimacy for the two leads if he had just been direct and honest about his feelings. He never even needed the wish. Instead, he fears being vulnerable, and his own inability to share his feelings causes everyone horrible pain and suffering.
 

@@ -12,22 +12,25 @@ heroAlt: 'A clock on a station wall'
 canonicalUrl: 'https://www.cloudquery.io/blog/six-months-with-clickhouse-at-cloudquery'
 tldr: 'ClickHouse delivered on speed and scale, but JOINs need careful handling (use dictionaries), sorting keys are critical and unchangeable after the fact, materialized views were too unpredictable for us, and it works surprisingly well for logging/observability beyond just analytics.'
 marginNotes:
-  - type: 'see'
-    at: "aggressively terminated by ClickHouse's OvercommitTracker"
-    text: 'Big inserts hit the same memory limit. We split them into UUID-range buckets to get under it.'
-    post: 'how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing'
-  - type: 'term'
-    at: 'a high-cardinality timestamp'
-    text: 'the number of distinct values in a column. A timestamp is close to unique per row, and a cloud provider column has a handful.'
-    term: 'Cardinality'
-  - type: 'update'
-    at: 'They do have some experimental full-text index features'
-    text: 'ClickHouse made full-text search generally available in March 2026, built on an inverted text index.'
-    date: 'Mar 2026'
-  - type: 'see'
-    at: 'let us retire our dedicated search service'
-    text: 'A month later we wrote up the search we built in ClickHouse in the meantime, on Bloom filter indexes.'
-    post: 'why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse'
+  - type: see
+    at: aggressively terminated by ClickHouse's OvercommitTracker
+    text: Big inserts hit the same memory limit. We split them into UUID-range buckets to get under it.
+    post: how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing
+  - type: term
+    at: a high-cardinality timestamp
+    text: the number of distinct values in a column. A timestamp is close to unique per row, and a cloud provider column has a handful.
+    term: Cardinality
+  - type: update
+    at: They do have some experimental full-text index features
+    text: ClickHouse made full-text search generally available in March 2026, built on an inverted text index.
+    date: Mar 2026
+  - type: see
+    at: let us retire our dedicated search service
+    text: A month later we wrote up the search we built in ClickHouse in the meantime, on Bloom filter indexes.
+    post: why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse
+  - type: term
+    at: We denormalized where possible
+    text: Copying related data into one wide table, so a query reads it directly instead of joining tables at query time.
 ---
 
 _Co-authored with Herman Schaaf and Mariano Gappa at CloudQuery._

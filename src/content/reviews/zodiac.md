@@ -25,6 +25,23 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/zodiac/'
 poster: '/images/reviews/zodiac/poster.webp'
 heroImage: '/images/reviews/zodiac/backdrop.webp'
 heroAlt: 'A car parked on a dark lot at night, lit by the headlights of a car behind it.'
+marginNotes:
+  - type: aside
+    at: gets hooked on the Zodiac ciphers
+    text: Solved December 5, 2020, by David Oranchak, Sam Blake and Jarl Van Eycke, three private citizens; the FBI verified it.
+    url: https://en.wikipedia.org/wiki/Zodiac_Killer
+  - type: aside
+    at: accused of forging a Zodiac letter himself
+    text: Toschi was demoted in 1978 over it.
+    url: https://en.wikipedia.org/wiki/Zodiac_(film)
+  - type: aside
+    at: Robert Graysmith (Jake Gyllenhaal)
+    text: The film is built on Graysmith's own books, Zodiac (1986) and Zodiac Unmasked (2002).
+    url: https://en.wikipedia.org/wiki/Zodiac_(film)
+  - type: see
+    at: Inspector Dave Toschi (Mark Ruffalo)
+    text: Ruffalo again in Collateral and Mickey 17.
+    post: reviews/collateral
 ---
 
 The first time I watched Zodiac, the ending made me furious.
@@ -34,6 +51,8 @@ Furious, because I'd spent two and a half hours watching the evidence line up ag
 David Fincher had already made his serial killer movie. In Se7en, ||John Doe calls every shot, wins, and hands everyone an answer in a box||. Zodiac refuses to hand over any answer at all, and it barely seems interested in its killer. It's a process movie: handwriting samples, cipher pages, phone calls between police departments in three counties that can't get each other the files. For most of the runtime the tension is a low hum of paperwork, and then in the last stretch it's really cooking.
 
 What Fincher cares about is the people the case impacted, and what it does to the ones who can't put it down.
+
+![Jake Gyllenhaal on a couch at night, papers around him and two children asleep at the other end.](/images/reviews/zodiac/graysmith-up-late-with-the-case.webp 'margin: Graysmith, up late with the case, kids asleep.')
 
 Robert Graysmith (Jake Gyllenhaal) is a Chronicle cartoonist who gets hooked on the Zodiac ciphers and is still hooked more than a decade later. Inspector Dave Toschi (Mark Ruffalo) gives it a decade and ends up accused of forging a Zodiac letter himself. Paul Avery (Robert Downey Jr.), the paper's crime reporter, drinks himself out of the story. Graysmith's wife Melanie watches her husband disappear into boxes of case files until she takes the kids and leaves. Nobody in this part of the story gets stabbed or shot, but all of them lose years to it.
 

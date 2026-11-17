@@ -132,6 +132,8 @@ _"The apps your job runs on, and right now, it can't see any of them. Let's fix 
 
 I figured lighting would be easy: buy a light, point it at my face, done.
 
+![A glowing ring light with a small teleprompter screen in its center stands behind a desk, with an open laptop in front showing a camera preview.](/images/blog/recording-setup-tour/the-ring-light-setup-i-gave.webp 'margin: The ring light setup I gave up on, September 2026.')
+
 I started with a ring light, and it blew my face out, with everything flat and evenly bright.
 
 I wanted the opposite: a dark, moody room full of colored LEDs, with my face sharp in the middle of it. So I turned everything down, and the image went to hell. When I recorded too dark, the camera had less light to work with, the picture got noisy and soft, and the compression turned my face to mush.

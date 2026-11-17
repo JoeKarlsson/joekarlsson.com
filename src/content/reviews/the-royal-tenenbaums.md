@@ -25,6 +25,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-royal-tenenbaums/'
 poster: '/images/reviews/the-royal-tenenbaums/poster.webp'
 heroImage: '/images/reviews/the-royal-tenenbaums/backdrop.webp'
 heroAlt: 'Gwyneth Paltrow as Margot in a fur coat, stepping off a bus.'
+marginNotes:
+  - type: aside
+    at: that's Gene Hackman
+    text: The part he didn't want won him the Golden Globe for Best Actor in a Musical or Comedy.
+    url: https://en.wikipedia.org/wiki/The_Royal_Tenenbaums
+  - type: see
+    at: the themes he keeps coming back to
+    text: He came back to a distant father and the daughter he neglected in The Phoenician Scheme (2025), which did nothing for me.
+    post: reviews/the-phoenician-scheme
 ---
 
 This is the Wes Anderson movie that gets me every time.

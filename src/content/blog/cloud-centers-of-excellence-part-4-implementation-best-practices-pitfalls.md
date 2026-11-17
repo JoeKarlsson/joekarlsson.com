@@ -40,11 +40,11 @@ mastheadImage: '/images/blog/cloud-centers-of-excellence-part-4-implementation-b
 
 **About This Series:** This is Part 4 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:
 
-- [**Part 1**: Introduction and Organizational Structure](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance)
-- [**Part 2**: Governance, Security, and Compliance](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-2-governance-security-compliance)
-- [**Part 3**: FinOps, Cost Management, and Real-World Case Studies](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies)
+- [**Part 1**: Introduction and Organizational Structure](/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/)
+- [**Part 2**: Governance, Security, and Compliance](/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/)
+- [**Part 3**: FinOps, Cost Management, and Real-World Case Studies](/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/)
 - **Part 4** (This post): Implementation Best Practices and Common Pitfalls
-- [**Part 5**: The Future of CCOEs and Getting Started](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started)
+- [**Part 5**: The Future of CCOEs and Getting Started](/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/)
 
 > **Note:** **TL;DR:**
 > Building a successful CCOE requires more than good intentions - it demands systematic execution. This implementation guide covers 12 critical steps from securing executive sponsorship to establishing metrics, while highlighting the most common pitfalls that cause CCOEs to fail. Key success factors include treating the CCOE as an enabler (not a gatekeeper), starting with pilot projects, fostering cross-organizational collaboration, avoiding disconnection from operational teams. Organizations that follow these proven practices report faster cloud adoption, improved security posture, and significant cost savings, while those that skip foundational steps often see their CCOEs dissolved within 18 months.
@@ -290,4 +290,4 @@ The organizations that follow these principles systematically report measurable 
 
 In the final part of this series, we'll explore the future of CCOEs and provide you with a getting-started checklist. We'll examine emerging trends like AI governance, sustainability tracking, and the evolution toward "Platform Engineering" models. We'll also provide the tactical next steps to begin your CCOE journey, whether you're starting from scratch or enhancing an existing program.
 
-[**Continue to Part 5: The Future of CCOEs and Getting Started**](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started)
+[**Continue to Part 5: The Future of CCOEs and Getting Started**](/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/)

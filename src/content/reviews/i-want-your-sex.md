@@ -25,6 +25,18 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/i-want-your-sex/'
 poster: '/images/reviews/i-want-your-sex/poster.webp'
 heroImage: '/images/reviews/i-want-your-sex/backdrop.webp'
 heroAlt: 'A blonde woman leaning in to kiss a man in a red blindfold, lit in blue.'
+marginNotes:
+  - type: term
+    at: co-writer Karley Sciortino
+    text: Writer and founder of Slutever, a site about sex and sexuality, and author of Vogue's online sex column, Breathless.
+  - type: see
+    at: this isn't my favorite Araki
+    text: 'For the record, the full run: The Living End, The Doom Generation, Nowhere, Splendor.'
+    post: reviews/splendor-1999
+  - type: see
+    at: Her Erika kept reminding me of Miranda
+    text: My review of The Devil Wears Prada 2.
+    post: reviews/the-devil-wears-prada-2
 ---
 
 Horny cinema is back in 2026, and Gregg Araki showed up to personally beg the kids to log off and fuck.

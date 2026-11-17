@@ -27,9 +27,18 @@ updatedDate: 2026-11-17
 corrections:
   - date: 2026-11-17
     note: 'I said it opened the same week as Star Wars. It opened June 24, 1977, a month after.'
+marginNotes:
+  - type: aside
+    at: globetrotting, grueling production
+    text: It adapts Georges Arnaud's novel The Wages of Fear, filmed before by Clouzot in 1953.
+    url: https://en.wikipedia.org/wiki/Sorcerer_(film)
 ---
 
+![A heavy truck leans sideways on a sagging rope-and-plank bridge in pouring rain at night, a man crouched on the planks in front of it.](/images/reviews/sorcerer/the-truck-tilts-on-the-rope.webp 'margin: The truck tilts on the rope bridge in the storm.')
+
 A Herzogian task to even make this movie. Somehow Friedkin pulled it off. And that bridge sequence. 👏
+
+![The silhouette of a big truck and a man beside it, lit from behind through sheets of rain.](/images/reviews/sorcerer/one-of-the-nitro-trucks-backlit.webp 'margin: One of the nitro trucks, backlit in the downpour.')
 
 Sorcerer is a globetrotting, grueling production about exploitation, greed, and men who think they can outrun their pasts. Friedkin dragged cast and crew through actual jungle hell to make this, and you feel every bit of that insanity on screen. The tension is relentless: trucks full of nitroglycerin, rotting rope bridges, rain that won’t stop.
 

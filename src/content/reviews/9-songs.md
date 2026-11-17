@@ -25,9 +25,16 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/9-songs/'
 poster: '/images/reviews/9-songs/poster.webp'
 heroImage: '/images/reviews/9-songs/backdrop.webp'
 heroAlt: 'A couple face to face in golden window light, her fingers on his chin.'
+marginNotes:
+  - type: aside
+    at: Everyone gets so squeamish about sex in film
+    text: The BBFC passed it uncut with an 18, which made it the most explicit mainstream film to get that rating in the UK. Ann Widdecombe asked the Home Secretary to reverse the decision.
+    url: https://en.wikipedia.org/wiki/9_Songs
 ---
 
 9 Songs is 70 minutes of going to a show, going home and fucking, and it's the most honest movie I've seen about being in your 20s.
+
+![Jason Stollsteimer of the Von Bondies sings into a mic with a guitar under blue light, the band’s name painted on a big screen behind him.](/images/reviews/9-songs/the-von-bondies-on-stage-in.webp 'margin: The Von Bondies on stage in 9 Songs.')
 
 The shows got me first. I was 14 when this came out, and I owned a CD by every single band in it: Black Rebel Motorcycle Club, the Von Bondies, Elbow, Primal Scream, the Dandy Warhols, Super Furry Animals, Franz Ferdinand. It's a throwback to when rock bands were huge, and we just don't have bands like this anymore. Things were so fucking cool back then, and all of these bands rip.
 

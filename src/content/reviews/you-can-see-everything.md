@@ -25,6 +25,21 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/you-can-see-everything/'
 poster: '/images/reviews/you-can-see-everything/poster.webp'
 heroImage: '/images/reviews/you-can-see-everything/backdrop.webp'
 heroAlt: 'A smiling woman opens a package in a kitchen as a child and a man look on.'
+marginNotes:
+  - type: see
+    at: deserves his share too
+    text: Oppenheim's earlier documentary, Some Kind of Heaven (2020), about The Villages retirement community.
+    post: reviews/some-kind-of-heaven
+  - type: aside
+    at: 34 days left before Holmes reports
+    text: She reported to Federal Prison Camp Bryan, in Texas, on May 30, 2023, to serve 11 years and 3 months.
+    url: https://en.wikipedia.org/wiki/Elizabeth_Holmes
+  - type: term
+    at: Seyfried already played Holmes in The Dropout
+    text: Hulu's 2022 limited series. Seyfried won the Emmy for Outstanding Lead Actress in a Limited or Anthology Series or Movie for it.
+  - type: term
+    at: The Who's on First scene
+    text: "Abbott and Costello's baseball routine, first on national radio in 1938: Abbott names the players, and the first baseman is called Who."
 ---
 
 Nathan Fielder fans, this is our Super Bowl.
@@ -34,6 +49,8 @@ Nathan Fielder fans, this is our Super Bowl.
 _Holmes and Fielder in A24's [teaser](https://www.youtube.com/watch?v=GGJSRFWALTI)._
 
 I saw You Can See Everything on opening night in a theater packed with Nathan heads, and I fucking love this movie. Three hours of laughing, gasping, and strangers turning to each other going "what?" It's 174 minutes and it zips. I've been chewing on it for three days and I'm still not done.
+
+![Seen from a cliff above, a blonde woman in a blue cap jogs along a gray beach behind a bearded man in a T-shirt.](/images/reviews/you-can-see-everything/holmes-and-evans-jogging-on-the.webp "margin: Holmes and Evans jogging on the beach, in A24's trailer.")
 
 In 2023, with 34 days left before Holmes reports to federal prison, she and her partner Billy Evans invite Fielder and Lance Oppenheim to film them at a rented beach house in Del Mar.
 

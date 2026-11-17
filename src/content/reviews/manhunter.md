@@ -18,6 +18,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/manhunter/'
 poster: '/images/reviews/manhunter/poster.webp'
 heroImage: '/images/reviews/manhunter/backdrop.webp'
 heroAlt: 'William L. Petersen aiming a pistol straight at the camera on a dark street at night.'
+marginNotes:
+  - type: see
+    at: Michael Mann's direction was a bit distracting
+    text: "Where Mann's style works for me: Thief (1981)."
+    post: reviews/thief
+  - type: aside
+    at: Brian Cox was wonderful as Hannibal Lecter
+    text: The film spells him Lecktor. It's the first adaptation of Thomas Harris's 1981 novel Red Dragon; Brett Ratner filmed it again in 2002 with Hopkins.
+    url: https://en.wikipedia.org/wiki/Manhunter_(film) ; https://en.wikipedia.org/wiki/Red_Dragon_(2002_film)
 ---
 
 Manhunter feels like an aquarium trapped in time from 1986. It's slick and cool and undeniably aesthetic, really capturing the essence of an era - but I don't think I want it in my house.

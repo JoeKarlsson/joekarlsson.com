@@ -1,4 +1,5 @@
 import { curlEveryString } from '../utils/curly-apostrophes.mjs';
+import type { ProjectMarginNote } from '../utils/project-margin-notes';
 
 // A gallery item: a hover-to-play clip when `video` is set, otherwise just the
 // `poster` as a still image.
@@ -33,6 +34,9 @@ export interface ProjectPage {
 	};
 	// Projects this one grew out of or led to, as cards at the end of its page
 	lineage?: { label: string; title: string }[];
+	// Notes and small pictures in the right margin, each beside the paragraph holding `at`
+	// (src/utils/project-margin-notes.ts), in the statement, supporting text or How it's made
+	marginNotes?: ProjectMarginNote[];
 	// A web-playable build, embedded under the intro at 1280x720 and scaled to fit
 	// (src/scripts/scale-to-fit-embed.ts). Its origin must be in the CSP frame-src
 	// (Caddyfile and the OpenTofu provision template)
@@ -184,6 +188,40 @@ export const projects: Project[] = curlEveryString(
 			stars: 25,
 			page: {
 				slug: 'iot-kitty-litter-box',
+				marginNotes: [
+					{
+						type: 'see',
+						at: 'The write-up about it closes on',
+						text: 'The talk write-up has the wiring, the code, the data and every event where I gave it.',
+						post: 'talks/an-introduction-to-iot-internet-of-toilets',
+					},
+					{
+						type: 'term',
+						at: 'four 50 kg load cells',
+						term: 'Load cell',
+						text: 'a small metal bar that turns the force pressing on it into an electrical signal. Four under a plate make a scale.',
+					},
+					{
+						type: 'term',
+						at: 'an HX711 amplifier',
+						term: 'HX711',
+						text: 'a cheap chip that boosts the load cells’ tiny signal and turns it into a number the Pi can read.',
+					},
+					{
+						type: 'picture',
+						at: 'Every time my cat steps in',
+						text: 'My cat inspecting the scale plate and its Pi, November 2019.',
+						image: '/images/projects/iot-kitty-litter-box/my-cat-inspecting-the-scale-plate.webp',
+						alt: 'A black cat looks up at a wooden board leaning on a cabinet, with a small yellow-cased Raspberry Pi and wires taped to it.',
+					},
+					{
+						type: 'picture',
+						at: 'A Raspberry Pi reads',
+						text: 'The Raspberry Pi 3 for the box, and its first tester, 2019.',
+						image: '/images/projects/iot-kitty-litter-box/the-raspberry-pi-3-for-the.webp',
+						alt: 'A hand holds a Raspberry Pi 3 Model B box in front of a black cat sitting on a grey couch.',
+					},
+				],
 				tagline: 'An internet-connected litter box that weighs my cat every time he uses it.',
 				introHeading: 'Artist statement',
 				intro: [
@@ -244,6 +282,31 @@ export const projects: Project[] = curlEveryString(
 			blogUrl: '/blog/pixelpane-pixel-art-home-assistant/',
 			page: {
 				slug: 'pixelpane',
+				marginNotes: [
+					{
+						type: 'see',
+						at: 'It’s an art project first',
+						text: 'The build post: parts, the scene plugins, and how Home Assistant talks to it.',
+						post: 'pixelpane-pixel-art-home-assistant',
+					},
+					{
+						type: 'term',
+						at: 'a two-way mirror',
+						term: 'Two-way mirror',
+						text: 'acrylic with a thin reflective coating. With the lights off you see a mirror. When the LEDs behind it light up, they show through.',
+					},
+					{
+						type: 'exhibit',
+						at: 'A 32x32 LED panel sits behind',
+						text: 'Where this panel started: in 2020 audiences drew on their phones and it showed up on this grid on stage.',
+					},
+					{
+						type: 'see',
+						at: 'ON AIR when my camera turns on',
+						text: 'The camera is the one on my rolling recording desk.',
+						post: 'recording-setup-tour',
+					},
+				],
 				tagline: 'A 32x32 LED pixel art frame on my shelf, driven by a Raspberry Pi.',
 				introHeading: 'Artist statement',
 				intro: [
@@ -313,6 +376,21 @@ export const projects: Project[] = curlEveryString(
 				'/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/',
 			page: {
 				slug: 'postcard-rack-planter',
+				marginNotes: [
+					{
+						type: 'see',
+						at: 'So I drew a pot that hangs',
+						text: 'The 2023 post walks through the model and the first planting.',
+						post: 'from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack',
+					},
+					{
+						type: 'picture',
+						at: 'I bought one secondhand',
+						text: 'The empty rack with the first test pots, February 2023.',
+						image: '/images/projects/postcard-rack-planter/the-empty-rack-with-the-first.webp',
+						alt: 'A gold wire postcard rack, mostly empty, with three black 3D-printed pots hanging in its top pockets.',
+					},
+				],
 				tagline: 'A used postcard rack, turned into a planter tower with 3D-printed pots.',
 				download: {
 					url: 'https://www.thingiverse.com/thing:5867063',
@@ -380,6 +458,32 @@ export const projects: Project[] = curlEveryString(
 			stars: 131,
 			page: {
 				slug: 'react-spotify-player',
+				marginNotes: [
+					{
+						type: 'see',
+						at: 'a tutorial on building a Spotify player',
+						text: 'The tutorial, updated for 2026.',
+						post: 'how-to-build-a-spotify-player-with-react-in-15-minutes',
+					},
+					{
+						type: 'exhibit',
+						at: 'using the Spotify API for my MagicMirror',
+						text: 'My MagicMirror with the Spotify integration, where this code started.',
+					},
+					{
+						type: 'update',
+						at: 'it logs in with Spotify’s Implicit Grant flow',
+						text: '“On 27 November 2025, Spotify will remove support for the implicit grant flow.” Spotify’s reminder post, October 2025. The tutorial’s login no longer works as written.',
+						date: 'Nov 2025',
+					},
+					{
+						type: 'quote',
+						at: 'Authorization Code flow with PKCE',
+						text: 'The authorization code flow with PKCE is the recommended authorization flow if you’re implementing authorization in a mobile app, single page web apps, or any other type of application where the client secret can’t be safely stored.',
+						by: "Spotify's Web API docs",
+						url: 'https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow',
+					},
+				],
 				tagline: "Shows what you're playing on Spotify, in a few small React files.",
 				intro: [
 					"React Spotify Player shows what you're listening to on Spotify: the album art, the track and artist, and a progress bar that moves along with the song. I built it in 2019 for a tutorial on building a Spotify player with React in 15 minutes, and it's still one of my most-starred open source projects.",
@@ -418,6 +522,21 @@ export const projects: Project[] = curlEveryString(
 			sourceUrl: 'https://github.com/JoeKarlsson/digital-graffiti-wall',
 			page: {
 				slug: 'digital-graffiti-wall',
+				marginNotes: [
+					{
+						type: 'quote',
+						at: 'A 32x32 grid forces creativity',
+						text: 'The board must be 1000 tiles by 1000 tiles so it feels very large.',
+						by: 'Reddit, How We Built r/Place',
+						url: 'https://www.redditinc.com/blog/how-we-built-rplace/',
+					},
+					{
+						type: 'aside',
+						at: 'anonymously through MongoDB Realm',
+						text: 'MongoDB shut down Realm’s successor, Atlas App Services, including its sign-in, on September 30, 2025, so the 2020 code won’t run as written today.',
+						url: 'https://www.mongodb.com/docs/atlas/device-sdks/deprecation/',
+					},
+				],
 				tagline:
 					'A shared 32x32 canvas that everyone in the room paints at once, shown on a real LED grid.',
 				introHeading: 'Artist statement',
@@ -456,6 +575,20 @@ export const projects: Project[] = curlEveryString(
 			stars: 5,
 			page: {
 				slug: 'wave-jump',
+				marginNotes: [
+					{
+						type: 'aside',
+						at: 'the weekend of January 26 to 28, 2018',
+						text: 'That was Global Game Jam 2018, at the Minneapolis site. The theme every team got that year was Transmission.',
+						url: 'https://www.londonmet.ac.uk/news/articles/playing-with-transmission-at-the-global-game-jam/',
+					},
+					{
+						type: 'term',
+						at: 'from a sine curve',
+						term: 'Sine curve',
+						text: 'the smooth up-and-down shape a swing traces over time. Feed it a steadily growing number and it rises and falls forever.',
+					},
+				],
 				tagline: "Two players, one keyboard, and a wave that won't hold still.",
 				introHeading: 'Artist statement',
 				credit: 'with Cal Carlson, Daniel Olson and Lisa Mabley',
@@ -496,6 +629,21 @@ export const projects: Project[] = curlEveryString(
 			stars: 2,
 			page: {
 				slug: 'go-home-tanuki',
+				marginNotes: [
+					{
+						type: 'aside',
+						at: 'We made it over one weekend in Phaser',
+						text: 'That weekend was Global Game Jam 2016, January 29 to 31. The theme every team got was Ritual, which is where the work, drink, go home loop comes from.',
+						url: 'https://old.cs.uct.ac.za/news-and-events/2016/annual-global-game-jam',
+					},
+					{
+						type: 'picture',
+						at: 'the raccoon dog from Japanese folklore',
+						text: 'A Shigaraki tanuki statue, sake flask in hand. Wikimedia Commons, CC0.',
+						image: '/images/projects/go-home-tanuki/a-shigaraki-tanuki-statue-sake-flask.webp',
+						alt: 'A glazed ceramic tanuki statue with a straw hat on its back, a round belly and a sake flask, standing on a train station platform in Japan.',
+					},
+				],
 				tagline: 'Get a drunk tanuki home, at least for tonight.',
 				introHeading: 'Artist statement',
 				credit: 'with Kent Salcedo, Sarah Kurisu and Corina',
@@ -536,6 +684,15 @@ export const projects: Project[] = curlEveryString(
 			demoUrl: 'https://poststream.joekarlsson.com/',
 			page: {
 				slug: 'poststream',
+				marginNotes: [
+					{
+						type: 'quote',
+						at: 'Ben Grosser’s Facebook Demetricator',
+						text: 'A web browser extension that hides all the metrics on Facebook.',
+						by: 'Ben Grosser on Facebook Demetricator',
+						url: 'https://bengrosser.com/projects/facebook-demetricator/',
+					},
+				],
 				tagline: 'A social network with the metrics taken out.',
 				introHeading: 'Artist statement',
 				credit: 'with Ray Farias and Jacoby Young',
@@ -585,6 +742,27 @@ export const projects: Project[] = curlEveryString(
 			demoUrl: 'https://corners.joekarlsson.com/',
 			page: {
 				slug: 'nothing-but-corners',
+				marginNotes: [
+					{
+						type: 'quote',
+						at: 'Cory Arcangel’s Super Mario Clouds',
+						text: 'Super Mario Clouds is an old Mario Brothers cartridge which I modified to erase everything but the clouds.',
+						by: 'Cory Arcangel on Super Mario Clouds',
+						url: 'https://coryarcangel.com/works/2002-001-super-mario-clouds',
+					},
+					{
+						type: 'term',
+						at: 'burning the logo into the screen',
+						term: 'Burn-in',
+						text: 'a still image left on an old CRT or plasma TV for hours could leave a permanent ghost of itself. Moving the logo around avoided that.',
+					},
+					{
+						type: 'see',
+						at: 'I aim every bounce',
+						text: 'I built it in one day, November 5, 2026. Eight of that day’s 15 commits are in my Hackers and Painters post.',
+						post: 'hackers-and-painters-ai-agents',
+					},
+				],
 				tagline: 'The DVD screensaver with the boring parts taken out.',
 				introHeading: 'Artist statement',
 				intro: [
@@ -624,6 +802,20 @@ export const projects: Project[] = curlEveryString(
 			demoUrl: 'https://stupidshitnooneinhawaiineedshackathon.github.io/',
 			page: {
 				slug: 'stupid-hackathon-hawaii',
+				marginNotes: [
+					{
+						type: 'see',
+						at: 'one day in Honolulu',
+						text: 'How Ray and I planned it: the venue, the sponsors, the radio spot and the one-minute demos.',
+						post: 'i-ran-my-first-hackathon-and-so-can-you',
+					},
+					{
+						type: 'aside',
+						at: 'the prizes went to the stupidest ideas',
+						text: 'Every one-minute demo and the awards are on YouTube: Stupid Shit Hackathon Honolulu, Presentations and Awards.',
+						url: 'https://www.youtube.com/watch?v=dx6INFO8ACE',
+					},
+				],
 				tagline: "Let's build something we will all regret.",
 				introHeading: 'Artist statement',
 				credit: 'with Ray Farias',
@@ -710,6 +902,20 @@ export const projects: Project[] = curlEveryString(
 			sourceUrl: 'https://github.com/JoeKarlsson/best-buy-product-locator-chrome-extension',
 			page: {
 				slug: 'best-buy-product-locator',
+				marginNotes: [
+					{
+						type: 'term',
+						at: 'it’s built on Manifest V2',
+						term: 'Manifest V2',
+						text: 'the old format for a Chrome extension’s settings file. Chrome 138 turned off every V2 extension in July 2025, and Chrome 139 removed the setting companies used to keep them on.',
+					},
+					{
+						type: 'term',
+						at: 'a model number or UPC',
+						term: 'UPC',
+						text: 'Universal Product Code, the number printed under a store barcode.',
+					},
+				],
 				tagline: 'Two-day shipping too slow for you?',
 				credit: 'with Eric Moore',
 				intro: [
@@ -744,6 +950,20 @@ export const projects: Project[] = curlEveryString(
 			demoUrl: 'https://gaptcha.joekarlsson.com/',
 			page: {
 				slug: 'gaptcha',
+				marginNotes: [
+					{
+						type: 'term',
+						at: 'the Vincenty formula',
+						term: 'Vincenty formula',
+						text: 'Thaddeus Vincenty’s 1975 method for the distance and direction between two points on an Earth that is slightly squashed, not a perfect ball. Survey Review, April 1975.',
+					},
+					{
+						type: 'term',
+						at: 'AR.js finds the printed marker',
+						term: 'Marker',
+						text: 'a printed black square with a pattern inside. It is easy for a camera to spot and measure, so the app knows where and how big to draw the arrow.',
+					},
+				],
 				tagline: 'Find, scan, win',
 				credit: 'with Sean Nakamura, Tony Gaskell, Brandon Baris and Joelle Torneros',
 				intro: [
@@ -813,6 +1033,20 @@ export const projects: Project[] = curlEveryString(
 			stars: 15,
 			page: {
 				slug: 'pixelate',
+				marginNotes: [
+					{
+						type: 'see',
+						at: 'The 2015 version had no pixel math in it',
+						text: 'The 2015 tutorial walks through that trick line by line.',
+						post: 'how-to-pixelate-images-with-html5-and-javascript',
+					},
+					{
+						type: 'term',
+						at: 'image smoothing turned off',
+						term: 'Image smoothing',
+						text: 'the blending a browser does when it stretches a picture. Turned off, each tiny pixel just grows into a hard-edged square.',
+					},
+				],
 				tagline: 'Pick a photo, drag the slider.',
 				introHeading: 'Artist statement',
 				intro: [
@@ -860,6 +1094,14 @@ export const projects: Project[] = curlEveryString(
 			demoUrl: 'https://night-out.joekarlsson.com/',
 			page: {
 				slug: 'night-out',
+				marginNotes: [
+					{
+						type: 'term',
+						at: 'packed into the link after the #',
+						term: 'Fragment',
+						text: 'the part of a link after the #. Browsers never send it to the server, so the plan lives only in the links people pass around.',
+					},
+				],
 				tagline: 'Where are we going tonight?',
 				credit: 'with Jessie Copeland, Alex Anich, Brian "Boots" and Nolan "Skinny Fatman"',
 				intro: [
@@ -906,6 +1148,40 @@ export const projects: Project[] = curlEveryString(
 			demoUrl: 'https://linger.joekarlsson.com/poem.html',
 			page: {
 				slug: 'linger',
+				marginNotes: [
+					{
+						type: 'aside',
+						at: 'A Humument',
+						text: 'Tom Phillips found W. H. Mallock’s 1892 novel A Human Document in a junk shop in 1966 and kept painting over its pages for 50 years. Tom Phillips, A Humument introduction, tomphillips.co.uk.',
+						url: 'https://www.tomphillips.co.uk/works/humument/introduction',
+					},
+					{
+						type: 'aside',
+						at: 'A Little White Shadow',
+						text: 'Mary Ruefle, A Little White Shadow, Wave Books, 2006. She whited out an 1889 novella by Emily Malbone Morgan.',
+						url: 'https://www.wavepoetry.com/products/a-little-white-shadow',
+					},
+					{
+						type: 'quote',
+						at: 'The Deletionist was a big inspiration',
+						text: 'The Deletionist is a concise system for automatically producing an erasure poem from any Web page.',
+						by: 'Amaranth Borsuk on The Deletionist',
+						url: 'https://amaranthborsuk.com/projects/the-deletionist',
+					},
+					{
+						type: 'see',
+						at: 'seven poems that only finish',
+						text: 'How I sketched it with an AI agent, in my Hackers and Painters post.',
+						post: 'hackers-and-painters-ai-agents',
+					},
+					{
+						type: 'picture',
+						at: 'blackout poetry on paper',
+						text: 'A blackout poem in progress, October 2026.',
+						image: '/images/projects/linger/a-blackout-poem-in-progress-october.webp',
+						alt: 'Overhead view of hands blacking out lines of a printed page with a marker, with scissors and magazine cutouts on the table.',
+					},
+				],
 				tagline: 'Poems for the in-between hours. Stay a while, and the words will come.',
 				introHeading: 'Artist statement',
 				intro: [
@@ -947,6 +1223,26 @@ export const projects: Project[] = curlEveryString(
 			demoUrl: 'https://punc.joekarlsson.com/',
 			page: {
 				slug: 'punc',
+				marginNotes: [
+					{
+						type: 'aside',
+						at: 'Punc takes the words away',
+						text: 'Punc started after Adam J. Calhoun’s 2016 essay Punctuation in novels, which was inspired by Nicholas Rougeux’s Between the Words.',
+						url: 'https://github.com/JoeKarlsson/punc',
+					},
+					{
+						type: 'exhibit',
+						at: 'Alice’s Adventures in Wonderland comes out',
+						text: 'The White Rabbit, late and anxious, drawn by John Tenniel. Wikimedia Commons, CC0.',
+					},
+					{
+						type: 'see',
+						at: 'like the blackout poems I make on paper',
+						text: 'linger works the other way: it starts erased and gives the words back if you read slowly.',
+						post: 'work/linger',
+						title: 'linger',
+					},
+				],
 				tagline: 'What a book looks like without words.',
 				introHeading: 'Artist statement',
 				intro: [
@@ -995,6 +1291,56 @@ export const projects: Project[] = curlEveryString(
 			stars: 2,
 			page: {
 				slug: 'rose-hobart',
+				marginNotes: [
+					{
+						type: 'exhibit',
+						at: 'Every time Joseph Cornell screened Rose Hobart',
+						text: 'Rose Hobart herself, on a 1930 lobby card for A Lady Surrenders. Cornell cut his film from another of hers, East of Borneo (1931). Wikimedia Commons, public domain.',
+					},
+					{
+						type: 'aside',
+						at: 'Salvador Dalí stormed out',
+						text: '[[Pigott 2013]] Michael Pigott, Joseph Cornell Versus Cinema, Bloomsbury Academic, 2013. Open access.',
+						url: 'https://library.oapen.org/handle/20.500.12657/58735',
+					},
+					{
+						type: 'term',
+						at: 'age it like old nitrate',
+						term: 'Nitrate',
+						text: 'the film base most movies were printed on into the 1950s. It is flammable and chemically unstable, so old prints decay.',
+					},
+					{
+						type: 'term',
+						at: 'This collaborative digital humanities project',
+						term: 'Digital humanities',
+						text: 'using computers to study literature, film, history and art, often by counting and charting patterns across many works at once.',
+					},
+					{
+						type: 'aside',
+						at: 'Jaimie Baron argues',
+						text: 'Jaimie Baron, “The Experimental Film Remake and the Digital Archive Effect,” Framework 53.2, Fall 2012.',
+						url: 'https://digitalcommons.wayne.edu/framework/vol53/iss2/8',
+					},
+					{
+						type: 'aside',
+						at: 'as Janet Harbord argues',
+						text: 'Janet Harbord, “The Potency of Film Editing: Rose Hobart Stop Return,” Contemporary Theatre Review 25.1, 2015.',
+						url: 'https://www.mediafactory.org.au/2016-cut-v-shot/2016/06/06/harbord-j-2015-the-potency-of-film-editing-rose-hobart-stop-return-in-contemporary-theatre-review-251-pp-68-72/',
+					},
+					{
+						type: 'aside',
+						at: 'qtd. in Lowenstein',
+						text: 'Adam Lowenstein, “The Surrealism of the Stars: From Rose Hobart to Mrs. Rock Hudson,” in Dreaming of Cinema, Columbia University Press, 2015.',
+						url: 'https://rosehobart.joekarlsson.com/about',
+					},
+					{
+						type: 'picture',
+						at: 'the film’s 1936 premiere ended with',
+						text: 'Dalí in Paris, 1934, two years before the premiere. Wikimedia Commons, public domain.',
+						image: '/images/projects/rose-hobart/dal-in-paris-1934-two-years.webp',
+						alt: 'Black-and-white photo of a young Salvador Dalí with slicked-back hair and a thin mustache, standing in front of Paris theater posters.',
+					},
+				],
 				tagline: "Joseph Cornell's Rose Hobart, remastered for the web.",
 				introHeading: 'Artist statement',
 				credit: 'with Laurel Karlsson',
@@ -1054,6 +1400,33 @@ export const projects: Project[] = curlEveryString(
 			stars: 30,
 			page: {
 				slug: 'bechdel-io',
+				marginNotes: [
+					{
+						type: 'quote',
+						at: 'a 1985 strip in Alison Bechdel’s comic',
+						text: 'She stole it from a friend, Liz Wallace, whose name is on the marquee in the comic strip, reprinted below.',
+						by: 'Alison Bechdel, The Rule',
+						url: 'https://dykestowatchoutfor.com/the-rule/',
+					},
+					{
+						type: 'aside',
+						at: 'In 1989 the Guerrilla Girls counted the art',
+						text: 'Guerrilla Girls, Do Women Have To Be Naked To Get Into the Met. Museum?, 1989. Tate collection.',
+						url: 'https://www.tate.org.uk/art/artworks/guerrilla-girls-do-women-have-to-be-naked-to-get-into-the-met-museum-p78793',
+					},
+					{
+						type: 'see',
+						at: 'Bechdel.io reads the screenplay',
+						text: 'How I rebuilt it as a static site in 2026, after it died on Heroku.',
+						post: 'hackers-and-painters-ai-agents',
+					},
+					{
+						type: 'see',
+						at: 'We made it open source as feminist activism',
+						text: 'The talk: how the parser reads a script, and why Laurel and I built it.',
+						post: 'talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive',
+					},
+				],
 				tagline: 'Does your favorite movie pass the Bechdel Test?',
 				introHeading: 'Artist statement',
 				intro: [
@@ -1113,6 +1486,34 @@ export const projects: Project[] = curlEveryString(
 			blogUrl: '/blog/why-i-use-doom-to-visualize-mcp-data/',
 			page: {
 				slug: 'connect-ai-doom',
+				marginNotes: [
+					{
+						type: 'quote',
+						at: 'I call that borrowed literacy',
+						text: 'Doom was chosen for this project for two reasons. The first is that it is a classic game, familiar to most system administrators.',
+						by: 'Dennis Chao, Doom as an Interface for Process Management (2001)',
+						url: 'https://cs.unm.edu/~dlchao/flake/doom/chi/chi.html',
+					},
+					{
+						type: 'aside',
+						at: 'a John Deere tractor',
+						text: 'Sick Codes jailbroke a John Deere touchscreen and ran Doom on it at DEF CON 30. The Register, August 2022.',
+						url: 'https://www.theregister.com/2022/08/16/john_deere_doom/',
+					},
+					{
+						type: 'term',
+						at: 'Connect AI as its only MCP server',
+						term: 'MCP (Model Context Protocol)',
+						text: 'an open standard for giving an AI agent tools and data. An MCP server is what the agent calls to run the query.',
+					},
+					{
+						type: 'picture',
+						at: 'the joke gets you to look',
+						text: 'The Connect AI × DOOM booth, October 2026.',
+						image: '/images/projects/connect-ai-doom/the-connect-ai-doom-booth-october.webp',
+						alt: 'At a trade show booth, a visitor with a backpack watches a Doom level on a tall screen while Joe points at a monster.',
+					},
+				],
 				tagline: 'Doom built from live business data, where every monster is a real record.',
 				introHeading: 'Artist statement',
 				intro: [
@@ -1185,6 +1586,38 @@ export const projects: Project[] = curlEveryString(
 			blogUrl: '/blog/followspot-local-whisper-teleprompter/',
 			page: {
 				slug: 'followspot',
+				marginNotes: [
+					{
+						type: 'exhibit',
+						at: 'the energy of a theater kid',
+						text: 'A follow spot: the theater light an operator swings by hand to keep one performer lit. Wikimedia Commons, public domain.',
+					},
+					{
+						type: 'term',
+						at: 'a whisper.cpp model you choose',
+						text: "whisper.cpp: a C/C++ port of OpenAI's Whisper speech-to-text model. It runs on a laptop's CPU or Apple GPU, with no Python and no server.",
+					},
+					{
+						type: 'see',
+						at: 'can’t memorize lines',
+						text: 'Where it runs: on an Elgato Prompter in front of my camera, on my rolling recording desk.',
+						post: 'recording-setup-tour',
+					},
+					{
+						type: 'see',
+						at: 'If you record with Screencast Director',
+						text: 'The screen recorder that drafts the edit.',
+						post: 'work/screencast-director',
+						title: 'Screencast Director',
+					},
+					{
+						type: 'picture',
+						at: 'the prompter apps I had',
+						text: 'The prompter hood on my camera, November 2026.',
+						image: '/images/projects/followspot/the-prompter-hood-on-my-camera.webp',
+						alt: 'A mirrorless camera behind a teleprompter with a black cloth hood, its screen showing the scene in front of it.',
+					},
+				],
 				tagline: 'A teleprompter that listens, running Whisper on your own machine.',
 				intro: [
 					'Read your script out loud and the highlight follows you. Skip a sentence, flub a word, or ad-lib a little and it keeps going. Stop talking and it stops too.',
@@ -1240,6 +1673,26 @@ export const projects: Project[] = curlEveryString(
 			blogUrl: '/blog/screencast-director-screen-recorder/',
 			page: {
 				slug: 'screencast-director',
+				marginNotes: [
+					{
+						type: 'term',
+						at: 'transcription runs on your machine with whisper.cpp',
+						text: "whisper.cpp: a C/C++ port of OpenAI's Whisper speech-to-text model. It runs on a laptop's CPU or Apple GPU, with no Python and no server.",
+					},
+					{
+						type: 'see',
+						at: 'drops the retakes you mark',
+						text: 'FollowSpot, my teleprompter, marks the retakes for you while you read.',
+						post: 'work/followspot',
+						title: 'FollowSpot',
+					},
+					{
+						type: 'see',
+						at: 'any OpenAI-compatible model',
+						text: 'Why I care about running the model on my own machine.',
+						post: 'breaking-up-with-claude-code',
+					},
+				],
 				tagline: 'A screen recorder that does the boring part of the edit.',
 				intro: [
 					"Screencast Director records your screen, mic and camera, then drafts the edit from one rule: while you're talking it plays in real time, typing without talking gets sped up, and silence gets cut. It zooms in where you click, captions what you said, and drops the retakes you mark.",
@@ -1347,6 +1800,14 @@ export const projects: Project[] = curlEveryString(
 			stars: 14,
 			page: {
 				slug: 'movie-script-scraper',
+				marginNotes: [
+					{
+						type: 'see',
+						at: 'It’s where Bechdel.io got its scripts',
+						text: 'How Bechdel.io reads those text files, character by character.',
+						post: 'bechdel-test-script-parser-works',
+					},
+				],
 				tagline: 'Downloads movie scripts by genre, as text files you can count.',
 				credit: 'started by Tim Kendall',
 				intro: [
@@ -1392,6 +1853,21 @@ export const projects: Project[] = curlEveryString(
 			blogUrl: '/blog/adult-swim-bumpers-plex-pre-rolls/',
 			page: {
 				slug: 'adult-swim-bumper',
+				marginNotes: [
+					{
+						type: 'see',
+						at: 'every movie on Joeflix now opens',
+						text: 'The post: every bumper, the YAML, and how NeXroll shuffles them.',
+						post: 'adult-swim-bumpers-plex-pre-rolls',
+					},
+					{
+						type: 'quote',
+						at: 'Plex only plays pre-rolls before movies',
+						text: 'In order to have the “pre-roll” video(s) played, users will need to have the Cinema Trailers feature enabled in their Plex App.',
+						by: "Plex's support article on Extras",
+						url: 'https://support.plex.tv/articles/202920803-extras/',
+					},
+				],
 				tagline: 'Adult Swim-style bumpers for your Plex server.',
 				introHeading: 'Artist statement',
 				intro: [
@@ -1470,6 +1946,15 @@ export const projects: Project[] = curlEveryString(
 			demoUrl: 'https://streamroll.vercel.app/',
 			page: {
 				slug: 'streamroll',
+				marginNotes: [
+					{
+						type: 'quote',
+						at: 'Netflix plays its sting before every show',
+						text: 'which were my wedding ring that I’m wearing knocking on the side of our cabinet in our bedroom',
+						by: 'Dallas Taylor, Twenty Thousand Hertz',
+						url: 'https://www.20k.org/episodes/netflix',
+					},
+				],
 				tagline: 'Netflix-style intros for your own media server.',
 				introHeading: 'Artist statement',
 				intro: [
@@ -1542,6 +2027,39 @@ export const projects: Project[] = curlEveryString(
 			blogUrl: '/blog/building-a-gpu-accelerated-subtitle-generator/',
 			page: {
 				slug: 'gpu-subtitle-generator',
+				marginNotes: [
+					{
+						type: 'see',
+						at: 'the two NVIDIA cards in my homelab',
+						text: 'How I share two used GPUs across seven services.',
+						post: 'proxmox-gpu-passthrough-multi-service',
+					},
+					{
+						type: 'see',
+						at: 'my house’s voice assistant',
+						text: 'The fully local voice assistant that shares the card.',
+						post: 'local-voice-ai-home-assistant-gpu',
+					},
+					{
+						type: 'term',
+						at: 'checks for free VRAM',
+						term: 'VRAM',
+						text: 'the graphics card’s own memory. A model has to fit in it, so two big jobs can’t share the card at once.',
+					},
+					{
+						type: 'quote',
+						at: 'Whisper also invents lines over silence',
+						text: 'the predictions may include texts that are not actually spoken in the audio input (i.e. hallucination).',
+						by: "OpenAI's Whisper model card",
+						url: 'https://github.com/openai/whisper/blob/main/model-card.md',
+					},
+					{
+						type: 'aside',
+						at: 'a filter of more than 200 patterns',
+						text: 'Koenecke et al., “Careless Whisper: Speech-to-Text Hallucination Harms,” ACM FAccT 2024: about 1% of transcripts had whole made-up phrases or sentences, more often with long pauses.',
+						url: 'https://arxiv.org/abs/2402.08021',
+					},
+				],
 				tagline: 'Subtitles for a whole video library, on GPUs the house is already using.',
 				intro: [
 					'My video library has thousands of files in dozens of languages, and most had no subtitles. This writes them with faster-whisper on the two NVIDIA cards in my homelab. It detects the language, translates to English and saves a `.en.srt` next to each video, so Plex, Jellyfin and VLC find it on their own.',
@@ -1575,6 +2093,33 @@ export const projects: Project[] = curlEveryString(
 			blogUrl: '/blog/implementing-mikrotik-binary-api-protocol-in-python/',
 			page: {
 				slug: 'mikrotik-api-client',
+				marginNotes: [
+					{
+						type: 'exhibit',
+						at: 'a MikroTik CRS317 switch',
+						text: 'The back of my rack. The CRS317 is the bottom switch, and both hosts’ 10G pairs plug into it.',
+					},
+					{
+						type: 'see',
+						at: 'My homelab’s 10G backbone',
+						text: 'The whole homelab, two years in.',
+						post: 'homelab-two-years-later',
+					},
+					{
+						type: 'quote',
+						at: 'each sentence ended by a zero byte',
+						text: 'the end of the sentence is marked by a zero-length word.',
+						by: "MikroTik's API docs",
+						url: 'https://help.mikrotik.com/docs/spaces/ROS/pages/47579160/API',
+					},
+					{
+						type: 'quote',
+						at: 'the trick UTF-8 uses',
+						text: 'the number of high-order 1’s in the first byte signifies the number of bytes in the multibyte character',
+						by: 'Rob Pike, UTF-8 history',
+						url: 'https://www.cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt',
+					},
+				],
 				tagline: "MikroTik's binary router API, in 137 lines of standard-library Python.",
 				intro: [
 					"My homelab's 10G backbone is a MikroTik CRS317 switch, and I wanted to change its bonds, DHCP and firewall rules from scripts instead of typing into SSH. RouterOS has an API on port 8728 that speaks its own binary protocol over raw TCP: sentences made of words, each word led by its length, each sentence ended by a zero byte.",

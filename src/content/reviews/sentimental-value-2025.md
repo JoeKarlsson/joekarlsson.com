@@ -43,6 +43,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sentimental-value-2025/'
 poster: '/images/reviews/sentimental-value-2025/poster.webp'
 heroImage: '/images/reviews/sentimental-value-2025/backdrop.webp'
 heroAlt: 'Stellan Skarsgård and Renate Reinsve standing apart in front of a dark hedge at dusk.'
+marginNotes:
+  - type: term
+    at: gets Irreversible for his birthday
+    term: Irréversible
+    text: Gaspar Noé's 2002 film, told in reverse order and notorious for a nine-minute, single-take rape scene. Not a seven-year-old's movie.
+  - type: aside
+    at: Stellan Skarsgård's character
+    text: He plays Gustav Borg, a celebrated director, and won the Golden Globe for it. The film won the Grand Prix at Cannes in 2025.
+    url: https://en.wikipedia.org/wiki/Sentimental_Value
+  - type: see
+    at: Elle Fanning is having a year
+    text: 'Fanning as twin androids in Predator: Badlands, my review. In Death Stranding 2 she plays Tomorrow.'
+    post: reviews/predator-badlands
 ---
 
 The funniest part of this movie is when the seven-year-old gets Irreversible for his birthday.
@@ -53,8 +66,12 @@ Sentimental Value fits right into that wave, but it might be the densest of the 
 
 I'm generally anti-films about films, but this uses filmmaking as a lens to explore someone's inner dialogue without ever feeling like a movie about movies.
 
+![An older bald man in a dark cardigan and white shirt stands on a seaside promenade under a cloudy sky.](/images/reviews/sentimental-value-2025/stellan-skarsgrd-as-the-director-father.webp 'margin: Stellan Skarsgård as the director father.')
+
 I'm still processing my emotional connection to this one, especially Stellan Skarsgård's character and what the act of creation means to him - whether making something can heal anything, or whether it's just another way to avoid facing people directly. He looked a lot like my grandpa. I was thinking about him the entire time. Watching the daughters navigate their father's distance felt like watching my worst fear of being a parent. I could see myself in parts of Stellan - the withdrawal, the inability to articulate feeling, the hiding behind work.
 
 The final scene genuinely took me by surprise. It got me.
+
+![Elle Fanning, blonde in a beige sweater, smiles down during an interview in a bright room.](/images/reviews/sentimental-value-2025/elle-fanning-as-an-american-star.webp 'margin: Elle Fanning as an American star in the film.')
 
 Also, can I just say - Elle Fanning is having a year. Showing up in Hideo Kojima's game, doing [Predator: Badlands](/reviews/predator-badlands/), and still making arthouse films like this. Good for her. I love how she's using her star power.

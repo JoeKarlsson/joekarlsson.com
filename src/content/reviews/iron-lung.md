@@ -18,6 +18,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/iron-lung/'
 poster: '/images/reviews/iron-lung/poster.webp'
 heroImage: '/images/reviews/iron-lung/backdrop.webp'
 heroAlt: 'A dark hulking silhouette ringed by jagged glowing red light in black water.'
+marginNotes:
+  - type: aside
+    at: it should have been a tight 90 minutes
+    text: It runs 125 minutes. It's adapted from David Szymanski's 2022 game.
+    url: https://en.wikipedia.org/wiki/Iron_Lung_(film)
+  - type: aside
+    at: Hats off to Markiplier for making this happen
+    text: He self-financed it, self-released it in theaters and pressed the discs himself.
+    url: https://en.wikipedia.org/wiki/Iron_Lung_(film)
 ---
 
 Impressive that this exists. Frustrating to sit through.

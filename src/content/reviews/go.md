@@ -18,11 +18,18 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/go/'
 poster: '/images/reviews/go/poster.webp'
 heroImage: '/images/reviews/go/backdrop.webp'
 heroAlt: 'Katie Holmes and Sarah Polley, in a red leather jacket, sitting side by side in a dark crowded room.'
+marginNotes:
+  - type: see
+    at: Doug Liman's
+    text: Liman's later Edge of Tomorrow, which I like a lot more.
+    post: reviews/edge-of-tomorrow
 ---
 
 A fun, flashy 90s homage to Tarantino's aesthetic that succeeds more in style than substance.
 
 Doug Liman's "Go!" is a vibrant, visually striking crime-comedy that clearly draws inspiration from the Reservoir Dogs and Pulp Fiction era, but manages to carve out its own identity through sheer energy and visual flair. The film's 3-part structure works well, with each segment building on the previous one while maintaining distinct tonal shifts.
+
+![Katie Holmes smiles in a dark club lit in blue and red, other partygoers around her, one with a wreath in her hair.](/images/reviews/go/katie-holmes-at-the-christmas-rave.webp 'margin: Katie Holmes at the Christmas rave.')
 
 The standout elements are undeniably visual - Liman's cinematography is gorgeous, particularly in the dark, neon-lit nighttime sequences that really showcase the film's bold color palette. The production design and lighting create an atmospheric, almost dreamlike quality that elevates the material. The young cast delivers solid performances across the board, with the ensemble chemistry feeling authentic and lively.
 

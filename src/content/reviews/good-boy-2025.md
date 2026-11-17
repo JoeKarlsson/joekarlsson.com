@@ -22,6 +22,11 @@ updatedDate: 2026-11-17
 corrections:
   - date: 2026-11-17
     note: "I called Indy a Border Collie. He's a Nova Scotia Duck Tolling Retriever."
+marginNotes:
+  - type: aside
+    at: is an incredible actor
+    text: Indy is the director Ben Leonberg's own dog. They shot more than 400 days over three years, April 2021 to August 2024, in Leonberg's house in New Jersey, for about $70,000.
+    url: https://en.wikipedia.org/wiki/Good_Boy_(2025_Leonberg_film)
 ---
 
 This movie proves that the real horror was always just being a dog with separation anxiety in a household with unclear boundaries.

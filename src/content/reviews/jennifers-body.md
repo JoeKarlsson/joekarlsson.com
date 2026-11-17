@@ -17,11 +17,18 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jennifers-body/'
 poster: '/images/reviews/jennifers-body/poster.webp'
 heroImage: '/images/reviews/jennifers-body/backdrop.webp'
 heroAlt: "A still from Jennifer's Body (2009)"
+marginNotes:
+  - type: aside
+    at: Devil's Kettle is in fact a real thing
+    text: In 2017 the Minnesota DNR measured the Brule River above and below the falls, got nearly identical flow, and concluded the water just rejoins the river below the kettle.
+    url: https://en.wikipedia.org/wiki/Devil%27s_Kettle
 ---
 
 As a Minnesotan, I am required by law to love Diablo Cody's movies. I think she captures a Gen X view of small-town America, but I still appreciate it nonetheless.
 
 Jennifer's Body bombed in theaters and I discovered it later in life, but I've seen it many times since. I actually showed it to my girlfriend during this viewing, which was super fun.
+
+![Amanda Seyfried in glasses and Megan Fox holding a notebook walk down a school hallway past a painted red devil cartoon.](/images/reviews/jennifers-body/seyfried-and-fox-in-the-hallway.webp 'margin: Seyfried and Fox in the hallway, devil mascot on the wall.')
 
 Devil's Kettle is in fact a real thing, and they did recently discover where it goes. Also, I'd give anything to have a Devil as our school mascot. I don't think that would happen in 2025, but a guy can dream.
 

@@ -25,6 +25,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/tales-from-the-crypt-dem
 poster: '/images/reviews/tales-from-the-crypt-demon-knight/poster.webp'
 heroImage: '/images/reviews/tales-from-the-crypt-demon-knight/backdrop.webp'
 heroAlt: 'Poster art of a man in a long coat bursting out of the pages of a giant book held open by clawed hands.'
+marginNotes:
+  - type: aside
+    at: tight fast-paced script
+    text: Director Ernest Dickerson shot Spike Lee's early films, from She's Gotta Have It to Malcolm X.
+    url: https://en.wikipedia.org/wiki/Ernest_Dickerson
+  - type: see
+    at: Jada Pinkett is fierce too
+    text: Pinkett a year later in my review of Set It Off.
+    post: reviews/set-it-off
 ---
 
 Never in a million years would I have guessed the blood of Christ and the literal crucifixion would be such a core part of this movie. Tales from the Crypt: Demon Knight surprised me.

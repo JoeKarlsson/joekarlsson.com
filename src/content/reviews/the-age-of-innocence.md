@@ -25,11 +25,22 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-age-of-innocence/'
 poster: '/images/reviews/the-age-of-innocence/poster.webp'
 heroImage: '/images/reviews/the-age-of-innocence/backdrop.webp'
 heroAlt: 'A couple in evening dress sitting among palm fronds at a ball, the woman holding flowers.'
+marginNotes:
+  - type: aside
+    at: making his first drawing-room costume drama
+    text: Wharton's 1920 novel won the 1921 Pulitzer Prize for Fiction; she was the first woman to win it.
+    url: https://en.wikipedia.org/wiki/The_Age_of_Innocence
+  - type: see
+    at: Saul and Elaine Bass's opening titles
+    text: The Basses did Cape Fear's titles for Scorsese two years earlier.
+    post: reviews/cape-fear-1991
 ---
 
 If I were rich in Gilded Age New York, I wouldn't be at this dinner. I'd be on an island watching movies.
 
 ![A long dinner table under a crystal chandelier, crowded with candelabras and a tower of red and yellow flowers, guests in evening dress on both sides and Ellen in red at the far left.](/images/reviews/the-age-of-innocence/van-der-luyden-dinner-table.webp)
+
+![A crowd of men in dark coats and bowler hats, many tipping or holding their hats.](/images/reviews/the-age-of-innocence/old-new-york-all-bowler-hats.webp 'margin: Old New York, all bowler hats.')
 
 Also - I need to say this up top. I really struggle with costume dramas. They're so talky, and this one is mostly people at dinner parties talking around things. But parts of it got to me anyway. I went to a small liberal arts college in a small town in southern Minnesota, and everyone knowing each other's business felt suffocating. Old New York in the 1870s is that campus with better hats. I think both things can be true at the same time: this is a beautiful, underrated Scorsese, and it's a movie I had to push my way through.
 

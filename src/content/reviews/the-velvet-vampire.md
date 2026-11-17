@@ -25,6 +25,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-velvet-vampire/'
 poster: '/images/reviews/the-velvet-vampire/poster.webp'
 heroImage: '/images/reviews/the-velvet-vampire/backdrop.webp'
 heroAlt: 'A dark-haired woman in a black hat and red sweater in the desert.'
+marginNotes:
+  - type: aside
+    at: Diane LeFanu (Celeste Yarnall)
+    text: The name points at Sheridan Le Fanu, who wrote Carmilla (1872), the novella about a woman vampire who preys on a young woman.
+    url: https://en.wikipedia.org/wiki/The_Velvet_Vampire
+  - type: aside
+    at: it looks far richer than its budget should allow
+    text: About $165,000. New World Pictures, Roger Corman's company, distributed it.
+    url: https://en.wikipedia.org/wiki/The_Velvet_Vampire
 ---
 
 If you love [The Love Witch](https://letterboxd.com/film/the-love-witch/), go find this immediately.

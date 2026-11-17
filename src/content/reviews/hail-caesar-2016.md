@@ -25,6 +25,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hail-caesar-2016/'
 poster: '/images/reviews/hail-caesar-2016/poster.webp'
 heroImage: '/images/reviews/hail-caesar-2016/backdrop.webp'
 heroAlt: 'Scarlett Johansson with blonde curls, a black hat and a cigarette, leaning forward in warm low light.'
+marginNotes:
+  - type: see
+    at: I love Tilda Swinton
+    text: 'The Coens and Tilda again: my review of Burn After Reading.'
+    post: reviews/burn-after-reading-1
 ---
 
 First time rewatching Hail, Caesar! since it came out in theaters, and I still don't think I understand what this movie's trying to say.
@@ -32,6 +37,8 @@ First time rewatching Hail, Caesar! since it came out in theaters, and I still d
 I think it's saying something about producing art under capitalism - somehow even after capitalism crushes any communist resistance, true art still ends up with a happy ending. But I can't tell if it's just making a frivolous homage to old Hollywood movies the Coens really liked, or if it's saying something profound about art, commerce, society, and work. I honestly don't know.
 
 I'm watching this before the Blank Check episode comes out. I know David Sims is a big fan and considers this a masterpiece, and I'm excited to hear what he has to say - because my girlfriend and I were both left pretty flummoxed upon rewatch.
+
+![Channing Tatum in a white sailor uniform leaps up onto a green bar counter, arms spread, while other sailors watch in a ship-themed saloon.](/images/reviews/hail-caesar-2016/channing-tatum-leaps-onto-the-bar.webp 'margin: Channing Tatum leaps onto the bar in the sailor number.')
 
 The performances are wonderful, though. I love Josh Brolin in this. I love Tilda Swinton. I love Channing Tatum's dance number. Never forget that he's a classically trained ballet dancer.
 

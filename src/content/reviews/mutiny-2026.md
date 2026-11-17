@@ -25,6 +25,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mutiny-2026/'
 poster: '/images/reviews/mutiny-2026/poster.webp'
 heroImage: '/images/reviews/mutiny-2026/backdrop.webp'
 heroAlt: 'Jason Statham in profile, holding a submachine gun upright.'
+marginNotes:
+  - type: see
+    at: somehow more boring, worse writing
+    text: 'The sequel exists too, and I reviewed it: Under Siege 2: Dark Territory.'
+    post: reviews/under-siege-2-dark-territory
 ---
 
 Mutiny is [Under Siege](https://letterboxd.com/film/under-siege/) with somehow more boring, worse writing, and it's uglier to look at.

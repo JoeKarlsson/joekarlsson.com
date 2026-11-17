@@ -28,4 +28,6 @@ heroImage: '/images/reviews/paddington-2/backdrop.webp'
 heroAlt: 'Poster art of Paddington Bear raising his red hat beside a chef, a man in a plaid suit and the Brown family.'
 ---
 
+![Paddington Bear in his blue duffle coat in a warm, cluttered room.](/images/reviews/paddington-2/paddington-early-in-the-film.webp 'margin: Paddington, early in the film.')
+
 This movie made me want to be a better man.

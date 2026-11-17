@@ -25,6 +25,20 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/nowhere/'
 poster: '/images/reviews/nowhere/poster.webp'
 heroImage: '/images/reviews/nowhere/backdrop.webp'
 heroAlt: 'Three young women in red, blue and pink tops with heart sunglasses pushed up in their hair, looking alarmed.'
+marginNotes:
+  - type: aside
+    at: Nowhere is the culmination of that project
+    text: It closes what Araki fans call the Teen Apocalypse Trilogy, after Totally F***ed Up (1993) and The Doom Generation (1995).
+    url: https://en.wikipedia.org/wiki/Nowhere_(1997_film)
+  - type: see
+    at: his later, warmer work
+    text: Splendor (1999), two years later, is that warmer Araki.
+    post: reviews/splendor-1999
+  - type: quote
+    at: which is more or less how he has described it
+    text: Beverly Hills, 90210 on acid
+    by: Gregg Araki, as quoted in Nylon, 2022
+    url: https://www.nylon.com/fashion/gregg-araki-nowhere-costume-designer-hair-makeup-artist
 ---
 
 A bisexual fever dream on acid, and I finally get why queer kids worship it.
@@ -34,6 +48,8 @@ By 1997, Araki had spent nearly a decade turning queer adolescence into pop art,
 That approach makes the film's chaos legible in a way it wasn't to me on a first, baffled viewing. The overstuffed ensemble, the abrupt tonal swerves from slapstick to horror, the sheer density of incident crammed into 82 minutes: all of it mimics the overwhelm of adolescence itself. Araki casts the era's teen-soap fixtures, Shannen Doherty among them, and stages the whole thing like Beverly Hills, 90210 dosed with acid, which is more or less how he has described it. The joke lands because he means it sincerely underneath.
 
 What has always distinguished Araki is his refusal to treat bisexuality as a crisis or a revelation. Desire in Nowhere moves freely in every direction and no character pauses to agonize over it. The pain in his work comes from somewhere more universal: the ache of wanting someone who cannot want you back in the way you need. The film's protagonist spends the day chasing genuine connection and mostly finding sex instead, and that gap, between being touched and being understood, is the closest thing the movie has to a thesis.
+
+![Close-up of a young man with long dark hair and wide brown eyes, lips parted.](/images/reviews/nowhere/james-duval-as-dark.webp 'margin: James Duval as Dark.')
 
 It is also, for all its dread, ravishing to look at. Araki shoots his artificial, primary-colored world with obvious relish, scores it with a wall of shoegaze and dream-pop, and lets the surface pleasure sit in unresolved tension with the doom underneath. The recent 4K restoration, which Araki supervised, restores the full lurid glow. And in James Duval, playing a sensitive stoner named Dark, the film has an anchor of real tenderness, a few years before Duval would turn up as another doomed boy in Donnie Darko.
 

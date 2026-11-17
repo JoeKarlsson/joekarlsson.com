@@ -17,22 +17,26 @@ corrections:
   - date: 2026-11-16
     note: 'I quoted Pluralsight as saying "full fluency - get everybody speaking cloud." The article doesn''t say that. The line now paraphrases what it does say.'
 marginNotes:
-  - type: 'see'
-    at: 'to eliminate manual gates'
+  - type: see
+    at: to eliminate manual gates
     text: 'Gates only add time. In Ship the Ugly Pot I argue for kilns instead: checks that make the work better.'
-    post: 'ship-the-ugly-pot'
-  - type: 'see'
-    at: 'This has aligned CCOEs closely with the'
-    text: "A platform team's self-service usually lands in an internal developer portal. I looked at how Spotify and Toyota made theirs useful."
-    post: 'how-to-make-your-internal-developer-portal-actually-useful'
+    post: ship-the-ugly-pot
+  - type: see
+    at: This has aligned CCOEs closely with the
+    text: A platform team's self-service usually lands in an internal developer portal. I looked at how Spotify and Toyota made theirs useful.
+    post: how-to-make-your-internal-developer-portal-actually-useful
+  - type: see
+    at: embracing FinOps
+    text: Part 3 of this series covers FinOps and cost management, with case studies.
+    post: cloud-centers-of-excellence-part-3-finops-cost-management-case-studies
 ---
 
 **About This Series:** This is Part 5 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:
 
-- [**Part 1**: Introduction and Organizational Structure](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance)
-- [**Part 2**: Governance, Security, and Compliance](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-2-governance-security-compliance)
-- [**Part 3**: FinOps, Cost Management, and Real-World Case Studies](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies)
-- [**Part 4**: Implementation Best Practices and Common Pitfalls](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls)
+- [**Part 1**: Introduction and Organizational Structure](/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/)
+- [**Part 2**: Governance, Security, and Compliance](/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/)
+- [**Part 3**: FinOps, Cost Management, and Real-World Case Studies](/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/)
+- [**Part 4**: Implementation Best Practices and Common Pitfalls](/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/)
 - **Part 5** (This post): The Future of CCOEs and Getting Started
 
 > **Note:** **TL;DR:**

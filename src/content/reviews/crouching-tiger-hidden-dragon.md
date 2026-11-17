@@ -26,4 +26,6 @@ heroImage: '/images/reviews/crouching-tiger-hidden-dragon/backdrop.webp'
 heroAlt: 'Zhang Ziyi in a white robe holding a sword straight out in a fighting stance.'
 ---
 
+![Chow Yun-fat, head shaved, in long pale robes stands on top of a dense green bamboo forest, sword held low at his side.](/images/reviews/crouching-tiger-hidden-dragon/li-mu-bai-balanced-on-the.webp 'margin: Li Mu Bai balanced on the bamboo canopy.')
+
 I want a Li Mu Bai action figure so bad.

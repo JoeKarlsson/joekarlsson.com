@@ -61,6 +61,8 @@ Event sourcing is a data design pattern in which the state of an application is 
 
 In a transactional world, you may think about entries in a database in terms of state. Columns like `CurrentBalance` and `PendingTransactionAmount` feel natural. In event sourcing, that changes a bit.
 
+![A brown stone slab with a deep three-toed dinosaur footprint pressed into it and a small black plaque at the bottom.](/images/blog/event-sourcing-with-kafka-a-practical-example/cast-of-a-200millionyearold-dinosaur-track.webp 'margin: Cast of a 200-million-year-old dinosaur track. Wikimedia Commons, public domain.')
+
 Instead of data representing states, data represents _state-changing_ events. These events are like dinosaur footprints forever fossilized in the sands of time; they’re the unalterable objective facts that tell the story of our application or system, and how we got to the current state.
 
 > With event sourcing, we focus not on data that represents state, but data that represents state-changing events. We construct state from these events.

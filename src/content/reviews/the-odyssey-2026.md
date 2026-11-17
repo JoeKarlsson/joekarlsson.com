@@ -25,6 +25,22 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-odyssey-2026/'
 poster: '/images/reviews/the-odyssey-2026/poster.webp'
 heroImage: '/images/reviews/the-odyssey-2026/backdrop.webp'
 heroAlt: 'Soldiers in bronze helmets and capes charging through a misty pine forest.'
+marginNotes:
+  - type: see
+    at: Wolf of Wall Street all over again
+    text: Same problem, different hero. My review of The Wolf of Wall Street.
+    post: reviews/the-wolf-of-wall-street
+  - type: see
+    at: O Brother Where Art Thou
+    text: The Coens' Depression-era Odyssey.
+    post: reviews/o-brother-where-art-thou
+  - type: term
+    at: the Wishbone episode I watched as a kid
+    text: PBS Kids' dog-plays-the-classics show. 'Homer Sweet Homer' (season 1, October 1995) cast Wishbone as Odysseus.
+  - type: aside
+    at: Elliot Page's Sinon
+    text: Homer never mentions Sinon. His story, a Greek warrior of the Trojan War, comes mostly from Virgil's Aeneid, so Nolan brought him in from outside the poem.
+    url: https://en.wikipedia.org/wiki/Sinon
 ---
 
 Odysseus is a war criminal, a murderer, easily distracted by pussy. Unfortunately, he’s played by a ripped and charming Matt Damon, so idiots will idolize him.
@@ -43,6 +59,8 @@ And now that he's finally adapting it directly, the feminist reading feels almos
 _Circe singing the men back out of the pigs._
 
 Odysseus is a war criminal. Easily distracted. Responsible for the fall of peaceful Greek life. Unfortunately, he's played by the charming and handsome and ripped Matt Damon, and he goes out swinging like John Wick after watching his dog die. A lot of men are going to valorize this. See his hubris against the gods as valorous. Wolf of Wall Street all over again - people missing that Belfort is the villain, wanting to be him instead. Damon might be too likable for the role. I don't know who I'd cast instead, but someone you can hate more easily, maybe Oscar Isaac???
+
+![Anne Hathaway in a dark red dress, upset, speaking to someone off camera.](/images/reviews/the-odyssey-2026/anne-hathaway-as-penelope.webp 'margin: Anne Hathaway as Penelope.')
 
 Nolan continues his streak of writing thin parts for women. Anne Hathaway gets the most to chew on as Penelope, and even that feels underwritten. And Zendaya plays Odysseus’s invisible friend. But at least this time the text itself is an indictment. The men are the problem. The film knows it.
 

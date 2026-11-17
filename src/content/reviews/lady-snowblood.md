@@ -25,9 +25,16 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/lady-snowblood/'
 poster: '/images/reviews/lady-snowblood/poster.webp'
 heroImage: '/images/reviews/lady-snowblood/backdrop.webp'
 heroAlt: 'Meiko Kaji in a white kimono raising a blade behind a black paper umbrella in falling snow.'
+marginNotes:
+  - type: aside
+    at: Tarantino lifted so much from this
+    text: He reused Meiko Kaji's theme song, "The Flower of Carnage", in Kill Bill, in a scene that closely mirrors this film's ending. He also had his cast and crew watch it on breaks.
+    url: https://en.wikipedia.org/wiki/Lady_Snowblood_(film)
 ---
 
 Kill Bill is a cover song. This is the original.
+
+![A woman in a white kimono swings open a paper umbrella at night as snow falls around her.](/images/reviews/lady-snowblood/meiko-kaji-as-yuki-umbrella-open.webp 'margin: Meiko Kaji as Yuki, umbrella open in the falling snow.')
 
 I watched Lady Snowblood because of the obvious associations with Tarantino's film. I left thinking I might like this more. It's genuinely one of the most cinematic movies I've ever seen - beautiful, kinetic, violent, impossibly stylish. The snap zooms never got old for me. Not once. And the sword slices are some of the most gorgeous in cinema history, blood spraying like crimson red paint against the snow.
 

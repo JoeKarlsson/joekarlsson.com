@@ -24,12 +24,23 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mortal-kombat-ii/'
 poster: '/images/reviews/mortal-kombat-ii/poster.webp'
 heroImage: '/images/reviews/mortal-kombat-ii/backdrop.webp'
 heroAlt: 'A hooded fighter in a gold mask and armor pulling two chains taut against a fiery background.'
+marginNotes:
+  - type: aside
+    at: Finally, a Mortal Kombat movie that actually involves Mortal Kombat.
+    text: The 2021 film ends before the tournament starts.
+    url: https://en.wikipedia.org/wiki/Mortal_Kombat_(2021_film)
+  - type: see
+    at: it finally gave us a tournament
+    text: 'The 1995 movie had one too: my review of Mortal Kombat.'
+    post: reviews/mortal-kombat
 ---
 
 Dumb as hell. Karl Urban is perfect casting. Both things can be true.
 
 Finally, a Mortal Kombat movie that actually involves Mortal Kombat. About fucking time.
 This movie is dumb. The fight choreo is okay. The special effects are absolutely terrible - I would call you a liar if you told me there was a single real set in this entire film. It's all green screen, lit horribly, and one of the most dully filmed movies I've ever seen. The plot is beyond boring.
+
+![A man in sunglasses and a leather jacket holds up one flat hand in a fighting pose, two fighters behind him on a rocky set.](/images/reviews/mortal-kombat-ii/karl-urbans-johnny-cage-sunglasses-on.webp "margin: Karl Urban's Johnny Cage, sunglasses on, striking a pose.")
 
 But Karl Urban as Johnny Cage? Incredible. Perfect casting. He understood the assignment completely. I loved him.
 

@@ -27,4 +27,6 @@ heroImage: '/images/reviews/hackers/backdrop.webp'
 heroAlt: 'Angelina Jolie with a short pixie haircut, speaking in a dim purple-lit room.'
 ---
 
+![Towers of glowing blue text and numbers rise like skyscrapers in a dark computer-generated cityscape.](/images/reviews/hackers/the-gibson-supercomputers-files-drawn-as.webp 'margin: The Gibson supercomputer’s files, drawn as a city of data.')
+
 I will defend this movie to the bitter end

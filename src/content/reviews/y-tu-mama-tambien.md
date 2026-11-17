@@ -25,6 +25,14 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/y-tu-mama-tambien/'
 poster: '/images/reviews/y-tu-mama-tambien/poster.webp'
 heroImage: '/images/reviews/y-tu-mama-tambien/backdrop.webp'
 heroAlt: 'Three friends sitting on a beach with their backs to the camera, looking out at the sea.'
+marginNotes:
+  - type: term
+    at: Tenoch's father is a PRI government official
+    text: The Institutional Revolutionary Party, which governed Mexico without a break from 1929 until it lost the presidency in 2000, the year before this film came out.
+  - type: see
+    at: Two boys in love who couldn’t outrun
+    text: Gregg Araki's The Doom Generation runs the same play, a woman as the go-between for two men.
+    post: reviews/the-doom-generation
 ---
 
 Two boys in love who couldn’t outrun the prison of their own masculinity.
@@ -35,10 +43,14 @@ The friendship between Julio and Tenoch was never separate from the women it was
 
 Their masculinity was a costume, and once they took it off - even for a moment - they couldn't figure out how to put it back on.
 
+![A brown wood-paneled station wagon, roof rack loaded, alone on a two-lane highway under a pink sky.](/images/reviews/y-tu-mama-tambien/the-station-wagon-heading-for-the.webp 'margin: The station wagon heading for the coast.')
+
 Class does the other half of the work. Tenoch's father is a PRI government official. Julio's mother is a secretary. The trip is a suspended space where those facts can be temporarily bracketed - two boys on the road, equal in their horniness and their bullshit. Back in Mexico City, the class difference reasserts itself immediately. The café scene is so formal. They're already performing adult roles at each other. ||The friendship dies of the country as much as the kiss||.
 
 ![Julio and Tenoch sitting across from each other in a booth at a bright café, both in sweaters, not quite looking at each other.](/images/reviews/y-tu-mama-tambien/the-cafe.webp 'spoiler')
 _The café._
+
+![Marchers with a hand-painted protest banner on a Mexico City avenue, the Angel of Independence in the distance.](/images/reviews/y-tu-mama-tambien/a-street-march-in-mexico-city.webp "margin: A street march in Mexico City, behind the boys' story.")
 
 I'll admit I don't fully understand the political context - the fall of the PRI after 71 years of rule, the effects of NAFTA, the economic crisis. But I can feel it in the film. The narrator keeps pulling focus to background characters whose futures are already foreclosed - a fisherman whose livelihood will be destroyed by tourism, families displaced by development. Mexico is changing around these boys and they drive past without noticing.
 

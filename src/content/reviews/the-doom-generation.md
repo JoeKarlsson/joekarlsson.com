@@ -26,6 +26,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-doom-generation/'
 poster: '/images/reviews/the-doom-generation/poster.webp'
 heroImage: '/images/reviews/the-doom-generation/backdrop.webp'
 heroAlt: 'Rose McGowan reclining on a bed with a red and black checkered pattern, bathed in red light.'
+marginNotes:
+  - type: aside
+    at: my only prior Araki being
+    text: 'Both are part of what Araki fans call the Teen Apocalypse Trilogy: Totally F***ed Up (1993), The Doom Generation (1995) and Nowhere (1997).'
+    url: https://en.wikipedia.org/wiki/The_Doom_Generation
 ---
 
 [Y Tu Mamá También](/reviews/y-tu-mama-tambien/) with neon, road rage, and a body count.

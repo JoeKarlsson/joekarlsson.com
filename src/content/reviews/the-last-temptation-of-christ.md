@@ -17,6 +17,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-last-temptation-of-c
 poster: '/images/reviews/the-last-temptation-of-christ/poster.webp'
 heroImage: '/images/reviews/the-last-temptation-of-christ/backdrop.webp'
 heroAlt: 'Willem Dafoe looking up in a crowd of bearded men, with Harvey Keitel at his side.'
+marginNotes:
+  - type: aside
+    at: a title card saying it isn't based on the Gospels
+    text: It's based on Nikos Kazantzakis's 1955 novel of the same name, itself a controversial book.
+    url: https://en.wikipedia.org/wiki/The_Last_Temptation_of_Christ_(film)
+  - type: see
+    at: Willem Dafoe plays that man.
+    text: Scorsese's other spiritual leader, played the opposite way, is Kundun (1997).
+    post: reviews/kundun
+  - type: aside
+    at: I didn't love it.
+    text: 'The Academy did, a little: Scorsese got a Best Director nomination.'
+    url: https://en.wikipedia.org/wiki/The_Last_Temptation_of_Christ_(film)
 ---
 
 The scandal of The Last Temptation of Christ is that it takes the creed at its word: fully God, and also fully a man.

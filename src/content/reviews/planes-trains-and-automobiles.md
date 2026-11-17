@@ -19,4 +19,6 @@ heroImage: '/images/reviews/planes-trains-and-automobiles/backdrop.webp'
 heroAlt: 'Painted art of Steve Martin and John Candy sitting on a trunk, with a jet, a car and a train behind them.'
 ---
 
+![John Candy in a plaid jacket over a loud blue shirt, mid-performance with a shower head held like a microphone.](/images/reviews/planes-trains-and-automobiles/john-candy-as-del-griffith.webp 'margin: John Candy as Del Griffith.')
+
 A screwball comedy with heart. John Candy is a treasure in this - warm, funny, and quietly devastating. Steve Martin plays exasperation perfectly, but Candy is the soul of the film. It's chaotic and silly and then it turns and becomes something beautiful.

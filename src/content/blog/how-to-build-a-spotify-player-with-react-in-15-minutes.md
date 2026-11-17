@@ -45,6 +45,8 @@ marginNotes:
     url: 'https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow'
 ---
 
+![The back of a framed mirror: a stripped monitor held in with duct tape, a Raspberry Pi in a white case at the top corner, and a wooden board screwed along one side.](/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/the-back-of-my-magicmirror-april.webp 'margin: The back of my MagicMirror, April 2019.')
+
 Have you ever wanted to build a Spotify player for your app or website? Adding personalized music to any application is super easy with the Spotify Developer API. Personally, I have been playing around with the Spotify API with an IoT project I have been building in my free time.
 
 ![My MagicMirror project with Spotify integration.](/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/magic-mirror-spotify.webp)_My MagicMirror project with Spotify integration._

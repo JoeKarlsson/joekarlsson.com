@@ -18,6 +18,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scary-movie-3/'
 poster: '/images/reviews/scary-movie-3/poster.webp'
 heroImage: '/images/reviews/scary-movie-3/backdrop.webp'
 heroAlt: 'Simon Rex, Anna Faris and Charlie Sheen staring up in alarm inside a cluttered, dim barn.'
+marginNotes:
+  - type: see
+    at: Anna Faris is absolutely hilarious
+    text: 'Faris at her best: my review of The House Bunny.'
+    post: reviews/the-house-bunny
 ---
 
 I hate to say it, but this is still genuinely funny. Revisiting this after writing it off for the last 20 years, and I'm shocked at how much I laughed. It's 2025 and this thing still lands.

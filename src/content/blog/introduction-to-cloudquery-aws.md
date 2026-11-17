@@ -222,7 +222,7 @@ _Ready to get started? Learn more about [cloud asset inventory fundamentals](htt
 
 ## Video Transcript
 
-**Keegan:** Hi, everyone. My name is Keegan Marazzi. Thanks for joining us. I'm a partner solutions architect here at AWS where my team's mission is to discover, develop, and deliver solutions with our partners. Today here, I'm joined with Joe Carlson. He's a senior cloud developer advocate at Cloud Query. Say hi, Joe.
+**Keegan:** Hi, everyone. My name is Keegan Marazzi. Thanks for joining us. I'm a partner solutions architect here at AWS where my team's mission is to discover, develop, and deliver solutions with our partners. Today here, I'm joined with Joe Karlsson. He's a senior cloud developer advocate at Cloud Query. Say hi, Joe.
 
 **Joe:** Hi, Keegan. Thanks for having me. Okay. Keegan, today we're going to be introducing Cloud Query as a cloud asset inventory for AWS. And we're going to be digging into what it is, what problems it addresses, and then give a overview of its architecture. You can see here a little spoiler alert. So Keegan, I actually wanted to ask you a quick question, completely rhetorical. How many cloud resources are publicly available in environments you manage? How many are currently unencrypted? Which one of those cost the most? And Keegan, if you can't answer any of those questions, no problem. You probably have a visibility problem with your cloud and not a cloud problem.
 

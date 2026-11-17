@@ -37,7 +37,18 @@ updatedDate: 2026-11-17
 corrections:
   - date: 2026-11-17
     note: 'I said Verhoeven is 87. He turned 88 in July 2026.'
+marginNotes:
+  - type: aside
+    at: the best con artist in Tuscany
+    text: Loosely based on Immodest Acts (1985), Judith C. Brown's history of a real 17th-century nun, Benedetta Carlini.
+    url: https://en.wikipedia.org/wiki/Benedetta_(film)
+  - type: aside
+    at: the Merovingian from the Matrix Reloaded
+    text: Lambert Wilson.
+    url: https://en.wikipedia.org/wiki/Benedetta_(film)
 ---
+
+![A long-haired man in a white robe holds a shepherd's crook behind a flock of sheep in a dry field.](/images/reviews/benedetta/benedettas-vision-of-jesus-as-a.webp "margin: Benedetta's vision of Jesus as a shepherd.")
 
 My intro to late Verhoeven, and within twenty minutes Jesus had lopped a man's arm off like Obi-Wan. I was in.
 

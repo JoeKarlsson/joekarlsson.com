@@ -26,11 +26,28 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/michael-clayton/2/'
 poster: '/images/reviews/michael-clayton-2/poster.webp'
 heroImage: '/images/reviews/michael-clayton-2/backdrop.webp'
 heroAlt: 'George Clooney in a suit, sitting with his chin on his hand in a police station office.'
+marginNotes:
+  - type: aside
+    at: Tilda Swinton's Karen Crowder is all the way under
+    text: It won her the Oscar for Best Supporting Actress, one of the film's seven nominations.
+    url: https://en.wikipedia.org/wiki/Michael_Clayton_(film)
+  - type: aside
+    at: Tony Gilroy hides the movie's conscience
+    text: It was Gilroy's first film as a director. Before it he wrote the first three Bourne movies.
+    url: https://en.wikipedia.org/wiki/Tony_Gilroy
+  - type: see
+    at: on my fourth watch
+    text: 'An earlier watch: my first review.'
+    post: reviews/michael-clayton
 ---
 
 Anyone who's ever had a corporate job and a conscience, this one's for you.
 
 I'm one of those people, and on my fourth watch the film still feels ethereal and mysterious to me. This time I figured out why it gets me: it sits with something I think about constantly, which is how to remain uncorrupted while actively working inside that machine.
+
+![Tilda Swinton as Karen in a camisole, standing in a dim room, mouthing her lines.](/images/reviews/michael-clayton-2/karen-crowder-alone-in-her-slip.webp 'margin: Karen Crowder alone in her slip, rehearsing.')
+
+![A typed U/North internal research memorandum on Culticate, stamped in red, pinned to a board.](/images/reviews/michael-clayton-2/the-unorth-memo-that-proves-it.webp 'margin: The U/North memo that proves it.')
 
 It's a movie about three people who've been corrupted by the underworld of American corporate culture, each at a different depth. Tilda Swinton's Karen Crowder is all the way under and terrified the whole time, sweating through her blouse, rehearsing her talking points in the mirror, signing off on a murder. Tom Wilkinson's Arthur Edens spent years defending a weedkiller that kills people, goes off his meds, and decides to atone. George Clooney's Michael, the firm's fixer, is waking up.
 

@@ -32,9 +32,16 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/it-was-just-an-accident/
 poster: '/images/reviews/it-was-just-an-accident/poster.webp'
 heroImage: '/images/reviews/it-was-just-an-accident/backdrop.webp'
 heroAlt: 'A man in a blue T-shirt standing near a man and a bride in a white gown seated at the back of an open van in the desert.'
+marginNotes:
+  - type: aside
+    at: Stagecoach for former political prisoners.
+    text: It won the Palme d'Or at Cannes in 2025.
+    url: https://en.wikipedia.org/wiki/It_Was_Just_an_Accident
 ---
 
 Stagecoach for former political prisoners.
+
+![A white minivan parked on flat desert below bare hills, a man shoveling dirt out of a hole beside a dead tree.](/images/reviews/it-was-just-an-accident/a-grave-dug-in-the-desert.webp "margin: A grave dug in the desert beside the van, in NEON's trailer.")
 
 It Was Just an Accident is deceptively light - basically a whodunit thriller with former torture victims debating whether they've found one of their captors. The drama comes from how differently each of them is processing their trauma, their grief, their rage, and how they want to move forward with their lives. Some want answers. Some want blood. Some just want to forget.
 

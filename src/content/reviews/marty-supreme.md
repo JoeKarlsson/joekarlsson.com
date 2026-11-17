@@ -25,6 +25,22 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/marty-supreme/'
 poster: '/images/reviews/marty-supreme/poster.webp'
 heroImage: '/images/reviews/marty-supreme/backdrop.webp'
 heroAlt: 'Timothée Chalamet with a thin mustache and round glasses in a navy jacket, standing outside an old storefront.'
+marginNotes:
+  - type: aside
+    at: I need to look up
+    text: It's Daniel Lopatin himself, Oneohtrix Point Never.
+    url: https://en.wikipedia.org/wiki/Marty_Supreme
+  - type: aside
+    at: I love a story about a hustler
+    text: Marty is loosely based on the real table tennis hustler Marty Reisman and his 1974 memoir, The Money Player.
+    url: https://en.wikipedia.org/wiki/Marty_Supreme
+  - type: term
+    at: Mr. Wonderful, Odessa A'zion
+    text: Kevin O'Leary, the Shark Tank investor, who plays the businessman Milton Rockwell. The Safdies cast him partly for that persona.
+  - type: aside
+    at: number two in my Best Actor power rankings
+    text: He won the Golden Globe and the Critics' Choice award, then lost the Oscar; the film went home with nothing from nine nominations.
+    url: https://en.wikipedia.org/wiki/Marty_Supreme
 ---
 
 The theater was packed. I can't wait to see what normies think of this.

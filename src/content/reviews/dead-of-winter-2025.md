@@ -34,11 +34,22 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dead-of-winter-2025/'
 poster: '/images/reviews/dead-of-winter-2025/poster.webp'
 heroImage: '/images/reviews/dead-of-winter-2025/backdrop.webp'
 heroAlt: 'Emma Thompson in a knit hat and work jacket on a frozen lake, pine forest behind her.'
+marginNotes:
+  - type: aside
+    at: it was actually filmed in Finland
+    text: In Koli, Finland, plus North Rhine-Westphalia in Germany, standing in for a lake in northern Minnesota.
+    url: https://en.wikipedia.org/wiki/Dead_of_Winter_(2025_film)
+  - type: term
+    at: The number of "uff das" in this film
+    term: Uff da
+    text: a Norwegian exclamation of dismay that Scandinavian immigrants brought to the Upper Midwest, where it's still heard most.
 ---
 
 As a Minnesotan, I was legally required to see Dead of Winter in theaters with some other Minnesotan friends. I didn't know it was actually filmed in Finland until the credits rolled and the insane Norwegian and Scandinavian names just kept coming. It really did look like northern Minnesota, which makes it a shame they didn't film it here - I'm sure there's some tax reason or whatever.
 
 Let's get the Minnesota-specific stuff out of the way first. Emma Thompson's accent was pretty good, though she leaned into the folksiness a little too hard. The number of "uff das" in this film was a little crazy. I wish they'd either gone full [Fargo](/reviews/fargo-1/) or something more subtle, but you know, whatever. It's fine. I think people will like it no matter what. I did love her earnestness and kindness, but those guys who come to rescue her after she radios them being so standoffish? That struck me as the least Minnesotan thing in the entire film. There's no way these guys would call to confirm it's a woman calling and then continue to hold her at gunpoint in northern Minnesota. That would never happen. Ever.
+
+![Aerial view of a huge snow-covered frozen lake ringed by dark pine forest, one tiny figure walking across it.](/images/reviews/dead-of-winter-2025/one-figure-crossing-the-frozen-lake.webp 'margin: One figure crossing the frozen lake.')
 
 I loved the sparseness. I loved the cinematography of the north. I loved the snow, and it actually made me excited for winter, which is crazy. I'm not much of an ice fisherman, but this also made that look kind of fun too - which I don't think was the intended effect.
 
@@ -48,6 +59,8 @@ This movie reminded me most of No Country for Old Men - or in this case, No Coun
 _The tackle box, then the stitches._
 
 I appreciated the pacing. I appreciated having older women lead a pseudo-action thriller. The plot was pretty threadbare and got a little crazy towards the end, but honestly, it didn't really matter for me. This was about characters and setting and tone.
+
+![A blonde woman in a knit hat and fur-trimmed parka holds a scoped rifle in snowy woods, a bearded man behind her.](/images/reviews/dead-of-winter-2025/judy-greer-rifle-in-hand-in.webp 'margin: Judy Greer, rifle in hand, in the woods.')
 
 Judy Greer was actually wonderful too. I loved not knowing what was going on but trusting we'd eventually find out. She did a great job selling a woman who will stop at nothing to save her own skin. And she's really not helping nurses beat the allegations of being the meanest people in the universe.
 

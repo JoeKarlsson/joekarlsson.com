@@ -17,11 +17,22 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/david-lynch-the-art-life
 poster: '/images/reviews/david-lynch-the-art-life/poster.webp'
 heroImage: '/images/reviews/david-lynch-the-art-life/backdrop.webp'
 heroAlt: 'David Lynch with white hair smoking a cigarette in a cluttered art studio.'
+marginNotes:
+  - type: aside
+    at: what it means to become an artist
+    text: It covers his childhood through art school in Boston and Philadelphia and stops at the start of Eraserhead. The audio comes from more than 20 conversations recorded over four years.
+    url: https://en.wikipedia.org/wiki/David_Lynch:_The_Art_Life
+  - type: see
+    at: Lynch's work has been deeply resonant with me
+    text: 'My Twin Peaks: Fire Walk with Me and Wild at Heart reviews.'
+    post: reviews/twin-peaks-fire-walk-with-me
 ---
 
 A documentary about becoming an artist through pain, struggle, and dead animals.
 
 David Lynch is such a weird, wonderful man.
+
+![David Lynch, white-haired, in a black shirt and a blue latex glove, reaching a long brush to a canvas in a sunlit workshop.](/images/reviews/david-lynch-the-art-life/lynch-painting-in-his-studio-in.webp 'margin: Lynch painting in his studio in the documentary.')
 
 I left this viewing of The Art Life trying to figure out how I can live just a sliver of the art life. I respect his commitment and focus on his career and his art. This documentary does such a great job of capturing what it means to become an artist - the pain, the challenges, the struggle to find a voice that's meaningful.
 

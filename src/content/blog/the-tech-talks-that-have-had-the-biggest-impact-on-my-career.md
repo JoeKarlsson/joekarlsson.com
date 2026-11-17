@@ -77,6 +77,8 @@ This talk has been foundational in my architecture and code cleanliness values.
 
 _by Gary Bernhardt_
 
+![A hand-drawn database diagram in blue marker on a whiteboard, with boxes for artists, albums, songs, shows, comments and users joined by lines.](/images/blog/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/a-whiteboard-from-my-boot-camp.webp 'margin: A whiteboard from my boot camp classroom, April 2016.')
+
 A true JavaScript classic. When I taught JavaScript at a coding boot camp in Hawaii, I would show this to all of my students at the start. I think it does a great job of showing how the community rallies around JavaScript. It’s a weird and unpredictable language, but we all love it in spite of its peculiar quirks. This is a must-watch if you have ever used, want to use, or have heard of JavaScript/
 
 [https://www.destroyallsoftware.com/talks/wat](https://www.destroyallsoftware.com/talks/wat)
@@ -94,6 +96,8 @@ I remember that the first time I watched this video, I thought to myself, “Wha
 _By Richard W. Hamming_
 
 This talk was intended to instill a “style of thinking” that will enhance your ability to function as a problem solver of complex technical issues as an engineer.
+
+![Black-and-white photo of a long, bright drafting room at Bell Labs with tall windows and men working at slanted drawing tables.](/images/blog/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/bell-labs-murray-hill-1942-hamming.webp 'margin: Bell Labs, Murray Hill, 1942. Hamming worked there 1946 to 1976. Wikimedia Commons, public domain.')
 
 Above all, Hamming provides a first-person perspective about the thought processes and reasoning that took place as Dr. Hamming, his associates, and other major thinkers, in computer science and electronics, progressed through the grand challenges of science and engineering in the twentieth century.
 

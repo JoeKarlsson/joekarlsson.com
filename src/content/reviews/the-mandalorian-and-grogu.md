@@ -25,6 +25,23 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-mandalorian-and-grog
 poster: '/images/reviews/the-mandalorian-and-grogu/poster.webp'
 heroImage: '/images/reviews/the-mandalorian-and-grogu/backdrop.webp'
 heroAlt: 'A Mandalorian in a silver helmet with Grogu peeking over his shoulder under a stormy sky.'
+marginNotes:
+  - type: aside
+    at: Martin Scorsese somehow gives one of the best
+    text: He voices Hugo Durant, an Ardennian fry cook Mando visits twice for information. Jeremy Allen White voices Rotta the Hutt, Jabba's son.
+    url: https://en.wikipedia.org/wiki/The_Mandalorian_and_Grogu
+  - type: term
+    at: You can see the edge of the Volume
+    term: The Volume
+    text: ILM's StageCraft, 'an on-set virtual production visual effects technology composed of a video wall,' built for The Mandalorian in 2019.
+  - type: see
+    at: Sigourney Weaver and Pedro Pascal
+    text: 'Weaver in Avatar: Fire and Ash, my review.'
+    post: reviews/avatar-fire-and-ash
+  - type: see
+    at: Rise still takes that
+    text: My Rise of Skywalker review, still my least favorite.
+    post: reviews/star-wars-the-rise-of-skywalker
 ---
 
 The only character growth in this movie is that Mando let Grogu push the hyperspace button. Who cares??? This felt like the Seinfeld of Star Wars movies - nothing happens, nobody changes.
@@ -36,6 +53,8 @@ I’m struggling to know who this movie is for. The theater was full of kids, bu
 I thought there might be some thematic thing about fathers - Jabba’s son has a bad dad, Grogu has a good one - but by the end it just lands on “some dads are good and some are bad.” Shrug. That’s the thesis, I guess.
 
 The film looks bad too. Grey and brown sludge, Xbox 360 energy. You can see the edge of the Volume in several scenes. It all feels small. Say what you will about Rise of Skywalker - that film looked good, was filmed dynamically. This doesn’t crack my least favorite Star Wars spot - Rise still takes that - but it’s maybe second. Possibly behind Attack of the Clones.
+
+![The small green alien Grogu stands alone on a snowy shore, eyes closed, one hand raised.](/images/reviews/the-mandalorian-and-grogu/grogu-on-his-own-on-a.webp 'margin: Grogu on his own, on a frozen shore.')
 
 There were some sequences I liked. Grogu on his own worked. I unfortunately did enjoy the Babu Frik squad. And the movie got exactly one laugh from me - the bonk sequence when Grogu’s healing Mando.
 

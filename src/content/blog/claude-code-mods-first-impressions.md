@@ -90,6 +90,8 @@ Both are my mistakes, and [the docs](https://code.claude.com/docs/en/hooks) expl
 
 **A global mod** that runs in every project on every machine I use:
 
+![A dark terminal window split into five columns, each a separate Claude Code session with its own colored status line naming the task.](/images/blog/claude-code-mods-first-impressions/five-claude-code-sessions-side-by.webp 'margin: Five Claude Code sessions side by side in Ghostty.')
+
 - **Parallel sessions.** I usually have several Claude sessions going at once. If another one is working in the same folder, the mod stops this one from editing files there or making a commit that could sweep up the other session's work, and the status line tells me who I'm sharing with.
 - **Word guard.** This is the real fix for the Word mess. If a document is open in Word, Claude can't write to the file, and the mod tells it to make the change through Word itself instead.
 - **Unpushed work.** If Claude leaves commits I haven't pushed, a warning shows up under its answer, and I get a notification if I close the session anyway.

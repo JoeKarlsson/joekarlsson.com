@@ -26,6 +26,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/splendor-1999/'
 poster: '/images/reviews/splendor-1999/poster.webp'
 heroImage: '/images/reviews/splendor-1999/backdrop.webp'
 heroAlt: 'Three young faces pressed together, smiling into the camera.'
+marginNotes:
+  - type: term
+    at: a very sexy reworking of Jules et Jim
+    text: François Truffaut's 1962 New Wave film about two friends, Jules and Jim, and Catherine, the woman they both love.
+  - type: see
+    at: the neon body count of his teen films
+    text: For the body count, see The Doom Generation.
+    post: reviews/the-doom-generation
+  - type: quote
+    at: a giddy 30s throwback
+    text: I wanted a sort of Cary Grant stylization.
+    by: Gregg Araki, Filmmaker, 1999
+    url: https://web.archive.org/web/20110814094050/http://filmmakermagazine.com/issues/summer1999/splendor.php
 ---
 
 After a decade of gorgeous nihilism, Araki made a sunny little rom-com where a girl keeps both boyfriends and nobody has to die for wanting.
@@ -34,6 +47,8 @@ This is Araki in full screwball mode, a giddy 30s throwback that plays like a ve
 
 ![Veronica on a green couch between Abel and Zed, in a pink top, the three of them squeezed together.](/images/reviews/splendor-1999/the-triad.webp)
 _Veronica, Abel and Zed._
+
+![Two young men and a woman in a blue dress share a picnic on a blanket beside a pond, with a life-size mammoth statue behind them.](/images/reviews/splendor-1999/zed-veronica-and-abel-picnic-by.webp 'margin: Zed, Veronica and Abel picnic by the La Brea mammoths, in the trailer.')
 
 And god, it's beautiful. This is peak Araki, the color stunning and genuinely innovative, candy light and adorable outfits and a frame that glows, exactly the look he'd lose by the time he got to the flat fluorescent [I Want Your Sex](/reviews/i-want-your-sex/) almost thirty years later. The dialogue, on the other hand, is not good, all campy-porno stilt, but that's the mode, and half the fun is watching him shove at what a movie in '99 could get away with. He has never once tried to be respectable, thank god.
 

@@ -93,6 +93,8 @@ Here's how the two MCP servers fit together:
 
 ## How Claude plays Doom through the Doom MCP server
 
+![An empty trade-show booth in a convention hall: a CData backdrop, a stool, a white podium and a TV on a stand, floor still covered in plastic.](/images/blog/doom-mcp-server/the-cdata-booth-in-san-jose.webp 'margin: The CData booth in San Jose during setup, Oct. 22, 2026.')
+
 When I ran this at the CData booth at [AGNTCon + MCPCon](https://events.linuxfoundation.org/agntcon-mcpcon-north-america/) in San Jose on Oct. 22–23, most of the questions were about the tool calls: how Claude moves the marine, and how you'd do the same thing with another game. I wrote up the original build and the booth story in [I put an MCP server inside DOOM](/blog/why-i-use-doom-to-visualize-mcp-data/).
 
 ![Joe Karlsson demos Connect AI × DOOM to a crowd at the CData booth at AGNTCon + MCPCon.](/images/blog/doom-mcp-server/booth-demo.webp)

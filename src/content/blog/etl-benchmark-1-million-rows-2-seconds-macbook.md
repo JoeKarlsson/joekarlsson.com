@@ -17,30 +17,34 @@ corrections:
   - date: 2026-11-12
     note: "The run command used flags the script doesn't take (`python benchmark.py --source file --dest clickhouse`). It's `uv run benchmark.py`."
 marginNotes:
-  - type: 'quote'
-    at: '500+ GB/hour throughput at roughly'
-    text: 'Fivetran efficiently handles the historical sync of large data volumes with a throughput greater than 500 GB/hour'
-    by: "Fivetran's benchmarking page. Its 500 GB/hour figure is for historical syncs"
-    url: 'https://www.fivetran.com/benchmarking'
-  - type: 'quote'
-    at: 'Each goroutine uses approximately 2KB of stack space'
-    text: 'the default starting size for a goroutine’s stack in 1.4 has been reduced from 8192 bytes to 2048 bytes.'
-    by: 'The Go 1.4 release notes'
-    url: 'https://go.dev/doc/go1.4'
-  - type: 'quote'
-    at: 'maintaining 64-byte memory alignment'
-    text: 'The recommended padding of 64 bytes allows for using SIMD instructions consistently in loops without additional conditional checks.'
-    by: 'The Apache Arrow columnar format spec'
-    url: 'https://arrow.apache.org/docs/format/Columnar.html'
-  - type: 'quote'
-    at: 'SQLite WAL mode with memory mapping'
-    text: 'WAL provides more concurrency as readers do not block writers and a writer does not block readers.'
-    by: "SQLite's write-ahead log docs"
-    url: 'https://www.sqlite.org/wal.html'
-  - type: 'see'
-    at: 'CloudQuery treats each cloud provider as an independent system'
+  - type: quote
+    at: 500+ GB/hour throughput at roughly
+    text: Fivetran efficiently handles the historical sync of large data volumes with a throughput greater than 500 GB/hour
+    by: Fivetran's benchmarking page. Its 500 GB/hour figure is for historical syncs
+    url: https://www.fivetran.com/benchmarking
+  - type: quote
+    at: Each goroutine uses approximately 2KB of stack space
+    text: the default starting size for a goroutine’s stack in 1.4 has been reduced from 8192 bytes to 2048 bytes.
+    by: The Go 1.4 release notes
+    url: https://go.dev/doc/go1.4
+  - type: quote
+    at: maintaining 64-byte memory alignment
+    text: The recommended padding of 64 bytes allows for using SIMD instructions consistently in loops without additional conditional checks.
+    by: The Apache Arrow columnar format spec
+    url: https://arrow.apache.org/docs/format/Columnar.html
+  - type: quote
+    at: SQLite WAL mode with memory mapping
+    text: WAL provides more concurrency as readers do not block writers and a writer does not block readers.
+    by: SQLite's write-ahead log docs
+    url: https://www.sqlite.org/wal.html
+  - type: see
+    at: CloudQuery treats each cloud provider as an independent system
     text: 'A few weeks later I wrote the follow-up: what happens to these numbers once cloud API rate limits get in the way.'
-    post: 'cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints'
+    post: cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints
+  - type: term
+    at: enabling SIMD vectorization
+    term: Single instruction, multiple data
+    text: one CPU instruction does the same operation on several values at once, such as adding eight numbers in one step.
 ---
 
 > **TL;DR:**

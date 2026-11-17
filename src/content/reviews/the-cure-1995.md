@@ -27,6 +27,8 @@ heroImage: '/images/reviews/the-cure-1995/backdrop.webp'
 heroAlt: 'Brad Renfro and Joseph Mazzello sitting barefoot on a small raft on a river beside an inflatable alligator.'
 ---
 
+![A green steel lift bridge spans a wide blue river under a clear sky, a road bike leaning on a chain fence on the riverfront in front.](/images/reviews/the-cure-1995/the-stillwater-lift-bridge-over-the.webp 'margin: The Stillwater Lift Bridge over the St. Croix, 2021.')
+
 This was filmed near where I grew up (Stillwater, MN), so I was required by law to watch this film.
 
 The cinematography was absolutely gorgeous and made me yearn for growing up in Minnesota in the 90s.

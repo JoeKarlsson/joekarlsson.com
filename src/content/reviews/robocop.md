@@ -18,9 +18,20 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/robocop/'
 poster: '/images/reviews/robocop/poster.webp'
 heroImage: '/images/reviews/robocop/backdrop.webp'
 heroAlt: 'Ronny Cox in a three-piece suit standing in front of a huge armed police robot.'
+marginNotes:
+  - type: see
+    at: Phil Tippett is absolutely crushing it with ED-209
+    text: 'Tippett spent 30 years on his own stop-motion nightmare: my review of Mad God.'
+    post: reviews/mad-god
+  - type: see
+    at: Great film. I’m obsessed.
+    text: I watched Benedetta right after this rewatch, same trick 34 years later.
+    post: reviews/benedetta
 ---
 
 It’s insane how such a schlocky premise could be imbued with such depth.
+
+![Executives in gray suits sit along a long glass conference table, the Old Man at its head in front of tall windows.](/images/reviews/robocop/the-ocp-board-meeting-in-mgms.webp "margin: The OCP board meeting, in MGM's trailer.")
 
 RoboCop is super tight - incredible themes, well acted, satire absolutely on point. It’s got something for everyone. Thematic depth, religious undertones, capitalism on blast for the entire runtime. Even if you don’t dig into the themes, it’s a fun romp. If you do dig in, it’s a masterpiece.
 

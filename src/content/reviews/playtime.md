@@ -25,11 +25,28 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/playtime/'
 poster: '/images/reviews/playtime/poster.webp'
 heroImage: '/images/reviews/playtime/backdrop.webp'
 heroAlt: 'A woman in a gray coat on a bus looking out the window at a glass building with the word "PARIS" on it.'
+marginNotes:
+  - type: aside
+    at: build an entire fake city
+    text: About 100 workers built it, with its own power plant. Tati said it cost no more than hiring Elizabeth Taylor or Sophia Loren. The overruns eventually bankrupted him.
+    url: https://en.wikipedia.org/wiki/Playtime
+  - type: aside
+    at: watching hundreds of extras
+    text: 'Not all real: to save money, Tati filled some cubicles and backgrounds with life-size cutout photographs of people.'
+    url: https://en.wikipedia.org/wiki/Playtime
+  - type: aside
+    at: three rooms away through a fish tank
+    text: 'Deliberate: dialogue in French, English and German is often pushed down to background noise, and nearly the whole film was dubbed after shooting.'
+    url: https://en.wikipedia.org/wiki/Playtime
 ---
 
 Spent the first 20 minutes convinced my speakers were broken, only to realize Tati intentionally mixed all dialogue to sound like it’s coming from three rooms away through a fish tank. Bold choice.
 
+![A tall man in a raincoat and hat and a uniformed doorman step through a frameless glass doorway into a dim lobby.](/images/reviews/playtime/hulot-and-a-doorman-at-a.webp 'margin: Hulot and a doorman at a glass door.')
+
 This film is what happens when someone with unlimited money and zero regard for human sanity decides to build an entire fake city just to make jokes about glass doors. The logistics alone made me anxious: watching hundreds of extras navigate those labyrinthine sets while Tati presumably stands behind the camera with a megaphone whispering “More confused! Look MORE confused!”
+
+![A crowded nightclub restaurant in evening dress, a lattice of ceiling panels collapsing over the diners while a band in tuxedos plays behind them.](/images/reviews/playtime/the-royal-garden-restaurant-coming-apart.webp 'margin: The Royal Garden restaurant, coming apart around its guests.')
 
 The office tour opening had me hooked with its ballet of corporate absurdity, then the middle section hit and I briefly considered that maybe I was the one trapped in a modernist nightmare. Just when I thought I’d lost the plot entirely (was there a plot?), that restaurant scene arrives like a slapstick fever dream where civilization slowly collapses one broken floor tile at a time. Pure chaos. Magnificent.
 

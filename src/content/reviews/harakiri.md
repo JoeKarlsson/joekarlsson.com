@@ -25,11 +25,31 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/harakiri/'
 poster: '/images/reviews/harakiri/poster.webp'
 heroImage: '/images/reviews/harakiri/backdrop.webp'
 heroAlt: 'Two samurai facing each other with swords drawn in a windswept field of tall grass under a stormy sky, in black and white.'
+marginNotes:
+  - type: term
+    at: he fights with his story
+    term: Suicide bluff
+    text: rōnin in the period asked to commit seppuku at a lord's gate, hoping to be turned away with alms. The film's story turns on it.
+  - type: aside
+    at: The cinematography is gorgeous
+    text: Shot by Yoshio Miyajima, scored by Tōru Takemitsu. It won the Special Jury Prize at Cannes in 1963.
+    url: https://en.wikipedia.org/wiki/Harakiri_(1962_film)
+  - type: see
+    at: I've been sitting with this one
+    text: Tatsuya Nakadai, the lead here, is also in Ran; my review.
+    post: reviews/ran
+  - type: quote
+    at: one of cinema's most scathing critiques of power
+    text: All of my pictures, from a certain point on, are concerned with resisting entrenched power.
+    by: Masaki Kobayashi, interview, 1994
+    url: https://deepfocusreview.com/definitives/harakiri/
 ---
 
 Harakiri: beautiful cinematography, devastating story, and one of cinema's most scathing critiques of power.
 
 This is a slow-burn, powerful, anti-authoritarian, anti-samurai masterpiece that's beautifully shot and oftentimes gory and genuinely difficult to watch. It takes everything noble and honorable about the samurai code and methodically reveals it as a weapon wielded by those in power to crush the desperate and maintain their authority.
+
+![Overhead black-and-white shot of a man kneeling on a white mat in a stone courtyard, a ring of samurai with drawn swords around him.](/images/reviews/harakiri/tsugumo-on-the-harakiri-mat-ringed.webp "margin: Tsugumo on the harakiri mat, ringed by the clan's retainers.")
 
 I've been sitting with this one for a while. I think this is one of the most entertaining and scathing takedowns of how those in power co-opt and corrupt customs for their own benefit. It's about a man who, through desperation and grief, works to expose the hypocrisy of these systems with surgical precision. He doesn't fight with his sword - he fights with his story, forcing the powerful to confront exactly what their "honor" has cost.
 What makes this so effective is how patient it is. The film takes its time revealing what's actually happening, and when it finally shows you the full picture, it's devastating. The flashback structure isn't just a narrative device - it's a trap being set for both the samurai clan and the audience.

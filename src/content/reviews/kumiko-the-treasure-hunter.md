@@ -25,6 +25,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/kumiko-the-treasure-hunt
 poster: '/images/reviews/kumiko-the-treasure-hunter/poster.webp'
 heroImage: '/images/reviews/kumiko-the-treasure-hunter/backdrop.webp'
 heroAlt: 'Rinko Kikuchi in a snow-covered red hood, looking up through falling snow.'
+marginNotes:
+  - type: aside
+    at: this movie is about someone who believed it was real
+    text: It grew out of the urban legend about Takako Konishi, a Japanese woman said to have died searching Minnesota for the Fargo ransom money.
+    url: https://en.wikipedia.org/wiki/Kumiko,_the_Treasure_Hunter
 ---
 
 As a Minnesotan, I’m legally required to discuss the Minnesota representation. It’s pretty accurate.
@@ -33,7 +38,11 @@ From the marketing and the poster, I envisioned this as a much more fun romp tha
 
 I watched it because 2026 is the 30th anniversary of [Fargo](/reviews/fargo-1/) - I just finished some crop art for that film and was inspired to check out what it birthed. I’d heard rumors about Kumiko for a while. Turns out Fargo created its own American folk story, a modern Paul Bunyan legend, and this movie is about someone who believed it was real.
 
+![A woman in a red hood and scarf, head bowed, against bare winter trees.](/images/reviews/kumiko-the-treasure-hunter/kumiko-in-her-red-hood-in.webp 'margin: Kumiko in her red hood in the Minnesota woods.')
+
 The lead gives a really strong performance, and it’s an intriguing premise. But this ends up exploring much darker sides of mental health than I expected. It’s basically about a woman rejecting the hierarchy and patriarchy of Japan, coming to the great North so she can spiral out alone. The movie has a lot to say about American legends and their impact - maybe even the American Dream itself. Come to America, find treasure, start a new life. Get destroyed by that pursuit.
+
+![A deputy in a fur hat and black jacket holds a worn paper while a woman wrapped in a patterned quilt stands beside him in a wood-paneled room.](/images/reviews/kumiko-the-treasure-hunter/kumiko-wrapped-in-a-quilt-with.webp 'margin: Kumiko, wrapped in a quilt, with the local deputy.')
 
 Ok now onto the Minnesota representation. It’s pretty accurate - not overblown, portrays our isolation and kindness well. The accents are reined in, unlike Fargo, which I appreciated for a film like this. The locals being confounded by this mentally ill Japanese woman emerging from the cold, lost and out of money - that felt right. They’re kind but perplexed. I don’t blame them.
 

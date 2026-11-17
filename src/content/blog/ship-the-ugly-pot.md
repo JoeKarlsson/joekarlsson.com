@@ -59,6 +59,8 @@ The quality group fell into what I call the **perfection trap**: they confused p
 
 The quantity group didn't win because they made pots fast. They won because they made pots fast _and ran each one through the kiln._
 
+![Black-and-white photo of two boys loading rows of pale unfired clay jugs and crocks onto a wooden wagon bed under trees.](/images/blog/ship-the-ugly-pot/pots-air-drying-before-the-kiln.webp 'margin: Pots air drying before the kiln, 1919. Wikimedia Commons, public domain.')
+
 The kiln is the feedback. Take it away and you have a pile of unfired clay. In software, shipping without feedback loops (no tests, no real users, no retros, no monitoring) doesn't get you the quantity group's result. It gets you tech debt and a team that's busy without learning anything.
 
 So the lesson is to learn faster, and shipping is the fastest way I know to do that, as long as something tells you how the shipped thing did.

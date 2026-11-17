@@ -25,6 +25,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-super-mario-galaxy-m
 poster: '/images/reviews/the-super-mario-galaxy-movie/poster.webp'
 heroImage: '/images/reviews/the-super-mario-galaxy-movie/backdrop.webp'
 heroAlt: 'Mario and Luigi in ponchos and goggles surrounded by sugar-skull characters in sombreros.'
+marginNotes:
+  - type: aside
+    at: Where the hell were Bob Hoskins and John Leguizamo???
+    text: They played Mario and Luigi in the live-action Super Mario Bros. (1993).
+    url: https://en.wikipedia.org/wiki/Super_Mario_Bros._(film)
 ---
 
 Where the hell were Bob Hoskins and John Leguizamo???

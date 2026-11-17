@@ -25,6 +25,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/freakier-friday/'
 poster: '/images/reviews/freakier-friday/poster.webp'
 heroImage: '/images/reviews/freakier-friday/backdrop.webp'
 heroAlt: 'Lindsay Lohan and Jamie Lee Curtis staring at a glowing pink crystal ball in a neon-lit room.'
+marginNotes:
+  - type: see
+    at: actors fully commit to mimicking each other
+    text: 'Freaky (2020) does it: Vince Vaughn plays a teenage girl stuck in his body. I watched it right after this one.'
+    post: reviews/freaky
 ---
 
 Freakier Friday definitely feels like a Disney+ movie production-wise, which is wild considering it stars an Oscar winner. I’m just gonna say it: this was very mid. Slightly below mid, even. But I did laugh and was charmed by moments.

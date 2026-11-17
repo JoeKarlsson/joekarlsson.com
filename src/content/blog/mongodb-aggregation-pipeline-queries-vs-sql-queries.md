@@ -15,15 +15,19 @@ corrections:
   - date: 2026-11-12
     note: "The `$filter` condition used `'$item.plays'`; it's `'$$item.plays'`. The MongoDB sample data didn't match the SQL data."
 marginNotes:
-  - type: 'quote'
-    at: 'think of the aggregation pipeline as a very similar concept'
-    text: 'We should have some ways of connecting programs like garden hose--screw in another segment'
-    by: 'Doug McIlroy, Bell Labs memo, 1964. He later got pipes added to Unix'
-    url: 'https://web.archive.org/web/20201229210155/https://www.bell-labs.com/usr/dmr/www/mdmpipe.html'
-  - type: 'see'
-    at: 'How To Use The MongoDB Visual Studio Code Plugin'
+  - type: quote
+    at: think of the aggregation pipeline as a very similar concept
+    text: We should have some ways of connecting programs like garden hose--screw in another segment
+    by: Doug McIlroy, Bell Labs memo, 1964. He later got pipes added to Unix
+    url: https://web.archive.org/web/20201229210155/https://www.bell-labs.com/usr/dmr/www/mdmpipe.html
+  - type: see
+    at: How To Use The MongoDB Visual Studio Code Plugin
     text: 'Here it is: connecting to Atlas, browsing collections and running queries in a Playground.'
-    post: 'how-to-use-the-mongodb-visual-studio-code-plugin'
+    post: how-to-use-the-mongodb-visual-studio-code-plugin
+  - type: see
+    at: I would personally include myself in this subset
+    text: 'From SQL to NoSQL: my talk on how SQL terms map to MongoDB documents, and the habits SQL developers have to unlearn.'
+    post: talks/from-sql-to-nosql-a-gentle-introduction-for-devs
 mastheadImage: '/images/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/masthead-290590bd.webp'
 ---
 

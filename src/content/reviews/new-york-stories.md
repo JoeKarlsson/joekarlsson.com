@@ -25,6 +25,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/new-york-stories/'
 poster: '/images/reviews/new-york-stories/poster.webp'
 heroImage: '/images/reviews/new-york-stories/backdrop.webp'
 heroAlt: "An old woman's giant face looking down from the clouds over the Manhattan skyline, a man watching from below."
+marginNotes:
+  - type: see
+    at: The Artist's Way keeps telling me to dream bigger
+    text: 'What else the book has done to how I work: Ship the Ugly Pot.'
+    post: ship-the-ugly-pot
+  - type: aside
+    at: Scorsese has been married five times, Julia Cameron included
+    text: Laraine Brennan, Julia Cameron (1976 to 1977), Isabella Rossellini, Barbara De Fina and Helen Morris, married since 1999.
+    url: https://en.wikipedia.org/wiki/Martin_Scorsese
+  - type: see
+    at: Richard Price's script is so good.
+    text: Price also wrote The Color of Money for Scorsese, and got an Oscar nomination for it.
+    post: reviews/the-color-of-money
 ---
 
 "Life Lessons" is about a man who never learns one.
@@ -32,6 +45,10 @@ heroAlt: "An old woman's giant face looking down from the clouds over the Manhat
 The Artist's Way keeps telling me to dream bigger about my art life, so I watched a movie about a painter in a SoHo loft, directed by the author's ex-husband.
 
 I like my life here in Minnesota. But Julia Cameron spends a lot of that book on the romantic, dreaming-big side of a creative life, and I've been daring myself to do more of it. "Life Lessons," Scorsese's segment of New York Stories, shows one version of what that could look like: the loft, the gallery openings, the painter throwing paint around with the music up loud. Nobody gets to live that version anymore, not in 2026, and the movie makes it look incredible anyway, right up until it shows you the bill.
+
+![Overhead view of a crowded gallery, huge colorful paintings on the walls and a LIONEL DOBIE sign.](/images/reviews/new-york-stories/lionels-opening-packed-under-his-giant.webp "margin: Lionel's opening, packed under his giant canvases.")
+
+![Nick Nolte as Lionel Dobie, paint-spattered, working at a huge abstract canvas that fills a sunlit loft with arched windows.](/images/reviews/new-york-stories/lionel-works-on-a-canvas-taller.webp 'margin: Lionel works on a canvas taller than he is.')
 
 The fantasy is gorgeous. Nick Nolte plays Lionel Dobie, a famous painter with a show coming up and nothing finished, and he spends most of it huge, paint-spattered and half dressed in an incredible SoHo loft. The camera circles him while he throws paint at canvases the size of a garage door to "A Whiter Shade of Pale," again and again, the same song every time. At his opening he cleans up nice and works the room with war stories the rich collectors eat up, and it makes sense that he's famous. He and Rosanna Arquette are both so hot in this.
 
@@ -49,6 +66,8 @@ Stray thoughts:
 Scorsese keeps using these old-fashioned iris shots, closing in on a small detail and opening back out, and I loved every one.
 
 Richard Price's script is so good. It made me understand exactly why Paulette stays as long as she does.
+
+![Steve Buscemi in a green T-shirt performing on subway tracks under a single blue bulb, audience sitting on the platform edge.](/images/reviews/new-york-stories/gregory-starks-show-down-on-the.webp "margin: Gregory Stark's show, down on the subway tracks.")
 
 Steve Buscemi is great as Gregory Stark, the performance artist Paulette takes up with. I did not love his show. It's very Gen X.
 

@@ -29,6 +29,8 @@ heroImage: '/images/reviews/bridge-of-spies/backdrop.webp'
 heroAlt: 'A lone man in a hat and coat standing on a snowy steel bridge at night, with tank barriers and a tank in blue light.'
 ---
 
+![Black-and-white photo of a Jefferson nickel next to its hollowed-out back half.](/images/reviews/bridge-of-spies/the-fbis-photo-of-the-hollow.webp "margin: The FBI's photo of the hollow nickel from the real Abel case. Wikimedia Commons, public domain.")
+
 This is quietly one of the most humanitarian films ever made. It’s still a super fun, engaging spy thriller.
 
 Hanks and Rylance are at the top of their game in this film

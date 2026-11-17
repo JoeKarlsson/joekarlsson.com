@@ -81,6 +81,8 @@ Hardware prices went up in 2026 because memory got expensive. As of November 202
 - **[Connect ZBT-2](https://www.home-assistant.io/connect/zbt-2/), $49.** The USB radio for Zigbee or Thread. It does one or the other, not both at once.
 - **[Voice Preview Edition](https://www.home-assistant.io/voice-pe/), $69.** The local voice speaker. It ships without a USB-C charger or cable.
 
+![A hand holding a clear acrylic case with a gold circuit board inside, labeled Home Assistant Yellow.](/images/blog/how-to-get-started-with-home-assistant/my-home-assistant-yellow-october-2022.webp 'margin: My Home Assistant Yellow, October 2022.')
+
 The Home Assistant Yellow went out of production in October 2025, so skip it unless you find one used. If you already have a server, a VM costs you nothing. Mine runs as a VM on my Proxmox cluster, and I wrote up [how I'd build a homelab server](/blog/how-to-get-started-building-a-homelab-server/) if you want to go that way.
 
 ## How I got started
@@ -96,6 +98,8 @@ With Home Assistant, I was able to create custom automations that fit my specifi
 So if you’re just getting started with home automation, I'd recommend starting with a platform like Amazon Alexa, HomeKit, or Google Home. They are all great options that are approachable and easy to use. But if you’re ready to go further with your home automation, I highly recommend checking out Home Assistant. It may take a bit more effort to set up, but the payoff in terms of customization and control is well worth it.
 
 ## Getting started with simple automations
+
+![A black square ecobee thermostat showing 65 degrees, on a white round plate on a green wall.](/images/blog/how-to-get-started-with-home-assistant/my-ecobee-thermostat-set-to-65.webp 'margin: My ecobee thermostat, set to 65, 2022.')
 
 When I first started with Home Assistant, I focused on automating simple tasks like turning on/off lights and adjusting the thermostat. Here are a few specific automation ideas that I found useful:
 

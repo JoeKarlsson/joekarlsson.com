@@ -29,6 +29,19 @@ updatedDate: 2026-11-17
 corrections:
   - date: 2026-11-17
     note: "I said the high frame rate was 60fps. It's 48fps."
+marginNotes:
+  - type: see
+    at: genuinely loved Way of Water
+    text: My review of The Way of Water, the one I loved.
+    post: reviews/avatar-the-way-of-water
+  - type: aside
+    at: Chaplin gives one of
+    text: Oona Chaplin, who plays Varang, is Charlie Chaplin's granddaughter.
+    url: https://en.wikipedia.org/wiki/Oona_Chaplin
+  - type: aside
+    at: baffling creative decisions Jimmy made
+    text: Per fxguide, roughly 40% of Fire and Ash was delivered at 48fps; the rest runs at the standard 24.
+    url: https://www.fxguide.com/fxfeatured/from-capture-to-compute-the-technology-powering-avatar-fire-and-ash/
 ---
 
 Maybe James Cameron's horniest movie ever made. Chaplin gives one of the most hip-forward performance I've ever seen in my entire life. Good for her.

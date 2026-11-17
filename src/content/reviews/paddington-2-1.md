@@ -26,6 +26,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/paddington-2/1/'
 poster: '/images/reviews/paddington-2-1/poster.webp'
 heroImage: '/images/reviews/paddington-2-1/backdrop.webp'
 heroAlt: 'Poster art of Paddington Bear raising his red hat beside a chef, a man in a plaid suit and the Brown family.'
+marginNotes:
+  - type: see
+    at: Showing Paddington 2 to someone new is a confession.
+    text: 'An earlier watch: my first review.'
+    post: reviews/paddington-2
 ---
 
 Showing Paddington 2 to someone new is a confession.

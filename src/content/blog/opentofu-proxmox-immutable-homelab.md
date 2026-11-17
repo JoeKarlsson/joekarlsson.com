@@ -81,6 +81,8 @@ Three weeks, and I hadn't noticed. The container showed green in Proxmox, the ho
 
 ## How bad was it, actually?
 
+![A black open-frame server rack under a sloped attic ceiling: network switches and a four-bay NAS on top, two rack servers in the middle and two UPS units at the bottom.](/images/blog/opentofu-proxmox-immutable-homelab/the-rack-in-my-attic-november.webp 'margin: The rack in my attic, November 2026.')
+
 I'd been running a [Proxmox homelab](/blog/how-to-get-started-building-a-homelab-server/) for years - growing it into the [dual R730 rack setup I wrote about earlier this year](/blog/homelab-two-years-later/). The hardware was solid. The monitoring stack was solid. The management of individual containers was a mess.
 
 Not a spectacular mess, just the slow kind.

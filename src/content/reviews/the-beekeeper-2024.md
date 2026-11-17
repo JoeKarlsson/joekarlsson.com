@@ -25,11 +25,18 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-beekeeper-2024/'
 poster: '/images/reviews/the-beekeeper-2024/poster.webp'
 heroImage: '/images/reviews/the-beekeeper-2024/backdrop.webp'
 heroAlt: 'Jason Statham in profile, his body breaking apart into a swarm of bees against a golden yellow sky.'
+marginNotes:
+  - type: see
+    at: guy with a specific job murders everyone
+    text: Statham doing it again in Mutiny, my review.
+    post: reviews/mutiny-2026
 ---
 
 A blatant John Wick rip-off with worse choreo and a somehow more incomprehensible plot - which is genuinely impressive, because I already hate the worldbuilding of the John Wick universe.
 
 Jason Statham reunites here with director David Ayer, who previously gave us the mediocre Wrath of Man. Ayer's been chasing a consistent vision since Fury, and this isn't it. Statham, meanwhile, continues his reliable run of "guy with a specific job murders everyone" movies - a genre he's practically cornered. The Beekeeper fits neatly into that canon, right alongside The Transporter, The Mechanic, and whatever else he's done where the job title is the movie title.
+
+![Jason Statham in a beekeeper's suit and mesh veil lifts a honeycomb frame crawling with bees, bees flying against a cloudy sky.](/images/reviews/the-beekeeper-2024/statham-in-a-bee-suit-checking.webp "margin: Statham in a bee suit, checking a frame, in Amazon MGM's trailer.")
 
 The premise is insane: a beekeeper's bees get attacked, so he goes on a killing spree. It's so dumb. But there's something almost admirable about the commitment to the bit. The bee metaphors never stop. They just keep coming, relentless, like Statham himself.
 

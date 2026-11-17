@@ -25,6 +25,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mary-oliver-saved-by-the
 poster: '/images/reviews/mary-oliver-saved-by-the-beauty-of-the-world/poster.webp'
 heroImage: '/images/reviews/mary-oliver-saved-by-the-beauty-of-the-world/backdrop.webp'
 heroAlt: 'A smiling young woman in a white shirt and jeans sitting in a striped hammock in a leafy yard, holding a book.'
+marginNotes:
+  - type: see
+    at: was John Waters, who should have been
+    text: 'Waters on his own turf: my review of Female Trouble.'
+    post: reviews/female-trouble
 ---
 
 Here is a film about a woman

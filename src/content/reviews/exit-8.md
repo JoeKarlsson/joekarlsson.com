@@ -28,4 +28,6 @@ heroImage: '/images/reviews/exit-8/backdrop.webp'
 heroAlt: 'A smiling man in a white shirt standing in a white-tiled subway corridor under a yellow "Exit 8" sign.'
 ---
 
+![A balding man with a goatee in a white shirt walks straight toward the camera down a white-tiled subway passage.](/images/reviews/exit-8/the-walking-man-in-the-endless.webp "margin: The walking man in the endless corridor, in NEON's trailer.")
+
 George Bluth Sr: “And that’s why you ALWAYS fight strangers on the Subway”

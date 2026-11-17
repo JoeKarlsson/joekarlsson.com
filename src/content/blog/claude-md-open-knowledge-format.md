@@ -31,27 +31,31 @@ faq:
   - question: 'Does Claude Code read Open Knowledge Format natively?'
     answer: 'No. Claude Code loads CLAUDE.md files, rules and MEMORY.md as usual. OKF helps because each CLAUDE.md becomes a short stub that points to an index.md, and Claude opens only the concept files it needs.'
 marginNotes:
-  - type: 'quote'
-    at: 'both want a'
-    text: "Claude records the kind as a `type` field in the memory file's frontmatter."
-    by: "Anthropic's Claude Code memory docs"
-    url: 'https://code.claude.com/docs/en/memory'
-  - type: 'exhibit'
-    at: 'One of my 44 questions'
+  - type: quote
+    at: both want a
+    text: Claude records the kind as a `type` field in the memory file's frontmatter.
+    by: Anthropic's Claude Code memory docs
+    url: https://code.claude.com/docs/en/memory
+  - type: exhibit
+    at: One of my 44 questions
     text: 'From the full results: questions that span several files went from 50% right to 100% after the split. No other question type moved that much.'
-  - type: 'see'
-    at: 'the agent can argue its way past text'
-    text: 'Test that the hook really blocks. Five of mine never worked, so my must-never-break rules live in Claude Code mods now.'
-    post: 'claude-code-mods-first-impressions'
-  - type: 'quote'
-    at: 'keep each CLAUDE.md under 200 lines'
+  - type: see
+    at: the agent can argue its way past text
+    text: Test that the hook really blocks. Five of mine never worked, so my must-never-break rules live in Claude Code mods now.
+    post: claude-code-mods-first-impressions
+  - type: quote
+    at: keep each CLAUDE.md under 200 lines
     text: '[T]arget under 200 lines per CLAUDE.md file. Longer files consume more context and reduce adherence.'
-    by: "Anthropic's Claude Code memory docs"
-    url: 'https://code.claude.com/docs/en/memory'
-  - type: 'see'
-    at: 'saved 312 tokens'
+    by: Anthropic's Claude Code memory docs
+    url: https://code.claude.com/docs/en/memory
+  - type: see
+    at: saved 312 tokens
     text: "What's in that global file: its testing and git rules, and how chezmoi copies it to every machine."
-    post: 'my-development-setup-2026'
+    post: my-development-setup-2026
+  - type: term
+    at: The idea is progressive disclosure
+    term: Progressive disclosure
+    text: an interface design idea where the basics show first and the rarely used details sit one step away. Jakob Nielsen wrote it up for software screens in 2006; OKF applies it to an agent's reading.
 mastheadImage: '/images/blog/claude-md-open-knowledge-format/masthead-2178734a.webp'
 ---
 

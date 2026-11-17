@@ -25,9 +25,16 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/grumpier-old-men/'
 poster: '/images/reviews/grumpier-old-men/poster.webp'
 heroImage: '/images/reviews/grumpier-old-men/backdrop.webp'
 heroAlt: 'Jack Lemmon and Walter Matthau in tuxedos struggling with a bent fishing rod in a small boat on a lake.'
+marginNotes:
+  - type: see
+    at: Jack Lemmon and Walter Matthau still have incredible chemistry
+    text: 'Matthau without Lemmon, coaching foul-mouthed kids: my review of The Bad News Bears.'
+    post: reviews/the-bad-news-bears
 ---
 
 Grumpier, yes. Better, no.
+
+![Sophia Loren in a red jacket and red earrings, her hair in big curls, against a dark background.](/images/reviews/grumpier-old-men/sophia-loren-the-sequels-addition.webp "margin: Sophia Loren, the sequel's addition.")
 
 It's honestly crazy that [Grumpy Old Men](/reviews/grumpy-old-men/) popped off enough to warrant a sequel, but here we are. First impressions: I love the first one more. It's funnier, more well-written, and isn't as overstuffed and bloated as this one. The original had a simplicity to it - two guys, decades of grudges, one woman, ice fishing. This one throws in a wedding plot, Sophia Loren, more family drama, and loses the thread somewhere along the way.
 

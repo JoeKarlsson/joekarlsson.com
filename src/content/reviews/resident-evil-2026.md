@@ -34,6 +34,14 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/resident-evil-2026/'
 poster: '/images/reviews/resident-evil-2026/poster.webp'
 heroImage: '/images/reviews/resident-evil-2026/backdrop.webp'
 heroAlt: 'A young man in a yellow beanie in a car at night covering his mouth with a bloody hand, a pale woman behind him.'
+marginNotes:
+  - type: term
+    at: ever stopped at a typewriter
+    text: In the original Resident Evil you could only save at a typewriter in a safe room, and each save cost an ink ribbon.
+  - type: see
+    at: Cregger keeps finding different structural problems
+    text: 'The other two: Barbarian (2022) and Weapons. My Weapons review.'
+    post: reviews/weapons-2025
 ---
 
 This movie is the exact opposite of competency porn. Turns out I also love movies about an idiot NPC who stumbles through the worst night of his life.

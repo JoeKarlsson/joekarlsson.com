@@ -18,6 +18,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/all-that-jazz/'
 poster: '/images/reviews/all-that-jazz/poster.webp'
 heroImage: '/images/reviews/all-that-jazz/backdrop.webp'
 heroAlt: 'Roy Scheider in a sequined shirt, singing into a microphone with one arm thrown wide against blurred stage lights.'
+marginNotes:
+  - type: see
+    at: I'd been sleeping on Fosse
+    text: "The other Fosse I've reviewed: Liza with a Z (1972), his concert film for Liza Minnelli."
+    post: reviews/liza-with-a-z
+  - type: see
+    at: with Lenny and Chicago
+    text: Fosse directed and choreographed the original Broadway Chicago, which opened in June 1975. Rob Marshall filmed it in 2002.
+    post: reviews/chicago
+  - type: aside
+    at: one of the best musical biopics
+    text: It shared the 1980 Palme d'Or with Kurosawa's Kagemusha, and won four Oscars from nine nominations.
+    url: https://en.wikipedia.org/wiki/All_That_Jazz_(film)
 ---
 
 All That Jazz is an autobiography where the author clearly can't stand the main character.
@@ -32,6 +45,8 @@ Joe Gideon (Scheider, who is fantastic) is a Broadway director and choreographer
 
 ![Roy Scheider as Joe Gideon in the bathroom mirror, arms raised, doing his morning routine.](/images/reviews/all-that-jazz/showtime.webp)
 _The morning routine._
+
+![Four dancers in leotards leap on an empty stage while a man's silhouette watches from the seats.](/images/reviews/all-that-jazz/dancers-on-a-bare-stage-with.webp 'margin: Dancers on a bare stage, with Gideon watching from the dark.')
 
 It's one of the most self-loathing films I've ever seen in my life. It's also funny as hell, which keeps it from being a slog. Fosse knows this guy is ridiculous: the womanizing, the endless rehearsals, the way he can't stop staging his own life even while it's ending. And the dance numbers are incredible. His hospital-bed hallucinations turn his own heart surgery into a variety show, and the finale, "Bye Bye Life," is ||a full glittering production number about dying, with Gideon as the star and the audience applauding him all the way into a body bag||. I can't think of anything else that gets away with that.
 

@@ -17,6 +17,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/louis-theroux-inside-the
 poster: '/images/reviews/louis-theroux-inside-the-manosphere/poster.webp'
 heroImage: '/images/reviews/louis-theroux-inside-the-manosphere/backdrop.webp'
 heroAlt: "Louis Theroux in glasses, held in a headlock by a muscular man's arm against a teal background."
+marginNotes:
+  - type: see
+    at: unfamiliar with the Red pill community
+    text: The name comes from the pill Neo swallows. My review of The Matrix.
+    post: reviews/the-matrix
 ---
 
 Louis Theroux does what he does best - lets them hang themselves.

@@ -27,6 +27,14 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/i-love-boosters/'
 poster: '/images/reviews/i-love-boosters/poster.webp'
 heroImage: '/images/reviews/i-love-boosters/backdrop.webp'
 heroAlt: 'Four women in bright fuzzy furs, colorful wigs and platform boots standing in front of a maroon minivan in a parking lot.'
+marginNotes:
+  - type: term
+    at: I Love Boosters is that rare thing
+    text: Slang for a thief, usually a shoplifter.
+  - type: aside
+    at: clear visual inspiration from Michel Gondry’s playbook
+    text: Gondry made Eternal Sunshine of the Spotless Mind and The Science of Sleep, and built his name on camera tricks that play with the frame.
+    url: https://en.wikipedia.org/wiki/Michel_Gondry
 ---
 
 Not since [Sinners](/reviews/sinners-2025/) have I seen a movie so pro pussy eating.

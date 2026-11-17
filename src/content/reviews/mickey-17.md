@@ -36,4 +36,6 @@ heroAlt: 'Robert Pattinson lying on his back inside a space helmet, his face bru
 
 I was scared that this was gonna be too depressing, but it was both way funnier than I expected it to be and had a really warm ending.
 
+![A man lies on his back sliding out of a glowing round machine, wrapped in a pale suit of tubes.](/images/reviews/mickey-17/robert-pattinsons-mickey-fresh-out-of.webp "margin: Robert Pattinson's Mickey, fresh out of the body printer.")
+
 R Pat was going ham in this role, but I thought Bong could have gotten even more out of him.

@@ -17,6 +17,23 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/say-anything/'
 poster: '/images/reviews/say-anything/poster.webp'
 heroImage: '/images/reviews/say-anything/backdrop.webp'
 heroAlt: 'A young man in a tan coat and a laughing young woman leaning toward each other over coffee at a diner counter.'
+marginNotes:
+  - type: aside
+    at: coming from a Cameron Crowe movie
+    text: "His first, in fact: Say Anything... was Crowe's feature directing debut, from his own script."
+    url: https://en.wikipedia.org/wiki/Say_Anything...
+  - type: see
+    at: I should have known better
+    text: Crowe's Jerry Maguire, my review.
+    post: reviews/jerry-maguire
+  - type: aside
+    at: the grand gestures that border on stalking
+    text: Cusack first refused the boombox scene, feeling Lloyd wouldn't do something so theatrical. Crowe got the take by rolling the camera without film.
+    url: https://en.wikipedia.org/wiki/Say_Anything...
+  - type: see
+    at: John Cusack is wonderful in this
+    text: Cusack again, older, in Love & Mercy.
+    post: reviews/love-mercy
 ---
 
 Lloyd Dobler is what we pretended Ferris Bueller was: actually cool, actually sweet, actually worthy of being someone's role model.
@@ -24,6 +41,8 @@ Lloyd Dobler is what we pretended Ferris Bueller was: actually cool, actually sw
 This is so much cuter, sweeter, and different than I ever expected. I genuinely thought this would be filled with all the terrible 80s romantic comedy cliches - the misunderstandings, the grand gestures that border on stalking, the shallow characters. But Say Anything... avoids nearly all of that. It's shockingly mature and naturalistic for a movie from this era.
 
 Lloyd Dobler is way cooler, sweeter, and more aspirational than someone like Ferris Bueller, who we were all supposed to worship as the ultimate 80s teen icon. Lloyd isn't cool because he's a charming rule-breaker - he's cool because he's genuine, kind, and actually listens to Diane. He respects her. He supports her dreams even when they take her away from him.
+
+![A balding man in a tweed jacket and checked shirt smiles to himself, hand at his chin, in a kitchen.](/images/reviews/say-anything/john-mahoney-as-dianes-father-jim.webp "margin: John Mahoney as Diane's father, Jim Court.")
 
 I also expected the father to be a total cock block for the whole movie, but instead ||it takes this wild swerve into an unexpected financial crime subplot that actually works||. The father isn't just an obstacle - he's a fully realized character with his own tragic arc.
 

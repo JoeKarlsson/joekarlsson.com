@@ -25,7 +25,18 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-cat-1992/'
 poster: '/images/reviews/the-cat-1992/poster.webp'
 heroImage: '/images/reviews/the-cat-1992/backdrop.webp'
 heroAlt: 'A young woman lying back with a black cat curled against her face.'
+marginNotes:
+  - type: aside
+    at: An author has all these connections
+    text: That's Wisely, the hero of Ni Kuang's long-running Hong Kong sci-fi novels; the film adapts the Wisely book Old Cat.
+    url: https://en.wikipedia.org/wiki/The_Cat_(1992_film)
+  - type: aside
+    at: Hong Kong horror operates on a different wavelength
+    text: 'Same director as Riki-Oh: The Story of Ricky (1991).'
+    url: https://en.wikipedia.org/wiki/The_Cat_(1992_film)
 ---
+
+![A black long-haired cat with green eyes hisses at the camera, fangs bared, in blue night light.](/images/reviews/the-cat-1992/the-cat-squares-up-for-the.webp 'margin: The cat squares up for the dog fight, in the trailer.')
 
 A cat kung fu fights a dog. That's really all you need to know.
 

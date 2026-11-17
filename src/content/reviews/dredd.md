@@ -26,4 +26,6 @@ I think it succeeds in being so self-contained. Dredd isn’t trying to stop a g
 
 This is The Raid, but in a sci-fi future
 
+![Lena Headey in a bath lifts her hand through water that hangs in glittering, slowed-down sheets.](/images/reviews/dredd/slomo-as-mama-sees-it-bathwater.webp 'margin: Slo-Mo, as Ma-Ma sees it: bathwater frozen in the air.')
+
 Also, the use of drugs as a fun special effect gimmick I thought it worked really well when I first watched it and on a repeat viewing. More movies need to start abusing the slow mo drug.

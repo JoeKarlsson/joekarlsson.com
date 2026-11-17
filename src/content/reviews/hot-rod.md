@@ -20,4 +20,6 @@ heroImage: '/images/reviews/hot-rod/backdrop.webp'
 heroAlt: 'Isla Fisher in a red jersey and Andy Samberg in a denim work shirt with a flag patch, sitting together outside.'
 ---
 
+![Andy Samberg in a tan jacket and striped tie stands with a hand on his hip in a bedroom, facing a young man in a blue T-shirt seen from behind.](/images/reviews/hot-rod/rod-making-up-with-kevin-the.webp 'margin: Rod making up with Kevin: the “cool beans” scene.')
+
 This movie altered my brain at a formative age. Cool beans???

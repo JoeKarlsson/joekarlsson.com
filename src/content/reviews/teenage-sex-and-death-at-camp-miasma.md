@@ -25,6 +25,25 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/teenage-sex-and-death-at
 poster: '/images/reviews/teenage-sex-and-death-at-camp-miasma/poster.webp'
 heroImage: '/images/reviews/teenage-sex-and-death-at-camp-miasma/backdrop.webp'
 heroAlt: 'Two women, one in glasses, sitting close under red striped walls.'
+marginNotes:
+  - type: see
+    at: Her first two films were morose
+    text: The second was I Saw the TV Glow (2024).
+    post: reviews/i-saw-the-tv-glow
+  - type: see
+    at: a lot of Araki lately
+    text: 'The Araki run: The Living End, The Doom Generation and Nowhere.'
+    post: reviews/the-doom-generation
+  - type: term
+    at: Pyramid Head and Jason Voorhees
+    text: The helmeted executioner from Silent Hill 2 (2001), designed by Masahiro Ito.
+  - type: term
+    at: she takes back Sleepaway Camp
+    text: Robert Hiltzik's 1983 summer-camp slasher. Its final-shot twist is famous, and it has drawn criticism for how it treats a transgender villain.
+  - type: see
+    at: Friday the 13th and Sleepaway Camp influences
+    text: 'My review of Friday the 13th: The Final Chapter (1984).'
+    post: reviews/friday-the-13th-the-final-chapter
 ---
 
 Overstuffed, messy, horny, and somehow made just for me.
@@ -38,6 +57,8 @@ _Two minutes in._
 
 Nobody here gets punished for their desire. ||The queer women live.|| Cinema loves to make women and queers pay in blood for wanting pleasure, and Schoenbrun just refuses, letting them want and then survive the wanting, the way [The Handmaiden](/reviews/the-handmaiden/) did.
 
+![A stack of seven VHS tapes, each labeled Camp Miasma, including Part II, Part IV and 3D.](/images/reviews/teenage-sex-and-death-at-camp-miasma/the-fictional-camp-miasma-series-on.webp 'margin: The fictional Camp Miasma series on VHS, 3D sequel included.')
+
 And Little Death is an instant horror icon. The masked, spear-wielding vengeful ghost at the center of the fictional franchise looks like what you'd get if Pyramid Head and Jason Voorhees had a baby in a Silent Hill parking lot, and the central kill run at the camp is one of the best sequences of the year, all squishy Foley and go-for-broke splatter. The whole movie has that handmade Lynch quality where the cheapness becomes the dream. Matte paintings, charming garbage effects, a budget held together with love, all of it chasing a feeling instead of accuracy.
 
 ![A framed poster of Little Death, the masked killer with an air vent for a head, standing in a field with his spear.](/images/reviews/teenage-sex-and-death-at-camp-miasma/little-death-poster.webp)
@@ -50,6 +71,8 @@ Where I bumped: the Hollywood machinery. The reboot-industry, agent-office mater
 Like everything she makes, it's overstuffed, and I mean that fondly. A hundred ideas clawing to get out and a tiny budget to get them out in, so she crams, and I'll need to sit with it. She makes something so specific to her own weird interior that it loops all the way around to universal, and a horror nerd in the middle of his own questions about pleasure and desire can sit there and think, oh. This one's mine. This one felt like mine.
 
 Stray thoughts:
+
+![A blond woman with red lipstick screaming in a dark room.](/images/reviews/teenage-sex-and-death-at-camp-miasma/gillian-anderson-midscream.webp 'margin: Gillian Anderson, mid-scream.')
 
 ・Under the gore, this is really an academic deconstruction of the slasher and a meta-breakdown of reboot culture, Jane reckoning with the sexual legacy those 80s movies stamped onto her impressionable kid subconscious.
 ・I've got nothing to compare this to. It doesn't look or move like anything else I've seen.

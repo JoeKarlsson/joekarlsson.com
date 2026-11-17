@@ -25,6 +25,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/megadoc/'
 poster: '/images/reviews/megadoc/poster.webp'
 heroImage: '/images/reviews/megadoc/backdrop.webp'
 heroAlt: 'Francis Ford Coppola in glasses and a gray sweater sitting beside a film camera on a dark set, looking up.'
+marginNotes:
+  - type: aside
+    at: He sold his winery
+    text: In 2021 he merged his Sonoma wineries into Delicato Family Wines in a deal worth about $650 million, then put about $120 million of his own money into Megalopolis.
+    url: https://en.wikipedia.org/wiki/Megalopolis_(film)
+  - type: see
+    at: I respect the hell out of Francis Ford Coppola
+    text: My review of Bram Stoker's Dracula, Coppola swinging big in 1992.
+    post: reviews/bram-stokers-dracula
 ---
 
 I tried to watch Megalopolis three times. I finished Megadoc on the first try. That says something. That movie is a mess. It's not for me. I do not like it.
@@ -32,6 +41,8 @@ I tried to watch Megalopolis three times. I finished Megadoc on the first try. T
 But after watching Megadoc, I respect the hell out of Francis Ford Coppola.
 
 This documentary chronicles Coppola's decades-long quest to make Megalopolis - a film he first conceived in the 1970s, after the Godfather films made him the most powerful director in Hollywood. What followed was a career defined by swinging big and often missing: Apocalypse Now nearly killed him, One From the Heart bankrupted his studio, and he spent the next several decades financing passion projects by directing studio work he didn't care about. He built American Zoetrope with the dream of creating an artist-led alternative to the Hollywood machine. It mostly didn't work. He lost fortunes. He sold his winery - the thing that actually made money - to self-finance Megalopolis when no studio would touch it.
+
+![Francis Ford Coppola, gray-haired and bearded, gestures from a chair on a film set, a crew member and a mic stand behind him.](/images/reviews/megadoc/coppola-directing-on-the-megalopolis-set.webp 'margin: Coppola directing on the Megalopolis set.')
 
 Coppola has always put his money where his mouth is, to his own financial ruin.
 

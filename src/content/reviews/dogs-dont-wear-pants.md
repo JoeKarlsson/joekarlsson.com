@@ -18,9 +18,24 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dogs-dont-wear-pants/'
 poster: '/images/reviews/dogs-dont-wear-pants/poster.webp'
 heroImage: '/images/reviews/dogs-dont-wear-pants/backdrop.webp'
 heroAlt: "A still from Dogs Don't Wear Pants (2019)"
+marginNotes:
+  - type: term
+    at: phosphenes of asphyxiation
+    term: Phosphene
+    text: "'the phenomenon of seeing light without light entering the eye,' the stars you see just before fainting."
+  - type: term
+    at: expected Audition-brutal
+    term: Audition
+    text: Takashi Miike's 1999 horror film, known for its torture finale with a wire saw and the line 'Kiri-kiri-kiri.'
+  - type: aside
+    at: Kosonen and Strang are both fearless
+    text: The film premiered in the Directors' Fortnight at Cannes in May 2019.
+    url: https://en.wikipedia.org/wiki/Dogs_Don%27t_Wear_Pants
 ---
 
 Somewhere between a fetish and a funeral, a numb man finds a pulse.
+
+![Gloved hands and clamps work inside an open chest, tubes running in and out, in cold green light.](/images/reviews/dogs-dont-wear-pants/juha-at-work-in-openheart-surgery.webp 'margin: Juha at work, in open-heart surgery.')
 
 Juha is a heart surgeon who watched his wife drown, went in after her, and has been emotionally leveled ever since. He stumbles into Mona's dungeon and finds that being choked to the edge of consciousness brings her back to him. What's impressive is how much the film pulls off with barely any dialogue. These two are icebergs of feeling, everything real happening in a held glance or a flinch, and as a nearly wordless romance it works far better than it has any right to.
 

@@ -21,6 +21,19 @@ updatedDate: 2026-11-17
 corrections:
   - date: 2026-11-17
     note: 'I said Reagan didn''t say "AIDS" publicly until 1987. He answered a press question about it in 1985; his first speech on it was in 1987.'
+marginNotes:
+  - type: aside
+    at: dumping the ashes of their dead lovers on the White House lawn
+    text: 'The Ashes Action, October 11, 1992: mourners threw the ashes onto the White House lawn, then sat down in front of police on horseback.'
+    url: https://www.actuporalhistory.org/actions/political-funerals
+  - type: aside
+    at: a tiny budget
+    text: About $22,769. It played in competition at Sundance in January 1992.
+    url: https://en.wikipedia.org/wiki/The_Living_End_(film)
+  - type: see
+    at: I’ve been on a Gregg Araki binge
+    text: 'The rest of the binge: The Doom Generation, Nowhere, Splendor, and his 2026 film I Want Your Sex.'
+    post: reviews/the-doom-generation
 ---
 
 Bonnie and Clyde for the gays. Made in the year AIDS became the number one killer of young American men.

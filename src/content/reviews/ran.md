@@ -25,11 +25,18 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/ran/'
 poster: '/images/reviews/ran/poster.webp'
 heroImage: '/images/reviews/ran/backdrop.webp'
 heroAlt: 'Samurai on horseback with tall banners charging past a castle gate, fallen soldiers on the ground.'
+marginNotes:
+  - type: aside
+    at: Kurosawa's wife dying
+    text: Yoko Yaguchi, his wife of 39 years, died during the production.
+    url: https://en.wikipedia.org/wiki/Ran_(film)
 ---
 
 Ran, don't walk to the cinema to watch this one!
 
 I've seen a handful of Akira Kurosawa's works but I'm definitely not a completionist. I'd love to learn more about him though, and I'm working through the Letterboxd top 250 right now, which finally brought me to Ran.
+
+![Hundreds of riders and foot soldiers with small red banners on their backs charge across a green field toward a dark forest.](/images/reviews/ran/taros-redbannered-army-charges-across-the.webp "margin: Taro's red-bannered army charges across the field.")
 
 Let me just say: it looks incredible. You can feel the amount of craft that went into every single frame. The battle sequences, the color design, the costumes, the composition - it's all masterful. Then when you learn about the behind-the-scenes context, it becomes even more powerful.
 

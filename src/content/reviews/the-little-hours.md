@@ -29,6 +29,27 @@ poster: '/images/reviews/the-little-hours/poster.webp'
 heroImage: '/images/reviews/the-little-hours/backdrop.webp'
 heroAlt: 'Kate Micucci, Alison Brie and Aubrey Plaza as three nuns walking a lane, one with a basket and one with a sack.'
 heroCaption: 'Kate Micucci, Alison Brie and Aubrey Plaza as the three sisters.'
+marginNotes:
+  - type: aside
+    at: He plays Massetto
+    text: "Massetto comes straight from Boccaccio's Decameron: the film is loosely based on stories from its third day, written in the 14th century."
+    url: https://en.wikipedia.org/wiki/The_Little_Hours
+  - type: aside
+    at: Most of the dialogue was improvised
+    text: Baena wrote a twenty-page treatment instead of a script, and the cast improvised from that outline.
+    url: https://en.wikipedia.org/wiki/The_Little_Hours
+  - type: see
+    at: The Devils plays a convent full of repressed nuns
+    text: My review of The Devils.
+    post: reviews/the-devils
+  - type: see
+    at: Benedetta plays it as politics
+    text: My review of Benedetta.
+    post: reviews/benedetta
+  - type: see
+    at: My five, for the record
+    text: 'The other two: Häxan and Mermaids.'
+    post: reviews/haxan
 ---
 
 I will watch any movie where nuns get horny, and in 2026 I watched five.
@@ -40,6 +61,8 @@ And yes, this movie has one joke. Isn't it funny that old-timey nuns are horny a
 _Two of the sisters at the convent wall, and the donkey._
 
 But you know what? It's funny, and I love seeing horny nuns. Aubrey Plaza, Alison Brie and Kate Micucci play three sisters in a 14th-century Italian convent who talk like they're stuck at a boring brunch in 2017 and swear like it too.
+
+![Fred Armisen in a white miter with a purple cross and robes, in a stone room.](/images/reviews/the-little-hours/fred-armisen-as-the-bishop.webp 'margin: Fred Armisen as the bishop.')
 
 I was in when I saw the cast, though. Add John C. Reilly as the convent's priest, Molly Shannon as the abbess, Nick Offerman as a lord with a grudge and Fred Armisen as a bishop, and it's stacked.
 

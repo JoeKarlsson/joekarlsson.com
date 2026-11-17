@@ -29,6 +29,8 @@ heroAlt: 'An older man in a pale blue jacket handing something to a boy with a h
 
 Answers the age-old question of what would happen if you combined The Adventures of Pete and Pete and [Pee-wee's Big Adventure](/reviews/pee-wees-big-adventure/) and made it rated R. The answer is, you'd get Motorama. What a crazy movie. I loved it.
 
+![A row of red diamond-shaped signs spelling Motorama on posts in a dry desert field under a blue sky.](/images/reviews/motorama/the-motorama-contest-sign-in-the.webp 'margin: The Motorama contest sign in the desert.')
+
 There's a little bit of [Repo Man](/reviews/repo-man/) in here too - that late stage capitalist messaging about the endless rat race faceless corporations make us run just to keep us entertained and empty. The whole thing is a gas station contest gone fever dream, a kid driving across America chasing prizes that don't mean anything.
 
 It's absurdist and wild, a twisted reflection on the American road movie. The West here isn't freedom - it's an endless loop of branded experiences and hollow rewards. And somehow it wraps all of that in this surreal, almost children's-show aesthetic that makes the darkness hit harder.

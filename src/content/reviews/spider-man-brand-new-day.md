@@ -17,6 +17,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/spider-man-brand-new-day
 poster: '/images/reviews/spider-man-brand-new-day/poster.webp'
 heroImage: '/images/reviews/spider-man-brand-new-day/backdrop.webp'
 heroAlt: 'Spider-Man leaping between skyscrapers on a web line, with a masked figure on a rooftop far below.'
+marginNotes:
+  - type: aside
+    at: a lot of it wasn't
+    text: Glasgow's city centre stood in for New York, and two or three city blocks, rooftop included, were built on the Pinewood backlot.
+    url: https://en.wikipedia.org/wiki/Spider-Man:_Brand_New_Day
+  - type: aside
+    at: he stages these fights like Hong Kong action
+    text: Peng Zhang, Shang-Chi's fight coordinator, came back to coordinate the fights here.
+    url: https://en.wikipedia.org/wiki/Spider-Man:_Brand_New_Day
+  - type: aside
+    at: Max from Stranger Things
+    text: Sadie Sink plays Jean Grey, searching for her sister Sara.
+    url: https://en.wikipedia.org/wiki/Spider-Man:_Brand_New_Day
 ---
 
 Was anyone else confused that Max from Stranger Things spent this whole movie looking for V-Max?

@@ -25,6 +25,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/xtro/'
 poster: '/images/reviews/xtro/poster.webp'
 heroImage: '/images/reviews/xtro/backdrop.webp'
 heroAlt: 'A pale, grinning alien creature crawling on all fours through a forest lit in blue.'
+marginNotes:
+  - type: see
+    at: If David Lynch made E.T.
+    text: 'My review of David Lynch: The Art Life.'
+    post: reviews/david-lynch-the-art-life
+  - type: aside
+    at: for horny moms and dads
+    text: AllMovie (as quoted on Wikipedia) called it 'made to capitalize on public interest in E.T.' It reached UK cinemas in March 1983.
+    url: https://en.wikipedia.org/wiki/Xtro
+  - type: aside
+    at: and I'm not surprised
+    text: 'The twist: the BBFC had passed it uncut with an 18 certificate for cinemas, both endings included. It only got prosecuted on video.'
+    url: https://en.wikipedia.org/wiki/Xtro
 ---
 
 If David Lynch made E.T. for [$60,000](https://en.wikipedia.org/wiki/Xtro) in a London flat, it'd look like this.
@@ -54,6 +67,8 @@ It feels like a schlocky Lynchian nightmare about aliens and toys.
 This isn't a good movie, don't get me wrong. But it's fast, it's so fun to watch, and it's over in 86 minutes. It's honestly a three. I'm giving it an extra star for all the blood and guts, and for not wasting my time.
 
 Stray thoughts:
+
+![Two women side by side, one with short dark curls, one with long light-brown hair.](/images/reviews/xtro/the-wife-and-the-au-pair.webp "margin: The wife and the au pair, Maryam d'Abo.")
 
 - The French au pair who gets used to hatch alien eggs is Maryam d'Abo, five years before she was a Bond girl in The Living Daylights.
 - Xtro got caught in Britain's "[video nasty](https://en.wikipedia.org/wiki/Video_nasty)" panic when it hit home video in 1983, and I'm not surprised.

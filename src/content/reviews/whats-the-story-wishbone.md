@@ -22,6 +22,11 @@ slug: 'whats-the-story-wishbone'
 description: 'A warm documentary about a show that deserved a slightly more searching and intersting one.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/whats-the-story-wishbone/'
 poster: '/images/reviews/whats-the-story-wishbone/poster.webp'
+marginNotes:
+  - type: see
+    at: Don Quixote, The Odyssey, Dickens
+    text: "Still catching up: my review of Nolan's The Odyssey."
+    post: reviews/the-odyssey-2026
 ---
 
 A warm documentary about a show that deserved a slightly more searching and intersting one.

@@ -7,6 +7,25 @@ heroImage: '/images/newsletter/why-i-self-host-my-newsletter/card-adf3867c.webp'
 heroAlt: "Works on My Machine card for Why I Self-Host My Newsletter, with Joe's homelab rack in the attic (two Dell R730 servers, networking gear, a Synology NAS and two UPS units) framed in a pink crayon box"
 cardPhoto: '/images/blog/homelab-two-years-later/rack-full-front.webp'
 cardPhotoAlt: "Joe's homelab rack in the attic (two Dell R730 servers, networking gear, a Synology NAS and two UPS units)"
+marginNotes:
+  - type: see
+    at: plus the Nazi problem
+    text: The reporting behind this, from The Atlantic in 2023 to the Guardian in 2026, is in the last issue.
+    post: newsletter/taste-matters-more-with-ai
+  - type: term
+    at: through a Cloudflare Tunnel
+    text: A small daemon at home, cloudflared, makes outbound-only connections to Cloudflare, so the site needs no public IP and no open inbound port.
+  - type: see
+    at: a newsletter outage doesn't make the cut
+    text: 'Where my alerts do go: Alertmanager emails me, and critical ones reach my phone through Home Assistant.'
+    post: homelab-two-years-later
+  - type: term
+    at: Brevo signs my mail with DKIM
+    term: DKIM
+    text: a signature on each email that the receiving server checks against a public key in my domain's DNS, so it knows the mail really came from me.
+  - type: term
+    at: still in monitor mode
+    text: 'DMARC tells mail servers what to do with mail that fails the check: nothing (p=none, monitor mode, reports only), quarantine, or reject.'
 ---
 
 In [the last issue](https://www.joekarlsson.com/newsletter/taste-matters-more-with-ai/) I promised to write up how I built this newsletter in my homelab. I'd been thinking about leaving Substack for a long time, and there had been problems with it for a while, but I wasn't posting much, so it was low priority. Now that I'm writing again, I started rethinking where I wanted the newsletter to live and how I wanted to manage it. My homelab has changed a lot since I started on Substack, so it felt like time to go, plus the Nazi problem.
@@ -16,6 +35,8 @@ In [the last issue](https://www.joekarlsson.com/newsletter/taste-matters-more-wi
 Part of my homelab journey has been taking back the pieces of the internet that big tech took over, and trying to understand how they work again. RSS feeds are one. Website development is another: the full stack, the deployment and keeping it maintainable, like with this website and this newsletter. Then there's email, an old tool that's been around forever. It's distributed, but the Outlooks, Gmails and Yahoos of the world have consolidated it and abstracted it away from me.
 
 I think newsletters and RSS feeds are a remnant of the old web, and I think they're more valuable in this age of algorithms. So much is being taken out of my control in the algorithmic feeds that run every social platform I use. Following writers directly, subscribing to someone whose taste or opinion you respect, is something I'm trying to do more of myself. I want more control for everybody, more transparency, more freedom and more openness, and less of the sameness you get when algorithms sand down everyone's opinions.
+
+![The hard parts: two Dell R730s, a Synology NAS and two UPS units in my attic.](/images/blog/homelab-two-years-later/rack-full-front.webp 'margin: The hard parts: two Dell R730s, a Synology NAS and two UPS units in my attic.')
 
 It's also fun, and it cost me $0 extra a month, because [my homelab](https://www.joekarlsson.com/blog/homelab-two-years-later/) had the hard parts and the free plan from Brevo, an email sending service, does the sending. And I own the list. The 141 subscribers are in a Postgres database I control, so no publishing platform can take them, and I can be sure this platform will be Nazi-free.
 

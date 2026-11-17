@@ -18,11 +18,22 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/master-and-commander-the
 poster: '/images/reviews/master-and-commander-the-far-side-of-the-world/poster.webp'
 heroImage: '/images/reviews/master-and-commander-the-far-side-of-the-world/backdrop.webp'
 heroAlt: 'A tall sailing warship firing its cannons as it plows through a storm of dark blue waves.'
+marginNotes:
+  - type: aside
+    at: Peter Weir puts you in it
+    text: It was the first non-documentary film shot on location in the Galapagos, and it won the Oscar for cinematography.
+    url: https://en.wikipedia.org/wiki/Master_and_Commander:_The_Far_Side_of_the_World
+  - type: see
+    at: The ultimate dad movie.
+    text: "Weir's other one: my review of The Truman Show."
+    post: reviews/the-truman-show
 ---
 
 The ultimate dad movie.
 
 I felt bad for rooting for the British until I found out they were fighting the French. Then I was fully on board.
+
+![The wooden hull and rigging of a sailing warship cut through rough gray sea, spray flying off the bow.](/images/reviews/master-and-commander-the-far-side-of-the-world/the-surprise-under-full-sail.webp 'margin: The Surprise under full sail.')
 
 This is such a tactile movie. You really feel like you're living on this ship with all these bros - the cramped quarters, the salt, the splinters, the surgery without anesthesia. Peter Weir puts you in it. You can practically smell the wood rot and the unwashed men. Somehow it simultaneously looks like such a fun swashbuckling adventure and also a literal hell.
 

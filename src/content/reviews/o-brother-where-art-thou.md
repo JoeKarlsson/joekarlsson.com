@@ -34,4 +34,6 @@ heroImage: '/images/reviews/o-brother-where-art-thou/backdrop.webp'
 heroAlt: 'George Clooney, John Turturro and Tim Blake Nelson in striped prison uniforms peering out through green leaves.'
 ---
 
+![George Clooney sings into a hanging radio microphone, Tim Blake Nelson and John Turturro beside him and a guitarist seated behind.](/images/reviews/o-brother-where-art-thou/the-soggy-bottom-boys-cut-man.webp 'margin: The Soggy Bottom Boys cut “Man of Constant Sorrow.“')
+
 This movies soundtrack permanently altered my brain chemistry when I was 10 years old

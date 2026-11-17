@@ -17,6 +17,8 @@ marginNotes:
     term: 'ABS'
 ---
 
+![An empty gold wire postcard rack on a black pole, with two black 3D-printed pots hanging in its upper pockets.](/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/the-bare-postcard-rack-with-two.webp 'margin: The bare postcard rack with two test pots.')
+
 I bought a wire postcard rack secondhand with no idea what to do with it. It's a gold wire tower of little pockets, each one sized for a stack of postcards, and it sat around my house for a while.
 
 I love using vertical space for plants, and the pockets turned out to be about the right shape for a small pot. So I designed one that hangs where the postcards used to go and printed enough to fill the rack. That was early 2023. Here's what it looks like now, me included.
@@ -35,6 +37,8 @@ I love using vertical space for plants, and the pockets turned out to be about t
 </div>
 
 ## The pots
+
+![Three black angled 3D-printed pots hanging one above another in the gold wire rack, drainage holes visible in the bottom one.](/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/three-empty-pots-stacked-in-the.webp 'margin: Three empty pots stacked in the wire pockets, Feb 2023.')
 
 I designed the pot in Tinkercad, which is about as simple as 3D modeling gets: you drag boxes and cylinders around and subtract one from the other. That was plenty for this. The pot is an angled box that sits in a wire pocket the way a stack of postcards would.
 

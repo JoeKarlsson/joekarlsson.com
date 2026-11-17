@@ -25,11 +25,18 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/midnight-mass-2021/'
 poster: '/images/reviews/midnight-mass-2021/poster.webp'
 heroImage: '/images/reviews/midnight-mass-2021/backdrop.webp'
 heroAlt: 'A priest in red vestments, seen from behind, spreading his arms toward a packed church congregation.'
+marginNotes:
+  - type: update
+    at: his upcoming Exorcist movie
+    text: "It's The Exorcist: Martyrs, starring Scarlett Johansson, now set for March 12, 2027 after slipping from March 2026."
+    date: Nov 2026
 ---
 
 This was my first time revisiting Midnight Mass since it dropped in 2021. I initially loved the show and it’s still one of my favorites, but I definitely picked up on some things on this rewatch that drove me slightly nuts.
 
 I was showing my girlfriend the series for the first time - it’s October, we were looking for something spooky to put on while doing crafts all day, and this felt perfect. But I forgot how hard it is to get people into this show. Those first two episodes are incredibly slow, doing a ton of table setting before anything really happens. We powered through and she does love it now, but that initial hump is real.
+
+![Two men face each other on folding chairs in an empty parish hall under fluorescent lights.](/images/reviews/midnight-mass-2021/riley-and-father-paul-two-chairs.webp 'margin: Riley and Father Paul, two chairs apart, mid-conversation.')
 
 The bigger issue is just the sheer volume of monologues. Some of them I still love and think have aged really well. Others… not so much. That final Erin Greene monologue where she’s ||talking about being star stuff before she dies|| made me cringe pretty hard this time around. My girlfriend got visibly bored during a couple of them, which - frankly - I completely understand.
 

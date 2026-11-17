@@ -18,6 +18,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/caravaggio/'
 poster: '/images/reviews/caravaggio/poster.webp'
 heroImage: '/images/reviews/caravaggio/backdrop.webp'
 heroAlt: 'Sean Bean holding a knife while a dark-haired, mustached man embraces him from behind against a plaster wall.'
+marginNotes:
+  - type: see
+    at: Jarman gives you exactly that
+    text: Jarman started out as the production designer on Ken Russell's The Devils (1971), his first film job, and it shows here.
+    post: reviews/the-devils
+  - type: see
+    at: Swinton is so young here
+    text: Ten years later she's in Female Perversions (1996).
+    post: reviews/female-perversions
 ---
 
 This is what a biopic should be: not the facts of a life but the fever of one.

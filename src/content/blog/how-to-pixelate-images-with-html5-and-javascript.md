@@ -30,6 +30,8 @@ mastheadImage: '/images/blog/how-to-pixelate-images-with-html5-and-javascript/ma
 
 A couple of months ago, I was interested in learning some new HTML5 elements. The more visual flourishes of the canvas class especially caught my eye. The ability to dynamically adjust elements in an HTML container seemed an interesting project. I am going to walk you through how to pixelate images with HTML5 and JavaScript.
 
+![The Pixelate page in pink on black, with a Choose File button, a block size slider at 24px and a Save PNG button over a photo turned into square blocks.](/images/blog/how-to-pixelate-images-with-html5-and-javascript/pixelate-as-it-runs-today-at.webp 'margin: Pixelate as it runs today, at a 24px block size.')
+
 I started building out an application that builds a photo mosaic based on color hashtags from Instagram, and I spun off a chunk of that code to build out a smaller (but still cool) web application that takes an image hosted on the web and converts the image into a dynamic pixelated image. I'll write about my Instamosaic project at a later time.
 
 This blog post will break down step by step how I wrote my code for Pixelate.js.

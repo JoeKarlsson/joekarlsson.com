@@ -45,6 +45,8 @@ Fair point. Simplifying network provisioning and simplifying multi-cloud operati
 
 ## Why Network Connectivity Was the Easier Problem
 
+![A stack of black Fujikura fiber-optic splice trays with QR labels, bundles of yellow fiber cables running down the side.](/images/blog/aws-google-cloud-networking-partnership/fiber-trays-on-display-in-tokyo.webp 'margin: Fiber trays on display in Tokyo. Wikimedia Commons, CC0.')
+
 Networking fundamentals are well-understood. BGP has been routing traffic since 1994. Dedicated fiber connections between data centers aren't new. Companies like Megaport and Equinix have offered cross-cloud connectivity for years. AWS Direct Connect and GCP Cloud Interconnect already existed separately.
 
 What the partnership actually delivers is convenience. Instead of coordinating with multiple vendors, managing physical circuits, and configuring routers manually, you click a button in either console. Provisioning drops from weeks to minutes. That's a real improvement for teams building hybrid architectures.

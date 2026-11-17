@@ -25,9 +25,20 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/crimson-peak/'
 poster: '/images/reviews/crimson-peak/poster.webp'
 heroImage: '/images/reviews/crimson-peak/backdrop.webp'
 heroAlt: 'Mia Wasikowska with long blond hair in a white nightgown holding a lit candelabra at a doorway.'
+marginNotes:
+  - type: see
+    at: The Haunting of Hill House
+    text: Hill House is Mike Flanagan's. My review of his Midnight Mass.
+    post: reviews/midnight-mass-2021
+  - type: see
+    at: The creature design, which he always kills at
+    text: "Del Toro's creature work at full size: my review of Frankenstein (2025)."
+    post: reviews/frankenstein-2025
 ---
 
 I mostly love Guillermo del Toro, but I think I just don't like gothic horror very much. And this movie didn't do much for me.
+
+![A black Gothic mansion with steep spires under falling snow, the ground in front stained blood-red.](/images/reviews/crimson-peak/allerdale-hall-red-clay-seeping-up.webp 'margin: Allerdale Hall, red clay seeping up through the snow.')
 
 That said, del Toro absolutely crushes it with the production design. The house itself is a character - decaying, bleeding red clay through the walls, sinking into the earth. It's gorgeous and grotesque at the same time. The creature design, which he always kills at, is incredible here too.
 

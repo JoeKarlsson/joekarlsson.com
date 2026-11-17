@@ -31,6 +31,18 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bringing-out-the-dead/'
 poster: '/images/reviews/bringing-out-the-dead/poster.webp'
 heroImage: '/images/reviews/bringing-out-the-dead/backdrop.webp'
 heroAlt: 'Nicolas Cage looking down, his face washed in teal and orange light.'
+marginNotes:
+  - type: aside
+    at: Even the hospital is named for the Virgin Mary.
+    text: In Joe Connelly's novel it's Our Lady of Mercy, and everybody calls it Misery.
+    url: https://www.kirkusreviews.com/book-reviews/joe-connelly/bringing-out-the-dead
+  - type: aside
+    at: a burned-out paramedic working three night shifts
+    text: Paul Schrader adapted Connelly's 1998 novel. Connelly wrote it from about nine years as a medic at St. Clare's Hospital in Hell's Kitchen.
+    url: https://www.irishtimes.com/news/bringing-out-the-dead-by-joe-connelly-warner-books-7-99-in-uk-1.207234
+  - type: term
+    at: another station of the cross
+    text: A series of fourteen images of Jesus on the day of his crucifixion, each with its own prayer, that Catholics pray through in order.
 ---
 
 Scorsese made two hours about Catholic guilt, and I'm the one who walked out feeling like I'd done penance.

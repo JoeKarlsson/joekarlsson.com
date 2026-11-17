@@ -26,6 +26,8 @@ So, you want to learn how to code? Here’s What You Need To Know to get started
 
 The field of programming is massive and there are so many different programming languages and things to do with it. Ask yourself, do I want to learn how to make websites? Am I interested in creating robots? Can constructing a neural network for machine learning be my thing? Do I just need to make my boss happy and learn how to make a SharePoint site? Each answer would lead to a different recommendation for learning and could affect which programming language(s) you should start learning.
 
+![An empty classroom with rows of monitors on long tables, a whiteboard wall covered in notes, and big windows looking out on palm trees and green mountains.](/images/blog/my-top-resources-for-learning-how-to-code/the-devleague-classroom-in-honolulu-august.webp 'margin: The DevLeague classroom in Honolulu, August 2015.')
+
 If you are learning to code because you are looking to make a career change, then you might also want to check out my guide on [how to pass a coding interview](/blog/how-to-pass-coding-interview/) once you feel ready. I might also recommend that you start looking into one of those Coding Bootcamps. I was personally a technical instructor at a Bootcamp for several years in Honolulu, Hawaii and I know that they can be a great, albeit expensive, way to get into programming as a profession. However, if you don’t need something as intense because you are looking to make a website for your friend’s new band then a Bootcamp might be overdoing it.
 
 ## Picking the perfect programming language for you

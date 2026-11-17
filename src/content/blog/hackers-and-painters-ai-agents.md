@@ -29,6 +29,8 @@ mastheadImage: '/images/blog/hackers-and-painters-ai-agents/masthead-481c681f.we
 
 In 2003 Paul Graham turned a Harvard guest lecture into an essay called [Hackers and Painters](https://www.paulgraham.com/hp.html 'cite: Graham, May 2003'). He'd finished grad school in computer science and then gone to art school to study painting, and people kept acting surprised that one person would want both. His answer was that hackers and painters are both makers: "what hackers and painters are trying to do is make good things."
 
+![A hand holding a sheet of pink paper covered in red oil pastel flowers with green stems, clipped to a clipboard.](/images/blog/hackers-and-painters-ai-agents/an-oil-pastel-of-red-flowers.webp 'margin: An oil pastel of red flowers, September 2026.')
+
 I paint and I write code too. I do digital art, oil pastel, watercolor and large color field pieces, some of it subconscious, abstract expressionist work, and I wrote about why I care about both on [my Works page](/work/#statement) and talked about it in my TEDx talk, [The Art of Computer Science](/talks/the-art-of-computer-science/). Since AI coding agents came along, programming has started to feel more like painting to me, not less. It's easier to explore ideas quickly and iteratively.
 
 ![Two photos from above. Left: Joe gluing a collage of a jack-o'-lantern, a black cat and a wheat field onto red paper, surrounded by markers and glue jars. Right: Joe sketching in pink watercolor at a marble cafe table next to a paint palette and a plate of oysters.](/images/newsletter/taste-matters-more-with-ai/art.webp)
@@ -50,6 +52,8 @@ Graham was taught in college to work a program out completely on paper before go
 That's where his most-quoted line comes from. "A programming language is for thinking of programs, not for expressing programs you've already thought of. It should be a pencil, not a pen." He also said hacking at its best is creating the spec, "though it turns out the best way to do that is to implement it."
 
 Countless paintings, he wrote, when you look at them in x-rays, "turn out to have limbs that have been moved or facial features that have been readjusted." The painter changed their mind on the canvas, and the earlier version is still under there.
+
+![Bright green, yellow and blue DVD Video logos bouncing on a black screen, with confetti in the corner.](/images/blog/hackers-and-painters-ai-agents/nothing-but-corners-with-three-logos.webp 'margin: Nothing But Corners, with three logos in flight.')
 
 My git logs look like that now. On November 5, 2026 I built [Nothing But Corners](/work/nothing-but-corners/), a DVD screensaver where the logo hits a corner every single time. Here are 8 of that day's 15 commits, in order:
 
@@ -74,13 +78,19 @@ Graham noticed that painters leave a trail of work behind them, and each paintin
 
 In 2015 my sister and I built [Bechdel.io](/work/bechdel-io/), which [reads a movie's screenplay](/blog/bechdel-test-script-parser-works/) and checks it against the Bechdel Test. My commit messages from that December include "editted procfile3", "editted procfile4" and "editted procfile5", which tells you how deploying to Heroku was going. Eventually it died there, like a lot of my old apps (RIP).
 
+![A dark web page of movie posters, each tagged Passes or Fails, with search and sort controls above.](/images/blog/hackers-and-painters-ai-agents/the-rebuilt-bechdelio-shelf-2026.webp 'margin: The rebuilt Bechdel.io shelf, 2026.')
+
 This year I started it over. In one day it became a static site, and I deleted the server, MongoDB, the old React app and Docker. One script, `npm run analyze`, turns screenplays into the site's film data, and that's the whole backend now.
 
 Restructuring it and doing data analysis on it felt like painting, like seeing the project in a new light. Getting new data to play with was easier than ever, too, after the small set of films the original covered.
 
+![A black page with the title Alice's Adventures in Wonderland in big white letters, a pink book cover, and counts of 26,777 words removed and 8,076 marks left.](/images/blog/hackers-and-painters-ai-agents/punc-on-alices-adventures-in-wonderland.webp "margin: Punc on Alice's Adventures in Wonderland.")
+
 [Punc](/work/punc/), my 2016 art project that strips the words out of books, got the same treatment. I filled its shelf with 1,959 Project Gutenberg books and used it to [test whether English sentences got shorter](/blog/sentence-length-semicolons-punctuation/).
 
 ## Ceglowski's objection
+
+![A pale, finely drawn panel of a woman reading in front of a tall Gothic tower under construction, with workers around it and only the sky painted in color.](/images/blog/hackers-and-painters-ai-agents/van-eycks-unfinished-saint-barbara-1437.webp "margin: Van Eyck's unfinished Saint Barbara, 1437, still mostly underdrawing. Wikimedia Commons, CC0.")
 
 Not everyone bought Graham's analogy. In 2005 Maciej Ceglowski, who had painted oils full time and also wrote code, answered him with [Dabblers and Blowhards](https://idlewords.com/2005/04/dabblers_and_blowhards.htm 'cite: Cegłowski, April 2005'): "So let me say it simply - hackers are nothing like painters." He went after the sketching story too. Fifteenth-century painting, he wrote, had "a superprecise underdrawing and underpainting that were covered with thin glazes of color." That's not spewing broken code and beating it into shape.
 

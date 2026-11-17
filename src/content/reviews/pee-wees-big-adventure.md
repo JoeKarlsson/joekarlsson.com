@@ -19,6 +19,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/pee-wees-big-adventure/'
 poster: '/images/reviews/pee-wees-big-adventure/poster.webp'
 heroImage: '/images/reviews/pee-wees-big-adventure/backdrop.webp'
 heroAlt: "A still from Pee-wee's Big Adventure (1985)"
+marginNotes:
+  - type: aside
+    at: a cursed image of young Danny Elfman
+    text: Elfman scored this one; his only film work before it was Forbidden Zone. It started his long run with Burton.
+    url: https://en.wikipedia.org/wiki/Pee-wee%27s_Big_Adventure
+  - type: aside
+    at: It's Tim Burton's directorial debut
+    text: His first feature. Reubens said he knew Burton was right 'about 15 seconds' into Burton's short Frankenweenie.
+    url: https://en.wikipedia.org/wiki/Pee-wee%27s_Big_Adventure
+  - type: see
+    at: I love Paul Reubens for giving us this character
+    text: Burton's Ed Wood, my review.
+    post: reviews/ed-wood-2
 ---
 
 Pee-wee's Big Adventure proves that if you commit to the bit hard enough, anything works.

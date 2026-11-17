@@ -25,6 +25,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/treasure-planet/'
 poster: '/images/reviews/treasure-planet/poster.webp'
 heroImage: '/images/reviews/treasure-planet/backdrop.webp'
 heroAlt: 'An animated boy standing on the bow of a sailing ship above a planet, looking out at a glowing nebula.'
+marginNotes:
+  - type: aside
+    at: This deserved to be a bigger hit
+    text: It cost $140 million, the most expensive hand-drawn animated film ever, and made about $110 million worldwide.
+    url: https://en.wikipedia.org/wiki/Treasure_Planet
+  - type: aside
+    at: mixed traditional and CGI animation
+    text: "The crew worked to a '70/30 Law': designs 70% traditional and 30% sci-fi, applied to sound and music too."
+    url: https://en.wikipedia.org/wiki/Treasure_Planet
+  - type: aside
+    at: I've read Treasure Island
+    text: Ron Clements first pitched 'Treasure Island in Space' in 1985; Eisner turned it down, and it took until after Hercules to get made.
+    url: https://en.wikipedia.org/wiki/Treasure_Planet
 ---
 
 I still like Titan A.E. more, but Treasure Planet makes me nostalgic for when Disney took wild swings with animated sci-fi.
@@ -32,6 +45,8 @@ I still like Titan A.E. more, but Treasure Planet makes me nostalgic for when Di
 This movie represents that final Renaissance period from Disney - when they were still making big, ambitious hand-drawn animated films that mixed traditional and CGI animation in genuinely innovative ways. The animation is beautiful. The blend of 2D characters against those sweeping 3D space backgrounds still holds up remarkably well.
 
 I love the voice acting. The cast is stacked - Brian Murray, Emma Thompson, Martin Short doing his unhinged robot thing. Even Joseph Gordon-Levitt does a great job voicing Jim Hawkins, which is impressive because "angsty teenager" is such a hard role to make likable. He pulls it off.
+
+![A cartoon teenage boy in a dark jacket rides a rocket-powered board through a clear blue sky, arms flung out for balance.](/images/reviews/treasure-planet/jim-hawkins-solar-surfing-in-the.webp 'margin: Jim Hawkins solar surfing in the opening scene.')
 
 I've read Treasure Island and I adore that book. This adaptation does a really good job of tickling that part of my brain - the adventure, the father-son dynamic between Jim and Silver, the coming-of-age journey. Translating it to space could have been a disaster, but they nail the core emotional beats while adding solar surfing and robot pirates.
 

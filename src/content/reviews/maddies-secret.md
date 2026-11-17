@@ -33,6 +33,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/maddies-secret/'
 poster: '/images/reviews/maddies-secret/poster.webp'
 heroImage: '/images/reviews/maddies-secret/backdrop.webp'
 heroAlt: "A still from Maddie's Secret (2025)"
+marginNotes:
+  - type: see
+    at: Maddie to Deena
+    text: 'Kate Berlant, who plays Deena, has her own special I reviewed: Parmesan.'
+    post: reviews/kate-berlant-parmesan
+  - type: aside
+    at: he told TheWrap
+    text: "Turn the existing TheWrap link into a cite: note (TheWrap, John Early interview, TIFF) so the quote gets a margin source like the blog's."
+    url: https://www.thewrap.com/john-early-maddies-secret-tiff-interview/
 ---
 
 Showgirls and John Waters fans to the front. Just check the nihilism at the door.

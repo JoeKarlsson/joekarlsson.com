@@ -25,6 +25,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-history-of-concrete/
 poster: '/images/reviews/the-history-of-concrete/poster.webp'
 heroImage: '/images/reviews/the-history-of-concrete/backdrop.webp'
 heroAlt: 'Two men talking beside a red-and-white striped cement mixer truck in a parking lot.'
+marginNotes:
+  - type: see
+    at: anything Nathan Fielder touches
+    text: "Fielder's other 2026 film, with Lance Oppenheim: You Can See Everything."
+    post: reviews/you-can-see-everything
+  - type: see
+    at: one of the best films I've ever seen about the artistic process
+    text: 'What noticing and making a lot has done for my own work: Ship the Ugly Pot.'
+    post: ship-the-ugly-pot
 ---
 
 This is [Pilgrim at Tinker Creek](https://en.wikipedia.org/wiki/Pilgrim_at_Tinker_Creek) if Annie Dillard were stuck on a New York City sidewalk.
@@ -52,5 +61,7 @@ Even in the shot where he steams one blob away, there are more waiting on the sa
 _The GumBusters owner, and Titian's Sisyphus (1548–49), Museo del Prado. Painting: Titian, [public domain](https://commons.wikimedia.org/wiki/File:Titian_-_Sisyphus_-_Madrid_-_Prado.jpg)._
 
 He might also be the most John Wilson person in the whole movie, happily paying attention to the thing everyone else steps on.
+
+![Concrete slabs with handprints, shoe prints and signatures pressed into them.](/images/reviews/the-history-of-concrete/handprints-and-names-pressed-into-sidewalk.webp 'margin: Handprints and names pressed into sidewalk slabs.')
 
 Dillard's book has a whole chapter called "Seeing." She went to a beautiful slice of nature in Virginia and tried to get every ounce of insight out of a creek. Wilson is stuck in the concrete jungle doing the same thing with the stuff under his feet. Concrete is so easily passed over and misunderstood, and it turns out to be fertile ground. Somehow he and Annie Dillard cross paths, from such different angles.

@@ -61,6 +61,8 @@ You don't. I built my first homelab server for under $200 with a used PC from Fa
 
 ## Why did I start building a Homelab?
 
+![A black four-bay Synology NAS with a white hub on top, a network switch, a small Raspberry Pi and a black router on a wooden shelf below rows of vinyl records.](/images/blog/how-to-get-started-building-a-homelab-server/my-synology-nas-on-the-shelf.webp 'margin: My Synology NAS on the shelf under the records, 2021.')
+
 It started with my Synology NAS choking. I kept adding Docker containers to it - a media server here, a download manager there - and eventually the little NAS was gasping for air. The CPU was pegged at 100% and the 2GB of RAM was a joke. Every time I wanted to try a new service, something else would crash.
 
 I realized I had two options: buy an expensive new NAS with better specs, or get a proper server and let the NAS do what it's good at - storing files. The server won.
@@ -137,6 +139,8 @@ Power is the other thing. Here's what different setups actually cost to run 24/7
 | Enterprise rack server (R730, etc.)     | 100-200W     | $11-22+      | $130-260+   |
 | My current rack (two R730s and network) | ~430W        | ~$47         | ~$565       |
 
+![A black server rack with a four-bay Synology NAS at the top, two Dell PowerEdge R730 servers with green drive lights in the middle, and two CyberPower battery units at the bottom.](/images/blog/how-to-get-started-building-a-homelab-server/the-rack-now-synology-on-top.webp 'margin: The rack now: Synology on top, two R730s, two UPSes.')
+
 My ThinkServer probably idled around 80W, about $9 a month. That's not bad. My current rack with two Dell R730s averages about 430W on the smart plug, or about $47 a month. Rule of thumb: multiply your idle wattage by 0.11 to get your rough monthly cost at $0.15/kWh.
 
 ![A paper-collage animation on a yellow field: my old ThinkServer lands on the left with a short stack of coins and a $9 tag, then my server rack lands on the right and a pink stack of coins beside it grows taller and taller until a $47 tag swings on, and the words $9 to $47 a month set in above it](/images/blog/how-to-get-started-building-a-homelab-server/nine-to-forty-seven.svg)
@@ -156,6 +160,8 @@ What to look for in any used hardware:
 - **Storage**: Doesn't matter as much if you have a NAS. A single SSD for the OS works fine.
 
 ## Buying my first server
+
+![A black Lenovo ThinkServer tower computer standing on a blue patterned rug.](/images/blog/how-to-get-started-building-a-homelab-server/the-150-thinkserver-the-day-it.webp 'margin: The $150 ThinkServer, the day it came home, Sept 2023.')
 
 I found a used Lenovo ThinkServer on Facebook Marketplace that some local business was getting rid of. $150.
 

@@ -10,18 +10,22 @@ heroAlt: 'MongoDB Atlas Data Lake design graphic showing a lake with JSON bracke
 tldr: 'I walk through setting up MongoDB Atlas Data Lake to run a single aggregation query across two separate databases hosted on different cloud providers. Federated queries make it feel like all your data lives in one place.'
 contentNotice: "Atlas Data Lake's query feature is now called Atlas Data Federation, and MongoDB deprecated the separate Atlas Data Lake storage product in 2024. The federated queries below live under Data Federation today."
 marginNotes:
-  - type: 'update'
-    at: '$lookup performs a left outer join to an unsharded collection'
-    text: 'Since MongoDB 5.1, $lookup can join sharded collections too. Both collections still have to be in the same database.'
-    date: 'Nov 2021'
-  - type: 'see'
-    at: 'You can run operations using the MongoDB Query Language'
-    text: 'If you think in SQL, I lined up common SQL queries next to their aggregation pipeline versions.'
-    post: 'mongodb-aggregation-pipeline-queries-vs-sql-queries'
-  - type: 'see'
-    at: 'even in different formats, including S3 blob storage'
-    text: 'Online Archive uses the same idea to move old documents to cheap object storage and still query them from one endpoint.'
-    post: 'how-to-manage-mongodb-data-at-scale'
+  - type: update
+    at: $lookup performs a left outer join to an unsharded collection
+    text: Since MongoDB 5.1, $lookup can join sharded collections too. Both collections still have to be in the same database.
+    date: Nov 2021
+  - type: see
+    at: You can run operations using the MongoDB Query Language
+    text: If you think in SQL, I lined up common SQL queries next to their aggregation pipeline versions.
+    post: mongodb-aggregation-pipeline-queries-vs-sql-queries
+  - type: see
+    at: even in different formats, including S3 blob storage
+    text: Online Archive uses the same idea to move old documents to cheap object storage and still query them from one endpoint.
+    post: how-to-manage-mongodb-data-at-scale
+  - type: update
+    at: select the Data Lake option on the left-hand navigation
+    text: MongoDB renamed Atlas Data Lake to Atlas Data Federation, so look for Data Federation in the Atlas menu.
+    date: Jun 2022
 mastheadImage: '/images/blog/how-to-query-from-multiple-mongodb-databases/masthead-285bc56b.webp'
 ---
 

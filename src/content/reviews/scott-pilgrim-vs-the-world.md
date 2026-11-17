@@ -25,9 +25,24 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scott-pilgrim-vs-the-wor
 poster: '/images/reviews/scott-pilgrim-vs-the-world/poster.webp'
 heroImage: '/images/reviews/scott-pilgrim-vs-the-world/backdrop.webp'
 heroAlt: 'Michael Cera in a red T-shirt with arms crossed, surrounded by Mary Elizabeth Winstead with pink hair and five posing rivals in slanted panels.'
+marginNotes:
+  - type: aside
+    at: the Beck soundtrack
+    text: Beck wrote Sex Bob-Omb's songs, including "Garbage Truck" and "Ramona".
+    url: https://en.wikipedia.org/wiki/Scott_Pilgrim_vs._the_World_(soundtrack)
+  - type: aside
+    at: I watched the Netflix miniseries
+    text: Scott Pilgrim Takes Off (2023), the anime series with the film's cast back as voices.
+    url: https://en.wikipedia.org/wiki/Scott_Pilgrim_Takes_Off
+  - type: see
+    at: my favorite Edgar Wright film
+    text: My review of Wright's The Running Man (2025).
+    post: reviews/the-running-man-2025
 ---
 
 Unfortunately, this movie captures what it's like to date in your 20s.
+
+![A red-haired woman with crossed arms, a young man with a bass guitar and a grinning young man in a pink T-shirt stand in a cluttered practice room.](/images/reviews/scott-pilgrim-vs-the-world/alison-pill-michael-cera-and-mark.webp 'margin: Alison Pill, Michael Cera and Mark Webber as Sex Bob-Omb.')
 
 I've seen this movie a thousand times. It's my favorite Edgar Wright film - funnier than Shaun of the Dead, tighter than Hot Fuzz, more inventive than anything else he's done. The cast is incredible across the board, stacked with people who were about to become huge. And the Beck soundtrack is one I've returned to year after year. It's permanently lodged in my brain.
 

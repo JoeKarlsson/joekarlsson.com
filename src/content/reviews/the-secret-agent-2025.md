@@ -34,9 +34,16 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-secret-agent-2025/'
 poster: '/images/reviews/the-secret-agent-2025/poster.webp'
 heroImage: '/images/reviews/the-secret-agent-2025/backdrop.webp'
 heroAlt: 'Wagner Moura in a green shirt among a group of people gathered in a 1970s living room with drinks.'
+marginNotes:
+  - type: aside
+    at: Wagner Moura is pretty good in the lead
+    text: 'Cannes thought more of him: he won Best Actor there in 2025, and Kleber Mendonça Filho won Best Director.'
+    url: https://en.wikipedia.org/wiki/The_Secret_Agent_(2025_film)
 ---
 
 Incredible production design. Baffling narrative decisions.
+
+![A man with a mustache in a pale blue shirt walks down a sunny street crowded with people in 1970s clothes and parked Volkswagen Beetles.](/images/reviews/the-secret-agent-2025/wagner-moura-on-a-1977-recife.webp 'margin: Wagner Moura on a 1977 Recife street.')
 
 There’s clearly a ton of craft in The Secret Agent - the production design is incredible, and Wagner Moura is pretty good in the lead. But there are some baffling decisions here that I don’t fully understand. For example, we don’t learn the backstory about Moura’s character until halfway through the film. I was extremely lost, extremely confused, and honestly completely disengaged for the first half.
 

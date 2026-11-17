@@ -29,4 +29,6 @@ heroAlt: 'Dennis Rodman with dyed hair, sunglasses and tattoos on a yellow motor
 
 A quarter of this movie is Van Dam working out in his bedroom.
 
+![Dennis Rodman in wraparound sunglasses with green and blue dyed hair talks in the foreground while Jean-Claude Van Damme, in a black cap, watches.](/images/reviews/double-team/dennis-rodman-hair-dyed-to-match.webp "margin: Dennis Rodman, hair dyed to match, with Van Damme, in Sony's trailer.")
+
 Denis Rodman sure is trying too

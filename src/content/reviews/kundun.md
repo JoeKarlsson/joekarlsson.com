@@ -25,6 +25,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/kundun/'
 poster: '/images/reviews/kundun/poster.webp'
 heroImage: '/images/reviews/kundun/backdrop.webp'
 heroAlt: 'The boy Dalai Lama in a gold robe and crown, a crowd behind him in a golden haze.'
+marginNotes:
+  - type: term
+    at: the Blank Check Scorsese miniseries
+    text: Blank Check with Griffin & David, a podcast that goes film by film through a director's career, grouped into miniseries.
+  - type: aside
+    at: shot by Roger Deakins and scored by Philip Glass
+    text: Both were nominated for Oscars, two of the film's four nominations, with art direction and costume design. It grossed about $5.7 million on a $28 million budget.
+    url: https://en.wikipedia.org/wiki/Kundun
+  - type: quote
+    at: the good news was that nobody watched it
+    text: The bad news is that the film was made; the good news is that nobody watched it.
+    by: Michael Eisner, Disney CEO, to Chinese officials in Beijing, 1998
+    url: https://www.thenation.com/article/culture/disney-jimmy-kimmel-china-michael-eisner/
 ---
 
 Kundun made me furious at China, furious at Disney, and weirdly unmoved by Kundun.

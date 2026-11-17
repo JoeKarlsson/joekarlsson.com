@@ -43,11 +43,11 @@ mastheadImage: '/images/blog/cloud-centers-of-excellence-part-3-finops-cost-mana
 
 **About This Series:** This is Part 3 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:
 
-- [**Part 1**: Introduction and Organizational Structure](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance)
-- [**Part 2**: Governance, Security, and Compliance](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-2-governance-security-compliance)
+- [**Part 1**: Introduction and Organizational Structure](/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/)
+- [**Part 2**: Governance, Security, and Compliance](/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/)
 - **Part 3** (This post): FinOps, Cost Management, and Case Studies
-- [**Part 4**: Implementation Best Practices and Common Pitfalls](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls)
-- [**Part 5**: The Future of CCOEs and Getting Started](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started)
+- [**Part 4**: Implementation Best Practices and Common Pitfalls](/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/)
+- [**Part 5**: The Future of CCOEs and Getting Started](/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/)
 
 > **Note:** **TL;DR:**
 > Managing cloud spend has overtaken security as the #1 cloud challenge, with 82% of organizations citing cost management as their top priority. Modern CCOEs have evolved to embed FinOps practices, implementing tagging standards, chargeback mechanisms, and automated cost optimization that can save millions annually. Real-world case studies from Capital One, Commerzbank, and other major enterprises demonstrate how mature CCOEs strike a balance between innovation and financial discipline, achieving 20-40% cost reductions while accelerating time-to-market by 30%. The rise of dedicated FinOps teams (now in 59% of organizations) often stems from initial CCOE cost governance efforts.
@@ -113,4 +113,4 @@ As we've seen, mature CCOEs can deliver transformational results: 20-40% cost re
 
 In Part 4 of this series, we'll provide the tactical roadmap for building your own CCOE. We'll cover the step-by-step implementation process, common pitfalls that can derail your efforts, and specific strategies for avoiding the "cloud gatekeeper" trap that has plagued many organizations. Whether you're starting from scratch or improving an existing CCOE, Part 4 will give you the practical guidance you need.
 
-[**Continue to Part 4: Implementation Best Practices and Common Pitfalls**](https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls)
+[**Continue to Part 4: Implementation Best Practices and Common Pitfalls**](/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/)

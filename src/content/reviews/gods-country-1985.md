@@ -17,11 +17,18 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/gods-country-1985/'
 poster: '/images/reviews/gods-country-1985/poster.webp'
 heroImage: '/images/reviews/gods-country-1985/backdrop.webp'
 heroAlt: "A still from God's Country (1985)"
+marginNotes:
+  - type: aside
+    at: captures Minnesotans refusing to complain
+    text: The town is Glencoe, about 60 miles west of Minneapolis. Malle shot it in 1979 for PBS, set it aside, and came back in 1985 to film the farm crisis.
+    url: https://en.wikipedia.org/wiki/God%27s_Country_(1985_film)
 ---
 
 The most Minnesota thing about this French documentary is how accurately it captures Minnesotans refusing to complain while their entire lives collapse.
 
 It is so refreshing to see my native Minnesota observed and represented by some third-party community - in this case, the French - and honestly, they did a great job of capturing Minnesota. I know people exactly like this, and it's startling how accurately the film portrays that particular strain of stubborn rural stoicism.
+
+![An old red tractor with a front loader parked on the grass in front of a long red barn with white-trimmed windows, under bare and leafy trees.](/images/reviews/gods-country-1985/a-glencoe-farm-in-malles-1985.webp 'margin: A Glencoe farm in Malle’s 1985 footage.')
 
 This feels like a movie that is endlessly revealing some sort of truth about our society. What's crazy is how they captured how devastating Reagan's policies were to small-town Minnesota farmers in '85 - because we're still seeing the repercussions of conservative politics play out even today. I'm writing this in 2025 during Trump's presidency when rural farmers are being severely impacted by his tariff policies and trade wars. The parallels are fucking eerie.
 

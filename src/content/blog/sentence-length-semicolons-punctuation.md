@@ -70,6 +70,8 @@ A lot of what steers you through a book isn't the words. A comma tells you to ta
 
 ![Paper collage on black: a printed page from Alice's Adventures in Wonderland, beginning "Well!" thought Alice to herself, lands on the field. Its punctuation turns pink, then the words tear away in clumps and fly off, the blank paper drops out, and only the pink quotation marks, commas, exclamation marks and parentheses are left floating where they were. The label reads: Only the instructions.](/images/blog/sentence-length-semicolons-punctuation/words-leave.svg)
 
+![A printed page glued to white card, most lines blacked out with marker, a few words left showing, a hand holding a pen beside it.](/images/blog/sentence-length-semicolons-punctuation/a-blackout-poem-in-progress-october.webp 'margin: A blackout poem in progress, October 2026.')
+
 It's an erasure, like the blackout poems I make on paper, except a blackout poem keeps a few words and Punc keeps none. It's a sibling of [linger](/work/linger/), my other erasure piece. I started it in 2016 after reading Adam J. Calhoun's essay [Punctuation in novels](https://medium.com/@neuroecology/punctuation-in-novels-8f316d542ec4), which was itself inspired by Nicholas Rougeux's posters [Between the Words](https://www.c82.net/work/between-the-words). Ray Farias wrote most of the original code. In 2026 I came back to it and filled the shelf with Gutenberg's most-downloaded books.
 
 I built it to make pictures. Once the shelf held 1,959 books, though, the pictures turned into a dataset, and the dataset could test a claim people have been making since the 1890s.
@@ -172,6 +174,8 @@ Naming an author by counting is old too. Frederick Mosteller and David Wallace u
 _A page from Thomas Jefferson's copy of The Federalist, 1788, Library of Congress ([Wikimedia Commons](<https://commons.wikimedia.org/wiki/File:Page_217_from_Thomas_Jefferson%27s_copy_of_The_Federalist_(1788)_LCCN2004665672.jpg>))._
 
 For comparison, Darmon and colleagues reached 62-72% across 651 authors using the order of the marks and the spacing between them as well as their shares. Their setup differs (at least ten documents per author and an 80/20 train-and-test split, against my three works and leave one out), so the numbers aren't directly comparable. Punc's version only counts how often each mark shows up.
+
+![Sepia studio portrait of a heavyset man in a white fedora, dark suit and striped tie.](/images/blog/sentence-length-semicolons-punctuation/robert-e-howard-wikimedia-commons-public.webp 'margin: Robert E. Howard. Wikimedia Commons, public domain.')
 
 Dickens goes 0 for 20. His books get taken for Robert E. Howard, the pulp writer who created Conan the Barbarian, seven times, plus Dumas three times and Dostoyevsky twice. _The Pickwick Papers_, _Nicholas Nickleby_, _The Old Curiosity Shop_ and _David Copperfield_ all go to Howard. My guess is range: Dickens wrote in so many registers that his average fits none of his books well, but I haven't tested that. Oscar Wilde, who wrote plays, essays, a novel and fairy tales, is 0 of 14.
 

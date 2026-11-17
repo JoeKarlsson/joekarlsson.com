@@ -104,6 +104,8 @@ These are boring, and they're the ones my guests and I use every day. Most of wh
 
 I have motion lighting in 10 rooms. My first attempts had a habit of turning the lights off on people who were sitting still, so everyone learned to wave their arms like they were landing a plane.
 
+![A white square Philips Hue bridge with a paper label reading Hue 1, next to its coiled power cable and plug on a wooden table.](/images/blog/best-home-assistant-automations/one-of-my-hue-bridges-labeled.webp 'margin: One of my Hue bridges, labeled so I know which owns what.')
+
 **Let the Hue bridge own the switches.** Most of my lights are Philips Hue, and a Hue dimmer paired straight to the Hue bridge talks to the bulbs without Home Assistant or a Zigbee coordinator in the middle. When someone hits a switch, the light responds instantly, every time, even if Home Assistant is restarting. The cost is that my switch logic lives in two places, the Hue app and Home Assistant, and I have to remember which one owns what. One automation in Home Assistant handles extra behavior like long presses for every Hue and Lutron Aurora dimmer in the house.
 
 **A human always beats the sensor.** When someone turns the lights off, motion waits 3 minutes before it's allowed to turn them back on (30 minutes in the bedroom overnight). And motion only picks a scene when the lights are off, so if you dim the kitchen by hand, it stays dimmed. Before a room turns off on its own, the lights drop to 40% for 45 seconds as a warning, and any movement brings them back.
@@ -377,6 +379,8 @@ When the model doesn't answer at all, the package check assumes there's a packag
 These two don't build on any basic. They're new kinds of automation I didn't think of until I'd lived with Home Assistant for years, and both run on the Great Room TV.
 
 ### Cat TV while I'm away
+
+![A black cat sits on a TV stand facing a large TV that shows a blue jay at a feeder full of peanuts, in a warmly lit living room.](/images/blog/best-home-assistant-automations/cat-tv-on-the-great-room.webp 'margin: Cat TV on the Great Room OLED, October 2026.')
 
 My cats love Cat TV. They're addicted, which I knew going in, and it's why I built it. Once I've been gone for 2 hours, between 7 AM and 11 PM, the Great Room TV starts this season's Cat TV playlist in SmartTube. If a video stops for 2 minutes, the next one starts. It stops at 11 PM, when I get home, or when guest mode turns on, and it only stops what it started, so it never turns off something someone else put on.
 

@@ -17,6 +17,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/punchline/'
 poster: '/images/reviews/punchline/poster.webp'
 heroImage: '/images/reviews/punchline/backdrop.webp'
 heroAlt: 'Sally Field and Tom Hanks talking face to face on a city sidewalk under elevated train stairs.'
+marginNotes:
+  - type: see
+    at: John Goodman is genuinely scary
+    text: Goodman's other mode, in The Big Lebowski.
+    post: reviews/the-big-lebowski
+  - type: see
+    at: Sally Field is wonderful
+    text: Field in Smokey and the Bandit, my review.
+    post: reviews/smokey-and-the-bandit
 ---
 
 Sally Field putting together dinner is funnier than every comedy montage in this film combined.

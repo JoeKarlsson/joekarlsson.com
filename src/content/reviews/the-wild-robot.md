@@ -19,6 +19,8 @@ heroImage: '/images/reviews/the-wild-robot/backdrop.webp'
 heroAlt: 'A robot with glowing eyes sits in a moonlit forest, holding a small fox close to its chest.'
 ---
 
+![A round white robot with one glowing teal eye stands in a swirl of yellow and red leaves and butterflies.](/images/reviews/the-wild-robot/roz-in-a-storm-of-autumn.webp 'margin: Roz in a storm of autumn leaves and butterflies.')
+
 This is joining the pantheon of some of my favorite animated movies of all time, including Puss in boots: Last Wish, into the spider verse, and the first two Paddington films.
 
 I laughed. I cried. I recommended to everybody, and I still think it's massively underrated.

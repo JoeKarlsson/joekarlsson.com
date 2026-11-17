@@ -43,6 +43,8 @@ My [homelab](/blog/how-to-get-started-building-a-homelab-server/) runs a MikroTi
 
 I wanted to understand the protocol. MikroTik's documentation describes it at a high level, but the actual byte-level encoding is the kind of thing you only truly understand by implementing it yourself. Plus, I didn't want a dependency for a script I call from the shell.
 
+![Close-up of a white rack switch with sixteen square SFP+ ports labeled SFP+1 to SFP+16, two black cables with a white label plugged into the first ports.](/images/blog/implementing-mikrotik-binary-api-protocol-in-python/my-mikrotik-crs317-in-the-rack.webp 'margin: My MikroTik CRS317 in the rack, 16 SFP+ ports.')
+
 The result is about 137 lines of Python - using only `socket` and `struct` from the standard library - that give me full programmatic control over the router.
 
 ## The Protocol: Sentences and Words
@@ -106,7 +108,6 @@ def recv_exact(sock, n: int) -> bytes:
             raise ConnectionError('Connection closed mid-sentence')
         data += chunk
     return data
-
 
 def read_sentence(sock) -> list[str]:
     words = []

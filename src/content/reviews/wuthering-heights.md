@@ -29,6 +29,15 @@ updatedDate: 2026-11-17
 corrections:
   - date: 2026-11-17
     note: 'I called this the first film adaptation. A British silent version came out in 1920.'
+marginNotes:
+  - type: aside
+    at: It only covers half the book
+    text: 16 of the novel's 34 chapters; it drops the second generation entirely.
+    url: https://en.wikipedia.org/wiki/Wuthering_Heights_(1939_film)
+  - type: see
+    at: Watched this in preparation for the 2026 adaptation
+    text: "How that went: my review of Emerald Fennell's Wuthering Heights."
+    post: reviews/wuthering-heights-2026
 ---
 
 Two angry sad jilted lovers being absolute insufferable monsters to everyone around them. That's the whole movie. I was moved.

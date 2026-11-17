@@ -21,4 +21,6 @@ heroAlt: 'Bill Paxton, Kevin Bacon and Tom Hanks in white flight suits crowded t
 
 Is this Ron Howard’s best film?… Yeah probably.
 
+![Black-and-white photo of men in shirts and ties at Mission Control consoles; one holds up a boxy filter adapter with a hose attached.](/images/reviews/apollo-13/deke-slayton-shows-the-real-co2.webp 'margin: Deke Slayton shows the real CO2 “mailbox“ fix, April 15, 1970. NASA, Wikimedia Commons, public domain.')
+
 I love how in the universe the film they take time to remark about how boring NASA and space travel actually is, and then Ron Howard goes on and attempts to make math and bureaucracy in government look Hella exciting

@@ -26,6 +26,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/moonlight-2016/'
 poster: '/images/reviews/moonlight-2016/poster.webp'
 heroImage: '/images/reviews/moonlight-2016/backdrop.webp'
 heroAlt: 'A shirtless boy in silhouette walking along a beach at dusk, with palm trees against a blue sky.'
+marginNotes:
+  - type: aside
+    at: What an incredible breakout
+    text: Jenkins' second feature, after Medicine for Melancholy (2008). It's adapted from Tarell Alvin McCraney's semi-autobiographical play In Moonlight Black Boys Look Blue.
+    url: https://en.wikipedia.org/wiki/Moonlight_(2016_film)
+  - type: aside
+    at: La La Land announced as the winner by mistake
+    text: Warren Beatty had been handed the duplicate Best Actress envelope; Faye Dunaway read the La La Land name off it. It was the first LGBTQ film to win Best Picture.
+    url: https://en.wikipedia.org/wiki/Moonlight_(2016_film)
 ---
 
 One of the most important films of my life.
@@ -35,6 +44,8 @@ Every shot is more beautiful than the last. I deeply connect with this story, bu
 In the third act, I caught myself thinking what a romantic film this was - and then had to check myself. It’s not quite romantic. It’s deeply tragic. This is a film about a gay child feeling so completely othered that he has to literally bulk up his physical body to protect himself. He has to become hard. And the tragedy is that he had to build that armor in order to survive. That’s the heartbreak underneath everything.
 
 Being queer and made fun of as a kid in school - this film made me feel so much empathy for Chiron. Barry Jenkins sees something true about tenderness and the cost of protecting it. What an incredible breakout.
+
+![An inflatable outdoor movie screen reading Welcome to TriLingua Cinema in a grassy lot, people on benches and lawn chairs facing it, seen from behind.](/images/reviews/moonlight-2016/trilingua-cinemas-outdoor-screen-june-2026.webp "margin: TriLingua Cinema's outdoor screen, June 2026.")
 
 We did a free outdoor showing of this with TriLingua Cinema, a local crew I volunteer with in Saint Paul, Minnesota. The turnout from across the Twin Cities was incredible. This film still has power.
 

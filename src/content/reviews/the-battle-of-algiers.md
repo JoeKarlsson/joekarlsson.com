@@ -29,11 +29,26 @@ updatedDate: 2026-11-17
 corrections:
   - date: 2026-11-17
     note: "I said the Algerian government commissioned the film. It backed it; Yacef's Casbah Films produced it with Italy's Igor Film."
+marginNotes:
+  - type: aside
+    at: the participants still alive to consult
+    text: 'One of them produced it: Saadi Yacef, an FLN commander who wrote his memoir of the campaign in a French prison, co-produced the film and plays a version of himself, El-Hadi Jafar.'
+    url: https://en.wikipedia.org/wiki/The_Battle_of_Algiers
+  - type: aside
+    at: this is a top 10 masterpiece film for me
+    text: It won the Golden Lion at Venice in 1966. France banned it, and it didn't reach French cinemas until 1971.
+    url: https://en.wikipedia.org/wiki/The_Battle_of_Algiers
+  - type: aside
+    at: similar dynamics play out across the world
+    text: The Pentagon screened it for officers in August 2003, as a lesson for the occupation of Iraq.
+    url: https://en.wikipedia.org/wiki/The_Battle_of_Algiers
 ---
 
 I've been scared to write this review, and frankly, I'm still processing a lot of my feelings around it.
 
 But this is a top 10 masterpiece film for me. I fell for it hard. This movie is incredible.
+
+![Black-and-white close shot of three serious Algerian women in Western blouses, one with a pearl necklace, standing in a dark room.](/images/reviews/the-battle-of-algiers/the-three-women-sent-to-plant.webp "margin: The three women sent to plant the café bombs, in Rialto's trailer.")
 
 It's crazy that the Algerian government backed this so soon after they'd won independence from the French - we're talking only a few years after the war ended. They were able to depict these events so clearly and without hyperbole, not turning their revolutionaries into flawless heroes or the French into cartoon villains. Both sides commit acts of horrific violence. Both sides have moments of humanity. The film doesn't flinch from showing women planting bombs in cafes or French soldiers torturing prisoners.
 

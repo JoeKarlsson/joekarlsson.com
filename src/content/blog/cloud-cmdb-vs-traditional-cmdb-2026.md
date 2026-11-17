@@ -80,6 +80,8 @@ Traditional CMDBs and cloud-native approaches start from different assumptions a
 
 ### Traditional CMDB Assumptions
 
+![A man in a plaid shirt crouches with a laptop at the open back of a black server rack full of cables, on a raised data center floor.](/images/blog/cloud-cmdb-vs-traditional-cmdb-2026/a-technician-at-a-server-rack.webp 'margin: A technician at a server rack at NERSC, 2011. Wikimedia Commons, CC0.')
+
 Traditional CMDBs assume infrastructure is permanent. Servers have names like "web-prod-01" and run for months or years. You own them, rack them, maintain them. Discovery agents find these servers and record their configurations. Changes flow through approval boards, Change Advisory Boards (CABs) review modifications before implementation, then discovery scans run to update the CMDB.
 
 Since you don't control the infrastructure APIs, discovery agents probe networks to find what exists. This takes time and frequently breaks. Everything gets modeled as Configuration Items using [ITIL's rigid CI types](https://www.axelos.com/certifications/itil-service-management): servers, applications, databases, relationships. All infrastructure must fit these templates.

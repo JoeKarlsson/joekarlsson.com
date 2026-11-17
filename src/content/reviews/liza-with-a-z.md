@@ -17,6 +17,23 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/liza-with-a-z/'
 poster: '/images/reviews/liza-with-a-z/poster.webp'
 heroImage: '/images/reviews/liza-with-a-z/backdrop.webp'
 heroAlt: 'Liza Minnelli in a red sequined minidress throwing her arms wide on stage while dancers in black vests circle her.'
+marginNotes:
+  - type: aside
+    at: shot on film at the Lyceum Theatre
+    text: On eight 16 mm cameras, at Fosse's insistence, after eight weeks of rehearsal. Minnelli called it 'the first filmed concert on television.'
+    url: https://en.wikipedia.org/wiki/Liza_with_a_Z
+  - type: aside
+    at: Somebody please give this a 4K restoration
+    text: The negatives turned up in 1999; the 2005 restoration premiered at the Toronto film festival before Showtime aired it on April 1, 2006.
+    url: https://en.wikipedia.org/wiki/Liza_with_a_Z
+  - type: aside
+    at: Minnelli was the biggest star in the world
+    text: It won four Emmys, including Outstanding Single Program and Outstanding Directing for Fosse, plus a Peabody.
+    url: https://en.wikipedia.org/wiki/Liza_with_a_Z
+  - type: see
+    at: Fosse knows exactly what to do
+    text: Fosse's All That Jazz, my review.
+    post: reviews/all-that-jazz
 ---
 
 Liza Minnelli was 26 here, and she had the whole world in her hand.

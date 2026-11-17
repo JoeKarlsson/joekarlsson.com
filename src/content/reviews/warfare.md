@@ -25,6 +25,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/warfare/'
 poster: '/images/reviews/warfare/poster.webp'
 heroImage: '/images/reviews/warfare/backdrop.webp'
 heroAlt: 'A squad of soldiers in combat gear with rifles standing in a dusty courtyard.'
+marginNotes:
+  - type: aside
+    at: why the hell did Alex Garland
+    text: "The answer: it's co-directed by Ray Mendoza, a former Navy SEAL who was there. It's built from his platoon's testimony of one day in Ramadi, November 19, 2006, told in real time. It's Mendoza's first film; Garland co-wrote and co-directed."
+    url: https://en.wikipedia.org/wiki/Warfare_(2025_film)
+  - type: aside
+    at: the actual survivors appearing in the credits
+    text: The film is dedicated to Elliott Miller, the platoon's sniper, who lost a leg and his ability to speak in the incident.
+    url: https://en.wikipedia.org/wiki/Warfare_(2025_film)
+  - type: see
+    at: I'm also tired of American war films
+    text: Garland's other American war movie, Civil War, my review.
+    post: reviews/civil-war-2024
 ---
 
 I went into Warfare knowing nothing about the context, which left me with one nagging question through the entire runtime: why the hell did Alex Garland - a British filmmaker - decide to make an American war epic?

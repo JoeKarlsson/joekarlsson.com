@@ -20,4 +20,6 @@ heroImage: '/images/reviews/breakdown/backdrop.webp'
 heroAlt: 'Kurt Russell clinging with both hands to the side of a moving truck, grimacing.'
 ---
 
+![A red Jeep with its hood up on an empty desert highway, a couple walking toward a trucker and his big rig.](/images/reviews/breakdown/the-dead-jeep-the-trucker-who.webp 'margin: The dead Jeep, the trucker who stops, and a lot of desert.')
+
 Super taut, underrated and action-packed thriller. It's minimalist and fun and reminded me so much of Spielberg's debut, Duel. Russell's great in it. They don't make these city slicker anxiety movies like they used to. Like Deliverance, you know what I'm talking about.

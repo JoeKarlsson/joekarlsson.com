@@ -26,7 +26,14 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-bride-2026/'
 poster: '/images/reviews/the-bride-2026/poster.webp'
 heroImage: '/images/reviews/the-bride-2026/backdrop.webp'
 heroAlt: 'A woman in an orange skirt and metal bodice lying on a table among tangled wires and lamps, seen from above.'
+marginNotes:
+  - type: see
+    at: Mary Shelley possessing a random woman
+    text: The 1935 film also casts Mary Shelley, played by Elsa Lanchester, who also plays the Bride. My review of Bride of Frankenstein.
+    post: reviews/bride-of-frankenstein
 ---
+
+![Overhead shot of a scarred man in a vest shouting in the middle of dancers on a black and turquoise checkered floor.](/images/reviews/the-bride-2026/christian-bales-monster-on-a-checkered.webp "margin: Christian Bale's monster on a checkered dance floor.")
 
 This reminded me of Joker: Folie à Deux. Lots of singing and dancing, the Bride's violence inspiring masked vigilantes to follow her lead, heavy face makeup, insane protagonist, shaggy plot. The comparisons are hard to avoid.
 

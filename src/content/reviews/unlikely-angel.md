@@ -25,6 +25,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/unlikely-angel/'
 poster: '/images/reviews/unlikely-angel/poster.webp'
 heroImage: '/images/reviews/unlikely-angel/backdrop.webp'
 heroAlt: 'Dolly Parton in a leopard-print jacket smiling beside a man in a trench coat.'
+marginNotes:
+  - type: aside
+    at: funding literacy programs
+    text: Her Imagination Library, running since 1995, mails a free book every month to kids from birth to age five.
+    url: https://en.wikipedia.org/wiki/Dolly_Parton%27s_Imagination_Library
+  - type: see
+    at: She's better than this movie.
+    text: 'Dolly in a much better movie: my review of The Best Little Whorehouse in Texas.'
+    post: reviews/the-best-little-whorehouse-in-texas
 ---
 
 This movie presupposes that Dolly Parton is too slutty for heaven. Absolutely unhinged premise. It's a terrible movie, but frankly, I don't care. It's Dolly.

@@ -22,6 +22,8 @@ heroAlt: 'Four young men at night, one in KISS face paint and a bloodied T-shirt
 
 If Dude Where's My Car and Evil Dead 2 had a baby. This might be the most 90s movie ever made.
 
+![A pale young man in a kitchen looks down, the round end of a beer bottle lodged in his forehead.](/images/reviews/idle-hands/seth-greens-mick-back-from-the.webp "margin: Seth Green's Mick, back from the dead with a bottle in his head, in Scream Factory's trailer.")
+
 A Halloween stoner comedy about a possessed hand. What more do you need? It's funny, gross, cheap, and dumb. I loved it. The special effects were surprisingly great - the hand stuff works way better than it has any right to. And the whole thing moves with this manic energy that kept me grinning throughout.
 
 I had so much fun with this. They don't really make movies like this anymore. That's probably fine. I still miss it.

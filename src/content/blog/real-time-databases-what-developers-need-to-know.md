@@ -10,28 +10,32 @@ heroImage: '/images/blog/real-time-databases-what-developers-need-to-know/thumb-
 heroAlt: 'An old Puck cartoon of a Wall Street bull blowing bubbles'
 tldr: 'I compare MongoDB, PostgreSQL, Tinybird, ClickHouse, Pinot, Druid, and Snowflake for real-time analytics workloads. Spoiler: your favorite OLTP database probably is not the right pick for real-time.'
 marginNotes:
-  - type: 'quote'
-    at: 'provides change streams for real-time notifications'
-    text: 'Change streams allow applications to access real-time data changes without the prior complexity and risk of manually tailing the oplog.'
-    by: "MongoDB's docs"
-    url: 'https://www.mongodb.com/docs/manual/changeStreams/'
-  - type: 'quote'
-    at: 'in 1996 when it was first built'
-    text: 'The implementation of POSTGRES began in 1986.'
-    by: 'The PostgreSQL docs. 1996 is the year it took the name PostgreSQL'
-    url: 'https://www.postgresql.org/docs/current/history.html'
-  - type: 'see'
-    at: 'It excels at supporting internal reporting'
+  - type: quote
+    at: provides change streams for real-time notifications
+    text: Change streams allow applications to access real-time data changes without the prior complexity and risk of manually tailing the oplog.
+    by: MongoDB's docs
+    url: https://www.mongodb.com/docs/manual/changeStreams/
+  - type: quote
+    at: in 1996 when it was first built
+    text: The implementation of POSTGRES began in 1986.
+    by: The PostgreSQL docs. 1996 is the year it took the name PostgreSQL
+    url: https://www.postgresql.org/docs/current/history.html
+  - type: see
+    at: It excels at supporting internal reporting
     text: 'Why that breaks down for user-facing apps: queuing, concurrency costs and stale caches.'
-    post: 'data-warehouses-are-terrible-application-backends'
-  - type: 'see'
-    at: 'the best real-time database is ClickHouse'
-    text: 'I made the full case for ClickHouse in a separate post.'
-    post: 'why-clickhouse-should-be-your-next-database'
-  - type: 'update'
-    at: 'Rockset'
-    text: 'OpenAI bought Rockset in June 2024. Paying customers had until September 30, 2024 to move off the service.'
-    date: 'Jun 2024'
+    post: data-warehouses-are-terrible-application-backends
+  - type: see
+    at: the best real-time database is ClickHouse
+    text: I made the full case for ClickHouse in a separate post.
+    post: why-clickhouse-should-be-your-next-database
+  - type: update
+    at: Rockset
+    text: OpenAI bought Rockset in June 2024. Paying customers had until September 30, 2024 to move off the service.
+    date: Jun 2024
+  - type: term
+    at: and query processing
+    term: Columnar storage
+    text: the database keeps each column's values together on disk instead of each row's, so a query that sums one column reads only that column.
 mastheadImage: '/images/blog/real-time-databases-what-developers-need-to-know/masthead-b0a6dcc5.webp'
 ---
 

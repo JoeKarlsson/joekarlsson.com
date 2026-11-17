@@ -25,6 +25,23 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/blow-up/'
 poster: '/images/reviews/blow-up/poster.webp'
 heroImage: '/images/reviews/blow-up/backdrop.webp'
 heroAlt: 'David Hemmings raising a camera among the bushes of a park.'
+marginNotes:
+  - type: aside
+    at: I'd never seen a Michelangelo Antonioni film
+    text: Blow-Up won the Palme d'Or at Cannes in 1967, and its US release without a Production Code seal helped end the Code in 1968.
+    url: https://en.wikipedia.org/wiki/Blowup
+  - type: aside
+    at: finds what looks like a body in the grass
+    text: The story comes from Julio Cortázar's short story 'Las babas del diablo,' later retitled 'Blow-Up' to match the film.
+    url: https://en.wikipedia.org/wiki/Blowup
+  - type: aside
+    at: Gene Hackman at least gets a twist
+    text: Wikipedia lists Coppola's The Conversation (1974) among the films Blow-Up influenced.
+    url: https://en.wikipedia.org/wiki/Blowup
+  - type: aside
+    at: was so fun, with Jeff Beck and Jimmy Page
+    text: "'Stroll On' is the Yardbirds' 'Train Kept A-Rollin'' with new lyrics. Antonioni first asked Eric Burdon, and the Velvet Underground were dropped as too expensive to fly over."
+    url: https://en.wikipedia.org/wiki/Blowup
 ---
 
 Watching Blow-Up is like watching an idiot try to solve a crime. It's [The Big Lebowski](/reviews/the-big-lebowski/), but not funny.
@@ -32,6 +49,10 @@ Watching Blow-Up is like watching an idiot try to solve a crime. It's [The Big L
 For the first hour I wasn't sure who the idiot was: the photographer or the director. I'd never seen a Michelangelo Antonioni film, and this one is distracted and unfocused, wandering away from its own plot every ten minutes. It turns out that's extremely intentional. He did the same thing in [L'Avventura](https://letterboxd.com/film/lavventura/), which loses a woman and then stops looking for her.
 
 David Hemmings plays Thomas, a London fashion photographer who snaps a couple in a park, blows up the prints, and finds what looks like a body in the grass. Then he can't stay interested in the murder.
+
+![Five fashion models in striped, teal, green and purple 1960s outfits stand in a white studio while David Hemmings in a pale blue shirt and white jeans walks past a camera on a tripod.](/images/reviews/blow-up/thomas-lines-up-his-models-in.webp 'margin: Thomas lines up his models in the studio.')
+
+![A woman in a blue skirt holds a tall wooden aircraft propeller upright on a London street while David Hemmings opens the door of a black Rolls-Royce convertible.](/images/reviews/blow-up/the-propeller-carried-out-to-his.webp 'margin: The propeller, carried out to his convertible.')
 
 Thomas is horrible. He barks at his models, rolls around his studio with two more who want a shoot, buys a giant propeller on a whim, and goes to a party to get a friend to come see the body and just gets stoned. Every step along the way, he's filling the void. Vanessa Redgrave takes her top off to get the film back, and he still hands her the wrong roll. The photos are hotter to him than she is.
 

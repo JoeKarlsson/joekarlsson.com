@@ -19,6 +19,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/some-kind-of-heaven/'
 poster: '/images/reviews/some-kind-of-heaven/poster.webp'
 heroImage: '/images/reviews/some-kind-of-heaven/backdrop.webp'
 heroAlt: 'An older man in a Hawaiian shirt and straw hat beside his van, under The Villages water tower.'
+marginNotes:
+  - type: aside
+    at: The Villages bills itself
+    text: An age-restricted, master-planned community in central Florida. Its core census area alone had 79,077 people in 2020.
+    url: https://en.wikipedia.org/wiki/The_Villages,_Florida
+  - type: see
+    at: It's an expertly made documentary.
+    text: His next documentary, made with Nathan Fielder, was You Can See Everything.
+    post: reviews/you-can-see-everything
 ---
 
 The Villages bills itself as the happiest place to retire in America. Oppenheim points a perfectly still camera at it and waits for the smiles to fall.
@@ -36,6 +45,8 @@ In five years I had forgotten most of the details, especially Dennis Dean. Denni
 
 ![Dennis, in shorts, loading groceries into the side door of his old blue van in a parking lot.](/images/reviews/some-kind-of-heaven/dennis-van.webp)
 _Dennis and the van._
+
+![An older woman with short gray hair and a bald man with a white goatee in a blue shirt stand side by side in a driveway at dusk.](/images/reviews/some-kind-of-heaven/anne-and-reggie-kincer-outside-their.webp 'margin: Anne and Reggie Kincer outside their house.')
 
 Then there's Reggie Kincer, slipping away from reality in real time while Anne, his wife of almost fifty years, tries to keep the marriage upright. I've watched a version of Reggie play out next door. There's a specific kind of older white man who is slowly losing his mind but has never once been told no, so he has no equipment for hearing anyone who tries to help. It's sad. It's also infuriating, and I honestly don't know that I'd have Anne's patience.
 

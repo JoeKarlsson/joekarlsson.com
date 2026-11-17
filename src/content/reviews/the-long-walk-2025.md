@@ -18,11 +18,22 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-long-walk-2025/'
 poster: '/images/reviews/the-long-walk-2025/poster.webp'
 heroImage: '/images/reviews/the-long-walk-2025/backdrop.webp'
 heroAlt: 'A line of young men walking down a wet rural highway, followed by an army truck and an armored vehicle.'
+marginNotes:
+  - type: aside
+    at: It's Dystopian 101
+    text: From the first novel Stephen King ever wrote, started his freshman year at the University of Maine and published in 1979 as Richard Bachman.
+    url: https://en.wikipedia.org/wiki/The_Long_Walk_(novel)
+  - type: see
+    at: the director of The Hunger Games films
+    text: 'Another Bachman book on screen the same year: my review of The Running Man (2025).'
+    post: reviews/the-running-man-2025
 ---
 
 This has my second favorite sleepwalking scene right behind Stepbrothers.
 
 I love this little mid-budget movie way more than I thought I would. It's Dystopian 101 - which makes total sense coming from the director of The Hunger Games films - but it commits to its concept fully. I was genuinely surprised by some of the violence and gore they were willing to show on young adult characters. This doesn't pull its punches.
+
+![Cooper Hoffman, red-haired in a raglan shirt, grins at the camera beside David Jonsson as they sit at the roadside.](/images/reviews/the-long-walk-2025/cooper-hoffman-and-david-jonsson-resting.webp 'margin: Cooper Hoffman and David Jonsson resting by the road.')
 
 Cooper Hoffman and David Jonsson are both great here. They're going to have bright careers ahead of them - you can feel the presence and emotional depth they bring to what could have been one-dimensional roles.
 

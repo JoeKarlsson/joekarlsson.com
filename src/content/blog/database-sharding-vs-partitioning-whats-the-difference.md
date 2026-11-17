@@ -12,14 +12,18 @@ contentNotice: false
 canonicalUrl: 'https://www.singlestore.com/blog/database-sharding-vs-partitioning-whats-the-difference/'
 tldr: 'Partitioning splits a big table into smaller pieces on the same machine. Sharding spreads those pieces across multiple machines. I break down when to use each, when to combine them, and when sharding is more trouble than it is worth.'
 marginNotes:
-  - type: 'term'
-    at: 'very wide text or BLOB columns'
-    text: 'binary large object, a column type for big binary values like images or files.'
-    term: 'BLOB'
-  - type: 'see'
-    at: 'in which new data is added into the newest partition'
-    text: 'MongoDB Atlas Online Archive does this for old documents. I walked through its archival rules and how it partitions the archive.'
-    post: 'how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive'
+  - type: term
+    at: very wide text or BLOB columns
+    text: binary large object, a column type for big binary values like images or files.
+    term: BLOB
+  - type: see
+    at: in which new data is added into the newest partition
+    text: MongoDB Atlas Online Archive does this for old documents. I walked through its archival rules and how it partitions the archive.
+    post: how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive
+  - type: aside
+    at: Sharding is actually a type of database partitioning
+    text: The word may come from games. Ultima Online ran several full copies of its world and explained them in the story as shards of a broken crystal. Raph Koster, who worked on the game, isn't sure the database term traces back to it.
+    url: https://www.raphkoster.com/2009/01/08/database-sharding-came-from-uo/
 ---
 
 In this post, I'm going to break down the differences between database sharding vs. partitioning. Both are methods of breaking a large dataset into smaller subsets - but there are differences. This article explores when to use each - or even to combine them for data-intensive applications.

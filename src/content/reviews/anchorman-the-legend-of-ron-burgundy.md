@@ -26,6 +26,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/anchorman-the-legend-of-
 poster: '/images/reviews/anchorman-the-legend-of-ron-burgundy/poster.webp'
 heroImage: '/images/reviews/anchorman-the-legend-of-ron-burgundy/backdrop.webp'
 heroAlt: 'Will Ferrell with a mustache and a red blazer, flanked by David Koechner, Christina Applegate, Paul Rudd and Steve Carell.'
+marginNotes:
+  - type: aside
+    at: a pseudo-sequel called Wake Up, Ron Burgundy
+    text: It's built from the original cut, a subplot about hippie bank robbers called the Alarm Clock that tested badly and got replaced by the panda story. Straight to DVD, December 2004.
+    url: https://en.wikipedia.org/wiki/Anchorman:_The_Legend_of_Ron_Burgundy
+  - type: see
+    at: This was Adam McKay's directorial debut
+    text: Paul Rudd, Brian Fantana here, in Friendship; my review.
+    post: reviews/friendship-2024
 ---
 
 A very woke movie that conservatives think is on their side. Fascinating.
@@ -37,6 +46,10 @@ The jazz flute scene, the news team brawl, "I love lamp" - these bits became the
 This was one of the funniest movies I watched in high school. It was on constant repeat. I've quoted it more than almost any other film in my life.
 
 Everyone talks about the death of Hollywood comedies now - how they don't make them like this anymore. And I have a soft spot for McKay and Ferrell's whole run, Stepbrothers included. But Anchorman has slightly more to say than their later collaborations. It's actually getting at something about the patriarchy, about oafish men, about how these guys' attitudes toward women are transgressive and bad. The film is making fun of them.
+
+![Ron Burgundy in a purple suit laughs at a cafeteria table with his news team, one man in a western shirt laughing beside them.](/images/reviews/anchorman-the-legend-of-ron-burgundy/the-channel-4-news-team-at.webp 'margin: The Channel 4 news team at lunch.')
+
+![Will Ferrell in a torn red blazer and Christina Applegate in a purple suit stand at the open door of a news van.](/images/reviews/anchorman-the-legend-of-ron-burgundy/ron-burgundy-and-veronica-corningstone.webp 'margin: Ron Burgundy and Veronica Corningstone.')
 
 Which is why it's so baffling to me that conservatives pine for "comedies like this" while complaining about woke culture. This is a woke comedy. It's been woke the whole time. The entire point is that these men are idiots and their treatment of women is grotesque. Veronica Corningstone is the only competent person in the building. How are people not seeing this? It's not subtle. These dudes watch a movie openly mocking fragile masculinity and somehow think it's on their side.
 

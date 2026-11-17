@@ -10,6 +10,36 @@ heroImage: '/images/newsletter/can-open-knowledge-format-make-claude-code-more-a
 heroAlt: 'Works on My Machine card for Can Open Knowledge Format Make Claude Code More Accurate and Cheaper? I Tested It, with two featureless mannequin heads, each with a pink brain on top, the one on the right taller with a larger brain framed in a pink crayon box'
 cardPhoto: '/images/newsletter/can-open-knowledge-format-make-claude-code-more-accurate-and-cheaper-i-tested-it/card-photo.webp'
 cardPhotoAlt: 'two featureless mannequin heads, each with a pink brain on top, the one on the right taller with a larger brain'
+marginNotes:
+  - type: term
+    at: rules and auto-memory
+    text: Auto memory is notes Claude Code writes itself. MEMORY.md is an index with one line per memory, and each memory is its own file.
+  - type: exhibit
+    at: the cost per question by about 30%
+    text: 'Tokens loaded at session start: 16,237 before, 8,505 after. Cost per question on Sonnet: $0.043 to $0.030. Accuracy: 97% to 99%, within the noise of 44 questions.'
+  - type: quote
+    at: both want a
+    text: Claude records the kind as a `type` field in the memory file's frontmatter.
+    by: Claude Code's docs on memory
+    url: https://code.claude.com/docs/en/memory
+  - type: see
+    at: can argue its way past text
+    text: Test that the hook really blocks. Five of mine never worked, so my must-never-break rules live in Claude Code mods now.
+    post: claude-code-mods-first-impressions
+  - type: quote
+    at: keep each CLAUDE.md under 200 lines
+    text: '[T]arget under 200 lines per CLAUDE.md file. Longer files consume more context and reduce adherence.'
+    by: Claude Code's docs on memory
+    url: https://code.claude.com/docs/en/memory
+  - type: quote
+    at: Put a date on the ones that will
+    text: A concept is stale when `now >= stale_after`.
+    by: The Open Knowledge Format spec
+    url: https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md
+  - type: see
+    at: saved 312 tokens
+    text: "What's in that global file: its testing and git rules, and how chezmoi copies it to every machine."
+    post: my-development-setup-2026
 ---
 
 I'd been hearing about Google's [Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) (OKF) and wanted to know whether it could do anything for my Claude Code second brain. That's the pile of CLAUDE.md files, rules and auto-memory that teaches Claude how my homelab works.
@@ -29,6 +59,8 @@ I assumed the problem was duplication, but hardly anything was repeated. It was 
 ![Charlie Conspiracy meme: Charlie from It's Always Sunny in Philadelphia pointing at a wall of papers and red string, captioned "Me explaining how the 200 markdown files I wrote for my AI agent connect to each other"](/images/newsletter/can-open-knowledge-format-make-claude-code-more-accurate-and-cheaper-i-tested-it/meme-charlie-conspiracy.webp)
 
 ## Splitting into concepts
+
+![Before: one 65 KB Home Assistant doc in every session. After: a 2 KB stub and small concept files opened on demand.](/images/blog/claude-md-open-knowledge-format/split-into-concepts.svg 'margin: Before: one 65 KB Home Assistant doc in every session. After: a 2 KB stub and small concept files opened on demand.')
 
 For the test, I had subagents split the big docs into small concept files with an index per folder, and every CLAUDE.md shrank to a stub: the few rules that must apply every session, plus a pointer to the right index.
 

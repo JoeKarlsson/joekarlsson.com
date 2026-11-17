@@ -18,6 +18,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/running-on-empty-1988/'
 poster: '/images/reviews/running-on-empty-1988/poster.webp'
 heroImage: '/images/reviews/running-on-empty-1988/backdrop.webp'
 heroAlt: 'River Phoenix looking down while a man rests a hand on his shoulder.'
+marginNotes:
+  - type: aside
+    at: He’s great in this too
+    text: It earned him an Oscar nomination for Best Supporting Actor.
+    url: https://en.wikipedia.org/wiki/Running_on_Empty_(1988_film)
 ---
 
 Running on Empty is a surprisingly gentle film given its radical setup. I watched this shortly after [One Battle After Another](/reviews/one-battle-after-another/) and honestly expected something a little more propulsive - but what I got was interesting in a different way.

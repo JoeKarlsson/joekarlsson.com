@@ -24,6 +24,10 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bloodsisters-leather-dyk
 poster: '/images/reviews/bloodsisters-leather-dykes-and-sadomasochism/poster.webp'
 heroImage: '/images/reviews/bloodsisters-leather-dykes-and-sadomasochism/backdrop.webp'
 heroAlt: 'A shirtless person with short hair, an earring and a chain necklace, a bandana-wrapped strap held against their mouth, lit in deep blue.'
+marginNotes:
+  - type: term
+    at: Patrick Califia, Skeeter
+    text: Writer on sex and gender, author of Macho Sluts (1988). In 1978 he co-founded Samois, the first lesbian BDSM group in the US.
 ---
 
 Liberation that only covers the respectable parts of queer life doesn't count, and BloodSisters is 69 minutes of proof.

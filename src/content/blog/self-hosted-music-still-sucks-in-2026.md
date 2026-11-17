@@ -16,33 +16,37 @@ corrections:
   - date: 2026-11-12
     note: 'I left out that Spotify cut back 30-second previews for new apps in November 2024, before I wrote this.'
 marginNotes:
-  - type: 'quote'
-    at: 'complete albums that exist as indivisible units'
-    text: 'It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them.'
-    by: "Lidarr's README, which pitches tracks while its database is built on albums"
-    url: 'https://github.com/Lidarr/Lidarr'
-  - type: 'quote'
-    at: 'The same track can exist across dozens of MusicBrainz releases'
-    text: 'A MusicBrainz release represents the unique release (i.e. issuing) of a product containing at least one audio medium'
-    by: "MusicBrainz's own definition"
-    url: 'https://musicbrainz.org/doc/Release'
-  - type: 'term'
-    at: 'impedance mismatches'
-    text: "two systems model the same thing differently, so every handoff needs a translation. Here it's albums on one side and single tracks on the other."
-    term: 'Impedance mismatch'
-  - type: 'see'
-    at: 'Lidarr has had a rough year'
-    text: 'It also ran out of memory on me in May. The fix was one memory limit in OpenTofu and a commit saying why.'
-    post: 'opentofu-proxmox-immutable-homelab'
-  - type: 'term'
-    at: 'falls back to Soulseek through slskd'
-    text: 'a peer-to-peer network where people share their own music folders. slskd is a self-hosted Soulseek client with a web UI and an API.'
-    term: 'Soulseek'
-  - type: 'quote'
-    at: 'cut back even the 30-second previews'
-    text: 'To increase security we are limiting access to certain Web API endpoints for new applications.'
-    by: 'Spotify for Developers, November 27, 2024'
-    url: 'https://developer.spotify.com/blog/2024-11-27-changes-to-the-web-api'
+  - type: quote
+    at: complete albums that exist as indivisible units
+    text: It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them.
+    by: Lidarr's README, which pitches tracks while its database is built on albums
+    url: https://github.com/Lidarr/Lidarr
+  - type: quote
+    at: The same track can exist across dozens of MusicBrainz releases
+    text: A MusicBrainz release represents the unique release (i.e. issuing) of a product containing at least one audio medium
+    by: MusicBrainz's own definition
+    url: https://musicbrainz.org/doc/Release
+  - type: term
+    at: impedance mismatches
+    text: two systems model the same thing differently, so every handoff needs a translation. Here it's albums on one side and single tracks on the other.
+    term: Impedance mismatch
+  - type: see
+    at: Lidarr has had a rough year
+    text: It also ran out of memory on me in May. The fix was one memory limit in OpenTofu and a commit saying why.
+    post: opentofu-proxmox-immutable-homelab
+  - type: term
+    at: falls back to Soulseek through slskd
+    text: a peer-to-peer network where people share their own music folders. slskd is a self-hosted Soulseek client with a web UI and an API.
+    term: Soulseek
+  - type: quote
+    at: cut back even the 30-second previews
+    text: To increase security we are limiting access to certain Web API endpoints for new applications.
+    by: Spotify for Developers, November 27, 2024
+    url: https://developer.spotify.com/blog/2024-11-27-changes-to-the-web-api
+  - type: see
+    at: I deeply miss the full album experience
+    text: My 50 favorite records, the ones I play most, from Loveless to Kind of Blue.
+    post: my-top-50-records
 ---
 
 Look, I need to get something off my chest. After fifteen years of curating seasonal playlists and being a power Spotify user since 2011 (recently migrated to Apple Music for reasons we won’t get into here), I’m having a technical existential crisis about self-hosted music solutions. And frankly, it’s driving me insane.

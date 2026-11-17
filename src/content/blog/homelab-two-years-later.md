@@ -72,6 +72,8 @@ None of it was planned. I'd get curious about something or annoyed by something,
 
 The original setup was great. It was a Xeon E3-1226 v3 with 4 cores, 32GB of RAM, and 2TB of storage, running [Proxmox](https://www.proxmox.com/en/products/proxmox-virtual-environment/overview) with LXC containers for [Plex](https://www.plex.tv/), the \*arr stack, Pi-Hole, and download clients, and for six months it handled everything without complaint.
 
+![A small silver Coral USB accelerator with a ridged heat-sink top and a clear plastic edge, lying on a dark wood table.](/images/blog/homelab-two-years-later/my-coral-usb-accelerator-about-the.webp 'margin: My Coral USB accelerator, about the size of a pack of gum.')
+
 Then I got ambitious, starting with Plex transcoding. With two people streaming at once, the quad-core Xeon started choking. Next I saw [Frigate](https://frigate.video/) - real-time AI object detection on security camera feeds. On CPU, Frigate's detector alone ate about 120% CPU, more than one of my four cores. A [Coral USB accelerator](https://developers.google.com/coral) fixed that part: about 10 ms per inference and 4.5% CPU. But a Coral only runs Frigate's detector. It doesn't transcode Plex or run a local LLM, and the ThinkServer had no PCIe slot that could take a real GPU.
 
 There was also [Home Assistant](https://www.home-assistant.io/). I'd been running it for years on its own hardware, separate from the homelab, which is why I left it out of the original post. I wanted to move it into a Proxmox VM, but the ThinkServer had no network segmentation at all: no VLANs, no firewall rules, everything on one flat network. I didn't want home automation sharing that network with public-facing services.
@@ -101,6 +103,8 @@ From outside the house I reach it over Tailscale, through a subnet router that r
 **PCIe expansion.** There are enough slots for GPUs, 10G network cards, and whatever I decide I need six months from now.
 
 ### Where to buy used enterprise servers
+
+![A hand resting on the lid of a grey Dell PowerEdge R730 rack server balanced on the arm of a couch in a living room.](/images/blog/homelab-two-years-later/the-first-r730-out-of-the.webp 'margin: The first R730 out of the box, November 2025.')
 
 Used enterprise hardware is cheap because it depreciates like a luxury car. Companies lease thousands of R730s, run them for 3-5 years, and then dump them when the lease ends and newer hardware arrives. A barebones R730 chassis can show up on eBay for $300-500, but if you want one configured with specific CPUs, RAM, and drives, ready to rack and run, expect to pay more. I bought mine fully configured from Server Design Lab for about $1,850 each. That's a fraction of the $15,000+ sticker price new, and a lot more than the "$300 eBay special" you see in Reddit posts.
 
@@ -142,6 +146,8 @@ The 16GB card is the reason the big model runs at all. My largest one is a 30B c
 Immich's face recognition and search models run on CPU on purpose, so they never fight an LLM for VRAM. The full breakdown, with benchmarks from both cards, is in [how I split workloads across the two GPUs](/blog/proxmox-gpu-passthrough-multi-service/).
 
 ### A rack is just a desktop split into separate boxes
+
+![An empty black open-frame server rack standing on a rug in a living room, surrounded by boxes and packing material.](/images/blog/homelab-two-years-later/the-startech-rack-frame-empty-before.webp 'margin: The StarTech rack frame, empty, before it went to the attic.')
 
 I didn't know 19 inches was a standard rack width. I was measuring my R730s with a tape measure trying to figure out what kind of enclosure would hold them. The width goes back to the 1920s (telephone industry, originally), and today mounting holes, unit height, and rail depth all follow the same spec.
 

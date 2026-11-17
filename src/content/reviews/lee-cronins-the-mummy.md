@@ -37,6 +37,8 @@ The gore rips, which makes sense coming from the guy who made Evil Dead Rise. Th
 
 The problem is everything else. The characters are flat as cardboard, the decisions they make are baffling in that "we need to get to the next scene" way, and the titular mummy is somehow the least interesting person in his own movie. You'd think a mummy would have presence. Charisma. A vibe. This one shows up and does mummy stuff and leaves and I forgot about him in real time.
 
+![Gold capital letters reading Lee Cronin's The Mummy over a dark, dripping background.](/images/reviews/lee-cronins-the-mummy/the-title-card-possessive-credit-and.webp 'margin: The title card, possessive credit and all.')
+
 And look. The fact that this movie is officially titled Lee Cronin's The Mummy is genuinely funny to me. It's the kind of possessive credit you usually only see when a director has earned it across a body of work, not on their third feature. I doubt this gets half the attention it's getting without that title. The branding is doing more work than the screenplay.
 
 Still, I had a fine time. The gore was there, my expectations were on the floor, and we cleared the bar.

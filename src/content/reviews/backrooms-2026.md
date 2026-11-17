@@ -25,11 +25,25 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/backrooms-2026/'
 poster: '/images/reviews/backrooms-2026/poster.webp'
 heroImage: '/images/reviews/backrooms-2026/backdrop.webp'
 heroAlt: 'A woman in a floral blouse staring up in alarm in an empty, yellow-walled room.'
+marginNotes:
+  - type: term
+    at: I genuinely don't know a whole lot about Backrooms lore
+    text: It started as a 4chan thread on May 12, 2019, asking for images that feel 'off'. Kane Parsons was 16 when he posted his first Backrooms short to YouTube in January 2022; A24 announced this film in 2023.
+  - type: aside
+    at: 'the giant alien from Alien: Romulus'
+    text: Robert Bobroczkyi, a Romanian former college basketball player who's about 7 foot 7. He played the Offspring in Romulus and plays Pirate Clark here.
+    url: https://en.wikipedia.org/wiki/Robert_Bobroczkyi
+  - type: see
+    at: Deeply Lynchian.
+    text: 'For the real thing, the buzz and hum and all: Wild at Heart.'
+    post: reviews/wild-at-heart
 ---
 
 Lynch for the Minecraft generation.
 
 I genuinely don't know a whole lot about Backrooms lore but as a standalone film this absolutely worked for me. I was bought in the second they announced it and somehow it cleared the bar.
+
+![A man in a tan shirt seen from behind, standing in an empty room with yellow walls, pale carpet and rows of fluorescent ceiling panels, a few stacked chairs in the distance.](/images/reviews/backrooms-2026/chiwetel-ejiofor-in-the-first-yellow.webp 'margin: Chiwetel Ejiofor in the first yellow room.')
 
 The sound design is incredible. Deeply Lynchian. There's this constant droning buzz of fluorescent lights humming under everything that reminded me of how Lynch uses industrial sound to keep dread bubbling in the background. The score is discordant and uneasy but also somehow feels like a memory, which is a weird trick to pull off. The production design is the real star though. You can tell these sets are handmade.
 

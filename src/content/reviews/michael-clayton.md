@@ -25,11 +25,22 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/michael-clayton/'
 poster: '/images/reviews/michael-clayton/poster.webp'
 heroImage: '/images/reviews/michael-clayton/backdrop.webp'
 heroAlt: 'George Clooney in a dark suit slumped in a chair with his hand at his chin in a police station.'
+marginNotes:
+  - type: see
+    at: I'm looking forward to rewatching it
+    text: I did, more than once. My fourth-watch review.
+    post: reviews/michael-clayton-2
+  - type: see
+    at: George Clooney? Perfect.
+    text: Clooney again, in Jay Kelly.
+    post: reviews/jay-kelly
 ---
 
 A film where the villain is just a mid-level executive doing horrible things for quarterly earnings. Finally, accurate representation.
 
 The villain is just a general counsel at a chemical company willing to order murders to protect the bottom line, and I loved that right away. That's where most of the evil comes from in this world, and it fits perfectly with where I wish more media was pointing blame these days. We don't need more movies about individual psychopaths. We need more movies about systemic corporate violence dressed up in business casual.
+
+![Tilda Swinton in a dark suit and pearls, mid-sentence, looking anxious.](/images/reviews/michael-clayton/tilda-swinton-as-karen-crowder-in.webp 'margin: Tilda Swinton as Karen Crowder, in pearls.')
 
 Tilda Swinton as Karen Crowder is incredible. She's anxious, sweaty, deeply insecure, and absolutely monstrous in her willingness to do whatever it takes to win. I'm genuinely shocked she won the Oscar for this performance though, mostly because she's in so many things I love and this didn't strike me as her most showy work. But maybe that's exactly why it won - she makes evil look banal and bureaucratic rather than theatrical.
 

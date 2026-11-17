@@ -240,7 +240,7 @@ _Continue learning about cloud asset inventories with our guides on [what cloud 
 
 ## Video Transcript
 
-**Keegan:** Hi, everyone. Thanks for joining. My name is Keegan Marazzi, and I'm a partner solutions architect at AWS, where my team's goal is to help discover, develop, and deliver solutions with our partners. Today, I'm joined here with Joe Carlson, a senior cloud advocate developer at Cloud Query. Joe, can you introduce yourself?
+**Keegan:** Hi, everyone. Thanks for joining. My name is Keegan Marazzi, and I'm a partner solutions architect at AWS, where my team's goal is to help discover, develop, and deliver solutions with our partners. Today, I'm joined here with Joe Karlsson, a senior cloud advocate developer at Cloud Query. Joe, can you introduce yourself?
 
 **Joe:** Hey, my name is Joe, developer advocate, and my job is mostly just helping people get better visibility into their cloud infrastructure.
 

@@ -17,6 +17,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-handmaiden/'
 poster: '/images/reviews/the-handmaiden/poster.webp'
 heroImage: '/images/reviews/the-handmaiden/backdrop.webp'
 heroAlt: 'A man in a suit, a maid in an apron, a woman in a green gown and an older man in a robe standing in a row.'
+marginNotes:
+  - type: see
+    at: Park Chan-wook has never received an Oscar nomination
+    text: "It happened again: No Other Choice (2025), South Korea's submission, made the December shortlist for International Feature and still wasn't nominated."
+    post: reviews/no-other-choice-2025
+  - type: see
+    at: rare movies where queer women find peace
+    text: "Teenage Sex and Death at Camp Miasma is the other one I've found since: nobody gets punished for wanting."
+    post: reviews/teenage-sex-and-death-at-camp-miasma
 ---
 
 Hollywood stopped making erotic thrillers. Thank god Korea didn’t.

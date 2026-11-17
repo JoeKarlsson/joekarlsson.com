@@ -29,4 +29,6 @@ heroAlt: "John Cusack smiling at Connie Nielsen across a bar strung with Christm
 
 If you’ve ever wondered what A Simple Plan would look like if it was directed by Harold Ramis, this is probably as close as you’re gonna get
 
+![A man in a dark coat stands alone at the edge of a flat, snow-patched field under a heavy gray sky, a silver sedan with Kansas plates beside him.](/images/reviews/the-ice-harvest/john-cusack-on-a-gray-kansas.webp 'margin: John Cusack on a gray Kansas field in winter.')
+
 I love the cast. I love the Midwestern Winter vibes. I love some of the gags however I don’t think I love this movie and I’m not entirely sure why it just didn’t really work for me.

@@ -25,6 +25,27 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-night-of-the-hunter/
 poster: '/images/reviews/the-night-of-the-hunter/poster.webp'
 heroImage: '/images/reviews/the-night-of-the-hunter/backdrop.webp'
 heroAlt: 'Robert Mitchum in a black hat, his knuckles tattooed LOVE, resting on a fence post.'
+marginNotes:
+  - type: aside
+    at: I have no idea how they built it
+    text: Mostly on studio sets. The underwater shot of Willa was a mannequin with a custom mask made to look like Shelley Winters.
+    url: https://en.wikipedia.org/wiki/The_Night_of_the_Hunter_(film)
+  - type: aside
+    at: people treated this as a shocking horror nightmare
+    text: It premiered in Des Moines in July 1955 to negative reviews and bombed. Bosley Crowther of the New York Times called it 'a weird and intriguing endeavor.' It entered the National Film Registry in 1992.
+    url: https://en.wikipedia.org/wiki/The_Night_of_the_Hunter_(film)
+  - type: aside
+    at: Spike Lee pulled the LOVE/HATE tattoo imagery
+    text: Radio Raheem wears LOVE and HATE knuckle rings, and his speech nearly copies Powell's sermon word for word.
+    url: https://en.wikipedia.org/wiki/The_Night_of_the_Hunter_(film)
+  - type: aside
+    at: this was Laughton's only film as a director
+    text: His only credited one. He had filled in, uncredited, on The Man on the Eiffel Tower (1949).
+    url: https://en.wikipedia.org/wiki/The_Night_of_the_Hunter_(film)
+  - type: aside
+    at: true crime novel adaptation
+    text: From Davis Grubb's 1953 novel, shot by Stanley Cortez, who also shot The Magnificent Ambersons.
+    url: https://en.wikipedia.org/wiki/The_Night_of_the_Hunter_(film)
 ---
 
 A weird psychosexual religious allegorical nightmare. One of the most beautiful films I've ever seen.

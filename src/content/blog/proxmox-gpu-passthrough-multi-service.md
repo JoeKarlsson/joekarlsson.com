@@ -53,6 +53,8 @@ marginNotes:
 
 **Updated October 2026:** I first published this in April. Since then Whisper moved to a bigger model, Frigate went from two cameras to four, and I benchmarked the open-source models I actually run on both cards, for speed and for whether their answers can be trusted. The original also said the RTX A4000 could encode AV1, which was wrong.
 
+![A black server rack with a Synology NAS on top, two Dell rack servers with drive bays in the middle and two rack UPSes at the bottom.](/images/blog/proxmox-gpu-passthrough-multi-service/the-two-r730s-in-my-rack.webp 'margin: The two R730s in my rack, above the two UPSes, March 2026.')
+
 Two used workstation GPUs do all the AI and video work in my house. An 8GB Quadro RTX 4000 watches the security cameras and transcribes voice commands. A 16GB RTX A4000 runs local LLMs, Plex transcoding, and a video encoding queue that never seems to end. Both live in Dell R730s in a Proxmox cluster, and every service gets the GPU through Proxmox GPU passthrough to an LXC container rather than a VM.
 
 The passthrough config is the easy part. What took me a year to figure out is **who shares a card with whom**. At my current workloads, containers share a GPU's compute without much drama, but VRAM is first come, first served: whatever loads first keeps its memory, and whatever shows up later gets the leftovers.
@@ -82,6 +84,8 @@ A couple of smaller things borrow a GPU too, like a [subtitle generator I built 
 ![Which services run on which GPU. prxbox1 has a Quadro RTX 4000 with 8GB and runs Frigate for 4 cameras, Whisper for voice and a Tdarr worker. prxbox2 has an RTX A4000 with 16GB and runs Ollama and llama.cpp, Plex, Immich video and the Tdarr server plus a worker. Both connect to the 10G switch and the NAS.](/images/blog/proxmox-gpu-passthrough-multi-service/gpu-split.svg)
 
 ## The two cards
+
+![Looking down into an open Dell server: a slim graphics card with a small blower fan sits flat in a PCIe riser next to the fan shroud.](/images/blog/proxmox-gpu-passthrough-multi-service/a-blowerstyle-card-in-an-r730.webp 'margin: A blower-style card in an R730 riser, lid off, Nov. 2025.')
 
 The [Quadro RTX 4000](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/quadro-rtx-4000-datasheet.pdf) is a Turing card from 2018 with 8GB of VRAM and 416 GB/s of memory bandwidth. The [RTX A4000](https://www.nvidia.com/content/dam/en-zz/Solutions/gtcs21/rtx-a4000/nvidia-rtx-a4000-datasheet.pdf) is Ampere, from 2021, with 16GB and 448 GB/s. They're both single-slot blower cards, which is the whole reason I bought workstation cards: most gaming GPUs don't physically fit in a 2U server, and they can't push heat out the back of a chassis designed for front-to-back airflow. I paid $230 for the Quadro on eBay.
 

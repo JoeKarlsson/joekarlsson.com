@@ -33,9 +33,16 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/burn-after-reading/1/'
 poster: '/images/reviews/burn-after-reading-1/poster.webp'
 heroImage: '/images/reviews/burn-after-reading-1/backdrop.webp'
 heroAlt: "Brad Pitt with earbuds in, sipping from a large cup through a straw in the driver's seat of a car."
+marginNotes:
+  - type: see
+    at: Ethan Coen’s horniness
+    text: 'Ethan solo, at full horniness: my review of Drive-Away Dolls.'
+    post: reviews/drive-away-dolls
 ---
 
 I saw Burn After Reading in theaters back in 2008 with friends because we were running high off No Country for Old Men. I loved it at the time and have loved it all these years since. This was my first rewatch since that theatrical experience, and I have to say - it’s gotten dinged a bit for me.
+
+![Frances McDormand with a blonde bob and a red gym polo looks down, worried, while Richard Jenkins watches from behind a glass partition.](/images/reviews/burn-after-reading-1/frances-mcdormand-as-linda-at-hardbodies.webp "margin: Frances McDormand as Linda at Hardbodies gym, in Focus Features' trailer.")
 
 It’s still funny. I laughed a lot. The performances from Tilda, George, Brad, JK Simmons, Malkovich, and especially Frances McDormand are all great. It feels like a throwback to 1940s studio comedy - big stars doing wacky hijinks in something light and fun.
 

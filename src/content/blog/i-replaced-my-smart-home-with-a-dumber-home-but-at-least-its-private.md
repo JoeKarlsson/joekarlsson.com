@@ -149,6 +149,8 @@ That led me into the world of self-hosted music solutions. I’m currently exper
 
 Each solution solves different problems but creates new ones. Music Assistant provides excellent Home Assistant integration but requires learning another interface. Navidrome handles my personal music collection beautifully but doesn’t connect to streaming services. The WiiM speakers sound great but add another layer of complexity to an already complex system.
 
+![Four Amazon Echo Dot speakers, one white and three black, on a white stone counter.](/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/the-echo-dots-i-unplugged-may.webp 'margin: The Echo Dots I unplugged, May 2025.')
+
 Some users successfully connect Echo devices as external speakers by using the 3.5 mm input, creating an interesting hybrid where Amazon hardware plays audio from a privacy-focused system. The irony wasn’t lost on me, but I’m trying to avoid falling back on Amazon hardware after going through all this effort to escape their ecosystem.
 
 ## Performance

@@ -129,6 +129,8 @@ The point is eliminating the hassle of getting data about your own infrastructur
 
 ## What Should You Expect From Regulators in 2026
 
+![A long white five-story office building behind a tram stop, with a sign reading Bundesanstalt für Finanzdienstleistungsaufsicht.](/images/blog/dora-ict-asset-register/bafins-office-in-bonn-wikimedia-commons.webp "margin: BaFin's office in Bonn. Wikimedia Commons, CC0.")
+
 BaFin held an event on December 4, 2025 titled "IT supervision in the financial sector: The first year of DORA." Their message was unambiguous: 2025 was a "year of transformation," but [that transition period is over](https://www.deloittelegal.de/dl/en/services/legal/analysis/dora-contract-compliance-challenge.html). Stricter enforcement is coming, including on-site inspections and supervisory discussions. No further grace period should be expected.
 
 By January 17, 2026, the European Commission is [submitting a supervisory review report](https://www.quodorbis.com/what-to-expect-january-2026-dora-review-and-supervision/) following consultations with the ESAs. This review assesses whether to expand DORA's scope to statutory auditors, signaling a potential broadening of supervisory reach beyond the current scope.

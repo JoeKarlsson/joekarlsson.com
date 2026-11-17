@@ -19,6 +19,23 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/collateral/'
 poster: '/images/reviews/collateral/poster.webp'
 heroImage: '/images/reviews/collateral/backdrop.webp'
 heroAlt: 'Tom Cruise with gray hair and a gray suit aiming a pistol in a crowded, dim nightclub.'
+marginNotes:
+  - type: aside
+    at: the ugliest home movie from America's Funniest Home Videos
+    text: It was the first feature shot on the Viper FilmStream HD camera. The nightclub scene is the exception, shot on 35mm.
+    url: https://en.wikipedia.org/wiki/Collateral_(film)
+  - type: see
+    at: Michael Mann does cops and robbers movies really well
+    text: Thief (1981) is my favorite of the Mann crime movies.
+    post: reviews/thief
+  - type: see
+    at: He's basically a human Terminator
+    text: 'The original human-Terminator comparison: my Terminator 2 review.'
+    post: reviews/terminator-2-judgment-day
+  - type: aside
+    at: How good is Jada Pinkett Smith in this?
+    text: "The Oscars went for Foxx instead: a Best Supporting Actor nomination, one of the film's two, with editing."
+    url: https://en.wikipedia.org/wiki/Collateral_(film)
 ---
 
 Mark Ruffalo as a cholo LAPD officer is one of the strangest casting decisions I've ever seen in my entire life.

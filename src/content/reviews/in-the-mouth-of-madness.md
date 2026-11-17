@@ -20,4 +20,6 @@ heroImage: '/images/reviews/in-the-mouth-of-madness/backdrop.webp'
 heroAlt: 'Sam Neill with wild hair, in a hospital gown, held by two orderlies in white.'
 ---
 
+![Black-and-white portrait of H. P. Lovecraft, a long-faced man in a suit and patterned tie, standing against a brick wall.](/images/reviews/in-the-mouth-of-madness/h-p-lovecraft-in-brooklyn-1931.webp 'margin: H. P. Lovecraft in Brooklyn, 1931. Wikimedia Commons, public domain.')
+
 This is the best adaptation of Lovecraftian horror ever committed to film?

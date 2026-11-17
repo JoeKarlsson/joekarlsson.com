@@ -35,6 +35,8 @@ marginNotes:
     term: 'Word error rate'
 ---
 
+![A long black and white theater spotlight on a stand against a brick wall.](/images/blog/followspot-local-whisper-teleprompter/a-follow-spot-the-stage-light.webp 'margin: A follow spot, the stage light aimed to track one performer. Wikimedia Commons, public domain.')
+
 I have the energy of a theater kid and I can't memorize lines. I'm pretty sure something is wrong with my brain. (If anyone knows if this is a real medical disorder, please let me know). I can write a paragraph, read it twice, and lose it by the time the camera is rolling. It's the reason I never had the guts to do theater.
 
 Public speaking worked out anyway. In [DevRel](/blog/running-devrel/) I mostly talk about things I built, so there's nothing to memorize. I just explain the cool thing I'm working on.

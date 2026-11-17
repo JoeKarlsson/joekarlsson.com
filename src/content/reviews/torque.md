@@ -17,6 +17,19 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/torque/'
 poster: '/images/reviews/torque/poster.webp'
 heroImage: '/images/reviews/torque/backdrop.webp'
 heroAlt: 'Martin Henderson in a racing suit reading "Carpe Diem" stands with other riders and their motorcycles.'
+marginNotes:
+  - type: aside
+    at: dunks on Fast and Furious
+    text: Neal H. Moritz, who produced The Fast and the Furious, also produced this.
+    url: https://en.wikipedia.org/wiki/Torque_(film)
+  - type: aside
+    at: looks like an early 2000s music video
+    text: It was Joseph Kahn's first feature. He'd won a Grammy for directing Eminem's "Without Me" video.
+    url: https://en.wikipedia.org/wiki/Joseph_Kahn_(director)
+  - type: see
+    at: Adam Scott showing up was a complete surprise
+    text: 'Adam Scott as a jerk 22 years later: my review of Hokum.'
+    post: reviews/hokum
 ---
 
 Wild that this movie dunks on Fast and Furious while being the same thing but with motorcycles. I wanted to absolutely love this movie. It kind of worked for me - just not as well as I hoped.

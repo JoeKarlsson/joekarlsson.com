@@ -35,6 +35,8 @@ I appreciate the personal connection the director and writer had with his own pa
 
 The whole thing felt like a modern Blumhouse production - filmed exclusively inside one house, never going outside, very contained. Which can work. But I needed a stronger hook. I kept thinking this might have worked better as an actual podcast miniseries. The movie is about audio - creepy sounds, recording, listening - but film is a visual medium. You need something more to justify the format.
 
+![A young woman in headphones talks into a podcast microphone on a boom arm, a lamp glowing behind her in a dim room.](/images/reviews/undertone-2025/the-host-recording-the-podcast-at.webp "margin: The host recording the podcast at home, in A24's trailer.")
+
 As an avid podcast listener, I was also befuddled by the structure of the podcast at the center of this. These two hosts recording in short 10-minute bursts, barely describing what they're seeing or hearing, no real dynamic between them. I can buy that a podcast investigating creepy audio could pop off, but this is a very boring podcast in actuality.
 
 I don't know. Maybe it just wasn't for me.

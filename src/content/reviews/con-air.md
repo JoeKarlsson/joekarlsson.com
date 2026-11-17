@@ -25,6 +25,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/con-air/'
 poster: '/images/reviews/con-air/poster.webp'
 heroImage: '/images/reviews/con-air/backdrop.webp'
 heroAlt: 'John Cusack, Nicolas Cage in a sweaty tank top and John Malkovich standing in front of a wall of flames.'
+marginNotes:
+  - type: aside
+    at: I don't think it's good.
+    text: 'The Academy found two things to like: it was nominated for Best Sound and for Best Original Song, "How Do I Live".'
+    url: https://en.wikipedia.org/wiki/Con_Air
 ---
 
 I've been on an absolute Jerry Bruckheimer tear the last couple weeks, and after binging his entire catalog consecutively, the formula is crystal clear: you need a kind, weird, misunderstood white guy who gets prosecuted and becomes the underdog.
@@ -40,6 +45,8 @@ These movies have an air of sexism and racism that they absolutely think they do
 ![Convicts in blue prison shirts and one in an orange jumpsuit roaming the cargo hold among the rows of seats, Dave Chappelle standing in the middle with a clipboard.](/images/reviews/con-air/convicts-loose-in-the-cargo-hold.webp)
 
 Does it feel like copaganda and military propaganda? Absolutely. Do I still love how stupid this movie is? Also absolutely.
+
+![A gray propeller plane flies low just above a giant neon Hard Rock guitar sign against a dusk sky.](/images/reviews/con-air/the-jailbird-comes-in-low-over.webp 'margin: The Jailbird comes in low over the Hard Rock sign in Las Vegas.')
 
 Revisiting 90s action cinema hits different now. You can see all the seams in the filmmaking that were invisible as a kid, but the practical stunt work still rules and real explosions remain the best special effect anyone can have.
 

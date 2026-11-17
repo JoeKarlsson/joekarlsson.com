@@ -22,6 +22,15 @@ updatedDate: 2026-11-17
 corrections:
   - date: 2026-11-17
     note: "I said it was banned in various countries. The ban I can source is South Korea's, lifted in 2009."
+marginNotes:
+  - type: aside
+    at: a scruffy, semi-improvised love letter
+    text: Mitchell cast it from an online open call, about 500 audition tapes, then built the characters and story with the cast over two and a half years of improvisation workshops before writing the script.
+    url: https://en.wikipedia.org/wiki/Shortbus
+  - type: see
+    at: nobody pays in blood for the pleasure they chase
+    text: The pattern I keep looking for. The Handmaiden is the other big one.
+    post: reviews/the-handmaiden
 ---
 
 The most 2006 thing about this film is when the Twee Marching Band shows up to the orgy.

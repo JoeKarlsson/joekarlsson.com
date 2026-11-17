@@ -25,6 +25,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bugonia/'
 poster: '/images/reviews/bugonia/poster.webp'
 heroImage: '/images/reviews/bugonia/backdrop.webp'
 heroAlt: 'Emma Stone in a dark suit walking through a glass-walled open-plan office.'
+marginNotes:
+  - type: aside
+    at: This was a home run for me.
+    text: It's an English-language remake of Jang Joon-hwan's 2003 South Korean film Save the Green Planet!
+    url: https://en.wikipedia.org/wiki/Bugonia_(film)
+  - type: see
+    at: especially with Lanthimos
+    text: 'Stone and Plemons with Lanthimos the year before: Kinds of Kindness.'
+    post: reviews/kinds-of-kindness
 ---
 
 The scariest thing in Bugonia is realizing the paranoid people might have a point.
@@ -45,5 +54,7 @@ This is a bleak film, but I think it stays true to the moment and works perfectl
 I'm loving Emma Stone's turn in her 30s to playing horrible, prickly characters. She's taking incredible risks with these performances, and I would genuinely contend she is the best actor of our generation. The choices she's making - especially with Lanthimos - are bold and fascinating. I cannot wait to see what she does next.
 
 I'm curious to see if this breaks out commercially like Lanthimos' last couple movies with Poor Things and The Favourite. I'm not sure it will - the subject matter is darker and more challenging - but it is more palatable than something like Eddington, so maybe it has a shot.
+
+![A gaunt man in a cap and worn jacket and a curly-haired young man walk bicycles across a strip-mall parking lot.](/images/reviews/bugonia/jesse-plemons-as-teddy-with-aidan.webp 'margin: Jesse Plemons as Teddy, with Aidan Delbis as Don.')
 
 I'm also so excited to see my favorite working character actor Jesse Plemons finally get a successful lead performance in a film, and he absolutely crushes it. He's been doing incredible supporting work for years, and watching him carry a film this complex is thrilling.

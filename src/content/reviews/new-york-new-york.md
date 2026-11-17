@@ -25,9 +25,16 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/new-york-new-york/'
 poster: '/images/reviews/new-york-new-york/poster.webp'
 heroImage: '/images/reviews/new-york-new-york/backdrop.webp'
 heroAlt: 'Robert De Niro and Liza Minnelli in an embrace, lit in pale yellow.'
+marginNotes:
+  - type: aside
+    at: those last forty minutes of songs genuinely take off
+    text: 'The title song flopped as a single at #104. Frank Sinatra covered it two years later, and in 1980 it became his last Top 40 hit.'
+    url: https://en.wikipedia.org/wiki/New_York,_New_York_(1977_film)
 ---
 
 A gorgeous musical that's secretly a horror movie about a monster, and Scorsese has the nerve to stage all of it in blinding Technicolor daylight.
+
+![Robert De Niro in a loud tropical shirt leans in close to Liza Minnelli in a WAC uniform cap at a crowded party.](/images/reviews/new-york-new-york/jimmy-corners-francine-at-the-vj.webp 'margin: Jimmy corners Francine at the V-J Day party.')
 
 Watching 70s movies, I always struggle to calibrate the men. What was the audience meant to find charming, and what did the filmmaker already know was rot. For the first long stretch of this I honestly couldn't tell. De Niro's Jimmy corners Francine at a V-J Day party and simply will not leave her alone, and the meet-cute grinds on so long and so uncomfortably that I kept waiting for a signal on how to feel. Then it clicked. There is no cute. He doesn't charm his way in, he forces it, she tells him no over and over, and by the end Scorsese has made it unmistakable that Jimmy is an abusive, sociopathic monster.
 
@@ -37,6 +44,8 @@ Scorsese takes a story any other director would drown in noir shadow and stages 
 _The soundstage New York._
 
 De Niro is terrifying in a way he rarely is. Not the explosive Travis Bickle register, something quieter and more sociopathic, a simmer. I spent the whole film scanning his face trying to read him, whether he was being supportive or whether there was rage and jealousy coiling underneath, and the answer was almost always the worse one. Knowing he improvised most of that menace off no real script somehow makes it scarier.
+
+![Liza Minnelli in a red blouse sings into a vintage microphone, one arm raised, an orchestra behind her.](/images/reviews/new-york-new-york/liza-minnelli-on-stage-singing-in.webp 'margin: Liza Minnelli on stage, singing in red.')
 
 Liza Minnelli is extraordinary. Cute as a button, singing like a goddamn rock star, and then quietly devastating in how well she plays cowering fear. The best scene in the movie is when Francine is handed a major-label offer and spends the entire time not celebrating but watching Jimmy, reading his rising contempt, trying to shrink herself small enough to keep him calm. It is infuriating to watch a woman with that much talent make herself that little, and the film knows exactly how infuriating it is.
 

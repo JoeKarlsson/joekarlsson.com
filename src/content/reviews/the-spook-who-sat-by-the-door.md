@@ -17,6 +17,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-spook-who-sat-by-the
 poster: '/images/reviews/the-spook-who-sat-by-the-door/poster.webp'
 heroImage: '/images/reviews/the-spook-who-sat-by-the-door/backdrop.webp'
 heroAlt: 'A man in a denim jacket holding a cue at a pool table while another man lines up a shot.'
+marginNotes:
+  - type: aside
+    at: why it was suppressed for decades
+    text: It was pulled from theaters soon after release. Actor Tim Reid later found a surviving negative stored in a vault under a different title, which led to the 2004 DVD.
+    url: https://en.wikipedia.org/wiki/The_Spook_Who_Sat_by_the_Door_(film)
 ---
 
 Watched this as prep for [One Battle After Another](/reviews/one-battle-after-another/) and haven't gotten there yet, but The Spook Who Sat by the Door got me completely energized. It's astonishing how revolutionary this still feels, and crystal clear why it was suppressed for decades.

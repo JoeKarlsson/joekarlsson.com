@@ -26,11 +26,21 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/practical-magic-2/'
 poster: '/images/reviews/practical-magic-2/poster.webp'
 heroImage: '/images/reviews/practical-magic-2/backdrop.webp'
 heroAlt: 'Nicole Kidman holding a black cat in a greenhouse full of plants and candles.'
+marginNotes:
+  - type: term
+    at: In Alice Hoffman's books
+    text: Practical Magic (1995) started it; this sequel adapts The Book of Magic (2021), the last book in the series.
+  - type: see
+    at: wherever they shoot the sheep detective
+    text: That would be The Sheep Detectives.
+    post: reviews/the-sheep-detectives
 ---
 
 A gorgeously messy nostalgia romp that's secretly about a repressed mother handing her armor down to her daughters, with margaritas.
 
 A quarter-century after a movie that flopped and then quietly became a cult object, the Owens sisters are back, and the sequel around them is a bit of a mess. Overstuffed, a good forty minutes too long, the kind of movie that ends and then keeps ending. But I can't write around what actually made my night. I caught it opening weekend in a room full of older women drinking margaritas and losing it for the girlies, and that energy carried a lot of the slack. Some movies you can't separate from the room you saw them in, and this was a great room.
+
+![Nicole Kidman with long red hair and Sandra Bullock with dark hair, standing side by side in a dim kitchen.](/images/reviews/practical-magic-2/kidman-and-bullock-sisters-again.webp 'margin: Kidman and Bullock, sisters again.')
 
 What works, better than the plot deserves, is Nicole Kidman and Sandra Bullock, both visibly having a blast. Their real warmth does the heavy lifting the script won't. You buy them as sisters because the two of them clearly adore each other, and that ease is the closest the film gets to the loose magic of the original.
 
@@ -42,6 +52,8 @@ _Sally, at dinner with Lee Pace._
 That's the part that got me, and it got me somewhere personal. This is a story about a woman so terrified of causing pain that she goes numb, then hands the numbness down to her kids like it's protection. It reminded me of my mom. It reminded me of my whole family, honestly. And it reminded me of where I am right now, because I've spent this last stretch of my life finally understanding my own repressed feelings, the quiet damage that shutting down did to me and to the people near me, and slowly letting myself feel things again. The joy that's come flooding back has genuinely felt like magic switching back on. Watching Sally is watching the version of that story where nobody ever opens the door, where the armor just gets passed to the next kid, still warm.
 
 Which is exactly why I cannot let go of the thing Sally does, or rather doesn't do. She never tells her adult daughters about the curse. These are grown women. One's almost through med school. They've moved out. And she is sitting on literally life-or-death family information and just, not saying it. There is blood on this woman's hands and I want her held accountable. Tell your adult children the deadly news, Sally. Are you kidding me. Her silence is repression escalated into negligence, the same instinct that sealed off her own heart now aimed at her kids. That should be the darkest, richest thing in the movie. Instead it flinches, wanting the warm hangout and the life-or-death stakes at once, and shrugs the horror off in time for a toast.
+
+![Maisie Williams in blue scrubs beside a patient on a ventilator, monitors glowing.](/images/reviews/practical-magic-2/maisie-williams-stuck-in-the-hospital.webp 'margin: Maisie Williams, stuck in the hospital.')
 
 The rest is standard sequel debris. Joey King and Maisie Williams are playing Bullock's daughters and the resemblance is, generously, nonexistent, so I spent a while doing casting math that never resolved. Maisie's American accent is fine, not great but fine, and she gets marooned in a hospital room for half the film, which should be a crime. The big showdown looks like every actor was beamed in from their own separate soundstage. That England set had the exact budget-fantasy sheen of wherever they shoot the sheep detective. And, said gently, these are stunning and gifted women, and I still kept getting yanked out of scenes by the frozen, over-smoothed surface of it all.
 

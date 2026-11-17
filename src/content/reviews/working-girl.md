@@ -25,6 +25,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/working-girl/'
 poster: '/images/reviews/working-girl/poster.webp'
 heroImage: '/images/reviews/working-girl/backdrop.webp'
 heroAlt: 'Harrison Ford, Melanie Griffith and Sigourney Weaver posing together in an office.'
+marginNotes:
+  - type: aside
+    at: I can't believe it was nominated for Best Picture
+    text: 'Six nominations in all. It won one: Best Original Song, for Carly Simon''s "Let the River Run".'
+    url: https://en.wikipedia.org/wiki/Working_Girl
 ---
 
 Working Girl is a cute 80s romance with a supremely hot Harrison Ford, and ||its "happy ending" ends with Melanie Griffith alone in an office||.
@@ -32,6 +37,8 @@ Working Girl is a cute 80s romance with a supremely hot Harrison Ford, and ||its
 On paper it is one, and I was so happy for Tess. ||She finally gets her dream job, she gets to tell Sigourney Weaver to get her bony ass out of her sight, and she gets her man||. It's a compelling movie, too. It's also such a time capsule of the 80s, and I can't believe it was nominated for Best Picture.
 
 Can a woman have everything? The answer in this movie is yes. It's such a boomer feminist film, made at the height of the 80s mergers and acquisitions girlboss era, when winning meant getting out of the secretary pool, not changing it. Griffith's Tess is a Staten Island secretary with a night-school degree and better ideas than the people she fetches coffee for, and the movie is on her side the whole way.
+
+![Harrison Ford, shirtless, swings a white shirt in an office while women watch through the blinds behind him.](/images/reviews/working-girl/jack-changes-shirts-in-front-of.webp 'margin: Jack changes shirts in front of the bullpen.')
 
 The most fun anyone has in this movie happens out on that floor. The scene I laughed out loud at is a room full of secretaries watching Harrison Ford change his shirt in the office and cheering for him. It's so funny.
 

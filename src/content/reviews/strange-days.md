@@ -25,6 +25,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/strange-days/'
 poster: '/images/reviews/strange-days/poster.webp'
 heroImage: '/images/reviews/strange-days/backdrop.webp'
 heroAlt: 'Angela Bassett holding up a wounded Ralph Fiennes in front of a painted sign reading "Open 10".'
+marginNotes:
+  - type: aside
+    at: where that Fatboy slim sample from
+    text: It's Angela Bassett's voice. Fatboy Slim put her line on the single in April 1999, four years after the film.
+    url: https://en.wikipedia.org/wiki/Right_Here,_Right_Now_(Fatboy_Slim_song)
 ---
 
 Now I understand where that Fatboy slim sample from “Right here, right now” comes from!!

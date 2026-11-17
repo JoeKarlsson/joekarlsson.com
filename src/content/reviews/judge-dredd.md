@@ -25,7 +25,14 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/judge-dredd/'
 poster: '/images/reviews/judge-dredd/poster.webp'
 heroImage: '/images/reviews/judge-dredd/backdrop.webp'
 heroAlt: 'Sylvester Stallone in a red-and-black helmet and gold eagle shoulder armor, raising a large pistol.'
+marginNotes:
+  - type: see
+    at: Give me more dystopian cityscapes
+    text: 'That movie got made in 2012: my review of Dredd.'
+    post: reviews/dredd
 ---
+
+![Close-up of Sylvester Stallone in Judge Dredd's red-and-black helmet, the visor hiding his eyes and his jutting chin below it.](/images/reviews/judge-dredd/stallones-chin-under-the-judge-helmet.webp "margin: Stallone's chin under the Judge helmet, in the original trailer.")
 
 The production design is incredible, and Sly has an absolutely killer chin. I completely get the casting decision. He looks perfect for this.
 

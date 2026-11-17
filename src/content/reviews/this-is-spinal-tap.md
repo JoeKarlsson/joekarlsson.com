@@ -25,6 +25,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/this-is-spinal-tap/'
 poster: '/images/reviews/this-is-spinal-tap/poster.webp'
 heroImage: '/images/reviews/this-is-spinal-tap/backdrop.webp'
 heroAlt: 'Harry Shearer, Michael McKean and Christopher Guest as a heavy metal band posed under lightning.'
+marginNotes:
+  - type: see
+    at: a ton of Christopher Guest movies
+    text: 'Another one from the same Guest binge: my Waiting for Guffman review.'
+    post: reviews/waiting-for-guffman
 ---
 
 Been rewatching a ton of Christopher Guest movies recently. I LOVED this movie when i was in HS and today i see the influence on the Guitar Hero franchise. 🎸

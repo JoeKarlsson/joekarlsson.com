@@ -25,6 +25,23 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mean-streets/'
 poster: '/images/reviews/mean-streets/poster.webp'
 heroImage: '/images/reviews/mean-streets/backdrop.webp'
 heroAlt: 'Robert De Niro in a leather jacket grinning beside a man smoking a cigarette in a dim, red-lit bar.'
+marginNotes:
+  - type: aside
+    at: This is only his third feature
+    text: After Who's That Knocking at My Door (1967) and Boxcar Bertha (1972).
+    url: https://en.wikipedia.org/wiki/Mean_Streets
+  - type: aside
+    at: mostly in LA faking Little Italy
+    text: It cost $650,000; most interiors were shot in Los Angeles, with seven days of location shooting in New York.
+    url: https://en.wikipedia.org/wiki/Mean_Streets
+  - type: aside
+    at: half invented on the spot
+    text: The trash-can fight and the talk behind the bar between Keitel and De Niro were 'completely improvised by the actors.'
+    url: https://en.wikipedia.org/wiki/Mean_Streets
+  - type: see
+    at: the partnership that carried Scorsese
+    text: 'Where the partnership peaked: my Casino review.'
+    post: reviews/casino
 ---
 
 Johnny Boy struts into the bar in slow motion and cinema never fully recovers.

@@ -26,6 +26,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/fargo/1/'
 poster: '/images/reviews/fargo-1/poster.webp'
 heroImage: '/images/reviews/fargo-1/backdrop.webp'
 heroAlt: 'Frances McDormand in a fur police hat and parka, aiming a pistol in snowy woods beside a frozen lake.'
+marginNotes:
+  - type: see
+    at: a bunch of Minnesotans
+    text: 'The folk legend Fargo started: my review of Kumiko, the Treasure Hunter.'
+    post: reviews/kumiko-the-treasure-hunter
 ---
 
 Watch this in a local dive bar in the middle of January with a bunch of Minnesotans. This played like gangbusters.

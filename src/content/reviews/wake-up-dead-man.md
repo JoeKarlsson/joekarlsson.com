@@ -19,4 +19,6 @@ heroImage: '/images/reviews/wake-up-dead-man/backdrop.webp'
 heroAlt: "Josh O'Connor and Daniel Craig sitting in the front seat of a car at night."
 ---
 
+![A dark-haired young priest in a white collar and green vestments stands under a tree in a churchyard.](/images/reviews/wake-up-dead-man/josh-oconnor-the-new-hot-priest.webp "margin: Josh O'Connor, the new hot priest, in green vestments.")
+
 Features the hot priest from Fleabag along with a brand new hot priest. That's incredible hot priest value!

@@ -34,6 +34,8 @@ The combination is a process we data junkies like to call “enrichment.” When
 
 But how can you, as a developer, make this dream team a reality? By using a [real-time data platform](https://www.tinybird.co/product?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=streams-and-warehouses), that’s how.
 
+![A tall green trade show sign reading Build real-time data products. Fast., above a monitor showing a demo on a white counter.](/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/tinybirds-booth-at-aws-reinvent-november.webp "margin: Tinybird's booth at AWS re:Invent, November 2023.")
+
 Real-time data platforms (like [Tinybird](https://www.tinybird.co?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=streams-and-warehouses)) allow you to easily connect many data sources, handle [huge amounts of data](https://roadmap.sh/guides/scaling-databases) at top speeds and still manage to keep things simple when building real-time applications. With Tinybird, for example, you get the ease of SQL with the power of a [highly optimized query engine](https://thenewstack.io/why-clickhouse-should-be-your-next-database/) at your disposal.
 
 ## **Use Cases Combining a Data Warehouse with Data Streams**

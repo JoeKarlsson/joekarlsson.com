@@ -18,6 +18,15 @@ updatedDate: 2026-11-17
 corrections:
   - date: 2026-11-17
     note: "I called Seattle the WTO's first meeting. It was its third ministerial conference; the first was in Singapore in 1996."
+marginNotes:
+  - type: aside
+    at: over the four days of protest
+    text: November 30 to December 3, 1999. At least 40,000 people protested; the mayor declared a 50-block no-protest zone and the governor called in two battalions of National Guard.
+    url: https://en.wikipedia.org/wiki/1999_Seattle_WTO_protests
+  - type: see
+    at: After the murder of George Floyd in 2020
+    text: 'Where I was in 2020, and the movie that made me feel hopeful about it: One Battle After Another.'
+    post: reviews/one-battle-after-another
 ---
 
 A document about a turning point in American politics and protest culture. If you want to understand how we got here, start in Seattle in 1999.

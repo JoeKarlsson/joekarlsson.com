@@ -26,11 +26,28 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/haxan/'
 poster: '/images/reviews/haxan/poster.webp'
 heroImage: '/images/reviews/haxan/backdrop.webp'
 heroAlt: 'A black-and-white tableau of a hooded old woman stirring a cauldron beside clay jugs.'
+marginNotes:
+  - type: aside
+    at: my go to Halloween party vibes movie
+    text: There's also a 1968 cut, Witchcraft Through the Ages, narrated by William S. Burroughs with a jazz score featuring Jean-Luc Ponty on violin.
+    url: https://en.wikipedia.org/wiki/H%C3%A4xan
+  - type: aside
+    at: a model of hell
+    text: At nearly two million Swedish kronor it was the most expensive Scandinavian silent film made up to then.
+    url: https://en.wikipedia.org/wiki/H%C3%A4xan
+  - type: see
+    at: Seeing it so soon after The Devils
+    text: "The other horny-nun movies I've been working through: The Little Hours has the full list."
+    post: reviews/the-little-hours
 ---
 
 I've used Häxan as my go to Halloween party vibes movie for years, and it turns out it's a proto-documentary lecture.
 
+![In black and white, a horned, grinning devil figure churns a wooden butter churn in a dark, gnarled grotto.](/images/reviews/haxan/christensen-himself-playing-the-devil-wikimedia.webp 'margin: Christensen himself, playing the Devil. Wikimedia Commons, CC0.')
+
 A seven-part lecture, actually, on the history of witches, delivered by the Danish director Benjamin Christensen in 1922 with woodcuts, paintings and a model of hell. I'd never sat down with it properly until last night at the Parkway Theater, on 35mm with a live band, right after I saw the 4K re-release of Ken Russell's [The Devils](/reviews/the-devils/). I didn't plan the double feature, but it was a great one. Häxan is basically a proto-documentary, and it's always so fun watching early filmmakers figure out how to structure a story before the rules set.
+
+![In black and white, two women, one young and one old, scream as they are held behind a wooden restraint.](/images/reviews/haxan/two-accused-women-in-the-stocks.webp 'margin: Two accused women in the stocks. Wikimedia Commons, CC0.')
 
 Häxan wants to be on the side of the women it's about, and for six chapters it is. The men are the problem here: inquisitors, torturers, monks, a church that runs on accusations. The women are the victims, and the film is clear about that.
 

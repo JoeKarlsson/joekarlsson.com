@@ -27,6 +27,8 @@ heroImage: '/images/reviews/wolf/backdrop.webp'
 heroAlt: 'Jack Nicholson snarling as he grips the bars of a cell.'
 ---
 
+![James Spader with fangs and a furry face screams while a hairy hand grips his shoulder.](/images/reviews/wolf/spader-and-nicholson-wolfed-out-in.webp 'margin: Spader and Nicholson, wolfed out, in the stable.')
+
 James Spader and Jack Nicholson fight under a full moon in slow motion while Ennio Morricone plays saxophone. Such a wildly unintentionally funny movie.
 
 I never thought I’d see Jack Nicholson peon James Spader, but here we are.

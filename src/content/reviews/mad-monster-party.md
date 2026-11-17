@@ -17,9 +17,20 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mad-monster-party/'
 poster: '/images/reviews/mad-monster-party/poster.webp'
 heroImage: '/images/reviews/mad-monster-party/backdrop.webp'
 heroAlt: 'A stop-motion puppet of an old scientist talking with a red-haired puppet woman holding papers in a gray lab.'
+marginNotes:
+  - type: aside
+    at: The Rankin/Bass stop-motion work
+    text: Rankin/Bass called the process Animagic. Mad magazine's Harvey Kurtzman co-wrote the script, and Boris Karloff voiced the Baron, one of his last jobs.
+    url: https://en.wikipedia.org/wiki/Mad_Monster_Party%3F
+  - type: see
+    at: creaky old-fashioned approach to monster comedy
+    text: "Karloff's monster in its prime: my review of Bride of Frankenstein."
+    post: reviews/bride-of-frankenstein
 ---
 
 I couldn't believe ||this movie ended with a nuclear holocaust on an escaped zoo animal||, but it really did. What a choice.
+
+![Four skeleton puppets with red mop-top wigs play guitars and drums on a small stage before a blue curtain.](/images/reviews/mad-monster-party/the-skeleton-rock-band-all-stopmotion.webp 'margin: The skeleton rock band, all stop-motion puppets.')
 
 This is basically [Hotel Transylvania](/reviews/hotel-transylvania/) but without Adam Sandler, with worse jokes, moving much slower, and featuring incredible stop-motion animation instead of CGI. The Rankin/Bass stop-motion work is genuinely impressive - you can feel the craftsmanship in every frame. These puppets have so much character and the animation holds up remarkably well for 1967.
 

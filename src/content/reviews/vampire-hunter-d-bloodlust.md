@@ -28,6 +28,8 @@ heroImage: '/images/reviews/vampire-hunter-d-bloodlust/backdrop.webp'
 heroAlt: 'An animated hunter in a wide hat and long cloak standing beside a dark horse at night.'
 ---
 
+![An anime vampire hunter with long dark hair and a wide-brimmed hat, a full moon behind him.](/images/reviews/vampire-hunter-d-bloodlust/d-under-his-wide-hat-against.webp 'margin: D, under his wide hat, against the moon.')
+
 Boy, they sure don't make them like they used to. This film is simply gorgeous. Gothic, bloody violent, dark, elegant, and well animated. I gotta say, I love the cyberpunk goth aesthetic.
 
 If you're hosting a Halloween dance party and you don't have this movie on in the background on mute, you've surely messed up this year.

@@ -21,4 +21,6 @@ heroAlt: 'Jeffrey Hunter and John Wayne standing with their horses among the red
 
 Jesus. The Searchers is mega relevant today and difficult to watch. John Wayne's deep and terrible racism still resonates today.
 
+![Red sandstone buttes rise from a flat desert valley under a wide blue sky at golden hour, a dirt road winding through the foreground.](/images/reviews/the-searchers/monument-valley-where-ford-shot-the.webp 'margin: Monument Valley, where Ford shot The Searchers. Wikimedia Commons, CC0.')
+
 And wowza, John Ford really is an amazing director. His shots of Monument Valley are truly iconic. 🤩

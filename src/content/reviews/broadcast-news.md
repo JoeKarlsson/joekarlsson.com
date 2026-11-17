@@ -19,6 +19,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/broadcast-news/'
 poster: '/images/reviews/broadcast-news/poster.webp'
 heroImage: '/images/reviews/broadcast-news/backdrop.webp'
 heroAlt: 'Reporters gathered around desks in a cluttered TV newsroom under a "WASHINGTON" sign.'
+marginNotes:
+  - type: see
+    at: I know it was nominated for Best Picture
+    text: "Brooks's earlier film did win it: my review of Terms of Endearment."
+    post: reviews/terms-of-endearment
 ---
 
 I feel like I'm missing something with this movie. I know it was nominated for Best Picture. I know everyone loves it, but I just couldn't get on the same wavelength as this movie. It feels like a boomer movie, but I get how it's ahead of its time, and I still relate to the vulnerabilities of these hard-working, extremely smart people

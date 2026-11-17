@@ -31,6 +31,8 @@ This project was born when my sister reached out to me for advice on a few ide
 
 ## How It Works
 
+![A typed screenplay page in Courier: the scene heading EXT. TROIA - NOX, action lines, and character names like AENEAS centered in capitals above indented lines of dialogue.](/images/blog/bechdel-test-script-parser-works/a-page-in-standard-screenplay-format.webp 'margin: A page in standard screenplay format. Wikimedia Commons, public domain.')
+
 Screenplays are close to ideal material for a computer. Character names are in capitals, dialogue is indented, and the rest of the format follows strict conventions, so a program can work out who is on the page and when. [Eric Hoyt, Kevin Ponto and Carrie Roy](https://dhq.digitalhumanities.org/vol/8/4/000190/000190.html 'cite: Hoyt, Ponto, and Roy, 2014') make this case in their paper on ScripThreads, their screenplay visualization tool. Coupled with massive online movie databases, we can parse through movie scripts and collect insights on a level not yet seen before. In this blog post, I introduce our new web app, Bechdel Test Visualizer. It parses screenplays, puts out gender statistics you can analyze, and draws them as four different kinds of visualization. In this analysis, my sister and I use the Bechdel Test Visualizer to analyze the 2014 Oscar Best Picture Nominees.
 
 ## Building Process
@@ -44,6 +46,8 @@ Years later I came back to the same idea with Punc, which strips the words out o
 ## Parsing Method
 
 The Bechdel Test Visualizer is a web application built entirely using JavaScript and Node.js. This tool uses a combination of online databases manual script parsing in order to collect insights about a film.
+
+![A typed screenplay title page reading SKYFALL, screenplay by Neal Purvis and Robert Wade, revised by John Logan, under a list of colored revision dates.](/images/blog/bechdel-test-script-parser-works/skyfalls-shooting-script-title-page-wikimedia.webp "margin: Skyfall's shooting script title page. Wikimedia Commons, public domain.")
 
 First, the script finds the title of the film, this is generally on the first page, and for the prototype, it is required to be the first line of text in the text file. Once the title of the film has been identified, I make an API call out to [myapifilms.com](https://www.myapifilms.com/). From here, I can collect general information about the film, such as genre, release year, runtime, etc. But the most important information comes from collecting information about the actors and actresses in the film. Using this API, I can collect a list of all of the actors and actresses, their characters’ names in the film, and what gender they are. The character’s gender is the most important bit of information I can collect since it is essential when trying to determine if a scene passes the Bechdel test or not.
 

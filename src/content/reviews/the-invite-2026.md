@@ -17,11 +17,25 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-invite-2026/'
 poster: '/images/reviews/the-invite-2026/poster.webp'
 heroImage: '/images/reviews/the-invite-2026/backdrop.webp'
 heroAlt: 'Two women at a dinner table, one blonde with a wine glass, the other staring wide-eyed.'
+marginNotes:
+  - type: aside
+    at: since Vicky Cristina Barcelona
+    text: It won her the Oscar for Best Supporting Actress.
+    url: https://en.wikipedia.org/wiki/Vicky_Cristina_Barcelona
+  - type: term
+    at: Esther Perel by way of a TED talk
+    text: Belgian psychotherapist, author of Mating in Captivity (2006), whose TED talks on desire and infidelity made her the public face of the topic.
+  - type: aside
+    at: Cesc Gay's The People Upstairs
+    text: Sentimental (2020) in Spanish, which Gay wrote and directed from his own play, Els veïns de dalt.
+    url: https://en.wikipedia.org/wiki/The_People_Upstairs_(2020_film)
 ---
 
 Most people watch this and see themselves in Seth Rogen. I watched it and wanted to move in upstairs.
 
 Most reviews of this will come from the dinner table, from the anxious couple downstairs. I watched it from closer to the ceiling. Not because I've got any of this figured out, I really don't, but because the questions this movie asks are ones I've only recently started asking myself, and I'm still in the middle of them. So Hawk and Pína didn't read to me as a curiosity or a provocation. They read as a door I've just started standing in front of, unsure but looking.
+
+![A man in a black sweater and a blond woman in black sit side by side holding small glasses, mid-conversation.](/images/reviews/the-invite-2026/edward-norton-and-penlope-cruz-as.webp 'margin: Edward Norton and Penélope Cruz as Hawk and Pína.')
 
 Wilde refuses to play the sex for shock or the lifestyle for a laugh, and you don't know how rare that is until you've sat through the alternative. Hawk and Pína aren't the punchline. They're the ones walking in with the actual truths, about the compromises monogamy quietly asks you to swallow, about who you're really choosing to be. Even the woo-ish energy talk landed for me. I got it, because I've started saying it.
 

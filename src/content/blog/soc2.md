@@ -16,15 +16,19 @@ corrections:
   - date: 2026-11-16
     note: 'I wrote that SOC stands for Service Organization Control. The AICPA calls it System and Organization Controls.'
 marginNotes:
-  - type: 'quote'
-    at: 'System and Organization Controls 2'
-    text: 'System and Organization Controls (SOC) is a suite of service offerings CPAs may provide'
-    by: "The AICPA's own name for SOC"
-    url: 'https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2'
-  - type: 'term'
-    at: 'developed by the AICPA'
-    text: 'the American Institute of Certified Public Accountants. An independent CPA firm runs the SOC 2 audit against its criteria.'
-    term: 'AICPA'
+  - type: quote
+    at: System and Organization Controls 2
+    text: System and Organization Controls (SOC) is a suite of service offerings CPAs may provide
+    by: The AICPA's own name for SOC
+    url: https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2
+  - type: term
+    at: developed by the AICPA
+    text: the American Institute of Certified Public Accountants. An independent CPA firm runs the SOC 2 audit against its criteria.
+    term: AICPA
+  - type: see
+    at: Monitor and test the effectiveness of the controls
+    text: 'Mapping SOC 2 and CIS Controls to SQL: how I turned SOC 2 controls into SQL checks that run every day.'
+    post: cloud-operations-playbook-part-09-continuous-compliance-sql
 ---
 
 SOC2 (System and Organization Controls 2) compliance is a set of auditing standards that measures how well a company manages and protects its customers' data. The SOC2 compliance framework was developed by the AICPA to provide a standardized way to assess and report on a company's data security practices.

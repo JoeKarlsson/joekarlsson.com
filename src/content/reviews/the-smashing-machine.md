@@ -17,6 +17,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-smashing-machine/'
 poster: '/images/reviews/the-smashing-machine/poster.webp'
 heroImage: '/images/reviews/the-smashing-machine/backdrop.webp'
 heroAlt: 'Mark Kerr, shirtless and sweaty, wearing a gold medal under a string of lights.'
+marginNotes:
+  - type: see
+    at: I understand why Benny Safdie is turning this
+    text: It came out in October 2025 with Dwayne Johnson as Mark Kerr. My review of The Smashing Machine (2025).
+    post: reviews/the-smashing-machine-2025
 ---
 
 I have a major soft spot in my heart for early 2000s digital documentaries. You can tell the recording technology was not quite there yet, but it adds an intimacy and rawness to the footage that I deeply appreciate.

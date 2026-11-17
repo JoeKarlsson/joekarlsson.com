@@ -25,13 +25,26 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dances-with-wolves/'
 poster: '/images/reviews/dances-with-wolves/poster.webp'
 heroImage: '/images/reviews/dances-with-wolves/backdrop.webp'
 heroAlt: 'Kevin Costner in a cavalry uniform, holding an American flag on a pole.'
+marginNotes:
+  - type: aside
+    at: I watched the four-hour cut
+    text: The Special Edition adds 52 minutes. The theatrical cut won seven Oscars, including Best Picture and Best Director.
+    url: https://en.wikipedia.org/wiki/Dances_with_Wolves
+  - type: aside
+    at: the Native American performers themselves
+    text: Much of their dialogue is in Lakota, translated by Doris Leader Charge of Sinte Gleska University, who also coached the cast.
+    url: https://en.wikipedia.org/wiki/Dances_with_Wolves
 ---
 
 Kevin Costner’s empty-headed monotone reading of the frontier somehow works for me, and I’m as shocked as anyone.
 
 Look, I watched the four-hour cut of this for the first time. I love westerns and I know there are a lot of problems with this movie, but despite everything I’m about to say, I do like it. Costner’s voiceovers are delivered in complete monotone and his character is kind of dumb, but somehow his directing, performance, and the story still work for me.
 
+![A huge herd of bison runs through dust across a prairie, a rider on horseback at the edge.](/images/reviews/dances-with-wolves/the-buffalo-hunt-in-the-trailer.webp 'margin: The buffalo hunt, in the trailer.')
+
 Maybe it’s because this is such a beautiful film - the cinematography is stunning and the score is incredible. Or maybe it’s that there’s something about Costner’s specific wide-eyed stoic American energy that was necessary to make a movie like this work in 1990. He’s the only one who could’ve sold this particular version of the story, and whatever its flaws, it does ultimately make me feel absolutely terrible about how our relations with Native Americans ended up.
+
+![Close-up of Kevin Costner with long windblown hair and a mustache, gazing upward against a pink sky.](/images/reviews/dances-with-wolves/costner-as-john-dunbar-looking-up.webp 'margin: Costner as John Dunbar, looking up at a pink sky.')
 
 Here’s the thing about Costner in this: he’s very good at making himself look like a complete moron, which is impressive to pull off. But he’s also handsome - I get it now. I was genuinely inspired by his beauty in this film, and I finally understand the Kevin Costner appeal that eluded me before.
 

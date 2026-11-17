@@ -25,6 +25,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/ghost-in-the-shell/'
 poster: '/images/reviews/ghost-in-the-shell/poster.webp'
 heroImage: '/images/reviews/ghost-in-the-shell/backdrop.webp'
 heroAlt: 'An anime woman with short dark hair looking down over a city of tall towers glowing green at night.'
+marginNotes:
+  - type: aside
+    at: the neon-soaked cyberpunk future
+    text: The Wachowskis showed it to producer Joel Silver and said, "We wanna do that for real." The Matrix's digital rain and neck ports come from here.
+    url: https://en.wikipedia.org/wiki/Ghost_in_the_Shell_(1995_film)
+  - type: see
+    at: It's still beautiful
+    text: My review of The Matrix.
+    post: reviews/the-matrix
 ---
 
 A cyberpunk hellscape that felt like fiction. Now it's just news.

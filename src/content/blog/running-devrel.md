@@ -46,24 +46,32 @@ corrections:
   - date: 2026-11-16
     note: "I said FAQPage schema helps low-CTR posts recover. Since August 2023, Google only shows FAQ rich results for well-known government and health sites, so it won't change how a post looks in search."
 marginNotes:
-  - type: 'quote'
-    at: "says you don't need new machine-readable files"
-    text: "There's also no special schema.org structured data that you need to add."
-    by: "Google's AI features guidance, a sentence later"
-    url: 'https://developers.google.com/search/docs/appearance/ai-features'
-  - type: 'term'
-    at: 'ship a docs MCP server'
-    text: 'a small service that speaks the Model Context Protocol, so an agent like Claude Code can search and read your docs as a tool.'
-    term: 'MCP server'
-  - type: 'quote'
-    at: "though it's still labeled preview"
-    text: 'The MCP Registry is currently in preview. Breaking changes or data resets may occur before general availability.'
-    by: 'The MCP Registry docs'
-    url: 'https://modelcontextprotocol.io/registry/about'
-  - type: 'term'
-    at: 'keyword cannibalization between blog and docs'
-    text: 'two of your own pages competing for the same search query, so neither ranks as well as one page would.'
-    term: 'Keyword cannibalization'
+  - type: quote
+    at: says you don't need new machine-readable files
+    text: There's also no special schema.org structured data that you need to add.
+    by: Google's AI features guidance, a sentence later
+    url: https://developers.google.com/search/docs/appearance/ai-features
+  - type: term
+    at: ship a docs MCP server
+    text: a small service that speaks the Model Context Protocol, so an agent like Claude Code can search and read your docs as a tool.
+    term: MCP server
+  - type: quote
+    at: though it's still labeled preview
+    text: The MCP Registry is currently in preview. Breaking changes or data resets may occur before general availability.
+    by: The MCP Registry docs
+    url: https://modelcontextprotocol.io/registry/about
+  - type: term
+    at: keyword cannibalization between blog and docs
+    text: two of your own pages competing for the same search query, so neither ranks as well as one page would.
+    term: Keyword cannibalization
+  - type: term
+    at: Core Web Vitals on the docs site
+    term: Core Web Vitals
+    text: Google's three page-experience scores. How fast the main content shows up (LCP), how fast the page reacts to a tap or click (INP), and how much the layout jumps while loading (CLS).
+  - type: term
+    at: UTM and first-touch attribution from day one
+    term: UTM tags
+    text: extra parameters on a link (utm_source, utm_campaign) that tell your analytics which post, email or channel sent the visit.
 ---
 
 Most DevRel plans for the first 90 days come down to community, content, and events, with "developer experience" added if the author is sharp. That plan covers one of the three places developers find your tool. The other two are search crawlers and LLMs like Claude Code and Cursor, and in my experience that's where the damage is. I spend my first month auditing all three before I ship anything, and I measure each one differently.

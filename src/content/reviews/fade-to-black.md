@@ -25,6 +25,23 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/fade-to-black/'
 poster: '/images/reviews/fade-to-black/poster.webp'
 heroImage: '/images/reviews/fade-to-black/backdrop.webp'
 heroAlt: 'A row of overlapping faces that turns a young man into a mummy, a vampire and other classic movie monsters.'
+marginNotes:
+  - type: aside
+    at: made $15 million on a $1.8 million budget
+    text: It did better in France than in the US.
+    url: https://en.wikipedia.org/wiki/Fade_to_Black_(1980_film)
+  - type: aside
+    at: rights clearance for all those film clips
+    text: 'It already happened once: in December 1980 the owners of the Hopalong Cassidy films sued over the clips and asked to pull it from theaters.'
+    url: https://en.wikipedia.org/wiki/Fade_to_Black_(1980_film)
+  - type: aside
+    at: a Marilyn Monroe lookalike
+    text: Linda Kerridge, an Australian actress cast partly for the resemblance.
+    url: https://en.wikipedia.org/wiki/Fade_to_Black_(1980_film)
+  - type: see
+    at: a young Mickey Rourke
+    text: Rourke again, later, in Buffalo '66.
+    post: reviews/buffalo-66
 ---
 
 A film about a lonely movie nerd who snaps and goes on a killing spree dressed as classic Hollywood icons. I've never felt more seen. Minus the murders.

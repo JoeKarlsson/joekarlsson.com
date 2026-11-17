@@ -18,6 +18,11 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/viva/'
 poster: '/images/reviews/viva/poster.webp'
 heroImage: '/images/reviews/viva/backdrop.webp'
 heroAlt: 'A man in an orange shirt photographing a woman posing in a red, 1970s-style room hung with paintings.'
+marginNotes:
+  - type: aside
+    at: Barbi, Biller's suburban housewife
+    text: Viva is set in 1972 Los Angeles and premiered at the Rotterdam film festival in January 2007.
+    url: https://en.wikipedia.org/wiki/Viva_(2007_film)
 ---
 
 The women in my life have better taste than me. [Anna Biller](https://en.wikipedia.org/wiki/Anna_Biller) is exhibit A.

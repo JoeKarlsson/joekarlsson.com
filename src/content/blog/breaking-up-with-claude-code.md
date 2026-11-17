@@ -77,6 +77,8 @@ Also, since February 2026, Anthropic [restricts Claude subscriptions to its own 
 
 ## The gateway
 
+![A black open-frame server rack in an attic: a network switch and patch panel on top, a four-bay NAS, two rack servers and two UPS units at the bottom.](/images/blog/breaking-up-with-claude-code/the-attic-rack-the-gateway-runs.webp 'margin: The attic rack the gateway runs on, November 2026.')
+
 Everything that talks to a model in my house goes through one [LiteLLM](https://docs.litellm.ai/) gateway on my Proxmox cluster: OpenCode on my Mac, Home Assistant, my doorbell camera. Apps ask for a name like `cloud-coder` or `local-fast`, and the gateway decides which model that is today.
 
 ![Every app in my house that talks to a model, OpenCode, Home Assistant, the doorbell camera and others, goes through one LiteLLM gateway, which handles model names, fallbacks and budgets. The gateway sends cloud requests to OpenRouter (DeepSeek, GLM, Qwen) and local requests to small Qwen models on my homelab GPUs.](/images/blog/breaking-up-with-claude-code/gateway.svg)

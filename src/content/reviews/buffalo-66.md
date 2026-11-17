@@ -25,6 +25,23 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/buffalo-66/'
 poster: '/images/reviews/buffalo-66/poster.webp'
 heroImage: '/images/reviews/buffalo-66/backdrop.webp'
 heroAlt: "A still from Buffalo '66 (1998)"
+marginNotes:
+  - type: aside
+    at: particularly Christina Ricci
+    text: Gallo called Ricci a 'puppet' who did what she was told; she vowed never to work with him again.
+    url: https://en.wikipedia.org/wiki/Buffalo_%2766
+  - type: aside
+    at: The bowling alley tap dance scene is stunning
+    text: Ricci dances to King Crimson's 'Moonchild.'
+    url: https://en.wikipedia.org/wiki/Buffalo_%2766
+  - type: aside
+    at: Gallo's performance is incredible
+    text: He also directed it after Monte Hellman left, co-wrote it, and composed most of the score.
+    url: https://en.wikipedia.org/wiki/Buffalo_%2766
+  - type: see
+    at: I love Christina Ricci
+    text: Ricci in Mermaids, my review.
+    post: reviews/mermaids
 ---
 
 He's self-aware enough to write this character. Not self-aware enough to not become him.

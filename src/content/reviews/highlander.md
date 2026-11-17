@@ -26,6 +26,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/highlander/'
 poster: '/images/reviews/highlander/poster.webp'
 heroImage: '/images/reviews/highlander/backdrop.webp'
 heroAlt: 'Christopher Lambert in a plaid kilt sitting on rocks at the edge of a forest, holding a blonde woman in a white dress.'
+marginNotes:
+  - type: aside
+    at: The Queen music is a shot of adrenaline
+    text: Most of the songs ended up on Queen's 1986 album A Kind of Magic. Brian May wrote "Who Wants to Live Forever" after watching the love scenes between Connor and Heather.
+    url: https://en.wikipedia.org/wiki/Highlander_(film)
+  - type: aside
+    at: cast a Scottish person as an Egyptian Spaniard
+    text: Connery recorded his opening voiceover in the bathroom of his villa in Spain while working on a Spanish accent with a voice coach.
+    url: https://en.wikipedia.org/wiki/Highlander_(film)
 ---
 
 This was my first time ever watching Highlander, which honestly shocks me. I've known about it my entire life and just had zero interest until now.
@@ -48,6 +57,8 @@ Some of the special effects were incredible - the sparking swords, the hand-draw
 ![Connor standing with his arms flung wide in a dark warehouse, hand-drawn blue lightning bolts pouring down onto him and rings of light swirling on the floor.](/images/reviews/highlander/final-quickening.webp 'spoiler')
 
 This is also a deeply gay movie. It's very focused on male relationships, and the quickening really does feel like an orgasm. There are a lot of gay jokes throughout that don't land right - one character even drops the F-slur directly at Jon Polito, which made me feel absolutely terrible for that poor man. By the way, I love Jon Polito in whatever he's in. God bless him in this movie.
+
+![A shaved-head man with a stitched scar ringing his neck grins upward in a dim church.](/images/reviews/highlander/clancy-brown-as-the-kurgan-neck.webp 'margin: Clancy Brown as the Kurgan, neck stitches and all.')
 
 Also, did you know that Mr. Krabs is the villain? For real, look it up. Clancy Brown voices Mr. Krabs.
 

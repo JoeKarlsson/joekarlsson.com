@@ -21,6 +21,8 @@ marginNotes:
 
 I Ran My First Hackathon, and So Can You! Here are the lessons I learned from planning, organizing, and executing my first hackathon. The hackathon I ran was the [Stupid Shit and Terrible Ideas Hackathon](https://stupidshitnooneinhawaiineedshackathon.github.io/) in Honolulu, Hawaii.
 
+![Close-up of a young man's face in a dark room, his sunglasses reflecting two hands typing on a keyboard.](/images/blog/i-ran-my-first-hackathon-and-so-can-you/hackers-1995-dade-typing-reflected-in.webp 'margin: Hackers (1995): Dade typing, reflected in his sunglasses.')
+
 Okay, so first of all, what exactly is a hackathon? I find that when I tell people about hackathons, they assume I am hacking into some mainframe with my hack friends, like some scene out of Hackers.
 
 ### I define “**hackathon**” very broadly:
@@ -111,6 +113,8 @@ Okay, here are some guidelines for selecting food for your hackathon:
 
 I have a confession to make, I had pizza at my hackathon. I know, I know, I hate pizza at hackathons, but money was short, and pizza is the cheapest thing you can order for a large group of people.
 
+![A hand holding a Starbucks receipt from East Manoa Road, Honolulu, dated January 7, 2017, for three Coffee Travelers totaling $50.10.](/images/blog/i-ran-my-first-hackathon-and-so-can-you/breakfast-three-coffee-travelers-812-am.webp 'margin: Breakfast: three Coffee Travelers, 8:12 AM on hackathon day.')
+
 - You usually want halfway healthy food, right? Order food that you would actually eat if you weren’t at a hackathon.
 - Provide options for people with dietary restrictions. Something I did not do well at my hackathon was providing options for vegetarians, people with allergies, or people with other dietary restrictions. Be sure to have food for everyone.
 - Provide coffee and light pastries and/or fruit for breakfast.
@@ -199,6 +203,8 @@ If you want to attract a lot of people that are new to programming or if you ant
 Offer a variety of workshops to the public, with a variety of languages and topics. Marketing them as low-pressure workshops will help lower the barrier of entry many people feel when considering joining a hackathon.
 
 ### **Prizes**
+
+![A small glittery purple poop figure with cartoon eyes and a white unicorn horn, held out on an open palm in front of a bearded open mouth.](/images/blog/i-ran-my-first-hackathon-and-so-can-you/a-3dprinted-unicorn-poop-the-events.webp "margin: A 3D-printed unicorn poop, the event's mascot, Jan 2017.")
 
 I find that prizes can be a great way to market your event, but you need to be careful about the prizes you offer, as they can severely affect the mood of your event. For example, large cash prizes can make the event more competitive, which might turn off lots of inexperienced programmers, future programmers, and future technology leaders. The folks over at Major League Hacking have written about how to select “good” prizes for your event. Think about whether your prizes draw the kind of participation you want.
 

@@ -52,6 +52,8 @@ The infrastructure model shifted, but CMDBs didn't adjust. Agents made perfect s
 
 Agents weren't a mistake when we built them.
 
+![Two tall black Sun Microsystems rack cabinets full of rack-mounted servers behind a glass wall, cables running across the ceiling.](/images/blog/death-of-agent-based-discovery/sun-microsystems-server-racks-wikimedia-commons.webp 'margin: Sun Microsystems server racks. Wikimedia Commons, public domain.')
+
 Physical data centers had no cloud APIs. If you wanted to know what was running on a server, you installed software on that server. There was no other option. The server sat in a rack, you racked and stacked it, you installed your OS, and then you installed your monitoring agent. That agent would phone home through your network, reporting CPU, memory, disk, and whatever else you configured it to track.
 
 Network isolation was real. Your production servers sat in DMZs behind multiple firewalls. Agents could phone home from those isolated networks. API-based discovery? You'd need to poke holes in firewalls and security teams would laugh at you.

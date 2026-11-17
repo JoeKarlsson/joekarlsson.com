@@ -13,14 +13,18 @@ corrections:
   - date: 2026-11-12
     note: 'MLK Day 2020 was January 20, not February 20, and the query grouped by `holiday` while selecting `brand`.'
 marginNotes:
-  - type: 'see'
-    at: 'low-latency read and write queries'
+  - type: see
+    at: low-latency read and write queries
     text: 'One way to use that low-latency side: SingleStore as a key-value store, with plain SQL and no separate database.'
-    post: 'how-to-use-singlestore-as-a-key-value-store'
-  - type: 'see'
-    at: 'tons of great developer projects and demos'
-    text: 'If Node.js is your language, I wrote a quick setup guide for SingleStore with Node.js.'
-    post: 'how-to-use-singlestore-and-node-js'
+    post: how-to-use-singlestore-as-a-key-value-store
+  - type: see
+    at: tons of great developer projects and demos
+    text: If Node.js is your language, I wrote a quick setup guide for SingleStore with Node.js.
+    post: how-to-use-singlestore-and-node-js
+  - type: update
+    at: The SingleStore Managed Service is the easy way
+    text: SingleStore sells its managed service as SingleStore Helios, and the trial link opens the Helios cloud portal.
+    date: Nov 2026
 ---
 
 Are you looking for the fastest possible way to get a new SingleStore Cluster up and running while testing out sample datasets to experiment with and use?

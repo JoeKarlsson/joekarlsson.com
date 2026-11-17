@@ -52,6 +52,8 @@ Think of cloud assets as everything that shows up in your AWS bill - and all the
 
 ## What Is a Cloud Asset Inventory?
 
+![An empty trade show booth with a black wall reading Cloud asset inventory for security and platform, a TV, and a white counter printed with select * from cloud.](/images/blog/what-is-cloud-asset-inventory/cloudquerys-booth-at-aws-reinvent-2025.webp "margin: CloudQuery's booth at AWS re:Invent 2025, mid-setup.")
+
 A **cloud asset inventory** is a centralized database of all your cloud assets, bringing together resources from across accounts, regions, and services into one queryable system.
 
 ### How Cloud Asset Inventories Are Built
@@ -297,7 +299,7 @@ _Ready to build your cloud asset inventory? Continue with our guides on [design 
 
 ## Video Transcript
 
-**Keegan:** Hi, everyone. I'm Keegan Marazzi, a partner solutions architect at AWS, where my job is to discover, develop and deliver solutions with our partners. Today I'm joined here with Joe Carlson. He's a senior cloud developer advocate at Cloud Query. Say hi, Joe.
+**Keegan:** Hi, everyone. I'm Keegan Marazzi, a partner solutions architect at AWS, where my job is to discover, develop and deliver solutions with our partners. Today I'm joined here with Joe Karlsson. He's a senior cloud developer advocate at Cloud Query. Say hi, Joe.
 
 **Joe:** Hi. By the way, that is a lot of clouds all at once. My job is helping people get visibility into their AWS environments.
 

@@ -18,6 +18,23 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-devils/'
 poster: '/images/reviews/the-devils/poster.webp'
 heroImage: '/images/reviews/the-devils/backdrop.webp'
 heroAlt: 'A bloodied man in a crown of thorns, a blonde woman pressed to his chest, a crowd of praying onlookers behind.'
+marginNotes:
+  - type: aside
+    at: the nuns of Loudun
+    text: "A real case: the possessions at Loudun in the 1630s and the fall of the priest Urbain Grandier. Russell drew on Aldous Huxley's 1952 book The Devils of Loudun and John Whiting's play."
+    url: https://en.wikipedia.org/wiki/The_Devils_(film)
+  - type: aside
+    at: Derek Jarman's Loudun is all white stone
+    text: Jarman was the production designer; it was his first film job. His Loudun was the largest set built on Pinewood's backlot since Cleopatra (1963).
+    url: https://en.wikipedia.org/wiki/The_Devils_(film)
+  - type: aside
+    at: Warner kept it cut and mostly out of sight for about 50 years
+    text: Mark Kermode found the cut footage in Warner's vaults; a director's cut first screened in London in 2002. The 4K restoration premiered at Cannes on May 14, 2026 and opened in North America that October, rated NC-17.
+    url: https://en.wikipedia.org/wiki/The_Devils_(film)
+  - type: see
+    at: I'm glad my first time was Russell's restored director's cut
+    text: It's on my list of horny-nun movies, with The Little Hours.
+    post: reviews/the-little-hours
 ---
 
 I love that the nuns of Loudun need about four seconds of encouragement to go completely feral.
@@ -32,6 +49,8 @@ Vanessa Redgrave's Sister Jeanne des Anges, the convent's hunchbacked prioress, 
 _One of Jeanne's visions._
 
 The rest of the convent catches it. Once the exorcists arrive, it takes almost no push for every nun in the building to start screaming, writhing, and tearing off her habit. Nobody needs to believe in the devil for any of this to work. They just need permission, and the men in charge know precisely where to aim it: Michael Gothard's Father Barre, a witch hunter with a rock star's haircut, and Dudley Sutton's Baron de Laubardemont, the bureaucrat calmly running the demolition.
+
+![Full-length painted portrait of a thin bearded cardinal in long rose-red robes, holding his red hat out in one hand.](/images/reviews/the-devils/cardinal-richelieu-by-philippe-de-champaigne.webp 'margin: Cardinal Richelieu by Philippe de Champaigne, 1630s. Wikimedia Commons, public domain.')
 
 The target is Oliver Reed's Grandier, the man I'd pegged as the villain: a vain, womanizing priest who struts through Loudun like he runs the place. Reed is extremely sexy, which is part of why that misread works, and why a whole convent fixating on him is believable. Grandier is a hypocrite and a lech, but he secretly marries Madeleine (Gemma Jones), the one person in the film who loves him instead of using him, and he's the only man willing to stand between his city and Cardinal Richelieu, who wants its walls torn down. His sins are personal. The church's sins are policy.
 

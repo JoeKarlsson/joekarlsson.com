@@ -31,6 +31,8 @@ Read the book “Cracking the Coding Interview”. Do the exercises, learn the c
 
 ## 3. Solve problems
 
+![Handwritten JavaScript in blue marker on a whiteboard: a function incrementExp that walks an array of digits from the end, with test cases 9,8, 9,9 and 1,0,0 written beside it.](/images/blog/how-to-pass-coding-interview/a-whiteboard-answer-to-the-plusone.webp 'margin: A whiteboard answer to the plus-one array problem, 2018.')
+
 Solve different kinds of medium, easy and hard problems on [leetcode.com](https://leetcode.com). Your target should be enough practice to be able to solve any problem in 30 minutes. If you get stuck, read the discussion for the problem, learn the solution, and code it yourself.
 
 ## 4. Do mock interviews

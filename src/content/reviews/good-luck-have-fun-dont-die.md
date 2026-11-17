@@ -25,6 +25,23 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/good-luck-have-fun-dont-
 poster: '/images/reviews/good-luck-have-fun-dont-die/poster.webp'
 heroImage: '/images/reviews/good-luck-have-fun-dont-die/backdrop.webp'
 heroAlt: "A still from Good Luck, Have Fun, Don't Die (2025)"
+marginNotes:
+  - type: see
+    at: meets the Matrix
+    text: My review of The Matrix.
+    post: reviews/the-matrix
+  - type: aside
+    at: after an eight-year absence
+    text: His last film was A Cure for Wellness (2016). This one premiered at Fantastic Fest in September 2025 and opened in the US on February 13, 2026.
+    url: https://en.wikipedia.org/wiki/Good_Luck,_Have_Fun,_Don%27t_Die
+  - type: see
+    at: every time he pops up in anything
+    text: Rockwell steals Charlie's Angels and Galaxy Quest too; my reviews.
+    post: reviews/galaxy-quest
+  - type: see
+    at: Gore Verbinski's Looney Tunes sensibilities
+    text: Verbinski's Rango, my review.
+    post: reviews/rango
 ---
 
 Groundhog Day meets Twelve Monkeys meets the Matrix, filtered through Gore Verbinski's Looney Tunes sensibilities. I had a blast - mostly.
