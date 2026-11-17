@@ -42,7 +42,7 @@ const isShort = (word) => word.replace(/\W/g, '').length < LONGEST_WORD;
  * @param {string} text
  * @returns {[string] | [string, string]}
  */
-export function splitHyphenatedLastWord(text) {
+function splitHyphenatedLastWord(text) {
 	const match = /^((?:[\s\S]*\u00A0)?)(\S*\w-\w\S*\s*)$/.exec(text);
 	return match ? [match[1], match[2]] : [text];
 }
