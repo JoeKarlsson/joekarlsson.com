@@ -1,5 +1,6 @@
 ---
 import { inlineMarkdown } from '../../utils/inline-markdown';
+import { annotate, checkAllPlaced } from '../../utils/project-margin-notes';
 import { ARTICLE_HEADING, META, MORE_LINK, PRIMARY_BUTTON, SECTION_HEADING } from '../../utils/ui';
 import { Code } from 'astro:components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -87,6 +88,14 @@ if (page.introFigure && !introFigure)
 	throw new Error(`${project.title}'s statement figure ${page.introFigure.src} isn't in public/`);
 if (madeDiagram && !diagram)
 	throw new Error(`${project.title}'s diagram ${madeDiagram.src} isn't in public/`);
+
+// Margin notes beside the statement, supporting text and How it's made, numbered in page order
+const placed = { count: 0, used: new Set<NonNullable<ProjectPage['marginNotes']>[number]>() };
+const introHtml = await annotate(page.intro, page.marginNotes, placed);
+const supportingHtml =
+	page.supporting && (await annotate(page.supporting.text, page.marginNotes, placed));
+const madeHtml = page.made && (await annotate(page.made.text, page.marginNotes, placed));
+checkAllPlaced(page.slug, page.marginNotes, placed);
 
 // Like a blog post (BlogPost.astro), text keeps to one centered reading column and
 // pictures, embeds and grids break out to the article's full width (prose wide-media). On
@@ -195,9 +204,9 @@ const sections = [
 			</h2>
 		)}
 		<div class:list={['prose', { 'mt-14': !page.introHeading }]}>
-			{page.intro.map((p, i) => (
+			{introHtml.map((html, i) => (
 				<>
-					<p set:html={inlineMarkdown(p)} />
+					<Fragment set:html={html} />
 					{introFigure && i + 1 === page.introFigure?.after && (
 						<figure
 							class="diagram"
@@ -419,8 +428,8 @@ const sections = [
 					{page.supporting.heading}
 				</h2>
 				<div class="prose">
-					{page.supporting.text.map((p) => (
-						<p set:html={inlineMarkdown(p)} />
+					{supportingHtml?.map((html) => (
+						<Fragment set:html={html} />
 					))}
 				</div>
 			</section>
@@ -433,8 +442,8 @@ const sections = [
 				</h2>
 				<p class={`mb-4 ${META}`}>{project.tech.join(', ')}</p>
 				<div class="prose mb-8">
-					{page.made.text.map((p) => (
-						<p set:html={inlineMarkdown(p)} />
+					{madeHtml?.map((html) => (
+						<Fragment set:html={html} />
 					))}
 				</div>
 				{/* Inline SVG inside .prose, as in a post, so it boils and opens in the lightbox */}

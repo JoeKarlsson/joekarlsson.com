@@ -18,6 +18,54 @@ const shareTitle = z.string().max(SHARE_TITLE_MAX).transform(curlyApostrophes).o
 export const SEO_TITLE_MAX = 45;
 const seoTitle = z.string().max(SEO_TITLE_MAX).transform(curlyApostrophes).optional();
 
+// Notes in the right margin tied to a short phrase of the text, `at` (rehype-margin-notes.mjs).
+// A quote needs `by` (and `url` for its source), an update its `date` ("Oct 2026"), a
+// see-also its `post` (a blog slug, or reviews/x, newsletter/x, talks/x, or work/x with a
+// `title`), an exhibit an `image` with `alt` or just a number in `text`, an aside an optional
+// source `url`. Posts, talks, newsletter issues and reviews all take them.
+export const marginNotes = z
+	.array(
+		z.discriminatedUnion('type', [
+			z.object({
+				type: z.literal('quote'),
+				at: z.string(),
+				text: z.string(),
+				by: z.string(),
+				url: z.url().optional(),
+			}),
+			z.object({
+				type: z.literal('term'),
+				at: z.string(),
+				text: z.string(),
+				term: z.string().optional(),
+			}),
+			z.object({ type: z.literal('update'), at: z.string(), text: z.string(), date: z.string() }),
+			z.object({
+				type: z.literal('see'),
+				at: z.string(),
+				text: z.string(),
+				post: z.string(),
+				title: z.string().optional(),
+			}),
+			z
+				.object({
+					type: z.literal('exhibit'),
+					at: z.string(),
+					text: z.string(),
+					image: z.string().optional(),
+					alt: z.string().optional(),
+				})
+				.refine((n) => !n.image || n.alt, 'an exhibit picture needs alt text'),
+			z.object({
+				type: z.literal('aside'),
+				at: z.string(),
+				text: z.string(),
+				url: z.url().optional(),
+			}),
+		]),
+	)
+	.optional();
+
 const postSchema = z.object({
 	title: prose,
 	shareTitle,
@@ -55,40 +103,7 @@ const postSchema = z.object({
 		.optional(),
 	faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
 	howToSteps: z.array(z.object({ name: z.string(), text: z.string() })).optional(),
-	// Notes in the right margin tied to a short phrase of the text, `at` (rehype-margin-notes.mjs).
-	// A quote needs `by` (and `url` for its source), an update its `date` ("Oct 2026"), a
-	// see-also its `post` slug, an exhibit an `image` with `alt` or just a number in `text`
-	marginNotes: z
-		.array(
-			z.discriminatedUnion('type', [
-				z.object({
-					type: z.literal('quote'),
-					at: z.string(),
-					text: z.string(),
-					by: z.string(),
-					url: z.url().optional(),
-				}),
-				z.object({
-					type: z.literal('term'),
-					at: z.string(),
-					text: z.string(),
-					term: z.string().optional(),
-				}),
-				z.object({ type: z.literal('update'), at: z.string(), text: z.string(), date: z.string() }),
-				z.object({ type: z.literal('see'), at: z.string(), text: z.string(), post: z.string() }),
-				z
-					.object({
-						type: z.literal('exhibit'),
-						at: z.string(),
-						text: z.string(),
-						image: z.string().optional(),
-						alt: z.string().optional(),
-					})
-					.refine((n) => !n.image || n.alt, 'an exhibit picture needs alt text'),
-				z.object({ type: z.literal('aside'), at: z.string(), text: z.string() }),
-			]),
-		)
-		.optional(),
+	marginNotes,
 });
 
 const blog = defineCollection({
@@ -137,6 +152,7 @@ const newsletter = defineCollection({
 		// Slug of the blog post this issue condenses. Recaps stay on /newsletter/ only, so the
 		// blog list, homepage and RSS don't show the same post twice.
 		recapOf: z.string().optional(),
+		marginNotes,
 	}),
 });
 
@@ -171,6 +187,7 @@ const reviews = defineCollection({
 		// Mistakes fixed after posting, in the blog's dated corrections box
 		updatedDate: z.coerce.date().optional(),
 		corrections: z.array(z.object({ date: z.coerce.date(), note: z.string() })).optional(),
+		marginNotes,
 	}),
 });
 

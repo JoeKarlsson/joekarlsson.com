@@ -105,6 +105,10 @@ const {
 </div>
 
 <script>
+	// Hovering a margin note or its words lights both, on every article type
+	import { initMarginNotes } from '../scripts/margin-notes';
+	initMarginNotes();
+
 	// The desktop reading line where CSS scroll timelines aren't supported (global.css), and
 	// the Scroll Depth and Reading Complete goals for every article type: filter on the path
 	// (/blog/, /newsletter/, /reviews/, /work/, /talks/) to split them

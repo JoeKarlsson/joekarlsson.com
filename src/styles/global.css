@@ -497,13 +497,27 @@ pre.astro-code {
 	@apply hidden;
 }
 @media (width >= 80rem) {
+	/* A row (poster beside title, stars, Letterboxd) so the margin notes sit beside their
+	   words; the full credits stay in the block at the end (DECISIONS.md, 2026-11-17) */
 	.margin-column > .review-credits-margin {
-		display: block;
+		display: grid;
+		grid-template-columns: 5rem 1fr;
+		column-gap: 0.875rem;
+		align-items: start;
 		float: right;
 		width: 15rem;
 		margin-right: calc(-1 * var(--margin-col));
 	}
+	.review-credits-margin img {
+		@apply m-0 w-full;
+	}
+	.review-credits-margin dl {
+		@apply hidden;
+	}
 	.review-credits-end {
+		grid-template-columns: 1fr;
+	}
+	.review-credits-end > img {
 		@apply hidden;
 	}
 }
@@ -1093,7 +1107,9 @@ header nav .sticker {
 	}
 	/* One line, so the crayon ring has a box to circle (a wrapped span has none) */
 	.prose .mn-words {
-		@apply cursor-pointer whitespace-nowrap;
+		/* Wraps like the text, so a long phrase never leaves a short line before it; a wrapped
+		   phrase keeps its highlight but loses the ring (DECISIONS.md, 2026-11-17) */
+		@apply cursor-pointer;
 	}
 }
 /* Front matter notes (round 6 B, round 7 A): set like a book, no labels. Quotes and updates
@@ -1158,6 +1174,10 @@ header nav .sticker {
 .prose a.mn-card {
 	@apply grid grid-cols-[56px_1fr] items-start gap-2.5 text-muted no-underline;
 	background: none;
+}
+/* A project page has no thumbnail to read, so its card is text alone, across the card */
+.prose a.mn-card > :only-child {
+	grid-column: 1 / -1;
 }
 .prose a.mn-card img {
 	@apply m-0 size-14 object-cover;

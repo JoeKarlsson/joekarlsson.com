@@ -36,6 +36,7 @@
 import { curlyApostrophes } from '../utils/curly-apostrophes.mjs';
 import { halftoneMode } from '../utils/halftone.ts';
 import { localImageSize } from '../utils/image-size.mjs';
+import path from 'node:path';
 import { readPost } from './rehype-post-previews.mjs';
 import { joinLastWord } from './rehype-no-widows.mjs';
 
@@ -127,6 +128,9 @@ function marginNote(number, children, { quote = null, pair, back }) {
 		...children,
 	]);
 }
+
+// A title that ends in ? or ! keeps its own mark instead of gaining a period
+const endSentence = (s) => (/[.?!]$/.test(s) ? s : `${s}.`);
 
 /** A citation's note text, linked to the source, then the site it's on. */
 const sourceLink = (href, words) => {
@@ -299,25 +303,37 @@ function noteBody(note, number) {
 		case 'update':
 			return [back, el('span', { className: ['mn-stamp'] }, [text(note.date)]), text(words)];
 		case 'see': {
-			const post = readPost(note.post);
+			// `post` is a blog slug, or a path to another section: reviews/x, newsletter/x, talks/x
+			// or work/x. A project page has no front matter to read, so its note gives a `title`
+			const [section, slug] = note.post.includes('/') ? note.post.split('/') : ['blog', note.post];
+			const post =
+				section === 'work'
+					? note.title && { title: note.title }
+					: readPost(slug, path.resolve(`src/content/${section}`));
 			if (!post)
-				throw new Error(`margin note: see-also post "${note.post}" isn't in src/content/blog`);
+				throw new Error(
+					`margin note: see-also "${note.post}" isn't in src/content/${section}${section === 'work' ? ' (a work/ note needs a title)' : ''}`,
+				);
 			return [
 				back,
-				el('a', { href: `/blog/${note.post}/`, className: ['mn-card'] }, [
-					el(
-						'img',
-						{
-							className: ['mn-img'],
-							sizes: '56px',
-							src: post.image,
-							alt: '',
-							loading: 'lazy',
-							dataHalftone: halftoneMode(post.image),
-						},
-						[],
-					),
-					el('span', {}, [el('strong', {}, [text(post.title)]), text(words)]),
+				el('a', { href: `/${section}/${slug}/`, className: ['mn-card'] }, [
+					...(post.image
+						? [
+								el(
+									'img',
+									{
+										className: ['mn-img'],
+										sizes: '56px',
+										src: post.image,
+										alt: '',
+										loading: 'lazy',
+										dataHalftone: halftoneMode(post.image),
+									},
+									[],
+								),
+							]
+						: []),
+					el('span', {}, [el('strong', {}, [text(curlyApostrophes(post.title))]), text(words)]),
 				]),
 			];
 		}
@@ -343,7 +359,12 @@ function noteBody(note, number) {
 				text(words),
 			];
 		default:
-			return [back, text(words)];
+			// An aside with a source names the site it's from, linked, like a citation
+			return [
+				back,
+				text(words),
+				...(note.url ? [text(' '), el('a', { href: note.url }, [text(siteOf(note.url))])] : []),
+			];
 	}
 }
 
@@ -368,7 +389,8 @@ export default function rehypeMarginNotes() {
 	return async (tree, file) => {
 		const footnotes = footnoteTexts(tree);
 		const pending = [...(file?.data?.astro?.frontmatter?.marginNotes ?? [])];
-		let count = 0;
+		// A project page runs this once per paragraph, so its numbers carry on from the last one
+		let count = file?.data?.marginNoteStart ?? 0;
 		// A source cited again keeps its first number and adds no second note, as in a book
 		const numberOf = new Map();
 
@@ -478,11 +500,15 @@ export default function rehypeMarginNotes() {
 					if (repeat) return;
 					if (quote) parent.children.splice(at + 2, 0, spokenQuote(quote));
 					notes.push(
-						marginNote(number, sourceLink(href, `${source[1].trim()}. ${textOf(node).trim()}.`), {
-							quote,
-							pair: String(number),
-							back: `#mn-w-${number}`,
-						}),
+						marginNote(
+							number,
+							sourceLink(href, `${source[1].trim()}. ${endSentence(textOf(node).trim())}`),
+							{
+								quote,
+								pair: String(number),
+								back: `#mn-w-${number}`,
+							},
+						),
 					);
 					return;
 				}
@@ -510,7 +536,7 @@ export default function rehypeMarginNotes() {
 						el('span', { className: ['cite-text'] }, [text(`${lead}${textOf(node)}`)]),
 					];
 					notes.push(
-						marginNote(count, sourceLink(href, `${cited[1]}.`), {
+						marginNote(count, sourceLink(href, endSentence(cited[1])), {
 							quote,
 							pair: String(count),
 							back: `#mn-w-${count}`,
@@ -565,5 +591,6 @@ export default function rehypeMarginNotes() {
 			for (const child of node.children ?? []) await sizeImages(child);
 		};
 		await sizeImages(tree);
+		if (file?.data) file.data.marginNoteCount = count;
 	};
 }

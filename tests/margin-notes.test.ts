@@ -298,4 +298,60 @@ describe('rehypeMarginNotes enrichment', async () => {
 		expect(String(first.properties!.style)).not.toContain('max(');
 		expect(String(second.properties!.style)).toContain('anchor(--code-note-1-note bottom)');
 	});
+	it('names and links the site an aside comes from', async () => {
+		const root = await runWith(
+			[{ type: 'aside', at: 'one day', text: 'It was May 4.', url: 'https://www.example.com/x' }],
+			p(text('It happened one day in May.')),
+		);
+		expect(notes(root)).toEqual(['1 It was May\u00A04. example.com']);
+		const a = root.children![0].children!.find((n) => n.tagName === 'a')!;
+		expect(a.properties!.href).toBe('https://www.example.com/x');
+	});
+	it('links a see-also to a review, or to a project page by the title it gives', async () => {
+		const links = (root: HastNode) =>
+			root.children!.flatMap((n) => n.children ?? []).filter((n) => n.tagName === 'a');
+		const review = await runWith(
+			[{ type: 'see', at: 'Antonioni', post: 'reviews/blow-up', text: ' My review.' }],
+			p(text('More Antonioni soon.')),
+		);
+		const [card] = links(review);
+		expect(card.properties!.href).toBe('/reviews/blow-up/');
+		expect(textOf(card)).toContain('Blow-Up');
+		const project = await runWith(
+			[{ type: 'see', at: 'linger', post: 'work/linger', title: 'linger', text: ' The piece.' }],
+			p(text('I made linger.')),
+		);
+		expect(links(project)[0].properties!.href).toBe('/work/linger/');
+		await expect(
+			runWith(
+				[{ type: 'see', at: 'linger', post: 'work/linger', text: 'x' }],
+				p(text('I made linger.')),
+			),
+		).rejects.toThrow(/needs a title/);
+	});
+	it("numbers on from marginNoteStart, so a project page's paragraphs share one count", async () => {
+		const root: HastNode = { type: 'root', children: [p(text('The second paragraph.'))] };
+		const file = {
+			path: 'src/data/projects.ts',
+			data: {
+				astro: { frontmatter: { marginNotes: [{ type: 'term', at: 'second', text: 'two.' }] } },
+				marginNoteStart: 3,
+			} as Record<string, unknown>,
+		};
+		await (rehypeMarginNotes() as (t: HastNode, f: unknown) => Promise<void>)(root, file);
+		expect(root.children![0].properties!.id).toBe('mn-4');
+		expect(file.data.marginNoteCount).toBe(4);
+	});
+	it("keeps a cited title's own question mark instead of adding a period", async () => {
+		const block = p(
+			link(
+				'https://paulgraham.com/x',
+				'Is There Such a Thing as Good Taste?',
+				'cite: Graham, 2021',
+			),
+		);
+		expect(notes(await run(block))).toEqual([
+			'1 Graham, 2021. Is There Such a Thing as Good Taste? paulgraham.com',
+		]);
+	});
 });
