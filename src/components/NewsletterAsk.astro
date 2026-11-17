@@ -1,0 +1,26 @@
+---
+// The newsletter ask at the end of every article-style page (posts, reviews, talks,
+// newsletter issues, project pages). It sits where a reader finishes, not only in the
+// footer below the bio, where 1,120 finished reads a month made 9 signups.
+import NewsletterSignup from './NewsletterSignup.astro';
+import { SECTION_HEADING } from '../utils/ui';
+
+interface Props {
+	blurb: string;
+	/** Plausible location for the signup form */
+	location: string;
+}
+const { blurb, location } = Astro.props;
+---
+
+<section class="mt-12" aria-labelledby="post-newsletter-heading">
+	{/* Same heading as Keep reading below it: one header style (DECISIONS.md) */}
+	<h2 id="post-newsletter-heading" class={SECTION_HEADING}>
+		Works on My Machine
+	</h2>
+	<p class="mb-5 text-lg text-paper">{blurb}</p>
+	<NewsletterSignup location={location} />
+	<p class="mt-3 text-sm text-muted">
+		It’s free, and you can unsubscribe anytime. You’ll get an email to confirm first.
+	</p>
+</section>

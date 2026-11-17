@@ -29,7 +29,12 @@ export default defineConfig({
 		{
 			name: 'firefox',
 			use: { ...devices['Desktop Firefox'] },
-			testMatch: ['masthead.spec.ts', 'table-of-contents.spec.ts', 'typography.spec.ts'],
+			testMatch: [
+				'consistency.spec.ts',
+				'masthead.spec.ts',
+				'table-of-contents.spec.ts',
+				'typography.spec.ts',
+			],
 		},
 	],
 	webServer: {

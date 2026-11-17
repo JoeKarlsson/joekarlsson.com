@@ -2,22 +2,26 @@
 import { inlineMarkdown } from '../../utils/inline-markdown';
 import {
 	ARTICLE_HEADING,
-	ARTICLE_TITLE,
 	META,
 	MORE_LINK,
 	PAGE_CONTAINER,
 	PRIMARY_BUTTON,
+	SECTION_HEADING,
 } from '../../utils/ui';
 import { Code } from 'astro:components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AuthorBio from '../../components/AuthorBio.astro';
 import BackLink from '../../components/BackLink.astro';
+import Logo from '../../components/Logo.astro';
+import Masthead from '../../components/Masthead.astro';
+import NewsletterAsk from '../../components/NewsletterAsk.astro';
 import InlineToc from '../../components/InlineToc.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import Scribble from '../../components/Scribble.astro';
 import ShareLinks from '../../components/ShareLinks.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import { projects, type Project, type ProjectPage } from '../../data/projects';
-import { CHALK, MARKS } from '../../data/scribbles';
+import { MARKS } from '../../data/scribbles';
 import { halftoneMode } from '../../utils/halftone';
 import { localImageSize } from '../../utils/image-size.mjs';
 import { inlineDiagram } from '../../plugins/rehype-inline-diagrams.mjs';
@@ -65,8 +69,8 @@ const gridStyle = square
 	? 'grid-template-columns: repeat(auto-fill, minmax(180px, 1fr))'
 	: undefined;
 const clipClass = square
-	? 'block w-full rounded-lg bg-ink object-contain'
-	: 'block aspect-video w-full rounded-lg bg-ink object-cover';
+	? 'block w-full bg-ink object-contain'
+	: 'block aspect-video w-full bg-ink object-cover';
 
 // The live version gets the button when there is one; GitHub falls back to a link
 
@@ -76,6 +80,11 @@ const clipClass = square
 const screenshotsOnlyOnPhones = Boolean(page.embedUrl && !page.embedOnPhones);
 
 // Lineage names other projects by title; a typo fails the build instead of dropping a card
+const lineageTitles = new Set((page.lineage ?? []).map(({ title }) => title));
+// Under the More works arrow: the next projects with pages, skipping this one and its lineage
+const moreWorks = projects
+	.filter((p) => p.page && p !== project && !lineageTitles.has(p.title))
+	.slice(0, 4);
 const lineage = (page.lineage ?? []).map(({ label, title }) => {
 	const linked = projects.find((p) => p.title === title);
 	if (!linked)
@@ -134,58 +143,29 @@ const sections = [
 		<div>
 			{/* @container: the wide blocks below size themselves to this column */}
 			<article class="@container min-w-0">
-				<BackLink href="/work/" label="Works" />
-
-				{/* Muted loops play while on screen (in-view-play) and stop with the pause-motion
-				button, which covers WCAG 2.2.2; no player controls, as the pink canvas covers them */}
-				<div class="relative mb-10">
-					{/* Off the corner, not over the picture: most project media has text in it */}
-					<Scribble
-						{...MARKS.burst}
-						color={CHALK}
-						duration="9s"
-						delay="0.8s"
-						class="-top-[70px] -right-[40px] z-10 hidden size-[130px] sm:block"
-					/>
-					{project.video ? (
-						<video
-							src={project.video}
-							poster={project.poster ?? project.image}
-							loop
-							muted
-							playsinline
-							preload="none"
-							aria-label={project.imageAlt}
-							data-autoplay-in-view
-							data-halftone={halftoneMode(project.video)}
-							data-morph-target
-							class="block aspect-video w-full rounded-xl bg-ink object-contain"
-						/>
-					) : (
-						<img
-							src={project.image}
-							alt={project.imageAlt}
-							{...imageSizes.get(project.image)}
-							data-halftone={halftoneMode(project.image)}
-							data-morph-target
-							class="block max-h-[440px] w-full rounded-xl object-cover"
-							loading="eager"
-							fetchpriority="high"
-						/>
-					)}
+				{/* The post's masthead (Masthead.astro, DECISIONS.md 2026-11-16 consistency): the
+				year and stack in the kicker, the title fitted to the column, the clip or picture on
+				the shared edge, the tagline as its caption */}
+				<div class="post-axis">
+					<BackLink href="/work/" label="Works" />
+					<Masthead
+						title={project.title}
+						label="Works"
+						caption={page.tagline}
+						heroImage={project.video ? (project.poster ?? project.image) : project.image}
+						heroVideo={project.video}
+						heroAlt={project.imageAlt}
+						width={imageSizes.get(project.image)?.width}
+						height={imageSizes.get(project.image)?.height}
+						halftone={halftoneMode(project.video ?? project.image)}
+					>
+						<MetaParts parts={byline} />
+					</Masthead>
 				</div>
 
-				{/* Everything from here shares one column centered under the hero, as in a post */}
+				{/* Everything from here shares one column under the masthead, as in a post */}
 				<div class="margin-column mx-auto max-w-(--reading-width)">
 					{sections.length > 1 && <TableOfContents headings={sections} />}
-					<header class="mb-8">
-						<h1 class={ARTICLE_TITLE}>{project.title}</h1>
-						<p class="mb-3 font-serif text-xl leading-snug text-paper">{page.tagline}</p>
-						<p class={META}>
-							<MetaParts parts={byline} />
-						</p>
-					</header>
-
 					<div class="mb-12 flex flex-wrap items-center gap-x-6 gap-y-3">
 						{page.download && (
 							<a
@@ -288,7 +268,7 @@ const sections = [
 											data-halftone="flat"
 											width="560"
 											height="315"
-											class="block aspect-video w-full rounded-lg object-cover"
+											class="block aspect-video w-full object-cover"
 											loading="lazy"
 											decoding="async"
 										/>
@@ -351,7 +331,7 @@ const sections = [
 								playsinline
 								preload="none"
 								aria-label={page.tour.alt}
-								class="mx-auto block w-full rounded-lg bg-ink object-contain"
+								class="mx-auto block w-full bg-ink object-contain"
 								style="aspect-ratio: 9 / 16; max-width: 22rem"
 							>
 								<track kind="captions" srclang="en" label="English" src={page.tour.captions} />
@@ -441,7 +421,7 @@ const sections = [
 											alt={shot.alt}
 											{...imageSizes.get(shot.poster)}
 											loading="lazy"
-											class="mx-auto rounded-lg"
+											class="mx-auto"
 											style="max-height: 720px; max-width: 100%"
 										/>
 										{shot.caption && (
@@ -513,56 +493,50 @@ const sections = [
 						</section>
 					)}
 
-					{(project.demoUrl || project.sourceUrl || page.download) && (
-						<div class="mb-10 flex flex-wrap items-center gap-x-6 gap-y-3">
-							{page.download && (
-								<a
-									href={page.download.url}
-									target="_blank"
-									rel="noopener noreferrer"
-									class={`plausible-event-name=Project+Download+Click ${PRIMARY_BUTTON}`}
-								>
-									{page.download.label} &rarr;
-								</a>
-							)}
-							{project.demoUrl && (
-								<a
-									href={project.demoUrl}
-									target="_blank"
-									rel="noopener noreferrer"
-									class={`plausible-event-name=Project+Demo+Click ${PRIMARY_BUTTON}`}
-								>
-									See it live &rarr;
-								</a>
-							)}
-							{project.sourceUrl && (
-								<a
-									href={project.sourceUrl}
-									target="_blank"
-									rel="noopener noreferrer"
-									class={`plausible-event-name=Project+Source+Click ${project.demoUrl ? MORE_LINK : PRIMARY_BUTTON}`}
-								>
-									Get the code on GitHub &rarr;
-								</a>
-							)}
-							{project.blogUrl && (
-								<a href={project.blogUrl} class={MORE_LINK}>
-									Read why I built it
-								</a>
-							)}
-						</div>
-					)}
+					{/* End mark, then the post ending: the ask, sharing, the bio, and more work */}
+					<Logo text="JK" class="text-paper" style="display:block;margin-top:2rem;font-size:20px" />
+
+					<NewsletterAsk
+						location="project-end"
+						blurb={
+							'If you liked this project, you might like what I write: homelab builds, AI tools and open source, by email when I have something to\u00A0say.'
+						}
+					/>
 
 					<ShareLinks
 						url={new URL(`/work/${page.slug}/`, Astro.site).href}
 						title={project.shareTitle || project.title}
 						noun="project"
-						class="mb-6"
+						class="mt-10"
 					/>
 
-					<a href="/work/" class={MORE_LINK}>
-						&larr; All works
-					</a>
+					<AuthorBio />
+
+					<nav class="mt-12 md:mt-20" aria-labelledby="more-works">
+						<h2 id="more-works" class={SECTION_HEADING}>
+							More works
+						</h2>
+						<div class="relative -mt-4 mb-2 h-[clamp(70px,14vw,150px)]" aria-hidden="true">
+							<Scribble
+								{...MARKS.arrow}
+								color="#ff4fd8"
+								strokeWidth={7}
+								duration="8s"
+								class="inset-0 size-full"
+							/>
+						</div>
+						<div class="grid gap-8 sm:grid-cols-2">
+							{moreWorks.map((other, i) => (
+								<ProjectCard project={other} index={i + 1} />
+							))}
+						</div>
+						<a
+							href="/work/"
+							class="mt-8 inline-block py-2 font-display text-3xl leading-none text-paper uppercase no-underline hover:text-pink"
+						>
+							All my works &rarr;
+						</a>
+					</nav>
 				</div>
 			</article>
 		</div>

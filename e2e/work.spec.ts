@@ -83,7 +83,9 @@ test.describe('Project page', () => {
 
 			// A page with a single section gets no "On this page" list (work/[slug].astro)
 			const toc = page.getByRole('navigation', { name: 'Table of contents' });
-			if ((await page.locator('article h2[id]').count()) < 2) {
+			// Not the page's ending (the newsletter ask and More works), which every project has
+			const sections = page.locator('article h2[id]:not(#post-newsletter-heading, #more-works)');
+			if ((await sections.count()) < 2) {
 				await expect(toc).toHaveCount(0);
 				return;
 			}
