@@ -33,6 +33,7 @@ const { id, title, poster, loop, hoverLoop, vertical } = Astro.props;
 >
 	{loop || hoverLoop ? (
 		<video
+			tabindex="-1"
 			src={loop ?? hoverLoop}
 			poster={poster}
 			data-halftone="flat"

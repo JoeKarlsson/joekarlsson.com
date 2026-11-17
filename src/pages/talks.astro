@@ -1,4 +1,5 @@
 ---
+import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 import SectionMasthead from '../components/SectionMasthead.astro';
 import { getCollection } from 'astro:content';
 import HoverBox from '../components/HoverBox.astro';
@@ -78,6 +79,7 @@ const FILTERS = [
 				<!-- Four talks, oldest first: Web Rebels 2018 on stage, TEDxYouth 2021, the 8 Bits show
 				2021 and CData's Developer View 2026 (media-sources/talks-montage.sh builds it) -->
 				<video
+					tabindex="-1"
 					src="/images/talks/joe-talks.mp4"
 					poster="/images/talks/joe-talks-poster.webp"
 					data-halftone="flat"
@@ -144,7 +146,7 @@ const FILTERS = [
 						<span class="mt-4 block font-display text-[clamp(1.75rem,2.4vw,2.25rem)] leading-none text-balance text-paper uppercase group-hover:text-pink">
 							{post.title}
 						</span>
-						<span class="mt-2 block text-paper">{post.description}</span>
+						<span class="mt-2 block text-paper">{joinLastWord(post.description)}</span>
 						<span class="mt-2 block font-semibold text-pink group-hover:text-paper">
 							Watch + read the talk →
 						</span>

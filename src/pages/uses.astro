@@ -141,6 +141,7 @@ import SectionRule from '../components/SectionRule.astro';
 		>
 			<div slot="media" class="relative z-10 aspect-[5/4] md:aspect-auto">
 				<video
+					tabindex="-1"
 					src="/images/uses/joe-uses.mp4"
 					poster="/images/uses/joe-uses-poster.webp"
 					data-halftone="flat"
@@ -345,7 +346,7 @@ import SectionRule from '../components/SectionRule.astro';
 			<a href="https://uses.tech" target="_blank" rel="noopener noreferrer" class={TEXT_LINK}>
 				uses.tech
 			</a>{' '}
-			- a list of developer /uses pages.
+			- a list of developer /uses&nbsp;pages.
 		</p>
 		<KeepExploring
 			heading="Read this next"

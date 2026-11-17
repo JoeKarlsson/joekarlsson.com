@@ -49,6 +49,7 @@ import SectionRule from '../components/SectionRule.astro';
 		>
 			<div slot="media" class="relative z-10 aspect-[4/3] md:aspect-auto md:min-h-[420px]">
 				<video
+					tabindex="-1"
 					src="/images/about/joe-homelab.mp4"
 					poster="/images/about/joe-homelab-poster.webp"
 					data-halftone="flat"
@@ -81,7 +82,7 @@ import SectionRule from '../components/SectionRule.astro';
 			<div>
 				<p class={HERO_LEAD}>
 					Message me on LinkedIn about work or a speaking gig, or on Bluesky to talk homelabs,
-					databases, or weird IoT projects.
+					databases, or weird IoT&nbsp;projects.
 				</p>
 				<div class="mt-5 flex flex-wrap gap-3 max-md:hidden">
 					{BEST.map(({ label, meta, href }, i) => (

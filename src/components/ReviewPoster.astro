@@ -51,5 +51,7 @@ const { title, year, rating, poster, slug } = Astro.props.review.data;
 		<span class="text-muted">{year}</span>
 	</span>
 	{/* Two lines at most, so one long title doesn't push its row out of line */}
-	<span class="line-clamp-2 leading-snug text-paper group-hover:text-pink">{title}</span>
+	<span class="line-clamp-2 leading-snug text-balance text-paper group-hover:text-pink">
+		{title}
+	</span>
 </a>

@@ -34,6 +34,25 @@ describe('rehype-no-widows', () => {
 		expect(await render('| A |\n| - |\n| one two |')).toContain(`<td>one${NBSP}two</td>`);
 	});
 
+	it('reaches back into a link that only punctuation follows', async () => {
+		expect(await render('A photo (via [Wikimedia Commons](/c)).')).toBe(
+			`<p>A photo (via <a href="/c">Wikimedia${NBSP}Commons</a>).</p>`,
+		);
+		expect(await render('The code is on my [GitHub](/g).')).toBe(
+			`<p>The code is on my${NBSP}<a href="/g">GitHub</a>.</p>`,
+		);
+	});
+
+	it('holds a hyphenated last word together', async () => {
+		// A nowrap span, not a U+2060 joiner, so copied text stays clean
+		expect(await render('It runs every re-render.')).toBe(
+			`<p>It runs every${NBSP}<span class="whitespace-nowrap">re-render.</span></p>`,
+		);
+		expect(await render('Get [vscode-icons](/v).')).toBe(
+			`<p>Get${NBSP}<a href="/v"><span class="whitespace-nowrap">vscode-icons</span></a>.</p>`,
+		);
+	});
+
 	it('joins a lone last word to the code before it', async () => {
 		expect(await render('Delete the `*** END` lines.')).toBe(
 			`<p>Delete the <code>*** END</code>${NBSP}lines.</p>`,

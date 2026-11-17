@@ -190,6 +190,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 		<div class="relative z-10 aspect-video md:aspect-auto md:before:block md:before:aspect-square md:before:max-h-[calc(100svh-6rem)] md:before:content-['']">
 			<div class="absolute inset-0 overflow-hidden rounded-xl">
 				<video
+					tabindex="-1"
 					class="absolute inset-0 size-full object-cover object-[50%_25%] md:object-center"
 					poster="/images/home/montage-poster.webp"
 					data-halftone="flat"
@@ -281,9 +282,9 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 						/>
 					</h1>
 				</div>
-				<p class="font-serif text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[1.15] font-medium text-paper italic">
+				<p class="font-serif text-[clamp(1.625rem,min(2.6vw,4.2vh),3.75rem)] leading-[1.15] font-medium text-balance text-paper italic">
 					I think technology should be weird and personal. I write about AI and homelabs, and I
-					build the things I write about.
+					build the things I&nbsp;write about.
 				</p>
 			</div>
 			<!-- After the panel, so my name is read first; wider screens show it on top -->
@@ -319,7 +320,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 			{topics.map((topic) => (
 				<a
 					href={`/blog/category/${topic.slug}/`}
-					class="min-h-11 min-w-11 py-2.5 text-center font-semibold text-paper underline decoration-pink decoration-2 underline-offset-[6px] hover:text-pink md:min-w-0"
+					class="min-h-11 min-w-11 py-2.5 text-center font-semibold text-paper underline decoration-pink decoration-2 underline-offset-[6px] hover:text-pink md:min-w-6"
 				>
 					{topic.name}
 				</a>
@@ -508,6 +509,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 		>
 			<span class="relative block">
 				<video
+					tabindex="-1"
 					class="block aspect-[16/8.3] w-full object-cover object-top"
 					src={spreadWork.clip}
 					data-poster={spreadWork.poster}
@@ -539,6 +541,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 					<a href={w.href} class="ring-host group block text-paper no-underline">
 						<span class="relative block">
 							<video
+								tabindex="-1"
 								class="block aspect-video w-full object-cover"
 								src={w.clip}
 								data-poster={w.poster}
@@ -583,6 +586,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 			>
 				<span class="relative block">
 					<video
+						tabindex="-1"
 						class="block aspect-video w-full object-cover"
 						src={spreadTalk.clip}
 						data-poster={spreadTalk.poster}
@@ -611,6 +615,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 						<a href={t.href} class="ring-host group block no-underline">
 							<span class="relative block">
 								<video
+									tabindex="-1"
 									class="block aspect-video w-full rounded-lg object-cover"
 									src={t.clip}
 									data-poster={t.poster}
@@ -727,7 +732,9 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 										<HoverBox index={i} />
 									</span>
 								)}
-								<span class="mt-1.5 block leading-snug group-hover:text-pink">{r.title}</span>
+								<span class="mt-1.5 block leading-snug text-balance group-hover:text-pink">
+									{r.title}
+								</span>
 								{r.rating && (
 									<span class="block text-pink">
 										<span aria-hidden="true">{stars(r.rating)}</span>
@@ -829,6 +836,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 			</div>
 			<figure class="flex flex-col md:col-span-3">
 				<video
+					tabindex="-1"
 					class="block min-h-[220px] w-full flex-1 object-cover"
 					src="/images/home/cat-wide.mp4"
 					data-poster="/images/home/cat-wide-poster.webp"

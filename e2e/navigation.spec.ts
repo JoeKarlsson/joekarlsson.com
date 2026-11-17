@@ -49,7 +49,7 @@ test.describe('Mobile Navigation', () => {
 		await page.goto('/');
 
 		const nav = page.locator('header nav');
-		await expect(nav.getByRole('link', { name: 'Joe Karlsson', exact: true })).toBeVisible();
+		await expect(nav.getByRole('link', { name: 'Joe Karlsson (JK)', exact: true })).toBeVisible();
 		await expect(nav.getByRole('link', { name: 'Blog', exact: true })).toBeHidden();
 		const menu = nav.locator('[data-nav-menu-toggle]');
 		await expect(menu).toHaveAccessibleName('Menu');
@@ -58,7 +58,7 @@ test.describe('Mobile Navigation', () => {
 		// Its name follows the word it shows (WCAG 2.5.3)
 		await expect(menu).toHaveAccessibleName('Close');
 		for (const name of [
-			'Joe Karlsson',
+			'Joe Karlsson (JK)',
 			'Blog',
 			'About',
 			'Works',

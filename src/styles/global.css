@@ -103,6 +103,12 @@
 		opacity: 0;
 	}
 
+	/* A clip with controls (the masthead's) stays in the Tab order, but its own
+	   ring is invisible at opacity 0, so the canvas over it draws the ring */
+	.halftone-on video[data-halftone]:focus-visible + canvas {
+		@apply outline-2 outline-offset-2 outline-pink;
+	}
+
 	::selection {
 		@apply bg-pink text-ink;
 	}

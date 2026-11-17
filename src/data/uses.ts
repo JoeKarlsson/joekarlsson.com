@@ -360,7 +360,7 @@ export const USES_SECTIONS: UsesSection[] = curlEveryString([
 						name: 'Visual Studio Code',
 						url: 'https://code.visualstudio.com/',
 						descHtml:
-							'still my primary editor. Monokai theme + <a href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons" target="_blank" rel="noopener noreferrer" data-text-link >vscode-icons</a>.',
+							'still my primary editor. Monokai theme +&nbsp;<a href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons" target="_blank" rel="noopener noreferrer" data-text-link ><span class="whitespace-nowrap">vscode-icons</span></a>.',
 					},
 					{
 						name: 'Key extensions',
@@ -769,7 +769,7 @@ export const USES_SECTIONS: UsesSection[] = curlEveryString([
 						name: 'HACS',
 						url: 'https://hacs.xyz/',
 						descHtml:
-							'kept to the few custom integrations that earn it, like <a href="https://github.com/nielsfaber/alarmo" target="_blank" rel="noopener noreferrer" data-text-link >Alarmo</a> and <a href="https://github.com/slashback100/presence_simulation" target="_blank" rel="noopener noreferrer" data-text-link >Presence Simulation</a>.',
+							'kept to the few custom integrations that earn it, like <a href="https://github.com/nielsfaber/alarmo" target="_blank" rel="noopener noreferrer" data-text-link >Alarmo</a> and <a href="https://github.com/slashback100/presence_simulation" target="_blank" rel="noopener noreferrer" data-text-link >Presence&nbsp;Simulation</a>.',
 					},
 					{
 						name: 'Apple HomeKit bridge',

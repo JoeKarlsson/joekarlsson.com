@@ -205,7 +205,8 @@ describe('rehypeMarginNotes enrichment', async () => {
 		const root = await run(p(img), p(text('Next paragraph')));
 		const figure = root.children![0];
 		expect(figure.tagName).toBe('figure');
-		expect(textOf(figure)).toBe('Ames, a portrait');
+		// Its last word joins the one before it, like every other caption
+		expect(textOf(figure)).toBe('Ames, a\u00A0portrait');
 		expect(img.properties!.title).toBeUndefined();
 	});
 	it('moves a [!margin] code comment beside its line and keeps it in the code', async () => {

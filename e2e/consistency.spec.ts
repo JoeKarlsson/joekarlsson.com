@@ -169,3 +169,13 @@ test.describe('Consistency across section pages', () => {
 			expect(Math.abs(cell!.height - picture!.height), `${path}: picture height`).toBeLessThan(2);
 		});
 });
+
+// Firefox puts every <video> in the Tab order, and a graded clip is invisible under its pink
+// canvas, so a silent clip with no controls took a Tab stop with no ring: /work/ had 23
+test.describe('Silent clips stay out of the Tab order', () => {
+	for (const path of ['/', '/work/', '/talks/', '/about/', '/uses/', '/contact/', PAGES.project])
+		test(`${path} has no focusable clip without controls`, async ({ page }) => {
+			await page.goto(path);
+			await expect(page.locator('video:not([controls]):not([tabindex="-1"])')).toHaveCount(0);
+		});
+});

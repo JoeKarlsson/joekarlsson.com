@@ -1,4 +1,5 @@
 ---
+import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 import SectionMasthead from '../components/SectionMasthead.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HoverBox from '../components/HoverBox.astro';
@@ -37,6 +38,7 @@ const newestPieceMonth = new Date(`${newestPiece.date}-01T00:00:00Z`).toLocaleDa
 });
 const pieces = (n: number) => `${n} ${n === 1 ? 'piece' : 'pieces'}`;
 const reelPieces = selected.map((p) => ({ title: p.title, href: workUrl(p) }));
+const reelLines = selected.map((p) => p.page?.tagline ?? p.description);
 // Phones tight, wide screens with room between sections, like the homepage
 const SECTION = 'relative mb-12 md:mb-32';
 ---
@@ -68,6 +70,7 @@ const SECTION = 'relative mb-12 md:mb-32';
 				class="plausible-event-name=Reel+Click ring-host group relative z-10 flex flex-col overflow-hidden rounded-xl bg-surface-1 no-underline"
 			>
 				<video
+					tabindex="-1"
 					src={REEL_VIDEO}
 					poster={REEL_VIDEO.replace(/\.mp4$/, '-poster.webp')}
 					loop
@@ -80,17 +83,26 @@ const SECTION = 'relative mb-12 md:mb-32';
 					data-halftone="flat"
 					class="block aspect-video w-full object-cover"
 				/>
-				{/* The title sits under the clip; the card's spare height goes below it */}
+				{/* The title and the piece's tagline (set like the work cards') sit under the clip */}
 				<span class="flex flex-1 flex-col px-6 pt-4 pb-5">
-					<span class="block font-display text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[0.95] text-paper uppercase group-hover:text-pink">
+					<span class="block font-display text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[0.95] text-balance text-paper uppercase group-hover:text-pink">
 						<span data-reel-title>{reelPieces[0].title}</span> →
+					</span>
+					{/* Every piece's line in one cell, only the current one shown, so the card keeps
+					the tallest's height and nothing below it jumps as the reel moves on */}
+					<span class="mt-2 grid font-serif text-lg leading-snug text-balance text-paper">
+						{reelLines.map((line, i) => (
+							<span data-reel-line class:list={['[grid-area:1/1]', i > 0 && 'invisible']}>
+								{line}
+							</span>
+						))}
 					</span>
 				</span>
 				<HoverBox featured />
 			</a>
 			<p class={HERO_LEAD}>
 				I make art with code, paint and hardware, and I want artists and engineers to try each
-				other’s tools.
+				other’s&nbsp;tools.
 			</p>
 		</PosterHero>
 
@@ -119,6 +131,7 @@ const SECTION = 'relative mb-12 md:mb-32';
 							<span class="block overflow-hidden rounded-xl bg-ink" data-morph={workUrl(project)}>
 								{project.video ? (
 									<video
+										tabindex="-1"
 										src={cardClip(project.video)}
 										poster={project.poster ?? project.image}
 										loop
@@ -146,10 +159,10 @@ const SECTION = 'relative mb-12 md:mb-32';
 							<HoverBox index={i} />
 						</span>
 						<span class="block">
-							<span class="mb-3 block font-display text-[clamp(2.4rem,1.6rem+3.2vw,4.25rem)] leading-[0.95] text-paper uppercase group-hover:text-pink">
+							<span class="mb-3 block font-display text-[clamp(2.4rem,1.6rem+3.2vw,4.25rem)] leading-[0.95] text-balance text-paper uppercase group-hover:text-pink">
 								{project.title}
 							</span>
-							<span class="block font-serif text-xl leading-snug text-paper">
+							<span class="block font-serif text-xl leading-snug text-balance text-paper">
 								{project.page?.tagline ?? project.description}
 							</span>
 							<span class={`mt-2 block ${META}`}>{project.date.slice(0, 4)}</span>
@@ -170,7 +183,7 @@ const SECTION = 'relative mb-12 md:mb-32';
 					every scribble here started as one of those drawings. Plenty of artists still find code
 					scary, and plenty of engineers think the humanities are a waste of time. I want each of
 					them to see the other side, to come away wanting to make something, and to feel a little
-					freer of the idea that everything they make has to earn money.
+					freer of the idea that everything they make has to earn&nbsp;money.
 				</p>
 			</div>
 			<!-- The container's full width in two columns, so each line stays a reading length -->
@@ -186,7 +199,7 @@ const SECTION = 'relative mb-12 md:mb-32';
 					</a>
 					: homemade pages, built by amateurs for each other. I think money crushed most of it, and
 					what people picture when they hear “tech” now is what came after: startups, crypto and AI,
-					each with a plan to make money.
+					each with a plan to make&nbsp;money.
 				</p>
 				<p>
 					I host this site myself, on my own hardware, because that early web is still what I love
@@ -197,7 +210,7 @@ const SECTION = 'relative mb-12 md:mb-32';
 						linger
 					</a>{' '}
 					is a set of poems that fill in only if you scroll slowly, because a page knows how fast
-					you’re reading and paper doesn’t.
+					you’re reading and paper&nbsp;doesn’t.
 				</p>
 				<p>
 					Some of my work isn’t code at all. I’ve started painting, mostly subconscious scribbling
@@ -246,7 +259,7 @@ const SECTION = 'relative mb-12 md:mb-32';
 					/>
 				</SectionMasthead>
 				<p class={`mb-8 ${HERO_LEAD}`}>{era.label}</p>
-				{era.note && <p class={`mb-8 max-w-[40em] ${META}`}>{era.note}</p>}
+				{era.note && <p class={`mb-8 max-w-[40em] ${META}`}>{joinLastWord(era.note)}</p>}
 				{/* Phones: one column of compact rows (ProjectCard), so the gap between them tightens */}
 				<div
 					style={`--wall:${i}`}

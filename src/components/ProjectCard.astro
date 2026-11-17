@@ -61,6 +61,7 @@ const metaLine = [
 			)}
 			{project.video ? (
 				<video
+					tabindex="-1"
 					src={cardClip(project.video)}
 					data-poster={project.poster ?? project.image}
 					loop

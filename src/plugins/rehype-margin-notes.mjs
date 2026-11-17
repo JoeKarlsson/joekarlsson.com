@@ -152,7 +152,7 @@ function marginPicture(block) {
 	img.properties.sizes = `(width >= 80rem) ${width && height ? Math.min(15, (11 * width) / height).toFixed(1) : 15}rem, 7.5rem`;
 	return el('figure', { className: ['margin-figure'] }, [
 		img,
-		el('figcaption', {}, [text(caption[1].trim())]),
+		el('figcaption', {}, [text(joinLastWord(caption[1].trim()))]),
 	]);
 }
 

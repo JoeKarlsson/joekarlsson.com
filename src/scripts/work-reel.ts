@@ -11,11 +11,13 @@ export function initWorkReel(reel: HTMLAnchorElement): void {
 	const sliceSeconds = Number(reel.dataset.reelSlice);
 	const video = reel.querySelector('video')!;
 	const title = reel.querySelector('[data-reel-title]')!;
+	const lines = reel.querySelectorAll('[data-reel-line]');
 	video.addEventListener('timeupdate', () => {
 		const i = reelPieceAt(video.currentTime, sliceSeconds, pieces.length);
 		if (reel.getAttribute('href') === pieces[i].href) return;
 		reel.setAttribute('href', pieces[i].href);
 		title.textContent = pieces[i].title;
+		lines.forEach((line, j) => line.classList.toggle('invisible', j !== i));
 	});
 }
 

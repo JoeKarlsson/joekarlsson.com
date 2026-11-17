@@ -237,6 +237,7 @@ import SectionRule from '../components/SectionRule.astro';
 				class="relative z-10 aspect-[4/3] md:aspect-auto md:before:block md:before:aspect-square md:before:content-['']"
 			>
 				<video
+					tabindex="-1"
 					src="/images/about/joe-desk-2026-11-10.mp4"
 					poster="/images/about/joe-desk-poster.webp"
 					data-halftone="flat"
@@ -605,7 +606,7 @@ import SectionRule from '../components/SectionRule.astro';
 												/>
 												<HoverBox index={i} />
 											</span>
-											<span class="text-sm leading-snug font-semibold text-paper group-hover:text-pink">
+											<span class="text-sm leading-snug font-semibold text-balance text-paper group-hover:text-pink">
 												{video.title}
 											</span>
 										</a>

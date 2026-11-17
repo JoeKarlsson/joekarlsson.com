@@ -1,4 +1,6 @@
 ---
+import { curlyApostrophes } from '../utils/curly-apostrophes.mjs';
+import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 import HoverBox from './HoverBox.astro';
 import Scribble from './Scribble.astro';
 import { CHALK, RINGS } from '../data/scribbles';
@@ -92,7 +94,9 @@ function ratingStars(rating: number) {
 							)}
 						</div>
 						{repo.description && <p class="mt-2 text-paper">{repo.description}</p>}
-						<p class="mt-1 text-sm text-muted">Latest commit: {repo.latestCommitMessage}</p>
+						<p class="mt-1 text-sm text-muted">
+							Latest commit: {curlyApostrophes(repo.latestCommitMessage)}
+						</p>
 						{/* Pinned to the bottom so the strips line up across a row */}
 						<div class="mt-auto pt-3">
 							{/* Hovering a day fades the others and the caption shows that day
@@ -161,7 +165,9 @@ function ratingStars(rating: number) {
 						<span class="sr-only">Rated {film.rating} out of 5</span>
 					</p>
 				)}
-				{film.reviewExcerpt && <p class="mt-1 text-sm text-muted">{film.reviewExcerpt}</p>}
+				{film.reviewExcerpt && (
+					<p class="mt-1 text-sm text-muted">{joinLastWord(film.reviewExcerpt)}</p>
+				)}
 			</div>
 		))}
 	</div>
