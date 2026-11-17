@@ -732,7 +732,19 @@ Then push, run `npm run deploy`, and curl the live page to confirm (see CLAUDE.m
 
 Then promotion (personal posts only, never employer crossposts):
 - **A launch** (it had a launch tier in Phase 1a): hand the live URL and tier to the **`marketing-strategist`** subagent for the launch plan, show Joe the plan, then run `/social` for its posts.
+- **A newsletter issue:** go straight on to **Phase 10**, without asking.
 - **Anything else:** offer `/social` with the live URL.
+
+---
+
+## Phase 10: Newsletter issue (send and social)
+
+When Joe asks for the piece as a newsletter, it's an original Works on My Machine issue: `src/content/newsletter/{slug}.md` (no `recapOf`), images in `public/images/newsletter/{slug}/`, a header card from `cardPhoto` (`npm run newsletter:cards -- {slug}`; a Commons metaphor photo works, see Phase 7), and a `seoTitle` when the title is over 45 characters. The issue isn't done when the page is live: it goes into listmonk and gets social posts in the same session, without Joe having to ask. Why: on the context-switching issue (2026-11-17) the page shipped and both steps were skipped, and Joe asked "Why did you not do those?"
+
+1. **Email images:** JPEG copies in `public/email/{slug}/` (photos and memes with ffmpeg, diagrams with `.claude/skills/blog-to-newsletter/scripts/svg-to-email.mjs`; for an animated figure, show its `.anim-still` layer first). Commit, push, deploy. Don't curl `/email/` URLs before the deploy (Cloudflare caches the 404).
+2. **Email draft:** `~/newsletter-drafts/<send date>-{slug}.md` with `subject` ("Works on My Machine: <Title in title case>"), `description` (the dek, 90-140 characters) and `send_at` (next free Tuesday to Friday at 9:00 Central, one issue a day; check the folder for taken days). The body is the page's body with images swapped for their `https://www.joekarlsson.com/email/{slug}/...` copies, `[!margin]` code comments and `cite:`/`quote:` link titles stripped, and site-relative links made absolute. Run `vale --config ~/newsletter-drafts/.vale.ini` on it.
+3. **listmonk:** follow the `newsletter` skill (`~/claude/.claude/skills/newsletter/SKILL.md`) step 4: `push`, `preview`, screenshot at 800px and 390px, and check the tracked links. Then ask Joe one question: send the test email? Scheduling (step 5) only after he approves the test and the slot. The site page is already live, so skip its `publish` step.
+4. **Social:** run `/social` with the issue URL and queue the posts in Postiz around the send date.
 
 ---
 
