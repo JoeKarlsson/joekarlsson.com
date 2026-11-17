@@ -16,7 +16,7 @@ function isActive(href: string, also: string[] = []): boolean {
 
 <!--
 	One row, always. Spacing is in em, so the whole bar scales with its type: from md
-	up the type shrinks until the bar (about 33.5em wide) fits the window.
+	up the type shrinks until the bar (about 35em wide) fits the window.
 	Phones: the bar runs the full width, the JK logo on the left and a pink MENU on the
 	right under the thumb, both 44px tall. MENU drops the section links below the bar,
 	with Pause motion as the last row. On a post, once its title scrolls under the bar,
@@ -27,7 +27,7 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 <header class="pointer-events-none sticky top-2 z-50 flex justify-center px-2 pt-2 max-md:order-first max-md:px-4 md:top-3.5">
 	<nav
 		aria-label="Main"
-		class="group/nav pointer-events-auto relative flex max-w-full items-center gap-[0.19em] rounded-[0.67em] bg-paper p-[0.29em] font-display text-base leading-none whitespace-nowrap text-ink uppercase max-md:w-full [&_:focus-visible]:outline-ink max-md:justify-between max-md:gap-2.5 md:text-[min(21px,calc((100vw-var(--spine-w)-24px)/33.5))]"
+		class="group/nav pointer-events-auto relative flex max-w-full items-center gap-[0.19em] rounded-[0.67em] bg-paper p-[0.29em] font-display text-base leading-none whitespace-nowrap text-ink uppercase max-md:w-full [&_:focus-visible]:outline-ink max-md:justify-between max-md:gap-2.5 md:text-[min(21px,calc((100vw-var(--spine-w)-24px)/35))]"
 	>
 		<!-- The name is the home link; on the homepage it goes pink like any current page -->
 		<a
@@ -58,7 +58,7 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 			data-nav-menu-toggle
 			aria-expanded="false"
 			aria-controls="nav-section-links"
-			class="group/menu sticker flex h-11 shrink-0 cursor-pointer items-center gap-2 rounded-md bg-pink px-3 text-lg text-ink uppercase hover:bg-ink hover:text-pink aria-expanded:bg-ink aria-expanded:text-pink md:hidden"
+			class="group/menu sticker flex h-11 shrink-0 cursor-pointer items-center gap-2 rounded-md bg-pink px-3 text-lg tracking-[0.04em] text-ink uppercase hover:bg-ink hover:text-pink aria-expanded:bg-ink aria-expanded:text-pink md:hidden"
 		>
 			<!-- MENU and a hamburger while closed, CLOSE and an X while open: each pair is
 			stacked in one cell and crossfades (.icon-swap, motion.css). The shown word is the
@@ -105,7 +105,7 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 					style={`--row: ${row}`}
 					aria-current={isActive(href, also) ? 'page' : undefined}
 					class:list={[
-						'menu-link sticker shrink-0 rounded-[0.38em] px-[0.48em] py-[0.38em] no-underline',
+						'menu-link sticker shrink-0 rounded-[0.38em] tracking-[0.04em] px-[0.48em] py-[0.38em] no-underline',
 						isActive(href, also)
 							? 'relative isolate text-ink'
 							: 'text-ink hover:bg-ink hover:text-pink',

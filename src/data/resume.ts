@@ -217,7 +217,7 @@ export const openSource = [
 export const education = {
 	school: 'Gustavus Adolphus College',
 	degree: 'Bachelor of Arts in Computer Science',
-	years: '2008 - 2012',
+	years: '2008–2012',
 	gpa: '3.5',
 	minors: ['Art History', 'Math'],
 };

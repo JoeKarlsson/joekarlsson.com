@@ -94,7 +94,10 @@ describe('rehypeMarginNotes', async () => {
 			[{ type: 'term', at: 'state backend', term: 'State backend', text: 'where state lives.' }],
 			block,
 		);
-		expect(notes(root)).toEqual(['1 A, 2020. A. a.com', '2 State backend: where state lives.']);
+		expect(notes(root)).toEqual([
+			'1 A, 2020. A. a.com',
+			'2 State backend: where state\u00A0lives.',
+		]);
 		const words = block.children!.find((n) => n.properties?.id === 'mn-w-2')!;
 		expect(textOf(words)).toBe('state backend');
 		expect(textOf(block)).toBe('A1 runs as the state backend2 for everything.');

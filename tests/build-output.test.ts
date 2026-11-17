@@ -240,7 +240,7 @@ describe('Markdown copies for agents', () => {
 		expect(readDist('contact.md')).toContain(
 			'[LinkedIn](https://www.linkedin.com/in/joekarlsson/): Work & speaking',
 		);
-		expect(readDist('resume.md')).toMatch(/2024 - 2026 Remote/);
+		expect(readDist('resume.md')).toMatch(/2024–2026 Remote/);
 		for (const page of ['blog.md', 'work.md', 'newsletter.md', 'index.md', 'about.md']) {
 			const text = readDist(page);
 			expect(text.match(/[\w.,:]\[(?!\])|\)\[/g), page).toBeNull();

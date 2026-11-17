@@ -22,11 +22,13 @@ function options<T extends string | number>(values: T[], byValue = false): [T, n
 }
 const decade = (r: Review) => Math.floor(r.data.year / 10) * 10;
 const countBy = (test: (r: Review) => boolean) => reviews.filter(test).length;
-// Accents off, so "amelie" finds Amélie
+// Accents off, so "amelie" finds Amélie, and quotes straight, so a desktop keyboard's
+// "kiki's" finds the curled Kiki’s
 const plain = (s: string) =>
 	s
 		.normalize('NFD')
 		.replace(/\p{Diacritic}/gu, '')
+		.replace(/[‘’]/g, "'")
 		.toLowerCase();
 const genres = options(reviews.flatMap((r) => r.data.genres));
 const decades = options(reviews.map(decade), true);
@@ -244,6 +246,7 @@ const SELECT =
 				.trim()
 				.normalize('NFD')
 				.replace(/\p{Diacritic}/gu, '')
+				.replace(/[‘’]/g, "'")
 				.toLowerCase();
 			const [genre, decade, stars, watched] = ['genre', 'decade', 'stars', 'watched'].map(control);
 			matches = items.filter(({ dataset: d }) => {

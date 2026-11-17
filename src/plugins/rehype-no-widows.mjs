@@ -10,7 +10,8 @@ import { SKIP as SKIP_NODE, visit } from 'unist-util-visit';
  * down would leave a short line above it.
  */
 
-const LONGEST_WORD = 10;
+// Letters only, so "experience." counts as 10
+const LONGEST_WORD = 14;
 // Not inside these: code keeps its spaces, and a list item's own paragraphs and nested
 // lists are visited on their own
 const SKIP = new Set(['code', 'pre', 'kbd', 'p', 'ul', 'ol', 'script', 'style', 'svg']);
@@ -29,9 +30,13 @@ function lastText(node) {
 	return undefined;
 }
 
+/**
+ * @param {string} text
+ * @returns {string}
+ */
 export function joinLastWord(text) {
 	const match = /^([\s\S]*\S)[ \t\n]+(\S+\s*)$/.exec(text);
-	if (!match || match[2].trim().length >= LONGEST_WORD) return text;
+	if (!match || match[2].replace(/\W/g, '').length >= LONGEST_WORD) return text;
 	return `${match[1]}\u00A0${match[2]}`;
 }
 

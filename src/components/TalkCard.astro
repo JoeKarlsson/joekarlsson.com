@@ -22,6 +22,7 @@ import {
 	youtubeWatchUrl,
 } from '../data/talks';
 import { CHALK } from '../data/scribbles';
+import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 import { ITEM_TITLE, META, TEXT_LINK } from '../utils/ui';
 import MetaParts from './MetaParts.astro';
 import TalkLinks from './TalkLinks.astro';
@@ -150,7 +151,9 @@ const TILTS = ['-rotate-1', 'rotate-[0.6deg]', '-rotate-[0.4deg]', 'rotate-1'];
 	</h3>
 	<p class={`mt-1 ${META}`}>{where}</p>
 	{recordedAt && <p class={`mt-1 ${META}`}>Recorded at {recordedAt.event}</p>}
-	{talk.description && <p class="mt-2 line-clamp-2 text-paper max-md:hidden">{talk.description}</p>}
+	{talk.description && (
+		<p class="mt-2 line-clamp-2 text-paper max-md:hidden">{joinLastWord(talk.description)}</p>
+	)}
 	<TalkLinks
 		title={talk.title}
 		links={[

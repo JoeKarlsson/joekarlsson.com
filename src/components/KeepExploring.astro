@@ -1,5 +1,4 @@
 ---
-import { curlyApostrophes } from '../utils/curly-apostrophes.mjs';
 // The end of a page or post: a pink poster heading, a crayon arrow that swirls
 // right and turns down, and what it points at, picked for each page:
 // - `posts`: picture cards for these post slugs, the first one big under the arrow
@@ -12,6 +11,7 @@ import { DEFAULT_HERO_IMAGE } from '../consts';
 import { MARKS } from '../data/scribbles';
 import { halftoneMode } from '../utils/halftone';
 import { isOwnPost } from '../utils/posts';
+import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 import { jsonForScript } from '../utils/json-for-script';
 import { SECTION_HEADING } from '../utils/ui';
 import HoverBox from './HoverBox.astro';
@@ -124,9 +124,7 @@ const firstRandom = randomPool[0];
 								{post.data.title}
 							</span>
 							{lead && post.data.description && (
-								<span class="line-clamp-3 max-w-[60ch]">
-									{curlyApostrophes(post.data.description)}
-								</span>
+								<span class="line-clamp-3 max-w-[60ch]">{joinLastWord(post.data.description)}</span>
 							)}
 						</a>
 					</li>

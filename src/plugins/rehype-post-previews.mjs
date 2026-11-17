@@ -15,6 +15,7 @@ import { parse } from 'yaml';
 import { DEFAULT_HERO_IMAGE } from '../consts.ts';
 import { halftoneMode } from '../utils/halftone.ts';
 import { localImageSize } from '../utils/image-size.mjs';
+import { curlyApostrophes } from '../utils/curly-apostrophes.mjs';
 
 const BLOG_DIR = path.resolve('src/content/blog');
 const POST_LINK = /^\/blog\/([a-z0-9-]+)\/?(?:#.*)?$/;
@@ -33,7 +34,7 @@ export function readPost(slug, blogDir = BLOG_DIR) {
 		if (!frontMatter) throw new Error(`rehype-post-previews: ${file} has no front matter`);
 		const data = parse(frontMatter[1]);
 		post = {
-			title: data.title,
+			title: curlyApostrophes(data.title),
 			date: new Date(data.date).toLocaleDateString('en-US', {
 				timeZone: 'UTC',
 				year: 'numeric',

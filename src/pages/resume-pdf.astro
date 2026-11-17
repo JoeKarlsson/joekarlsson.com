@@ -3,7 +3,7 @@ import { Font } from 'astro:assets';
 import { roles, education, skills } from '../data/resume';
 
 function formatYearRange(start: number, end: number | null): string {
-	return end ? `${start} - ${end}` : `${start} - Present`;
+	return end ? `${start}–${end}` : `${start}–Present`;
 }
 ---
 

@@ -156,3 +156,10 @@ test.describe('Responsive Breakpoints', () => {
 		await expect(page.locator('main').first()).toBeVisible();
 	});
 });
+
+// Titles are curled at build (Kiki’s), but a desktop keyboard types a straight quote
+test('review search finds a curled title from a straight-quote query', async ({ page }) => {
+	await page.goto('/reviews/');
+	await page.locator('#review-search').fill("kiki's");
+	await expect(page.locator('[data-search]:visible').first()).toContainText('Kiki’s');
+});

@@ -7,6 +7,7 @@
 // as many posts.
 import { DEFAULT_HERO_IMAGE } from '../consts';
 import { formatDate } from '../utils/ui';
+import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 import { halftoneMode } from '../utils/halftone';
 import { CHALK, MARKS } from '../data/scribbles';
 import HoverBox from './HoverBox.astro';
@@ -113,6 +114,8 @@ const formattedDate = formatDate(date);
 		>
 			{title}
 		</a>
-		{description && <p class="mt-2 line-clamp-2 max-w-[60ch] text-paper">{description}</p>}
+		{description && (
+			<p class="mt-2 line-clamp-2 max-w-[60ch] text-paper">{joinLastWord(description)}</p>
+		)}
 	</div>
 </li>

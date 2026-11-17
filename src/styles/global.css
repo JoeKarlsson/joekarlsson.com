@@ -292,6 +292,11 @@
 pre.astro-code {
 	background-color: var(--color-surface-2) !important;
 }
+/* Shiki sets some tokens in italic, and JetBrains Mono loads no italic face: draw them
+   upright instead of letting the browser slant the roman */
+pre.astro-code {
+	font-synthesis-style: none;
+}
 /* Override Shiki comment color for WCAG AA contrast on surface-2 background */
 .prose pre code span[style*='color:#6A737D'] {
 	color: #8b949e !important;
@@ -883,6 +888,8 @@ header nav .sticker {
 }
 .masthead-title > span {
 	@apply block;
+	/* a line too long for a phone breaks into even halves, not a lone last word */
+	text-wrap: balance;
 }
 .masthead-caption {
 	/* about 60 characters: a caption in small italic reads best shorter than the text */

@@ -37,6 +37,7 @@ import { curlyApostrophes } from '../utils/curly-apostrophes.mjs';
 import { halftoneMode } from '../utils/halftone.ts';
 import { localImageSize } from '../utils/image-size.mjs';
 import { readPost } from './rehype-post-previews.mjs';
+import { joinLastWord } from './rehype-no-widows.mjs';
 
 const BRACKETED = /^\[(.+)\]$/s;
 const CITE_TITLE = /^cite:\s*(.+)$/s;
@@ -276,6 +277,8 @@ function ring(number) {
 
 /** The body of a front matter note, by kind. */
 function noteBody(note, number) {
+	// Firefox has no text-wrap: pretty, so the note's last word is joined to the one before it
+	const words = joinLastWord(curlyApostrophes(note.text));
 	const back = el('b', {}, [
 		el('a', { href: `#mn-w-${number}`, ariaLabel: `Note ${number}, back to the text` }, [
 			text(String(number)),
@@ -285,20 +288,12 @@ function noteBody(note, number) {
 	switch (note.type) {
 		case 'quote': {
 			const by = note.url ? el('a', { href: note.url }, [text(note.by)]) : text(note.by);
-			return [back, el('q', {}, [text(curlyApostrophes(note.text))]), el('cite', {}, [by])];
+			return [back, el('q', {}, [text(words)]), el('cite', {}, [by])];
 		}
 		case 'term':
-			return [
-				back,
-				el('dfn', {}, [text(note.term ?? note.at)]),
-				text(`: ${curlyApostrophes(note.text)}`),
-			];
+			return [back, el('dfn', {}, [text(note.term ?? note.at)]), text(`: ${words}`)];
 		case 'update':
-			return [
-				back,
-				el('span', { className: ['mn-stamp'] }, [text(note.date)]),
-				text(curlyApostrophes(note.text)),
-			];
+			return [back, el('span', { className: ['mn-stamp'] }, [text(note.date)]), text(words)];
 		case 'see': {
 			const post = readPost(note.post);
 			if (!post)
@@ -318,7 +313,7 @@ function noteBody(note, number) {
 						},
 						[],
 					),
-					el('span', {}, [el('strong', {}, [text(post.title)]), text(curlyApostrophes(note.text))]),
+					el('span', {}, [el('strong', {}, [text(post.title)]), text(words)]),
 				]),
 			];
 		}
@@ -341,10 +336,10 @@ function noteBody(note, number) {
 							),
 						]
 					: []),
-				text(curlyApostrophes(note.text)),
+				text(words),
 			];
 		default:
-			return [back, text(curlyApostrophes(note.text))];
+			return [back, text(words)];
 	}
 }
 

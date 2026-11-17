@@ -2,25 +2,29 @@ import { defineCollection } from 'astro:content';
 import { z } from 'zod';
 import { glob } from 'astro/loaders';
 import { BLOG_CATEGORIES, EMPLOYERS } from './utils/categories';
+import { curlyApostrophes } from './utils/curly-apostrophes.mjs';
+
+// Text shown as written, curled once here so every page, card and feed gets “” and ’
+const prose = z.string().transform(curlyApostrophes);
 
 // Hacker News cuts titles at 80 characters. A post or issue whose title runs longer sets a
 // shorter shareTitle for the share links (tests/content-schema.test.ts enforces this).
 export const SHARE_TITLE_MAX = 80;
-const shareTitle = z.string().max(SHARE_TITLE_MAX).optional();
+const shareTitle = z.string().max(SHARE_TITLE_MAX).transform(curlyApostrophes).optional();
 
 // Google shows about 60 characters of a page title. A title longer than SEO_TITLE_MAX sets a
 // shorter seoTitle for the browser tab and search results, so "<seoTitle> | Joe Karlsson" fits;
 // the page heading keeps the full title (tests/content-schema.test.ts enforces this).
 export const SEO_TITLE_MAX = 45;
-const seoTitle = z.string().max(SEO_TITLE_MAX).optional();
+const seoTitle = z.string().max(SEO_TITLE_MAX).transform(curlyApostrophes).optional();
 
 const postSchema = z.object({
-	title: z.string(),
+	title: prose,
 	shareTitle,
 	seoTitle,
 	date: z.coerce.date(),
 	slug: z.string(),
-	description: z.string().optional().default(''),
+	description: prose.optional().default(''),
 	// One or two of the fixed list; a typo or an old category fails the build
 	categories: z.array(z.enum(BLOG_CATEGORIES)).min(1).max(2),
 	// The employer a post was written for (a crosspost of their blog); none means personal
@@ -34,13 +38,13 @@ const postSchema = z.object({
 	updatedDate: z.coerce.date().optional(),
 	// What a refresh changed, shown in a banner at the top of the post with the updatedDate
 	// ("Updated November 2026: ..."). Needs updatedDate (tests/content-schema.test.ts).
-	updateNote: z.string().optional(),
+	updateNote: prose.optional(),
 	// Mistakes fixed in the post, each dated, listed newest first in a box at the top
 	// ("Corrections: Nov 13, 2026: I said 8 GB of RAM; it runs fine on 4."). Notes take `code` spans and links
 	corrections: z.array(z.object({ date: z.coerce.date(), note: z.string() })).optional(),
 	canonicalUrl: z.url().optional(),
-	contentNotice: z.union([z.string(), z.boolean()]).optional(),
-	tldr: z.string().optional(),
+	contentNotice: z.union([prose, z.boolean()]).optional(),
+	tldr: prose.optional(),
 	// A long post's chapter openers (rehype-chapters.mjs) can carry an epigraph: an exact
 	// quote from that section, keyed by the section's heading text
 	epigraphs: z
@@ -112,12 +116,12 @@ const talks = defineCollection({
 const newsletter = defineCollection({
 	loader: glob({ base: './src/content/newsletter', pattern: '**/*.md' }),
 	schema: z.object({
-		title: z.string(),
+		title: prose,
 		shareTitle,
 		seoTitle,
 		date: z.coerce.date(),
 		slug: z.string(),
-		description: z.string().optional().default(''),
+		description: prose.optional().default(''),
 		issue: z.number().int().optional(),
 		substackUrl: z.url().optional(),
 		// Header image for the post page, its og:image and its card in the blog list.
@@ -138,7 +142,7 @@ const newsletter = defineCollection({
 const reviews = defineCollection({
 	loader: glob({ base: './src/content/reviews', pattern: '**/*.md' }),
 	schema: z.object({
-		title: z.string(),
+		title: prose,
 		year: z.number().int(),
 		date: z.coerce.date(),
 		rating: z.number().min(0.5).max(5).multipleOf(0.5).optional(),
@@ -154,13 +158,13 @@ const reviews = defineCollection({
 		studios: z.array(z.string()).optional().default([]),
 		letterboxdAverage: z.number().optional(),
 		slug: z.string(),
-		description: z.string().optional().default(''),
+		description: prose.optional().default(''),
 		letterboxdUrl: z.url(),
 		poster: z.string().optional(),
 		heroImage: z.string().optional(),
 		heroAlt: z.string().optional(),
 		// Who the backdrop shows, as its caption (written by hand; the import has no names)
-		heroCaption: z.string().optional(),
+		heroCaption: prose.optional(),
 	}),
 });
 

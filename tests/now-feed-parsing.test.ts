@@ -14,12 +14,12 @@ describe('truncateAtWord', () => {
 
 	it('cuts at the last whole word and drops trailing punctuation', () => {
 		expect(truncateAtWord('fix: Blog rows wake up, with a dotted thumbnail', 24)).toBe(
-			'fix: Blog rows wake up...',
+			'fix: Blog rows wake up…',
 		);
 	});
 
 	it('cuts one long word at the limit', () => {
-		expect(truncateAtWord('a'.repeat(100), 10)).toBe(`${'a'.repeat(10)}...`);
+		expect(truncateAtWord('a'.repeat(100), 10)).toBe(`${'a'.repeat(10)}…`);
 	});
 });
 

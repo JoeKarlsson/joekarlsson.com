@@ -13,6 +13,8 @@ describe('rehype-no-widows', () => {
 	it('joins a short last word to the one before it', async () => {
 		expect(await render('It got cheaper.')).toBe(`<p>It got${NBSP}cheaper.</p>`);
 		expect(await render('It got\ncheaper.')).toBe(`<p>It got${NBSP}cheaper.</p>`);
+		// 10 letters plus the period: punctuation doesn't count toward a long word
+		expect(await render('A better experience.')).toBe(`<p>A better${NBSP}experience.</p>`);
 	});
 
 	it('reaches the last text inside a link, and leaves long words and code alone', async () => {

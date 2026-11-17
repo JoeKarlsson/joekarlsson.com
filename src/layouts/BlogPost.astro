@@ -162,10 +162,12 @@ const relatedSlugs =
 	);
 
 // The description is the masthead's caption, unless the text opens with it (a review's
-// description is its first lines), which would say the same thing twice in a row
+// description is its first lines), which would say the same thing twice in a row. The
+// schema curled the description's quotes, so the body is curled the same way to compare
 const captionText =
 	heroCaption ??
-	(description && !(body ?? '').replace(/\s+/g, ' ').includes(description.slice(0, 60))
+	(description &&
+	!curlyApostrophes((body ?? '').replace(/\s+/g, ' ')).includes(description.slice(0, 60))
 		? description
 		: undefined);
 ---
@@ -254,7 +256,7 @@ const captionText =
 					<strong class="text-pink">
 						Updated <FormattedDate date={updatedDate} />:
 					</strong>{' '}
-					{curlyApostrophes(updateNote)}
+					{updateNote}
 				</p>
 			)}
 			{corrections && corrections.length > 0 && (
@@ -286,7 +288,7 @@ const captionText =
 			)}
 			{tldr && (
 				<p class="mb-10 border-l-4 border-pink pl-5 text-lg leading-relaxed text-paper">
-					<strong class="font-display text-xl font-normal tracking-wide text-pink uppercase">
+					<strong class="font-display text-xl font-normal tracking-[0.04em] text-pink uppercase">
 						TL;DR
 					</strong>{' '}
 					{tldr}

@@ -1,3 +1,4 @@
+import { curlEveryString } from '../utils/curly-apostrophes.mjs';
 // Every talk, podcast, panel, livestream and demo video I've done, recorded or not: the one
 // list /talks/ is built from. Merged from the old hand-written /talk-archive/ list, the
 // YouTube videos in talk-videos.json (the health check reads that file, so it stays as it is; a test checks
@@ -71,7 +72,8 @@ const ART_OF_CS = {
 /** An Apple Podcasts episode page, without the affiliate tag */
 const apple = (path: string) => `https://podcasts.apple.com/us/podcast/${path}`;
 
-export const talks: Talk[] = [
+// Every string curled as the page shows it: Isn’t, What’s Hip
+export const talks: Talk[] = curlEveryString([
 	// 2026
 	{
 		title: 'How to Use ChatGPT Dots with Salesforce, Jira, and More',
@@ -1582,7 +1584,7 @@ export const talks: Talk[] = [
 		cover: '/images/talks/events/maui-stem-2016.webp',
 		link: 'https://web.archive.org/web/20161213230323/http://womenintech.com/HawaiiSTEMConference/',
 	},
-];
+]);
 
 // Talks, podcasts, livestreams and demos (tutorial and demo videos), the four kinds the page
 // counts and filters by. A panel counts as a talk.

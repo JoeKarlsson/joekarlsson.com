@@ -4,7 +4,6 @@
 // default slot, usually MetaParts), the title fitted to the column (utils/masthead.ts), then
 // the picture or video with no tilt or tape, and the description as its italic caption.
 import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
-import { curlyApostrophes } from '../utils/curly-apostrophes.mjs';
 import { mastheadFontSize, mastheadLineInset, mastheadLines } from '../utils/masthead';
 
 interface Props {
@@ -32,7 +31,12 @@ const lines = mastheadLines(title);
 	<h1 class="masthead-title" style={`font-size:${mastheadFontSize(lines)}`}>
 		{lines.map((line) => (
 			<>
-				<span style={`margin-inline-start:${mastheadLineInset(line)}`}>{line}</span>{' '}
+				<span style={`margin-inline-start:${mastheadLineInset(line)}`}>
+					{/* balance would break REAL- / TIME at its hyphen; keep such words whole */}
+					{line
+						.split(/(\S+-\S+)/)
+						.map((part, i) => (i % 2 ? <span class="whitespace-nowrap">{part}</span> : part))}
+				</span>{' '}
 			</>
 		))}
 	</h1>
@@ -74,7 +78,7 @@ const lines = mastheadLines(title);
 	)}
 	{caption && (
 		<p class="masthead-caption">
-			<b>{label}</b> {joinLastWord(curlyApostrophes(caption))}
+			<b>{label}</b> {joinLastWord(caption)}
 		</p>
 	)}
 </header>

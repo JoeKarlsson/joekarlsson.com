@@ -112,7 +112,7 @@ const sections = [
 			text: page.screenshotsTitle ?? 'Screenshots',
 		},
 	page.supporting && { slug: 'supporting', text: page.supporting.heading },
-	page.made && { slug: 'how-its-made', text: "How it's made" },
+	page.made && { slug: 'how-its-made', text: 'How it’s made' },
 	lineage.length > 0 && { slug: 'lineage', text: 'Lineage' },
 ].filter((section): section is { slug: string; text: string } => Boolean(section));
 
@@ -190,11 +190,11 @@ const sections = [
 		</div>
 
 		{page.introHeading && (
-			<h2 id="statement" class={ARTICLE_HEADING}>
+			<h2 id="statement" class={`mt-14 ${ARTICLE_HEADING}`}>
 				{page.introHeading}
 			</h2>
 		)}
-		<div class="prose mt-12 md:mt-16">
+		<div class:list={['prose', { 'mt-14': !page.introHeading }]}>
 			{page.intro.map((p, i) => (
 				<>
 					<p set:html={inlineMarkdown(p)} />
@@ -214,7 +214,7 @@ const sections = [
 		</div>
 
 		{page.embedUrl && (
-			<section class="mt-12 md:mt-16" aria-labelledby="play-it">
+			<section class="mt-14" aria-labelledby="play-it">
 				<h2 id="play-it" class={ARTICLE_HEADING}>
 					{page.embedHeading ?? 'Play it'}
 				</h2>
@@ -297,7 +297,7 @@ const sections = [
 		)}
 
 		{page.tour && (
-			<section class="mt-12 md:mt-16" aria-labelledby="tour">
+			<section class="mt-14" aria-labelledby="tour">
 				<h2 id="tour" class={ARTICLE_HEADING}>
 					Tour
 				</h2>
@@ -318,7 +318,7 @@ const sections = [
 		)}
 
 		{(page.install || page.example) && (
-			<section class="prose mt-12 md:mt-16" aria-labelledby="try-it">
+			<section class="prose mt-14" aria-labelledby="try-it">
 				<h2 id="try-it" class:list={['not-prose', ARTICLE_HEADING]}>
 					Try it
 				</h2>
@@ -333,7 +333,7 @@ const sections = [
 		)}
 
 		{page.gallery && (
-			<section class="mt-12 md:mt-16" aria-labelledby="examples">
+			<section class="mt-14" aria-labelledby="examples">
 				<h2 id="examples" class={ARTICLE_HEADING}>
 					{page.galleryTitle ?? 'Gallery'}
 				</h2>
@@ -382,7 +382,7 @@ const sections = [
 		{/* Screenshots and gallery stills stay in their own colors, so the interface reads as it really looks */}
 		{page.screenshots && (
 			<section
-				class:list={['mt-12 md:mt-16', { 'embed-large:hidden': screenshotsOnlyOnPhones }]}
+				class:list={['mt-14', { 'embed-large:hidden': screenshotsOnlyOnPhones }]}
 				aria-labelledby="screenshots"
 			>
 				<h2 id="screenshots" class={ARTICLE_HEADING}>
@@ -409,7 +409,7 @@ const sections = [
 		)}
 
 		{page.supporting && (
-			<section class="mt-12 md:mt-16" aria-labelledby="supporting">
+			<section class="mt-14" aria-labelledby="supporting">
 				<h2 id="supporting" class={ARTICLE_HEADING}>
 					{page.supporting.heading}
 				</h2>
@@ -422,9 +422,9 @@ const sections = [
 		)}
 
 		{page.made && (
-			<section class="mt-12 md:mt-16" aria-labelledby="how-its-made">
+			<section class="mt-14" aria-labelledby="how-its-made">
 				<h2 id="how-its-made" class={ARTICLE_HEADING}>
-					How it's made
+					How it’s made
 				</h2>
 				<p class={`mb-4 ${META}`}>{project.tech.join(', ')}</p>
 				<div class="prose mb-8">
@@ -450,7 +450,7 @@ const sections = [
 		)}
 
 		{lineage.length > 0 && (
-			<section class="mt-12 md:mt-16" aria-labelledby="lineage">
+			<section class="mt-14" aria-labelledby="lineage">
 				<h2 id="lineage" class={ARTICLE_HEADING}>
 					Lineage
 				</h2>

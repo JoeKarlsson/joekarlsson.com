@@ -6,7 +6,7 @@ export function truncateAtWord(text, maxChars) {
 	const lastSpace = text.lastIndexOf(' ', maxChars);
 	// One long word: cut it, rather than slice(0, -1) keeping nearly all of it
 	const cut = lastSpace > 0 ? text.slice(0, lastSpace) : text.slice(0, maxChars);
-	return `${cut.replace(/[\s,.;:-]+$/, '')}...`;
+	return `${cut.replace(/[\s,.;:-]+$/, '')}…`;
 }
 
 /**
