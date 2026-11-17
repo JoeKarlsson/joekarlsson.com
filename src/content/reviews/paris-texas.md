@@ -53,9 +53,10 @@ But maybe that's the point. Maybe the film isn't endorsing his choices - maybe i
 
 Harry Dean Stanton's performance is impressive, but it feels overly gentle for a character who should be filled with so much rage. I could feel the grief and sadness radiating from him, but I didn't feel the violence and anger bubbling underneath. For a man who did what he did, there should be more darkness visible in that performance. The gentleness feels like it's letting him off the hook.
 
-![Harry Dean Stanton, bearded, in a red cap and a dusty pinstripe suit and tie, stands in front of pale desert rock spires.](/images/reviews/paris-texas/travis-walks-out-of-the-desert.webp "margin: Travis walks out of the desert, in Criterion's trailer.")
-
 The structure works like a parable - a man who literally vanishes into the desert for four years, comes back like some kind of wandering ghost, and has to reckon with the consequences of his actions. Except he doesn't really reckon with them. He just creates a new wound and leaves again.
+
+![Harry Dean Stanton, bearded, in a red cap and a dusty pinstripe suit and tie, stands in front of pale desert rock spires.](/images/reviews/paris-texas/travis-walks-out-of-the-desert.webp)
+_Travis walks out of the desert, in Criterion's trailer._
 
 I can understand why so many people consider this a masterpiece. I also feel utterly repulsed by the characters in it, which is probably the point. It's a deconstruction of Boomer parenting in the 1980s, a rejection of the Leave It to Beaver fantasy of the perfect American father. Travis is what's underneath that myth - absence, violence, ego, and ultimately more absence.
 

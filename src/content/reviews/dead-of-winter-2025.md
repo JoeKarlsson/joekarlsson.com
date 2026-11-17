@@ -49,9 +49,10 @@ As a Minnesotan, I was legally required to see Dead of Winter in theaters with s
 
 Let's get the Minnesota-specific stuff out of the way first. Emma Thompson's accent was pretty good, though she leaned into the folksiness a little too hard. The number of "uff das" in this film was a little crazy. I wish they'd either gone full [Fargo](/reviews/fargo-1/) or something more subtle, but you know, whatever. It's fine. I think people will like it no matter what. I did love her earnestness and kindness, but those guys who come to rescue her after she radios them being so standoffish? That struck me as the least Minnesotan thing in the entire film. There's no way these guys would call to confirm it's a woman calling and then continue to hold her at gunpoint in northern Minnesota. That would never happen. Ever.
 
-![Aerial view of a huge snow-covered frozen lake ringed by dark pine forest, one tiny figure walking across it.](/images/reviews/dead-of-winter-2025/one-figure-crossing-the-frozen-lake.webp 'margin: One figure crossing the frozen lake.')
-
 I loved the sparseness. I loved the cinematography of the north. I loved the snow, and it actually made me excited for winter, which is crazy. I'm not much of an ice fisherman, but this also made that look kind of fun too - which I don't think was the intended effect.
+
+![Aerial view of a huge snow-covered frozen lake ringed by dark pine forest, one tiny figure walking across it.](/images/reviews/dead-of-winter-2025/one-figure-crossing-the-frozen-lake.webp)
+_One figure crossing the frozen lake._
 
 This movie reminded me most of No Country for Old Men - or in this case, No Country for Old Women. It's a process movie. You're watching Emma Thompson solve problems in real time. There's not always an explanation for what she's doing and why, but it becomes clearly evident quickly, which reminded me a lot of the dynamics in No Country. Particularly that scene where you see her meticulously sewing up her wounds with fishing tackle. Very Anton Chigurh.
 
@@ -60,9 +61,10 @@ _The tackle box, then the stitches._
 
 I appreciated the pacing. I appreciated having older women lead a pseudo-action thriller. The plot was pretty threadbare and got a little crazy towards the end, but honestly, it didn't really matter for me. This was about characters and setting and tone.
 
-![A blonde woman in a knit hat and fur-trimmed parka holds a scoped rifle in snowy woods, a bearded man behind her.](/images/reviews/dead-of-winter-2025/judy-greer-rifle-in-hand-in.webp 'margin: Judy Greer, rifle in hand, in the woods.')
-
 Judy Greer was actually wonderful too. I loved not knowing what was going on but trusting we'd eventually find out. She did a great job selling a woman who will stop at nothing to save her own skin. And she's really not helping nurses beat the allegations of being the meanest people in the universe.
+
+![A blonde woman in a knit hat and fur-trimmed parka holds a scoped rifle in snowy woods, a bearded man behind her.](/images/reviews/dead-of-winter-2025/judy-greer-rifle-in-hand-in.webp)
+_Judy Greer, rifle in hand, in the woods._
 
 That girl they had to rescue was one of the most annoying characters I've ever seen committed to film. Whiny, useless - and ||at the end, she just walked away from Emma Thompson after Thompson had literally sacrificed herself to save her ass||. She wasn't even dead yet. I couldn't believe it.
 

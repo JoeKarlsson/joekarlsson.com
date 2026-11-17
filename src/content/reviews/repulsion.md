@@ -51,8 +51,9 @@ _The corridor._
 
 The film works because Polanski does genuinely capture something true about how oppressive and threatening male attention can be to women. Every man in Carol’s orbit is pushy, entitled, physically aggressive. They don’t listen when she says no. They touch her without permission. They force their way into her space. The film understands that Carol’s descent into madness is triggered by inescapable male predation - and that’s the most disturbing part about Polanski directing this. He knew exactly what he was depicting because he was capable of it himself.
 
-![Catherine Deneuve in a patterned blouse walks past an ornate bridge post, a car behind her, in black and white.](/images/reviews/repulsion/carol-out-walking-in-london-by.webp 'margin: Carol out walking in London, by day.')
-
 One thing I need to note about the soundtrack: it’s hilarious to me that 1960s films always have these bossa nova jazz soundtracks that are wildly out of place with what modern cinema and horror films do today. Every single time Carol was walking around the streets of London and that bossa nova music kicked in, I just thought of Austin Powers. It’s so jarring and almost comical against the darkness of what’s happening.
+
+![Catherine Deneuve in a patterned blouse walks past an ornate bridge post, a car behind her, in black and white.](/images/reviews/repulsion/carol-out-walking-in-london-by.webp)
+_Carol out walking in London, by day._
 
 This is a great psychological horror film. It’s also impossible to watch without thinking about who made it and what he did, and that makes it feel deeply tainted.

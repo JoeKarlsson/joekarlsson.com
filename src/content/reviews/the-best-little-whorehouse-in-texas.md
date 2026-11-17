@@ -35,9 +35,10 @@ So progressive in its sex politics. So cute. So Dolly.
 
 I had no idea this was a holiday movie. I had no idea Hard Candy Christmas was in this - it's been one of my favorite Christmas songs for years and I never knew where it came from. I had no idea I'd cry at the ending. And yet here we are.
 
-![Dolly Parton with big blonde curls in a black sequined halter dress smiles in a doorway.](/images/reviews/the-best-little-whorehouse-in-texas/dolly-parton-as-miss-mona.webp 'margin: Dolly Parton as Miss Mona.')
-
 This was so cute. I loved it. I looked up how it was received at the time and was surprised, because it's so progressive in its sex politics - genuinely pro sex worker in a way that feels radical even now. But why should I be surprised? Of course Dolly would be pro sex worker. She was electric in this, as she always is.
+
+![Dolly Parton with big blonde curls in a black sequined halter dress smiles in a doorway.](/images/reviews/the-best-little-whorehouse-in-texas/dolly-parton-as-miss-mona.webp)
+_Dolly Parton as Miss Mona._
 
 The songs are so fun. The ending got me - I cried, I'll admit it.
 My favorite bits: "It's business doing pleasure with ya" and when the watchdog character goes into a room, sniffs the air, and asks "Are y'all smoking... cocaine?!?!" Incredible line delivery.

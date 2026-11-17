@@ -49,10 +49,11 @@ Harakiri: beautiful cinematography, devastating story, and one of cinema's most 
 
 This is a slow-burn, powerful, anti-authoritarian, anti-samurai masterpiece that's beautifully shot and oftentimes gory and genuinely difficult to watch. It takes everything noble and honorable about the samurai code and methodically reveals it as a weapon wielded by those in power to crush the desperate and maintain their authority.
 
-![Overhead black-and-white shot of a man kneeling on a white mat in a stone courtyard, a ring of samurai with drawn swords around him.](/images/reviews/harakiri/tsugumo-on-the-harakiri-mat-ringed.webp "margin: Tsugumo on the harakiri mat, ringed by the clan's retainers.")
-
 I've been sitting with this one for a while. I think this is one of the most entertaining and scathing takedowns of how those in power co-opt and corrupt customs for their own benefit. It's about a man who, through desperation and grief, works to expose the hypocrisy of these systems with surgical precision. He doesn't fight with his sword - he fights with his story, forcing the powerful to confront exactly what their "honor" has cost.
 What makes this so effective is how patient it is. The film takes its time revealing what's actually happening, and when it finally shows you the full picture, it's devastating. The flashback structure isn't just a narrative device - it's a trap being set for both the samurai clan and the audience.
+
+![Overhead black-and-white shot of a man kneeling on a white mat in a stone courtyard, a ring of samurai with drawn swords around him.](/images/reviews/harakiri/tsugumo-on-the-harakiri-mat-ringed.webp)
+_Tsugumo on the harakiri mat, ringed by the clan's retainers._
 
 These themes still hit today - how institutions use tradition and ritual to justify cruelty, how they punish the vulnerable for failing to live up to standards the powerful never have to face, how "honor" becomes a cudgel rather than a virtue. This probably explains why this film is so popular on Letterboxd right now.
 

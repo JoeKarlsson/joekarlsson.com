@@ -56,9 +56,10 @@ Marty's sister Jane (Megan Follows) asks, "Well, what are we gonna do?" Marty sa
 
 I think coked-out schlock King is my favorite version of King. He wrote this the year before [Maximum Overdrive](/reviews/maximum-overdrive/), the one [he's said he was coked out of his mind for](https://en.wikipedia.org/wiki/Maximum_Overdrive#Production).
 
-![A shaggy black creature with a bear-like snout and bared teeth against wood paneling.](/images/reviews/silver-bullet/the-werebear-up-close.webp 'margin: The werebear, up close.')
-
 The effects looked terrible. I loved them. King wanted a werewolf you could barely see, and the suit they ended up with looks like a black bear having a bad night. People call it the werebear.
+
+![A shaggy black creature with a bear-like snout and bared teeth against wood paneling.](/images/reviews/silver-bullet/the-werebear-up-close.webp 'spoiler')
+_The werebear, up close._
 
 Eggers is going to give me a werewolf accurate down to the mud, and I can't wait, But I still kind of hope he puts a gas-powered wheelchair in his version.
 

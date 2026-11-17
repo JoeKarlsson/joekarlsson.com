@@ -60,9 +60,10 @@ _Circe singing the men back out of the pigs._
 
 Odysseus is a war criminal. Easily distracted. Responsible for the fall of peaceful Greek life. Unfortunately, he's played by the charming and handsome and ripped Matt Damon, and he goes out swinging like John Wick after watching his dog die. A lot of men are going to valorize this. See his hubris against the gods as valorous. Wolf of Wall Street all over again - people missing that Belfort is the villain, wanting to be him instead. Damon might be too likable for the role. I don't know who I'd cast instead, but someone you can hate more easily, maybe Oscar Isaac???
 
-![Anne Hathaway in a dark red dress, upset, speaking to someone off camera.](/images/reviews/the-odyssey-2026/anne-hathaway-as-penelope.webp 'margin: Anne Hathaway as Penelope.')
-
 Nolan continues his streak of writing thin parts for women. Anne Hathaway gets the most to chew on as Penelope, and even that feels underwritten. And Zendaya plays Odysseus’s invisible friend. But at least this time the text itself is an indictment. The men are the problem. The film knows it.
+
+![Anne Hathaway in a dark red dress, upset, speaking to someone off camera.](/images/reviews/the-odyssey-2026/anne-hathaway-as-penelope.webp 'spoiler')
+_Anne Hathaway as Penelope._
 
 The craft is undeniable. The score is incredible. The visuals are gorgeous. Staging, locales, filming - everything meticulously crafted. Several scenes I had tears welling up just from the images and music alone. It is a beautiful movie. You cannot deny it.
 

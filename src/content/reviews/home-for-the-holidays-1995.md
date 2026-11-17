@@ -27,8 +27,9 @@ heroImage: '/images/reviews/home-for-the-holidays-1995/backdrop.webp'
 heroAlt: 'Holly Hunter in a red knit hat talking with Robert Downey Jr. and Dylan McDermott outside in a parking lot.'
 ---
 
-![A young Robert Downey Jr. with curly dark hair and a black jacket leans in, eyes wide, pulling a face.](/images/reviews/home-for-the-holidays-1995/robert-downey-jr-as-tommy-the.webp 'margin: Robert Downey Jr. as Tommy, the younger brother.')
-
 I’ve been wrestling with this movie for days. I thought it was cute and I have a big crush on Holly Hunter and an extremely intoxicated RDJ - but it’s a messy movie and I’m not sure what it’s attempting to say about the American idea of the patriarchal nuclear family. The romance also felt perfunctory and also seemed to create a happy ending from Hunter continuing the system, which was weird.
+
+![A young Robert Downey Jr. with curly dark hair and a black jacket leans in, eyes wide, pulling a face.](/images/reviews/home-for-the-holidays-1995/robert-downey-jr-as-tommy-the.webp)
+_Robert Downey Jr. as Tommy, the younger brother._
 
 I’m proud of Jodie Foster for this movie, but I’m not sure I like what she’s saying. I did think it was kinda cute though 😅

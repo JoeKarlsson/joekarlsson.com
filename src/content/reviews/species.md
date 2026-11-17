@@ -40,9 +40,10 @@ Okay, so I just watched Species (1995) with my girlfriend, and we had a great ti
 
 This film is trying to be titillating, so fast, so weirdly funny, and so utterly nonsensical that I laughed so hard I almost choked. Like, ||why did they have to kill Sil after she had a dream where her eyeballs moved||?
 
-![Two men and a woman sit around a glass conference table in a white government briefing room.](/images/reviews/species/michael-madsen-marg-helgenberger-and-forest.webp 'margin: Michael Madsen, Marg Helgenberger and Forest Whitaker, three of the four.')
-
 I have to say, the core dynamics of the central four were so much like the Scooby Gang going after a supernatural force, but with way more… sperm.)
+
+![Two men and a woman sit around a glass conference table in a white government briefing room.](/images/reviews/species/michael-madsen-marg-helgenberger-and-forest.webp)
+_Michael Madsen, Marg Helgenberger and Forest Whitaker, three of the four._
 
 Michelle Williams? Genius. She sold being a scared, confused alien so well I almost believed she was actually the alien (and yes, I know that’s a terrible thing to say, but her performance was chef’s kiss). And the adult scene? Absolutely terrible. I know this role is hard to do, but it’s definitely been done better by performers like Arnold Schwarzenegger in Terminator (he knew what he was doing).
 

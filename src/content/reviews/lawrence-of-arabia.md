@@ -20,6 +20,7 @@ heroImage: '/images/reviews/lawrence-of-arabia/backdrop.webp'
 heroAlt: "Peter O'Toole in white Arab robes and headdress, seated between two men in dark headdresses under a blue desert sky."
 ---
 
-![A tiny figure on a camel rides along a beach at the water's edge, the sea lit gold by a low sun.](/images/reviews/lawrence-of-arabia/a-lone-rider-on-the-shore.webp 'margin: A lone rider on the shore at sunset.')
-
 It took 3 days, but I finished Lawrence of Arabia. Definitely great, probably not worth 4 hours though. The cinematography was gorgeous and it's definitely inspired a ton of filmmakers.
+
+![A tiny figure on a camel rides along a beach at the water's edge, the sea lit gold by a low sun.](/images/reviews/lawrence-of-arabia/a-lone-rider-on-the-shore.webp)
+_A lone rider on the shore at sunset._

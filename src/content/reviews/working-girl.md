@@ -38,9 +38,10 @@ On paper it is one, and I was so happy for Tess. ||She finally gets her dream jo
 
 Can a woman have everything? The answer in this movie is yes. It's such a boomer feminist film, made at the height of the 80s mergers and acquisitions girlboss era, when winning meant getting out of the secretary pool, not changing it. Griffith's Tess is a Staten Island secretary with a night-school degree and better ideas than the people she fetches coffee for, and the movie is on her side the whole way.
 
-![Harrison Ford, shirtless, swings a white shirt in an office while women watch through the blinds behind him.](/images/reviews/working-girl/jack-changes-shirts-in-front-of.webp 'margin: Jack changes shirts in front of the bullpen.')
-
 The most fun anyone has in this movie happens out on that floor. The scene I laughed out loud at is a room full of secretaries watching Harrison Ford change his shirt in the office and cheering for him. It's so funny.
+
+![Harrison Ford, shirtless, swings a white shirt in an office while women watch through the blinds behind him.](/images/reviews/working-girl/jack-changes-shirts-in-front-of.webp)
+_Jack changes shirts in front of the bullpen._
 
 There's one image I can't get out of my head. Tess calls her best friend Cyn (Joan Cusack) from her new office, and Cusack is ecstatic, screaming and yelling the news across the bullpen while the women around her cheer. ||Then the camera slowly pulls back from Tess, alone at the window of her empty office||, until she's one lit square in a skyline full of them.
 

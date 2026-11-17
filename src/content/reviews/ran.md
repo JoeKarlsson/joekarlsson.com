@@ -36,9 +36,10 @@ Ran, don't walk to the cinema to watch this one!
 
 I've seen a handful of Akira Kurosawa's works but I'm definitely not a completionist. I'd love to learn more about him though, and I'm working through the Letterboxd top 250 right now, which finally brought me to Ran.
 
-![Hundreds of riders and foot soldiers with small red banners on their backs charge across a green field toward a dark forest.](/images/reviews/ran/taros-redbannered-army-charges-across-the.webp "margin: Taro's red-bannered army charges across the field.")
-
 Let me just say: it looks incredible. You can feel the amount of craft that went into every single frame. The battle sequences, the color design, the costumes, the composition - it's all masterful. Then when you learn about the behind-the-scenes context, it becomes even more powerful.
+
+![Hundreds of riders and foot soldiers with small red banners on their backs charge across a green field toward a dark forest.](/images/reviews/ran/taros-redbannered-army-charges-across-the.webp)
+_Taro's red-bannered army charges across the field._
 
 Kurosawa's wife dying, him going blind during production, his suicide attempt before making this film, him clawing his way back to create this epic - the connections between his personal tragedy and King Lear's themes are almost overwhelming.
 

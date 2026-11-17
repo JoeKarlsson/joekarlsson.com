@@ -36,6 +36,7 @@ heroAlt: 'A bald older man in a shirt, tie and suspenders sitting with folded ha
 
 I swear the special effects gore team has to be the same one as the one that worked The Boys.
 
-![A smiling bald man in shirt and suspenders, backlit by a streetlight and frosted windows.](/images/reviews/final-destination-bloodlines/tony-todd-as-bludworth-his-last.webp 'margin: Tony Todd as Bludworth, his last film role.')
-
 I had so much fun though I loved it. Also, what a sendoff for bloodworth 🥲
+
+![A smiling bald man in shirt and suspenders, backlit by a streetlight and frosted windows.](/images/reviews/final-destination-bloodlines/tony-todd-as-bludworth-his-last.webp)
+_Tony Todd as Bludworth, his last film role._

@@ -33,9 +33,10 @@ marginNotes:
     post: reviews/bride-of-frankenstein
 ---
 
-![Overhead shot of a scarred man in a vest shouting in the middle of dancers on a black and turquoise checkered floor.](/images/reviews/the-bride-2026/christian-bales-monster-on-a-checkered.webp "margin: Christian Bale's monster on a checkered dance floor.")
-
 This reminded me of Joker: Folie à Deux. Lots of singing and dancing, the Bride's violence inspiring masked vigilantes to follow her lead, heavy face makeup, insane protagonist, shaggy plot. The comparisons are hard to avoid.
+
+![Overhead shot of a scarred man in a vest shouting in the middle of dancers on a black and turquoise checkered floor.](/images/reviews/the-bride-2026/christian-bales-monster-on-a-checkered.webp)
+_Christian Bale's monster on a checkered dance floor._
 
 There are some really striking visuals though. Maggie Gyllenhaal has a strong vision and a huge commitment to the idea. You can feel her going for something ambitious and weird.
 

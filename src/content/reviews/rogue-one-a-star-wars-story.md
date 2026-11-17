@@ -36,6 +36,7 @@ Jyn Erso’s character is still pretty weak - that hasn’t changed. But the mov
 
 Films like [The Battle of Algiers](/reviews/the-battle-of-algiers/) are much better at portraying this concept - the gray zones required, the moral cost, the ugly necessities. But for a Star Wars story, this is extremely mature. For me, it’s peak Disney era Star Wars, and I doubt that’ll be hit again anytime soon.
 
-![The underside of a huge gray Star Destroyer hangs over a rocky desert mesa topped by a spire.](/images/reviews/rogue-one-a-star-wars-story/a-star-destroyer-over-the-holy.webp 'margin: A Star Destroyer over the holy city of Jedha.')
-
 Seeing how each person gives everything in order to support the hope of winning over a fascist regime remains extremely relevant. That’s what sticks with me. Not the characters, but what they chose to do.
+
+![The underside of a huge gray Star Destroyer hangs over a rocky desert mesa topped by a spire.](/images/reviews/rogue-one-a-star-wars-story/a-star-destroyer-over-the-holy.webp)
+_A Star Destroyer over the holy city of Jedha._

@@ -44,9 +44,10 @@ Reading reviews from women and mothers, I know this movie is about postpartum de
 
 Here's the thing though - I watched this one week out from a breakup. Our song was literally "In Spite of Ourselves" by John Prine. And I feel like the last six months of that relationship looked a lot like this movie.
 
-![Robert Pattinson and Jennifer Lawrence yell at each other nose to nose in a small kitchen with floral wallpaper.](/images/reviews/die-my-love/pattinson-and-lawrence-face-off-in.webp 'margin: Pattinson and Lawrence face off in the kitchen.')
-
 I know Robert Pattinson is the wrong person to relate to here. I related to him anyway. I was trying to hold things together while my partner was losing their mind, experiencing a reality completely detached from mine. Trying to validate it. Trying to keep life moving forward. Trying to stay present while the other person actively burned it down.
+
+![Robert Pattinson and Jennifer Lawrence yell at each other nose to nose in a small kitchen with floral wallpaper.](/images/reviews/die-my-love/pattinson-and-lawrence-face-off-in.webp)
+_Pattinson and Lawrence face off in the kitchen._
 
 Yeah. Hard watch for me right now.
 

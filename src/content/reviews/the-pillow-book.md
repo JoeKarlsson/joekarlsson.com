@@ -34,13 +34,15 @@ The film opens with Nagiko as a child, her father painting calligraphy on her fa
 ![A black-and-white close-up of young Nagiko as her father's brush paints a character on her cheek.](/images/reviews/the-pillow-book/fathers-brush.webp)
 _The birthday ritual._
 
-![A rectangular inset of one hand writing with a brush on another person's open palm, laid over a dim restaurant scene with diners and red ribbons.](/images/reviews/the-pillow-book/a-hand-writing-on-a-palm.webp 'margin: A hand writing on a palm, inset over a dinner party.')
-
 The lo-fi aesthetics feel almost DIY (by today’s standards), which I loved - Greenaway isn't precious about polish. The experimental framing and picture-in-picture compositions are interesting and novel, stacking images on top of each other, letting scenes bleed into scenes. It all feels like memory - hazy, dreamy, someone trying to recall what happened but not quite getting it all. Reminded me of Aftersun in that way.
 
-![A woman seen from behind in a white robe slipped off her shoulders, red calligraphy painted down the back of her neck, in a gray tint.](/images/reviews/the-pillow-book/red-characters-brushed-on-a-womans.webp "margin: Red characters brushed on a woman's neck, from the trailer.")
+![A rectangular inset of one hand writing with a brush on another person's open palm, laid over a dim restaurant scene with diners and red ribbons.](/images/reviews/the-pillow-book/a-hand-writing-on-a-palm.webp)
+_A hand writing on a palm, inset over a dinner party._
 
 I watched [The Handmaiden](/reviews/the-handmaiden/) this same weekend, and the connections run deep. Both are very gay. Both are about women trying to navigate a patriarchy that wants to use them, suppress them, fuck them, control them. Both feature men obsessed with books - or publishing them - as antagonists. And both are about the body as text: Hideko trained to read pornography aloud, her literacy weaponized against her; Nagiko written on since childhood, spending her life turning that ritual into something erotic and autonomous and hers.
+
+![A woman seen from behind in a white robe slipped off her shoulders, red calligraphy painted down the back of her neck, in a gray tint.](/images/reviews/the-pillow-book/red-characters-brushed-on-a-womans.webp)
+_Red characters brushed on a woman's neck, from the trailer._
 
 The difference is that no men fuck in The Handmaiden. At least Ewan got some here.
 

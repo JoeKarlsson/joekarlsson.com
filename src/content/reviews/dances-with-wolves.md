@@ -40,13 +40,15 @@ Kevin Costner’s empty-headed monotone reading of the frontier somehow works fo
 
 Look, I watched the four-hour cut of this for the first time. I love westerns and I know there are a lot of problems with this movie, but despite everything I’m about to say, I do like it. Costner’s voiceovers are delivered in complete monotone and his character is kind of dumb, but somehow his directing, performance, and the story still work for me.
 
-![A huge herd of bison runs through dust across a prairie, a rider on horseback at the edge.](/images/reviews/dances-with-wolves/the-buffalo-hunt-in-the-trailer.webp 'margin: The buffalo hunt, in the trailer.')
-
 Maybe it’s because this is such a beautiful film - the cinematography is stunning and the score is incredible. Or maybe it’s that there’s something about Costner’s specific wide-eyed stoic American energy that was necessary to make a movie like this work in 1990. He’s the only one who could’ve sold this particular version of the story, and whatever its flaws, it does ultimately make me feel absolutely terrible about how our relations with Native Americans ended up.
 
-![Close-up of Kevin Costner with long windblown hair and a mustache, gazing upward against a pink sky.](/images/reviews/dances-with-wolves/costner-as-john-dunbar-looking-up.webp 'margin: Costner as John Dunbar, looking up at a pink sky.')
+![A huge herd of bison runs through dust across a prairie, a rider on horseback at the edge.](/images/reviews/dances-with-wolves/the-buffalo-hunt-in-the-trailer.webp)
+_The buffalo hunt, in the trailer._
 
 Here’s the thing about Costner in this: he’s very good at making himself look like a complete moron, which is impressive to pull off. But he’s also handsome - I get it now. I was genuinely inspired by his beauty in this film, and I finally understand the Kevin Costner appeal that eluded me before.
+
+![Close-up of Kevin Costner with long windblown hair and a mustache, gazing upward against a pink sky.](/images/reviews/dances-with-wolves/costner-as-john-dunbar-looking-up.webp)
+_Costner as John Dunbar, looking up at a pink sky._
 
 Now, I can’t talk about this movie without addressing the elephant in the room. Seeing this through the lens of 90s race relations, I understand it’s a bad look to have a white man at the center of a story about the Native American experience. I do think this was probably the only way this story could’ve been told in the year it was released and actually get made by a major studio, but in retrospect it’s kind of sad that it had to be framed this way. What does work, though, are the Native American performers themselves - they’re all incredible and I was so impressed with them throughout.
 

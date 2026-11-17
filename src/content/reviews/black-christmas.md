@@ -36,8 +36,9 @@ The same guy who directed A Christmas Story directed this. Bob Clark made a cozy
 
 Black Christmas is seminal - you can draw a direct line from this to Halloween to everything that followed. Seeing it in a theater, I was scared at parts. It holds up.
 
-![A man in a plaid shirt runs down a long narrow aisle between tall racks of grey telephone switching equipment.](/images/reviews/black-christmas/a-phone-company-man-runs-the.webp 'margin: A phone company man runs the trace through the relays.')
-
 That said, this is a very phone-heavy plot, and I got a bit of a headache from all the ringing. But as a computer guy, I was obsessed with the vintage AT&T phone centers in action. Watching how phone tapping and tracing worked in the analog days - the physical switches, the manual labor of tracking a call - was fascinating. That stuff ruled.
+
+![A man in a plaid shirt runs down a long narrow aisle between tall racks of grey telephone switching equipment.](/images/reviews/black-christmas/a-phone-company-man-runs-the.webp 'spoiler')
+_A phone company man runs the trace through the relays._
 
 My only real complaint: it's a tad too long. Trim fifteen to twenty minutes and this is a five-star classic for me. As it stands, the pacing drags in spots that undercut the tension. But the bones are there.

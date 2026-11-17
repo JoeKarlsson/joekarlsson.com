@@ -27,6 +27,7 @@ heroImage: '/images/reviews/raiders-of-the-lost-ark/backdrop.webp'
 heroAlt: 'Harrison Ford in a fedora beside a man in a white Panama hat drinking in a crowded bar.'
 ---
 
-![A golden idol on a stone pedestal in a dark temple, a man's arm reaching toward it.](/images/reviews/raiders-of-the-lost-ark/the-golden-idol-before-the-boulder.webp 'margin: The golden idol, before the boulder.')
-
 I'm sorry this is a banger. Amazing performance amazing screenplay amazing direction amazing lead performance amazing supporting performances amazing soundtrack. I loved it all and I've seen it 500 billion times.
+
+![A golden idol on a stone pedestal in a dark temple, a man's arm reaching toward it.](/images/reviews/raiders-of-the-lost-ark/the-golden-idol-before-the-boulder.webp)
+_The golden idol, before the boulder._

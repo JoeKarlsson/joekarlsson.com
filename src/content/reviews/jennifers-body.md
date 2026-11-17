@@ -28,9 +28,10 @@ As a Minnesotan, I am required by law to love Diablo Cody's movies. I think she 
 
 Jennifer's Body bombed in theaters and I discovered it later in life, but I've seen it many times since. I actually showed it to my girlfriend during this viewing, which was super fun.
 
-![Amanda Seyfried in glasses and Megan Fox holding a notebook walk down a school hallway past a painted red devil cartoon.](/images/reviews/jennifers-body/seyfried-and-fox-in-the-hallway.webp 'margin: Seyfried and Fox in the hallway, devil mascot on the wall.')
-
 Devil's Kettle is in fact a real thing, and they did recently discover where it goes. Also, I'd give anything to have a Devil as our school mascot. I don't think that would happen in 2025, but a guy can dream.
+
+![Amanda Seyfried in glasses and Megan Fox holding a notebook walk down a school hallway past a painted red devil cartoon.](/images/reviews/jennifers-body/seyfried-and-fox-in-the-hallway.webp)
+_Seyfried and Fox in the hallway, devil mascot on the wall._
 
 The supporting cast is all incredible. I'm shouting out Amy Sedaris first - I wish she was in more things and I love whenever she pops up. Same goes for J.K. Simmons, though I know he's a frequent Diablo Cody collaborator. And of course, Amanda Seyfried and Megan Fox were great too.
 Adam Brody feels super underrated today. Amanda is starting to get her due, but Adam is still quietly working on some incredible projects. Go watch The Kid Detective - you'll love it.

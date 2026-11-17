@@ -35,8 +35,9 @@ The pacing is breakneck - it zips along, never slowing down. It’s funny, it’
 
 Sam Rockwell was always the biggest revelation here. I’m not even sure if this was his first major motion picture, but he certainly left an impression on me as a child. His performance is phenomenal - very pre-dot-com boom villain energy, and it’s incredibly fun to watch. Drew, Lucy, and Cameron are all great too, even if their characterizations are basically defined by who they’re fighting or who they’re having sex with. But you know what? This movie isn’t claiming to be anything more than a sexy action adventure, and it delivers on that promise.
 
-![Bill Murray in a tweed jacket, chin resting on his fist, in front of a framed painting.](/images/reviews/charlies-angels/bill-murray-as-bosley.webp 'margin: Bill Murray as Bosley.')
-
 Bill Murray was supposedly a nightmare on set, which is too bad because he is genuinely funny as Bosley. This feels like it was made before his Wes Anderson run fully transformed him into his modern form - you can tell he feels a bit lost here. What an asshole though.
+
+![Bill Murray in a tweed jacket, chin resting on his fist, in front of a framed painting.](/images/reviews/charlies-angels/bill-murray-as-bosley.webp)
+_Bill Murray as Bosley._
 
 Also, these women put way too much trust in an anonymous billionaire ex-military man. I never trusted Charlie and I don’t know why anyone would. He sounds like a weird little liar and I genuinely don’t understand their affection for him.

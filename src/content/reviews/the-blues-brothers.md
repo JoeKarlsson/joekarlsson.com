@@ -30,8 +30,9 @@ Even as an idiot child, I understood how expensive and impressive this movie was
 
 There’s something so viscerally approachable about The Blues Brothers - the music, the action, the deadpan comedic performances. It’s a movie that works on every level whether you’re eight or thirty-eight. The musical numbers are incredible. The cameos are stacked. The comedy is dry and absurd in equal measure.
 
-![A heap of overturned Chicago police cars under elevated train tracks, with another car flipping through the air onto the pile.](/images/reviews/the-blues-brothers/chicago-police-cars-pile-up-under.webp 'margin: Chicago police cars pile up under the El.')
-
 And that final car chase. You don’t need to know anything about filmmaking to feel the scale of the destruction on screen. They wrecked so many cars. I respected it then. I respect it now.
+
+![A heap of overturned Chicago police cars under elevated train tracks, with another car flipping through the air onto the pile.](/images/reviews/the-blues-brothers/chicago-police-cars-pile-up-under.webp 'spoiler')
+_Chicago police cars pile up under the El._
 
 A perfect movie.

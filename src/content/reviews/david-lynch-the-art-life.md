@@ -32,9 +32,10 @@ A documentary about becoming an artist through pain, struggle, and dead animals.
 
 David Lynch is such a weird, wonderful man.
 
-![David Lynch, white-haired, in a black shirt and a blue latex glove, reaching a long brush to a canvas in a sunlit workshop.](/images/reviews/david-lynch-the-art-life/lynch-painting-in-his-studio-in.webp 'margin: Lynch painting in his studio in the documentary.')
-
 I left this viewing of The Art Life trying to figure out how I can live just a sliver of the art life. I respect his commitment and focus on his career and his art. This documentary does such a great job of capturing what it means to become an artist - the pain, the challenges, the struggle to find a voice that's meaningful.
+
+![David Lynch, white-haired, in a black shirt and a blue latex glove, reaching a long brush to a canvas in a sunlit workshop.](/images/reviews/david-lynch-the-art-life/lynch-painting-in-his-studio-in.webp)
+_Lynch painting in his studio in the documentary._
 
 Lynch's work has been deeply resonant with me for years. I honestly think about him and his work daily. That's not an exaggeration.
 

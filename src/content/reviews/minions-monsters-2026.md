@@ -48,9 +48,10 @@ The whole thing is a love letter to the birth of Hollywood. The Minions crash a 
 
 ![A wild-haired man raises a gloved hand beside a gleaming metal robot woman while another man looks on.](/images/reviews/minions-monsters-2026/rotwang-and-the-robot-on-the.webp 'margin: Rotwang and the robot on the set of Metropolis, 1926. Wikimedia Commons, public domain.')
 
-![A bandaged mummy lurches out of a sarcophagus in an Egyptian tomb while a line of Minions in pith helmets holds torches.](/images/reviews/minions-monsters-2026/a-mummy-wakes-up-on-a.webp 'margin: A mummy wakes up on a row of Minions in pith helmets.')
-
 Silent slapstick in the Keaton and Chaplin tradition, a museum framing device stuffed with the Metropolis robot and George Lucas voicing himself from inside a glass case, and eventually a full pivot into a Universal monster movie, which is the perfect thing for a Universal picture to do.
+
+![A bandaged mummy lurches out of a sarcophagus in an Egyptian tomb while a line of Minions in pith helmets holds torches.](/images/reviews/minions-monsters-2026/a-mummy-wakes-up-on-a.webp)
+_A mummy wakes up on a row of Minions in pith helmets._
 
 ![A cartoon George Lucas, white beard and plaid shirt, holding a coffee cup inside a glass display case while a museum guide presents him to a crowd.](/images/reviews/minions-monsters-2026/george-lucas-in-his-glass-case.webp)
 

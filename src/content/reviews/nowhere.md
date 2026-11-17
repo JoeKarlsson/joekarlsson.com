@@ -49,9 +49,10 @@ That approach makes the film's chaos legible in a way it wasn't to me on a first
 
 What has always distinguished Araki is his refusal to treat bisexuality as a crisis or a revelation. Desire in Nowhere moves freely in every direction and no character pauses to agonize over it. The pain in his work comes from somewhere more universal: the ache of wanting someone who cannot want you back in the way you need. The film's protagonist spends the day chasing genuine connection and mostly finding sex instead, and that gap, between being touched and being understood, is the closest thing the movie has to a thesis.
 
-![Close-up of a young man with long dark hair and wide brown eyes, lips parted.](/images/reviews/nowhere/james-duval-as-dark.webp 'margin: James Duval as Dark.')
-
 It is also, for all its dread, ravishing to look at. Araki shoots his artificial, primary-colored world with obvious relish, scores it with a wall of shoegaze and dream-pop, and lets the surface pleasure sit in unresolved tension with the doom underneath. The recent 4K restoration, which Araki supervised, restores the full lurid glow. And in James Duval, playing a sensitive stoner named Dark, the film has an anchor of real tenderness, a few years before Duval would turn up as another doomed boy in Donnie Darko.
+
+![Close-up of a young man with long dark hair and wide brown eyes, lips parted.](/images/reviews/nowhere/james-duval-as-dark.webp)
+_James Duval as Dark._
 
 ![A girl in a purple-lit room, glowing pink and violet light behind her, looking sideways.](/images/reviews/nowhere/candy-color.webp)
 _Nowhere, 1997._

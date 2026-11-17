@@ -50,11 +50,13 @@ For the first hour I wasn't sure who the idiot was: the photographer or the dire
 
 David Hemmings plays Thomas, a London fashion photographer who snaps a couple in a park, blows up the prints, and finds what looks like a body in the grass. Then he can't stay interested in the murder.
 
-![Five fashion models in striped, teal, green and purple 1960s outfits stand in a white studio while David Hemmings in a pale blue shirt and white jeans walks past a camera on a tripod.](/images/reviews/blow-up/thomas-lines-up-his-models-in.webp 'margin: Thomas lines up his models in the studio.')
-
-![A woman in a blue skirt holds a tall wooden aircraft propeller upright on a London street while David Hemmings opens the door of a black Rolls-Royce convertible.](/images/reviews/blow-up/the-propeller-carried-out-to-his.webp 'margin: The propeller, carried out to his convertible.')
-
 Thomas is horrible. He barks at his models, rolls around his studio with two more who want a shoot, buys a giant propeller on a whim, and goes to a party to get a friend to come see the body and just gets stoned. Every step along the way, he's filling the void. Vanessa Redgrave takes her top off to get the film back, and he still hands her the wrong roll. The photos are hotter to him than she is.
+
+![Five fashion models in striped, teal, green and purple 1960s outfits stand in a white studio while David Hemmings in a pale blue shirt and white jeans walks past a camera on a tripod.](/images/reviews/blow-up/thomas-lines-up-his-models-in.webp)
+_Thomas lines up his models in the studio._
+
+![A woman in a blue skirt holds a tall wooden aircraft propeller upright on a London street while David Hemmings opens the door of a black Rolls-Royce convertible.](/images/reviews/blow-up/the-propeller-carried-out-to-his.webp)
+_The propeller, carried out to his convertible._
 
 They're the one thing he can't put down.
 

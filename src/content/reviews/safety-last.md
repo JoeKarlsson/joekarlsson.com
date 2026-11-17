@@ -20,6 +20,7 @@ heroImage: '/images/reviews/safety-last/backdrop.webp'
 heroAlt: 'Harold Lloyd hanging from the hands of a giant clock high above a busy city street.'
 ---
 
-![Harold Lloyd in a suit and round glasses dangles from the hands of a big clock high on a building, a busy street of cars and streetcars far below.](/images/reviews/safety-last/harold-lloyd-hanging-from-the-clock.webp 'margin: Harold Lloyd hanging from the clock in Safety Last (1923). Wikimedia Commons, public domain.')
-
 No, seriously, how did they film this? How did no one die?
+
+![Harold Lloyd in a suit and round glasses dangles from the hands of a big clock high on a building, a busy street of cars and streetcars far below.](/images/reviews/safety-last/harold-lloyd-hanging-from-the-clock.webp)
+_Harold Lloyd hanging from the clock in Safety Last (1923). Wikimedia Commons, public domain._

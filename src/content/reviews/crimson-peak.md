@@ -38,9 +38,10 @@ marginNotes:
 
 I mostly love Guillermo del Toro, but I think I just don't like gothic horror very much. And this movie didn't do much for me.
 
-![A black Gothic mansion with steep spires under falling snow, the ground in front stained blood-red.](/images/reviews/crimson-peak/allerdale-hall-red-clay-seeping-up.webp 'margin: Allerdale Hall, red clay seeping up through the snow.')
-
 That said, del Toro absolutely crushes it with the production design. The house itself is a character - decaying, bleeding red clay through the walls, sinking into the earth. It's gorgeous and grotesque at the same time. The creature design, which he always kills at, is incredible here too.
+
+![A black Gothic mansion with steep spires under falling snow, the ground in front stained blood-red.](/images/reviews/crimson-peak/allerdale-hall-red-clay-seeping-up.webp)
+_Allerdale Hall, red clay seeping up through the snow._
 
 Every frame looks like a painting, and you can feel del Toro's obsessive attention to detail in every corner of that mansion.
 But despite all that craft and beauty, I just didn't connect with it emotionally. It's a slightly creepy, very atmospheric ghost story that reminded me a lot of The Haunting of Hill House - except I like that show about 5 billion times more than this movie.

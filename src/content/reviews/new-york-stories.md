@@ -46,11 +46,13 @@ The Artist's Way keeps telling me to dream bigger about my art life, so I watche
 
 I like my life here in Minnesota. But Julia Cameron spends a lot of that book on the romantic, dreaming-big side of a creative life, and I've been daring myself to do more of it. "Life Lessons," Scorsese's segment of New York Stories, shows one version of what that could look like: the loft, the gallery openings, the painter throwing paint around with the music up loud. Nobody gets to live that version anymore, not in 2026, and the movie makes it look incredible anyway, right up until it shows you the bill.
 
-![Overhead view of a crowded gallery, huge colorful paintings on the walls and a LIONEL DOBIE sign.](/images/reviews/new-york-stories/lionels-opening-packed-under-his-giant.webp "margin: Lionel's opening, packed under his giant canvases.")
-
-![Nick Nolte as Lionel Dobie, paint-spattered, working at a huge abstract canvas that fills a sunlit loft with arched windows.](/images/reviews/new-york-stories/lionel-works-on-a-canvas-taller.webp 'margin: Lionel works on a canvas taller than he is.')
-
 The fantasy is gorgeous. Nick Nolte plays Lionel Dobie, a famous painter with a show coming up and nothing finished, and he spends most of it huge, paint-spattered and half dressed in an incredible SoHo loft. The camera circles him while he throws paint at canvases the size of a garage door to "A Whiter Shade of Pale," again and again, the same song every time. At his opening he cleans up nice and works the room with war stories the rich collectors eat up, and it makes sense that he's famous. He and Rosanna Arquette are both so hot in this.
+
+![Overhead view of a crowded gallery, huge colorful paintings on the walls and a LIONEL DOBIE sign.](/images/reviews/new-york-stories/lionels-opening-packed-under-his-giant.webp)
+_Lionel's opening, packed under his giant canvases._
+
+![Nick Nolte as Lionel Dobie, paint-spattered, working at a huge abstract canvas that fills a sunlit loft with arched windows.](/images/reviews/new-york-stories/lionel-works-on-a-canvas-taller.webp)
+_Lionel works on a canvas taller than he is._
 
 Arquette plays Paulette, his assistant, who lives in the loft, paints on the side, and is done with him, and she's the one paying for the fantasy. He needs her jealous and miserable in the next room so he can work, which makes her a muse in the old sense of the word: fuel. When she asks whether her work is any good, he answers with a speech about himself, that it isn't about talent, it's about having no choice but to do it. Maybe he thinks her work is bad and knows saying so would end things. She isn't asking him to be nice about it. She just wants any feedback at all, even "it's terrible," and any answer would have kept her around for years. He can't give her one, because a Paulette who knows where she stands is no use to him. At one point he gets caught staring at her bare foot and explains that he only wanted to kiss it, nothing personal.
 
@@ -67,8 +69,9 @@ Scorsese keeps using these old-fashioned iris shots, closing in on a small detai
 
 Richard Price's script is so good. It made me understand exactly why Paulette stays as long as she does.
 
-![Steve Buscemi in a green T-shirt performing on subway tracks under a single blue bulb, audience sitting on the platform edge.](/images/reviews/new-york-stories/gregory-starks-show-down-on-the.webp "margin: Gregory Stark's show, down on the subway tracks.")
-
 Steve Buscemi is great as Gregory Stark, the performance artist Paulette takes up with. I did not love his show. It's very Gen X.
+
+![Steve Buscemi in a green T-shirt performing on subway tracks under a single blue bulb, audience sitting on the platform edge.](/images/reviews/new-york-stories/gregory-starks-show-down-on-the.webp)
+_Gregory Stark's show, down on the subway tracks._
 
 The ending reminded me of 500 Days of Summer, ||when Tom meets a new woman and the whole thing starts again||, though Tom at least seems to have learned something.

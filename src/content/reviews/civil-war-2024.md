@@ -27,6 +27,7 @@ heroImage: '/images/reviews/civil-war-2024/backdrop.webp'
 heroAlt: 'Cailee Spaeny holding a camera and looking up from the middle of a crowd.'
 ---
 
-![Jesse Plemons in camouflage and red heart-shaped sunglasses holds a rifle and touches his earpiece, trees behind him.](/images/reviews/civil-war-2024/jesse-plemons-the-soldier-cailee-spaeny.webp "margin: Jesse Plemons, the soldier Cailee Spaeny (Priscilla) runs into, in A24's trailer.")
-
 Loved seeing Priscilla meet Jesse Plemons
+
+![Jesse Plemons in camouflage and red heart-shaped sunglasses holds a rifle and touches his earpiece, trees behind him.](/images/reviews/civil-war-2024/jesse-plemons-the-soldier-cailee-spaeny.webp 'spoiler')
+_Jesse Plemons, the soldier Cailee Spaeny (Priscilla) runs into, in A24's trailer._

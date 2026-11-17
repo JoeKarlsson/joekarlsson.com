@@ -34,8 +34,9 @@ I was excited to see Jessie finally have something meaningful to do in this fran
 
 Also - great to see a dad in a Toy Story movie for once.
 
-![A green frog-shaped kids tablet with big cartoon eyes, its blue screen reading Hi., held up over an open shipping box.](/images/reviews/toy-story-5/lilypad-the-frogshaped-tablet-says-hi.webp 'margin: Lilypad, the frog-shaped tablet, says hi.')
-
 About that lily pad though. That thing needs mental health intervention and some support. Genuinely wild choice.
+
+![A green frog-shaped kids tablet with big cartoon eyes, its blue screen reading Hi., held up over an open shipping box.](/images/reviews/toy-story-5/lilypad-the-frogshaped-tablet-says-hi.webp)
+_Lilypad, the frog-shaped tablet, says hi._
 
 I don't know if this movie totally worked for me. I don't know if I'll be revisiting it. But my final Toy Story rankings after this one: 2, 1, 3, 5, 4.

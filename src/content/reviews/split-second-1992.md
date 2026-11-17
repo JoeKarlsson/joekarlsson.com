@@ -53,9 +53,10 @@ Split Second is a film that watched Blade Runner, [Alien](/reviews/alien/), and 
 
 _Los Angeles in Warner Bros.' [Blade Runner: The Final Cut trailer](https://www.youtube.com/watch?v=qoEyZoOTtss), and Stone's London._
 
-![Rutger Hauer in a long dark coat walks down a glowing yellow corridor holding a huge gun up by his shoulder.](/images/reviews/split-second-1992/rutger-hauers-stone-big-gun-raised.webp "margin: Rutger Hauer's Stone, big gun raised.")
-
 Tony Maylam's 1992 cult curio drops Rutger Hauer into a flooded near-future London as Harley Stone, a chain-smoking, chocolate-inhaling supercop hunting the demonic serial killer who gutted his partner. On paper this is a genre nerd's dream, dystopian noir crossed with creature horror crossed with a Hannibal Lecter riff, and for long stretches of its lean ninety minutes it delivers exactly the disreputable pleasure that combination promises. The budget is visible in every waterlogged frame, but the film spends what little it has with real conviction, and Hauer is magnetic, a behemoth who understands that the entire job is to scowl beautifully and pose with an absurdly large pistol.
+
+![Rutger Hauer in a long dark coat walks down a glowing yellow corridor holding a huge gun up by his shoulder.](/images/reviews/split-second-1992/rutger-hauers-stone-big-gun-raised.webp)
+_Rutger Hauer's Stone, big gun raised._
 
 It works best once it stops pretending to be scary and admits it wants to be a buddy comedy, pairing Hauer's growling burnout with a prim rookie and letting the two bicker their way toward the finale. Not all of it lands. Even at ninety minutes there's slack in the middle, and the long-teased monster, when it finally lumbers into the light, is a rubbery disappointment, a discount Xenomorph that looks assembled the night before the shoot.
 

@@ -35,6 +35,7 @@ heroImage: '/images/reviews/the-mask-of-zorro/backdrop.webp'
 heroAlt: 'Antonio Banderas as Zorro in a black mask and hat, sword drawn in a dim barn.'
 ---
 
-![Anthony Hopkins grinning in Zorro's black hat and mask, his eyes dark-rimmed behind it.](/images/reviews/the-mask-of-zorro/hopkins-as-the-first-zorro.webp 'margin: Hopkins as the first Zorro.')
-
 What’s not having a movie full of horny, swashbuckling fights? Also, I loved Anthony Hopkins with his smoky eyeshadow.
+
+![Anthony Hopkins grinning in Zorro's black hat and mask, his eyes dark-rimmed behind it.](/images/reviews/the-mask-of-zorro/hopkins-as-the-first-zorro.webp)
+_Hopkins as the first Zorro._

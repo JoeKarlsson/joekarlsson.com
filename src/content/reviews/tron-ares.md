@@ -44,9 +44,10 @@ This movie does have things to say -it's just that they're just pro-big tech, pr
 
 The plot is not good. Some of the ADR is Madame Web bad - lips aren't moving but words are coming out, lots of crazy cutting to mask terrible ADR. That said, I wasn't there for the plot. I was there for a two-hour Nine Inch Nails electronic dance bio-jazz soundtrack, and I mostly got it. It was basically an extended chase sequence.
 
-![An older, white-bearded Jeff Bridges in a glowing white robe smiles at a figure in a black suit with red lights, seen from behind.](/images/reviews/tron-ares/jeff-bridges-as-kevin-flynn-in.webp "margin: Jeff Bridges as Kevin Flynn, in Disney's trailer.")
-
 The most shocking part was how the pacing absolutely fell off a cliff the second Jeff Bridges showed up on screen. Why was that so boring? Bridges was at least bringing some fun and levity to counter Jared Leto's absolutely flat performance. But jesus - that scene killed any momentum the film had.
+
+![An older, white-bearded Jeff Bridges in a glowing white robe smiles at a figure in a black suit with red lights, seen from behind.](/images/reviews/tron-ares/jeff-bridges-as-kevin-flynn-in.webp)
+_Jeff Bridges as Kevin Flynn, in Disney's trailer._
 
 Speaking of Leto - I know it's hard to play a robot, but Arnold did it in T2, so I know it's possible. We're expected to believe some sort of emotion is happening between the two leads during a single car chase in the middle of the film, and there's one scene where Leto is so bad at emoting the feeling the director wants that they literally have to Put on screen what his feelings are in his HUD.
 

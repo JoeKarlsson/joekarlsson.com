@@ -34,9 +34,10 @@ The whimsy of the show is gone and all that remains is the horror and the dreams
 
 I’ve seen the whole show, including all 18 hours of The Return. But Fire Walk With Me has a reputation, and I wasn’t sure I was ready. I know it’s become a beloved film - very Lynch, surreal, dreamlike. And I do love those moments in this. But I have to say it doesn’t resonate with me as hard as I wanted it to. It doesn’t answer much, leaves more questions than answers. Obviously that’s David Lynch’s point. Doesn’t mean it landed for me.
 
-![Close-up of a blond young woman in warm low light, looking off to the side mid-sentence.](/images/reviews/twin-peaks-fire-walk-with-me-1/sheryl-lee-as-laura-palmer.webp 'margin: Sheryl Lee as Laura Palmer.')
-
 Sheryl Lee gives an incredible central performance though. She’s really going tits out balls to the wall on this one - fully committed to the terror and the tragedy of Laura Palmer. I’m bummed she didn’t have a more successful career after Twin Peaks. She deserved more.
+
+![Close-up of a blond young woman in warm low light, looking off to the side mid-sentence.](/images/reviews/twin-peaks-fire-walk-with-me-1/sheryl-lee-as-laura-palmer.webp)
+_Sheryl Lee as Laura Palmer._
 
 This is a very difficult watch. Domestic violence, horrific downward spirals - the movie leans into the nightmare under the surface more than any other piece of Twin Peaks.
 

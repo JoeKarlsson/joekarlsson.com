@@ -44,9 +44,10 @@ marginNotes:
     url: https://en.wikipedia.org/wiki/Halloween_III:_Season_of_the_Witch
 ---
 
-![Rubber Halloween masks on a store shelf: orange jack-o'-lanterns, white skulls and a green witch.](/images/reviews/halloween-iii-season-of-the-witch/silver-shamrocks-pumpkin-skull-and-witch.webp "margin: Silver Shamrock's pumpkin, skull and witch masks, in Shout! Studios' trailer.")
-
 I should love Halloween III more since it's about techno-corporate witchcraft, which is a genuinely fun concept. But this is not a good movie and I don't think it's aged particularly well.
+
+![Rubber Halloween masks on a store shelf: orange jack-o'-lanterns, white skulls and a green witch.](/images/reviews/halloween-iii-season-of-the-witch/silver-shamrocks-pumpkin-skull-and-witch.webp)
+_Silver Shamrock's pumpkin, skull and witch masks, in Shout! Studios' trailer._
 
 It's plotted really poorly. Most horror movies I watch make me wonder if they'd work better as a 30-minute Twilight Zone episode, and Halloween III absolutely would. It's so slow and the revelations come at a snail's pace - it's just a lot of old dudes creeping around factories. And boy, there is some stuff with a creepy old doctor wooing bereaved daughters that really gave me the heebie-jeebies. That has not aged well at all.
 

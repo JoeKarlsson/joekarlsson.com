@@ -43,13 +43,15 @@ marginNotes:
 
 I've used Häxan as my go to Halloween party vibes movie for years, and it turns out it's a proto-documentary lecture.
 
-![In black and white, a horned, grinning devil figure churns a wooden butter churn in a dark, gnarled grotto.](/images/reviews/haxan/christensen-himself-playing-the-devil-wikimedia.webp 'margin: Christensen himself, playing the Devil. Wikimedia Commons, CC0.')
-
 A seven-part lecture, actually, on the history of witches, delivered by the Danish director Benjamin Christensen in 1922 with woodcuts, paintings and a model of hell. I'd never sat down with it properly until last night at the Parkway Theater, on 35mm with a live band, right after I saw the 4K re-release of Ken Russell's [The Devils](/reviews/the-devils/). I didn't plan the double feature, but it was a great one. Häxan is basically a proto-documentary, and it's always so fun watching early filmmakers figure out how to structure a story before the rules set.
 
-![In black and white, two women, one young and one old, scream as they are held behind a wooden restraint.](/images/reviews/haxan/two-accused-women-in-the-stocks.webp 'margin: Two accused women in the stocks. Wikimedia Commons, CC0.')
+![In black and white, a horned, grinning devil figure churns a wooden butter churn in a dark, gnarled grotto.](/images/reviews/haxan/christensen-himself-playing-the-devil-wikimedia.webp)
+_Christensen himself, playing the Devil. Wikimedia Commons, CC0._
 
 Häxan wants to be on the side of the women it's about, and for six chapters it is. The men are the problem here: inquisitors, torturers, monks, a church that runs on accusations. The women are the victims, and the film is clear about that.
+
+![In black and white, two women, one young and one old, scream as they are held behind a wooden restraint.](/images/reviews/haxan/two-accused-women-in-the-stocks.webp)
+_Two accused women in the stocks. Wikimedia Commons, CC0._
 
 The one that got me was Maria the Weaver, the old, poor woman. Christensen shoots her in tight close-ups, her face crumpling and crying while the inquisitors work on her, and it reminded me so much of The Passion of Joan of Arc, which his fellow Dane Carl Dreyer wouldn't make for another six years. Maren Pedersen is such an expressive, wonderful face to look at. I really felt for her.
 

@@ -42,13 +42,15 @@ marginNotes:
 
 As a certified cat guy, this was a tough watch.
 
-![A young woman with long dark hair in a red zebra-print top, mid-word, in a wood-paneled bar.](/images/reviews/obsession-2025/inde-navarrette-in-obsession.webp 'margin: Inde Navarrette in Obsession.')
-
 Inde Navarrette is absolutely incredible in this. Her ability to shift tones - from so sweet to so scary to so funny - is a magic act. I was blown away. I fear this will go down as one of the unsung heroes in female horror performances, though maybe the tide is turning. Demi Moore, Amy Madigan and Mia Goth have been shifting the narrative lately.
 
-![Two hands hold up a cream and red cardboard novelty strip printed One Wish Willow, Amaze your friends, You only get one wish.](/images/reviews/obsession-2025/the-one-wish-willow-you-only.webp 'margin: The One Wish Willow: “You only get one wish.“')
+![A young woman with long dark hair in a red zebra-print top, mid-word, in a wood-paneled bar.](/images/reviews/obsession-2025/inde-navarrette-in-obsession.webp)
+_Inde Navarrette in Obsession._
 
 What works most for me is how this film acknowledges how complicated modern relationships are, how difficult communication is. The film hints at there being a path to intimacy for the two leads if he had just been direct and honest about his feelings. He never even needed the wish. Instead, he fears being vulnerable, and his own inability to share his feelings causes everyone horrible pain and suffering.
+
+![Two hands hold up a cream and red cardboard novelty strip printed One Wish Willow, Amaze your friends, You only get one wish.](/images/reviews/obsession-2025/the-one-wish-willow-you-only.webp)
+_The One Wish Willow: “You only get one wish.“_
 
 Rather than allowing the relationship to advance organically, he wants a cheap shortcut - one that lets him bypass his feelings in order to coerce and emotionally manipulate a woman into being with him who doesn’t want to be there. A lesser film would have made you feel like she deserved it. This film makes it absolutely clear she’s the victim.
 

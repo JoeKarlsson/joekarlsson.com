@@ -62,6 +62,7 @@ _The GumBusters owner, and Titian's Sisyphus (1548–49), Museo del Prado. Paint
 
 He might also be the most John Wilson person in the whole movie, happily paying attention to the thing everyone else steps on.
 
-![Concrete slabs with handprints, shoe prints and signatures pressed into them.](/images/reviews/the-history-of-concrete/handprints-and-names-pressed-into-sidewalk.webp 'margin: Handprints and names pressed into sidewalk slabs.')
-
 Dillard's book has a whole chapter called "Seeing." She went to a beautiful slice of nature in Virginia and tried to get every ounce of insight out of a creek. Wilson is stuck in the concrete jungle doing the same thing with the stuff under his feet. Concrete is so easily passed over and misunderstood, and it turns out to be fertile ground. Somehow he and Annie Dillard cross paths, from such different angles.
+
+![Concrete slabs with handprints, shoe prints and signatures pressed into them.](/images/reviews/the-history-of-concrete/handprints-and-names-pressed-into-sidewalk.webp)
+_Handprints and names pressed into sidewalk slabs._

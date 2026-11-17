@@ -41,9 +41,10 @@ marginNotes:
 
 Stagecoach for former political prisoners.
 
-![A white minivan parked on flat desert below bare hills, a man shoveling dirt out of a hole beside a dead tree.](/images/reviews/it-was-just-an-accident/a-grave-dug-in-the-desert.webp "margin: A grave dug in the desert beside the van, in NEON's trailer.")
-
 It Was Just an Accident is deceptively light - basically a whodunit thriller with former torture victims debating whether they've found one of their captors. The drama comes from how differently each of them is processing their trauma, their grief, their rage, and how they want to move forward with their lives. Some want answers. Some want blood. Some just want to forget.
+
+![A white minivan parked on flat desert below bare hills, a man shoveling dirt out of a hole beside a dead tree.](/images/reviews/it-was-just-an-accident/a-grave-dug-in-the-desert.webp)
+_A grave dug in the desert beside the van, in NEON's trailer._
 
 The more I read about this film, the more I understand how deeply personal it was for Jafar Panahi. He was imprisoned by the Iranian government and spent most of his time in solitary confinement. When he was released, he was blindfolded, which caused him to hyperfocus on the sounds of his captors - their voices, their footsteps. Later, in prison, he listened to other prisoners argue about how to fight back against the government. All of that is in this movie.
 

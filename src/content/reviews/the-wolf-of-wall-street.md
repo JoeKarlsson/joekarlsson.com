@@ -35,15 +35,17 @@ marginNotes:
 
 I think The Wolf of Wall Street is running for the second most misunderstood film by illiterate film bros, right behind American Psycho.
 
-![A blond woman in a pink sweater sits on the carpet of a pink nursery, leaning back on her hands.](/images/reviews/the-wolf-of-wall-street/margot-robbie-as-naomi-in-the.webp 'margin: Margot Robbie as Naomi, in the nursery scene.')
-
 Right off the bat: I love this movie. I’ve probably seen it five times since it came out. I think it’s an incredibly cutting critique of greed, capitalism, and America. It’s hysterically funny consistently through the entire three-hour runtime, which is completely justified in my humble opinion. Star-making performance by Margot Robbie and an incredible performance by Leo.
+
+![A blond woman in a pink sweater sits on the carpet of a pink nursery, leaning back on her hands.](/images/reviews/the-wolf-of-wall-street/margot-robbie-as-naomi-in-the.webp)
+_Margot Robbie as Naomi, in the nursery scene._
 
 Now, I kind of understand why film bros misunderstand this movie. Unlike American Psycho - where it’s completely insane that people idolize Patrick Bateman - this film does make the debauchery of Jordan Belfort seem super fun. He’s likable, he’s handsome, he has an incredibly lavish life. I get it. It is appealing.
 
-![A man in a suit, back to camera, spreads his arms before a packed office of cheering brokers.](/images/reviews/the-wolf-of-wall-street/belfort-working-up-the-stratton-oakmont.webp 'margin: Belfort working up the Stratton Oakmont floor.')
-
 But the film is clearly judging his behavior. He’s a bad man. The system he helped build is unethical and monstrous, and he deserves to be punished far more than he ever was. And goddamn, Leo’s portrayal of him is fucking hysterical.
+
+![A man in a suit, back to camera, spreads his arms before a packed office of cheering brokers.](/images/reviews/the-wolf-of-wall-street/belfort-working-up-the-stratton-oakmont.webp)
+_Belfort working up the Stratton Oakmont floor._
 
 Highly recommend if you hate capitalism.
 

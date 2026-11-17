@@ -22,6 +22,7 @@ heroAlt: 'A long-haired girl standing on a wooden porch by a red door with her h
 
 A movie about memory that leaves you with more questions than answers. And more grief than when you started.
 
-![A woman in a sun hat cups the face of a smiling girl in a crocheted hat and floral swimsuit on a rocky beach.](/images/reviews/blue-heron/a-late90s-summer-beach-day.webp 'margin: A late-90s summer beach day.')
-
 The summer imagery is beautiful - that late 90s haze made me feel nostalgic and got me thinking about my own childhood, my own family. This is a film about trying to understand the people who raised you. The difficult choices they made. The love they had for a family member who was struggling - even when that love couldn’t fix anything.
+
+![A woman in a sun hat cups the face of a smiling girl in a crocheted hat and floral swimsuit on a rocky beach.](/images/reviews/blue-heron/a-late90s-summer-beach-day.webp)
+_A late-90s summer beach day._

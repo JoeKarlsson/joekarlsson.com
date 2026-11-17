@@ -53,19 +53,22 @@ Is it an absolute failure as a horror movie? Yes. Is it an unintentional comedy?
 
 We've been afraid of machines taking over forever, and King is clearly trying to tap into that, just completely unsuccessfully. A comet passes Earth, every machine on the planet wakes up and wants us dead, and it's so over the top and so crazy that none of it is scary.
 
-![Giancarlo Esposito in a pink jacket, lit from below in purple and green light, staring down at an arcade machine.](/images/reviews/maximum-overdrive/giancarlo-esposito-at-the-arcade-cabinet.webp 'margin: Giancarlo Esposito at the arcade cabinet that kills him.')
-
-![The front of a black semi truck with a giant grinning green goblin mask on its grille, parked by a chain-link fence near a building marked Showers.](/images/reviews/maximum-overdrive/the-green-goblin-truck-circling-the.webp 'margin: The Green Goblin truck circling the Dixie Boy.')
-
 The movie opens with King in a cameo, getting called an asshole by an ATM. Only a man on cocaine writes himself into his own movie so a cash machine can insult him, and the movie is at its best when it's that petty and that inventive. The arcade cabinets electrocute Giancarlo Esposito. A soda machine takes out a Little League coach. There are so many machines in the world and so many ways to show them, and most of the movie is unmanned trucks circling a truck stop. It gets repetitive.
+
+![Giancarlo Esposito in a pink jacket, lit from below in purple and green light, staring down at an arcade machine.](/images/reviews/maximum-overdrive/giancarlo-esposito-at-the-arcade-cabinet.webp)
+_Giancarlo Esposito at the arcade cabinet that kills him._
+
+![The front of a black semi truck with a giant grinning green goblin mask on its grille, parked by a chain-link fence near a building marked Showers.](/images/reviews/maximum-overdrive/the-green-goblin-truck-circling-the.webp)
+_The Green Goblin truck circling the Dixie Boy._
 
 ![Stephen King in a white suit and hat at a Money Man II cash machine.](/images/reviews/maximum-overdrive/you-are-an-asshole-1.webp) ![The machine's screen reading YOU ARE AN ASSHOLE.](/images/reviews/maximum-overdrive/you-are-an-asshole-2.webp)
 
 _Stephen King, writer, director and cameo._
 
-![A concrete drawbridge over a wide river with one span tilted up into the sky, cars stuck at the top edge, and a small motorboat below.](/images/reviews/maximum-overdrive/the-drawbridge-rises-on-its-own.webp 'margin: The drawbridge rises on its own with cars still on it.')
-
 But goddamn, they crash a lot of shit in this movie, which is always fun. A drawbridge goes up under traffic and dumps everybody in the river. Pat Hingle fights the trucks with rockets. Movies in the 80s would just crash shit whenever they had the budget. Why don't we do that more?
+
+![A concrete drawbridge over a wide river with one span tilted up into the sky, cars stuck at the top edge, and a small motorboat below.](/images/reviews/maximum-overdrive/the-drawbridge-rises-on-its-own.webp)
+_The drawbridge rises on its own with cars still on it._
 
 This is a bad movie. It's a two-star movie that I'm giving a heart and a spiritual four stars, because it's a fun watch.
 

@@ -57,13 +57,15 @@ This movie is angry, surreal, anti-capitalist, and still feels shockingly releva
 
 I love this movie. I’ve seen it a million times and I will see it a million more times. It never gets old because it tapped into something essential about what it feels like to be on the outskirts of society, trying to scrape together a living while being squeezed out by forces you can’t control.
 
-![Harry Dean Stanton leans out of a blue sedan's window, talking to Emilio Estevez in a gray T-shirt in a parking lot.](/images/reviews/repo-man/bud-gives-otto-his-first-repo.webp 'margin: Bud gives Otto his first repo job.')
-
 What’s wild is how much this movie anticipated the disillusionment modern-day gig workers feel. Otto is basically doing DoorDash before DoorDash existed - taking shitty jobs, getting exploited, barely making rent, all while being told he should be grateful for the “opportunity.” The repo game is the gig economy in its purest, most dystopian form. No benefits, no security, just hustle until you burn out or get shot.
 
-![A car glowing bright green on a wet street at night.](/images/reviews/repo-man/the-chevy-malibu-everyone-is-after.webp 'margin: The Chevy Malibu everyone is after.')
+![Harry Dean Stanton leans out of a blue sedan's window, talking to Emilio Estevez in a gray T-shirt in a parking lot.](/images/reviews/repo-man/bud-gives-otto-his-first-repo.webp)
+_Bud gives Otto his first repo job._
 
 The anti-Reagan politics still hit hard. The bland suburbia, the government conspiracy, the commodification of everything, the feeling that society has been sold off piece by piece to the highest bidder while everyone’s too distracted to care. This movie saw where we were headed and decided to make a surreal satire about it.
+
+![A car glowing bright green on a wet street at night.](/images/reviews/repo-man/the-chevy-malibu-everyone-is-after.webp 'spoiler')
+_The Chevy Malibu everyone is after._
 
 And it’s funny as hell. Deadpan, weird, absurdist humor that never undercuts the anger. The movie is pissed off but it’s also having fun being pissed off, which is very punk rock.
 

@@ -27,6 +27,7 @@ heroImage: '/images/reviews/hocus-pocus/backdrop.webp'
 heroAlt: 'Kathy Najimy, Bette Midler and Sarah Jessica Parker as three witches singing on a smoky stage.'
 ---
 
-![A rotting zombie in a ragged shirt claws his way up beside a weathered gravestone at night.](/images/reviews/hocus-pocus/doug-jones-as-billy-butcherson-climbing.webp 'margin: Doug Jones as Billy Butcherson, climbing out of his grave.')
-
 Damn - Doug Jones really has been doing this shit for a long ass time.
+
+![A rotting zombie in a ragged shirt claws his way up beside a weathered gravestone at night.](/images/reviews/hocus-pocus/doug-jones-as-billy-butcherson-climbing.webp)
+_Doug Jones as Billy Butcherson, climbing out of his grave._

@@ -52,9 +52,10 @@ It's just such a solid, fun, touching family film in a way that honestly feels l
 
 The one knock, and it's a real one, is the whodunit reveal. I love a mystery. I was actively trying to solve it the whole time. And the cast of suspects is so thin and there are basically no clues planted earlier that when the answer comes it just lands as "huh, okay." It's the dumbest part of an otherwise smart movie. Costs it a star for me.
 
-![Hugh Jackman in a flat cap and tan jacket smiles over a book, a silver trailer behind him.](/images/reviews/the-sheep-detectives/hugh-jackman-as-george-the-shepherd.webp 'margin: Hugh Jackman as George the shepherd, reading to his flock.')
-
 The performances are stacked though. Julia Louis-Dreyfus is functionally the lead and she's incredible, which is wild because all the marketing is built around Hugh Jackman. And Cousin Greg with the worst British accent ever committed to film is doing something special. Genuinely charming. I laughed every time he was on screen.
+
+![Hugh Jackman in a flat cap and tan jacket smiles over a book, a silver trailer behind him.](/images/reviews/the-sheep-detectives/hugh-jackman-as-george-the-shepherd.webp)
+_Hugh Jackman as George the shepherd, reading to his flock._
 
 I will admit the trailer looked like absolute slop and I am thrilled to be wrong. Amazon's slate this year has been kind of stacked and I don't know how to feel about that, but the movies are good so I guess we accept our new overlords.
 

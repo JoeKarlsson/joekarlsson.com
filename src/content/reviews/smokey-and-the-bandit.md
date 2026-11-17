@@ -34,10 +34,12 @@ I had a stupid grin on my face the entire runtime. The score absolutely rips, th
 
 Buford T. Justice might be one of the funniest antagonists ever put to screen. Jackie Gleason is just out there cooking. Every time he opens his mouth I lost it.
 
-![A black Pontiac Trans Am with a gold hood bird tears across a grass median beside a semi trailer painted with galloping horses.](/images/reviews/smokey-and-the-bandit/the-bandits-trans-am-running-beside.webp "margin: The Bandit's Trans Am running beside the Coors truck, in the original trailer.")
-
-![Sally Field throws her head back laughing in the passenger seat while Burt Reynolds, in a cowboy hat, drives and talks into a CB mic.](/images/reviews/smokey-and-the-bandit/sally-field-cracking-up-beside-burt.webp 'margin: Sally Field cracking up beside Burt Reynolds, in the original trailer.')
-
 The whole thing kind of plays like a redneck Muppet Movie, except instead of trying to get the band back together they're running Coors across state lines. It has that same shaggy, episodic, "we're just hanging out with these guys" energy where the plot is barely the point. The point is the hangout. The point is the Trans Am. The point is watching Sally Field laugh at Burt Reynolds laughing at Sally Field.
+
+![A black Pontiac Trans Am with a gold hood bird tears across a grass median beside a semi trailer painted with galloping horses.](/images/reviews/smokey-and-the-bandit/the-bandits-trans-am-running-beside.webp)
+_The Bandit's Trans Am running beside the Coors truck, in the original trailer._
+
+![Sally Field throws her head back laughing in the passenger seat while Burt Reynolds, in a cowboy hat, drives and talks into a CB mic.](/images/reviews/smokey-and-the-bandit/sally-field-cracking-up-beside-burt.webp)
+_Sally Field cracking up beside Burt Reynolds, in the original trailer._
 
 They don't make em like this anymore and that's kind of a tragedy.

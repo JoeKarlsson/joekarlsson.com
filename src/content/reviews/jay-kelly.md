@@ -41,8 +41,9 @@ Jay Kelly is Noah Baumbach's latest, and it's very much a Baumbach joint - natur
 
 Everyone is well cast. Adam Sandler is doing that thing he does in serious roles where you remember he's actually a tremendous actor. George Clooney is playing himself again - something the film openly comments on - and I still love it. Billy Crudup is great. Laura Dern is great. This is one of the most beautiful looking films of the year, and I appreciated that they didn't bother with digital de-aging on anyone. Let these faces be faces.
 
-![George Clooney, gray-haired in a light blue shirt, stares past the shoulder of Adam Sandler as they embrace outdoors.](/images/reviews/jay-kelly/clooneys-jay-kelly-in-a-hug.webp "margin: Clooney's Jay Kelly in a hug with Sandler's Ron.")
-
 As a character study, it works. The existential dread is palpable. And honestly, this might be one of the best male friendship movies of the year alongside [Friendship](/reviews/friendship-2024/). The stuff about work relationships, aging, and what we owe the people who've known us longest - that all lands.
+
+![George Clooney, gray-haired in a light blue shirt, stares past the shoulder of Adam Sandler as they embrace outdoors.](/images/reviews/jay-kelly/clooneys-jay-kelly-in-a-hug.webp)
+_Clooney's Jay Kelly in a hug with Sandler's Ron._
 
 But your mileage with me on films about films only goes so far. I just don't care about Hollywood's self-reflection. That ceiling exists, and Jay Kelly bumps against it. I liked this. I'm not sure I'll revisit it.

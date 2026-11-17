@@ -34,9 +34,10 @@ marginNotes:
 
 9 Songs is 70 minutes of going to a show, going home and fucking, and it's the most honest movie I've seen about being in your 20s.
 
-![Jason Stollsteimer of the Von Bondies sings into a mic with a guitar under blue light, the band’s name painted on a big screen behind him.](/images/reviews/9-songs/the-von-bondies-on-stage-in.webp 'margin: The Von Bondies on stage in 9 Songs.')
-
 The shows got me first. I was 14 when this came out, and I owned a CD by every single band in it: Black Rebel Motorcycle Club, the Von Bondies, Elbow, Primal Scream, the Dandy Warhols, Super Furry Animals, Franz Ferdinand. It's a throwback to when rock bands were huge, and we just don't have bands like this anymore. Things were so fucking cool back then, and all of these bands rip.
+
+![Jason Stollsteimer of the Von Bondies sings into a mic with a guitar under blue light, the band’s name painted on a big screen behind him.](/images/reviews/9-songs/the-von-bondies-on-stage-in.webp)
+_The Von Bondies on stage in 9 Songs._
 
 ![Alex Kapranos sings and plays guitar in blue light, a kick drum stenciled "Franz Ferdinand" behind him.](/images/reviews/9-songs/franz-ferdinand.webp)
 

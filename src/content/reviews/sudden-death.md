@@ -42,9 +42,10 @@ marginNotes:
     url: https://en.wikipedia.org/wiki/Sudden_Death_(1995_film)
 ---
 
-![A steel-domed arena glowing blue at night, ringed by traffic, with downtown towers behind it.](/images/reviews/sudden-death/pittsburghs-civic-arena-lit-up-at.webp "margin: Pittsburgh's Civic Arena, lit up at night in the film.")
-
 Jean-Claude Van Damme saves the Stanley Cup Finals from terrorists in the emptiest arena in sports history.
+
+![A steel-domed arena glowing blue at night, ringed by traffic, with downtown towers behind it.](/images/reviews/sudden-death/pittsburghs-civic-arena-lit-up-at.webp)
+_Pittsburgh's Civic Arena, lit up at night in the film._
 
 This is clearly a Die Hard knockoff, and it's so funny to me that JCVD considered this to be his first triple-A movie. Like, this was the one that was supposed to make him a legitimate action star on the level of Schwarzenegger or Stallone.
 

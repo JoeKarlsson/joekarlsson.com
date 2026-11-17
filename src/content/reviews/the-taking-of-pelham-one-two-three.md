@@ -48,6 +48,7 @@ Walter Matthau has looked old my entire life. It was genuinely shocking to see h
 
 I loved the drama. The mystery of how the hijackers were going to get away kept me glued to the screen, and watching our protagonists navigate the red tape inherent in New York City government was equally fascinating.
 
-![A man with a mustache, thick glasses and a blue fedora points a submachine gun inside a subway car door.](/images/reviews/the-taking-of-pelham-one-two-three/a-hijacker-in-his-hatandglasses-disguise.webp 'margin: A hijacker in his hat-and-glasses disguise on the train.')
-
 But what I loved most about this movie is the simple fact that nobody wants to be dealing with this shit. Everyone is tired. Everyone's already overworked and stressed, working in miserable environments - and then they have to deal with a subway hijacking on top of it. That layer of exhausted bureaucratic frustration made the whole thing so much funnier and more real.
+
+![A man with a mustache, thick glasses and a blue fedora points a submachine gun inside a subway car door.](/images/reviews/the-taking-of-pelham-one-two-three/a-hijacker-in-his-hatandglasses-disguise.webp)
+_A hijacker in his hat-and-glasses disguise on the train._

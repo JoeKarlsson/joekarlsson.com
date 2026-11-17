@@ -42,9 +42,10 @@ marginNotes:
 
 A tight, well-plotted whodunit that also made me scream.
 
-![A man in a long tan coat walks through a dim, wood-paneled hotel lobby with a grand double staircase under a stained-glass window.](/images/reviews/hokum/adam-scott-checks-into-the-old.webp 'margin: Adam Scott checks into the old Irish hotel.')
-
 Hokum is a little bit [Barton Fink](/reviews/barton-fink/), a little bit [The Shining](/reviews/the-shining/), some 1408, mixed with Irish folklore. It’s really well paced, an interesting whodunit that’s so tightly plotted and well edited. The ending was satisfying - it actually sticks the landing, which horror so often fumbles.
+
+![A man in a long tan coat walks through a dim, wood-paneled hotel lobby with a grand double staircase under a stained-glass window.](/images/reviews/hokum/adam-scott-checks-into-the-old.webp)
+_Adam Scott checks into the old Irish hotel._
 
 It’s so refreshing to see Adam Scott play an asshole for once. He’s great at warmth and likability, but watching him be a dick for 90 minutes? That’s a treat.
 

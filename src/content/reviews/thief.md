@@ -43,15 +43,17 @@ This movie worked for me. I actually think I like this one more than Heat, which
 
 Michael Mann’s style clicked for me here in a way it didn’t in [Manhunter](/reviews/manhunter/). The Tangerine Dream score worked so much better than it did in Manhunter or his later films - it enhances the mood without being distracting. I love the story and the characterization of Frank.
 
-![Two silhouetted men crouch in smoke as a shower of white sparks flies from a metal wall they are cutting.](/images/reviews/thief/frank-and-his-crew-burn-into.webp 'margin: Frank and his crew burn into a vault with a thermal lance.')
-
 But was Willie Nelson given the best performance in the entire movie? Maybe. I could use way more Willie Nelson - I didn’t know he was such an incredible actor. The opening heist and the heist at the beginning of the third act are both incredible. I love how highly technical Michael Mann is here, and I feel like heist movies are where he really shines. You can see his research and commitment to showing how things are actually done by criminals in this era.
+
+![Two silhouetted men crouch in smoke as a shower of white sparks flies from a metal wall they are cutting.](/images/reviews/thief/frank-and-his-crew-burn-into.webp 'spoiler')
+_Frank and his crew burn into a vault with a thermal lance._
 
 The plot is exhilarating. I loved it. But this movie is about a complete psychopath, and I do fear people watch this and don’t understand how terrible James Caan’s Frank actually is. He’s a maniac.
 
-![A heavyset older man with thinning hair smiles faintly against blurred city lights at night.](/images/reviews/thief/robert-prosky-as-leo.webp 'margin: Robert Prosky as Leo.')
-
 Also, props to Robert Prosky as Leo - he was such a formidable and loving antagonist in the third act. I loved him.
+
+![A heavyset older man with thinning hair smiles faintly against blurred city lights at night.](/images/reviews/thief/robert-prosky-as-leo.webp)
+_Robert Prosky as Leo._
 
 Elf’s dad is hot in this? Who knew?
 

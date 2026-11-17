@@ -26,9 +26,10 @@ marginNotes:
     post: reviews/wuthering-heights
 ---
 
-![A woman in a long red cape dances with a man in a black frock coat in a white paneled hall with a glossy red floor and a sculpted white fireplace.](/images/reviews/wuthering-heights-2026/a-dance-on-a-bloodred-floor.webp "margin: A dance on a blood-red floor, in Warner Bros.' trailer.")
-
 Hornier, dumber, funnier, and more gorgeous than expected. A mixed bag I enjoyed. I had fun with it, even if it didn't fully land.
+
+![A woman in a long red cape dances with a man in a black frock coat in a white paneled hall with a glossy red floor and a sculpted white fireplace.](/images/reviews/wuthering-heights-2026/a-dance-on-a-bloodred-floor.webp)
+_A dance on a blood-red floor, in Warner Bros.' trailer._
 
 Three films in, I do see a consistent theme in Emerald Fennell's work. She likes making movies about lower status characters who violently fight the system, claw their way up the ranks, and sometimes get rich doing it. Promising Young Woman, Saltburn, now this.
 

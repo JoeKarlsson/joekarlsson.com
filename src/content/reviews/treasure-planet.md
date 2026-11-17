@@ -46,9 +46,10 @@ This movie represents that final Renaissance period from Disney - when they were
 
 I love the voice acting. The cast is stacked - Brian Murray, Emma Thompson, Martin Short doing his unhinged robot thing. Even Joseph Gordon-Levitt does a great job voicing Jim Hawkins, which is impressive because "angsty teenager" is such a hard role to make likable. He pulls it off.
 
-![A cartoon teenage boy in a dark jacket rides a rocket-powered board through a clear blue sky, arms flung out for balance.](/images/reviews/treasure-planet/jim-hawkins-solar-surfing-in-the.webp 'margin: Jim Hawkins solar surfing in the opening scene.')
-
 I've read Treasure Island and I adore that book. This adaptation does a really good job of tickling that part of my brain - the adventure, the father-son dynamic between Jim and Silver, the coming-of-age journey. Translating it to space could have been a disaster, but they nail the core emotional beats while adding solar surfing and robot pirates.
+
+![A cartoon teenage boy in a dark jacket rides a rocket-powered board through a clear blue sky, arms flung out for balance.](/images/reviews/treasure-planet/jim-hawkins-solar-surfing-in-the.webp)
+_Jim Hawkins solar surfing in the opening scene._
 
 I wish I had watched this when I was younger. I would have absolutely loved it as a kid. The scale, the adventure, the relationships - this is exactly the kind of movie that would have lodged itself in my brain forever. But you know, what can you do? At least I get to appreciate it now.
 

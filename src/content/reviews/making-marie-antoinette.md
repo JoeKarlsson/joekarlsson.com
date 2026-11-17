@@ -36,17 +36,19 @@ marginNotes:
     post: ship-the-ugly-pot
 ---
 
-![Francis Ford Coppola, white-bearded in glasses, a gray jacket and green scarf, sits talking beside an actress in an 18th-century gown and feathered hat.](/images/reviews/making-marie-antoinette/francis-ford-coppola-visits-the-set.webp 'margin: Francis Ford Coppola visits the set at Versailles.')
-
 Yes, Sofia Coppola is a nepo baby. Have you met her family?
+
+![Francis Ford Coppola, white-bearded in glasses, a gray jacket and green scarf, sits talking beside an actress in an 18th-century gown and feathered hat.](/images/reviews/making-marie-antoinette/francis-ford-coppola-visits-the-set.webp)
+_Francis Ford Coppola visits the set at Versailles._
 
 So yes, nepo baby. But goddamn it, she comes from a talented family. Something is brewing in that house that gets the whole Coppola clan making things, and Making Marie Antoinette lets you watch it happen. Eleanor Coppola shot 80 hours on her daughter's set in 2005, never got to cut it the way she wanted, and asked Sofia to finish it before she died in 2024. Sofia did. Watching them work together and encourage each other is a sight to behold, and it gives me hope for families that back a kid who wants to make art. There's a touching scene between Sofia and her brother Roman that reminded me of my sister and me, and it brought a tear to my eye.
 
 Eleanor is the best part. Diane Lane reads from her journals over the footage, and they're honest and clear about the small feelings most people would never write down, like resenting that she isn't doing her own thing while loving every minute of shooting. I just finished reading The Artist's Way, and watching her work out her own creative life in the margins of her daughter's was so sweet.
 
-![Sofia Coppola in a camouflage jacket holds a camera beside Kirsten Dunst and three other actresses in pink and green 18th-century gowns and plumed hats in a gilded mirrored hall.](/images/reviews/making-marie-antoinette/sofia-with-kirsten-dunst-and-cast.webp 'margin: Sofia with Kirsten Dunst and cast in the Hall of Mirrors.')
-
 It's also a great film about the creative process: the doubt, the hard work, and the tenacity it takes to keep hold of a vision when a hundred other people are making it with you. Sofia spends a lot of the 57-day shoot sick with bronchitis. Marie Antoinette looks like a nightmare to make. It is a goddamn miracle that any film gets produced, especially one as ambitious as this. I still can't believe the French let an American walk into Versailles and make a movie about one of their most famous historical figures.
+
+![Sofia Coppola in a camouflage jacket holds a camera beside Kirsten Dunst and three other actresses in pink and green 18th-century gowns and plumed hats in a gilded mirrored hall.](/images/reviews/making-marie-antoinette/sofia-with-kirsten-dunst-and-cast.webp)
+_Sofia with Kirsten Dunst and cast in the Hall of Mirrors._
 
 ![Sofia Coppola sitting on set at Versailles with her head in her hand, sick.](/images/reviews/making-marie-antoinette/sofia-sick.webp)
 _Sofia at Versailles._

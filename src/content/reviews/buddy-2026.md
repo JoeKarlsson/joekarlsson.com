@@ -48,9 +48,10 @@ _Buddy's title card, and the one in Adult Swim's upload of Too Many Cooks._
 
 I'm an avid fan of that short and of all the bizarre nightmare stuff Adult Swim put out around it, so this was right up my alley, man. I was very excited for it.
 
-![A mailman in a navy vest and cap stands behind a blue mailbox with cartoon eyes on a post, while two kids read their letters.](/images/reviews/buddy-2026/the-mailman-and-the-talking-mailbox.webp 'margin: The mailman and the talking mailbox, with eyes on top.')
-
 Buddy is a singing orange unicorn (voiced by Keegan-Michael Key) who hosts a 1990s kids' show, and the best thing the movie does is pull out the inherent creepiness of Barney: the cult-like devotion to one central figure that everyone adores and lavishes praise on constantly. The kids, the puppets and the talking mailbox all live to make Buddy happy. When a boy named Josh won't join the dance party, he vanishes, and Buddy tells everyone he's gone to Diamond City.
+
+![A mailman in a navy vest and cap stands behind a blue mailbox with cartoon eyes on a post, while two kids read their letters.](/images/reviews/buddy-2026/the-mailman-and-the-talking-mailbox.webp)
+_The mailman and the talking mailbox, with eyes on top._
 
 ![Buddy spreads his arms to the kids and a pink pig in the clubhouse, with the subtitle "He decided to go on a dancing tour in Diamond City!"](/images/reviews/buddy-2026/josh-went-to-diamond-city.webp)
 
@@ -64,9 +65,10 @@ Too Many Cooks got all the way to full nightmare in 11 minutes. Buddy has 96 and
 
 Stray thoughts:
 
-![A grinning girl in pigtails holds up a pink backpack with big googly eyes and a zipper mouth on a bright kids-show set.](/images/reviews/buddy-2026/strappy-the-backpack-patton-oswalt-voices.webp 'margin: Strappy, the backpack Patton Oswalt voices.')
-
 Patton Oswalt crushed it as Strappy, the show's backpack.
+
+![A grinning girl in pigtails holds up a pink backpack with big googly eyes and a zipper mouth on a bright kids-show set.](/images/reviews/buddy-2026/strappy-the-backpack-patton-oswalt-voices.webp)
+_Strappy, the backpack Patton Oswalt voices._
 
 I love seeing Topher Grace pop up as Ben, Cristin Milioti's husband. Honestly, he popped pretty hard for me. He's a big star, I love all the weirdo stuff he's done since That '70s Show, and I think he's kind of an underrated actor right now.
 

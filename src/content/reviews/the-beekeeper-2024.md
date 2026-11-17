@@ -36,9 +36,10 @@ A blatant John Wick rip-off with worse choreo and a somehow more incomprehensibl
 
 Jason Statham reunites here with director David Ayer, who previously gave us the mediocre Wrath of Man. Ayer's been chasing a consistent vision since Fury, and this isn't it. Statham, meanwhile, continues his reliable run of "guy with a specific job murders everyone" movies - a genre he's practically cornered. The Beekeeper fits neatly into that canon, right alongside The Transporter, The Mechanic, and whatever else he's done where the job title is the movie title.
 
-![Jason Statham in a beekeeper's suit and mesh veil lifts a honeycomb frame crawling with bees, bees flying against a cloudy sky.](/images/reviews/the-beekeeper-2024/statham-in-a-bee-suit-checking.webp "margin: Statham in a bee suit, checking a frame, in Amazon MGM's trailer.")
-
 The premise is insane: a beekeeper's bees get attacked, so he goes on a killing spree. It's so dumb. But there's something almost admirable about the commitment to the bit. The bee metaphors never stop. They just keep coming, relentless, like Statham himself.
+
+![Jason Statham in a beekeeper's suit and mesh veil lifts a honeycomb frame crawling with bees, bees flying against a cloudy sky.](/images/reviews/the-beekeeper-2024/statham-in-a-bee-suit-checking.webp)
+_Statham in a bee suit, checking a frame, in Amazon MGM's trailer._
 
 The action editing is rough. You can tell nine times out of ten it's a stunt double wearing a hat, head shaved bald to approximate Statham. The cuts are so choppy it feels like they're hiding the fact that nobody on screen knows what they're doing. Compare this to John Wick's clean, legible choreography and it's night and day.
 

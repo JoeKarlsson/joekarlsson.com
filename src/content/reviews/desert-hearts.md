@@ -27,6 +27,7 @@ heroImage: '/images/reviews/desert-hearts/backdrop.webp'
 heroAlt: 'Helen Shaver touching her face as Patricia Charbonneau, with short dark hair, leans close to her in a bedroom.'
 ---
 
-![A dark-haired young woman in aviator sunglasses and a turquoise jacket laughs in an open car, dry hills behind her.](/images/reviews/desert-hearts/patricia-charbonneau-as-cay-driving-the.webp 'margin: Patricia Charbonneau as Cay, driving the Nevada desert.')
-
 A gorgeous movie about repression and finding yourself at any age or point in your life. And one of the few queer movies from this era where the it’s not a tragedy.
+
+![A dark-haired young woman in aviator sunglasses and a turquoise jacket laughs in an open car, dry hills behind her.](/images/reviews/desert-hearts/patricia-charbonneau-as-cay-driving-the.webp)
+_Patricia Charbonneau as Cay, driving the Nevada desert._

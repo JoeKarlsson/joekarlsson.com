@@ -32,9 +32,10 @@ marginNotes:
     post: reviews/dredd
 ---
 
-![Close-up of Sylvester Stallone in Judge Dredd's red-and-black helmet, the visor hiding his eyes and his jutting chin below it.](/images/reviews/judge-dredd/stallones-chin-under-the-judge-helmet.webp "margin: Stallone's chin under the Judge helmet, in the original trailer.")
-
 The production design is incredible, and Sly has an absolutely killer chin. I completely get the casting decision. He looks perfect for this.
+
+![Close-up of Sylvester Stallone in Judge Dredd's red-and-black helmet, the visor hiding his eyes and his jutting chin below it.](/images/reviews/judge-dredd/stallones-chin-under-the-judge-helmet.webp)
+_Stallone's chin under the Judge helmet, in the original trailer._
 
 But god, any action movie that spends half its runtime in a courtroom instantly loses me. So much of this is just people talking at each other in rooms, demanding his innocence in courtrooms and jail cells. It's so boring.
 

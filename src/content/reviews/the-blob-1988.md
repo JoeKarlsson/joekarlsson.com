@@ -35,8 +35,9 @@ The Blob looks incredible. Every shot is meticulously crafted and you can feel t
 
 The practical effects work is some of the best horror makeup and creature design of the 80s. The blob feels like a real presence, not just a special effect. When it's consuming people or oozing through pipes, you believe it completely.
 
-![A young man with a curly mullet, white shirt and black leather jacket stares ahead in a dark diner.](/images/reviews/the-blob-1988/kevin-dillon-as-brian-mullet-and.webp 'margin: Kevin Dillon as Brian, mullet and leather jacket.')
-
 But I also love the core characters here. Kevin Dillon is incredible as the rebellious outsider protagonist. It's such a good idea to center the movie on a guy who just hates authority and spends the entire runtime fucking things up for everybody - in the best way possible. He has so much agency throughout the film and it's so fun to watch him bulldoze through every obstacle. He's not waiting for adults or the government to save the day - he's taking action, even when everyone tells him he's wrong.
+
+![A young man with a curly mullet, white shirt and black leather jacket stares ahead in a dark diner.](/images/reviews/the-blob-1988/kevin-dillon-as-brian-mullet-and.webp)
+_Kevin Dillon as Brian, mullet and leather jacket._
 
 This movie rules. More people need to put respect on The Blob's name.

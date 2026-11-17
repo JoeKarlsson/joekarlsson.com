@@ -38,8 +38,9 @@ I think it's saying something about producing art under capitalism - somehow eve
 
 I'm watching this before the Blank Check episode comes out. I know David Sims is a big fan and considers this a masterpiece, and I'm excited to hear what he has to say - because my girlfriend and I were both left pretty flummoxed upon rewatch.
 
-![Channing Tatum in a white sailor uniform leaps up onto a green bar counter, arms spread, while other sailors watch in a ship-themed saloon.](/images/reviews/hail-caesar-2016/channing-tatum-leaps-onto-the-bar.webp 'margin: Channing Tatum leaps onto the bar in the sailor number.')
-
 The performances are wonderful, though. I love Josh Brolin in this. I love Tilda Swinton. I love Channing Tatum's dance number. Never forget that he's a classically trained ballet dancer.
+
+![Channing Tatum in a white sailor uniform leaps up onto a green bar counter, arms spread, while other sailors watch in a ship-themed saloon.](/images/reviews/hail-caesar-2016/channing-tatum-leaps-onto-the-bar.webp)
+_Channing Tatum leaps onto the bar in the sailor number._
 
 There's clearly something here. I'm just not sure I've cracked what it is yet. Maybe I need to listen to some people smarter than me talk about it first.

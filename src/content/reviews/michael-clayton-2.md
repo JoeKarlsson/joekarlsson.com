@@ -45,11 +45,13 @@ Anyone who's ever had a corporate job and a conscience, this one's for you.
 
 I'm one of those people, and on my fourth watch the film still feels ethereal and mysterious to me. This time I figured out why it gets me: it sits with something I think about constantly, which is how to remain uncorrupted while actively working inside that machine.
 
-![Tilda Swinton as Karen in a camisole, standing in a dim room, mouthing her lines.](/images/reviews/michael-clayton-2/karen-crowder-alone-in-her-slip.webp 'margin: Karen Crowder alone in her slip, rehearsing.')
-
-![A typed U/North internal research memorandum on Culticate, stamped in red, pinned to a board.](/images/reviews/michael-clayton-2/the-unorth-memo-that-proves-it.webp 'margin: The U/North memo that proves it.')
-
 It's a movie about three people who've been corrupted by the underworld of American corporate culture, each at a different depth. Tilda Swinton's Karen Crowder is all the way under and terrified the whole time, sweating through her blouse, rehearsing her talking points in the mirror, signing off on a murder. Tom Wilkinson's Arthur Edens spent years defending a weedkiller that kills people, goes off his meds, and decides to atone. George Clooney's Michael, the firm's fixer, is waking up.
+
+![Tilda Swinton as Karen in a camisole, standing in a dim room, mouthing her lines.](/images/reviews/michael-clayton-2/karen-crowder-alone-in-her-slip.webp)
+_Karen Crowder alone in her slip, rehearsing._
+
+![A typed U/North internal research memorandum on Culticate, stamped in red, pinned to a board.](/images/reviews/michael-clayton-2/the-unorth-memo-that-proves-it.webp)
+_The U/North memo that proves it._
 
 Tony Gilroy hides the movie's conscience in a kid's fantasy novel. Michael's son Henry tells Arthur about a chapter of Realm & Conquest where heroes get summoned to their destiny: a whole bunch of people start having the same dream, none of them knows the others are having it, and every one of them thinks they're going crazy. Arthur, off his meds and treated like a madman by everyone at his firm, asks a kid on the phone at 11 at night whether those people are crazy. Henry says no, it's real. When Arthur says they aren't ready to hear it, Henry tells him, "But later they will."
 

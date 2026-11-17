@@ -44,9 +44,10 @@ Wabasha representation. Saint Paul representation. Sauna representation.
 
 A yearly rewatch. Legally required as a Minnesotan.
 
-![A hand-painted sign reading Welcome to Muskie-Ville, Minnesota, Population 117, beside a street of wooden ice houses on a frozen lake, with people in winter coats and an old sedan.](/images/reviews/grumpy-old-men/muskieville-the-films-icefishing-village-on.webp 'margin: Muskie-Ville, the film’s ice-fishing village on a frozen lake.')
-
 This was filmed in my hometown of Saint Paul, and honestly at least 20% of my enjoyment of this movie is just seeing Minnesota representation committed to film. The ice fishing. The frozen lakes. The way everyone’s bundled up and still standing outside talking. The passive-aggressive neighborly warfare. It’s all so accurate it hurts.
+
+![A hand-painted sign reading Welcome to Muskie-Ville, Minnesota, Population 117, beside a street of wooden ice houses on a frozen lake, with people in winter coats and an old sedan.](/images/reviews/grumpy-old-men/muskieville-the-films-icefishing-village-on.webp)
+_Muskie-Ville, the film’s ice-fishing village on a frozen lake._
 
 ![A small-town main street of two-story red brick storefronts under a clear blue sky, with a lamppost banner reading Wabasha Legacy.](/images/reviews/grumpy-old-men/downtown-wabasha-minnesota-wikimedia-commons-public.webp 'margin: Downtown Wabasha, Minnesota. Wikimedia Commons, public domain.')
 
@@ -54,9 +55,10 @@ I regularly attend Grumpy Old Men Fest in Wabasha. Yes, that’s a real thing, a
 
 Jack Lemmon and Walter Matthau have incredible chemistry - one of the great screen pairings. It’s funny that the very first scene establishes them as enemies in a way that has them defending each other. These men love each other. They’d never say it, but you feel it in every insult. That’s Minnesota friendship - decades of grudges held alongside decades of loyalty. You hate the guy and you’d also help him push his truck out of a snowbank at 6am without being asked.
 
-![Ann-Margret, smiling, wrapped in a big red coat in a wood-paneled hallway, while Jack Lemmon in a hooded parka stands behind her.](/images/reviews/grumpy-old-men/annmargret-as-ariel-with-jack-lemmon.webp 'margin: Ann-Margret as Ariel, with Jack Lemmon behind her.')
-
 I also love that one of the first manic pixie dream girls in cinema is an old professor obsessed with saunas. Ann-Margret showed up and understood the assignment.
+
+![Ann-Margret, smiling, wrapped in a big red coat in a wood-paneled hallway, while Jack Lemmon in a hooded parka stands behind her.](/images/reviews/grumpy-old-men/annmargret-as-ariel-with-jack-lemmon.webp)
+_Ann-Margret as Ariel, with Jack Lemmon behind her._
 
 This movie makes me mourn early 90s comedies. They don’t make them like this anymore - warm, funny, character-driven, no cynicism. Just two grumpy guys ice fishing and falling in love with the same woman.
 

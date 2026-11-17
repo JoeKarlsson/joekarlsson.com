@@ -55,6 +55,7 @@ I'm loving Emma Stone's turn in her 30s to playing horrible, prickly characters.
 
 I'm curious to see if this breaks out commercially like Lanthimos' last couple movies with Poor Things and The Favourite. I'm not sure it will - the subject matter is darker and more challenging - but it is more palatable than something like Eddington, so maybe it has a shot.
 
-![A gaunt man in a cap and worn jacket and a curly-haired young man walk bicycles across a strip-mall parking lot.](/images/reviews/bugonia/jesse-plemons-as-teddy-with-aidan.webp 'margin: Jesse Plemons as Teddy, with Aidan Delbis as Don.')
-
 I'm also so excited to see my favorite working character actor Jesse Plemons finally get a successful lead performance in a film, and he absolutely crushes it. He's been doing incredible supporting work for years, and watching him carry a film this complex is thrilling.
+
+![A gaunt man in a cap and worn jacket and a curly-haired young man walk bicycles across a strip-mall parking lot.](/images/reviews/bugonia/jesse-plemons-as-teddy-with-aidan.webp)
+_Jesse Plemons as Teddy, with Aidan Delbis as Don._

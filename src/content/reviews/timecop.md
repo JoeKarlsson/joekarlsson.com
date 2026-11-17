@@ -36,6 +36,7 @@ heroAlt: "Jean-Claude Van Damme's face and a gun in front of a red clock face wi
 
 I don’t think it’s controversial to say this is the best JCVD has ever been.
 
-![Jean-Claude Van Damme, shirtless in white briefs, does full splits balanced across two kitchen counters as sparks fly below.](/images/reviews/timecop/van-damme-doing-the-splits-across.webp 'margin: Van Damme doing the splits across a kitchen counter, in the original trailer.')
-
 Super fun slice of 90s sci-fi. With great action, goofy special effects and lots of kicking.
+
+![Jean-Claude Van Damme, shirtless in white briefs, does full splits balanced across two kitchen counters as sparks fly below.](/images/reviews/timecop/van-damme-doing-the-splits-across.webp)
+_Van Damme doing the splits across a kitchen counter, in the original trailer._

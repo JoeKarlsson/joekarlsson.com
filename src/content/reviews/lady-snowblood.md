@@ -34,9 +34,10 @@ marginNotes:
 
 Kill Bill is a cover song. This is the original.
 
-![A woman in a white kimono swings open a paper umbrella at night as snow falls around her.](/images/reviews/lady-snowblood/meiko-kaji-as-yuki-umbrella-open.webp 'margin: Meiko Kaji as Yuki, umbrella open in the falling snow.')
-
 I watched Lady Snowblood because of the obvious associations with Tarantino's film. I left thinking I might like this more. It's genuinely one of the most cinematic movies I've ever seen - beautiful, kinetic, violent, impossibly stylish. The snap zooms never got old for me. Not once. And the sword slices are some of the most gorgeous in cinema history, blood spraying like crimson red paint against the snow.
+
+![A woman in a white kimono swings open a paper umbrella at night as snow falls around her.](/images/reviews/lady-snowblood/meiko-kaji-as-yuki-umbrella-open.webp)
+_Meiko Kaji as Yuki, umbrella open in the falling snow._
 
 We should bring that back, by the way. Blood that looks like paint. It's more honest about what cinema is - artifice in service of feeling.
 Watching this does make Kill Bill feel derivative in ways I hadn't fully appreciated. Tarantino lifted so much from this - the structure, the aesthetic, the revenge arc, specific shots. Seeing the source material makes his version feel like a whitewashed knockoff, a pastiche by someone who loved the original without fully crediting it.

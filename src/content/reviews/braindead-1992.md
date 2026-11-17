@@ -27,6 +27,7 @@ heroImage: '/images/reviews/braindead-1992/backdrop.webp'
 heroAlt: 'A blood-soaked young man in a torn shirt surrounded by grasping zombies.'
 ---
 
-![A man silhouetted in a misty, glowing doorway, holding a lawnmower up against his chest like a shield.](/images/reviews/braindead-1992/lionel-walks-into-the-party-lawnmower.webp 'margin: Lionel walks into the party, lawnmower first.')
-
 I think of that lawnmower every time I cut the lawn
+
+![A man silhouetted in a misty, glowing doorway, holding a lawnmower up against his chest like a shield.](/images/reviews/braindead-1992/lionel-walks-into-the-party-lawnmower.webp 'spoiler')
+_Lionel walks into the party, lawnmower first._

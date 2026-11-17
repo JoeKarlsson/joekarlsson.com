@@ -50,9 +50,10 @@ _Holmes and Fielder in A24's [teaser](https://www.youtube.com/watch?v=GGJSRFWALT
 
 I saw You Can See Everything on opening night in a theater packed with Nathan heads, and I fucking love this movie. Three hours of laughing, gasping, and strangers turning to each other going "what?" It's 174 minutes and it zips. I've been chewing on it for three days and I'm still not done.
 
-![Seen from a cliff above, a blonde woman in a blue cap jogs along a gray beach behind a bearded man in a T-shirt.](/images/reviews/you-can-see-everything/holmes-and-evans-jogging-on-the.webp "margin: Holmes and Evans jogging on the beach, in A24's trailer.")
-
 In 2023, with 34 days left before Holmes reports to federal prison, she and her partner Billy Evans invite Fielder and Lance Oppenheim to film them at a rented beach house in Del Mar.
+
+![Seen from a cliff above, a blonde woman in a blue cap jogs along a gray beach behind a bearded man in a T-shirt.](/images/reviews/you-can-see-everything/holmes-and-evans-jogging-on-the.webp)
+_Holmes and Evans jogging on the beach, in A24's trailer._
 
 ![Nathan Fielder, a backpack on, wheels a suitcase across a sunny driveway toward a beach house's outside staircase.](/images/reviews/you-can-see-everything/fielder-moves-in.webp)
 

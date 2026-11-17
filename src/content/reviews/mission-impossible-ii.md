@@ -32,6 +32,7 @@ heroImage: '/images/reviews/mission-impossible-ii/backdrop.webp'
 heroAlt: 'Tom Cruise in sunglasses riding a motorcycle straight through a wall of flames.'
 ---
 
-![Tom Cruise in sunglasses and a black leather jacket leans over a motorcycle, long hair blowing back.](/images/reviews/mission-impossible-ii/tom-cruises-hair-on-the-motorcycle.webp "margin: Tom Cruise's hair, on the motorcycle.")
-
 I love TC's hair and the doves and the motorcycle. I don't care for anything else.
+
+![Tom Cruise in sunglasses and a black leather jacket leans over a motorcycle, long hair blowing back.](/images/reviews/mission-impossible-ii/tom-cruises-hair-on-the-motorcycle.webp)
+_Tom Cruise's hair, on the motorcycle._

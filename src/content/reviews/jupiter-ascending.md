@@ -52,9 +52,10 @@ _Redmayne's Balem, to Jupiter at his refinery._
 
 I want to respect this film and there are parts I really admire. This is an audacious, wildly expensive, ambitious sci-fi opera made by some of the most creative [sci-fi visionaries](/reviews/the-matrix/) of our lifetime - and yet it still feels boring and drags in places. That shouldn't be possible, but here we are.
 
-![A figure in black armor leaps through a fireball beside a lit sign reading Regency Chicago, between tall buildings at dusk.](/images/reviews/jupiter-ascending/caine-leaps-through-an-explosion-outside.webp 'margin: Caine leaps through an explosion outside the Hyatt Regency Chicago.')
-
 I know they filmed a lot of this practically. That famous Chicago gravity-surfing sequence? They spent six months capturing real light and real locations to make it feel tangible. Double Negative's David Vickery remembers flying helicopter camera rigs over Chicago before sunrise, ["waiting for that perfect 30 minutes of light."](https://www.fxguide.com/fxfeatured/shooting-and-stitching-making-jupiter-ascendings-chicago-chase/) And that effort does not translate to the final product at all.
+
+![A figure in black armor leaps through a fireball beside a lit sign reading Regency Chicago, between tall buildings at dusk.](/images/reviews/jupiter-ascending/caine-leaps-through-an-explosion-outside.webp)
+_Caine leaps through an explosion outside the Hyatt Regency Chicago._
 
 ![Caine tumbles past the top of a Chicago skyscraper at dusk, an alien ship right behind him, the city lit up far below.](/images/reviews/jupiter-ascending/gravity-surfing-down-chicago-towers.webp)
 

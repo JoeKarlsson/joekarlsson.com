@@ -48,9 +48,10 @@ I've been scared to write this review, and frankly, I'm still processing a lot o
 
 But this is a top 10 masterpiece film for me. I fell for it hard. This movie is incredible.
 
-![Black-and-white close shot of three serious Algerian women in Western blouses, one with a pearl necklace, standing in a dark room.](/images/reviews/the-battle-of-algiers/the-three-women-sent-to-plant.webp "margin: The three women sent to plant the café bombs, in Rialto's trailer.")
-
 It's crazy that the Algerian government backed this so soon after they'd won independence from the French - we're talking only a few years after the war ended. They were able to depict these events so clearly and without hyperbole, not turning their revolutionaries into flawless heroes or the French into cartoon villains. Both sides commit acts of horrific violence. Both sides have moments of humanity. The film doesn't flinch from showing women planting bombs in cafes or French soldiers torturing prisoners.
+
+![Black-and-white close shot of three serious Algerian women in Western blouses, one with a pearl necklace, standing in a dark room.](/images/reviews/the-battle-of-algiers/the-three-women-sent-to-plant.webp)
+_The three women sent to plant the café bombs, in Rialto's trailer._
 
 It treats revolution as a brutal necessity. The FLN organizers aren't depicted as superhuman freedom fighters - they're ordinary people pushed into extraordinary circumstances by the violence of colonial occupation. The film shows how colonialism creates the conditions for its own violent resistance. You can't occupy a people, strip them of dignity and autonomy, and expect peace. The violence is a direct response to systemic oppression, and the film makes that causality crystal clear without ever glorifying the bloodshed itself.
 

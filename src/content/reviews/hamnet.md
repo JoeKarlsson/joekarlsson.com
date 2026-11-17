@@ -30,9 +30,10 @@ Hamnet is a deeply emotional film about grief, art, and how we process feelings 
 
 I saw myself in this movie through multiple characters in ways I haven’t experienced since Grave of the Fireflies.
 
-![Paul Mescal, a small cut on his brow, looks up from the dark with tired eyes.](/images/reviews/hamnet/paul-mescal-as-william.webp 'margin: Paul Mescal as William.')
-
 I saw myself in William - a man that the people closest to him struggle to reach him. I’m currently dating a green witch, who is deeply intuitive and spiritual, and yet she has a hard time understanding me. Watching William navigate that same gap hit somewhere tender inside of me.
+
+![Paul Mescal, a small cut on his brow, looks up from the dark with tired eyes.](/images/reviews/hamnet/paul-mescal-as-william.webp)
+_Paul Mescal as William._
 
 I saw myself in Hamnet - willing to trade places with his sister, and carrying weight he shouldn’t have to carry as a young man. And I felt seen in how the film shows what it’s like when the people around you can’t fully comprehend your feelings, even when they’re trying, even when they love you.
 

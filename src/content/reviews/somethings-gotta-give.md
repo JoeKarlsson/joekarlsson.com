@@ -29,6 +29,7 @@ heroAlt: "A still from Something's Gotta Give (2003)"
 
 The only thing crazier than opening your film with Butterfly by Crazy Town is leaving Keanu Reeves for Jack Nicholson.
 
-![A bright room with a wall of bay windows, cream curtains, a big wooden desk and a slipcovered armchair.](/images/reviews/somethings-gotta-give/ericas-writing-room-in-the-hamptons.webp "margin: Erica's writing room in the Hamptons house.")
-
 Also, I really want to live in any house ever imagined by Nancy Meyers.
+
+![A bright room with a wall of bay windows, cream curtains, a big wooden desk and a slipcovered armchair.](/images/reviews/somethings-gotta-give/ericas-writing-room-in-the-hamptons.webp)
+_Erica's writing room in the Hamptons house._

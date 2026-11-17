@@ -28,6 +28,7 @@ heroImage: '/images/reviews/kikis-delivery-service/backdrop.webp'
 heroAlt: "A still from Kiki's Delivery Service (1989)"
 ---
 
-![An animated girl with a big red bow rides a broom over a city of red and green roofs, a black cat on her shoulder and a radio hanging from the handle.](/images/reviews/kikis-delivery-service/kiki-and-jiji-on-the-broom.webp 'margin: Kiki and Jiji on the broom over Koriko.')
-
 I don’t think this is the best Miyazaki film, but it is my favorite Miyazaki film.
+
+![An animated girl with a big red bow rides a broom over a city of red and green roofs, a black cat on her shoulder and a radio hanging from the handle.](/images/reviews/kikis-delivery-service/kiki-and-jiji-on-the-broom.webp)
+_Kiki and Jiji on the broom over Koriko._

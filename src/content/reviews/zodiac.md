@@ -52,9 +52,10 @@ David Fincher had already made his serial killer movie. In Se7en, ||John Doe cal
 
 What Fincher cares about is the people the case impacted, and what it does to the ones who can't put it down.
 
-![Jake Gyllenhaal on a couch at night, papers around him and two children asleep at the other end.](/images/reviews/zodiac/graysmith-up-late-with-the-case.webp 'margin: Graysmith, up late with the case, kids asleep.')
-
 Robert Graysmith (Jake Gyllenhaal) is a Chronicle cartoonist who gets hooked on the Zodiac ciphers and is still hooked more than a decade later. Inspector Dave Toschi (Mark Ruffalo) gives it a decade and ends up accused of forging a Zodiac letter himself. Paul Avery (Robert Downey Jr.), the paper's crime reporter, drinks himself out of the story. Graysmith's wife Melanie watches her husband disappear into boxes of case files until she takes the kids and leaves. Nobody in this part of the story gets stabbed or shot, but all of them lose years to it.
+
+![Jake Gyllenhaal on a couch at night, papers around him and two children asleep at the other end.](/images/reviews/zodiac/graysmith-up-late-with-the-case.webp 'spoiler')
+_Graysmith, up late with the case, kids asleep._
 
 ![Jake Gyllenhaal as Graysmith at his Chronicle desk reading a Zodiac letter, next to the real 340 cipher card, rows of symbols above a crosshair.](/images/reviews/zodiac/the-340-cipher.webp)
 

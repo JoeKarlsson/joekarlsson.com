@@ -28,6 +28,7 @@ heroImage: '/images/reviews/puss-in-boots-the-last-wish/backdrop.webp'
 heroAlt: 'The animated cat Puss in Boots in a feathered hat, grinning beside a black bomb skewered on the tip of his sword.'
 ---
 
-![Puss in Boots in a purple crystal cave, holding up a hand mirror with another Puss reflected in it.](/images/reviews/puss-in-boots-the-last-wish/puss-and-a-mirror-full-of.webp 'margin: Puss and a mirror full of his old lives.')
-
 I just needed another hit of this movie. It’s in my top three movies that have inspired me to be a better man.
+
+![Puss in Boots in a purple crystal cave, holding up a hand mirror with another Puss reflected in it.](/images/reviews/puss-in-boots-the-last-wish/puss-and-a-mirror-full-of.webp 'spoiler')
+_Puss and a mirror full of his old lives._

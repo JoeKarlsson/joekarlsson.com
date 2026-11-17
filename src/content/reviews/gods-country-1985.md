@@ -28,9 +28,10 @@ The most Minnesota thing about this French documentary is how accurately it capt
 
 It is so refreshing to see my native Minnesota observed and represented by some third-party community - in this case, the French - and honestly, they did a great job of capturing Minnesota. I know people exactly like this, and it's startling how accurately the film portrays that particular strain of stubborn rural stoicism.
 
-![An old red tractor with a front loader parked on the grass in front of a long red barn with white-trimmed windows, under bare and leafy trees.](/images/reviews/gods-country-1985/a-glencoe-farm-in-malles-1985.webp 'margin: A Glencoe farm in Malle’s 1985 footage.')
-
 This feels like a movie that is endlessly revealing some sort of truth about our society. What's crazy is how they captured how devastating Reagan's policies were to small-town Minnesota farmers in '85 - because we're still seeing the repercussions of conservative politics play out even today. I'm writing this in 2025 during Trump's presidency when rural farmers are being severely impacted by his tariff policies and trade wars. The parallels are fucking eerie.
+
+![An old red tractor with a front loader parked on the grass in front of a long red barn with white-trimmed windows, under bare and leafy trees.](/images/reviews/gods-country-1985/a-glencoe-farm-in-malles-1985.webp)
+_A Glencoe farm in Malle’s 1985 footage._
 
 I have a bunch of family members who have been farmers and have been totally priced out of the game over the decades. It's devastating to watch generational farms disappear because of policy decisions made by people who have never set foot in rural America. Seeing the seeds of this crisis starting here in '85 - watching these families get crushed by forces completely outside their control - hits way too close to home.
 

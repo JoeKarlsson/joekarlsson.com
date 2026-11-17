@@ -39,6 +39,7 @@ heroImage: '/images/reviews/better-man-2024/backdrop.webp'
 heroAlt: 'A CGI chimpanzee in a black suit and white tie shouting into a microphone and pointing, with a giant screen of his face behind.'
 ---
 
-![Extreme close-up of a CGI chimpanzee's face, eyes closed, lit in warm stage light.](/images/reviews/better-man-2024/robbie-williams-as-the-film-draws.webp 'margin: Robbie Williams, as the film draws him.')
-
 After watching this movie, I still don’t know who Robbie Williams is, but I had such a fun time watching him. Don’t care for his music, even after watching it, but I thought it was so funny, and I still cried at the end of the monkey musician movie. Didn’t see that coming.
+
+![Extreme close-up of a CGI chimpanzee's face, eyes closed, lit in warm stage light.](/images/reviews/better-man-2024/robbie-williams-as-the-film-draws.webp)
+_Robbie Williams, as the film draws him._

@@ -46,9 +46,10 @@ Joe Gideon (Scheider, who is fantastic) is a Broadway director and choreographer
 ![Roy Scheider as Joe Gideon in the bathroom mirror, arms raised, doing his morning routine.](/images/reviews/all-that-jazz/showtime.webp)
 _The morning routine._
 
-![Four dancers in leotards leap on an empty stage while a man's silhouette watches from the seats.](/images/reviews/all-that-jazz/dancers-on-a-bare-stage-with.webp 'margin: Dancers on a bare stage, with Gideon watching from the dark.')
-
 It's one of the most self-loathing films I've ever seen in my life. It's also funny as hell, which keeps it from being a slog. Fosse knows this guy is ridiculous: the womanizing, the endless rehearsals, the way he can't stop staging his own life even while it's ending. And the dance numbers are incredible. His hospital-bed hallucinations turn his own heart surgery into a variety show, and the finale, "Bye Bye Life," is ||a full glittering production number about dying, with Gideon as the star and the audience applauding him all the way into a body bag||. I can't think of anything else that gets away with that.
+
+![Four dancers in leotards leap on an empty stage while a man's silhouette watches from the seats.](/images/reviews/all-that-jazz/dancers-on-a-bare-stage-with.webp)
+_Dancers on a bare stage, with Gideon watching from the dark._
 
 The closest modern equivalent is [Better Man](/reviews/better-man-2024/), the Robbie Williams movie where he's played by a CGI chimp, which I loved for the same reason. Williams signed off on a film that turns him into an actual animal. Both movies get that the only honest way to tell a famous man's story is to let him be the worst thing in the room.
 

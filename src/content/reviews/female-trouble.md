@@ -20,6 +20,7 @@ heroImage: '/images/reviews/female-trouble/backdrop.webp'
 heroAlt: 'Divine with teased black hair and hoop earrings, leaning against wallpaper of brown and green circles.'
 ---
 
-![Edith Massey in a blond wig, heavy blush and red lipstick, eyes half shut and mouth open mid-word, in a tight close-up.](/images/reviews/female-trouble/edith-massey-as-aunt-ida-delivering.webp 'margin: Edith Massey as Aunt Ida, delivering the line to her nephew.')
-
 “The world of the heterosexual is sick and boring!"
+
+![Edith Massey in a blond wig, heavy blush and red lipstick, eyes half shut and mouth open mid-word, in a tight close-up.](/images/reviews/female-trouble/edith-massey-as-aunt-ida-delivering.webp)
+_Edith Massey as Aunt Ida, delivering the line to her nephew._

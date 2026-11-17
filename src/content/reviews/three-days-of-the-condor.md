@@ -27,8 +27,9 @@ heroImage: '/images/reviews/three-days-of-the-condor/backdrop.webp'
 heroAlt: 'Robert Redford in glasses holding a pistol on an older man in a dim study.'
 ---
 
-![Robert Redford, shaggy blond hair and a tweed jacket, leans forward with a stunned look.](/images/reviews/three-days-of-the-condor/redford-as-joe-turner-in-studiocanals.webp "margin: Redford as Joe Turner, in StudioCanal's 4K restoration trailer.")
-
 Robert Redford is so handsome. He got a little creepy when he started making out with Faye Dunaway. And I have to admit, I got a little confused at the end.
+
+![Robert Redford, shaggy blond hair and a tweed jacket, leans forward with a stunned look.](/images/reviews/three-days-of-the-condor/redford-as-joe-turner-in-studiocanals.webp)
+_Redford as Joe Turner, in StudioCanal's 4K restoration trailer._
 
 I watched this in the midst of Trump abducting the president of Venezuela. So it is funny to see a movie about the CIA fucking around and trying to get Venezuela's oil.

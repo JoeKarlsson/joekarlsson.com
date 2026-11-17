@@ -40,8 +40,9 @@ This felt like a neoliberal nightmare film to me. Zootopia 2 is still deeply inv
 
 That said - ||the billionaires do end up in prison at the end||. So kudos for that, I guess.
 
-![A fox in a bucket hat holding a big fish and a rabbit in a cap stand on a wooden dock in a green, misty swamp while a huge walrus wades in the water.](/images/reviews/zootopia-2/nick-and-judy-in-disguise-on.webp 'margin: Nick and Judy, in disguise, on a sunlit swamp dock.')
-
 Here's the thing though: this movie is fun. I laughed throughout. The animation looks gorgeous. The script moves. I saw it in a theater full of kids and they were having a blast - they all got up and danced to Shakira during the credits, which was genuinely delightful to witness.
+
+![A fox in a bucket hat holding a big fish and a rabbit in a cap stand on a wooden dock in a green, misty swamp while a huge walrus wades in the water.](/images/reviews/zootopia-2/nick-and-judy-in-disguise-on.webp)
+_Nick and Judy, in disguise, on a sunlit swamp dock._
 
 I just keep wondering what those kids take away from this. What does it teach them about how change actually happens?

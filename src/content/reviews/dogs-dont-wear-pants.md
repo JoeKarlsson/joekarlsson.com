@@ -35,9 +35,10 @@ marginNotes:
 
 Somewhere between a fetish and a funeral, a numb man finds a pulse.
 
-![Gloved hands and clamps work inside an open chest, tubes running in and out, in cold green light.](/images/reviews/dogs-dont-wear-pants/juha-at-work-in-openheart-surgery.webp 'margin: Juha at work, in open-heart surgery.')
-
 Juha is a heart surgeon who watched his wife drown, went in after her, and has been emotionally leveled ever since. He stumbles into Mona's dungeon and finds that being choked to the edge of consciousness brings her back to him. What's impressive is how much the film pulls off with barely any dialogue. These two are icebergs of feeling, everything real happening in a held glance or a flinch, and as a nearly wordless romance it works far better than it has any right to.
+
+![Gloved hands and clamps work inside an open chest, tubes running in and out, in cold green light.](/images/reviews/dogs-dont-wear-pants/juha-at-work-in-openheart-surgery.webp)
+_Juha at work, in open-heart surgery._
 
 I usually bristle at movies that frame a kink as scar tissue from trauma. That isn't how desire works for most people, and I hate the reflex to pathologize sexuality. But it works here because the film never treats Juha's masochism as a disease to cure. Asphyxiation isn't his problem, it's his doorway, the one threshold where he gets to see his wife again, and ||the movie ends with him walking joyfully into the kink instead of healed out of it||.
 

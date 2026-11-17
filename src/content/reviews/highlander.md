@@ -58,8 +58,9 @@ Some of the special effects were incredible - the sparking swords, the hand-draw
 
 This is also a deeply gay movie. It's very focused on male relationships, and the quickening really does feel like an orgasm. There are a lot of gay jokes throughout that don't land right - one character even drops the F-slur directly at Jon Polito, which made me feel absolutely terrible for that poor man. By the way, I love Jon Polito in whatever he's in. God bless him in this movie.
 
-![A shaved-head man with a stitched scar ringing his neck grins upward in a dim church.](/images/reviews/highlander/clancy-brown-as-the-kurgan-neck.webp 'margin: Clancy Brown as the Kurgan, neck stitches and all.')
-
 Also, did you know that Mr. Krabs is the villain? For real, look it up. Clancy Brown voices Mr. Krabs.
+
+![A shaved-head man with a stitched scar ringing his neck grins upward in a dim church.](/images/reviews/highlander/clancy-brown-as-the-kurgan-neck.webp)
+_Clancy Brown as the Kurgan, neck stitches and all._
 
 I love these low-budget analog action movies from the 80s and 90s. The ones being released today just don't hit the same, which is too bad. I had a blast with this. I miss Cannon Films.

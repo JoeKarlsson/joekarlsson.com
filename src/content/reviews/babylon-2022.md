@@ -43,9 +43,10 @@ I initially avoided Babylon when it came out because I heard terrible things abo
 
 I'm writing this a couple days after my initial viewing and I have a lot of conflicted feelings. I think I mostly love this movie - but I don't love the ending.
 
-![A night party crowd of shirtless men in briefs cheering, a woman held up on someone's shoulders waving sparklers.](/images/reviews/babylon-2022/margot-robbies-nellie-on-shoulders-at.webp "margin: Margot Robbie's Nellie on shoulders at the opening party.")
-
 The first half is a fucking blast. It's a maximalist joyride through the golden age of Hollywood with some incredible performances, stunning cinematography, and absolutely wild party and action sequences. I just love a movie packed with sicko freaks, and this movie delivers on that front the entire time. Chazelle commits fully to the excess and depravity, and it's exhilarating to watch.
+
+![A night party crowd of shirtless men in briefs cheering, a woman held up on someone's shoulders waving sparklers.](/images/reviews/babylon-2022/margot-robbies-nellie-on-shoulders-at.webp)
+_Margot Robbie's Nellie on shoulders at the opening party._
 
 Now, the ending. I'm a little confused by it. I typically hate Hollywood movies talking about how great Hollywood is, and as everyone else has noted, ||seeing a shot of Avatar in the final montage|| is jarring and weird. The movie spends its entire runtime showing how Hollywood eats people up, spits them out, exploits them, and destroys them - and then at the end it's like, "Well, at least it made Avatar."
 

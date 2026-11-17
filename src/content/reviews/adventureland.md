@@ -49,13 +49,15 @@ This might be Ryan Reynolds' best performance and I will die on this hill.
 
 Saw this freshman year of college with my sister in theaters and it absolutely flattened me. Rewatching in my 30s it doesn't hit quite as hard, but it still talks to me. The first time I saw Adventureland I was the exact age these characters are. Sensitive, broke, hungry, writing bad poetry I don't write anymore, not really knowing what I wanted to do with my life. Greg Mottola made a movie that saw me at 19 in a way very few movies did.
 
-![Martin Starr in glasses and a Games Games Games T-shirt leans on a post in front of a lit Skee-Ball sign.](/images/reviews/adventureland/martin-starr-as-joel-by-the.webp 'margin: Martin Starr as Joel, by the Skee-Ball lanes, in the trailer.')
-
 This bombed when it came out because the studio marketed it like a Superbad follow-up. It is absolutely not that. It's a slower, more sensitive, complicated little coming of age romance with most of the comedy outsourced to Bill Hader and Kristen Wiig running the park in the background and Martin Starr being the perfect sad-eyed best friend.
 
-![Ryan Reynolds in a black work shirt talks to Jesse Eisenberg, seen from behind, in front of amusement park stalls.](/images/reviews/adventureland/ryan-reynolds-as-connell-the-parks.webp "margin: Ryan Reynolds as Connell, the park's repairman, in Miramax's trailer.")
+![Martin Starr in glasses and a Games Games Games T-shirt leans on a post in front of a lit Skee-Ball sign.](/images/reviews/adventureland/martin-starr-as-joel-by-the.webp)
+_Martin Starr as Joel, by the Skee-Ball lanes, in the trailer._
 
 Ryan Reynolds is playing a handsome asshole, a phony liar, a guy who tricks everyone into thinking he's a good dude. The more I learn about Reynolds in real life, the more I think this isn't that far from who he actually is, and he's never gone back to this register since. He should. He's so good at it. Stop being charming for two hours and play another snake, Ryan.
+
+![Ryan Reynolds in a black work shirt talks to Jesse Eisenberg, seen from behind, in front of amusement park stalls.](/images/reviews/adventureland/ryan-reynolds-as-connell-the-parks.webp)
+_Ryan Reynolds as Connell, the park's repairman, in Miramax's trailer._
 
 The soundtrack absolutely rips and shaped my music taste in a real and lasting way. I'm not going to pretend I would've found half of these bands without it but I'm grateful for the assist.
 

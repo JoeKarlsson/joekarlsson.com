@@ -68,7 +68,8 @@ This isn't a good movie, don't get me wrong. But it's fast, it's so fun to watch
 
 Stray thoughts:
 
-![Two women side by side, one with short dark curls, one with long light-brown hair.](/images/reviews/xtro/the-wife-and-the-au-pair.webp "margin: The wife and the au pair, Maryam d'Abo.")
-
 - The French au pair who gets used to hatch alien eggs is Maryam d'Abo, five years before she was a Bond girl in The Living Daylights.
 - Xtro got caught in Britain's "[video nasty](https://en.wikipedia.org/wiki/Video_nasty)" panic when it hit home video in 1983, and I'm not surprised.
+
+![Two women side by side, one with short dark curls, one with long light-brown hair.](/images/reviews/xtro/the-wife-and-the-au-pair.webp)
+_The wife and the au pair, Maryam d'Abo._

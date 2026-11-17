@@ -33,9 +33,10 @@ This has my second favorite sleepwalking scene right behind Stepbrothers.
 
 I love this little mid-budget movie way more than I thought I would. It's Dystopian 101 - which makes total sense coming from the director of The Hunger Games films - but it commits to its concept fully. I was genuinely surprised by some of the violence and gore they were willing to show on young adult characters. This doesn't pull its punches.
 
-![Cooper Hoffman, red-haired in a raglan shirt, grins at the camera beside David Jonsson as they sit at the roadside.](/images/reviews/the-long-walk-2025/cooper-hoffman-and-david-jonsson-resting.webp 'margin: Cooper Hoffman and David Jonsson resting by the road.')
-
 Cooper Hoffman and David Jonsson are both great here. They're going to have bright careers ahead of them - you can feel the presence and emotional depth they bring to what could have been one-dimensional roles.
+
+![Cooper Hoffman, red-haired in a raglan shirt, grins at the camera beside David Jonsson as they sit at the roadside.](/images/reviews/the-long-walk-2025/cooper-hoffman-and-david-jonsson-resting.webp)
+_Cooper Hoffman and David Jonsson resting by the road._
 
 My favorite character in the movie though? That cat with no eyes. Incredible supporting performance.
 

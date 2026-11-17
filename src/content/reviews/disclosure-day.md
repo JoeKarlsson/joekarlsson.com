@@ -30,17 +30,21 @@ Funny side note though - is Spielberg trying to tell us it’s cosmically ordain
 
 I think this movie might be perceived as corny or out of touch. Themes of empathy and connectedness aren’t exactly in vogue right now. But distrust in the government is at an all time high - at least it is for me personally - and this film is touching on something real. Frankly, it worked for me.
 
-![Extreme close-up of an older man's eyes with unnaturally glassy blue-green irises.](/images/reviews/disclosure-day/colin-firths-contacts-in-extreme-closeup.webp "margin: Colin Firth's contacts, in extreme close-up.")
-
-![Emily Blunt in a red dress stands stunned in front of a TV weather map of the Midwest.](/images/reviews/disclosure-day/emily-blunt-as-a-kansas-city.webp 'margin: Emily Blunt as a Kansas City TV weather anchor.')
-
-![A man in black sits in a chair in a high-tech room of glowing screens and photos, staff standing around him.](/images/reviews/disclosure-day/firth-seated-as-usual-in-the.webp 'margin: Firth, seated as usual, in the corporate headquarters.')
-
 This might be a career best performance from Emily Blunt. My other favorite of hers is [Edge of Tomorrow](/reviews/edge-of-tomorrow/), but this is completely different. Her voice work is incredible. Josh O’Connor I love so fucking much, and he’s incredible here. Colman Domingo is a standout even though he’s not in it a whole lot - surprised by how little screen time he gets, but he makes every second count. The eye acting from everyone is great. Colin Firth’s terrible contacts really freaked me out, and he wins my award for most seated performance of the year. I’m enjoying his late career turn toward these disintegrating, bloated, menacing roles. It’s a good look for him.
 
-![Two frames side by side: on the left a red car crushed against a passing freight train in a shower of sparks; on the right a toy train car flipping off its track on a home movie screen.](/images/reviews/disclosure-day/disclosure-days-train-crash-beside-the.webp "margin: Disclosure Day's train crash, beside The Fabelmans' toy one.")
+![Extreme close-up of an older man's eyes with unnaturally glassy blue-green irises.](/images/reviews/disclosure-day/colin-firths-contacts-in-extreme-closeup.webp)
+_Colin Firth's contacts, in extreme close-up._
+
+![Emily Blunt in a red dress stands stunned in front of a TV weather map of the Midwest.](/images/reviews/disclosure-day/emily-blunt-as-a-kansas-city.webp)
+_Emily Blunt as a Kansas City TV weather anchor._
+
+![A man in black sits in a chair in a high-tech room of glowing screens and photos, staff standing around him.](/images/reviews/disclosure-day/firth-seated-as-usual-in-the.webp)
+_Firth, seated as usual, in the corporate headquarters._
 
 It’s fun to see Spielberg play with themes from his whole career. I got touches of Minority Report with the hand touch modules in the corporate headquarters and the eye switching. The harrowing train sequence reminded me of his first filmmaking experience - working through his fears by filming that model train crash over and over, as depicted in The Fabelmans. This movie also has an actual real car being driven off the edge of a quarry. Can you name a single film in the last twenty years that’s done that? I literally can’t. I clapped and cheered in the theater to the great annoyance of the people sitting near me.
+
+![Two frames side by side: on the left a red car crushed against a passing freight train in a shower of sparks; on the right a toy train car flipping off its track on a home movie screen.](/images/reviews/disclosure-day/disclosure-days-train-crash-beside-the.webp)
+_Disclosure Day's train crash, beside The Fabelmans' toy one._
 
 ![A real black car in mid-air, falling past a sheer quarry wall toward the water.](/images/reviews/disclosure-day/car-off-the-quarry.webp)
 _An actual car, off an actual quarry._

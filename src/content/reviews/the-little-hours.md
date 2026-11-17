@@ -62,9 +62,10 @@ _Two of the sisters at the convent wall, and the donkey._
 
 But you know what? It's funny, and I love seeing horny nuns. Aubrey Plaza, Alison Brie and Kate Micucci play three sisters in a 14th-century Italian convent who talk like they're stuck at a boring brunch in 2017 and swear like it too.
 
-![Fred Armisen in a white miter with a purple cross and robes, in a stone room.](/images/reviews/the-little-hours/fred-armisen-as-the-bishop.webp 'margin: Fred Armisen as the bishop.')
-
 I was in when I saw the cast, though. Add John C. Reilly as the convent's priest, Molly Shannon as the abbess, Nick Offerman as a lord with a grudge and Fred Armisen as a bishop, and it's stacked.
+
+![Fred Armisen in a white miter with a purple cross and robes, in a stone room.](/images/reviews/the-little-hours/fred-armisen-as-the-bishop.webp 'spoiler')
+_Fred Armisen as the bishop._
 
 ![John C. Reilly as the priest, bearded and mid-sentence in the woods.](/images/reviews/the-little-hours/reilly-and-shannon-1.webp) ![Molly Shannon as the abbess at a desk of books, looking pained.](/images/reviews/the-little-hours/reilly-and-shannon-2.webp)
 

@@ -30,9 +30,10 @@ marginNotes:
 
 I couldn't believe ||this movie ended with a nuclear holocaust on an escaped zoo animal||, but it really did. What a choice.
 
-![Four skeleton puppets with red mop-top wigs play guitars and drums on a small stage before a blue curtain.](/images/reviews/mad-monster-party/the-skeleton-rock-band-all-stopmotion.webp 'margin: The skeleton rock band, all stop-motion puppets.')
-
 This is basically [Hotel Transylvania](/reviews/hotel-transylvania/) but without Adam Sandler, with worse jokes, moving much slower, and featuring incredible stop-motion animation instead of CGI. The Rankin/Bass stop-motion work is genuinely impressive - you can feel the craftsmanship in every frame. These puppets have so much character and the animation holds up remarkably well for 1967.
+
+![Four skeleton puppets with red mop-top wigs play guitars and drums on a small stage before a blue curtain.](/images/reviews/mad-monster-party/the-skeleton-rock-band-all-stopmotion.webp)
+_The skeleton rock band, all stop-motion puppets._
 
 But the pacing is rough. The jokes don't land as often as they should. It meanders in ways that modern kids' movies would never get away with. You can tell this is from an era when family entertainment moved at a very different speed.
 

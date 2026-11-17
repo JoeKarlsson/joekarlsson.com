@@ -48,13 +48,15 @@ marginNotes:
 
 Out of every fictional universe ever made, this is the one I'd move to.
 
-![An animated European city of pastel stone buildings with a green-roofed clock tower against a blue sky, and tiny Kiki on her broom flying past.](/images/reviews/kikis-delivery-service-1/kiki-flies-in-over-korikos-clock.webp 'margin: Kiki flies in over Koriko’s clock tower.')
-
 It's the one place out of everything anyone has ever made up where I'd actually want to live. Kiki flies into a seaside town that looks like a Europe WW2 never touched: bakeries, a clock tower, a blimp over the harbor, nobody trying to kill anybody. A world at peace is so rare in fiction. Nobody is coming for Kiki, so what goes wrong in this movie is mostly Kiki working herself too hard.
 
-![An animated girl in a pink strapless party dress and choker holds a wicker basket in a doorway, frowning.](/images/reviews/kikis-delivery-service-1/the-granddaughter-takes-the-herring-pie.webp 'margin: The granddaughter takes the herring pie at the door.')
+![An animated European city of pastel stone buildings with a green-roofed clock tower against a blue sky, and tiny Kiki on her broom flying past.](/images/reviews/kikis-delivery-service-1/kiki-flies-in-over-korikos-clock.webp)
+_Kiki flies in over Koriko’s clock tower._
 
 I've always read Kiki's Delivery Service as a movie about burnout, and specifically millennial burnout. Kiki is 13 and she's already living the career advice my generation grew up on: find the thing you love and make it your job. Her one gift is flying, so she turns it into a delivery service. The work she loves is care work for strangers, and the customer who matters most to her is a granddaughter who hates her grandma's herring pie and shuts the door on Kiki after she's carried it through a rainstorm and missed the party she'd been waiting for. When Tombo's friends hear the delivery girl is already working, one of them calls it admirable. Everybody around her applauds a 13-year-old for having a job, and she takes the praise as a reason to leave and get back to work.
+
+![An animated girl in a pink strapless party dress and choker holds a wicker basket in a doorway, frowning.](/images/reviews/kikis-delivery-service-1/the-granddaughter-takes-the-herring-pie.webp)
+_The granddaughter takes the herring pie at the door._
 
 Then it all goes at once. She tells Jiji something's wrong with her, that the cheerful Kiki has disappeared. That night she can't understand him. The next morning she can't fly, and she tells Osono that if her magic goes, there's nothing else she knows how to do. Anne Helen Petersen called millennials the burnout generation back in 2019, and Kiki walks right into the same trap. We were told to turn the thing we love into our income, so when the income goes bad, the thing we love goes with it.
 
@@ -74,7 +76,8 @@ I'm a lot older than 13 and I'm still working on it. I think we can all learn a 
 
 Stray thoughts:
 
-![An animated father in glasses and a red sweater vest lifts his laughing daughter, who wears a red bow, high in a cozy bedroom.](/images/reviews/kikis-delivery-service-1/okino-lifts-kiki-up-one-last.webp 'margin: Okino lifts Kiki up one last time before she leaves.')
-
 - I cry at two parts of Kiki's Delivery Service every time. The first is the goodbye at the start, when Kiki asks her dad, Okino, to lift her up high like when she was little, and he can't believe how big she's gotten. You can tell he's supportive and heartbroken and wants her to stay, and it kills me.
 - The second is when Kiki ||loses the ability to talk to her cat, Jiji, and (in the original, anyway) never gets it back||. Something from her childhood is lost and never recovered. I read Jiji as her childlike wonder, and losing his voice as her finding a more adult way forward. Producer Toshio Suzuki has said Jiji is "another self" for Kiki, so I'm taking that as permission.
+
+![An animated father in glasses and a red sweater vest lifts his laughing daughter, who wears a red bow, high in a cozy bedroom.](/images/reviews/kikis-delivery-service-1/okino-lifts-kiki-up-one-last.webp)
+_Okino lifts Kiki up one last time before she leaves._

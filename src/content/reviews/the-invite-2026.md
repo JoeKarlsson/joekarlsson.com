@@ -35,9 +35,10 @@ Most people watch this and see themselves in Seth Rogen. I watched it and wanted
 
 Most reviews of this will come from the dinner table, from the anxious couple downstairs. I watched it from closer to the ceiling. Not because I've got any of this figured out, I really don't, but because the questions this movie asks are ones I've only recently started asking myself, and I'm still in the middle of them. So Hawk and Pína didn't read to me as a curiosity or a provocation. They read as a door I've just started standing in front of, unsure but looking.
 
-![A man in a black sweater and a blond woman in black sit side by side holding small glasses, mid-conversation.](/images/reviews/the-invite-2026/edward-norton-and-penlope-cruz-as.webp 'margin: Edward Norton and Penélope Cruz as Hawk and Pína.')
-
 Wilde refuses to play the sex for shock or the lifestyle for a laugh, and you don't know how rare that is until you've sat through the alternative. Hawk and Pína aren't the punchline. They're the ones walking in with the actual truths, about the compromises monogamy quietly asks you to swallow, about who you're really choosing to be. Even the woo-ish energy talk landed for me. I got it, because I've started saying it.
+
+![A man in a black sweater and a blond woman in black sit side by side holding small glasses, mid-conversation.](/images/reviews/the-invite-2026/edward-norton-and-penlope-cruz-as.webp)
+_Edward Norton and Penélope Cruz as Hawk and Pína._
 
 Casting Cruz as the one dispensing all of it is a joke I loved. She's been America's designated European sexual conscience since Vicky Cristina Barcelona, the calm accented woman explaining desire to nervous Americans, and here she is again, Esther Perel by way of a TED talk. Norton matches her, so earnest as Hawk it aches, the best anyone has used him in decades, and he doesn't even get the best lines.
 

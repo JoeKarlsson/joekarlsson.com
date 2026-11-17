@@ -41,9 +41,10 @@ I've actually watched the [1999 documentary](/reviews/the-smashing-machine/) thi
 
 _Kerr in the documentary's [trailer](https://www.youtube.com/watch?v=-7DO5c7gWNw), and Johnson as Kerr in the same waiting room scene._
 
-![Two fighters grapple in a white-roped ring under a referee's eye, a packed dark arena around them.](/images/reviews/the-smashing-machine-2025/a-bout-in-a-japanese-arena.webp "margin: A bout in a Japanese arena ring, in A24's trailer.")
-
 That said, I do love the 90s aesthetics - the production design, the wardrobe, the costuming. Safdie clearly did his homework on capturing that specific era of MMA when it was still finding its identity. Visually, this nails the grimy, unglamorous world of early mixed martial arts.
+
+![Two fighters grapple in a white-roped ring under a referee's eye, a packed dark arena around them.](/images/reviews/the-smashing-machine-2025/a-bout-in-a-japanese-arena.webp)
+_A bout in a Japanese arena ring, in A24's trailer._
 
 ![Emily Blunt as Dawn and Johnson as Kerr on a shiny leather sectional with a fluffy white cat, a potted palm and vertical blinds behind them.](/images/reviews/the-smashing-machine-2025/kerr-and-dawn-on-the-leather-couch.webp)
 

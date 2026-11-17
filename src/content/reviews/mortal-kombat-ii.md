@@ -40,9 +40,10 @@ Dumb as hell. Karl Urban is perfect casting. Both things can be true.
 Finally, a Mortal Kombat movie that actually involves Mortal Kombat. About fucking time.
 This movie is dumb. The fight choreo is okay. The special effects are absolutely terrible - I would call you a liar if you told me there was a single real set in this entire film. It's all green screen, lit horribly, and one of the most dully filmed movies I've ever seen. The plot is beyond boring.
 
-![A man in sunglasses and a leather jacket holds up one flat hand in a fighting pose, two fighters behind him on a rocky set.](/images/reviews/mortal-kombat-ii/karl-urbans-johnny-cage-sunglasses-on.webp "margin: Karl Urban's Johnny Cage, sunglasses on, striking a pose.")
-
 But Karl Urban as Johnny Cage? Incredible. Perfect casting. He understood the assignment completely. I loved him.
+
+![A man in sunglasses and a leather jacket holds up one flat hand in a fighting pose, two fighters behind him on a rocky set.](/images/reviews/mortal-kombat-ii/karl-urbans-johnny-cage-sunglasses-on.webp)
+_Karl Urban's Johnny Cage, sunglasses on, striking a pose._
 
 And I did love the Mortal Kombat Easter eggs throughout. It's clear someone on this production actually cares about the source material, even if the execution is rough.
 Dumb, ugly, boring - but it finally gave us a tournament. I'll take it.

@@ -40,9 +40,10 @@ The Bone Temple is Nia DaCosta and Alex Garland's take on where this franchise i
 
 ![Ralph Fiennes as Kelson, shirtless and stained orange, dancing alone among the bone pillars with his arms flung out.](/images/reviews/28-years-later-the-bone-temple/kelson-dancing-to-rio.webp)
 
-![Seen from above, a gang of young people in matching long blond wigs and bright tracksuits walk past a rusted ice cream van.](/images/reviews/28-years-later-the-bone-temple/the-jimmys-on-the-move-blond.webp 'margin: The Jimmys on the move, blond wigs and tracksuits.')
-
 I'll be honest - the Jimmys at the end of [28 Years Later](/reviews/28-years-later/) Part One were shocking in a bad way. I was laughing, and not with the movie. Those last two minutes did not leave me optimistic. But here, the Jimmys and the Fingers were absolutely enthralling at every step. Garland obviously has a lot to say about society, religion, healing, and whether we should punish those who hurt us or try to cure them. Spending an entire film exploring what the virus actually is and whether it can be cured? Fascinating choice.
+
+![Seen from above, a gang of young people in matching long blond wigs and bright tracksuits walk past a rusted ice cream van.](/images/reviews/28-years-later-the-bone-temple/the-jimmys-on-the-move-blond.webp)
+_The Jimmys on the move, blond wigs and tracksuits._
 
 ![Samson, bearded and lying against a wall of skulls at night, looking up, with the subtitle "Moon."](/images/reviews/28-years-later-the-bone-temple/samson-says-moon.webp 'spoiler')
 
@@ -56,9 +57,10 @@ And Ralph Fiennes is insane in this. Balls to the wall, literally naked at point
 
 ![Kelson, bald and stained orange in a sleeveless vest with darts tucked in it, aiming a long blowgun at his lips.](/images/reviews/28-years-later-the-bone-temple/kelson-with-his-blowgun.webp)
 
-![A stone farmhouse with outbuildings, a big metal barn and an old caravan in a green valley, edged by dark woods.](/images/reviews/28-years-later-the-bone-temple/the-farm-the-jimmys-walk-into.webp 'margin: The farm the Jimmys walk into.')
-
 Not all of it resonated with me deeply, but god damn - I'm so excited there are movies going this hard and swerving in such interesting directions. The second act turns into a [Funny Games](https://letterboxd.com/film/funny-games/) or [The Strangers](https://letterboxd.com/film/the-strangers/) style home invasion thriller, and it works. Two juggernauts fighting it out by the end. I was locked in.
+
+![A stone farmhouse with outbuildings, a big metal barn and an old caravan in a green valley, edged by dark woods.](/images/reviews/28-years-later-the-bone-temple/the-farm-the-jimmys-walk-into.webp)
+_The farm the Jimmys walk into._
 
 ![Jimmy Crystal staring into the dark, then the temple's bone pillars bursting into flame behind the silhouetted Jimmies.](/images/reviews/28-years-later-the-bone-temple/pillars-ignite-for-the-number-of-the-beast.webp 'spoiler')
 

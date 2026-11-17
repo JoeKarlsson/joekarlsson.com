@@ -22,6 +22,7 @@ heroAlt: 'A close-up of Glen Powell in a hoodie, glaring in dim green light.'
 
 Edgar tried waaaay too hard to sell that Glen Powellis the “angriest person in the  world” and I never bought it.
 
-![A bearded man in a ball cap and glasses swings up a big blue-and-orange toy-style gun in a green hallway.](/images/reviews/the-running-man-2025/michael-cera-armed-with-a-psycho.webp 'margin: Michael Cera, armed with a Psycho Hydro gun.')
-
 It was also way too long. However, Michael Cera was an incredible shot of juice and I wanted a whole home home alone style movie with just him dispatching goons.
+
+![A bearded man in a ball cap and glasses swings up a big blue-and-orange toy-style gun in a green hallway.](/images/reviews/the-running-man-2025/michael-cera-armed-with-a-psycho.webp)
+_Michael Cera, armed with a Psycho Hydro gun._

@@ -42,9 +42,10 @@ marginNotes:
 
 I saw Burn After Reading in theaters back in 2008 with friends because we were running high off No Country for Old Men. I loved it at the time and have loved it all these years since. This was my first rewatch since that theatrical experience, and I have to say - it’s gotten dinged a bit for me.
 
-![Frances McDormand with a blonde bob and a red gym polo looks down, worried, while Richard Jenkins watches from behind a glass partition.](/images/reviews/burn-after-reading-1/frances-mcdormand-as-linda-at-hardbodies.webp "margin: Frances McDormand as Linda at Hardbodies gym, in Focus Features' trailer.")
-
 It’s still funny. I laughed a lot. The performances from Tilda, George, Brad, JK Simmons, Malkovich, and especially Frances McDormand are all great. It feels like a throwback to 1940s studio comedy - big stars doing wacky hijinks in something light and fun.
+
+![Frances McDormand with a blonde bob and a red gym polo looks down, worried, while Richard Jenkins watches from behind a glass partition.](/images/reviews/burn-after-reading-1/frances-mcdormand-as-linda-at-hardbodies.webp)
+_Frances McDormand as Linda at Hardbodies gym, in Focus Features' trailer._
 
 But there’s probably a reason this is one of the Coen Brothers movies I revisit the least. It’s got that touch of Ethan Coen’s horniness running through it, and while that works in the moment, it doesn’t pull me back the way their other films do.
 

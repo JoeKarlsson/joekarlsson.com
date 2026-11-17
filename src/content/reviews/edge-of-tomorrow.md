@@ -39,9 +39,10 @@ Emily Blunt should have been the biggest action star in the world after this.
 
 Knowing the behind-the-scenes chaos of how this was filmed, Edge of Tomorrow should have been a gigantic mess. Instead it plays like a Swiss watch.
 
-![A huge poster on a building facade shows Emily Blunt in battle armor with a long sword over her shoulder, under the words To Victory.](/images/reviews/edge-of-tomorrow/blunts-rita-on-a-buildingsize-recruiting.webp "margin: Blunt's Rita on a building-size recruiting poster in London.")
-
 Emily Blunt is magnetic, tough, funny, and completely believable as the soldier everyone looks up to. Tom Cruise brings his A game too, and this movie helped redefine his career as the guy who will do anything for your entertainment. But Blunt is the revelation.
+
+![A huge poster on a building facade shows Emily Blunt in battle armor with a long sword over her shoulder, under the words To Victory.](/images/reviews/edge-of-tomorrow/blunts-rita-on-a-buildingsize-recruiting.webp)
+_Blunt's Rita on a building-size recruiting poster in London._
 
 The whole thing is so fun to watch on repeat - which feels thematically appropriate.
 

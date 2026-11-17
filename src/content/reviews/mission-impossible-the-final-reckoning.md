@@ -20,6 +20,7 @@ heroImage: '/images/reviews/mission-impossible-the-final-reckoning/backdrop.webp
 heroAlt: 'Tom Cruise looking up in alarm under red and white fluorescent lights.'
 ---
 
-![A man clings to the side of a red biplane flying low through a rocky river canyon, a yellow biplane above.](/images/reviews/mission-impossible-the-final-reckoning/cruise-hangs-off-a-red-biplane.webp 'margin: Cruise hangs off a red biplane in a river canyon.')
-
 I’m sorry. But this shit was so boring. Why’d it have to take THREE FUCKING HOURS to get to the bi-plane sequence?!?!
+
+![A man clings to the side of a red biplane flying low through a rocky river canyon, a yellow biplane above.](/images/reviews/mission-impossible-the-final-reckoning/cruise-hangs-off-a-red-biplane.webp 'spoiler')
+_Cruise hangs off a red biplane in a river canyon._

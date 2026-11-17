@@ -67,11 +67,13 @@ _From the official trailer._
 
 Taking our own traditions and spinning them a half turn is such an interesting way to get people to rethink the originals.
 
-![Peter Dinklage in a knit cap and beard, lit by firelight, holds a bundle of long willow rods.](/images/reviews/wicker/peter-dinklage-as-the-basket-weaver.webp "margin: Peter Dinklage as the Basket Weaver, in Black Bear's UK trailer.")
-
-![A man with a woven wicker face and hands, in a white shirt and vest, packs straw thatch onto a roof.](/images/reviews/wicker/the-wicker-husband-thatching-the-roof.webp 'margin: The Wicker Husband thatching the roof, in the UK trailer.')
-
 Into this village walks [the Wicker Husband](https://www.goodreads.com/book/show/13250089), woven by Peter Dinklage's Basket Weaver, and he does everything the men around him aren't doing for their wives. He fixes the roof, tends the garden and mends the bed they broke on their wedding night. Alexander Skarsgård plays him through a mask, with nothing but his eyes, a little bit of his mouth and a very stiff body, and it works.
+
+![Peter Dinklage in a knit cap and beard, lit by firelight, holds a bundle of long willow rods.](/images/reviews/wicker/peter-dinklage-as-the-basket-weaver.webp)
+_Peter Dinklage as the Basket Weaver, in Black Bear's UK trailer._
+
+![A man with a woven wicker face and hands, in a white shirt and vest, packs straw thatch onto a roof.](/images/reviews/wicker/the-wicker-husband-thatching-the-roof.webp)
+_The Wicker Husband thatching the roof, in the UK trailer._
 
 ![The Wicker Husband, his whole body woven from wicker down to the beard and eyebrows, strides stiffly toward the camera through a sunlit forest, arms held away from his sides.](/images/reviews/wicker/wicker-husband-stiff-walk.webp)
 

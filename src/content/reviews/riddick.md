@@ -38,6 +38,7 @@ I miss this low-budget 2010s action movie genre.
 
 Riddick is a massive return to form after Chronicles of Riddick - stripped down, simple, effective. It's like 25% survivalist movie, 75% space western.
 
-![A shirtless muscular man and a jackal-like alien dog stand on a rocky ridge against a hazy brown-orange sky.](/images/reviews/riddick/riddick-and-his-alien-dog-on.webp 'margin: Riddick and his alien dog on a ridge, in the brown.')
-
 I was weirdly charmed by the early 2010s CGI and green screen bloom. It holds up moderately well, but you can definitely tell it's of the era. The whole thing reminds me of Xbox 360 games from that period - just brown. Everything brown. Why was everyone obsessed with brown as a neutral color back then? God that sucks. But it fits the vibe of the movie, so I'll allow it.
+
+![A shirtless muscular man and a jackal-like alien dog stand on a rocky ridge against a hazy brown-orange sky.](/images/reviews/riddick/riddick-and-his-alien-dog-on.webp)
+_Riddick and his alien dog on a ridge, in the brown._

@@ -40,9 +40,10 @@ This took me three days to watch. Not because I wasn’t engaged, but because Ta
 
 I’m still chewing on it days later, diving into analyses and other reviews, trying to untangle what Tarkovsky buried in those hypnotic, desolate landscapes. It feels like a movie about human nature - what we actually want, and whether we’re brave enough to face it.
 
-![Three men in dark coats stand in tall wet grass in a misty field, rusted wreckage half hidden behind them.](/images/reviews/stalker/the-writer-the-professor-and-the.webp "margin: The Writer, the Professor and the Stalker enter the Zone, in Janus Films' trailer.")
-
 Initially, everything feels nihilistic: greedy, narcissistic men stumbling through a post-apocalyptic wasteland, ||too cowardly to even enter the Room that could grant their deepest wishes||. But that final monologue from the Stalker’s wife shifted everything for me. Suddenly, love emerges as the one pure things that might save us from ourselves.
+
+![Three men in dark coats stand in tall wet grass in a misty field, rusted wreckage half hidden behind them.](/images/reviews/stalker/the-writer-the-professor-and-the.webp)
+_The Writer, the Professor and the Stalker enter the Zone, in Janus Films' trailer._
 
 Watching this, I couldn’t stop thinking about Annihilation - both films use mysterious territories to explore inner landscapes. But where Garland goes cosmic-horror, Tarkovsky stays human.
 

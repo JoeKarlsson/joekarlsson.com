@@ -28,6 +28,7 @@ heroImage: '/images/reviews/the-naked-gun-from-the-files-of-police-squad/backdro
 heroAlt: 'Leslie Nielsen holding up a revolver as he peers around a hotel doorway.'
 ---
 
-![Leslie Nielsen in an umpire's mask, glancing sideways at a ballpark.](/images/reviews/the-naked-gun-from-the-files-of-police-squad/drebin-undercover-as-the-homeplate-umpire.webp 'margin: Drebin undercover as the home-plate umpire.')
-
 This movie is so funny. I'm sorry I've seen it 1 million times and I will probably watch it another million times before I die.
+
+![Leslie Nielsen in an umpire's mask, glancing sideways at a ballpark.](/images/reviews/the-naked-gun-from-the-files-of-police-squad/drebin-undercover-as-the-homeplate-umpire.webp 'spoiler')
+_Drebin undercover as the home-plate umpire._

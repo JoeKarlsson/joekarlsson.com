@@ -27,6 +27,7 @@ heroImage: '/images/reviews/dragon-ball-z-fusion-reborn/backdrop.webp'
 heroAlt: 'Anime art of a golden-haired fighter pointing skyward before a giant grinning green ogre, with warriors and villains flying around them.'
 ---
 
-![Two cartoon boys with spiky golden hair clench their fists in front of a street full of tanks and soldiers, a wrecked tank tread in the foreground.](/images/reviews/dragon-ball-z-fusion-reborn/trunks-and-goten-with-the-dictators.webp 'margin: Trunks and Goten, with the dictator’s tanks wrecked behind them.')
-
 Antifa Trunks and Goten confirmed.
+
+![Two cartoon boys with spiky golden hair clench their fists in front of a street full of tanks and soldiers, a wrecked tank tread in the foreground.](/images/reviews/dragon-ball-z-fusion-reborn/trunks-and-goten-with-the-dictators.webp)
+_Trunks and Goten, with the dictator’s tanks wrecked behind them._

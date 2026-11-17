@@ -36,9 +36,10 @@ marginNotes:
     url: https://en.wikipedia.org/wiki/The_Cat_(1992_film)
 ---
 
-![A black long-haired cat with green eyes hisses at the camera, fangs bared, in blue night light.](/images/reviews/the-cat-1992/the-cat-squares-up-for-the.webp 'margin: The cat squares up for the dog fight, in the trailer.')
-
 A cat kung fu fights a dog. That's really all you need to know.
+
+![A black long-haired cat with green eyes hisses at the camera, fangs bared, in blue night light.](/images/reviews/the-cat-1992/the-cat-squares-up-for-the.webp)
+_The cat squares up for the dog fight, in the trailer._
 
 The Cat is absolutely batshit, and I think it's ultimately great cat representation - our feline hero goes through it and comes out on top. It is weird though that our human protagonist seems to hate animals for about 80% of the movie, actively putting them in danger and seeking to destroy them. Somehow we're supposed to root for him at the end. The tonal math doesn't add up.
 

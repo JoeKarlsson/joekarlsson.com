@@ -35,8 +35,9 @@ The first two acts feel a little like reheated leftovers - familiar beats, famil
 
 Also, this felt like a throwback to films of the aught (complimentary).
 
-![Anne Hathaway in a dark blazer speaks at a meeting table while Meryl Streep, in glasses and gray, sits behind her with hands pressed together.](/images/reviews/the-devil-wears-prada-2/hathaway-and-streep-20-years-on.webp 'margin: Hathaway and Streep, 20 years on.')
-
 Anne Hathaway and Meryl Streep both bring it, adding meaningful depth and growth to characters 20 years later. That’s rare for a legacy sequel. And Justin Theroux is an absolute highlight - he’s so fucking funny in this.
+
+![Anne Hathaway in a dark blazer speaks at a meeting table while Meryl Streep, in glasses and gray, sits behind her with hands pressed together.](/images/reviews/the-devil-wears-prada-2/hathaway-and-streep-20-years-on.webp)
+_Hathaway and Streep, 20 years on._
 
 Better than it had any right to be.

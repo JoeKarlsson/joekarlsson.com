@@ -42,9 +42,10 @@ marginNotes:
 
 Unfortunately, this movie captures what it's like to date in your 20s.
 
-![A red-haired woman with crossed arms, a young man with a bass guitar and a grinning young man in a pink T-shirt stand in a cluttered practice room.](/images/reviews/scott-pilgrim-vs-the-world/alison-pill-michael-cera-and-mark.webp 'margin: Alison Pill, Michael Cera and Mark Webber as Sex Bob-Omb.')
-
 I've seen this movie a thousand times. It's my favorite Edgar Wright film - funnier than Shaun of the Dead, tighter than Hot Fuzz, more inventive than anything else he's done. The cast is incredible across the board, stacked with people who were about to become huge. And the Beck soundtrack is one I've returned to year after year. It's permanently lodged in my brain.
+
+![A red-haired woman with crossed arms, a young man with a bass guitar and a grinning young man in a pink T-shirt stand in a cluttered practice room.](/images/reviews/scott-pilgrim-vs-the-world/alison-pill-michael-cera-and-mark.webp)
+_Alison Pill, Michael Cera and Mark Webber as Sex Bob-Omb._
 
 I still don't really know what the ending is trying to say. I've read the comic. I watched the Netflix miniseries. I'm still not exactly sure what Scott earns or learns or whether the film thinks he deserves Ramona. It's one of the most misunderstood movies of all time - people either miss that Scott is kind of the villain of his own story, or they overcorrect and act like the film doesn't know that. It knows. I think. Mostly.
 

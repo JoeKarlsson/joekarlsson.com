@@ -27,8 +27,9 @@ heroImage: '/images/reviews/terminator-2-judgment-day/backdrop.webp'
 heroAlt: 'Arnold Schwarzenegger in dark sunglasses and a leather jacket on a motorcycle, a shotgun raised beside him in blue light.'
 ---
 
-![Arnold Schwarzenegger in a leather jacket holds a shotgun upright as Linda Hamilton and Edward Furlong huddle behind him in a hospital corridor.](/images/reviews/terminator-2-judgment-day/the-t800-standing-guard-over-sarah.webp "margin: The T-800 standing guard over Sarah and John, in StudioCanal's trailer.")
-
 A yearn to be as good as a father as the Terminator.
+
+![Arnold Schwarzenegger in a leather jacket holds a shotgun upright as Linda Hamilton and Edward Furlong huddle behind him in a hospital corridor.](/images/reviews/terminator-2-judgment-day/the-t800-standing-guard-over-sarah.webp)
+_The T-800 standing guard over Sarah and John, in StudioCanal's trailer._
 
 Also, I wish I had Edward Furlong’s hair

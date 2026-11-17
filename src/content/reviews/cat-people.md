@@ -19,6 +19,7 @@ heroImage: '/images/reviews/cat-people/backdrop.webp'
 heroAlt: 'Two women, one in a fur hat and one in pearls, and a man in a suit looking at a sketch, in black and white.'
 ---
 
-![A woman in a swimsuit and cardigan peers out of a dark doorway, listening.](/images/reviews/cat-people/alice-at-the-pool-from-the.webp 'margin: Alice at the pool, from the 1942 trailer. Wikimedia Commons, public domain.')
-
 A monster movie for women who don't want to fuck their husbands, and where the real monster is compulsory heterosexuality.
+
+![A woman in a swimsuit and cardigan peers out of a dark doorway, listening.](/images/reviews/cat-people/alice-at-the-pool-from-the.webp)
+_Alice at the pool, from the 1942 trailer. Wikimedia Commons, public domain._

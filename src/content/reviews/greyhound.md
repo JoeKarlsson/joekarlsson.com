@@ -31,12 +31,14 @@ heroAlt: "Tom Hanks in a naval officer's cap, seen through a shattered porthole.
 
 Here's the text I sent my Dad about this movie - I hope this counts as a review:
 
-![A gray World War II destroyer with hull number 548 cuts through the sea, another warship behind it.](/images/reviews/greyhound/the-destroyer-greyhound-hull-number-548.webp 'margin: The destroyer Greyhound, hull number 548, with the convoy.')
-
 "Dad - Last night I watched the most 'Dad' movie ever created. It's a World War II battleship epic written by Tom Hanks and released on Apple+ in 2020. (No one watched it, but it's got incredible production value.)
 
-![Tom Hanks in a steel helmet marked CAPT raises binoculars to his eyes.](/images/reviews/greyhound/tom-hanks-as-the-captain-on.webp 'margin: Tom Hanks as the captain, on watch.')
+![A gray World War II destroyer with hull number 548 cuts through the sea, another warship behind it.](/images/reviews/greyhound/the-destroyer-greyhound-hull-number-548.webp)
+_The destroyer Greyhound, hull number 548, with the convoy._
 
 It's in the genre of “competency porn” that I am absolutely obsessed with. It’s just watching competent people do things really well.
+
+![Tom Hanks in a steel helmet marked CAPT raises binoculars to his eyes.](/images/reviews/greyhound/tom-hanks-as-the-captain-on.webp)
+_Tom Hanks as the captain, on watch._
 
 Anyways - I think you'd like it."

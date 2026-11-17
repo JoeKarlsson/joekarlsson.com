@@ -32,8 +32,9 @@ marginNotes:
     url: https://en.wikipedia.org/wiki/Star_Trek:_First_Contact
 ---
 
-![A pale, bald woman in a black ribbed bodysuit with cables running from her shoulders stands in a dim machine-filled chamber.](/images/reviews/star-trek-first-contact/alice-krige-as-the-borg-queen.webp 'margin: Alice Krige as the Borg Queen.')
-
 Frakes really directed the shit out of this movie. It looks incredible, and I’d even go so far to say that the aesthetics of the Borg in this film directly influenced the look of the real world in [The Matrix](/reviews/the-matrix/).
+
+![A pale, bald woman in a black ribbed bodysuit with cables running from her shoulders stands in a dim machine-filled chamber.](/images/reviews/star-trek-first-contact/alice-krige-as-the-borg-queen.webp)
+_Alice Krige as the Borg Queen._
 
 I had so much fun watching this, and I will for sure be watching this again someday. I’m a TNG and DS9 guy, so this was a perfect balance for me. The later TNG films feel too action heavy for no reason at all. But this one had fun action sequences, great special effects and heady philosophical concepts about what it means to be human.

@@ -31,9 +31,10 @@ marginNotes:
 
 It’s insane how such a schlocky premise could be imbued with such depth.
 
-![Executives in gray suits sit along a long glass conference table, the Old Man at its head in front of tall windows.](/images/reviews/robocop/the-ocp-board-meeting-in-mgms.webp "margin: The OCP board meeting, in MGM's trailer.")
-
 RoboCop is super tight - incredible themes, well acted, satire absolutely on point. It’s got something for everyone. Thematic depth, religious undertones, capitalism on blast for the entire runtime. Even if you don’t dig into the themes, it’s a fun romp. If you do dig in, it’s a masterpiece.
+
+![Executives in gray suits sit along a long glass conference table, the Old Man at its head in front of tall windows.](/images/reviews/robocop/the-ocp-board-meeting-in-mgms.webp)
+_The OCP board meeting, in MGM's trailer._
 
 The practical effects are incredible. Phil Tippett is absolutely crushing it with ED-209. And the number of squibs shot off in this movie is nuts - I think this film still holds the record for most squibs in a single scene. It’s disgusting in all the right ways.
 

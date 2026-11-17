@@ -22,6 +22,7 @@ heroAlt: 'My Melody, Kuromi and other cute animated characters flying above a pa
 
 Ironically, the show has become one of my top 10 favorites of 2025. I have now fully understood the Sanrio excitement, and I have fully become a my piano stan.
 
-![Two felt puppets, a pink-hooded rabbit and a black-hooded imp with a pink skull, hug and grin in a cozy room.](/images/reviews/my-melody-kuromi/my-melody-hugs-kuromi-felt-texture.webp 'margin: My Melody hugs Kuromi, felt texture and all.')
-
 The fight choreography in the show is simply incredible and the stop animation must be seen to be believed.
+
+![Two felt puppets, a pink-hooded rabbit and a black-hooded imp with a pink skull, hug and grin in a cozy room.](/images/reviews/my-melody-kuromi/my-melody-hugs-kuromi-felt-texture.webp)
+_My Melody hugs Kuromi, felt texture and all._

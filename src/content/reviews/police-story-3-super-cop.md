@@ -20,6 +20,7 @@ heroImage: '/images/reviews/police-story-3-super-cop/backdrop.webp'
 heroAlt: 'Jackie Chan pointing and shouting as a crowd of young men advances behind him on a street at night.'
 ---
 
-![Aerial view of a helicopter flying between tall buildings above a busy highway, a man dangling from the ladder beneath it.](/images/reviews/police-story-3-super-cop/jackie-chan-hangs-from-a-helicopters.webp "margin: Jackie Chan hangs from a helicopter's rope ladder over Kuala Lumpur.")
-
 Seriously, how did no one die filming that final sequence?
+
+![Aerial view of a helicopter flying between tall buildings above a busy highway, a man dangling from the ladder beneath it.](/images/reviews/police-story-3-super-cop/jackie-chan-hangs-from-a-helicopters.webp 'spoiler')
+_Jackie Chan hangs from a helicopter's rope ladder over Kuala Lumpur._

@@ -46,9 +46,10 @@ These movies have an air of sexism and racism that they absolutely think they do
 
 Does it feel like copaganda and military propaganda? Absolutely. Do I still love how stupid this movie is? Also absolutely.
 
-![A gray propeller plane flies low just above a giant neon Hard Rock guitar sign against a dusk sky.](/images/reviews/con-air/the-jailbird-comes-in-low-over.webp 'margin: The Jailbird comes in low over the Hard Rock sign in Las Vegas.')
-
 Revisiting 90s action cinema hits different now. You can see all the seams in the filmmaking that were invisible as a kid, but the practical stunt work still rules and real explosions remain the best special effect anyone can have.
+
+![A gray propeller plane flies low just above a giant neon Hard Rock guitar sign against a dusk sky.](/images/reviews/con-air/the-jailbird-comes-in-low-over.webp 'spoiler')
+_The Jailbird comes in low over the Hard Rock sign in Las Vegas._
 
 ![The Jailbird's propeller and fuselage smashing through the Sands hotel's entrance, past parked white cars, in a burst of sparks and flame.](/images/reviews/con-air/jailbird-crashes-into-the-sands.webp)
 

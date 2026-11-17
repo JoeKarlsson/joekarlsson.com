@@ -42,9 +42,10 @@ This is so much cuter, sweeter, and different than I ever expected. I genuinely 
 
 Lloyd Dobler is way cooler, sweeter, and more aspirational than someone like Ferris Bueller, who we were all supposed to worship as the ultimate 80s teen icon. Lloyd isn't cool because he's a charming rule-breaker - he's cool because he's genuine, kind, and actually listens to Diane. He respects her. He supports her dreams even when they take her away from him.
 
-![A balding man in a tweed jacket and checked shirt smiles to himself, hand at his chin, in a kitchen.](/images/reviews/say-anything/john-mahoney-as-dianes-father-jim.webp "margin: John Mahoney as Diane's father, Jim Court.")
-
 I also expected the father to be a total cock block for the whole movie, but instead ||it takes this wild swerve into an unexpected financial crime subplot that actually works||. The father isn't just an obstacle - he's a fully realized character with his own tragic arc.
+
+![A balding man in a tweed jacket and checked shirt smiles to himself, hand at his chin, in a kitchen.](/images/reviews/say-anything/john-mahoney-as-dianes-father-jim.webp)
+_John Mahoney as Diane's father, Jim Court._
 
 John Cusack is wonderful in this. The performance is so natural and lived-in. And the screenplay is so much more realistic than I expected - but then again, I should have known better coming from a Cameron Crowe movie. He gets how people actually talk, especially teenagers trying to figure out who they are.
 

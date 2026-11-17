@@ -31,6 +31,7 @@ This movie is brutal - sometimes genuinely hard to watch - but it's so propulsiv
 
 As a Scandinavian living in the Midwest, I love seeing Finnish stoicism portrayed on screen. There's something deeply satisfying about a protagonist who just does not talk and does not stop.
 
-![A curly white Bedlington-type dog with its tongue out leans out of a rusty truck cab window.](/images/reviews/sisu-road-to-revenge/the-dog-riding-shotgun-in-sonys.webp "margin: The dog, riding shotgun, in Sony's trailer.")
-
 Also - and this is critical - the dog never gets hurt. I was clenched the entire runtime waiting for the worst. The dog is fine.
+
+![A curly white Bedlington-type dog with its tongue out leans out of a rusty truck cab window.](/images/reviews/sisu-road-to-revenge/the-dog-riding-shotgun-in-sonys.webp)
+_The dog, riding shotgun, in Sony's trailer._

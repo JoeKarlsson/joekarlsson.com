@@ -57,9 +57,10 @@ _Two minutes in._
 
 Nobody here gets punished for their desire. ||The queer women live.|| Cinema loves to make women and queers pay in blood for wanting pleasure, and Schoenbrun just refuses, letting them want and then survive the wanting, the way [The Handmaiden](/reviews/the-handmaiden/) did.
 
-![A stack of seven VHS tapes, each labeled Camp Miasma, including Part II, Part IV and 3D.](/images/reviews/teenage-sex-and-death-at-camp-miasma/the-fictional-camp-miasma-series-on.webp 'margin: The fictional Camp Miasma series on VHS, 3D sequel included.')
-
 And Little Death is an instant horror icon. The masked, spear-wielding vengeful ghost at the center of the fictional franchise looks like what you'd get if Pyramid Head and Jason Voorhees had a baby in a Silent Hill parking lot, and the central kill run at the camp is one of the best sequences of the year, all squishy Foley and go-for-broke splatter. The whole movie has that handmade Lynch quality where the cheapness becomes the dream. Matte paintings, charming garbage effects, a budget held together with love, all of it chasing a feeling instead of accuracy.
+
+![A stack of seven VHS tapes, each labeled Camp Miasma, including Part II, Part IV and 3D.](/images/reviews/teenage-sex-and-death-at-camp-miasma/the-fictional-camp-miasma-series-on.webp)
+_The fictional Camp Miasma series on VHS, 3D sequel included._
 
 ![A framed poster of Little Death, the masked killer with an air vent for a head, standing in a field with his spear.](/images/reviews/teenage-sex-and-death-at-camp-miasma/little-death-poster.webp)
 _Little Death, air vent and all._
@@ -72,8 +73,6 @@ Like everything she makes, it's overstuffed, and I mean that fondly. A hundred i
 
 Stray thoughts:
 
-![A blond woman with red lipstick screaming in a dark room.](/images/reviews/teenage-sex-and-death-at-camp-miasma/gillian-anderson-midscream.webp 'margin: Gillian Anderson, mid-scream.')
-
 ・Under the gore, this is really an academic deconstruction of the slasher and a meta-breakdown of reboot culture, Jane reckoning with the sexual legacy those 80s movies stamped onto her impressionable kid subconscious.
 ・I've got nothing to compare this to. It doesn't look or move like anything else I've seen.
 ・Her whole watching-and-being-watched fixation curdles into an actual kink here, the want to watch, be watched, and be hunted. Genuinely new, even if I bumped on it.
@@ -85,3 +84,6 @@ Stray thoughts:
 ・Gillian Anderson is making enormous vocal choices, some Southern-but-not-quite-Norma-Desmond thing that never pays off as character, and she's still magnetic, ravenous, coming gorgeously apart.
 ・Give me an entire Thor spinoff. The poly bi boyfriend deserves his own franchise.
 ・Overstuffed the way [I Love Boosters](/reviews/i-love-boosters/) was this year, and I loved both for having too much to say and no room to say it.
+
+![A blond woman with red lipstick screaming in a dark room.](/images/reviews/teenage-sex-and-death-at-camp-miasma/gillian-anderson-midscream.webp)
+_Gillian Anderson, mid-scream._

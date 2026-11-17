@@ -43,9 +43,10 @@ Lynch for the Minecraft generation.
 
 I genuinely don't know a whole lot about Backrooms lore but as a standalone film this absolutely worked for me. I was bought in the second they announced it and somehow it cleared the bar.
 
-![A man in a tan shirt seen from behind, standing in an empty room with yellow walls, pale carpet and rows of fluorescent ceiling panels, a few stacked chairs in the distance.](/images/reviews/backrooms-2026/chiwetel-ejiofor-in-the-first-yellow.webp 'margin: Chiwetel Ejiofor in the first yellow room.')
-
 The sound design is incredible. Deeply Lynchian. There's this constant droning buzz of fluorescent lights humming under everything that reminded me of how Lynch uses industrial sound to keep dread bubbling in the background. The score is discordant and uneasy but also somehow feels like a memory, which is a weird trick to pull off. The production design is the real star though. You can tell these sets are handmade.
+
+![A man in a tan shirt seen from behind, standing in an empty room with yellow walls, pale carpet and rows of fluorescent ceiling panels, a few stacked chairs in the distance.](/images/reviews/backrooms-2026/chiwetel-ejiofor-in-the-first-yellow.webp)
+_Chiwetel Ejiofor in the first yellow room._
 
 Every room feels like an interactive art project. There were a couple of effects that didn't land (the no-clipping through walls bit looked a little weak) but the tangible, practical quality of the whole thing more than makes up for it. The whole movie feels like a fever dream we've all collectively had. Like a space you're not supposed to be in.
 

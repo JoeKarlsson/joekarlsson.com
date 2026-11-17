@@ -31,6 +31,7 @@ Be sure to take your epilepsy medication before watching this film.
 
 I wish this movie were a little funnier, like Spinal Tap, and by the third act, it just becomes a very run-of-the-mill drama. Also, I don't resonate super hard about media that are reflections on celebrity and fame. It's just not my bag of rocks.
 
-![A woman in sunglasses and a silver dress walks a long runway through a packed, glowing arena.](/images/reviews/the-moment-2026/charli-on-an-arena-runway-the.webp "margin: Charli on an arena runway, the scale she's afraid of.")
-
 But the movie is about Charli's biggest nightmare: becoming like Taylor Swift, which is pretty funny.
+
+![A woman in sunglasses and a silver dress walks a long runway through a packed, glowing arena.](/images/reviews/the-moment-2026/charli-on-an-arena-runway-the.webp)
+_Charli on an arena runway, the scale she's afraid of._

@@ -34,9 +34,10 @@ Been on a documentary rewatch kick and this one was always going to be on the li
 
 I forget every time how genuinely upset this movie makes me feel. Watching Billy and his little court of yes-men crush Steve Wiebe's dream over and over for a lying maniac just hurts in a way that goes deep. Everyone has felt this at some point. You're trying to do an honest thing and there's some smug guy with a goatee and a posse working to keep you down. This movie just feels like life.
 
-![Billy Mitchell, long-haired and bearded, in a maroon shirt and a stars-and-stripes tie, stands in a steel restaurant kitchen.](/images/reviews/the-king-of-kong-a-fistful-of-quarters/billy-mitchell-in-his-flag-tie.webp 'margin: Billy Mitchell in his flag tie, in the theatrical trailer.')
-
 That said, Billy Mitchell might be the greatest documentary antagonist of all time. He's dramatic, he speaks in monologues, he sends VHS tapes through intermediaries instead of showing up in person. He throws twists into the story. Truly an all-timer.
+
+![Billy Mitchell, long-haired and bearded, in a maroon shirt and a stars-and-stripes tie, stands in a steel restaurant kitchen.](/images/reviews/the-king-of-kong-a-fistful-of-quarters/billy-mitchell-in-his-flag-tie.webp)
+_Billy Mitchell in his flag tie, in the theatrical trailer._
 
 Updating this in 2026 because the Twin Galaxies drama has been a whole saga. He got stripped, then Guinness reinstated him as the Donkey Kong world record holder and Twin Galaxies put his scores back in its historical archive (not its leaderboards), and I have to say I am a truther. There is no universe where that man isn't fudging numbers by any means available to him. The guy has been running the same con since the Reagan administration and we just keep letting him.
 

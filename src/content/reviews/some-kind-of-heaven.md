@@ -46,9 +46,10 @@ In five years I had forgotten most of the details, especially Dennis Dean. Denni
 ![Dennis, in shorts, loading groceries into the side door of his old blue van in a parking lot.](/images/reviews/some-kind-of-heaven/dennis-van.webp)
 _Dennis and the van._
 
-![An older woman with short gray hair and a bald man with a white goatee in a blue shirt stand side by side in a driveway at dusk.](/images/reviews/some-kind-of-heaven/anne-and-reggie-kincer-outside-their.webp 'margin: Anne and Reggie Kincer outside their house.')
-
 Then there's Reggie Kincer, slipping away from reality in real time while Anne, his wife of almost fifty years, tries to keep the marriage upright. I've watched a version of Reggie play out next door. There's a specific kind of older white man who is slowly losing his mind but has never once been told no, so he has no equipment for hearing anyone who tries to help. It's sad. It's also infuriating, and I honestly don't know that I'd have Anne's patience.
+
+![An older woman with short gray hair and a bald man with a white goatee in a blue shirt stand side by side in a driveway at dusk.](/images/reviews/some-kind-of-heaven/anne-and-reggie-kincer-outside-their.webp)
+_Anne and Reggie Kincer outside their house._
 
 This is my favorite kind of documentary, the slice of life that peels back the lawn. The Villages sells itself as the happiest retirement community in America, and those beautiful lawns turn into a nightmare the longer you stare at them: a conservative boomer theme park where the loneliness is professionally landscaped.
 
