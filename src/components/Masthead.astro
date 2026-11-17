@@ -44,7 +44,9 @@ const portrait = Boolean(width && height && height > width);
 		))}
 	</h1>
 	{/* controls on the video for the same WCAG 2.2.2 reason as rehype-gif-video;
-	in-view-play starts it, so a remembered pause or reduced motion keeps it still */}
+	in-view-play starts it, so a remembered pause or reduced motion keeps it still.
+	preload="none": a phone shows the poster (data-phone-still), and iPhone Safari pulled
+	the whole clip at load for "metadata" (406 KB on connect-ai-doom) */}
 	{heroVideo ? (
 		<video
 			src={heroVideo}
@@ -56,7 +58,7 @@ const portrait = Boolean(width && height && height > width);
 			muted
 			playsinline
 			controls
-			preload="metadata"
+			preload="none"
 			aria-label={heroAlt || title}
 			data-morph-target
 			class="mx-auto h-auto max-h-[min(75vh,640px)] w-full max-w-[856px] object-cover"
