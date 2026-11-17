@@ -184,8 +184,20 @@ function codeNotes(tree) {
 					.includes('line')
 			)
 				continue;
-			const at = line.children.findIndex((t) => CODE_NOTE.test(textOf(t)));
-			if (at < 0) continue;
+			let at = line.children.findIndex((t) => CODE_NOTE.test(textOf(t)));
+			if (at < 0) {
+				// Some grammars split the comment (Markdown reads [!margin] as a link), so join it back
+				const match = textOf(line).match(CODE_NOTE);
+				if (!match) continue;
+				let end = 0;
+				at = line.children.findIndex((t) => (end += textOf(t).length) > match.index);
+				const rest = line.children.slice(at);
+				const joined = text(rest.map(textOf).join(''));
+				line.children = [
+					...line.children.slice(0, at),
+					rest[0].type === 'text' ? joined : { ...rest[0], children: [joined] },
+				];
+			}
 			// Split the token at its comment, for a plain block whose line is one text token
 			const token = line.children[at];
 			const leaf = token.type === 'text' ? token : token.children.find((c) => c.type === 'text');

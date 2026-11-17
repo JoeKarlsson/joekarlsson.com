@@ -236,6 +236,30 @@ describe('rehypeMarginNotes enrichment', async () => {
 			'Why x is one.',
 		]);
 	});
+	it('finds a [!margin] comment the highlighter split across tokens', async () => {
+		const token = (value: string): HastNode => ({
+			type: 'element',
+			tagName: 'span',
+			properties: {},
+			children: [text(value)],
+		});
+		// Shiki's Markdown grammar reads [!margin] as a link reference
+		const line: HastNode = {
+			type: 'element',
+			tagName: 'span',
+			properties: { class: 'line' },
+			children: [token('- Do it. <!-- ['), token('!margin'), token('] Why. -->')],
+		};
+		const pre: HastNode = {
+			type: 'element',
+			tagName: 'pre',
+			properties: {},
+			children: [{ type: 'element', tagName: 'code', properties: {}, children: [line] }],
+		};
+		const root = await run(pre);
+		const box = root.children![0];
+		expect(box.children!.filter((n) => n.tagName === 'aside').map(textOf)).toEqual(['Why.']);
+	});
 	it("links a citation's note to its source and back to its words, sharing their number", async () => {
 		const a = link('https://a.com/x', 'A paper', 'cite: Ames, 2020');
 		const root = await run(p(text('See '), a));
