@@ -58,7 +58,7 @@ It isn't free. A summary hides detail, and I've caught myself approving work I n
 
 Orchestration also burns tokens. Anthropic says its multi-agent research system uses [about 15 times as many tokens as a chat](https://www.anthropic.com/engineering/multi-agent-research-system 'cite: Anthropic, June 2025').
 
-I'd heard that Anthropic knows about this context-switching problem and tells Claude to keep its replies simple so people can follow along. I couldn't find Anthropic saying that. Claude Code does ship a [Concise output style](https://code.claude.com/docs/en/output-styles 'cite: Anthropic, Claude Code docs') that leads with the result and drops the recap, Whatever the reason, simplicity is the name of the game for me in this era, and short replies are a big part of that.
+I'd heard that Anthropic knows about this context-switching problem and tells Claude to keep its replies simple so people can follow along. I couldn't find Anthropic saying that. Claude Code does have a [Concise output style](https://code.claude.com/docs/en/output-styles 'cite: Anthropic, Claude Code docs') that leads with the result and drops the recap, Whatever the reason, simplicity is the name of the game for me in this era, and short replies are a big part of that.
 
 If you want to try this, pick one session to be the one you talk to and let it delegate the rest.
 
