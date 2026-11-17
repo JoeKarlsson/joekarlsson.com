@@ -12,6 +12,9 @@ const ghsa = (url) => url.match(/GHSA-[\w-]+/)?.[0] ?? url;
 
 /** What fails the gate, given the audit's JSON, the exceptions and a lookup of the newest version. */
 export function auditFailures(audit, exceptions, { newestIsVulnerable }) {
+	// npm prints an error object instead when the advisory service can't be reached
+	if (audit.error)
+		return [`npm audit couldn't run: ${audit.message ?? JSON.stringify(audit.error)}`];
 	const found = new Map();
 	for (const vulnerability of Object.values(audit.vulnerabilities ?? {})) {
 		for (const via of vulnerability.via) {

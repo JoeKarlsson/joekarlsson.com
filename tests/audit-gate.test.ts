@@ -41,4 +41,13 @@ describe('audit gate', () => {
 		).toMatch(/patched version is out/);
 		expect(auditFailures(audit(), accepted, unpatched)[0]).toMatch(/no longer reports it/);
 	});
+	it("fails when npm audit couldn't reach the advisory service, instead of seeing no advisories", () => {
+		const failed = {
+			message: 'request to https://registry.npmjs.org failed',
+			error: { summary: '' },
+		};
+		expect(auditFailures(failed, accepted, unpatched)).toEqual([
+			"npm audit couldn't run: request to https://registry.npmjs.org failed",
+		]);
+	});
 });
