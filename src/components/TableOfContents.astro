@@ -1,4 +1,5 @@
 ---
+import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 interface Props {
 	headings: { slug: string; text: string; depth?: number }[];
 }
@@ -24,7 +25,7 @@ the notes below show. About keeps it in its sidebar. Narrower screens get the fo
 								: 'text-paper hover:text-paper',
 						].join(' ')}
 					>
-						{h.text}
+						{joinLastWord(h.text)}
 					</a>
 				</li>
 			))}

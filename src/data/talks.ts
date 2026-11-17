@@ -1643,7 +1643,7 @@ export function countByGroup(list: Talk[]): string {
 		(group) => [group, list.filter((t) => groupOf(t) === group).length] as const,
 	)
 		.filter(([, n]) => n > 0)
-		.map(([group, n]) => `${n} ${group}${n === 1 ? '' : 's'}`)
+		.map(([group, n]) => `${n}\u00A0${group}${n === 1 ? '' : 's'}`)
 		.join(', ');
 }
 

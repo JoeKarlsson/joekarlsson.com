@@ -71,7 +71,7 @@ describe('talks.ts', () => {
 				{ title: 'c', kind: 'podcast', event: 'x', date: '2021' },
 				{ title: 'd', kind: 'demo', event: 'x', date: '2021' },
 			]),
-		).toBe('2 talks, 1 podcast, 1 demo');
+		).toBe('2\u00A0talks, 1\u00A0podcast, 1\u00A0demo');
 	});
 });
 

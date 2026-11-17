@@ -52,7 +52,7 @@ tl;dr: Davi discusses the mechanics of how PNGs functions:" I'm writing this art
 **[What Big Tech Layoffs Suggest For The Industry](https://newsletter.pragmaticengineer.com/p/what-big-tech-layoffs-suggest-for)**  
 \- Gergely Orosz
 
-**tl;dr**: Gergely discusses rapid shifts in the engineering job market. "It's certain we'll see a correction of 2021-22's hiring frenzy and it's a given that Big Tech will hire much less this year than in 2022, while the question remains whether other large tech companies will follow suit and announce layoffs in the coming months."
+**tl;dr**: Gergely discusses rapid shifts in the engineering job market. "It's certain we'll see a correction of 2021–22's hiring frenzy and it's a given that Big Tech will hire much less this year than in 2022, while the question remains whether other large tech companies will follow suit and announce layoffs in the coming months."
 
 ---
 

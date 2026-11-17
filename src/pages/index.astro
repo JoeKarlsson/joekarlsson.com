@@ -24,6 +24,7 @@ import { cardClip, halftoneMode } from '../utils/halftone';
 import { oneLiner, reviewStats } from '../utils/review-stats';
 import { terminalCard, terminalRuns } from '../utils/terminal-card';
 import { stars } from '../../scripts/update-reviews.mjs';
+import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 
 const allPosts = await getFeedPosts();
 const ownPosts = allPosts.filter(isOwnPost);
@@ -416,7 +417,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 		<figcaption class="mt-6 flex flex-wrap items-center gap-3 text-[0.9375rem] font-medium md:ml-[clamp(7rem,11vw,10rem)]">
 			<a
 				href={pullQuote.post.href}
-				class="bg-ink px-2 py-1 font-display text-xl whitespace-nowrap text-pink uppercase no-underline hover:text-paper"
+				class="bg-ink px-2 py-1 font-display text-xl tracking-[0.04em] whitespace-nowrap text-pink uppercase no-underline hover:text-paper"
 			>
 				Read it
 			</a>
@@ -557,7 +558,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 							{w.title}
 						</span>
 						<span class="mt-1.5 block text-[0.9375rem] leading-snug text-[#c9c9c9]">
-							{w.tagline}
+							{joinLastWord(w.tagline)}
 						</span>
 					</a>
 				</li>

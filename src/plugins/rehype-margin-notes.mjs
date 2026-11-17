@@ -291,7 +291,11 @@ function noteBody(note, number) {
 			return [back, el('q', {}, [text(words)]), el('cite', {}, [by])];
 		}
 		case 'term':
-			return [back, el('dfn', {}, [text(note.term ?? note.at)]), text(`: ${words}`)];
+			return [
+				back,
+				el('dfn', {}, [text(curlyApostrophes(note.term ?? note.at))]),
+				text(`: ${words}`),
+			];
 		case 'update':
 			return [back, el('span', { className: ['mn-stamp'] }, [text(note.date)]), text(words)];
 		case 'see': {

@@ -48,7 +48,7 @@ Over the years as my career as a Software Engineer, I had attended dozens of hac
 
 ### A couple of notes before we dig in:
 
-- The event I organized had about 60 people in attendance, if you are planning an event with 100 people or more, you are probably on a whole other level and you will need to do a lot more prep work. I would recommend checking out the [Hackathon Guide](https://hackathon.guide/ 'cite: Tauberer, Hackathon Guide, 2014-2017') for details on how to run an event with lots of people in attendance.
+- The event I organized had about 60 people in attendance, if you are planning an event with 100 people or more, you are probably on a whole other level and you will need to do a lot more prep work. I would recommend checking out the [Hackathon Guide](https://hackathon.guide/ 'cite: Tauberer, Hackathon Guide, 2014–2017') for details on how to run an event with lots of people in attendance.
 - This was a Stupid Shit and Terrible Ideas hackathon, which by its very nature is a very nonstandard hackathon. We wanted to create more of a collaborative and warm vibe so that all of our entrants have fun, but hopefully you can bring the positive and welcoming vibes to your hackathon.
 - This was the first hackathon I ever ran - I still have lots to learn in regards to running a smooth, diverse and inclusive event, but I am trying my hardest.
 - I am a software engineer, not a lawyer. **Do not take anything I say here as legal advice.**
@@ -123,7 +123,7 @@ Alright, one final thought, for a small event or a non-profit event, food can be
 
 ### **Registration**
 
-When your participants are signing up for your event is a great time to collect preliminary information about the audience of your hackathon. For our event, we set up an [Eventbrite](https://www.eventbrite.com/) registration form, you can easily collect as much info as you want with it. This worked great for our free event. [Hackathon.guide](https://hackathon.guide/ 'cite: Tauberer, Hackathon Guide, 2014-2017') has some great suggestions for types of information that you should be looking to collect on the registration form.
+When your participants are signing up for your event is a great time to collect preliminary information about the audience of your hackathon. For our event, we set up an [Eventbrite](https://www.eventbrite.com/) registration form, you can easily collect as much info as you want with it. This worked great for our free event. [Hackathon.guide](https://hackathon.guide/ 'cite: Tauberer, Hackathon Guide, 2014–2017') has some great suggestions for types of information that you should be looking to collect on the registration form.
 
 - Name (and possibly other information as required by venue security)
 - Email address
@@ -137,7 +137,7 @@ When your participants are signing up for your event is a great time to collect 
 
 This information you can collect ahead of time, the better you can plan and prepare.
 
-One final note, according to the [Hackathon Guide](http://hackathon.guide/ 'cite: Tauberer, Hackathon Guide, 2014-2017'), “For a free event, about 65% of those who register will actually show up. This number is very consistently seen across events. So cap registration at 150% of your actual maximum capacity.”
+One final note, according to the [Hackathon Guide](http://hackathon.guide/ 'cite: Tauberer, Hackathon Guide, 2014–2017'), “For a free event, about 65% of those who register will actually show up. This number is very consistently seen across events. So cap registration at 150% of your actual maximum capacity.”
 
 ### **Legal Stuff**
 
@@ -387,4 +387,4 @@ Do you have more ideas for how to run a hackathon? Let me know. This was only my
 ### **Additional Resources:**
 
 - [http://alexeymk.com/hosting-hackathons/](http://alexeymk.com/hosting-hackathons/)
-- [https://hackathon.guide/](https://hackathon.guide/ 'cite: Tauberer, Hackathon Guide, 2014-2017')
+- [https://hackathon.guide/](https://hackathon.guide/ 'cite: Tauberer, Hackathon Guide, 2014–2017')

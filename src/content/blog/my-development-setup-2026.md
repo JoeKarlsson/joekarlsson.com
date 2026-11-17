@@ -457,7 +457,7 @@ When an AI helps you write, the drafts drift toward _generic_: em dashes everywh
 A [LanguageTool](https://languagetool.org/) server in my homelab handles grammar without sending drafts anywhere. **Agents run the same checks.** The linters run in the editor, before commits, and in CI, so the rules apply whether I wrote the sentence or Claude did.
 
 <details>
-<summary>Show my blog's Vale config</summary>
+<summary>Show my blog’s Vale config</summary>
 
 ```ini
 StylesPath = .vale/styles

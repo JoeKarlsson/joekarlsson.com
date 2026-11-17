@@ -28,4 +28,9 @@ describe('rehype-no-widows', () => {
 			`<ul><li>One${NBSP}two<ul><li>three${NBSP}four</li></ul></li></ul>`,
 		);
 	});
+
+	it('holds a closing " - word" together, and joins table cells', async () => {
+		expect(await render('So what - why?')).toBe(`<p>So what${NBSP}-\u2060${NBSP}why?</p>`);
+		expect(await render('| A |\n| - |\n| one two |')).toContain(`<td>one${NBSP}two</td>`);
+	});
 });

@@ -20,7 +20,7 @@ export const shorts: Short[] = [
 	},
 	{
 		id: 'uQTWcr5Bvk4',
-		title: "If you're renting a router from Comcast, you're getting scammed",
+		title: 'If you’re renting a router from Comcast, you’re getting scammed',
 		date: '2022-08-21',
 		posterAt: 1,
 	},

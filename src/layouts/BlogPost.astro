@@ -18,6 +18,7 @@ import { halftoneMode } from '../utils/halftone';
 import { localImageSize } from '../utils/image-size.mjs';
 import { rankRelatedPosts } from '../utils/related-posts';
 import popularPosts from '../data/popular-posts.json';
+import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 interface Props {
 	title: string;
 	shareTitle?: string;
@@ -248,7 +249,7 @@ const captionText =
 		<Fragment slot="top">
 			<slot name="margin" />
 			{updateNote && updatedDate && (
-				<p class="mb-6 border border-pink px-4 py-3 text-sm text-paper" role="note">
+				<p class="mb-6 border border-pink px-4 py-3 text-base text-paper" role="note">
 					<strong class="text-pink">
 						Updated <FormattedDate date={updatedDate} />:
 					</strong>{' '}
@@ -256,7 +257,7 @@ const captionText =
 				</p>
 			)}
 			{corrections && corrections.length > 0 && (
-				<div class="mb-6 border border-pink px-4 py-3 text-sm text-paper" role="note">
+				<div class="mb-6 border border-pink px-4 py-3 text-base text-paper" role="note">
 					<strong class="text-pink">Corrections</strong>
 					<ul class="mt-1 list-disc pl-5">
 						{corrections
@@ -287,7 +288,7 @@ const captionText =
 					<strong class="font-display text-xl font-normal tracking-[0.04em] text-pink uppercase">
 						TL;DR
 					</strong>{' '}
-					{tldr}
+					{joinLastWord(tldr)}
 				</p>
 			)}
 		</Fragment>

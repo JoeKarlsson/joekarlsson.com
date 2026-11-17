@@ -37,7 +37,7 @@
 */
 @layer base {
 	/* No one-word last lines, in post text and everywhere else (Firefox: rehype-no-widows) */
-	:is(p, li, blockquote, figcaption) {
+	:is(p, li, blockquote, figcaption, td) {
 		text-wrap: pretty;
 	}
 	*,
@@ -398,7 +398,7 @@ pre.astro-code {
 	}
 }
 .prose figcaption {
-	@apply text-center font-sans text-sm text-muted mt-2;
+	@apply mt-2 max-w-[28em] text-left font-serif text-[0.9375rem] leading-snug text-muted italic;
 }
 
 /* Captioned pictures and frame pairs (rehype-frames.mjs): the caption sits tight under the
@@ -410,7 +410,7 @@ pre.astro-code {
 	@apply my-0;
 }
 .prose .frame-caption {
-	@apply mt-2.5 text-left leading-snug;
+	@apply mt-2.5;
 }
 .prose .frame-pair-grid {
 	/* Stacked, more room between frames than under a label, so a label reads as its frame's */
@@ -436,9 +436,6 @@ pre.astro-code {
 		width: min(100cqw, 856px);
 		max-width: none;
 		margin-inline: calc((100% - min(100cqw, 856px)) / 2);
-	}
-	.prose figure.frame-pair .frame-caption {
-		max-width: var(--reading-width);
 	}
 }
 
@@ -509,6 +506,13 @@ pre.astro-code {
 }
 .prose th {
 	@apply text-left text-paper font-semibold p-2 border-b border-surface-4;
+}
+/* A number column's header sits over its numbers (markdown's `---:` sets align) */
+.prose th[align='right'] {
+	@apply text-right;
+}
+.prose th[align='center'] {
+	@apply text-center;
 }
 .prose td {
 	@apply p-2 border-b border-surface-3;
@@ -893,7 +897,7 @@ header nav .sticker {
 }
 .masthead-caption {
 	/* about 60 characters: a caption in small italic reads best shorter than the text */
-	@apply mx-auto mt-2 max-w-[28em] font-serif text-[15px] leading-snug text-muted italic;
+	@apply mx-auto mt-2 max-w-[28em] font-serif text-[0.9375rem] leading-snug text-muted italic;
 }
 .masthead-caption b {
 	@apply mr-1.5 font-sans text-xs font-bold tracking-wider text-pink not-italic uppercase;
@@ -927,7 +931,8 @@ header nav .sticker {
 	margin: 0;
 }
 .prose .margin-figure figcaption {
-	@apply mt-1.5 text-left font-serif text-[0.8rem] leading-snug text-muted italic;
+	/* 15px only in the real margin: the 120px phone float fits 13px better */
+	@apply mt-1.5 text-left font-serif text-[0.8125rem] leading-snug text-muted italic min-[80rem]:text-[0.9375rem];
 }
 /* A [!margin] comment left in the code (no margin) wraps rather than scrolling the block */
 .prose .code-margin-comment {
@@ -1246,6 +1251,10 @@ header nav .sticker {
 	grid-template-columns: auto 1fr;
 	min-height: min(440px, 60dvh);
 }
+.prose .chapter + .heading-group h3 {
+	/* A subheading straight under a chapter title would read as part of the opener */
+	@apply mt-16;
+}
 .prose .chapter-num {
 	@apply font-display leading-[0.74] text-ink;
 	font-size: clamp(150px, 15vw, 240px);
@@ -1253,7 +1262,7 @@ header nav .sticker {
 }
 .prose .chapter h2 {
 	@apply m-0 font-serif font-light italic normal-case;
-	font-size: clamp(2rem, 1.2rem + 2vw, 3.25rem);
+	font-size: clamp(2rem, 1.2rem + 2vw, 2.8rem);
 	line-height: 1.02;
 }
 .prose .chapter .epigraph {

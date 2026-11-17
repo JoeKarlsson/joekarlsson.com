@@ -1,6 +1,7 @@
 ---
 // The web resume. The PDF is a separate page (resume-pdf.astro, printed by
 // npm run generate:resume), so this one can be pink on black.
+import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PosterHero from '../components/PosterHero.astro';
@@ -140,7 +141,7 @@ import SectionRule from '../components/SectionRule.astro';
 			</div>
 		</PosterHero>
 
-		<p class="mb-12 max-w-[65ch] md:mb-16 font-serif text-[clamp(1.1875rem,1.6vw,1.4375rem)] leading-relaxed text-paper">
+		<p class="mb-12 max-w-[30em] md:mb-16 font-serif text-[clamp(1.1875rem,1.6vw,1.4375rem)] leading-relaxed text-paper">
 			I run developer marketing for Connect AI, CData’s MCP platform that connects AI agents to live
 			enterprise data. Before that I spent about 15 years writing software, teaching it, and
 			explaining it: front-end tech lead at Best Buy, bootcamp instructor in Honolulu, and developer
@@ -178,11 +179,11 @@ import SectionRule from '../components/SectionRule.astro';
 								<p class="text-sm text-paper">{role.company}</p>
 							</div>
 						</div>
-						<ul class="mb-3 max-w-[65ch] list-disc space-y-1.5 pl-5 text-paper marker:text-pink">
+						<ul class="mb-3 max-w-[32em] list-disc space-y-1.5 pl-5 text-paper marker:text-pink">
 							{role.bullets.map((b) => (
 								<li>
 									{typeof b === 'string' ? (
-										b
+										joinLastWord(b)
 									) : (
 										<>
 											{b.text}{' '}

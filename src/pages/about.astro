@@ -303,7 +303,7 @@ import SectionRule from '../components/SectionRule.astro';
 						I build <span class="text-pink">weird things</span> and{' '}
 						<span class="text-pink">show my work</span>
 					</p>
-					<p class={`max-w-[65ch] ${HERO_LEAD}`}>
+					<p class={`max-w-[32em] ${HERO_LEAD}`}>
 						I run developer marketing for an MCP platform. Before that I spent about 15 years
 						writing software, teaching it in Honolulu, and explaining it in talks and videos.
 						Outside of work I make crop art, tinker with my homelab, and watch a lot of movies.
@@ -313,7 +313,7 @@ import SectionRule from '../components/SectionRule.astro';
 				{/* A box with a tilted pink label, like the stickers in the header. Off on phones,
 				where Career a screen later lists the same companies with the same logos */}
 				<div class="previously-at relative mb-12 md:mb-16 rounded-xl bg-surface-1 px-5 pt-9 pb-5 max-md:hidden sm:px-7">
-					<p class="absolute -top-5 left-5 -rotate-2 rounded-md bg-pink px-3 pt-1.5 pb-0.5 font-display text-2xl leading-none text-ink uppercase">
+					<p class="absolute -top-5 left-5 -rotate-2 rounded-md bg-pink px-3 pt-1.5 pb-0.5 font-display text-2xl leading-none tracking-[0.04em] text-ink uppercase">
 						Previously at
 					</p>
 					<ul class="flex flex-nowrap items-center justify-between gap-x-4">
@@ -339,7 +339,9 @@ import SectionRule from '../components/SectionRule.astro';
 										/>
 										<HoverBox index={i} />
 									</span>
-									<span class="sr-only group-hover:text-pink lg:not-sr-only">{company.name}</span>
+									<span class="sr-only group-hover:text-pink lg:not-sr-only">
+										<span class="whitespace-nowrap">{company.name}</span>
+									</span>
 								</a>
 							</li>
 						))}
@@ -435,7 +437,7 @@ import SectionRule from '../components/SectionRule.astro';
 							</button>
 							<div class="job-body">
 								<div>
-									<p class="max-w-[65ch] pt-1 pb-5 pl-[calc(clamp(34px,4vw,56px)*0.8+1rem)] leading-relaxed text-paper">
+									<p class="max-w-[32em] pt-1 pb-5 pl-[calc(clamp(34px,4vw,56px)*0.8+1rem)] leading-relaxed text-paper">
 										{joinLastWord(job.text)}
 									</p>
 								</div>
@@ -457,11 +459,11 @@ import SectionRule from '../components/SectionRule.astro';
 					How I got here
 				</h2>
 				<SectionRule />
-				<div class="mb-12 md:mb-16 max-w-[65ch] space-y-5 leading-relaxed text-paper">
+				<div class="mb-12 md:mb-16 max-w-[32em] space-y-5 leading-relaxed text-paper">
 					<p>
 						I got a computer science degree and went straight into Microsoft SharePoint consulting
 						during the Ballmer years. I was bad at coding, and SharePoint did not make it more fun.
-						It was a dark time.
+						It was a dark&nbsp;time.
 					</p>
 					<p>
 						I fell back in love with programming in Hawaii. I met a group of developers at the local
@@ -471,7 +473,7 @@ import SectionRule from '../components/SectionRule.astro';
 					<p>
 						Now I make crop art, I build fixes for small problems at home, like the old Kindle that
 						became the house dashboard, and I even like the drudgery of maintaining software day in
-						and day out.
+						and day&nbsp;out.
 					</p>
 				</div>
 
@@ -504,8 +506,10 @@ import SectionRule from '../components/SectionRule.astro';
 									/>
 									<HoverBox index={i} />
 								</span>
-								<span class:list={[ITEM_TITLE, 'block group-hover:text-pink']}>{podcast.name}</span>
-								<span class:list={[META, 'block']}>{podcast.episode}</span>
+								<span class:list={[ITEM_TITLE, 'block group-hover:text-pink']}>
+									{joinLastWord(podcast.name)}
+								</span>
+								<span class:list={[META, 'block']}>{joinLastWord(podcast.episode)}</span>
 							</a>
 						</li>
 					))}
@@ -520,10 +524,10 @@ import SectionRule from '../components/SectionRule.astro';
 								<span class="relative mb-3 flex aspect-square items-end rounded-lg bg-pink p-4">
 									<HoverBox index={i + 2} />
 									<span class="font-display text-[2.5rem] leading-[0.95] text-ink uppercase">
-										{appearance.name}
+										{joinLastWord(appearance.name)}
 									</span>
 								</span>
-								<span class:list={[META, 'block']}>{appearance.detail}</span>
+								<span class:list={[META, 'block']}>{joinLastWord(appearance.detail)}</span>
 							</a>
 						</li>
 					))}
@@ -652,7 +656,7 @@ import SectionRule from '../components/SectionRule.astro';
 				</h2>
 				<SectionRule />
 				<div class="mb-12 md:mb-16">
-					<p class="mb-6 max-w-[65ch] text-paper">
+					<p class="mb-6 max-w-[32em] text-paper">
 						I make art. Lately that’s crop art, pictures made by gluing seeds and grains to
 						cardboard. I had two pieces in the Seeds of Justice exhibit in 2025, then entered the
 						Minnesota State Fair Crop Art competition for the first time.

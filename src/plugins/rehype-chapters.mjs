@@ -7,6 +7,8 @@
  * closing reference lists and an FAQ, which stay plain headings. Runs after the heading
  * permalinks, so it wraps the .heading-group they made.
  */
+import { joinLastWord } from './rehype-no-widows.mjs';
+
 const LONG_POST_WORDS = 3000;
 const MIN_CHAPTERS = 4;
 const NOT_CHAPTERS =
@@ -46,6 +48,9 @@ export default function rehypeChapters() {
 		chapters.forEach((node, i) => {
 			const title = titles[i];
 			const epigraph = epigraphs.find((e) => e.section === title);
+			// Firefox left a chapter title's last word on its own line under balance
+			const lastWords = h2Of(node).children.findLast((c) => c.type === 'text' && c.value.trim());
+			if (lastWords) lastWords.value = joinLastWord(lastWords.value);
 			const chapter = el('div', { className: ['chapter'] }, [
 				el('span', { className: ['chapter-num'], ariaHidden: 'true' }, [
 					text(String(i + 1).padStart(2, '0')),

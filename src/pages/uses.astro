@@ -12,6 +12,7 @@ import { GROUP_HEADING, HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } 
 import nowFeed from '../data/now-feed.json';
 import { ARROW, CHALK, MARKS, RINGS } from '../data/scribbles';
 import { USES_SECTIONS } from '../data/uses';
+import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 import { getPinnedPost } from '../utils/posts';
 import {
 	AMAZON_DISCLOSURE,
@@ -23,6 +24,9 @@ import {
 const PINK = '#ff4fd8';
 // The pink band pins the tour of the desk, /uses as a full post with photos
 const tour = await getPinnedPost('recording-setup-tour');
+
+// A last word that ends in a tag is left alone: joining inside markup could split it
+const joinLastWordOfHtml = (s: string) => (/[<>]\S*$/.test(s) ? s : joinLastWord(s));
 
 /** The data file's links get the site's link style and Amazon tag, and the live container count fills in. */
 const html = (s: string) =>
@@ -191,17 +195,26 @@ import SectionRule from '../components/SectionRule.astro';
 					</h2>
 					<SectionRule />
 					{section.introHtml && (
-						<p class="mb-6 max-w-[65ch] text-paper" set:html={html(section.introHtml)} />
+						<p
+							class="mb-6 max-w-[32em] text-paper"
+							set:html={html(joinLastWordOfHtml(section.introHtml))}
+						/>
 					)}
 					<div
 						class:list={[
-							'grid items-start gap-12 md:grid',
+							'grid items-start gap-12',
 							section.photo.tall
-								? 'md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]'
-								: 'md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]',
+								? 'lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]'
+								: 'lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]',
 						]}
 					>
-						<div class="uses-shot relative md:sticky md:top-[100px]">
+						<div
+							class:list={[
+								'uses-shot relative lg:sticky lg:top-[100px]',
+								// one column below lg: a full-width rack photo would be 1,200px tall on a tablet
+								section.photo.tall && 'md:max-lg:max-w-md',
+							]}
+						>
 							<img
 								src={section.photo.src}
 								alt={section.photo.alt}
@@ -209,7 +222,7 @@ import SectionRule from '../components/SectionRule.astro';
 								class="block w-full rounded-xl"
 								width={section.photo.width}
 								height={section.photo.height}
-								sizes="(min-width: 768px) 50vw, 100vw"
+								sizes="(min-width: 1024px) 50vw, 100vw"
 								loading={si === 0 ? 'eager' : 'lazy'}
 							/>
 							{pinned.map((item, pi) => (
@@ -235,7 +248,8 @@ import SectionRule from '../components/SectionRule.astro';
 								<Scribble {...m} />
 							))}
 						</div>
-						<div class="relative">
+						{/* A tall photo's wide list column would run 85 characters a line */}
+						<div class:list={['relative', section.photo.tall && 'max-w-[32em]']}>
 							{marks.list.map((m) => (
 								<Scribble {...m} />
 							))}
@@ -313,7 +327,7 @@ import SectionRule from '../components/SectionRule.astro';
 															/>
 														)}
 													</p>
-													<p set:html={html(item.descHtml)} />
+													<p set:html={html(joinLastWordOfHtml(item.descHtml))} />
 												</div>
 											</li>
 										))}

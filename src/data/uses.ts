@@ -281,7 +281,7 @@ export const USES_SECTIONS: UsesSection[] = curlEveryString([
 						name: 'Elgato Wave:3 MK.2',
 						url: 'https://www.elgato.com/us/en/p/wave-3',
 						descHtml:
-							'the recording desk&#39;s mic. It shows up in the same Wave Link setup as the Wave:3 at my main desk, so the audio chain is the same at either one.',
+							'the recording desk’s mic. It shows up in the same Wave Link setup as the Wave:3 at my main desk, so the audio chain is the same at either one.',
 					},
 					{
 						name: 'FLEXISPOT E6 MAX',

@@ -37,6 +37,10 @@ function lastText(node) {
 export function joinLastWord(text) {
 	const match = /^([\s\S]*\S)[ \t\n]+(\S+\s*)$/.exec(text);
 	if (!match || match[2].replace(/\W/g, '').length >= LONGEST_WORD) return text;
+	// "... text - why?": Firefox breaks after a dash even before a no-break space, so the
+	// dash joins the word before it too, and a word joiner holds it to the last word
+	const dash = /^([\s\S]*\S)[ \t\n]+([-–])$/.exec(match[1]);
+	if (dash) return `${dash[1]}\u00A0${dash[2]}\u2060\u00A0${match[2]}`;
 	return `${match[1]}\u00A0${match[2]}`;
 }
 
@@ -44,7 +48,7 @@ export default function rehypeNoWidows() {
 	return (tree) => {
 		visit(tree, 'element', (node) => {
 			if (node.tagName === 'pre' || node.tagName === 'code') return SKIP_NODE;
-			if (node.tagName !== 'p' && node.tagName !== 'li') return;
+			if (!['p', 'li', 'td', 'figcaption'].includes(node.tagName)) return;
 			const text = lastText(node);
 			if (text) text.value = joinLastWord(text.value);
 		});
