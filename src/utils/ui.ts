@@ -8,10 +8,6 @@ export const PAGE_CONTAINER = 'relative mx-auto max-w-6xl px-4 pt-6 pb-10 sm:px-
 export const SIDEBAR_GRID =
 	'xl:grid xl:grid-cols-[minmax(0,1fr)_15rem] xl:gap-10 min-[100rem]:grid-cols-[15rem_minmax(0,1fr)]';
 
-/** The title of a post, project or newsletter issue. */
-export const ARTICLE_TITLE =
-	'mb-4 font-display text-[clamp(2.4rem,1.6rem+3.2vw,4.25rem)] leading-[0.95] font-normal text-balance text-paper uppercase';
-
 /** A heading inside an article, the size of a prose h2 (global.css). */
 export const ARTICLE_HEADING =
 	'mb-5 font-display text-[clamp(1.9rem,1.4rem+1.9vw,2.9rem)] leading-none font-normal text-balance text-paper uppercase';
