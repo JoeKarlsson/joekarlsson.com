@@ -25,13 +25,17 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/avatar-fire-and-ash/'
 poster: '/images/reviews/avatar-fire-and-ash/poster.webp'
 heroImage: '/images/reviews/avatar-fire-and-ash/backdrop.webp'
 heroAlt: "A snarling Na'vi warrior with green and orange face markings drawing a bow in purple light."
+updatedDate: 2026-11-17
+corrections:
+  - date: 2026-11-17
+    note: "I said the high frame rate was 60fps. It's 48fps."
 ---
 
 Maybe James Cameron's horniest movie ever made. Chaplin gives one of the most hip-forward performance I've ever seen in my entire life. Good for her.
 
 ![Oona Chaplin as Varang, in a red feather headdress and white face paint, strutting hips first through a night forest toward the captured Sullys, one hand on her hip, a rifle in the other.](/images/reviews/avatar-fire-and-ash/varang-strides-up-to-the-captives.webp)
 
-This is some of the best 3D I've ever experienced - genuinely incredible, immersive, worth seeing in a theater. But one of the most baffling creative decisions Jimmy made was [switching between multiple frame rates](https://www.fxguide.com/fxfeatured/from-capture-to-compute-the-technology-powering-avatar-fire-and-ash/) within scenes. Even during dialogue, he'd jump between 24fps and 60fps, and it made my brain jolt every single time. I actually think the high frame rate works better for Avatar, so when it switches back to 24 you suddenly realize how jittery everything is. It was distracting for three and a half hours. I hated it. Cameron has heard this complaint before: "I think $2.3 billion says you might be wrong on that," he [told DiscussingFilm](https://www.gamesradar.com/entertainment/sci-fi-movies/james-cameron-responds-to-criticism-of-3d-and-high-frame-rate-in-the-avatar-movies-i-think-usd2-3-billion-says-you-might-be-wrong-on-that/).
+This is some of the best 3D I've ever experienced - genuinely incredible, immersive, worth seeing in a theater. But one of the most baffling creative decisions Jimmy made was [switching between multiple frame rates](https://www.fxguide.com/fxfeatured/from-capture-to-compute-the-technology-powering-avatar-fire-and-ash/) within scenes. Even during dialogue, he'd jump between 24fps and 48fps, and it made my brain jolt every single time. I actually think the high frame rate works better for Avatar, so when it switches back to 24 you suddenly realize how jittery everything is. It was distracting for three and a half hours. I hated it. Cameron has heard this complaint before: "I think $2.3 billion says you might be wrong on that," he [told DiscussingFilm](https://www.gamesradar.com/entertainment/sci-fi-movies/james-cameron-responds-to-criticism-of-3d-and-high-frame-rate-in-the-avatar-movies-i-think-usd2-3-billion-says-you-might-be-wrong-on-that/).
 
 And speaking of three and a half hours - the worst part for me as someone who genuinely loved Way of Water is how many plot points are just repeated from the second film. It really does feel like James is exploring new territory by making his first third film in a series ever, and not in a good way. I know these were shot back to back and written as one script, but damn - this movie should have ended on top of an erupting volcano. Instead it ended exactly the same way as Way of Water. Unacceptable.
 

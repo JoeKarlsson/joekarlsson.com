@@ -25,6 +25,10 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/possession/'
 poster: '/images/reviews/possession/poster.webp'
 heroImage: '/images/reviews/possession/backdrop.webp'
 heroAlt: 'Isabelle Adjani in a blue blouse, gripping a knife.'
+updatedDate: 2026-11-17
+corrections:
+  - date: 2026-11-17
+    note: 'I said his previous film was banned. The banned one was The Devil (1972); his next, On the Silver Globe, was shut down mid-shoot.'
 ---
 
 It’s like Kramer vs. Kramer with a little bit of tentacle hentai sprinkled in for flavor.
@@ -33,7 +37,7 @@ I’m gonna be honest - it took me a while to get into the swing of this movie a
 
 This is an intense movie about a marriage crumbling and all the messy feelings that come with it. But to understand what makes this so raw and unhinged, you need to know what Andrzej Żuławski was going through when he made it.
 
-Żuławski had been exiled from Communist Poland after his previous film was banned by the government. He lost his country, his career there, and his marriage fell apart in the process. So when he made Possession, he was channeling genuine rage and grief - not just about the divorce, but about losing everything at once. The film becomes this howl of pain about multiple ruptures happening simultaneously: personal, political, creative.
+Żuławski had been exiled from Communist Poland after the government banned one of his films and shut down production on the next. He lost his country, his career there, and his marriage fell apart in the process. So when he made Possession, he was channeling genuine rage and grief - not just about the divorce, but about losing everything at once. The film becomes this howl of pain about multiple ruptures happening simultaneously: personal, political, creative.
 
 What’s fascinating is how he externalizes all of that trauma into literal monsters. The creature that grows from Anna’s affair is a metaphor for infidelity, but it’s also Żuławski processing his own sense of being replaced, both in his marriage and in his homeland. He was exiled from Poland and watching from a distance as the country he loved continued without him, just like Mark watches his wife’s life continue without him. ||The doppelgängers that appear later|| feel like they represent that specifically - the way life moves on and creates replacement versions of what you lost.
 

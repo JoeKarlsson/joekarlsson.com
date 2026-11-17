@@ -18,6 +18,10 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/good-boy-2025/'
 poster: '/images/reviews/good-boy-2025/poster.webp'
 heroImage: '/images/reviews/good-boy-2025/backdrop.webp'
 heroAlt: 'Indy, a reddish-brown retriever, sitting in a gloomy forest while a shadowy figure stands among the trees behind him.'
+updatedDate: 2026-11-17
+corrections:
+  - date: 2026-11-17
+    note: "I called Indy a Border Collie. He's a Nova Scotia Duck Tolling Retriever."
 ---
 
 This movie proves that the real horror was always just being a dog with separation anxiety in a household with unclear boundaries.
@@ -30,7 +34,7 @@ Indy is giving hands down the best performance in the entire film and is an incr
 
 ![Indy in a tight close-up in the dark, eyes wide, staring at something off-screen.](/images/reviews/good-boy-2025/indy-staring-into-the-dark.webp)
 
-Also, this has some of the best editing of the year, which is wild to say about a movie where the main character is a Border Collie.
+Also, this has some of the best editing of the year, which is wild to say about a movie where the main character is a Nova Scotia Duck Tolling Retriever.
 
 ![Indy lying flat under a table in the dark, staring ahead, then the shot he's staring at: a doorway in a green hallway, the door ajar and no one there.](/images/reviews/good-boy-2025/indy-then-the-empty-doorway.webp)
 

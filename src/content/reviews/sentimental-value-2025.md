@@ -57,4 +57,4 @@ I'm still processing my emotional connection to this one, especially Stellan Ska
 
 The final scene genuinely took me by surprise. It got me.
 
-Also, can I just say - Elle Fanning is having a year. Showing up in Hideo Kojima's game, doing Outer Badlands, and still making arthouse films like this. Good for her. I love how she's using her star power.
+Also, can I just say - Elle Fanning is having a year. Showing up in Hideo Kojima's game, doing [Predator: Badlands](/reviews/predator-badlands/), and still making arthouse films like this. Good for her. I love how she's using her star power.

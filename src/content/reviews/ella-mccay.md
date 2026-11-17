@@ -29,7 +29,7 @@ heroAlt: "Emma Mackey smiling from the driver's seat of a car."
 
 This feels like a nearly four hour long neoliberal fever dream that asks us to find the good in a terrible system. You can tell this is written by a well-meaning 85 year old billionaire.
 
-Ella McKay is about a good but flawed woman trying to make change in a corrupt system. The plot is simple. The screenplay is needlessly complicated - insane flashbacks, fractured timelines, narrative detours that add nothing. There is no way in fucking hell this movie warranted a runtime that feels like three and a half hours.
+Ella McCay is about a good but flawed woman trying to make change in a corrupt system. The plot is simple. The screenplay is needlessly complicated - insane flashbacks, fractured timelines, narrative detours that add nothing. There is no way in fucking hell this movie warranted a runtime that feels like three and a half hours.
 
 I did find it sweet how throwbacky it felt. It made me yearn for those days, and I do love James L. Brooks's early work - [Terms of Endearment](/reviews/terms-of-endearment/), [Broadcast News](/reviews/broadcast-news/), the stuff that had heart and edge in equal measure. But this is late Brooks. This is a well-meaning 85-year-old man who's amassed an ungodly amount of money, looking down upon us from on high and saying "It's okay, the system works, right?"
 

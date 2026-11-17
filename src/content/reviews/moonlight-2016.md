@@ -36,6 +36,6 @@ In the third act, I caught myself thinking what a romantic film this was - and t
 
 Being queer and made fun of as a kid in school - this film made me feel so much empathy for Chiron. Barry Jenkins sees something true about tenderness and the cost of protecting it. What an incredible breakout.
 
-We did a free outdoor showing of this with Trilingual Cinema, a local crew I volunteer with in Saint Paul, Minnesota. The turnout from across the Twin Cities was incredible. This film still has power.
+We did a free outdoor showing of this with TriLingua Cinema, a local crew I volunteer with in Saint Paul, Minnesota. The turnout from across the Twin Cities was incredible. This film still has power.
 
 I will never forget the excitement I felt at the Oscars that year. La La Land announced as the winner by mistake, and then Moonlight revealed as the true Best Picture - the one that was my best picture. Still riding that high to this day.

@@ -17,6 +17,10 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-living-end/'
 poster: '/images/reviews/the-living-end/poster.webp'
 heroImage: '/images/reviews/the-living-end/backdrop.webp'
 heroAlt: 'Two men seen from behind, sitting close together on a desert hill at sunset.'
+updatedDate: 2026-11-17
+corrections:
+  - date: 2026-11-17
+    note: 'I said Reagan didn''t say "AIDS" publicly until 1987. He answered a press question about it in 1985; his first speech on it was in 1987.'
 ---
 
 Bonnie and Clyde for the gays. Made in the year AIDS became the number one killer of young American men.
@@ -25,7 +29,7 @@ Bonnie and Clyde for the gays. Made in the year AIDS became the number one kille
 
 _Bonnie and Clyde in Warner Bros.' [original trailer](https://www.youtube.com/watch?v=nQSKrNZKc7M), and Jon and Luke on the run._
 
-I’ve been on a Gregg Araki binge the last couple weeks, and I’ve been loving it. He makes punk films for the gays. He’s extremely good at deploying anger and rage to give voice to an underrepresented group - and in 1992, when this film came out, that rage was more than justified. This was the peak of the AIDS crisis. The gay community was receiving no help from the federal government. Reagan hadn’t even said the word “AIDS” publicly until 1987. Bush called it “behavioral” - blamed the victims. ACT UP activists were dumping the ashes of their dead lovers on the White House lawn the same year this movie premiered.
+I’ve been on a Gregg Araki binge the last couple weeks, and I’ve been loving it. He makes punk films for the gays. He’s extremely good at deploying anger and rage to give voice to an underrepresented group - and in 1992, when this film came out, that rage was more than justified. This was the peak of the AIDS crisis. The gay community was receiving no help from the federal government. Reagan didn’t give a speech about AIDS until 1987. Bush called it “behavioral” - blamed the victims. ACT UP activists were dumping the ashes of their dead lovers on the White House lawn the same year this movie premiered.
 
 !["i blame society" scrawled in black marker on a pillar, lit blue, a hand still finishing the last letter.](/images/reviews/the-living-end/i-blame-society-scrawl.webp)
 

@@ -33,13 +33,17 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-piano-teacher/'
 poster: '/images/reviews/the-piano-teacher/poster.webp'
 heroImage: '/images/reviews/the-piano-teacher/backdrop.webp'
 heroAlt: 'Isabelle Huppert watching a young man play the piano beside her.'
+updatedDate: 2026-11-17
+corrections:
+  - date: 2026-11-17
+    note: "I said Haneke didn't write this one. He wrote the screenplay, adapting Jelinek's novel for another director before he took it on himself."
 ---
 
 The Piano Teacher is Michael Haneke's cruelest film and, improbably, his most tender, a study of repression so complete that it curdles into self-destruction.
 
 I had heard about this one for years, and I came to it braced for the version everyone warns you about: the clinical Haneke provocation, the endurance test, the icy Austrian dissection of a woman coming apart. What I did not expect was to be this moved. I spent the whole film with my heart breaking for Erika Kohut, and it kept breaking, right through an ending that left me shell-shocked. The sadness of it snuck up on me. This is one of the great screen tragedies, and almost nobody warns you about that part.
 
-Haneke did not write this one and did not initially plan to direct it. He took on Elfriede Jelinek's 1983 novel almost by accident, and it became his critical breakthrough, sweeping the top prizes at Cannes in 2001. What he found in the material, and in Isabelle Huppert, was the ideal vessel for his lifelong subject: the violence that hides inside bourgeois order, waiting.
+This one didn't start as a Haneke project, and he did not initially plan to direct it. He took on Elfriede Jelinek's 1983 novel almost by accident, and it became his critical breakthrough, sweeping the top prizes at Cannes in 2001. What he found in the material, and in Isabelle Huppert, was the ideal vessel for his lifelong subject: the violence that hides inside bourgeois order, waiting.
 
 Erika teaches piano at the Vienna Conservatory, and she is very good at it, which is exactly the trap. Her mother, played with monstrous need by Annie Girardot, groomed her from childhood into a performing instrument, a prodigy meant to justify a life, and the two of them now share an apartment and a bed in a codependence long since calcified into something like a marriage. Everywhere the film looks, it finds the same machinery: mothers hardening daughters, the conservatory hardening students, a whole genteel world that treats a woman as a device for producing beautiful sound and could not care less about the person operating it. It made her, to my eye, a kind of trained monkey in a Viennese cage, surrounded by phonies who love the music and not the musician.
 

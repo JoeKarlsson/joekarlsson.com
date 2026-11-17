@@ -18,13 +18,17 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/shortbus/'
 poster: '/images/reviews/shortbus/poster.webp'
 heroImage: '/images/reviews/shortbus/backdrop.webp'
 heroAlt: 'A crowd of laughing people lying piled together on a white floor, seen from directly above.'
+updatedDate: 2026-11-17
+corrections:
+  - date: 2026-11-17
+    note: "I said it was banned in various countries. The ban I can source is South Korea's, lifted in 2009."
 ---
 
 The most 2006 thing about this film is when the Twee Marching Band shows up to the orgy.
 
 ![A tuba bell fills the frame as a singer in a white caftan and a flowered headdress belts into a microphone, then drummers in braided band jackets, then trombones swinging past the singer's raised arm.](/images/reviews/shortbus/marching-band-in-the-salon.webp 'spoiler')
 
-John Cameron Mitchell's 2006 film arrived wearing its provocation on its sleeve, all those unsimulated sex scenes that got it banned in various countries and drew a certain kind of curious viewer, myself included, in under slightly false pretenses. You come for the notoriety. You stay because the movie turns out to be one of the warmest things imaginable, a scruffy, semi-improvised love letter to post-9/11 New York disguised as a dirty movie.
+John Cameron Mitchell's 2006 film arrived wearing its provocation on its sleeve, all those unsimulated sex scenes that got it banned in South Korea and drew a certain kind of curious viewer, myself included, in under slightly false pretenses. You come for the notoriety. You stay because the movie turns out to be one of the warmest things imaginable, a scruffy, semi-improvised love letter to post-9/11 New York disguised as a dirty movie.
 
 ![The Statue of Liberty's green face in profile, looking across a painted blue harbor at a miniature lower Manhattan and the Brooklyn Bridge.](/images/reviews/shortbus/statue-of-liberty-and-the-model-city.webp)
 

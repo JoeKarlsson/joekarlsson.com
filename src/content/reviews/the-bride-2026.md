@@ -21,14 +21,14 @@ studios:
   ['First Love Films', 'Warner Bros. Pictures', 'In The Current Company', 'Domain Entertainment']
 letterboxdAverage: 2.82
 slug: 'the-bride-2026'
-description: "This reminded me of Joker: Folie Deux. Lots of singing and dancing, the Bride's violence inspiring masked vigilantes to follow her lead, heavy face makeup…"
+description: "This reminded me of Joker: Folie à Deux. Lots of singing and dancing, the Bride's violence inspiring masked vigilantes to follow her lead, heavy face makeup…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-bride-2026/'
 poster: '/images/reviews/the-bride-2026/poster.webp'
 heroImage: '/images/reviews/the-bride-2026/backdrop.webp'
 heroAlt: 'A woman in an orange skirt and metal bodice lying on a table among tangled wires and lamps, seen from above.'
 ---
 
-This reminded me of Joker: Folie Deux. Lots of singing and dancing, the Bride's violence inspiring masked vigilantes to follow her lead, heavy face makeup, insane protagonist, shaggy plot. The comparisons are hard to avoid.
+This reminded me of Joker: Folie à Deux. Lots of singing and dancing, the Bride's violence inspiring masked vigilantes to follow her lead, heavy face makeup, insane protagonist, shaggy plot. The comparisons are hard to avoid.
 
 There are some really striking visuals though. Maggie Gyllenhaal has a strong vision and a huge commitment to the idea. You can feel her going for something ambitious and weird.
 

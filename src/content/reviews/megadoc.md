@@ -20,14 +20,14 @@ language: 'English'
 studios: ['Red Mullet']
 letterboxdAverage: 3.48
 slug: 'megadoc'
-description: "I tried to watch Megalopolis three times. I finished Megadoc on the first try. That says something.That movie is a mess. It's not for me. I do not like it."
+description: "I tried to watch Megalopolis three times. I finished Megadoc on the first try. That says something. That movie is a mess. It's not for me. I do not like it."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/megadoc/'
 poster: '/images/reviews/megadoc/poster.webp'
 heroImage: '/images/reviews/megadoc/backdrop.webp'
 heroAlt: 'Francis Ford Coppola in glasses and a gray sweater sitting beside a film camera on a dark set, looking up.'
 ---
 
-I tried to watch Megalopolis three times. I finished Megadoc on the first try. That says something.That movie is a mess. It's not for me. I do not like it.
+I tried to watch Megalopolis three times. I finished Megadoc on the first try. That says something. That movie is a mess. It's not for me. I do not like it.
 
 But after watching Megadoc, I respect the hell out of Francis Ford Coppola.
 

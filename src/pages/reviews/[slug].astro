@@ -38,6 +38,8 @@ const {
 	heroCaption,
 	letterboxdUrl,
 	spoilers,
+	updatedDate,
+	corrections,
 } = review.data;
 // Letterboxd's spoiler flag, a ||spoiler|| marked in the text, or a picture titled "spoiler"
 const hasSpoilers =
@@ -102,6 +104,8 @@ const mentions =
 	seoTitle={seoTitle}
 	description={description}
 	date={date}
+	updatedDate={updatedDate}
+	corrections={corrections}
 	slug={slug}
 	heroImage={heroImage}
 	heroAlt={heroAlt}

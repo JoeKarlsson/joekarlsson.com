@@ -25,11 +25,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/repulsion/'
 poster: '/images/reviews/repulsion/poster.webp'
 heroImage: '/images/reviews/repulsion/backdrop.webp'
 heroAlt: 'Catherine Deneuve in a nightgown, hand to her mouth, framed by doorways in a black-and-white apartment.'
+updatedDate: 2026-11-17
+corrections:
+  - date: 2026-11-17
+    note: 'I said Polanski pleaded guilty to rape. He was charged with drugging and raping a 13-year-old and, in a plea deal, pleaded guilty to unlawful sexual intercourse with a minor.'
 ---
 
 I did a “women be crazy” double feature with [Possession](/reviews/possession/), watching both back-to-back in my living room. Except calling it that feels wrong after actually watching these films, because both are really about why women should be terrified of men.
 
-Roman Polanski, a man who would later plead guilty to raping a 13-year-old girl and flee the country to avoid sentencing, made one of cinema’s most effective films about women’s justified fear and repulsion toward male predation. The irony is sickening. Watching this film knowing what Polanski would go on to do makes every scene of men invading Carol’s space, touching her without consent, forcing themselves into her life feel even more nauseating. He understood male predation intimately because he was a predator. He captured the revulsion women feel toward aggressive male sexuality so well because he was the exact kind of man women should fear.
+Roman Polanski, a man who would later plead guilty to unlawful sex with a 13-year-old girl he was charged with drugging and raping and flee the country to avoid sentencing, made one of cinema’s most effective films about women’s justified fear and repulsion toward male predation. The irony is sickening. Watching this film knowing what Polanski would go on to do makes every scene of men invading Carol’s space, touching her without consent, forcing themselves into her life feel even more nauseating. He understood male predation intimately because he was a predator. He captured the revulsion women feel toward aggressive male sexuality so well because he was the exact kind of man women should fear.
 
 Catherine Deneuve’s performance is incredible - she disappears into Carol’s unraveling psyche completely. I struggled to get on the wavelength of this film initially, similar to my experience with Possession. It takes a while to get going, and the pacing in the first half feels slow and observational. But it really clicked for me in the second half, especially when the dream sequences started kicking in. That’s when I understood why this is one of the most highly acclaimed horror films of all time. The walls becoming flesh, the hands reaching out, the apartment becoming a physical manifestation of Carol’s psychological horror - it’s incredible filmmaking, showing a woman completely breaking down under male violence and violation.
 

@@ -168,6 +168,9 @@ const reviews = defineCollection({
 		heroAlt: z.string().optional(),
 		// Who the backdrop shows, as its caption (written by hand; the import has no names)
 		heroCaption: prose.optional(),
+		// Mistakes fixed after posting, in the blog's dated corrections box
+		updatedDate: z.coerce.date().optional(),
+		corrections: z.array(z.object({ date: z.coerce.date(), note: z.string() })).optional(),
 	}),
 });
 

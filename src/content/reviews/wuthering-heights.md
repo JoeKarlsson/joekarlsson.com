@@ -25,11 +25,15 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wuthering-heights/'
 poster: '/images/reviews/wuthering-heights/poster.webp'
 heroImage: '/images/reviews/wuthering-heights/backdrop.webp'
 heroAlt: 'Two figures in coats and hats hold a lantern on a rocky moor in a driving rainstorm, in black and white.'
+updatedDate: 2026-11-17
+corrections:
+  - date: 2026-11-17
+    note: 'I called this the first film adaptation. A British silent version came out in 1920.'
 ---
 
 Two angry sad jilted lovers being absolute insufferable monsters to everyone around them. That's the whole movie. I was moved.
 
-This first film adaptation of Wuthering Heights is absolutely beautiful - I watched a 4K restoration and it looked modern in its sensibilities and production value. These 1930s adaptations hit different. The craft, the lighting, the performances. Incredible.
+This first sound adaptation of Wuthering Heights is absolutely beautiful - I watched a 4K restoration and it looked modern in its sensibilities and production value. These 1930s adaptations hit different. The craft, the lighting, the performances. Incredible.
 
 It is a strange adaptation though. It only covers half the book and seems to significantly soften some of the rough edges on Heathcliff and Kathy's characters. Even so, they're still insufferable monsters in this. The softening only goes so far when your leads are this toxic.
 

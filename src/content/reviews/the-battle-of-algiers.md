@@ -25,13 +25,17 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-battle-of-algiers/'
 poster: '/images/reviews/the-battle-of-algiers/poster.webp'
 heroImage: '/images/reviews/the-battle-of-algiers/backdrop.webp'
 heroAlt: 'Colonel Mathieu in sunglasses and a beret, leading paratroopers through a cheering crowd in black and white.'
+updatedDate: 2026-11-17
+corrections:
+  - date: 2026-11-17
+    note: "I said the Algerian government commissioned the film. It backed it; Yacef's Casbah Films produced it with Italy's Igor Film."
 ---
 
 I've been scared to write this review, and frankly, I'm still processing a lot of my feelings around it.
 
 But this is a top 10 masterpiece film for me. I fell for it hard. This movie is incredible.
 
-It's crazy that the Algerian government commissioned this so soon after they'd won independence from the French - we're talking only a few years after the war ended. They were able to depict these events so clearly and without hyperbole, not turning their revolutionaries into flawless heroes or the French into cartoon villains. Both sides commit acts of horrific violence. Both sides have moments of humanity. The film doesn't flinch from showing women planting bombs in cafes or French soldiers torturing prisoners.
+It's crazy that the Algerian government backed this so soon after they'd won independence from the French - we're talking only a few years after the war ended. They were able to depict these events so clearly and without hyperbole, not turning their revolutionaries into flawless heroes or the French into cartoon villains. Both sides commit acts of horrific violence. Both sides have moments of humanity. The film doesn't flinch from showing women planting bombs in cafes or French soldiers torturing prisoners.
 
 It treats revolution as a brutal necessity. The FLN organizers aren't depicted as superhuman freedom fighters - they're ordinary people pushed into extraordinary circumstances by the violence of colonial occupation. The film shows how colonialism creates the conditions for its own violent resistance. You can't occupy a people, strip them of dignity and autonomy, and expect peace. The violence is a direct response to systemic oppression, and the film makes that causality crystal clear without ever glorifying the bloodshed itself.
 

@@ -27,7 +27,7 @@ Wilde refuses to play the sex for shock or the lifestyle for a laugh, and you do
 
 Casting Cruz as the one dispensing all of it is a joke I loved. She's been America's designated European sexual conscience since Vicky Cristina Barcelona, the calm accented woman explaining desire to nervous Americans, and here she is again, Esther Perel by way of a TED talk. Norton matches her, so earnest as Hawk it aches, the best anyone has used him in decades, and he doesn't even get the best lines.
 
-My one real gripe, this is an English remake of a franker Spanish film, Cesc Gay's The People Upstairs, and you can feel where an American studio sanded it down for wide release. I wanted it hornier. It keeps the bedroom door politely shut. But that flinch is the exact puritanism the movie is otherwise trying to diagnose, so I can't fully stay mad. It argues for opening the door and then won't open it it's self.
+My one real gripe, this is an English remake of a franker Spanish film, Cesc Gay's The People Upstairs, and you can feel where an American studio sanded it down for wide release. I wanted it hornier. It keeps the bedroom door politely shut. But that flinch is the exact puritanism the movie is otherwise trying to diagnose, so I can't fully stay mad. It argues for opening the door and then won't open it itself.
 
 ![Olivia Wilde as Angela in the hallway, waving her guests away from the bedroom.](/images/reviews/the-invite-2026/bedroom-door.webp)
 _Angela, steering the tour past the bedroom._

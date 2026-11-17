@@ -31,7 +31,7 @@ If I were rich in Gilded Age New York, I wouldn't be at this dinner. I'd be on a
 
 ![A long dinner table under a crystal chandelier, crowded with candelabras and a tower of red and yellow flowers, guests in evening dress on both sides and Ellen in red at the far left.](/images/reviews/the-age-of-innocence/van-der-luyden-dinner-table.webp)
 
-ALso - I need to say this up top. I really struggle with costume dramas. They're so talky, and this one is mostly people at dinner parties talking around things. But parts of it got to me anyway. I went to a small liberal arts college in a small town in southern Minnesota, and everyone knowing each other's business felt suffocating. Old New York in the 1870s is that campus with better hats. I think both things can be true at the same time: this is a beautiful, underrated Scorsese, and it's a movie I had to push my way through.
+Also - I need to say this up top. I really struggle with costume dramas. They're so talky, and this one is mostly people at dinner parties talking around things. But parts of it got to me anyway. I went to a small liberal arts college in a small town in southern Minnesota, and everyone knowing each other's business felt suffocating. Old New York in the 1870s is that campus with better hats. I think both things can be true at the same time: this is a beautiful, underrated Scorsese, and it's a movie I had to push my way through.
 
 You can tell Martin Scorsese is having a blast adapting [Edith Wharton](https://en.wikipedia.org/wiki/The_Age_of_Innocence) and making his first drawing-room costume drama. The camera work is gorgeous, and Saul and Elaine Bass's opening titles are beautiful before anyone has said a word.
 

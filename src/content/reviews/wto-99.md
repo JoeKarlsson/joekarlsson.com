@@ -14,13 +14,17 @@ slug: 'wto-99'
 description: 'A document about a turning point in American politics and protest culture. If you want to understand how we got here, start in Seattle in 1999.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wto-99/'
 poster: '/images/reviews/wto-99/poster.webp'
+updatedDate: 2026-11-17
+corrections:
+  - date: 2026-11-17
+    note: "I called Seattle the WTO's first meeting. It was its third ministerial conference; the first was in Singapore in 1996."
 ---
 
 A document about a turning point in American politics and protest culture. If you want to understand how we got here, start in Seattle in 1999.
 
 I had a chance to see a screening of this in Minneapolis, put on by Smitten Kitten at the Main theater in St. Anthony, with a Q&A with the editor. Absolutely wonderful experience.
 
-The editing and archival work are incredible. WTO/99 wisely tells the story of the World Trade Organization's first meeting in Seattle through archival footage and news segments, arranged in chronological order over the four days of protest. No talking heads, no retrospective framing - just what was captured at the time, letting you see how it unfolded in real time.
+The editing and archival work are incredible. WTO/99 wisely tells the story of the World Trade Organization's 1999 meeting in Seattle through archival footage and news segments, arranged in chronological order over the four days of protest. No talking heads, no retrospective framing - just what was captured at the time, letting you see how it unfolded in real time.
 
 Seattle 1999 was the first time militaristic police tactics were deployed on American civilians at this scale - pepper balls, tear gas against peaceful protesters, the National Guard called in. It was the first use of "protest free zones," a concept that sounded dystopian at the time and is now standard practice. The playbook written in Seattle has been used against every major protest movement since - Occupy, Standing Rock, Ferguson, and beyond.
 

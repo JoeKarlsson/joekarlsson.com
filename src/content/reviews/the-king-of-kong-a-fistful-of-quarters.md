@@ -17,6 +17,10 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-king-of-kong-a-fistf
 poster: '/images/reviews/the-king-of-kong-a-fistful-of-quarters/poster.webp'
 heroImage: '/images/reviews/the-king-of-kong-a-fistful-of-quarters/backdrop.webp'
 heroAlt: 'Steve Wiebe drawing on the screen of a Donkey Kong Junior arcade cabinet with a marker.'
+updatedDate: 2026-11-17
+corrections:
+  - date: 2026-11-17
+    note: "I said he was reinstated as the record holder. Guinness reinstated him in 2020; Twin Galaxies' 2024 settlement only put his scores in its historical archive."
 ---
 
 "Hey guys, Donkey Kong kill screen coming up..."
@@ -27,6 +31,6 @@ I forget every time how genuinely upset this movie makes me feel. Watching Billy
 
 That said, Billy Mitchell might be the greatest documentary antagonist of all time. He's dramatic, he speaks in monologues, he sends VHS tapes through intermediaries instead of showing up in person. He throws twists into the story. Truly an all-timer.
 
-Updating this in 2026 because the Twin Galaxies drama has been a whole saga. He got stripped, then reinstated as the Donkey Kong world record holder, and I have to say I am a truther. There is no universe where that man isn't fudging numbers by any means available to him. The guy has been running the same con since the Reagan administration and we just keep letting him.
+Updating this in 2026 because the Twin Galaxies drama has been a whole saga. He got stripped, then Guinness reinstated him as the Donkey Kong world record holder and Twin Galaxies put his scores back in its historical archive (not its leaderboards), and I have to say I am a truther. There is no universe where that man isn't fudging numbers by any means available to him. The guy has been running the same con since the Reagan administration and we just keep letting him.
 
 This is peak documentary as a genre for me. The "slice of life from a niche community you've never heard of with insular drama that turns out to be Shakespearean" subgenre is unbeatable. Tiger King, Wordplay, Cutie and the Boxer, all in the same family. The pettier the stakes, the better the movie.

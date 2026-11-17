@@ -21,6 +21,6 @@ heroAlt: 'Mark Kerr, shirtless and sweaty, wearing a gold medal under a string o
 
 I have a major soft spot in my heart for early 2000s digital documentaries. You can tell the recording technology was not quite there yet, but it adds an intimacy and rawness to the footage that I deeply appreciate.
 
-I understand why Benny Safdie is turning this into a major motion picture. The narrative wall, unusual, is still structured in such an interesting way, and I'm interested to see it translated when it's released.
+I understand why Benny Safdie is turning this into a major motion picture. The narrative, while unusual, is still structured in such an interesting way, and I'm interested to see it translated when it's released.
 
 I think this movie does a good job of showing an honesty for these men who are fighting, and how viciously they're being taken advantage of by the larger forces that play in capitalism. They truly are giving their lives and bodies to the sport. It's hard not to have a morbid appreciation for the athletes.

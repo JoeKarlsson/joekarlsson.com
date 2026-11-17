@@ -59,6 +59,6 @@ Stray thoughts:
 ・The chest-mounted killgasm at the camp is the standout, the one time the choreography really cooks.
 ・The Counting Crows needle-drop lost me completely, thematically and story-wise. Fun song, total mystery.
 ・The final end-credits song, on the other hand, absolutely rips.
-Gillian Anderson is making enormous vocal choices, some Southern-but-not-quite-Norma-Desmond thing that never pays off as character, and she's still magnetic, ravenous, coming gorgeously apart.
+・Gillian Anderson is making enormous vocal choices, some Southern-but-not-quite-Norma-Desmond thing that never pays off as character, and she's still magnetic, ravenous, coming gorgeously apart.
 ・Give me an entire Thor spinoff. The poly bi boyfriend deserves his own franchise.
 ・Overstuffed the way [I Love Boosters](/reviews/i-love-boosters/) was this year, and I loved both for having too much to say and no room to say it.

@@ -23,6 +23,10 @@ letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sorcerer/'
 poster: '/images/reviews/sorcerer/poster.webp'
 heroImage: '/images/reviews/sorcerer/backdrop.webp'
 heroAlt: 'Four grimy men in work clothes gathered in a dim shed, one in a fedora with his arms crossed.'
+updatedDate: 2026-11-17
+corrections:
+  - date: 2026-11-17
+    note: 'I said it opened the same week as Star Wars. It opened June 24, 1977, a month after.'
 ---
 
 A Herzogian task to even make this movie. Somehow Friedkin pulled it off. And that bridge sequence. 👏
@@ -31,4 +35,4 @@ Sorcerer is a globetrotting, grueling production about exploitation, greed, and 
 
 This is a movie that understands no one can bargain with death. These men are already dead - they just haven’t stopped moving yet. Every mile is borrowed time, and Friedkin makes you feel the weight of that with every frame.
 
-It flopped on release because it opened the same week as Star Wars.
+It flopped on release because it opened a month after Star Wars.

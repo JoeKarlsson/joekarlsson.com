@@ -189,7 +189,7 @@ export const projects: Project[] = curlEveryString(
 				intro: [
 					'My favorite things in life are cats, computers and crappy ideas, so I built an internet-connected litter box.',
 					'Every time my cat steps in, the box weighs him, and the weight goes into a database, so I can follow his health and his bathroom habits over time without doing anything. I like that it sits right on the border between completely ridiculous and kinda genius.',
-					'The post about it ends with "I hereby give you permission to make stupid stuff just for you."',
+					'The write-up about it closes on "I hereby give you permission to make stupid stuff just for you, something to help you learn and grow as a human being and a software engineer."',
 				],
 				gallery: [
 					{
@@ -366,7 +366,7 @@ export const projects: Project[] = curlEveryString(
 			title: 'React Spotify Player',
 			shareTitle: 'React Spotify Player: A now-playing Spotify widget from a 15-minute tutorial',
 			description:
-				"A real-time Spotify player I built in React on the Spotify Web API, for a tutorial that did well. It's still my most-starred open source project.",
+				"A real-time Spotify player I built in React on the Spotify Web API, for a tutorial that did well. It's still one of my most-starred open source projects.",
 			image:
 				'/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/1_KGOTMV8KD120TApnijDauQ.webp',
 			video: '/images/projects/react-spotify-player.mp4',
@@ -382,9 +382,9 @@ export const projects: Project[] = curlEveryString(
 				slug: 'react-spotify-player',
 				tagline: "Shows what you're playing on Spotify, in a few small React files.",
 				intro: [
-					"React Spotify Player shows what you're listening to on Spotify: the album art, the track and artist, and a progress bar that moves along with the song. I built it in 2019 for a tutorial on building a Spotify player with React in 15 minutes, and it's still my most-starred open source project.",
+					"React Spotify Player shows what you're listening to on Spotify: the album art, the track and artist, and a progress bar that moves along with the song. I built it in 2019 for a tutorial on building a Spotify player with React in 15 minutes, and it's still one of my most-starred open source projects.",
 					"I'd been using the Spotify API for my MagicMirror, and I wanted the shortest path from nothing to a working player for front-end developers: log in with Spotify, call one endpoint, show the result. It's still small on purpose. The current version is just React and Vite, and the whole app fits in a handful of files.",
-					"If you're following the tutorial today, one warning: it logs in with Spotify's Implicit Grant flow, which Spotify deprecated in November 2025. New apps should use the Authorization Code flow with PKCE instead.",
+					"If you're following the tutorial today, one warning: it logs in with Spotify's Implicit Grant flow, which Spotify deprecated in February 2025 and removed in November 2025. New apps should use the Authorization Code flow with PKCE instead.",
 				],
 				install:
 					'git clone https://github.com/JoeKarlsson/react-spotify-player.git\ncd react-spotify-player\n# add http://localhost:3001 as a Redirect URI on your Spotify app,\n# and put its Client ID in src/config/spotify.js\nnpm install\nnpm run dev',
@@ -1006,7 +1006,7 @@ export const projects: Project[] = curlEveryString(
 				supporting: {
 					heading: 'Supporting statement',
 					text: [
-						"The first showing of Joseph Cornell's short film Rose Hobart is the stuff of legend. Famously, the film's 1936 premier ended with Salvador Dalí storming out, claiming that the film had been stolen directly from his subconscious (Pigott 5). Very little else is known about this original showing; Cornell would not show the film again for nearly thirty years. Currently, only one version of Rose Hobart continues to be circulated; this version comes from Cornell's 1960s showings, leaving the performative details of the premier shrouded in mystery (Pigott 21).",
+						"The first showing of Joseph Cornell's short film Rose Hobart is the stuff of legend. Famously, the film's 1936 premiere ended with Salvador Dalí storming out, claiming that the film had been stolen directly from his subconscious (Pigott 5). Very little else is known about this original showing; Cornell would not show the film again for nearly thirty years. Currently, only one version of Rose Hobart continues to be circulated; this version comes from Cornell's 1960s showings, leaving the performative details of the premiere shrouded in mystery (Pigott 21).",
 						'Screenings of Rose Hobart were originally highly performative. In contrast to the currently available digital version which is “frozen” in time, several aspects of Cornell’s screenings were subject to change. First, the film was shown with a tinted filter. While the current version shows a deep blue tint being used, any number of colors could have been used in the other showings, with some evidence pointing to the use of a pink filter (Pigott 20). Second, the film was shown either at the standard 24 frames per second or 16 frames per second, also known as “silent speed” (Pigott 21). Today’s surviving version shows the film in the slightly slower “silent speed,” giving the short film a dreamier quality that is practically undetectable to the untrained eye. Lastly, due to the silence of the film itself, different music was paired with the film as it was shown. The version that remains today is paired with two jaunty tracks by Nestor Amaral and His Continentals, from their 1957 album Holiday in Brazil (Pigott 24). Because these songs were not released until 1957, it’s clear that different music was used in the original 1936 screening, and likely in other screenings as well. Unfortunately, there is no documentation of what that music might have been.',
 						'This collaborative digital humanities project is an exploration of the lack of performativity in the current version available of Joseph Cornell’s Rose Hobart. It is an attempt to bring the performative aspects of screening Rose Hobart back to the film by allowing viewers to change the soundtrack, filter, speed, and other options as they view the film. Due to the digital nature of this project, it is by no means an attempt to perfectly imitate Cornell’s original screenings. Rather, it is an attempt to “unfreeze” the currently available version of Rose Hobart from its place in time.',
 						'This project also emphasizes the digital nature of the film today. While there are physical copies of Rose Hobart available for viewing, the film is widely circulated online, which suggests that most viewers are accessing the film via the internet rather than through physical media. Due to the film’s transfer from physical to digital, signs of physical degradation of the film have been “frozen” or stopped in their tracks, bringing the film from the material film archive to the immaterial film archive (Baron 481). Jaimie Baron argues that both types of archive present viewers with a different experience of mediation: either bearing traces of the physical world or of digital technologies, both of which signal a relationship with the past (481). In order to simulate digital degradation, this project provides an option for viewers to blur and glitch the video, simulating the digital archival process that occurs when a digital video is damaged and continually copied.',
