@@ -33,4 +33,10 @@ describe('rehype-no-widows', () => {
 		expect(await render('So what - why?')).toBe(`<p>So what${NBSP}-\u2060${NBSP}why?</p>`);
 		expect(await render('| A |\n| - |\n| one two |')).toContain(`<td>one${NBSP}two</td>`);
 	});
+
+	it('joins a lone last word to the code before it', async () => {
+		expect(await render('Delete the `*** END` lines.')).toBe(
+			`<p>Delete the <code>*** END</code>${NBSP}lines.</p>`,
+		);
+	});
 });

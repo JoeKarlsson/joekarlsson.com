@@ -50,7 +50,11 @@ export default function rehypeNoWidows() {
 			if (node.tagName === 'pre' || node.tagName === 'code') return SKIP_NODE;
 			if (!['p', 'li', 'td', 'figcaption'].includes(node.tagName)) return;
 			const text = lastText(node);
-			if (text) text.value = joinLastWord(text.value);
+			if (!text) return;
+			// " lines." after inline code or a link: the word joins the element before it
+			const lone = /^[ \t\n]+(\S+\s*)$/.exec(text.value);
+			if (lone && lone[1].replace(/\W/g, '').length < LONGEST_WORD) text.value = `\u00A0${lone[1]}`;
+			else text.value = joinLastWord(text.value);
 		});
 	};
 }

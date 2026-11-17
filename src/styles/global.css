@@ -409,6 +409,14 @@ pre.astro-code {
 .prose figure:is(.frame, .frame-pair) img {
 	@apply my-0;
 }
+/* A portrait picture is narrower than the column (img max-height): the figure shrinks to it,
+   so the caption starts at the picture's edge, and the caption wraps inside that width */
+.prose figure.frame {
+	@apply mx-auto w-fit;
+}
+.prose figure.frame .frame-caption {
+	contain: inline-size;
+}
 .prose .frame-caption {
 	@apply mt-2.5;
 }

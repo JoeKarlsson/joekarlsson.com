@@ -601,7 +601,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 				<span class="relative z-10 mx-4 -mt-10 block w-fit max-w-[calc(100%-2rem)] bg-ink px-5 pt-3 pb-4 sm:mx-7 md:-mt-12">
 					<span class="block text-sm font-semibold text-pink">{spreadTalk.kicker}</span>
 					<span class="block font-display text-[clamp(2.25rem,4.4vw,4rem)] leading-[0.9] text-paper uppercase group-hover:text-pink">
-						The Art of <span class="text-pink">Computer Science</span>
+						The Art of <span class="text-pink">Computer&nbsp;Science</span>
 					</span>
 				</span>
 			</a>
@@ -695,7 +695,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 						</span>
 					)}
 					<span class="mt-4 block font-display text-[clamp(2.25rem,4vw,3.25rem)] leading-[0.9] uppercase group-hover:text-pink">
-						{newestReview.title}
+						{joinLastWord(newestReview.title)}
 					</span>
 					{newestReview.rating && (
 						<span class="mt-1 block text-xl text-pink">
@@ -703,7 +703,9 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 							<span class="sr-only">Rated {newestReview.rating} out of 5</span>
 						</span>
 					)}
-					<span class="mt-2 block text-lg leading-snug">{oneLiner(newestReview)}</span>
+					<span class="mt-2 block text-lg leading-snug">
+						{joinLastWord(oneLiner(newestReview))}
+					</span>
 				</a>
 				<ul class="paste-wall mt-5 grid grid-cols-3 gap-3" style="--wall:3">
 					{moreReviews.map((r, i) => (
@@ -762,7 +764,9 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 									/>
 								)}
 								<span>
-									<span class="block font-display text-2xl leading-none uppercase">{r.title}</span>
+									<span class="block font-display text-2xl leading-none uppercase">
+										{joinLastWord(r.title)}
+									</span>
 									<span class="mt-1.5 flex flex-wrap items-baseline gap-x-3 text-[0.8125rem] font-bold">
 										<span>
 											Me{' '}
@@ -778,7 +782,9 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 											</span>
 										</span>
 									</span>
-									<span class="mt-1 block text-[0.9375rem] leading-snug">{oneLiner(r)}</span>
+									<span class="mt-1 block text-[0.9375rem] leading-snug">
+										{joinLastWord(oneLiner(r))}
+									</span>
 								</span>
 							</a>
 						</li>
