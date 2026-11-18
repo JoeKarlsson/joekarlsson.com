@@ -47,6 +47,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-15: No explainer subtext. Joe on a line under "Ship the ugly pot": "We don't need like additional subtext explaining stuff. I think it works on its own." Lines and slogans stand alone; don't add captions that explain them.
 
 - 2026-11-15: Homepage hero bio: option C, "I think technology should be weird and personal. I write about AI and homelabs, and I build the things I write about.", set in Fraunces italic. Joe briefly reverted to the old employer list, then: "I like the new one better."
+- 2026-11-18: Homepage hero bio replaced: "Technology is better when it's weird and it's yours. Everything I write about runs in my house." Joe picked it from 40 brainstormed bylines; supersedes the 2026-11-15 line.
 - 2026-11-15: Homepage pictures are moving clips wherever a clip exists (Joe: "All these should be animated if possible"): the Talks spread plays the TEDx montage from /talks (never a still frame), Works plays each project's card clip, the cat clip loops. Stills only where no clip exists. Phones, reduced motion and slow connections still get the still (standing motion rules).
 
 - 2026-11-15: The MongoDB Schema Design talk card on the homepage gets a moving clip from that talk's recording, like the other talk cards. Next step for the homepage: build the preview from the real site code in a worktree (not the standalone mockup, which kept drifting from the live look: hero not pink, headings the wrong color and size).
