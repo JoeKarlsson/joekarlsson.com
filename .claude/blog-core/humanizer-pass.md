@@ -11,6 +11,7 @@ Before Joe first sees the draft, and again after every round of edits, before ea
 - Every heading's wording, the primary keyword's words and position in the intro (the sentence around them can change), tables, images and their alt text, code blocks, every link and URL, and any structure the site requires (adapters list theirs).
 - Facts, numbers, dates, hedges, quotes and citations. Add no new claims.
 - Length: net word count stays flat or goes down.
+- Every section. A scoped pass touches only the sections it was given. Before reporting, list the headings before and after the pass; a heading missing afterward is a failure to fix, never a cut. (2026-11-18: a scoped pass on a CData post deleted the whole limits section next to the one it was editing, and it reached the Word build before anyone noticed.)
 
 ## Unlocked: rhythm is the job
 
