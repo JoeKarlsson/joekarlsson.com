@@ -1943,7 +1943,7 @@ export const projects: Project[] = curlEveryString(
 			date: '2026-05',
 			tech: ['TypeScript', 'Runway ML', 'Plex', 'AI Video Generation'],
 			sourceUrl: 'https://github.com/JoeKarlsson/streamroll',
-			demoUrl: 'https://streamroll.vercel.app/',
+			demoUrl: 'https://streamroll.joekarlsson.com/',
 			page: {
 				slug: 'streamroll',
 				marginNotes: [
