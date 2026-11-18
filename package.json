@@ -9,6 +9,7 @@
 		"preview": "astro preview",
 		"update:popular": "node scripts/update-popular-posts.mjs",
 		"analytics:agents": "node scripts/agent-markdown-traffic.mjs",
+		"analytics:sites": "node scripts/sites-health.mjs",
 		"update:now": "node scripts/update-now-feed.mjs",
 		"update:reviews": "node scripts/update-reviews.mjs",
 		"newsletter:cards": "node scripts/generate-issue-cards.mjs",
