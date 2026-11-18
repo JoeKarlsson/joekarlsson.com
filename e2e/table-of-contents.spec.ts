@@ -15,10 +15,12 @@ test.describe('On this page', () => {
 		// Doodles stay on both sides, the left ones clear of the list
 		await page.setViewportSize({ width: 1960, height: 1100 });
 		const tocLeft = (await page.locator('.margin-toc').boundingBox())!.x;
-		const left = await page
-			.locator('.margin-doodles > div[data-left]:not([hidden])')
-			.evaluateAll((doodles) => doodles.map((d) => d.getBoundingClientRect().right));
-		expect(left.length).toBeGreaterThan(0);
+		const shownLeft = page.locator('.margin-doodles > div[data-left]:not([hidden])');
+		// The doodles' ResizeObserver unhides them after the next layout, not during setViewportSize
+		await expect.poll(() => shownLeft.count()).toBeGreaterThan(0);
+		const left = await shownLeft.evaluateAll((doodles) =>
+			doodles.map((d) => d.getBoundingClientRect().right),
+		);
 		for (const right of left) expect(right).toBeLessThanOrEqual(tocLeft);
 	});
 
