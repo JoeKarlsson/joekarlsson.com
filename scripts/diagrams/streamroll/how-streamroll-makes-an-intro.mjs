@@ -1,8 +1,8 @@
-// Streamroll's project page How it's made figure (src/data/projects.ts): two chained
+// StreamRoll's project page How it's made figure (src/data/projects.ts): two chained
 // Runway calls and a check in between, from app/page.tsx, lib/runway.ts,
 // hooks/useApiKey.ts and app/AudioMixer.tsx in JoeKarlsson/streamroll
 export const alt =
-	'How Streamroll makes an intro. You give it a name, a style and your own Runway API key, which stays in your browser and goes along with each request. The style picks the image model, the video model and the length. Runway turns a prompt into a title card, you approve it or add notes and make another, and Runway animates the card into a clip of 2 to 5 seconds. If you want, your own audio is mixed in right in your browser with FFmpeg.wasm. Out comes an .mp4 to use as a pre-roll in Plex, Jellyfin or Emby.';
+	'How StreamRoll makes an intro. You give it a name, a style and your own Runway API key, which stays in your browser and goes along with each request. The style picks the image model, the video model and the length. Runway turns a prompt into a title card, you approve it or add notes and make another, and Runway animates the card into a clip of 2 to 5 seconds. If you want, your own audio is mixed in right in your browser with FFmpeg.wasm. Out comes an .mp4 to use as a pre-roll in Plex, Jellyfin or Emby.';
 
 const YOU = {
 	label: 'You',

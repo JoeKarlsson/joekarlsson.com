@@ -1927,19 +1927,19 @@ export const projects: Project[] = curlEveryString(
 						alt: 'How a bumper gets made: each bumper is a few lines in bumpers.yaml with two to four text cards, a background clip and a music track; bumper render uses ffmpeg to write a ten-second MP4 ending on a [yourserver] card; NeXroll shuffles the MP4s, and Plex plays one before every movie on Joeflix, while TV episodes start cold',
 					},
 				},
-				lineage: [{ label: 'Same server', title: 'Streamroll' }],
+				lineage: [{ label: 'Same server', title: 'StreamRoll' }],
 			},
 		},
 		{
-			title: 'Streamroll',
-			shareTitle: 'Streamroll: Netflix-style intros for your own Plex, made by AI',
+			title: 'StreamRoll',
+			shareTitle: 'StreamRoll: Netflix-style intros for your own Plex, made by AI',
 			description:
 				'A Netflix-style intro for your own Plex, Jellyfin or Emby server, made from its name: pick a style, and you get a title card that moves, ready to play before every movie.',
 			image: '/images/projects/streamroll.webp',
 			video: `${STREAMROLL_DIR}/streamroll-outrun.mp4`,
 			poster: `${STREAMROLL_DIR}/streamroll-outrun-poster.webp`,
 			imageAlt:
-				'A Streamroll intro in the neon outrun style: STREAMROLL in glowing pink and blue chrome letters over a dark grid, with "AI-generated pre-roll intros" underneath',
+				'A StreamRoll intro in the neon outrun style: STREAMROLL in glowing pink and blue chrome letters over a dark grid, with "AI-generated pre-roll intros" underneath',
 			date: '2026-05',
 			tech: ['TypeScript', 'Runway ML', 'Plex', 'AI Video Generation'],
 			sourceUrl: 'https://github.com/JoeKarlsson/streamroll',
@@ -1959,7 +1959,7 @@ export const projects: Project[] = curlEveryString(
 				introHeading: 'Artist statement',
 				intro: [
 					"Netflix plays its sting before every show. Plex, Jellyfin and Emby will play a short video before every movie too, but you hit play on a home server and it could be anyone's.",
-					"Streamroll makes one from your server's name. You type a name like Joeflix, pick a style, and get back a title card that moves, ready to play before every movie.",
+					"StreamRoll makes one from your server's name. You type a name like Joeflix, pick a style, and get back a title card that moves, ready to play before every movie.",
 					"There's no account and nothing to pay me, and it hands you the code that made your clip, so you can make the next one without my site.",
 				],
 				galleryTitle: 'Intros it made',
@@ -2008,7 +2008,7 @@ export const projects: Project[] = curlEveryString(
 					],
 					diagram: {
 						src: '/images/projects/streamroll/how-streamroll-makes-an-intro.svg',
-						alt: 'How Streamroll makes an intro: you give it a name, a style and your own Runway key, the style picks the image model, video model and length, Runway turns a prompt into a title card that you approve or redo, Runway animates it into a 2 to 5 second clip, your own audio can be mixed in your browser with FFmpeg.wasm, and the .mp4 becomes a pre-roll in Plex, Jellyfin or Emby',
+						alt: 'How StreamRoll makes an intro: you give it a name, a style and your own Runway key, the style picks the image model, video model and length, Runway turns a prompt into a title card that you approve or redo, Runway animates it into a 2 to 5 second clip, your own audio can be mixed in your browser with FFmpeg.wasm, and the .mp4 becomes a pre-roll in Plex, Jellyfin or Emby',
 					},
 				},
 				lineage: [{ label: 'Same server', title: 'Adult Swim Bumper' }],
