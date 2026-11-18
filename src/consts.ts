@@ -1,7 +1,7 @@
 export const SITE_TITLE = 'Joe Karlsson';
 export const DEFAULT_HERO_IMAGE = '/images/og-default-pink.webp';
 export const SITE_DESCRIPTION =
-	'Developer Marketing Engineer. Writing about databases, smart homes, developer tools, and the things I build.';
+	"Technology is better when it's weird and it's yours. I write about AI and homelabs, and everything I write about runs in my house.";
 export const SITE_URL = 'https://www.joekarlsson.com';
 
 export const SOCIAL_LINKS = {
