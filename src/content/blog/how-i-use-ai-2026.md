@@ -2,7 +2,7 @@
 title: 'How I use AI (November 2026)'
 date: 2026-11-17T10:14:17Z
 slug: 'how-i-use-ai-2026'
-description: 'How I use AI in November 2026: agents help run my house and homelab, and six layers, from a short CLAUDE.md down to Claude Code hooks, decide what they can touch.'
+description: 'How I use AI in November 2026: agents help run my house and homelab, and six layers, from CLAUDE.md down to Claude Code hooks, decide what they can touch.'
 categories: ['AI']
 tags: ['Claude Code', 'AI agents', 'CLAUDE.md', 'hooks', 'subagents', 'Home Assistant', 'homelab']
 tldr: 'A lot of my AI use runs my house and homelab. What makes that safe is a stack of six layers: rules every session reads, knowledge it reads only when a task needs it, skills, subagents, memory, and hooks at the bottom for what has to hold. When a rule keeps failing where it is, it moves down the stack, and by the third repeat it is a hook. My AI policy is four lines, and code enforces two of them.'
