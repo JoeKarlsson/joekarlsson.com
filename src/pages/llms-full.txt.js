@@ -24,7 +24,7 @@ export async function GET() {
 
 	const body = `# Joe Karlsson - Full Site Guide
 
-> Joe believes technology is better when it's weird and it's yours. He writes about AI and homelabs, and everything he writes about runs in his house. TEDx speaker with 100+ conference talks, 100,000+ social media followers, and a decade of experience across data infrastructure, DevRel, and front-end engineering. Runs a ${nowFeed.homelab.runningContainers}-container Proxmox homelab with AI-powered smart home automations and local LLM inference. CS degree from Gustavus Adolphus College (2012).
+> Joe believes technology is better when it's weird and it's yours. He writes about AI and homelabs, and everything he writes about runs in his house. Principal Developer Marketing Engineer at CData, running developer marketing for its managed MCP platform. TEDx speaker with 100+ conference talks, 100,000+ social media followers, and a decade of experience across data infrastructure, DevRel, and front-end engineering. Runs a ${nowFeed.homelab.runningContainers}-container Proxmox homelab with AI-powered smart home automations and local LLM inference. CS degree from Gustavus Adolphus College (2012).
 
 ## About Joe Karlsson
 

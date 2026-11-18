@@ -120,7 +120,8 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 ## Images of Joe
 
 - 2026-11-09: Video thumbnails pulled from Joe's footage: face centered and whole (both eyes, top of head), Joe looking good. Smiling or explaining mid-sentence is fine there. Pick frames for that, not for "clarity". Profile photos and headshots are different: no smiling-at-camera shots (memory feedback-headshots-no-smiling-camera-shots).
-- Personal bios say what Joe makes and writes about. No employer or job title.
+- Personal bios (a post's author bio, socials, link-in-bio) say what Joe makes and writes about. No employer or job title.
+- 2026-11-18: The About page, the résumé and llms.txt (the site's About for agents) name where Joe works. Joe: "I certainly want to list where I work"; the no-employer rule is "mostly for blog posts and stuff like that".
 
 ## Animation
 

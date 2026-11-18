@@ -22,7 +22,7 @@ export async function GET() {
 
 	const body = `# Joe Karlsson
 
-> Joe believes technology is better when it's weird and it's yours. He writes about AI, homelabs, databases, data pipelines, smart homes and developer tools, and everything he writes about runs in his house. TEDx speaker, 100+ conference talks, 100,000+ social media followers. Runs a ${nowFeed.homelab.runningContainers}-container Proxmox homelab with AI-powered smart home automations. CS degree from Gustavus Adolphus College.
+> Joe believes technology is better when it's weird and it's yours. He writes about AI, homelabs, databases, data pipelines, smart homes and developer tools, and everything he writes about runs in his house. Principal Developer Marketing Engineer at CData, running developer marketing for its managed MCP platform. TEDx speaker, 100+ conference talks, 100,000+ social media followers. Runs a ${nowFeed.homelab.runningContainers}-container Proxmox homelab with AI-powered smart home automations. CS degree from Gustavus Adolphus College.
 
 This file offers a summary. For full details, every post and every project, see [llms-full.txt](https://www.joekarlsson.com/llms-full.txt).
 
