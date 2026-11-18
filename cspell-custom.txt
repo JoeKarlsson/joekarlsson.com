@@ -707,3 +707,6 @@ Qobuz
 Tidarr
 deemix
 Dade
+Stolovitz
+Stolovitz's
+Hashimoto
