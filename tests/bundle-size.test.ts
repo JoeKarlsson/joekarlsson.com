@@ -3,18 +3,14 @@ import { readdirSync, readFileSync, statSync } from 'fs';
 import { join } from 'path';
 import { gzipSync } from 'zlib';
 
-/** Recursive byte total for a directory. */
-function getDirSize(dir: string): number {
-	let total = 0;
-	for (const entry of readdirSync(dir, { withFileTypes: true })) {
-		const full = join(dir, entry.name);
-		if (entry.isDirectory()) {
-			total += getDirSize(full);
-		} else if (entry.isFile()) {
-			total += statSync(full).size;
-		}
-	}
-	return total;
+/** Every file under a directory, with its size. */
+function listFiles(dir: string): { path: string; size: number }[] {
+	return readdirSync(dir, { withFileTypes: true, recursive: true })
+		.filter((entry) => entry.isFile())
+		.map((entry) => {
+			const path = join(entry.parentPath, entry.name);
+			return { path, size: statSync(path).size };
+		});
 }
 
 const DIST_DIR = join(process.cwd(), 'dist');
@@ -38,28 +34,12 @@ const THRESHOLDS = {
 	// chapter openers) took it to 20.1KB. Raised to 23KB on 2026-11-16 (Joe's OK): margin
 	// notes beyond citations (quotes, terms, updates, see-also cards) took it to 22.1KB.
 	maxTotalCssGzip: 23 * 1024,
-	// Total dist folder (includes images). Raised from 200MB on 2026-11-05 for the
-	// redesign's pink halftone of every post hero (7.5MB) and the homepage video,
-	// when dist sat at 199MB. Those halftones are now drawn live in the browser
-	// (src/scripts/halftone.ts), which freed the space again. Raised to 225MB on
-	// 2026-11-06 when post-body images got 400/800/1200px copies for their srcset
-	// (dist went to 217MB; visitors download less). Raised to 245MB on 2026-11-06
-	// when 113 work posts swapped flat employer stock art for photo thumbnails
-	// (scripts/generate-work-thumbnails.mjs): pictures, their srcset copies and their
-	// og:image JPEGs took dist from 224MB to 237MB. Raised to 250MB on 2026-11-06
-	// when dist had grown to 244.6MB and Wave Jump and Go Home Tanuki got project
-	// pages with gameplay clips (1MB, already encoded at CRF 31). Raised to 255MB on
-	// 2026-11-06 when PostStream (a sharp 1600px recording of its text UI), Streamroll
-	// (six generated intros at 960px) and React Spotify Player (its README demo, 5.2MB
-	// as a GIF, 0.4MB as video) got clips, taking dist to 250.3MB. Raised to 400MB the
-	// same day: the total isn't what visitors download (they fetch one page; the
-	// homepage media budget below, Lighthouse and validate-images.sh's per-file limits
-	// guard that), it only costs deploy time and disk. Sitting a few MB under the line
-	// meant every new project clip tripped it. This is now a tripwire for something
-	// gone badly wrong (a folder of unconverted GIFs, raw footage), not a running tax.
-	// Raised to 600MB on 2026-11-13 for /reviews/: 547 film review pages, their posters
-	// and backdrops (with srcset copies) and an og:image JPEG each took dist to about 490MB.
-	maxTotalDist: 600 * 1024 * 1024,
+	// No total dist cap: it was raised six times in November 2026 and every new post tripped
+	// it, while visitors only ever fetch one page. These catch what it was there for (raw
+	// footage, unconverted GIFs); per-page weight is the homepage budget, Lighthouse and
+	// validate-images.sh. The biggest file was a 14MB tour video and the biggest GIF 345KB.
+	maxSingleFile: 25 * 1024 * 1024,
+	maxGif: 1024 * 1024,
 };
 
 function getFilesWithExtension(dir: string, ext: string): { name: string; size: number }[] {
@@ -99,21 +79,15 @@ describe('Bundle Size', () => {
 		expect(stats.isDirectory()).toBe(true);
 	});
 
-	// This used to assert only that dist/ and _astro/ were directories while
-	// being named after a 200MB threshold it never applied. dist sat well past
-	// that - public/images alone was 292MB - and this reported green throughout.
-	it('total dist size is under threshold', () => {
-		const totalSize = getDirSize(DIST_DIR);
-
-		if (totalSize > THRESHOLDS.maxTotalDist) {
-			expect.fail(
-				`dist is ${formatBytes(totalSize)}, over the ${formatBytes(THRESHOLDS.maxTotalDist)} budget.\n` +
-					`  Largest contributor is usually public/images - check for unconverted\n` +
-					`  animated GIFs (./scripts/convert-gifs-to-video.sh) or non-WebP stills.`,
-			);
-		}
-
-		expect(totalSize).toBeLessThan(THRESHOLDS.maxTotalDist);
+	it('dist has no raw footage, design files or oversized media', () => {
+		const problems = listFiles(DIST_DIR).flatMap(({ path, size }) => {
+			if (/\.(mov|heic|tiff?|psd|avi|mkv|wav)$/i.test(path)) return [`${path}: raw format`];
+			if (size > THRESHOLDS.maxSingleFile) return [`${path}: ${formatBytes(size)}`];
+			if (/\.gif$/i.test(path) && size > THRESHOLDS.maxGif)
+				return [`${path}: ${formatBytes(size)} GIF (./scripts/convert-gifs-to-video.sh)`];
+			return [];
+		});
+		expect(problems).toEqual([]);
 	});
 
 	describe('JavaScript bundles', () => {
