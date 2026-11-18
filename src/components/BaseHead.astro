@@ -1,7 +1,8 @@
 ---
 import { Font } from 'astro:assets';
 import '../styles/global.css';
-import { NAV_LINKS, SITE_TITLE, SITE_URL, SOCIAL_LINKS } from '../consts';
+import { NAV_LINKS, SITE_DESCRIPTION, SITE_TITLE, SITE_URL, SOCIAL_LINKS } from '../consts';
+import { roles } from '../data/resume';
 import { DEFAULT_OG_IMAGE, ogJpegPath } from '../utils/og-image';
 import { jsonForScript } from '../utils/json-for-script';
 
@@ -212,7 +213,7 @@ Markdown copies for agents and downloads. -->
 				'@id': `${SITE_URL}/#website`,
 				url: SITE_URL,
 				name: SITE_TITLE,
-				description: 'Developer Marketing Engineer.',
+				description: SITE_DESCRIPTION,
 				publisher: { '@id': `${SITE_URL}/#/schema/person` },
 				inLanguage: 'en-US',
 			},
@@ -221,13 +222,14 @@ Markdown copies for agents and downloads. -->
 				'@id': `${SITE_URL}/#/schema/person`,
 				name: 'Joe Karlsson',
 				url: SITE_URL,
-				jobTitle: 'Developer Marketing Engineer',
+				// From the résumé, so it matches the visible /resume/ page
+				jobTitle: roles[0].title,
 				worksFor: {
 					'@type': 'Organization',
-					name: 'CData',
+					name: roles[0].company,
 				},
 				description:
-					'Joe Karlsson is a Developer Marketing Engineer. TEDx Speaker, film buff, and homelab enthusiast.',
+					'Joe Karlsson writes about AI and homelabs and builds the things he writes about. TEDx speaker, film buff, and homelab enthusiast.',
 				image: {
 					'@type': 'ImageObject',
 					url: `${SITE_URL}/images/joe-headshot.webp`,

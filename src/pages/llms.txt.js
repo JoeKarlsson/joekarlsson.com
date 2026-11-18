@@ -22,7 +22,7 @@ export async function GET() {
 
 	const body = `# Joe Karlsson
 
-> Principal Developer Marketing Engineer specializing in data engineering, developer experience, and real-time data systems. Currently at CData, leading developer growth for the managed MCP platform that connects AI agents to live enterprise data. TEDx speaker, 100+ conference talks, 100,000+ social media followers. Runs a ${nowFeed.homelab.runningContainers}-container Proxmox homelab with AI-powered smart home automations. CS degree from Gustavus Adolphus College. Writing about databases, data pipelines, smart homes, developer tools, and the things I build.
+> Joe writes about AI, homelabs, databases, data pipelines, smart homes and developer tools, and builds the things he writes about. TEDx speaker, 100+ conference talks, 100,000+ social media followers. Runs a ${nowFeed.homelab.runningContainers}-container Proxmox homelab with AI-powered smart home automations. CS degree from Gustavus Adolphus College.
 
 This file offers a summary. For full details, every post and every project, see [llms-full.txt](https://www.joekarlsson.com/llms-full.txt).
 

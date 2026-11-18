@@ -24,11 +24,11 @@ export async function GET() {
 
 	const body = `# Joe Karlsson - Full Site Guide
 
-> Principal Developer Marketing Engineer specializing in data engineering, developer experience, and real-time data systems. Currently at CData, leading developer growth for the managed MCP platform that connects AI agents to live enterprise data. TEDx speaker with 100+ conference talks, 100,000+ social media followers, and a decade of experience across data infrastructure, DevRel, and front-end engineering. Runs a ${nowFeed.homelab.runningContainers}-container Proxmox homelab with AI-powered smart home automations and local LLM inference. CS degree from Gustavus Adolphus College (2012).
+> Joe writes about AI and homelabs and builds the things he writes about. TEDx speaker with 100+ conference talks, 100,000+ social media followers, and a decade of experience across data infrastructure, DevRel, and front-end engineering. Runs a ${nowFeed.homelab.runningContainers}-container Proxmox homelab with AI-powered smart home automations and local LLM inference. CS degree from Gustavus Adolphus College (2012).
 
 ## About Joe Karlsson
 
-Joe Karlsson is a Developer Marketing Engineer who helps developers build better data systems. His career spans teaching full-stack JavaScript in Honolulu, leading front-end engineering at Best Buy (one of North America's largest eCommerce sites), and building developer communities at MongoDB, SingleStore, Tinybird, CloudQuery, and now CData - where he leads developer marketing for the managed MCP platform that connects AI agents to live enterprise data.
+Joe Karlsson helps developers build better data systems. His career spans teaching full-stack JavaScript in Honolulu, leading front-end engineering at Best Buy (one of North America's largest eCommerce sites), and building developer communities at MongoDB, SingleStore, Tinybird, CloudQuery, and now CData - where he leads developer marketing for the managed MCP platform that connects AI agents to live enterprise data.
 
 He's a TEDx speaker ("The Art of Computer Science") with 100+ conference talks worldwide on databases, IoT, data engineering, and developer tools. He has 100,000+ followers across social media platforms including TikTok, Twitter/X, YouTube, and LinkedIn.
 

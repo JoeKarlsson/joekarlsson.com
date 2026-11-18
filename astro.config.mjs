@@ -28,6 +28,9 @@ import externalLinks from './src/integrations/external-links.mjs';
 import markdownPages from './src/integrations/markdown-pages.mjs';
 import responsiveImages from './src/integrations/responsive-images.mjs';
 import scriptCsp from './src/integrations/script-csp.mjs';
+import { lastmodByPath } from './src/integrations/sitemap-lastmod.mjs';
+
+const contentLastmod = lastmodByPath(new URL('./src/content/', import.meta.url));
 
 // TL;DR in Tech back issues (imported from Substack, marked by substackUrl) are
 // noindex on the page, and recaps of a blog post (recapOf) point their canonical at
@@ -115,6 +118,10 @@ export default defineConfig({
 			filter: (page) => {
 				const { pathname } = new URL(page);
 				return pathname !== '/resume-pdf/' && !unindexedIssuePaths.has(pathname);
+			},
+			serialize: (item) => {
+				const lastmod = contentLastmod.get(new URL(item.url).pathname);
+				return lastmod ? { ...item, lastmod } : item;
 			},
 		}),
 		// Last: hashes each page's inline scripts as they ship (meta CSP + Trusted Types)
