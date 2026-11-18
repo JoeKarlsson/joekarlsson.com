@@ -1,7 +1,1 @@
-{
-	"GHSA-fc5q-39xc-vjpf": {
-		"package": "picomatch",
-		"added": "2026-11-17",
-		"why": "A ReDoS on crafted glob patterns, with no patched version yet. picomatch only runs while the site builds (Astro and Vite matching our own globs); the live site is static files behind Caddy, so nothing a visitor sends reaches it. Joe approved the exception 2026-11-17."
-	}
-}
+{}
