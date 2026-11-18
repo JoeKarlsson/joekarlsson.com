@@ -8,15 +8,16 @@ description: Create blog posts for joekarlsson.com using a multi-agent pipeline:
 
 Create a blog post about: $ARGUMENTS
 
+This is the personal site's workflow on top of the blog core (`.claude/blog-core.md`, which lists the core files). Sections marked **Core craft** are shared with adapters; everything else here is personal site only.
+
 ## Ground rules from Joe's feedback
 
 These come from posts Joe sent back. They override defaults elsewhere in this skill.
 
 - **Build on Joe's lived experience, not the notes.** Working notes, benchmarks and session details are evidence, never the spine or the hook. Build the outline on the goals he states and why he works the way he does. Data he asks for goes in one section, not the title. If he says "don't get in the weeds", cap numbers at one or two lines per section. Ask what matters to him instead of inferring priority from the volume of notes, and don't pad with tools he doesn't use. Why: he rejected a dev-setup outline that led with a git-status benchmark, and a Proxmox GPU refresh that turned into a benchmark post.
 - **"In the style of <post>" means mirror that post's section structure literally**, even where it conflicts with this skill's header rules. His explicit request wins.
-- **Recap, don't dump.** Each section lands one idea with one piece of evidence and at most one short code sample. Recap what Joe ran and tell readers to run their own version; don't re-run his benchmarks. Cut alias tables, setup walkthroughs, every config field, caveat stacks and full data tables. A first-hand recap counts as original data. Why: he called a draft with an alias table and setup walkthrough "AI slop, garbage, too much detail."
+- **Recap, don't dump; lead with the demo.** Both are in `.claude/blog-core/demo-and-how-to-posts.md`, with the rules for tutorials and posts built on a demo.
 - **Experiment posts open with Joe's question and how he tested it**, findings next, methodology and full results at the bottom. Never frame a tool as failing at something it never promised, and give null results neutral labels ("Metadata alone", not "Frontmatter did nothing"). Why: a title saying Open Knowledge Format "didn't shrink my CLAUDE.md" was "a false promise" - OKF never claimed to shrink anything.
-- **Lead with the demo.** A playable embed or try-it tool goes right after the intro, before the backstory. Placing it after "How it works" buried the lead on the DOOM post.
 - **Employer stories stay vague on purpose.** Generic labels ("a docs team at a database company") are fine. Never ask for company, product, team or people names, don't flag the vagueness as an EEAT must-fix, and don't rewrite it as a composite. Get first-hand texture from process details instead. Why: they're real current and past employers, and naming them burns bridges.
 - **Run every phase** for a new post, or a post or project page whose copy changes a lot, even when Joe is iterating fast. Don't draft first and review afterwards. Vale runs as `npm run test:voice` (part of `npm test`). Why: two launch posts skipped the pipeline and shipped headings Joe called "AI-generated slop."
 - **Fix AI tells by cutting or saying it plainly**, never by adding jokes, fragments or feelings.
@@ -115,7 +116,7 @@ Present the topic to the user with:
 - **Target audience** - who cares about this?
 - **Category** - one or two of: Homelab, Web Dev, Career, AI, Cloud, Life (`BLOG_CATEGORIES` in `src/utils/categories.ts`; anything else fails the build)
 - **Written for** - a post written for an employer (a crosspost) sets `writtenFor` to one of `EMPLOYERS` in the same file; personal posts leave it out
-- **Estimated length** - short (800-1200 words), medium (1500-2500), long (3000+)
+- **Word budget** - short (800-1200 words), medium (1500-2500), long (3000+); it carries into the outline's angle block (`.claude/blog-core/length.md`)
 
 Write the proposal to `<scratchpad>/{slug}-proposal.md`, open it with `code`, then use AskUserQuestion to get approval before proceeding.
 
@@ -167,6 +168,8 @@ Create a detailed outline with:
 - Which claims need source backing from research
 - A TL;DR draft (for posts over ~1500 words)
 - Where to link to other joekarlsson.com posts (see Phase 2b)
+- At the top, the angle block and two or three written hook options, and a word budget per section (`.claude/blog-core/angle-and-outline.md`)
+- Numbered visual marks for every spot that gets a visual (`.claude/blog-core/visuals.md`, **Visuals travel with the text**)
 
 ### 2a. Voice check the outline
 
@@ -174,6 +177,7 @@ Create a detailed outline with:
 - Does the flow feel like a story or a Wikipedia article? It should feel like a story.
 - Is there a strong opening hook?
 - Do sections vary in length? (NOT every section should be 3 paragraphs)
+- Does it pass the outline checks in `.claude/blog-core/angle-and-outline.md` (headers only, story not encyclopedia, demo as spine not scope)?
 
 ### 2b. Internal linking plan
 
@@ -185,7 +189,7 @@ Use Part A findings to mark link placements in the outline. Save Part B for afte
 
 Before presenting the outline for approval, launch **Agent: `blog-positioning-reviewer`** in **OUTLINE mode** with the research brief and proposed outline. Incorporate its findings - making sure headers say what's in the section (not turning every header into a claim), adding the named frame if one is needed, and adjusting the intro so it leads with the conclusion.
 
-Write the full outline (with positioning improvements applied) to `<scratchpad>/{slug}-outline.md`, open it with `code`, then use AskUserQuestion:
+Write the full outline (with positioning improvements applied) to `<scratchpad>/{slug}-outline.md`, open it with `code`, build and `open` the visual plan page beside it (`.claude/blog-core/visuals.md`), then use AskUserQuestion:
 
 - Approve outline
 - Request changes (specify what)
@@ -201,7 +205,7 @@ Once the outline is approved, run the project `explainers` skill (Skill tool) on
 
 ## Phase 3: Draft
 
-Write the complete blog post following these rules strictly:
+Write the complete blog post following these rules strictly. Tutorials, how-tos and posts built on a demo also follow `.claude/blog-core/demo-and-how-to-posts.md`. When the draft is written, run the cut pass in `.claude/blog-core/length.md`.
 
 ### Voice Rules (from STYLE_GUIDE.md)
 
@@ -261,6 +265,8 @@ Read each section aloud and ask: "Would I keep reading this if it showed up on m
 
 ### Analytical structure (Thompson / McKenzie)
 
+> Core craft: adapters of the blog core (`.claude/blog-core.md`) read this section.
+
 These are the moves that separate analysis from topic coverage. They apply to written posts the same way they apply to video.
 
 **Lead with the conclusion, then build the argument.** Open with the insight the post earns, then explain why. Front-load the analytical frame: "There are two distinct trust problems in enterprise MCP deployments. The roadmap solves one of them." The reader knows the thesis before they invest in the detail.
@@ -282,6 +288,8 @@ These are the moves that separate analysis from topic coverage. They apply to wr
 ---
 
 ### Anti-AI structural patterns (CRITICAL)
+
+> Core craft: adapters of the blog core (`.claude/blog-core.md`) read this section.
 
 AI writing has tells beyond word choice. Older models wrote uniform 15-25 word sentences in uniform paragraphs. Current models overcorrect: fragment stacks, a punchline closing every paragraph, staged reveals, performed honesty. That's what got the homelab post called "whole goddamn thing written by a model" on HN in October 2026, and several of the old rules in this section caused it. Vary length because the thoughts vary, not to create a beat. The `humanizer` skill (`~/.claude/skills/humanizer/SKILL.md` (source: `~/claude-skills/.claude/skills/humanizer`)), patterns 41-52, is the reference, and STYLE_GUIDE.md **Moves that read as AI even in my voice** has the short list.
 
@@ -403,6 +411,8 @@ Blog posts need visual breaks. Walls of text kill engagement. Include:
 
 **Memes:** see the Meme generation step below. Never pick templates from memory.
 
+**Charts:** a paragraph whose point rests on numbers the reader compares gets a chart by `.claude/blog-core/visuals.md` (**Charts**), drawn with the `diagrams` skill, and the post gets `data-claims-reviewer` before the draft gate.
+
 **Diagrams:** Never draw a diagram as ASCII in a code block. Architecture maps, wiring, network topologies, before/after comparisons and flow charts all go through the project `diagrams` skill (Skill tool), which draws them as cut-paper SVGs with real logos, a phone layout and the site's boil on arrows and paper edges. Preview the figure with Joe before it goes in the post. Why: the recording-setup-tour post shipped with an ASCII wiring diagram, and Joe asked for it to be replaced with an animated, boiling one (2026-11-09).
 
 **Animated explainers:** the collage scenes approved in Phase 2c and any animated figures sit under the paragraph whose claim they show, as inline animated SVGs (`![alt](/images/blog/{slug}/<scene>.svg)`), never an MP4: Joe doesn't want a play bar on a post's animation (2026-11-10). Their finished frame is what reduced motion and the pause button get.
@@ -503,9 +513,9 @@ With `panels`, pass fewer captions than slots to leave the last ones empty (a ba
 
 Write the draft to `src/content/blog/{slug}.md` so subsequent phases can grep and edit the file directly.
 
-**Run the full `humanizer` skill (Skill tool) on the draft before Joe sees it, and again after every round of edits, before each time you show or ship it.** That means the whole process: fact ledger, Joe's voice samples, rewrite, rubric loop with the quotable-line cap, fact diff. The `ai_tells.py` hits from the post-edit hook, Vale and `blog-voice-reviewer` don't count as the humanizer. In the summary, say which humanizer steps ran. On later rounds it should fix only lines with a confirmed tell and copy the rest exactly, so a re-run never churns paragraphs Joe already approved. Why it runs every time: on the recording-setup-tour post (2026-11-09) only the scanner and the voice reviewer ran, and the draft reached Joe with a joke and an opinion he never said. He asked "Wait, why did that not run? That needs to happen every time for these blog posts."
+**Run the full `humanizer` skill (Skill tool) on the draft before Joe sees it, and again after every round of edits, before each time you show or ship it.** That means the whole process: fact ledger, Joe's voice samples, rewrite, rubric loop with the quotable-line cap, fact diff. What it may change (rhythm and paragraph structure, not only words) and what stays locked is in `.claude/blog-core/humanizer-pass.md`. The `ai_tells.py` hits from the post-edit hook, Vale and `blog-voice-reviewer` don't count as the humanizer. In the summary, say which humanizer steps ran. On later rounds it should fix only lines with a confirmed tell and copy the rest exactly, so a re-run never churns paragraphs Joe already approved. Why it runs every time: on the recording-setup-tour post (2026-11-09) only the scanner and the voice reviewer ran, and the draft reached Joe with a joke and an opinion he never said. He asked "Wait, why did that not run? That needs to happen every time for these blog posts."
 
-Open the draft in VS Code for Joe to review (`code src/content/blog/{slug}.md`) - do this every time, without asking, and again after any round of changes he requests. Don't paste the full draft inline; give a short summary (word count, sections, memes, margin notes, the supporting materials he picked, anything he needs to confirm) and use AskUserQuestion:
+Open the draft in VS Code for Joe to review (`code src/content/blog/{slug}.md`) - do this every time, without asking, and again after any round of changes he requests. Don't paste the full draft inline; give a short summary (word count against the budget, sections, memes, margin notes, the supporting materials he picked, anything he needs to confirm) and use AskUserQuestion:
 
 - Approve draft
 - Request changes
@@ -536,6 +546,8 @@ Re-read the category-specific posts from Phase 0b. Compare the draft's tone, rhy
 
 ### 4c. Sentence craft
 
+> Core craft: adapters of the blog core (`.claude/blog-core.md`) read this section.
+
 Apply after structure and voice are right. This is where writing earns its keep or doesn't.
 
 - **Strip every sentence.** If a word can be cut without losing meaning, cut it.
@@ -546,6 +558,8 @@ Apply after structure and voice are right. This is where writing earns its keep 
 - **End when you're done.** Don't add a closing paragraph that restates the opening. Stop when the point is made.
 
 ### 4d. Specificity Check
+
+> Core craft: adapters of the blog core (`.claude/blog-core.md`) read this section.
 
 Scan the draft for vague claims. Every one of these should be replaced with a specific detail:
 
@@ -581,7 +595,7 @@ For every **BLOCK** item in the report:
 - Update broken links to the corrected URL, or remove if no replacement exists
 - Soften or flag unverifiable claims for user review
 
-For claims the agent flags as missing an inline source: add the source link at the point of assertion.
+For claims the agent flags as missing an inline source: add the source link at the point of assertion (`.claude/blog-core/sourcing.md`).
 
 ### 5c. Present Fact Check Report
 
@@ -610,7 +624,7 @@ Launch these three agents simultaneously with the final draft file path:
 For each **must-fix** item across all three reports:
 - Apply immediately (EEAT: add original beat or caveat; SEO: fix meta or keyword; Positioning: sharpen intro or hedged claim)
 
-For **should-fix** items: apply where they strengthen the post.
+For **should-fix** items: apply where they strengthen the post. Then run the cut pass again (`.claude/blog-core/length.md`): review fixes add words.
 
 ### 6c. Prohibited Language Scan
 

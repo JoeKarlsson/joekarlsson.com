@@ -7,6 +7,8 @@ model: sonnet
 
 # Blog internal link scout
 
+Personal site only (`.claude/blog-core.md`): adapters bring their own link scouts.
+
 You build the complete internal-linking plan for a joekarlsson.com post: which existing posts
 the new post should link to (outbound), and which existing posts should be edited to link back
 to the new post (inbound). Return both. You do **not** edit any files.

@@ -2,9 +2,13 @@
 
 Reference for writing content on joekarlsson.com. This captures Joe's personal voice - more casual and opinionated than corporate writing, but still technically precise.
 
+Blog core file (`.claude/blog-core.md`): another blog setup that adapts this guide skips the sections marked **Personal site only** and keeps the rest.
+
 **Adapted from:** CloudQuery's `marketing-skills/BRAND_VOICE.md` and `WRITING_STYLE.md`, which capture a sanitized version of this voice. This guide is the unfiltered version for personal content.
 
 ## Voice
+
+> Personal site only: adapters of the blog core skip this section.
 
 Joe writes like he's explaining something to a friend who's also an engineer. The tone is:
 
@@ -32,6 +36,8 @@ Joe writes like he's explaining something to a friend who's also an engineer. Th
 > "Organizations face unprecedented challenges..."
 
 ## Energy and Fun (CRITICAL)
+
+> Personal site only, except **Moves that read as AI even in my voice** below, which is core.
 
 The writing MUST be enjoyable to read. Technical accuracy with zero personality is a failure. Every section should have energy - humor, frustration, surprise, specific storytelling details that make you feel like you're in the room.
 
@@ -123,6 +129,8 @@ H3s have their own rules:
 
 ### Callouts
 
+> Personal site only: adapters of the blog core skip this section.
+
 Use a `<div class="callout">` for inline asides that should visually separate from the prose - related posts, key definitions, or context that enriches the argument without being the argument. Keep them short (1-2 sentences). Don't use them for the main point of a section.
 
 ```html
@@ -132,6 +140,8 @@ Use a `<div class="callout">` for inline asides that should visually separate fr
 The blank lines inside the div are required for markdown to parse the content.
 
 ### Emphasis for scannability
+
+> Personal site only: adapters of the blog core skip this section.
 
 When a sentence is the payoff of a build-up - the conclusion after evidence, the lesson after the parable, the claim the whole section earns - italicize it so it reads as a pull quote for someone scanning.
 
@@ -151,6 +161,8 @@ Use this sparingly - once or twice per post, at the moments that most deserve to
 - Lists don't all need to be the same length
 
 ## Prohibited Language
+
+> Core list. An adapter's own voice authority (for CData posts, `mktg-brand-voice`) wins where it differs.
 
 ### AI Detection Red Flags (Never Use)
 
@@ -182,6 +194,8 @@ very, really, quite, extremely, incredibly, absolutely (except when used for emp
 - "Future-proof," "cutting-edge," "next-generation"
 
 ## Content Types
+
+> Personal site only: adapters of the blog core skip this section.
 
 ### Personal/Opinion Posts (Smart Home, Homelab, Travel)
 
@@ -288,6 +302,8 @@ What I don't copy from him, because my rules win:
 
 ## What Makes Joe's Writing Distinct
 
+> Personal site only: adapters of the blog core skip this section.
+
 1. **Real frustration about real problems** - not manufactured outrage, genuine annoyance at bad UX
 2. **The guest test** - how tech decisions affect real people who don't have the app or know the setup (I live alone, so write about guests and past experience, not a current partner)
 3. **Specific numbers and specs** - CPU models, RAM amounts, response times, success rates
@@ -297,6 +313,8 @@ What I don't copy from him, because my rules win:
 7. **Strong opinions held loosely** - will state a take confidently but also show when he changed his mind
 
 ## Quality Checklist
+
+> Personal site only, except the stranger reread at the end, which is core.
 
 Before publishing, ask:
 
