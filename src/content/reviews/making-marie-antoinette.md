@@ -32,8 +32,8 @@ marginNotes:
     url: https://en.wikipedia.org/wiki/Eleanor_Coppola
   - type: see
     at: I just finished reading The Artist's Way
-    text: 'What the book changed for me: Ship the Ugly Pot.'
-    post: ship-the-ugly-pot
+    text: 'My review of the book: Shadow artists.'
+    post: the-artists-way-review
 ---
 
 Yes, Sofia Coppola is a nepo baby. Have you met her family?

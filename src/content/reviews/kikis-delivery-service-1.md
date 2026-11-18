@@ -34,8 +34,8 @@ marginNotes:
     url: https://www.buzzfeednews.com/article/annehelenpetersen/millennials-burnout-generation-debt-work
   - type: see
     at: halfway through Julia Cameron's The Artist's Way
-    text: 'What the book has done to how I work: Ship the Ugly Pot.'
-    post: ship-the-ugly-pot
+    text: 'My review of the book: Shadow artists.'
+    post: the-artists-way-review
   - type: aside
     at: Producer Toshio Suzuki has said
     text: 'Oona McGee, ''Studio Ghibli reveals real reason why Jiji stops talking at the end of Kiki''s Delivery Service'', SoraNews24, May 3, 2022. Quote: "So when she’s conversing with Jiji, she’s really just talking to herself."'

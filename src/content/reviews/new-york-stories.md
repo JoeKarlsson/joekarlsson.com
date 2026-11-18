@@ -28,8 +28,8 @@ heroAlt: "An old woman's giant face looking down from the clouds over the Manhat
 marginNotes:
   - type: see
     at: The Artist's Way keeps telling me to dream bigger
-    text: 'What else the book has done to how I work: Ship the Ugly Pot.'
-    post: ship-the-ugly-pot
+    text: 'Where I landed on dreaming bigger: Shadow artists.'
+    post: the-artists-way-review
   - type: aside
     at: Scorsese has been married five times, Julia Cameron included
     text: Laraine Brennan, Julia Cameron (1976 to 1977), Isabella Rossellini, Barbara De Fina and Helen Morris, married since 1999.
