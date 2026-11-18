@@ -35,10 +35,10 @@ If this fails, check `.env` has the correct `PLAUSIBLE_API_KEY`, `PLAUSIBLE_BASE
 Joe's other sites (punc, bechdel, corners, the games and tools) share this Plausible. Their traffic doesn't matter, only that tracking works. Check them all first:
 
 ```bash
-npm run analytics:sites
+~/claude-skills/domains/proxmox/scripts/health-checks/run-all.sh --check=plausible --json
 ```
 
-For every site in Plausible it checks that the home page loads with the Plausible tag, that Plausible recorded a pageview in the last 14 days, and that a joekarlsson.com content site is linked to its Search Console property. Public infrastructure (it sends `X-Robots-Tag: noindex`) belongs in Plausible and Bing but not Search Console, so it skips that check. It reads the site list from Plausible's database, so it needs the home LAN. Put each `CHECK` line in the report's TRACKING section. A site added in the last 14 days with no pageview just needs one real visit: open it in a browser and rerun. Fixes for the rest are in "Search, analytics and indexing" in `~/.claude/knowledge/site-launch-checklist.md`.
+The homelab's Plausible check reads the site list from Plausible's database (so it needs the home LAN) and checks that every site's page loads with the Plausible tag, that each Search Console link still works, and that every joekarlsson.com content site is linked. Public infrastructure (it sends `X-Robots-Tag: noindex`) belongs in Plausible and Bing but not Search Console, so it skips that last check. Zero traffic is not a finding (Joe, 2026-11-17). Put each warning in the report's TRACKING section. Fixes are in "Search, analytics and indexing" in `~/.claude/knowledge/site-launch-checklist.md`.
 
 Search Console (personal Google account, `search.google.com/u/1/`) has the Domain property `sc-domain:joekarlsson.com` for all subdomains together, plus a URL-prefix property per site. Plausible's joekarlsson.com site pulls search terms from `https://www.joekarlsson.com`, since the apex redirects to www. Keep it on that property, not the Domain one, which would mix in every subdomain's searches.
 
@@ -403,8 +403,8 @@ Report generated: [date]
 
 TRACKING (all sites)
 --------------------
-[X] of [Y] sites tracking cleanly
-CHECK [site] - [problem]
+[Y] sites in Plausible, [N] warnings
+[site] - [warning]
 
 TRAFFIC OVERVIEW
 ----------------
