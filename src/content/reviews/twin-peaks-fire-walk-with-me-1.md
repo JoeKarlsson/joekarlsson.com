@@ -16,6 +16,7 @@ letterboxdAverage: 4.36
 slug: 'twin-peaks-fire-walk-with-me-1'
 description: 'The whimsy of the show is gone and all that remains is the horror and the dreams of the fallen.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/twin-peaks-fire-walk-with-me/1/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/twin-peaks-fire-walk-with-me-1992/'
 poster: '/images/reviews/twin-peaks-fire-walk-with-me-1/poster.webp'
 heroImage: '/images/reviews/twin-peaks-fire-walk-with-me-1/backdrop.webp'
 heroAlt: 'Sheryl Lee in a black dress seated in a red-curtained room beside a man in a dark suit and a white statue.'

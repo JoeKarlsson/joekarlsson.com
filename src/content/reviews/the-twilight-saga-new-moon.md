@@ -29,6 +29,7 @@ letterboxdAverage: 2.83
 slug: 'the-twilight-saga-new-moon'
 description: 'The one where everyone sad for no reason'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-twilight-saga-new-moon/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-twilight-saga-new-moon-2009/'
 poster: '/images/reviews/the-twilight-saga-new-moon/poster.webp'
 heroImage: '/images/reviews/the-twilight-saga-new-moon/backdrop.webp'
 heroAlt: 'Kristen Stewart and Robert Pattinson embrace in front of a group of pale young people in a forest.'

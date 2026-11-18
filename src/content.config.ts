@@ -132,6 +132,8 @@ const reviews = defineCollection({
 		slug: z.string(),
 		description: prose.optional().default(''),
 		letterboxdUrl: z.url(),
+		// The film's page on Bechdel.io when it's in that corpus (scripts/link-bechdel.mjs)
+		bechdelUrl: z.url().optional(),
 		poster: z.string().optional(),
 		heroImage: z.string().optional(),
 		heroAlt: z.string().optional(),

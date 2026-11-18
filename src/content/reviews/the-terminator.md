@@ -22,6 +22,7 @@ letterboxdAverage: 3.88
 slug: 'the-terminator'
 description: 'I think I saw Arnold’s hog'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-terminator/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-terminator-1984/'
 poster: '/images/reviews/the-terminator/poster.webp'
 heroImage: '/images/reviews/the-terminator/backdrop.webp'
 heroAlt: 'Arnold Schwarzenegger aiming a laser-sighted pistol in a crowded nightclub.'

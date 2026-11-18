@@ -15,6 +15,7 @@ letterboxdAverage: 3.6
 slug: 'the-rock'
 description: 'I swear I heard the Pirates of the Caribbean theme song in the middle of this movie'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-rock/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-rock-1996/'
 poster: '/images/reviews/the-rock/poster.webp'
 heroImage: '/images/reviews/the-rock/backdrop.webp'
 heroAlt: 'Ed Harris, Sean Connery and Nicolas Cage posed together, with Connery in front.'

@@ -28,6 +28,7 @@ letterboxdAverage: 3.73
 slug: 'the-hudsucker-proxy'
 description: '“What are you, some kind of imbecile?”'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-hudsucker-proxy/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-hudsucker-proxy-1994/'
 poster: '/images/reviews/the-hudsucker-proxy/poster.webp'
 heroImage: '/images/reviews/the-hudsucker-proxy/backdrop.webp'
 heroAlt: 'A man standing at the far end of an enormously long boardroom table lined with elderly businessmen.'

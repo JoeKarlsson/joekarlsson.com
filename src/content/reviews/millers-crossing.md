@@ -22,6 +22,7 @@ letterboxdAverage: 4
 slug: 'millers-crossing'
 description: 'Not my favorite coen bros movie, but a great lil noir.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/millers-crossing/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/miller-s-crossing-1990/'
 poster: '/images/reviews/millers-crossing/poster.webp'
 heroImage: '/images/reviews/millers-crossing/backdrop.webp'
 heroAlt: "A still from Miller's Crossing (1990)"

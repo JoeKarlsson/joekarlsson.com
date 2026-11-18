@@ -14,6 +14,7 @@ letterboxdAverage: 2.17
 slug: 'jason-x'
 description: "Guys, this is a really good movie. I don't care what anyone says. Objectively it's two and a half stars. Spiritually it's a five."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jason-x/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/jason-x-2002/'
 poster: '/images/reviews/jason-x/poster.webp'
 heroImage: '/images/reviews/jason-x/backdrop.webp'
 heroAlt: 'Jason in his hockey mask raising a machete over a crouching man in a metal spaceship corridor.'

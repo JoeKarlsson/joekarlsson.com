@@ -14,6 +14,7 @@ letterboxdAverage: 4.22
 slug: 'casino'
 description: 'A hangout movie with billionaire casino gangsters. Three hours flew by.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/casino/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/casino-1995/'
 poster: '/images/reviews/casino/poster.webp'
 heroImage: '/images/reviews/casino/backdrop.webp'
 heroAlt: 'Robert De Niro in a dark suit and tie standing under the bright marquee lights of a casino.'

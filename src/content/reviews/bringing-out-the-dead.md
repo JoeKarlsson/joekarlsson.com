@@ -28,6 +28,7 @@ letterboxdAverage: 3.73
 slug: 'bringing-out-the-dead'
 description: "Scorsese made two hours about Catholic guilt, and I'm the one who walked out feeling like I'd done penance."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bringing-out-the-dead/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/bringing-out-the-dead-1999/'
 poster: '/images/reviews/bringing-out-the-dead/poster.webp'
 heroImage: '/images/reviews/bringing-out-the-dead/backdrop.webp'
 heroAlt: 'Nicolas Cage looking down, his face washed in teal and orange light.'

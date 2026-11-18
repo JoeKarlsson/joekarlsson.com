@@ -23,6 +23,7 @@ letterboxdAverage: 3.62
 slug: 'speed-racer'
 description: 'I’ve been Speed-pilled 🏎️💊'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/speed-racer/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/speed-racer-2008/'
 poster: '/images/reviews/speed-racer/poster.webp'
 heroImage: '/images/reviews/speed-racer/backdrop.webp'
 heroAlt: 'A white race car with a red stripe speeding through a hall of glowing orange pillars, chased by a pack of neon-colored racers.'

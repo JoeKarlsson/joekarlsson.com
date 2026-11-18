@@ -24,6 +24,7 @@ letterboxdAverage: 3.62
 slug: 'speed-racer-1'
 description: 'A movie about driving so good that you destroy capitalism.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/speed-racer/1/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/speed-racer-2008/'
 poster: '/images/reviews/speed-racer-1/poster.webp'
 heroImage: '/images/reviews/speed-racer-1/backdrop.webp'
 heroAlt: 'A white race car with a red stripe speeding through a glowing colonnade of orange pillars, neon-colored racers close behind.'

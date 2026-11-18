@@ -29,6 +29,7 @@ letterboxdAverage: 3.96
 slug: 'o-brother-where-art-thou'
 description: 'This movies soundtrack permanently altered my brain chemistry when I was 10 years old'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/o-brother-where-art-thou/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/o-brother-where-art-thou-2001/'
 poster: '/images/reviews/o-brother-where-art-thou/poster.webp'
 heroImage: '/images/reviews/o-brother-where-art-thou/backdrop.webp'
 heroAlt: 'George Clooney, John Turturro and Tim Blake Nelson in striped prison uniforms peering out through green leaves.'

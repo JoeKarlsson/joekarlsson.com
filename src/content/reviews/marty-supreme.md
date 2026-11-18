@@ -22,6 +22,7 @@ letterboxdAverage: 4.01
 slug: 'marty-supreme'
 description: "The theater was packed. I can't wait to see what normies think of this."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/marty-supreme/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/marty-supreme-2025/'
 poster: '/images/reviews/marty-supreme/poster.webp'
 heroImage: '/images/reviews/marty-supreme/backdrop.webp'
 heroAlt: 'Timothée Chalamet with a thin mustache and round glasses in a navy jacket, standing outside an old storefront.'

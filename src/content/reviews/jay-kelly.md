@@ -15,6 +15,7 @@ letterboxdAverage: 3.32
 slug: 'jay-kelly'
 description: 'Beautiful to look at. Existential as hell. Still a movie about movies.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jay-kelly/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/jay-kelly-2025/'
 poster: '/images/reviews/jay-kelly/poster.webp'
 heroImage: '/images/reviews/jay-kelly/backdrop.webp'
 heroAlt: 'George Clooney in a cream jacket smiling as he walks past a giant black-and-white portrait of a man.'

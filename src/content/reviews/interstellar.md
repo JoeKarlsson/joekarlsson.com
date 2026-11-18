@@ -22,6 +22,7 @@ letterboxdAverage: 4.46
 slug: 'interstellar'
 description: 'A beautiful audacious film. This worked so much better for me the second time re-watching this film. Also, Matt Damon fulfilled his destiny of being the most…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/interstellar/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/interstellar-2014/'
 poster: '/images/reviews/interstellar/poster.webp'
 heroImage: '/images/reviews/interstellar/backdrop.webp'
 heroAlt: 'Matthew McConaughey in a spacesuit helmet, looking up inside a dark spacecraft.'

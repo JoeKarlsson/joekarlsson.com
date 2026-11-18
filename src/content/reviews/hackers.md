@@ -22,6 +22,7 @@ letterboxdAverage: 3.32
 slug: 'hackers'
 description: 'I will defend this movie to the bitter end'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hackers/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/hackers-1995/'
 poster: '/images/reviews/hackers/poster.webp'
 heroImage: '/images/reviews/hackers/backdrop.webp'
 heroAlt: 'Angelina Jolie with a short pixie haircut, speaking in a dim purple-lit room.'

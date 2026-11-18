@@ -22,6 +22,7 @@ letterboxdAverage: 3.86
 slug: 'the-zone-of-interest'
 description: 'The body remembers'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-zone-of-interest/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-zone-of-interest-2024/'
 poster: '/images/reviews/the-zone-of-interest/poster.webp'
 heroImage: '/images/reviews/the-zone-of-interest/backdrop.webp'
 heroAlt: 'A family relaxing on the grassy bank of a river with wooded hills behind.'

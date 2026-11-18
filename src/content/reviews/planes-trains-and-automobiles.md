@@ -14,6 +14,7 @@ letterboxdAverage: 3.78
 slug: 'planes-trains-and-automobiles'
 description: 'A screwball comedy with heart. John Candy is a treasure in this - warm, funny, and quietly devastating. Steve Martin plays exasperation perfectly, but Candy…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/planes-trains-and-automobiles/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/planes-trains-and-automobiles-1987/'
 poster: '/images/reviews/planes-trains-and-automobiles/poster.webp'
 heroImage: '/images/reviews/planes-trains-and-automobiles/backdrop.webp'
 heroAlt: 'Painted art of Steve Martin and John Candy sitting on a trunk, with a jet, a car and a train behind them.'

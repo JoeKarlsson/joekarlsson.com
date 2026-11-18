@@ -15,6 +15,7 @@ letterboxdAverage: 4.31
 slug: 'psycho'
 description: 'Everything before the ending is a classic, but that ending doesn’t hold up too great'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/psycho/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/psycho-1960/'
 poster: '/images/reviews/psycho/poster.webp'
 heroImage: '/images/reviews/psycho/backdrop.webp'
 heroAlt: 'Anthony Perkins with his hand over his mouth in a black-and-white room, a painting of a bird on the wall behind him.'

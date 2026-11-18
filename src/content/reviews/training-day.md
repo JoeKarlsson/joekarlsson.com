@@ -29,6 +29,7 @@ letterboxdAverage: 4.06
 slug: 'training-day'
 description: 'I hate to say it, but ACAB includes Ethan Hawke. This movie was well acted and the performances are wonderful, but ultimately it feels like copaganda. Like…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/training-day/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/training-day-2001/'
 poster: '/images/reviews/training-day/poster.webp'
 heroImage: '/images/reviews/training-day/backdrop.webp'
 heroAlt: 'Ethan Hawke and Denzel Washington, faces side by side in warm sepia tones.'

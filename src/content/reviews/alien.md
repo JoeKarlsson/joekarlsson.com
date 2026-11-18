@@ -23,6 +23,7 @@ letterboxdAverage: 4.24
 slug: 'alien'
 description: 'Best anti capitalist sci-fi film.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/alien/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/alien-1979/'
 poster: '/images/reviews/alien/poster.webp'
 heroImage: '/images/reviews/alien/backdrop.webp'
 heroAlt: 'Sigourney Weaver in a blue flight jacket with a mission patch, leaning forward in a seat inside a spaceship cockpit.'

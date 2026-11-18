@@ -22,6 +22,7 @@ letterboxdAverage: 4.02
 slug: 'inside-llewyn-davis'
 description: 'Inside Llewyn Davis captures something true about loser men who mistake their self-sabotage for artistic integrity.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/inside-llewyn-davis/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/inside-llewyn-davis-2014/'
 poster: '/images/reviews/inside-llewyn-davis/poster.webp'
 heroImage: '/images/reviews/inside-llewyn-davis/backdrop.webp'
 heroAlt: 'Oscar Isaac playing an acoustic guitar into a vintage microphone on a dark stage.'

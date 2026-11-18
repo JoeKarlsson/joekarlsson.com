@@ -23,6 +23,7 @@ letterboxdAverage: 3.67
 slug: 'you-were-never-really-here'
 description: 'Watching this after the Epstein files hit different.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/you-were-never-really-here/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/you-were-never-really-here-2018/'
 poster: '/images/reviews/you-were-never-really-here/poster.webp'
 heroImage: '/images/reviews/you-were-never-really-here/backdrop.webp'
 heroAlt: 'Joaquin Phoenix with long hair and a beard, in profile beside a doorway.'

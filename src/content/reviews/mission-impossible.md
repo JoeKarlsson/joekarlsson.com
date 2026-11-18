@@ -14,6 +14,7 @@ letterboxdAverage: 3.64
 slug: 'mission-impossible'
 description: 'I respect the craft, but goddamnit I don’t understand the plot of this movie at all'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mission-impossible/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/mission-impossible-1996/'
 poster: '/images/reviews/mission-impossible/poster.webp'
 heroImage: '/images/reviews/mission-impossible/backdrop.webp'
 heroAlt: 'Tom Cruise suspended face down on wires inches above a glowing vault floor, in cold blue-green light.'

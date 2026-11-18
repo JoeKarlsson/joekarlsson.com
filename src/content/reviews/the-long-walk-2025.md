@@ -15,6 +15,7 @@ letterboxdAverage: 3.47
 slug: 'the-long-walk-2025'
 description: 'This has my second favorite sleepwalking scene right behind Stepbrothers.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-long-walk-2025/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-long-walk-2025/'
 poster: '/images/reviews/the-long-walk-2025/poster.webp'
 heroImage: '/images/reviews/the-long-walk-2025/backdrop.webp'
 heroAlt: 'A line of young men walking down a wet rural highway, followed by an army truck and an armored vehicle.'

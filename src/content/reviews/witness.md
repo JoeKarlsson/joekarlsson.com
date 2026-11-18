@@ -22,6 +22,7 @@ letterboxdAverage: 3.7
 slug: 'witness'
 description: 'I felt so sad for Kelly McGillis when she handed Harrison Ford a tall glass of homemade lemonade, and he chugged it all at once without even enjoying it. He…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/witness/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/witness-1985/'
 poster: '/images/reviews/witness/poster.webp'
 heroImage: '/images/reviews/witness/backdrop.webp'
 heroAlt: 'A boy in a black hat and black coat standing in a train station.'

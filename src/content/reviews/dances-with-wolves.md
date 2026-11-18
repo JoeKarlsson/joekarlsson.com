@@ -22,6 +22,7 @@ letterboxdAverage: 3.94
 slug: 'dances-with-wolves'
 description: 'Kevin Costner’s empty-headed monotone reading of the frontier somehow works for me, and I’m as shocked as anyone.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dances-with-wolves/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/dances-with-wolves-1990/'
 poster: '/images/reviews/dances-with-wolves/poster.webp'
 heroImage: '/images/reviews/dances-with-wolves/backdrop.webp'
 heroAlt: 'Kevin Costner in a cavalry uniform, holding an American flag on a pole.'

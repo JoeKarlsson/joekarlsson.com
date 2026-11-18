@@ -22,6 +22,7 @@ letterboxdAverage: 3.59
 slug: 'from-russia-with-love'
 description: 'And now I understand where the claw from Inspector gadget came from'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/from-russia-with-love/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/from-russia-with-love-1964/'
 poster: '/images/reviews/from-russia-with-love/poster.webp'
 heroImage: '/images/reviews/from-russia-with-love/backdrop.webp'
 heroAlt: 'Sean Connery in a dark suit raising a radio antenna beside Daniela Bianchi in a green coat on a canal boat.'

@@ -22,6 +22,7 @@ letterboxdAverage: 3.38
 slug: 'bowfinger'
 description: 'Chubby Rain looks kinda good though 👀'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bowfinger/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/bowfinger-1999/'
 poster: '/images/reviews/bowfinger/poster.webp'
 heroImage: '/images/reviews/bowfinger/backdrop.webp'
 heroAlt: 'Eddie Murphy and Steve Martin facing each other with their hands raised in a cluttered office.'

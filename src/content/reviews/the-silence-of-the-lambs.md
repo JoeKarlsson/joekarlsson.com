@@ -15,6 +15,7 @@ letterboxdAverage: 4.34
 slug: 'the-silence-of-the-lambs'
 description: 'Very good'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-silence-of-the-lambs/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-silence-of-the-lambs-1991/'
 poster: '/images/reviews/the-silence-of-the-lambs/poster.webp'
 heroImage: '/images/reviews/the-silence-of-the-lambs/backdrop.webp'
 heroAlt: 'A close-up of Anthony Hopkins looking upward with wide, pale eyes.'

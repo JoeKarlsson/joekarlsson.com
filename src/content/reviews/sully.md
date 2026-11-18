@@ -23,6 +23,7 @@ letterboxdAverage: 3.52
 slug: 'sully'
 description: 'I cried a lot'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sully/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/sully-2016/'
 poster: '/images/reviews/sully/poster.webp'
 heroImage: '/images/reviews/sully/backdrop.webp'
 heroAlt: 'Passengers standing on the wings of an airliner floating in a river, with a city skyline behind them.'

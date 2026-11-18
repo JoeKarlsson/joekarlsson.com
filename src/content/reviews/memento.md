@@ -22,6 +22,7 @@ letterboxdAverage: 4.18
 slug: 'memento'
 description: 'This was my favorite movie in college 😅'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/memento/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/memento-2001/'
 poster: '/images/reviews/memento/poster.webp'
 heroImage: '/images/reviews/memento/backdrop.webp'
 heroAlt: 'Guy Pearce in a tan suit sitting on the edge of a motel bed in a dark room lit by wall lamps.'

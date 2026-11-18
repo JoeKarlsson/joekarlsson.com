@@ -23,6 +23,7 @@ letterboxdAverage: 3.83
 slug: 'michael-clayton-2'
 description: "Anyone who's ever had a corporate job and a conscience, this one's for you."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/michael-clayton/2/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/michael-clayton-2007/'
 poster: '/images/reviews/michael-clayton-2/poster.webp'
 heroImage: '/images/reviews/michael-clayton-2/backdrop.webp'
 heroAlt: 'George Clooney in a suit, sitting with his chin on his hand in a police station office.'

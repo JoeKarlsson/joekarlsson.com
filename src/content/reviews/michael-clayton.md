@@ -22,6 +22,7 @@ letterboxdAverage: 3.83
 slug: 'michael-clayton'
 description: 'A film where the villain is just a mid-level executive doing horrible things for quarterly earnings. Finally, accurate representation.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/michael-clayton/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/michael-clayton-2007/'
 poster: '/images/reviews/michael-clayton/poster.webp'
 heroImage: '/images/reviews/michael-clayton/backdrop.webp'
 heroAlt: 'George Clooney in a dark suit slumped in a chair with his hand at his chin in a police station.'

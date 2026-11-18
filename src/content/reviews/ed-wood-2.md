@@ -23,6 +23,7 @@ letterboxdAverage: 4.03
 slug: 'ed-wood-2'
 description: 'Ed Wood is the Muppet movie. It’s a story about a misfit trying to put on a show together with his outcast pals.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/ed-wood/2/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/ed-wood-1994/'
 poster: '/images/reviews/ed-wood-2/poster.webp'
 heroImage: '/images/reviews/ed-wood-2/backdrop.webp'
 heroAlt: "Johnny Depp sitting in a director's chair beside a film camera on a black-and-white studio set."

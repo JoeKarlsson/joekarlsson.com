@@ -22,6 +22,7 @@ letterboxdAverage: 4.48
 slug: 'the-battle-of-algiers'
 description: "I've been scared to write this review, and frankly, I'm still processing a lot of my feelings around it."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-battle-of-algiers/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-battle-of-algiers-1967/'
 poster: '/images/reviews/the-battle-of-algiers/poster.webp'
 heroImage: '/images/reviews/the-battle-of-algiers/backdrop.webp'
 heroAlt: 'Colonel Mathieu in sunglasses and a beret, leading paratroopers through a cheering crowd in black and white.'

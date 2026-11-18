@@ -22,6 +22,7 @@ letterboxdAverage: 3.42
 slug: 'the-naked-gun-2-the-smell-of-fear'
 description: 'Not as funny as the first one. But dumb and fun as hell'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-naked-gun-2-the-smell-of-fear/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-naked-gun-21-2-the-smell-of-fear-1991/'
 poster: '/images/reviews/the-naked-gun-2-the-smell-of-fear/poster.webp'
 heroImage: '/images/reviews/the-naked-gun-2-the-smell-of-fear/backdrop.webp'
 heroAlt: "Leslie Nielsen at a banquet table holding a lobster, with a woman's legs kicking up behind him."

@@ -22,6 +22,7 @@ letterboxdAverage: 3.95
 slug: 'spider-man-2'
 description: 'Shadows. Practical stunts. A vulnerable hero. We used to have it all.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/spider-man-2/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/spider-man-2-2004/'
 poster: '/images/reviews/spider-man-2/poster.webp'
 heroImage: '/images/reviews/spider-man-2/backdrop.webp'
 heroAlt: 'Spider-Man crouching above the Manhattan skyline, lit gold by a low sun.'

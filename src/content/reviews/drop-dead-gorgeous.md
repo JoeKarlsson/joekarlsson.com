@@ -22,6 +22,7 @@ letterboxdAverage: 3.88
 slug: 'drop-dead-gorgeous'
 description: 'As a Minnesotan, it’s actually illegal not to love this movie.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/drop-dead-gorgeous/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/drop-dead-gorgeous-1999/'
 poster: '/images/reviews/drop-dead-gorgeous/poster.webp'
 heroImage: '/images/reviews/drop-dead-gorgeous/backdrop.webp'
 heroAlt: 'Kirsten Dunst and Denise Richards in pageant gowns wearing contestant numbers 8 and 6, beside an older woman holding a trophy on stage.'

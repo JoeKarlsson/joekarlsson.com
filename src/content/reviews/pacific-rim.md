@@ -22,6 +22,7 @@ letterboxdAverage: 3.53
 slug: 'pacific-rim'
 description: 'GDT does Neon Genesis Evangelion and it rocks.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/pacific-rim/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/pacific-rim-2013/'
 poster: '/images/reviews/pacific-rim/poster.webp'
 heroImage: '/images/reviews/pacific-rim/backdrop.webp'
 heroAlt: 'Poster art of Idris Elba, Charlie Hunnam and Rinko Kikuchi in armored suits standing before giant robots in a hangar.'

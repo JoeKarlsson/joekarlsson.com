@@ -15,6 +15,7 @@ letterboxdAverage: 3.83
 slug: 'frankenstein-2025'
 description: "The least subtle screenplay ever made, but the production design goes so hard I don't even care."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/frankenstein-2025/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/frankenstein-2025/'
 poster: '/images/reviews/frankenstein-2025/poster.webp'
 heroImage: '/images/reviews/frankenstein-2025/backdrop.webp'
 heroAlt: 'Oscar Isaac as Victor Frankenstein, bent over a body on a slab in a candlelit stone lab.'

@@ -14,6 +14,7 @@ letterboxdAverage: 3.67
 slug: 'the-town'
 description: 'Ben Affleck did the Joker bank heist in 2010 and we still let him be Batman.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-town/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-town-2010/'
 poster: '/images/reviews/the-town/poster.webp'
 heroImage: '/images/reviews/the-town/backdrop.webp'
 heroAlt: 'Armed police aim rifles at gunmen in nun masks by an armored truck under a bridge at night.'

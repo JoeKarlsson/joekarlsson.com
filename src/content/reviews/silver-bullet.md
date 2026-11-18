@@ -21,6 +21,7 @@ letterboxdAverage: 3.2
 slug: 'silver-bullet'
 description: "Gary Busey as a drunk uncle is the best casting I've ever heard of in my entire life."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/silver-bullet/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/silver-bullet-1985/'
 poster: '/images/reviews/silver-bullet/poster.webp'
 heroImage: '/images/reviews/silver-bullet/backdrop.webp'
 heroAlt: 'A boy on a souped-up motorized wheelchair in a park, with a man and a girl leaning in to talk to him.'

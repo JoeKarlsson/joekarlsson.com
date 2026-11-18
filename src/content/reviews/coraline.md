@@ -22,6 +22,7 @@ letterboxdAverage: 4.2
 slug: 'coraline'
 description: 'I wish I could see this in 3D for real'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/coraline/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/coraline-2009/'
 poster: '/images/reviews/coraline/poster.webp'
 heroImage: '/images/reviews/coraline/backdrop.webp'
 heroAlt: 'A stop-motion girl with blue hair, a green sweater and gloves standing in a garden of pink blossom trees.'

@@ -21,6 +21,7 @@ letterboxdAverage: 4.07
 slug: 'crouching-tiger-hidden-dragon'
 description: 'I want a Li Mu Bai action figure so bad.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/crouching-tiger-hidden-dragon/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/crouching-tiger-hidden-dragon-2001/'
 poster: '/images/reviews/crouching-tiger-hidden-dragon/poster.webp'
 heroImage: '/images/reviews/crouching-tiger-hidden-dragon/backdrop.webp'
 heroAlt: 'Zhang Ziyi in a white robe holding a sword straight out in a fighting stance.'

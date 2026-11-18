@@ -23,6 +23,7 @@ letterboxdAverage: 4.2
 slug: 'moonlight-2016'
 description: 'One of the most important films of my life.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/moonlight-2016/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/moonlight-2016/'
 poster: '/images/reviews/moonlight-2016/poster.webp'
 heroImage: '/images/reviews/moonlight-2016/backdrop.webp'
 heroAlt: 'A shirtless boy in silhouette walking along a beach at dusk, with palm trees against a blue sky.'

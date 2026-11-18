@@ -22,6 +22,7 @@ letterboxdAverage: 3.33
 slug: 'cocoon'
 description: 'Wilford Brimley Fucks!'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/cocoon/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/cocoon-1985/'
 poster: '/images/reviews/cocoon/poster.webp'
 heroImage: '/images/reviews/cocoon/backdrop.webp'
 heroAlt: 'A dark-haired woman with her arms raised and head tilted down, lit from behind by glowing white light.'

@@ -24,6 +24,7 @@ letterboxdAverage: 3.9
 slug: 'the-secret-life-of-walter-mitty-2013'
 description: 'I loved the message of this film, and I appreciated the surreal nature of the story. Still seemed hammy though'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-secret-life-of-walter-mitty-2013/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-secret-life-of-walter-mitty-2013/'
 poster: '/images/reviews/the-secret-life-of-walter-mitty-2013/poster.webp'
 heroImage: '/images/reviews/the-secret-life-of-walter-mitty-2013/backdrop.webp'
 heroAlt: 'Ben Stiller walking down a busy city sidewalk carrying a briefcase.'

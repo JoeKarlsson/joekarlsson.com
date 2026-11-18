@@ -34,6 +34,7 @@ letterboxdAverage: 3.79
 slug: 'better-man-2024'
 description: 'After watching this movie, I still don’t know who Robbie Williams is, but I had such a fun time watching him. Don’t care for his music, even after watching…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/better-man-2024/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/better-man-2025/'
 poster: '/images/reviews/better-man-2024/poster.webp'
 heroImage: '/images/reviews/better-man-2024/backdrop.webp'
 heroAlt: 'A CGI chimpanzee in a black suit and white tie shouting into a microphone and pointing, with a giant screen of his face behind.'

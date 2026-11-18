@@ -22,6 +22,7 @@ letterboxdAverage: 3.97
 slug: 'arsenic-and-old-lace'
 description: 'This is Cary Grant at peak hotness. Also, I had no idea. This is the most complicated plot of all time who knew. Still funny though.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/arsenic-and-old-lace/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/arsenic-and-old-lace-1944/'
 poster: '/images/reviews/arsenic-and-old-lace/poster.webp'
 heroImage: '/images/reviews/arsenic-and-old-lace/backdrop.webp'
 heroAlt: 'Cary Grant leaning on a tree in a leaf-covered graveyard while Priscilla Lane peeks around it, in black and white.'

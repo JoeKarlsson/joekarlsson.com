@@ -22,6 +22,7 @@ letterboxdAverage: 4.08
 slug: 'train-dreams'
 description: 'This movie made me feel seen'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/train-dreams/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/train-dreams-2025/'
 poster: '/images/reviews/train-dreams/poster.webp'
 heroImage: '/images/reviews/train-dreams/backdrop.webp'
 heroAlt: 'Felicity Jones smiling as Joel Edgerton rests his head on her lap outdoors at dusk.'

@@ -15,6 +15,7 @@ letterboxdAverage: 4.02
 slug: 'master-and-commander-the-far-side-of-the-world'
 description: 'The ultimate dad movie.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/master-and-commander-the-far-side-of-the-world/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/master-and-commander-the-far-side-of-the-world-2003/'
 poster: '/images/reviews/master-and-commander-the-far-side-of-the-world/poster.webp'
 heroImage: '/images/reviews/master-and-commander-the-far-side-of-the-world/backdrop.webp'
 heroAlt: 'A tall sailing warship firing its cannons as it plows through a storm of dark blue waves.'

@@ -22,6 +22,7 @@ letterboxdAverage: 3.92
 slug: 'conclave'
 description: 'Oh, this is a fun Poppy metaphor for the current state of US global politics. I don’t know if I’ll ever watch this movie again, but it was fun.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/conclave/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/conclave-2024/'
 poster: '/images/reviews/conclave/poster.webp'
 heroImage: '/images/reviews/conclave/backdrop.webp'
 heroAlt: "Ralph Fiennes in red cardinal's robes and skullcap, hands clasped, among other cardinals in a courtyard."

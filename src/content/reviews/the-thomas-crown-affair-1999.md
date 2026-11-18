@@ -22,6 +22,7 @@ letterboxdAverage: 3.41
 slug: 'the-thomas-crown-affair-1999'
 description: 'They dont make movies as horny as this anymore.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-thomas-crown-affair-1999/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-thomas-crown-affair-1999/'
 poster: '/images/reviews/the-thomas-crown-affair-1999/poster.webp'
 heroImage: '/images/reviews/the-thomas-crown-affair-1999/backdrop.webp'
 heroAlt: 'Pierce Brosnan in a bowler hat and red tie standing in a museum stairway.'

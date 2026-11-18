@@ -29,6 +29,7 @@ letterboxdAverage: 3.59
 slug: 'inherent-vice'
 description: 'I think I needed to be more stoned to understand this one.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/inherent-vice/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/inherent-vice-2015/'
 poster: '/images/reviews/inherent-vice/poster.webp'
 heroImage: '/images/reviews/inherent-vice/backdrop.webp'
 heroAlt: 'Joaquin Phoenix in a straw hat and sunglasses beside Katherine Waterston on a beach at sunset.'

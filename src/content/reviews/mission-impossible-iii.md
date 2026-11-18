@@ -22,6 +22,7 @@ letterboxdAverage: 3.42
 slug: 'mission-impossible-iii'
 description: 'RIP PSH'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mission-impossible-iii/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/mission-impossible-iii-2006/'
 poster: '/images/reviews/mission-impossible-iii/poster.webp'
 heroImage: '/images/reviews/mission-impossible-iii/backdrop.webp'
 heroAlt: 'Tom Cruise aiming a pistol while a dark-haired woman clings to him from behind.'

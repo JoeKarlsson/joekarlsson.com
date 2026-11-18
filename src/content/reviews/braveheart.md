@@ -22,6 +22,7 @@ letterboxdAverage: 3.94
 slug: 'braveheart'
 description: "I thought Braveheart was stupid and bad, packed with so many things I hate about films. It's overly violent and overly masculine in the worst possible ways…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/braveheart/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/braveheart-1995/'
 poster: '/images/reviews/braveheart/poster.webp'
 heroImage: '/images/reviews/braveheart/backdrop.webp'
 heroAlt: 'Mel Gibson in blue face paint shouting as he and other warriors brace long wooden spears.'

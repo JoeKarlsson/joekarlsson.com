@@ -22,6 +22,7 @@ letterboxdAverage: 3.91
 slug: 'jaws'
 description: 'This Steven guy is really good at making movies'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jaws/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/jaws-1975/'
 poster: '/images/reviews/jaws/poster.webp'
 heroImage: '/images/reviews/jaws/backdrop.webp'
 heroAlt: 'Robert Shaw, Roy Scheider and Richard Dreyfuss leaning over the side of a boat, staring at the sea.'

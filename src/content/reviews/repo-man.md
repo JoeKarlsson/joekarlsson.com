@@ -23,6 +23,7 @@ letterboxdAverage: 3.72
 slug: 'repo-man'
 description: 'A movie about aliens, repo men, and late-stage capitalism that somehow still feels more relevant in today than it did in 1984.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/repo-man/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/repo-man-1984/'
 poster: '/images/reviews/repo-man/poster.webp'
 heroImage: '/images/reviews/repo-man/backdrop.webp'
 heroAlt: 'Emilio Estevez in the passenger seat and Harry Dean Stanton at the wheel of a car, both staring ahead.'

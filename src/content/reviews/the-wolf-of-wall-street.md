@@ -23,6 +23,7 @@ letterboxdAverage: 4
 slug: 'the-wolf-of-wall-street'
 description: 'I think The Wolf of Wall Street is running for the second most misunderstood film by illiterate film bros, right behind American Psycho.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-wolf-of-wall-street/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-wolf-of-wall-street-2013/'
 poster: '/images/reviews/the-wolf-of-wall-street/poster.webp'
 heroImage: '/images/reviews/the-wolf-of-wall-street/backdrop.webp'
 heroAlt: 'Leonardo DiCaprio in a pinstripe suit pointing upward at a microphone during an office party.'

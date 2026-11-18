@@ -22,6 +22,7 @@ letterboxdAverage: 3.71
 slug: 'mean-streets'
 description: 'Johnny Boy struts into the bar in slow motion and cinema never fully recovers.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mean-streets/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/mean-streets-1973/'
 poster: '/images/reviews/mean-streets/poster.webp'
 heroImage: '/images/reviews/mean-streets/backdrop.webp'
 heroAlt: 'Robert De Niro in a leather jacket grinning beside a man smoking a cigarette in a dim, red-lit bar.'

@@ -23,6 +23,7 @@ letterboxdAverage: 3.49
 slug: 'anchorman-the-legend-of-ron-burgundy'
 description: 'A very woke movie that conservatives think is on their side. Fascinating.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/anchorman-the-legend-of-ron-burgundy/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/anchorman-the-legend-of-ron-burgundy-2004/'
 poster: '/images/reviews/anchorman-the-legend-of-ron-burgundy/poster.webp'
 heroImage: '/images/reviews/anchorman-the-legend-of-ron-burgundy/backdrop.webp'
 heroAlt: 'Will Ferrell with a mustache and a red blazer, flanked by David Koechner, Christina Applegate, Paul Rudd and Steve Carell.'

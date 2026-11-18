@@ -15,6 +15,7 @@ letterboxdAverage: 3.69
 slug: 'the-last-of-the-mohicans-1992'
 description: 'What a big beautiful boring movie. It’s clear Mann and Lewis really put their whole pussies in this movie but it is just a boring slog for me.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-last-of-the-mohicans-1992/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-last-of-the-mohicans-1992/'
 poster: '/images/reviews/the-last-of-the-mohicans-1992/poster.webp'
 heroImage: '/images/reviews/the-last-of-the-mohicans-1992/backdrop.webp'
 heroAlt: 'Daniel Day-Lewis with long dark hair walking among British redcoat soldiers carrying muskets through a forest.'

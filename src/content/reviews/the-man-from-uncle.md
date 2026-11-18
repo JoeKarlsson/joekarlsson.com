@@ -23,6 +23,7 @@ letterboxdAverage: 3.5
 slug: 'the-man-from-uncle'
 description: 'GAAY GAY GAY GAAYY GAYHHGAH GAAAY GGGGGGAAHBHHY'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-man-from-uncle/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-man-from-u-n-c-l-e-2015/'
 poster: '/images/reviews/the-man-from-uncle/poster.webp'
 heroImage: '/images/reviews/the-man-from-uncle/backdrop.webp'
 heroAlt: 'Henry Cavill and Armie Hammer standing back to back, each aiming a pistol.'

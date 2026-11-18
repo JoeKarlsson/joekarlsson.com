@@ -23,6 +23,7 @@ letterboxdAverage: 2.88
 slug: 'predator-2'
 description: "This movie is in the running to be the sweatiest 90's action movie - and that's saying something."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/predator-2/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/predator-2-1990/'
 poster: '/images/reviews/predator-2/poster.webp'
 heroImage: '/images/reviews/predator-2/backdrop.webp'
 heroAlt: 'Painted art of the Predator raising a spine trophy and a spear above city towers under a red sky.'

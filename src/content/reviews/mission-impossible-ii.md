@@ -27,6 +27,7 @@ letterboxdAverage: 2.7
 slug: 'mission-impossible-ii'
 description: "I love TC's hair and the doves and the motorcycle. I don't care for anything else."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mission-impossible-ii/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/mission-impossible-ii-2000/'
 poster: '/images/reviews/mission-impossible-ii/poster.webp'
 heroImage: '/images/reviews/mission-impossible-ii/backdrop.webp'
 heroAlt: 'Tom Cruise in sunglasses riding a motorcycle straight through a wall of flames.'

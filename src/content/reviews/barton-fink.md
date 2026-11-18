@@ -15,6 +15,7 @@ letterboxdAverage: 4.06
 slug: 'barton-fink'
 description: 'Did that wall just cum on Finks hand?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/barton-fink/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/barton-fink-1991/'
 poster: '/images/reviews/barton-fink/poster.webp'
 heroImage: '/images/reviews/barton-fink/backdrop.webp'
 heroAlt: 'A man in a hat walking toward bright light at the far end of a long hotel hallway with leaf-patterned wallpaper.'

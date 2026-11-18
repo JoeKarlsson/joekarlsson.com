@@ -14,6 +14,7 @@ letterboxdAverage: 3.91
 slug: 'the-wizard-of-oz-1939'
 description: 'I loved the part when the scarecrow has a gun for one scene.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-wizard-of-oz-1939/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-wizard-of-oz-1939/'
 poster: '/images/reviews/the-wizard-of-oz-1939/poster.webp'
 heroImage: '/images/reviews/the-wizard-of-oz-1939/backdrop.webp'
 heroAlt: 'Painted art of Ray Bolger, Jack Haley, Judy Garland and Bert Lahr walking arm in arm down a yellow brick road through poppies.'

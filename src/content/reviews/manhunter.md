@@ -15,6 +15,7 @@ letterboxdAverage: 3.86
 slug: 'manhunter'
 description: "Manhunter feels like an aquarium trapped in time from 1986. It's slick and cool and undeniably aesthetic, really capturing the essence of an era - but I…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/manhunter/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/manhunter-1986/'
 poster: '/images/reviews/manhunter/poster.webp'
 heroImage: '/images/reviews/manhunter/backdrop.webp'
 heroAlt: 'William L. Petersen aiming a pistol straight at the camera on a dark street at night.'

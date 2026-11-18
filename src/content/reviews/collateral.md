@@ -16,6 +16,7 @@ letterboxdAverage: 3.89
 slug: 'collateral'
 description: "Mark Ruffalo as a cholo LAPD officer is one of the strangest casting decisions I've ever seen in my entire life."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/collateral/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/collateral-2004/'
 poster: '/images/reviews/collateral/poster.webp'
 heroImage: '/images/reviews/collateral/backdrop.webp'
 heroAlt: 'Tom Cruise with gray hair and a gray suit aiming a pistol in a crowded, dim nightclub.'

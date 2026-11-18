@@ -15,6 +15,7 @@ letterboxdAverage: 3.43
 slug: 'friendship-2024'
 description: 'I so don’t really know what I think about this movie yet. On the one hand, I love that they made a comedy and I love Tim Robinson. On the other I don’t…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/friendship-2024/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/friendship-2025/'
 poster: '/images/reviews/friendship-2024/poster.webp'
 heroImage: '/images/reviews/friendship-2024/backdrop.webp'
 heroAlt: 'Tim Robinson in a suit and tie sitting behind a drum kit in a basement.'

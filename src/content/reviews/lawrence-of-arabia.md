@@ -15,6 +15,7 @@ letterboxdAverage: 4.42
 slug: 'lawrence-of-arabia'
 description: "It took 3 days, but I finished Lawrence of Arabia. Definitely great, probably not worth 4 hours though. The cinematography was gorgeous and it's definitely…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/lawrence-of-arabia/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/lawrence-of-arabia-1962/'
 poster: '/images/reviews/lawrence-of-arabia/poster.webp'
 heroImage: '/images/reviews/lawrence-of-arabia/backdrop.webp'
 heroAlt: "Peter O'Toole in white Arab robes and headdress, seated between two men in dark headdresses under a blue desert sky."

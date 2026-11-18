@@ -22,6 +22,7 @@ letterboxdAverage: 3.37
 slug: 'eddington'
 description: 'Once again, Ari Aster her brings all of our anxieties to life in the 2nd Post-Woke film of the summer (Superman was the first).'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/eddington/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/eddington-2025/'
 poster: '/images/reviews/eddington/poster.webp'
 heroImage: '/images/reviews/eddington/backdrop.webp'
 heroAlt: 'Joaquin Phoenix in a white cowboy hat, holding a radio and pointing from behind a desk with a "Joe Cross Sheriff" nameplate.'

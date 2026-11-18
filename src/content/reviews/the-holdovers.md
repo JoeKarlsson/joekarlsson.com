@@ -22,6 +22,7 @@ letterboxdAverage: 4.27
 slug: 'the-holdovers'
 description: 'I really thought this movie was sweet, and will probably be on my Christmas rewatch list in the near Christmas future. It feels like a spiritual Christmas…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-holdovers/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-holdovers-2023/'
 poster: '/images/reviews/the-holdovers/poster.webp'
 heroImage: '/images/reviews/the-holdovers/backdrop.webp'
 heroAlt: "Paul Giamatti, Dominic Sessa and Da'Vine Joy Randolph eating at a long table in a dark dining hall with a Christmas tree."

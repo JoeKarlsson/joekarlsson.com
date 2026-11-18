@@ -22,6 +22,7 @@ letterboxdAverage: 3.73
 slug: 'sorry-to-bother-you'
 description: 'I love this movie - and i want to know about HOW and WHO allowed Boots to make this movie. Is audacious and hilarious. The third act works for me and i love…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sorry-to-bother-you/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/sorry-to-bother-you-2018/'
 poster: '/images/reviews/sorry-to-bother-you/poster.webp'
 heroImage: '/images/reviews/sorry-to-bother-you/backdrop.webp'
 heroAlt: 'Tessa Thompson and LaKeith Stanfield standing in a crowd, staring straight at the camera.'

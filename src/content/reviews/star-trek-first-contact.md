@@ -22,6 +22,7 @@ letterboxdAverage: 3.7
 slug: 'star-trek-first-contact'
 description: 'Frakes really directed the shit out of this movie. It looks incredible, and I’d even go so far to say that the aesthetics of the Borg in this film directly…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/star-trek-first-contact/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/star-trek-first-contact-1996/'
 poster: '/images/reviews/star-trek-first-contact/poster.webp'
 heroImage: '/images/reviews/star-trek-first-contact/backdrop.webp'
 heroAlt: 'A starship firing blue beams across the vast, glowing, circuit-covered hull of a Borg cube in space.'

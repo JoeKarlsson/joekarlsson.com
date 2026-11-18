@@ -14,6 +14,7 @@ letterboxdAverage: 4.21
 slug: 'the-wild-robot'
 description: 'This is joining the pantheon of some of my favorite animated movies of all time, including Puss in boots: Last Wish, into the spider verse, and the first two…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-wild-robot/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-wild-robot-2024/'
 poster: '/images/reviews/the-wild-robot/poster.webp'
 heroImage: '/images/reviews/the-wild-robot/backdrop.webp'
 heroAlt: 'A robot with glowing eyes sits in a moonlit forest, holding a small fox close to its chest.'

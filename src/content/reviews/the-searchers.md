@@ -14,6 +14,7 @@ letterboxdAverage: 3.94
 slug: 'the-searchers'
 description: "Jesus. The Searchers is mega relevant today and difficult to watch. John Wayne's deep and terrible racism still resonates today."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-searchers/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-searchers-1956/'
 poster: '/images/reviews/the-searchers/poster.webp'
 heroImage: '/images/reviews/the-searchers/backdrop.webp'
 heroAlt: 'Jeffrey Hunter and John Wayne standing with their horses among the red buttes of Monument Valley.'

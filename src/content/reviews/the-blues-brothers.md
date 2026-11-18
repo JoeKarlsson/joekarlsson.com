@@ -16,6 +16,7 @@ letterboxdAverage: 4.01
 slug: 'the-blues-brothers'
 description: 'Even as an idiot child, I understood how expensive and impressive this movie was.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-blues-brothers/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-blues-brothers-1980/'
 poster: '/images/reviews/the-blues-brothers/poster.webp'
 heroImage: '/images/reviews/the-blues-brothers/backdrop.webp'
 heroAlt: 'John Belushi and Dan Aykroyd in black suits, hats and sunglasses standing before a crowd under a "Soul Food" sign.'

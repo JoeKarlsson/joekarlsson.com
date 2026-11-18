@@ -22,6 +22,7 @@ letterboxdAverage: 4.22
 slug: 'the-truman-show'
 description: "Philip Glass's score made this Black Mirror episode feel inspirational."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-truman-show/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-truman-show-1998/'
 poster: '/images/reviews/the-truman-show/poster.webp'
 heroImage: '/images/reviews/the-truman-show/backdrop.webp'
 heroAlt: 'Jim Carrey resting his chin on his hand and gazing up, against a blue sky and pink flowers.'

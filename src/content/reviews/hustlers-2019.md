@@ -22,6 +22,7 @@ letterboxdAverage: 3.3
 slug: 'hustlers-2019'
 description: 'Magic Mike with Lizzo.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hustlers-2019/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/hustlers-2019/'
 poster: '/images/reviews/hustlers-2019/poster.webp'
 heroImage: '/images/reviews/hustlers-2019/backdrop.webp'
 heroAlt: 'Lili Reinhart, Jennifer Lopez, Keke Palmer and Constance Wu laughing as one pops a bottle of champagne in an apartment.'

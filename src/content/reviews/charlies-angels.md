@@ -15,6 +15,7 @@ letterboxdAverage: 3.27
 slug: 'charlies-angels'
 description: 'I was 10 years old when this movie came out and I loved it. My sister and I owned the VHS and watched it over and over and over again. Honestly? I miss…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/charlies-angels/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/charlie-s-angels-2000/'
 poster: '/images/reviews/charlies-angels/poster.webp'
 heroImage: '/images/reviews/charlies-angels/backdrop.webp'
 heroAlt: "A still from Charlie's Angels (2000)"

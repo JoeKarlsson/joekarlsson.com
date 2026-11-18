@@ -15,6 +15,7 @@ letterboxdAverage: 3.48
 slug: 'get-shorty'
 description: 'A crime comedy this tight would be a miracle today. In 1995 it was just Tuesday.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/get-shorty/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/get-shorty-1995/'
 poster: '/images/reviews/get-shorty/poster.webp'
 heroImage: '/images/reviews/get-shorty/backdrop.webp'
 heroAlt: 'John Travolta smiling with a cigarette beside Rene Russo at a restaurant table.'

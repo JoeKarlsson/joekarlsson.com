@@ -22,6 +22,7 @@ letterboxdAverage: 4.03
 slug: 'his-girl-friday'
 description: 'I was promised a girl named Friday. There is no girl named Friday. I felt lied to, but I forgive them.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/his-girl-friday/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/his-girl-friday-1940/'
 poster: '/images/reviews/his-girl-friday/poster.webp'
 heroImage: '/images/reviews/his-girl-friday/backdrop.webp'
 heroAlt: 'Cary Grant holding two telephones beside Rosalind Russell at a typewriter, in black and white.'

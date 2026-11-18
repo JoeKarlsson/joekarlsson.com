@@ -23,6 +23,7 @@ letterboxdAverage: 4.1
 slug: 'paddington-2'
 description: 'This movie made me want to be a better man.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/paddington-2/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/paddington-2-2018/'
 poster: '/images/reviews/paddington-2/poster.webp'
 heroImage: '/images/reviews/paddington-2/backdrop.webp'
 heroAlt: 'Poster art of Paddington Bear raising his red hat beside a chef, a man in a plaid suit and the Brown family.'

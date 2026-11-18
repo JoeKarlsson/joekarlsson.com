@@ -22,6 +22,7 @@ letterboxdAverage: 3.82
 slug: 'superman-2025'
 description: 'I’m ready for Superman Summer ™️'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/superman-2025/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/superman-2025/'
 poster: '/images/reviews/superman-2025/poster.webp'
 heroImage: '/images/reviews/superman-2025/backdrop.webp'
 heroAlt: 'Superman in his red cape sitting on the moon beside a small white dog, looking out at Earth.'

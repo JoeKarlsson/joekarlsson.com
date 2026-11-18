@@ -23,6 +23,7 @@ letterboxdAverage: 4.13
 slug: 'fargo-1'
 description: 'Watch this in a local dive bar in the middle of January with a bunch of Minnesotans. This played like gangbusters.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/fargo/1/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/fargo-1996/'
 poster: '/images/reviews/fargo-1/poster.webp'
 heroImage: '/images/reviews/fargo-1/backdrop.webp'
 heroAlt: 'Frances McDormand in a fur police hat and parka, aiming a pistol in snowy woods beside a frozen lake.'

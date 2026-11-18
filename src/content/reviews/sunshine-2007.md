@@ -22,6 +22,7 @@ letterboxdAverage: 3.73
 slug: 'sunshine-2007'
 description: 'I think this is a desperately underrated modern sci-fi movie. I think the first two acts of this film are perfect, and the third act gets a little messy, but…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sunshine-2007/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/sunshine-2007/'
 poster: '/images/reviews/sunshine-2007/poster.webp'
 heroImage: '/images/reviews/sunshine-2007/backdrop.webp'
 heroAlt: 'The silhouette of a man standing before a huge window filled with the burning orange surface of the sun.'

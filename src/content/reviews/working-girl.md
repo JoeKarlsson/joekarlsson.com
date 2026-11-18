@@ -22,6 +22,7 @@ letterboxdAverage: 3.45
 slug: 'working-girl'
 description: 'Working Girl is a cute 80s romance with a supremely hot Harrison Ford.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/working-girl/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/working-girl-1988/'
 poster: '/images/reviews/working-girl/poster.webp'
 heroImage: '/images/reviews/working-girl/backdrop.webp'
 heroAlt: 'Harrison Ford, Melanie Griffith and Sigourney Weaver posing together in an office.'

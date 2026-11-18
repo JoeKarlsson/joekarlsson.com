@@ -22,6 +22,7 @@ letterboxdAverage: 3.89
 slug: 'scott-pilgrim-vs-the-world'
 description: "Unfortunately, this movie captures what it's like to date in your 20s."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scott-pilgrim-vs-the-world/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/scott-pilgrim-vs-the-world-2010/'
 poster: '/images/reviews/scott-pilgrim-vs-the-world/poster.webp'
 heroImage: '/images/reviews/scott-pilgrim-vs-the-world/backdrop.webp'
 heroAlt: 'Michael Cera in a red T-shirt with arms crossed, surrounded by Mary Elizabeth Winstead with pink hair and five posing rivals in slanted panels.'

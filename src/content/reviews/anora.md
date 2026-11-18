@@ -22,6 +22,7 @@ letterboxdAverage: 3.76
 slug: 'anora'
 description: 'Florida Project is still my favorite Sean Baker flick, but this one is so good. I had no idea where it was going and was consistently surprised. Sean…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/anora/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/anora-2024/'
 poster: '/images/reviews/anora/poster.webp'
 heroImage: '/images/reviews/anora/backdrop.webp'
 heroAlt: 'Mikey Madison in a lace top hugging a young man in sunglasses and a leopard-print shirt at a casino table, beside a grinning man.'

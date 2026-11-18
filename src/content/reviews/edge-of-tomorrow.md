@@ -21,6 +21,7 @@ letterboxdAverage: 3.78
 slug: 'edge-of-tomorrow'
 description: 'Emily Blunt should have been the biggest action star in the world after this.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/edge-of-tomorrow/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/edge-of-tomorrow-2014/'
 poster: '/images/reviews/edge-of-tomorrow/poster.webp'
 heroImage: '/images/reviews/edge-of-tomorrow/backdrop.webp'
 heroAlt: 'Tom Cruise and Emily Blunt in mechanical battle exoskeletons, she carrying a large blade, with fire streaking over a smoky city.'

@@ -32,6 +32,7 @@ letterboxdAverage: 3.57
 slug: 'blue-moon-2025'
 description: "Linklater made another movie where people just talk. I'm always going to show up for that."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/blue-moon-2025/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/blue-moon-2025/'
 poster: '/images/reviews/blue-moon-2025/poster.webp'
 heroImage: '/images/reviews/blue-moon-2025/backdrop.webp'
 heroAlt: 'Margaret Qualley in a cream blouse beside a vase of red carnations, talking with Ethan Hawke in a dark suit at a bar.'

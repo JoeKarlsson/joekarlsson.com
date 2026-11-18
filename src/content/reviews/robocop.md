@@ -15,6 +15,7 @@ letterboxdAverage: 3.91
 slug: 'robocop'
 description: 'It’s insane how such a schlocky premise could be imbued with such depth.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/robocop/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/robocop-1987/'
 poster: '/images/reviews/robocop/poster.webp'
 heroImage: '/images/reviews/robocop/backdrop.webp'
 heroAlt: 'Ronny Cox in a three-piece suit standing in front of a huge armed police robot.'

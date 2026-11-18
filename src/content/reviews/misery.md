@@ -22,6 +22,7 @@ letterboxdAverage: 4
 slug: 'misery'
 description: 'Great winter hangout movie 🍿'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/misery/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/misery-1990/'
 poster: '/images/reviews/misery/poster.webp'
 heroImage: '/images/reviews/misery/backdrop.webp'
 heroAlt: 'Kathy Bates leaning over James Caan, who lies strapped into a bed in a plaid shirt.'

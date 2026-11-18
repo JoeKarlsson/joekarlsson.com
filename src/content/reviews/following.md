@@ -15,6 +15,7 @@ letterboxdAverage: 3.47
 slug: 'following'
 description: 'Feels like a student film. But you can see the seeds being planted here.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/following/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/following-1999/'
 poster: '/images/reviews/following/poster.webp'
 heroImage: '/images/reviews/following/backdrop.webp'
 heroAlt: 'A young man in a suit talking on a phone by a window, in black and white.'

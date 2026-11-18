@@ -22,6 +22,7 @@ letterboxdAverage: 4.03
 slug: 'zodiac'
 description: 'The first time I watched Zodiac, the ending made me furious.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/zodiac/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/zodiac-2007/'
 poster: '/images/reviews/zodiac/poster.webp'
 heroImage: '/images/reviews/zodiac/backdrop.webp'
 heroAlt: 'A car parked on a dark lot at night, lit by the headlights of a car behind it.'

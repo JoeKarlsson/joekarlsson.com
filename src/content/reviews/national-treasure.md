@@ -15,6 +15,7 @@ letterboxdAverage: 3.36
 slug: 'national-treasure'
 description: "What's with that changing room????"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/national-treasure/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/national-treasure-2004/'
 poster: '/images/reviews/national-treasure/poster.webp'
 heroImage: '/images/reviews/national-treasure/backdrop.webp'
 heroAlt: 'Poster art of Nicolas Cage with a satchel against a golden glow, with the Capitol dome and a running blonde woman behind him.'

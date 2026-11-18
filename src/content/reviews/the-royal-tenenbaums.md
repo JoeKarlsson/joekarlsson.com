@@ -22,6 +22,7 @@ letterboxdAverage: 4.11
 slug: 'the-royal-tenenbaums'
 description: 'This is the Wes Anderson movie that gets me every time.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-royal-tenenbaums/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-royal-tenenbaums-2002/'
 poster: '/images/reviews/the-royal-tenenbaums/poster.webp'
 heroImage: '/images/reviews/the-royal-tenenbaums/backdrop.webp'
 heroAlt: 'Gwyneth Paltrow as Margot in a fur coat, stepping off a bus.'

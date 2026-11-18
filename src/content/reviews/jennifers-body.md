@@ -14,6 +14,7 @@ letterboxdAverage: 3.46
 slug: 'jennifers-body'
 description: "As a Minnesotan, I am required by law to love Diablo Cody's movies. I think she captures a Gen X view of small-town America, but I still appreciate it…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jennifers-body/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/jennifer-s-body-2009/'
 poster: '/images/reviews/jennifers-body/poster.webp'
 heroImage: '/images/reviews/jennifers-body/backdrop.webp'
 heroAlt: "A still from Jennifer's Body (2009)"

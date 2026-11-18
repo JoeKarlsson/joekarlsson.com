@@ -15,6 +15,7 @@ letterboxdAverage: 3.72
 slug: 'go'
 description: "A fun, flashy 90s homage to Tarantino's aesthetic that succeeds more in style than substance."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/go/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/go-1999/'
 poster: '/images/reviews/go/poster.webp'
 heroImage: '/images/reviews/go/backdrop.webp'
 heroAlt: 'Katie Holmes and Sarah Polley, in a red leather jacket, sitting side by side in a dark crowded room.'

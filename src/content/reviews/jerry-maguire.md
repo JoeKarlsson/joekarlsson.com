@@ -22,6 +22,7 @@ letterboxdAverage: 3.61
 slug: 'jerry-maguire'
 description: 'This movie worked for me. What a strange screenplay structure - but it totally worked for me.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jerry-maguire/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/jerry-maguire-1996/'
 poster: '/images/reviews/jerry-maguire/poster.webp'
 heroImage: '/images/reviews/jerry-maguire/backdrop.webp'
 heroAlt: 'Tom Cruise in a black polo, hand on his chin, in an office with sticky notes on the glass behind him.'

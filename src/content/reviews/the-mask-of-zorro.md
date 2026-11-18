@@ -30,6 +30,7 @@ letterboxdAverage: 3.48
 slug: 'the-mask-of-zorro'
 description: 'What’s not having a movie full of horny, swashbuckling fights? Also, I loved Anthony Hopkins with his smoky eyeshadow.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-mask-of-zorro/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-mask-of-zorro-1998/'
 poster: '/images/reviews/the-mask-of-zorro/poster.webp'
 heroImage: '/images/reviews/the-mask-of-zorro/backdrop.webp'
 heroAlt: 'Antonio Banderas as Zorro in a black mask and hat, sword drawn in a dim barn.'

@@ -22,6 +22,7 @@ letterboxdAverage: 3.51
 slug: 'crimson-peak'
 description: "I mostly love Guillermo del Toro, but I think I just don't like gothic horror very much. And this movie didn't do much for me."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/crimson-peak/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/crimson-peak-2015/'
 poster: '/images/reviews/crimson-peak/poster.webp'
 heroImage: '/images/reviews/crimson-peak/backdrop.webp'
 heroAlt: 'Mia Wasikowska with long blond hair in a white nightgown holding a lit candelabra at a doorway.'

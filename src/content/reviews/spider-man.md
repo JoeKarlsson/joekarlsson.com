@@ -22,6 +22,7 @@ letterboxdAverage: 3.88
 slug: 'spider-man'
 description: 'Remember when Spider-Man called “Macho Man” Randy Savage gay?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/spider-man/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/spider-man-2002/'
 poster: '/images/reviews/spider-man/poster.webp'
 heroImage: '/images/reviews/spider-man/backdrop.webp'
 heroAlt: 'Spider-Man clinging to the glass side of a skyscraper, his reflection in the gold-lit windows below.'

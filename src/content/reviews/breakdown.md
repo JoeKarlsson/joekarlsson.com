@@ -15,6 +15,7 @@ letterboxdAverage: 3.62
 slug: 'breakdown'
 description: "Super taut, underrated and action-packed thriller. It's minimalist and fun and reminded me so much of Spielberg's debut, Duel. Russell's great in it. They…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/breakdown/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/breakdown-1997/'
 poster: '/images/reviews/breakdown/poster.webp'
 heroImage: '/images/reviews/breakdown/backdrop.webp'
 heroAlt: 'Kurt Russell clinging with both hands to the side of a moving truck, grimacing.'

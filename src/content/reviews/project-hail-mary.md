@@ -22,6 +22,7 @@ letterboxdAverage: 4.31
 slug: 'project-hail-mary'
 description: 'Big beautiful dad movie. I laughed. I cried. I cheered.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/project-hail-mary/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/project-hail-mary-2026/'
 poster: '/images/reviews/project-hail-mary/poster.webp'
 heroImage: '/images/reviews/project-hail-mary/backdrop.webp'
 heroAlt: 'Ryan Gosling in a "Horse Shoe Bend" T-shirt floating near a round window inside a spacecraft, looking up.'

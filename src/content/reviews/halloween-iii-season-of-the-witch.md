@@ -22,6 +22,7 @@ letterboxdAverage: 2.81
 slug: 'halloween-iii-season-of-the-witch'
 description: "I should love Halloween III more since it's about techno-corporate witchcraft, which is a genuinely fun concept. But this is not a good movie and I don't…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/halloween-iii-season-of-the-witch/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/halloween-iii-season-of-the-witch-1982/'
 poster: '/images/reviews/halloween-iii-season-of-the-witch/poster.webp'
 heroImage: '/images/reviews/halloween-iii-season-of-the-witch/backdrop.webp'
 heroAlt: "Three trick-or-treaters in witch, skeleton and jack-o'-lantern masks holding out their bags in the dark."

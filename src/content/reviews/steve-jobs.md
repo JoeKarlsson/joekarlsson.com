@@ -31,6 +31,7 @@ letterboxdAverage: 3.65
 slug: 'steve-jobs'
 description: 'It’s funny how little Sorkin cares about Jobs. And honestly, it feels like it’s more of a play about being a father. Boyle definitely got some touches in…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/steve-jobs/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/steve-jobs-2015/'
 poster: '/images/reviews/steve-jobs/poster.webp'
 heroImage: '/images/reviews/steve-jobs/backdrop.webp'
 heroAlt: 'Michael Fassbender in close-up, his round glasses reflecting the glow of colorful app icons in the dark.'

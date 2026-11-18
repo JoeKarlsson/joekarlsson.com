@@ -14,6 +14,7 @@ letterboxdAverage: 1.68
 slug: 'jason-goes-to-hell-the-final-friday'
 description: 'This movie was dumb and bad.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/jason-goes-to-hell-the-final-friday/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/jason-goes-to-hell-the-final-friday-1993/'
 poster: '/images/reviews/jason-goes-to-hell-the-final-friday/poster.webp'
 heroImage: '/images/reviews/jason-goes-to-hell-the-final-friday/backdrop.webp'
 heroAlt: 'A man in glasses and a red T-shirt looking over his shoulder in an empty diner.'

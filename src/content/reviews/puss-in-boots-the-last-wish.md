@@ -23,6 +23,7 @@ letterboxdAverage: 4.13
 slug: 'puss-in-boots-the-last-wish'
 description: 'I just needed another hit of this movie. It’s in my top three movies that have inspired me to be a better man.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/puss-in-boots-the-last-wish/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/puss-in-boots-the-last-wish-2022/'
 poster: '/images/reviews/puss-in-boots-the-last-wish/poster.webp'
 heroImage: '/images/reviews/puss-in-boots-the-last-wish/backdrop.webp'
 heroAlt: 'The animated cat Puss in Boots in a feathered hat, grinning beside a black bomb skewered on the tip of his sword.'

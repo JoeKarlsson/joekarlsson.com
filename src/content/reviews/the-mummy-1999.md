@@ -22,6 +22,7 @@ letterboxdAverage: 3.62
 slug: 'the-mummy-1999'
 description: "Time to get vulnerable - I have wanted to have Brendan Fraiser's Mummy hair my entire life."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-mummy-1999/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-mummy-1999/'
 poster: '/images/reviews/the-mummy-1999/poster.webp'
 heroImage: '/images/reviews/the-mummy-1999/backdrop.webp'
 heroAlt: 'Brendan Fraser aiming a pistol in a tomb, with Rachel Weisz and John Hannah holding a torch behind him.'

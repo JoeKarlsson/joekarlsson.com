@@ -16,6 +16,7 @@ letterboxdAverage: 3.26
 slug: 'scary-movie-2000'
 description: 'The jokes that I laughed at while watching this movie are between me and God. I will never reveal this information to anyone ever.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/scary-movie-2000/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/scary-movie-2000/'
 poster: '/images/reviews/scary-movie-2000/poster.webp'
 heroImage: '/images/reviews/scary-movie-2000/backdrop.webp'
 heroAlt: 'Regina Hall, a red-haired woman in a blue floral top and Anna Faris posing arm in arm on crowded campus steps.'

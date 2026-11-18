@@ -15,6 +15,7 @@ letterboxdAverage: 3.78
 slug: 'the-hunt-for-red-october'
 description: 'This is the ultimate Dad movie.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-hunt-for-red-october/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-hunt-for-red-october-1990/'
 poster: '/images/reviews/the-hunt-for-red-october/poster.webp'
 heroImage: '/images/reviews/the-hunt-for-red-october/backdrop.webp'
 heroAlt: 'Sean Connery in a Soviet naval uniform, one hand raised, lit by blue control-room light.'

@@ -40,6 +40,7 @@ letterboxdAverage: 4.15
 slug: 'sentimental-value-2025'
 description: 'The funniest part of this movie is when the seven-year-old gets Irreversible for his birthday.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sentimental-value-2025/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/sentimental-value-2025/'
 poster: '/images/reviews/sentimental-value-2025/poster.webp'
 heroImage: '/images/reviews/sentimental-value-2025/backdrop.webp'
 heroAlt: 'Stellan Skarsgård and Renate Reinsve standing apart in front of a dark hedge at dusk.'

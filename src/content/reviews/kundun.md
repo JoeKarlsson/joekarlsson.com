@@ -22,6 +22,7 @@ letterboxdAverage: 3.47
 slug: 'kundun'
 description: 'Kundun made me furious at China, furious at Disney, and weirdly unmoved by Kundun.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/kundun/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/kundun-1998/'
 poster: '/images/reviews/kundun/poster.webp'
 heroImage: '/images/reviews/kundun/backdrop.webp'
 heroAlt: 'The boy Dalai Lama in a gold robe and crown, a crowd behind him in a golden haze.'

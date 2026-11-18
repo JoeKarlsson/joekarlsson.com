@@ -22,6 +22,7 @@ letterboxdAverage: 4.3
 slug: 'terminator-2-judgment-day'
 description: 'A yearn to be as good as a father as the Terminator.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/terminator-2-judgment-day/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/terminator-2-judgment-day-1991/'
 poster: '/images/reviews/terminator-2-judgment-day/poster.webp'
 heroImage: '/images/reviews/terminator-2-judgment-day/backdrop.webp'
 heroAlt: 'Arnold Schwarzenegger in dark sunglasses and a leather jacket on a motorcycle, a shotgun raised beside him in blue light.'

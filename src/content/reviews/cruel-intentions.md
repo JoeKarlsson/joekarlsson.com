@@ -22,6 +22,7 @@ letterboxdAverage: 3.25
 slug: 'cruel-intentions'
 description: 'This has to be in the running for best 90s film soundtracks of all time, right??? The movie around it is a two.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/cruel-intentions/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/cruel-intentions-1999/'
 poster: '/images/reviews/cruel-intentions/poster.webp'
 heroImage: '/images/reviews/cruel-intentions/backdrop.webp'
 heroAlt: 'Selma Blair and Sarah Michelle Gellar kissing outdoors against a green, leafy background.'

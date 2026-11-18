@@ -15,6 +15,7 @@ letterboxdAverage: 4.36
 slug: 'twin-peaks-fire-walk-with-me'
 description: 'A tough watch. Still love DL though'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/twin-peaks-fire-walk-with-me/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/twin-peaks-fire-walk-with-me-1992/'
 poster: '/images/reviews/twin-peaks-fire-walk-with-me/poster.webp'
 heroImage: '/images/reviews/twin-peaks-fire-walk-with-me/backdrop.webp'
 heroAlt: 'Sheryl Lee in a black dress seated in a red-curtained room beside a man in a dark suit and a white statue.'

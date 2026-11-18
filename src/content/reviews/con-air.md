@@ -22,6 +22,7 @@ letterboxdAverage: 3.47
 slug: 'con-air'
 description: "I've been on an absolute Jerry Bruckheimer tear the last couple weeks, and after binging his entire catalog consecutively, the formula is crystal clear: you…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/con-air/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/con-air-1997/'
 poster: '/images/reviews/con-air/poster.webp'
 heroImage: '/images/reviews/con-air/backdrop.webp'
 heroAlt: 'John Cusack, Nicolas Cage in a sweaty tank top and John Malkovich standing in front of a wall of flames.'

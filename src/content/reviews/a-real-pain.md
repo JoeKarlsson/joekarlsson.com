@@ -23,6 +23,7 @@ letterboxdAverage: 3.72
 slug: 'a-real-pain'
 description: 'The funnest holocaust movie I’ll watch this year. Greatly performances amazing debut directorial job and Kieran Culkin really showed a lot of rizz.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/a-real-pain/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/a-real-pain-2024/'
 poster: '/images/reviews/a-real-pain/poster.webp'
 heroImage: '/images/reviews/a-real-pain/backdrop.webp'
 heroAlt: 'Kieran Culkin, bearded and in a red flannel shirt, sitting in a busy airport waiting area.'

@@ -23,6 +23,7 @@ letterboxdAverage: 3.33
 slug: 'highlander'
 description: "This was my first time ever watching Highlander, which honestly shocks me. I've known about it my entire life and just had zero interest until now. Initial…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/highlander/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/highlander-1986/'
 poster: '/images/reviews/highlander/poster.webp'
 heroImage: '/images/reviews/highlander/backdrop.webp'
 heroAlt: 'Christopher Lambert in a plaid kilt sitting on rocks at the edge of a forest, holding a blonde woman in a white dress.'

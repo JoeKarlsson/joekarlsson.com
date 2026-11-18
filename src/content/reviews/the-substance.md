@@ -22,6 +22,7 @@ letterboxdAverage: 3.72
 slug: 'the-substance'
 description: 'This is a perfect movie. It takes the story ALL THE WAY to its conclusion.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-substance/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-substance-2024/'
 poster: '/images/reviews/the-substance/poster.webp'
 heroImage: '/images/reviews/the-substance/backdrop.webp'
 heroAlt: 'Demi Moore holding up a small glass bulb and studying it in blue light.'

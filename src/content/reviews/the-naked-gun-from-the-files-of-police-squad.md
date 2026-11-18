@@ -23,6 +23,7 @@ letterboxdAverage: 3.74
 slug: 'the-naked-gun-from-the-files-of-police-squad'
 description: "This movie is so funny. I'm sorry I've seen it 1 million times and I will probably watch it another million times before I die."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-naked-gun-from-the-files-of-police-squad/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-naked-gun-from-the-files-of-police-squad-1988/'
 poster: '/images/reviews/the-naked-gun-from-the-files-of-police-squad/poster.webp'
 heroImage: '/images/reviews/the-naked-gun-from-the-files-of-police-squad/backdrop.webp'
 heroAlt: 'Leslie Nielsen holding up a revolver as he peers around a hotel doorway.'

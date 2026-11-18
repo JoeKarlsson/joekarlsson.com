@@ -22,6 +22,7 @@ letterboxdAverage: 4.21
 slug: 'the-shining'
 description: 'Can someone explain that Bear Furry blowing that guy please?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-shining/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-shining-1980/'
 poster: '/images/reviews/the-shining/poster.webp'
 heroImage: '/images/reviews/the-shining/backdrop.webp'
 heroAlt: 'Danny Lloyd playing with toy cars on an orange and red hexagon-patterned carpet, seen from above.'

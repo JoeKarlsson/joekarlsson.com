@@ -15,6 +15,7 @@ letterboxdAverage: 3.94
 slug: 'toy-story-2'
 description: 'A classic kids movie about obsolescence, abandonment, and mortality.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/toy-story-2/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/toy-story-2-1999/'
 poster: '/images/reviews/toy-story-2/poster.webp'
 heroImage: '/images/reviews/toy-story-2/backdrop.webp'
 heroAlt: 'Woody, Buzz Lightyear, Jessie and the rest of the toys gathered on a bedroom floor.'

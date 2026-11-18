@@ -14,6 +14,7 @@ letterboxdAverage: 3.92
 slug: 'the-last-temptation-of-christ'
 description: 'The scandal of The Last Temptation of Christ is that it takes the creed at its word: fully God, and also fully a man.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-last-temptation-of-christ/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-last-temptation-of-christ-1988/'
 poster: '/images/reviews/the-last-temptation-of-christ/poster.webp'
 heroImage: '/images/reviews/the-last-temptation-of-christ/backdrop.webp'
 heroAlt: 'Willem Dafoe looking up in a crowd of bearded men, with Harvey Keitel at his side.'

@@ -14,6 +14,7 @@ letterboxdAverage: 4.01
 slug: 'mission-impossible-fallout'
 description: 'Henry cocking his arms is still unbeat'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/mission-impossible-fallout/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/mission-impossible-fallout-2018/'
 poster: '/images/reviews/mission-impossible-fallout/poster.webp'
 heroImage: '/images/reviews/mission-impossible-fallout/backdrop.webp'
 heroAlt: 'Tom Cruise in a skydiving helmet with a clear visor, lit in amber light inside an aircraft.'

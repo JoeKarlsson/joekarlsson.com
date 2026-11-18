@@ -492,7 +492,7 @@ pre.astro-code {
 	@apply mb-1.5 text-paper;
 }
 .review-credits-link {
-	@apply inline-flex min-h-11 items-center font-bold text-pink no-underline hover:text-paper;
+	@apply mr-5 inline-flex min-h-11 items-center font-bold text-pink no-underline hover:text-paper;
 }
 .review-credits-margin {
 	@apply hidden;

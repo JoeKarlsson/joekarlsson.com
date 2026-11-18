@@ -28,6 +28,7 @@ letterboxdAverage: 4.36
 slug: 'dead-poets-society'
 description: 'I wanted to see Robin Williams punch Red in the face'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/dead-poets-society/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/dead-poets-society-1989/'
 poster: '/images/reviews/dead-poets-society/poster.webp'
 heroImage: '/images/reviews/dead-poets-society/backdrop.webp'
 heroAlt: 'Robin Williams in a shirt and tie reading from a small book to a group of students in a wood-paneled room.'

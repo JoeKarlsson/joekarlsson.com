@@ -22,6 +22,7 @@ letterboxdAverage: 3.87
 slug: 'raising-arizona'
 description: 'I gotta say this movie hit me really hard as a 35 year-old man thinking about having children. That ending had me in tears.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/raising-arizona/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/raising-arizona-1987/'
 poster: '/images/reviews/raising-arizona/poster.webp'
 heroImage: '/images/reviews/raising-arizona/backdrop.webp'
 heroAlt: 'Nicolas Cage holding up a baby in a diaper while Holly Hunter smiles behind him in a decorated room.'

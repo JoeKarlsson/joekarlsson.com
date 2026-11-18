@@ -22,6 +22,7 @@ letterboxdAverage: 4.2
 slug: 'the-last-picture-show'
 description: 'Proto American Pie teen flick'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-last-picture-show/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-last-picture-show-1971/'
 poster: '/images/reviews/the-last-picture-show/poster.webp'
 heroImage: '/images/reviews/the-last-picture-show/backdrop.webp'
 heroAlt: 'Cybill Shepherd in close-up, leaning back against a car seat, in black and white.'

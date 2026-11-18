@@ -1,7 +1,7 @@
 ---
 // A film's credits beside its review, from the Letterboxd data the import saved
 // (scripts/update-reviews.mjs): poster, stars beside Letterboxd's average, director, cast,
-// running time, country and studios. reviews/[slug].astro puts one in the right margin on
+// running time, country and studios, and the film's Bechdel.io page when it has one. reviews/[slug].astro puts one in the right margin on
 // wide screens and one after the review below that (global.css .review-credits).
 import type { CollectionEntry } from 'astro:content';
 import { stars } from '../../scripts/update-reviews.mjs';
@@ -25,6 +25,7 @@ const {
 	studios,
 	poster,
 	letterboxdUrl,
+	bechdelUrl,
 } = review.data;
 const hours = runtime ? Math.floor(runtime / 60) : 0;
 const credits = [
@@ -64,5 +65,10 @@ const credits = [
 		<a href={letterboxdUrl} class="review-credits-link">
 			On Letterboxd &rarr;
 		</a>
+		{bechdelUrl && (
+			<a href={bechdelUrl} class="review-credits-link">
+				Bechdel test &rarr;
+			</a>
+		)}
 	</div>
 </aside>

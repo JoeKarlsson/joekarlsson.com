@@ -28,6 +28,7 @@ letterboxdAverage: 4.18
 slug: 'the-matrix'
 description: "I don't think you guys know how much bandwidth this movie took up in my brain from about age 9 to 15. But it was a lot."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-matrix/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-matrix-1999/'
 poster: '/images/reviews/the-matrix/poster.webp'
 heroImage: '/images/reviews/the-matrix/backdrop.webp'
 heroAlt: 'Keanu Reeves sitting in a chair in a dim green room, his face doubled in a mirror behind him.'

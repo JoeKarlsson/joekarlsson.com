@@ -22,6 +22,7 @@ letterboxdAverage: 2.88
 slug: 'materialists'
 description: 'Career best performance from Chris Evans????'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/materialists/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/materialists-2025/'
 poster: '/images/reviews/materialists/poster.webp'
 heroImage: '/images/reviews/materialists/backdrop.webp'
 heroAlt: 'Dakota Johnson in a white shirt and jeans standing beside a yellow taxi on a New York street.'

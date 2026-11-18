@@ -22,6 +22,7 @@ letterboxdAverage: 3.89
 slug: 'blood-simple'
 description: 'These Minnesota boys can sure make a movie'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/blood-simple/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/blood-simple-1985/'
 poster: '/images/reviews/blood-simple/poster.webp'
 heroImage: '/images/reviews/blood-simple/backdrop.webp'
 heroAlt: "A man crawling on his hands and knees across a dark gravel road in a truck's headlights while someone nearby holds a shovel."

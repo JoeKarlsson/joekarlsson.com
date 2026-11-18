@@ -31,6 +31,7 @@ letterboxdAverage: 3.73
 slug: 'resident-evil-2026'
 description: 'This movie is the exact opposite of competency porn. Turns out I also love movies about an idiot NPC who stumbles through the worst night of his life.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/resident-evil-2026/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/resident-evil-2026/'
 poster: '/images/reviews/resident-evil-2026/poster.webp'
 heroImage: '/images/reviews/resident-evil-2026/backdrop.webp'
 heroAlt: 'A young man in a yellow beanie in a car at night covering his mouth with a bloody hand, a pale woman behind him.'

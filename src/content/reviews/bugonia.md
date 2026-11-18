@@ -22,6 +22,7 @@ letterboxdAverage: 3.83
 slug: 'bugonia'
 description: 'The scariest thing in Bugonia is realizing the paranoid people might have a point.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bugonia/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/bugonia-2025/'
 poster: '/images/reviews/bugonia/poster.webp'
 heroImage: '/images/reviews/bugonia/backdrop.webp'
 heroAlt: 'Emma Stone in a dark suit walking through a glass-walled open-plan office.'

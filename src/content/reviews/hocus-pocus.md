@@ -22,6 +22,7 @@ letterboxdAverage: 3.52
 slug: 'hocus-pocus'
 description: 'Damn - Doug Jones really has been doing this shit for a long ass time.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hocus-pocus/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/hocus-pocus-1993/'
 poster: '/images/reviews/hocus-pocus/poster.webp'
 heroImage: '/images/reviews/hocus-pocus/backdrop.webp'
 heroAlt: 'Kathy Najimy, Bette Midler and Sarah Jessica Parker as three witches singing on a smoky stage.'

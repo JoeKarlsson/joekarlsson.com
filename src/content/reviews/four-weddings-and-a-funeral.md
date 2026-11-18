@@ -22,6 +22,7 @@ letterboxdAverage: 3.33
 slug: 'four-weddings-and-a-funeral'
 description: 'Damn - Hugh Grant is the most beautiful man on Earth?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/four-weddings-and-a-funeral/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/four-weddings-and-a-funeral-1994/'
 poster: '/images/reviews/four-weddings-and-a-funeral/poster.webp'
 heroImage: '/images/reviews/four-weddings-and-a-funeral/backdrop.webp'
 heroAlt: 'Hugh Grant and Andie MacDowell leaning in close for a kiss in warm low light.'

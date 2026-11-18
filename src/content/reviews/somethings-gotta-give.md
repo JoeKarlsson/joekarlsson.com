@@ -22,6 +22,7 @@ letterboxdAverage: 3.26
 slug: 'somethings-gotta-give'
 description: 'The only thing crazier than opening your film with Butterfly by Crazy Town is leaving Keanu Reeves for Jack Nicholson.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/somethings-gotta-give/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/something-s-gotta-give-2003/'
 poster: '/images/reviews/somethings-gotta-give/poster.webp'
 heroImage: '/images/reviews/somethings-gotta-give/backdrop.webp'
 heroAlt: "A still from Something's Gotta Give (2003)"

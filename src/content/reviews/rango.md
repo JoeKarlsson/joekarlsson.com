@@ -14,6 +14,7 @@ letterboxdAverage: 3.77
 slug: 'rango'
 description: 'Damn, this movie goes hard. I was also shocked at how good this movie looks.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/rango/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/rango-2011/'
 poster: '/images/reviews/rango/poster.webp'
 heroImage: '/images/reviews/rango/backdrop.webp'
 heroAlt: 'An animated green chameleon in a red Hawaiian shirt standing in an empty desert with saguaro cacti.'

@@ -22,6 +22,7 @@ letterboxdAverage: 4.13
 slug: 'fargo'
 description: 'I’m from Minnesota. Of course I think this is a perfect movie'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/fargo/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/fargo-1996/'
 poster: '/images/reviews/fargo/poster.webp'
 heroImage: '/images/reviews/fargo/backdrop.webp'
 heroAlt: 'Frances McDormand in a fur police hat and parka, aiming a pistol in snowy woods beside a frozen lake.'

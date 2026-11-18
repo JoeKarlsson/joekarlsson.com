@@ -22,6 +22,7 @@ letterboxdAverage: 3.83
 slug: 'black-christmas'
 description: 'The same guy who directed A Christmas Story directed this. Bob Clark made a cozy holiday classic about a kid and a BB gun, and he also made one of the most…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/black-christmas/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/black-christmas-1974/'
 poster: '/images/reviews/black-christmas/poster.webp'
 heroImage: '/images/reviews/black-christmas/backdrop.webp'
 heroAlt: 'Olivia Hussey listening on a telephone receiver in front of blurred Christmas tree lights.'

@@ -22,6 +22,7 @@ letterboxdAverage: 3.96
 slug: 'uncut-gems'
 description: 'So stressful and so much fun!'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/uncut-gems/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/uncut-gems-2019/'
 poster: '/images/reviews/uncut-gems/poster.webp'
 heroImage: '/images/reviews/uncut-gems/backdrop.webp'
 heroAlt: 'Adam Sandler in a leather jacket and glasses gesturing on a busy city street.'

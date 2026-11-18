@@ -30,6 +30,7 @@ letterboxdAverage: 3.6
 slug: 'burn-after-reading-1'
 description: 'I saw Burn After Reading in theaters back in 2008 with friends because we were running high off No Country for Old Men. I loved it at the time and have loved…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/burn-after-reading/1/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/burn-after-reading-2008/'
 poster: '/images/reviews/burn-after-reading-1/poster.webp'
 heroImage: '/images/reviews/burn-after-reading-1/backdrop.webp'
 heroAlt: "Brad Pitt with earbuds in, sipping from a large cup through a straw in the driver's seat of a car."

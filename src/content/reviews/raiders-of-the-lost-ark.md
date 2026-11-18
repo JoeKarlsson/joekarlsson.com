@@ -22,6 +22,7 @@ letterboxdAverage: 4.16
 slug: 'raiders-of-the-lost-ark'
 description: "I'm sorry this is a banger. Amazing performance amazing screenplay amazing direction amazing lead performance amazing supporting performances amazing…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/raiders-of-the-lost-ark/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/raiders-of-the-lost-ark-1981/'
 poster: '/images/reviews/raiders-of-the-lost-ark/poster.webp'
 heroImage: '/images/reviews/raiders-of-the-lost-ark/backdrop.webp'
 heroAlt: 'Harrison Ford in a fedora beside a man in a white Panama hat drinking in a crowded bar.'

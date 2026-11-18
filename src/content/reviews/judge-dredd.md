@@ -22,6 +22,7 @@ letterboxdAverage: 2.63
 slug: 'judge-dredd'
 description: 'The production design is incredible, and Sly has an absolutely killer chin. I completely get the casting decision. He looks perfect for this.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/judge-dredd/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/judge-dredd-1995/'
 poster: '/images/reviews/judge-dredd/poster.webp'
 heroImage: '/images/reviews/judge-dredd/backdrop.webp'
 heroAlt: 'Sylvester Stallone in a red-and-black helmet and gold eagle shoulder armor, raising a large pistol.'
