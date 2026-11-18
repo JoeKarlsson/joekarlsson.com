@@ -2,7 +2,7 @@
 
 ## Site Overview
 
-Astro v7 static site. Served by Caddy on CT 165 (192.168.0.165), managed by OpenTofu at `~/claude/opentofu/services/joekarlsson-astro/`.
+Astro v7 static site. Served by Caddy on an immutable homelab container (its ID and IP are in claude-skills, not here), managed by OpenTofu at `~/claude/opentofu/services/joekarlsson-astro/`.
 
 ## Writing Content
 
@@ -16,7 +16,7 @@ npm run deploy     # Build + deploy via OpenTofu (tofu apply) + purge Cloudflare
 ./deploy.sh        # Same as npm run deploy (called directly)
 ```
 
-**CT 165 is immutable.** Never SSH/rsync/scp directly to `192.168.0.165`.
+**The serving container is immutable.** Never SSH/rsync/scp directly to it.
 
 - **Content deploy**: `./deploy.sh` ships the newest origin/main, so one deploy ships every session's pushed commits. It stops if HEAD has commits not on origin/main (push first); waits for CI on that commit; takes the deploy lock (a second deploy waits its turn); stops with "Already live" if the live `deployed-commit.txt` already includes it (`FORCE_DEPLOY=1` deploys anyway). It builds a clean copy of the commit in a temporary worktree (cold Astro cache), never the working tree, so uncommitted files can't ship; plans `tofu apply` with that copy's `dist` and stops if the plan changes anything besides the content push and purge (apply infra changes from the OpenTofu directory first); purges Cloudflare; and checks the heaviest pages as an iPhone in WebKit (`scripts/smoke-phone.mjs`: crashes, reload loops, script errors, desktop-only games loading on a phone). Works the same from a worktree.
 - **Caddyfile changes**: edit `~/claude/opentofu/services/joekarlsson-astro/provision.sh.tpl`, then `tofu apply` from that directory. This repo's `Caddyfile` is a reference, **not deployed by deploy.sh**, but must match the template line for line or every deploy stops: update and push it first, since a claude-skills commit of the template is blocked until they match.

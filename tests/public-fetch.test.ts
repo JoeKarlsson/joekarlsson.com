@@ -11,7 +11,7 @@ describe('assertPublicHttpsUrl', () => {
 	it('rejects LAN, loopback, IP literals and plain http', () => {
 		for (const url of [
 			'http://www.cdata.com/a.png',
-			'https://192.168.0.165/',
+			'https://192.168.1.10/',
 			'https://127.0.0.1/',
 			'https://[::1]/',
 			'https://localhost/',

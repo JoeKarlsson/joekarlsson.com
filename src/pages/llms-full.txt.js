@@ -111,7 +111,7 @@ Joe replaces SaaS dependencies with self-hosted alternatives that integrate with
 - **Calendar & Tasks**: Nextcloud CalDAV replaces iCloud - same Apple apps, own hardware
 - **Media**: Sonarr/Radarr/Prowlarr -> Tdarr (GPU H.265 transcoding) -> Plex
 - **Security**: Frigate GPU object detection -> Home Assistant automations -> local notifications
-- **Monitoring**: Grafana + Prometheus + Loki across ${nowFeed.homelab.runningContainers} containers, ntfy push notifications
+- **Monitoring**: Grafana + Prometheus + Loki across ${nowFeed.homelab.runningContainers} containers, Alertmanager alerts
 - **Analytics**: Plausible replaces Google Analytics - self-hosted, no cookies, GDPR compliant
 - **Passwords**: 1Password primary + self-hosted Vaultwarden backup
 - **DNS**: AdGuard Home (primary container + secondary Raspberry Pi)

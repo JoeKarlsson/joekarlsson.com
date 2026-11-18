@@ -107,7 +107,7 @@ echo "Validating build output..."
 npm run test:images
 npm run test:caddyfile
 
-# CT 165 is immutable — managed by OpenTofu.
+# The serving container is immutable — managed by OpenTofu.
 # Direct SSH/rsync/scp to the container is forbidden.
 # tofu apply detects dist/index.html has changed and pushes content via push_content resource.
 #
@@ -149,7 +149,7 @@ if ! grep -qE "^site_content_hash[[:space:]]*=[[:space:]]*\"$NEW_HASH\"" "$TOFU_
 fi
 echo "Content hash updated: $NEW_HASH"
 
-echo "Deploying to CT 165 via OpenTofu..."
+echo "Deploying via OpenTofu..."
 # Without purge credentials, removed or retracted pages stay at the Cloudflare edge,
 # so the deploy stops here instead of warning after the fact (security audit run-1)
 if [[ -z "${CLOUDFLARE_ZONE_ID:-}" || -z "${CLOUDFLARE_API_TOKEN:-}" ]]; then

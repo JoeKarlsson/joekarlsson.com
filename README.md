@@ -53,7 +53,7 @@ npm test
 
 ### CI Pipeline
 
-GitHub Actions runs **15 jobs** on every push to main and every PR:
+GitHub Actions runs **14 jobs** on every push to main and every PR:
 
 1. Build
 2. Markdown Lint
@@ -69,7 +69,6 @@ GitHub Actions runs **15 jobs** on every push to main and every PR:
 12. Unused Dependencies & Exports (Knip)
 13. Security Audit (advisory)
 14. E2E Tests (Playwright)
-15. Failure Notification (ntfy)
 
 ### Scheduled Workflows
 

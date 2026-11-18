@@ -1,5 +1,5 @@
 // GitHub rejects a workflow file it can't parse (a job key defined twice, say)
-// without running any job, including the ntfy failure alert, so CI goes quiet
+// without running any job, so CI goes quiet
 // instead of red. That happened from Nov 6 to Nov 9 2026. This runs in
 // `npm test`, so the pre-push hook stops a broken workflow before GitHub sees it.
 import { readdirSync, readFileSync } from 'node:fs';
