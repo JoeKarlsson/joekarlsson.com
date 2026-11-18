@@ -262,3 +262,35 @@ test.describe('Film review frame pairs', () => {
 		}
 	});
 });
+
+test.describe('Blog search analytics', () => {
+	// Record what the page sends to Plausible instead of loading it
+	test.beforeEach(async ({ page }) => {
+		await page.addInitScript(() => {
+			const sent: unknown[] = [];
+			Object.defineProperty(window, 'plausibleSent', { value: sent });
+			Object.defineProperty(window, 'plausible', {
+				get: () => (name: string, options?: { props?: unknown }) =>
+					sent.push([name, options?.props]),
+				set: () => {},
+			});
+		});
+		await page.goto('/blog');
+	});
+
+	const blogSearches = (page: import('@playwright/test').Page) =>
+		page.evaluate(() =>
+			(window as unknown as { plausibleSent: [string, unknown][] }).plausibleSent.filter(
+				([name]) => name === 'Blog Search',
+			),
+		);
+
+	test('sends whether anything matched, never the words typed', async ({ page }) => {
+		const search = page.getByPlaceholder(/search/i);
+		await search.fill('homelab');
+		await expect.poll(() => blogSearches(page)).toEqual([['Blog Search', { results: 'some' }]]);
+		await search.fill('zzqxv nothing matches this');
+		await expect.poll(() => blogSearches(page)).toHaveLength(2);
+		expect((await blogSearches(page))[1]).toEqual(['Blog Search', { results: 'none' }]);
+	});
+});

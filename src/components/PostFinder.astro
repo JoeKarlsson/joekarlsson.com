@@ -332,9 +332,9 @@ const SORT_INACTIVE =
 			clearTimeout(searchTimeout);
 			if (searchQuery.trim()) {
 				searchTimeout = setTimeout(() => {
-					if (typeof window.plausible === 'function') {
-						window.plausible('Blog Search', { props: { query: searchQuery.trim() } });
-					}
+					// Whether anything matched, never the words typed
+					const results = noResults.classList.contains('hidden') ? 'some' : 'none';
+					window.plausible?.('Blog Search', { props: { results } });
 				}, 1000);
 			}
 		});
