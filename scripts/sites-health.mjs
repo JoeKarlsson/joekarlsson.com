@@ -1,7 +1,8 @@
 // Is every site in Plausible still being tracked? For each Plausible site: does the
 // home page load, does it load the Plausible tag, when did Plausible last record a
-// pageview, and is the site linked to its Search Console property. Traffic size
-// doesn't matter here, only that tracking works.
+// pageview, and is a content site linked to its Search Console property (public
+// infrastructure, which sends X-Robots-Tag: noindex, stays out of Search Console).
+// Traffic size doesn't matter here, only that tracking works.
 //   npm run analytics:sites
 // Needs PLAUSIBLE_API_KEY and PLAUSIBLE_BASE_URL in .env, and the home LAN: the site
 // list and Search Console links come from Plausible's database (CE has no Sites API).
@@ -23,6 +24,7 @@ export function trackingProblems({
 	created,
 	lastPageview,
 	searchConsole,
+	noindex,
 	today,
 }) {
 	const problems = [];
@@ -38,7 +40,11 @@ export function trackingProblems({
 				: `no pageview in ${QUIET_DAYS} days${lastPageview ? ` (last ${lastPageview})` : ''}: tracking may be broken`,
 		);
 	}
-	if (!searchConsole && (domain === 'joekarlsson.com' || domain.endsWith('.joekarlsson.com'))) {
+	if (
+		!searchConsole &&
+		!noindex &&
+		(domain === 'joekarlsson.com' || domain.endsWith('.joekarlsson.com'))
+	) {
 		problems.push('not linked to Search Console (Plausible: Settings, Integrations)');
 	}
 	return problems;
@@ -47,9 +53,14 @@ export function trackingProblems({
 async function fetchText(url) {
 	try {
 		const response = await fetch(url, { redirect: 'follow', signal: AbortSignal.timeout(15_000) });
-		return { status: response.status, url: response.url, text: await response.text() };
+		return {
+			status: response.status,
+			url: response.url,
+			noindex: /noindex/i.test(response.headers.get('x-robots-tag') ?? ''),
+			text: await response.text(),
+		};
 	} catch {
-		return { status: 0, url, text: '' };
+		return { status: 0, url, noindex: false, text: '' };
 	}
 }
 
@@ -124,6 +135,7 @@ async function main() {
 		const problems = trackingProblems({
 			...site,
 			homeStatus: home.status,
+			noindex: home.noindex,
 			tagFound: home.status === 200 && (await hasPlausibleTag(home)),
 			lastPageview: await lastPageviewDay(site.domain, today),
 			today,

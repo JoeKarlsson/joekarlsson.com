@@ -8,6 +8,7 @@ const healthy = {
 	created: '2026-11-05',
 	lastPageview: '2026-11-18',
 	searchConsole: 'https://punc.joekarlsson.com',
+	noindex: false,
 	today: '2026-11-18',
 };
 
@@ -36,6 +37,17 @@ describe('trackingProblems', () => {
 		expect(trackingProblems({ ...healthy, created: '2026-11-18', lastPageview: null })).toEqual([
 			"no pageview since it was added on 2026-11-18: open the site and check Plausible's realtime view",
 		]);
+	});
+
+	it('keeps public infrastructure (noindex) out of Search Console', () => {
+		expect(
+			trackingProblems({
+				...healthy,
+				domain: 'postiz.joekarlsson.com',
+				searchConsole: '',
+				noindex: true,
+			}),
+		).toEqual([]);
 	});
 
 	it('reports a site that is down, and skips the Search Console link off joekarlsson.com', () => {
