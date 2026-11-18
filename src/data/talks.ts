@@ -110,6 +110,19 @@ export const talks: Talk[] = curlEveryString([
 		videos: ['679ms5EIgz8'],
 	},
 	{
+		title:
+			"At Minnesota's State Fair, Crop Artists Depict the Struggle Over Immigration Enforcement",
+		kind: 'podcast',
+		event: 'NPR All Things Considered',
+		place: 'Falcon Heights, MN',
+		date: '2026-09-04',
+		description:
+			'MPR News caught me an hour into the crop art line at the Minnesota State Fair, the year crop artists took on Operation Metro Surge.',
+		listen:
+			'https://www.npr.org/2026/09/04/nx-s1-5954198/at-minnesotas-state-fair-crop-artists-depict-the-struggle-over-immigration-enforcement',
+		cover: '/images/talks/events/npr-all-things-considered.webp',
+	},
+	{
 		title: 'I Built an Internal Developer Platform and Developers Still Ping Me',
 		kind: 'talk',
 		event: 'DevOpsCon Amsterdam',
