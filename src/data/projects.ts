@@ -1137,7 +1137,7 @@ export const projects: Project[] = curlEveryString(
 			title: 'linger',
 			shareTitle: 'linger: Poems that only finish if you read them slowly',
 			description:
-				'A small collection of poems that only finish for readers who slow down. Each line starts as a few words floating in white space. Hold still and the blanks fill in. Scroll fast and they drain away again. Plain HTML, CSS, and about a hundred lines of JavaScript, with no analytics and no share button.',
+				'A small collection of poems that only finish for readers who slow down. Each line starts as a few words floating in white space. Hold still and the blanks fill in. Scroll fast and they drain away again. Plain HTML, CSS, and about a hundred lines of JavaScript, with no share button.',
 			image: '/images/projects/linger.webp',
 			video: '/images/projects/linger.mp4',
 			imageAlt:
@@ -1190,7 +1190,7 @@ export const projects: Project[] = curlEveryString(
 					'The poems are about in-between time, like sitting in the driveway before going inside, a snow day, or a Sunday with nothing in it, and I wanted reading them to take some time too.',
 					"I've been writing poetry for about ten years, and lately a lot of it has been blackout poetry on paper, where you black out most of a printed page until a poem is left. Tom Phillips did a version of this for A Humument, painting over the pages of a Victorian novel, and Mary Ruefle whited out words in an old book called A Little White Shadow. I kept wondering what the web could do with erasure that paper can't. Paper has no idea how fast you're reading, and a web page does, so I made speed the thing that decides which words you get.",
 					"The Deletionist was a big inspiration. It's a bookmarklet by Amaranth Borsuk, Nick Montfort and Jesper Juul that erases most of the text on any web page you run it on and leaves a poem behind. linger goes the other direction. It starts with the erased version, a few words left on the page, and gives the rest back if you stay.",
-					"The page only measures how fast you're scrolling, and it doesn't save that anywhere. It has no analytics, no cookies and no share button, so I have no idea whether anyone has read one all the way through.",
+					"The page only measures how fast you're scrolling, and it doesn't save that anywhere. It has no cookies and no share button, so I have no idea whether anyone has read one all the way through.",
 				],
 				made: {
 					text: [
