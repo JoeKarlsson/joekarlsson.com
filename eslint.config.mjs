@@ -76,4 +76,9 @@ export default [
 			'prefer-const': 'warn',
 		},
 	},
+	{
+		// Command-line scripts a skill runs: the console is their output
+		files: ['.claude/skills/*/scripts/**'],
+		rules: { 'no-console': 'off' },
+	},
 ];
