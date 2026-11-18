@@ -589,11 +589,36 @@ page's own scripts run. -->
 				props: { message: String(message).slice(0, 200), source, path: location.pathname },
 			});
 		};
-		addEventListener('error', (e) => report(e.message, `${e.filename}:${e.lineno}`));
-		addEventListener('unhandledrejection', (e) => report(e.reason, 'promise'));
+		// Only what points at the site's own code. Extensions (chrome-extension:// and the
+		// like) and cross-origin scripts ("Script error." with no file) aren't ours to fix.
+		const ownCode = (file) => String(file).startsWith(`${location.origin}/`);
+		// The site never writes to a Trusted Types sink outside the "plausible" policy (ESLint
+		// bans the sinks; CI's script policy check fails on any violation), so a Trusted Types
+		// failure blamed on the page itself, not one of its script files, is injected code
+		const ownScriptFile = (file) =>
+			ownCode(file) && file.split('#')[0] !== location.href.split('#')[0];
+		const trustedTypes = /Trusted(HTML|Script|ScriptURL)\b/;
+		addEventListener('error', (e) => {
+			if (!ownCode(e.filename)) return;
+			if (trustedTypes.test(e.message) && !ownScriptFile(e.filename)) return;
+			report(e.message, `${e.filename}:${e.lineno}`);
+		});
+		addEventListener('unhandledrejection', (e) => {
+			// A deliberate cancel, like skipTransition() on a view transition, not a bug
+			if (e.reason?.name === 'AbortError') return;
+			report(e.reason, 'promise');
+		});
 		// The script policy (src/integrations/script-csp.mjs) blocks quietly; this says what
-		addEventListener('securitypolicyviolation', (e) =>
-			report(`${e.violatedDirective} ${e.blockedURI} ${e.sample}`, 'csp'),
-		);
+		addEventListener('securitypolicyviolation', (e) => {
+			if (!ownCode(e.sourceFile)) return;
+			// A policy the site doesn't make (an extension's "dompurify", Google Translate's "goog#html")
+			if (e.violatedDirective === 'trusted-types' && e.sample !== 'plausible') return;
+			if (e.violatedDirective === 'require-trusted-types-for' && !ownScriptFile(e.sourceFile))
+				return;
+			report(
+				`${e.violatedDirective} ${e.blockedURI} ${e.sample}`,
+				`csp ${e.sourceFile}:${e.lineNumber}`,
+			);
+		});
 	})();
 </script>
