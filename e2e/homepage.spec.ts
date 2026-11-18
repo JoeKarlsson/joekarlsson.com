@@ -32,7 +32,7 @@ test.describe('Homepage', () => {
 			.locator('h1')
 			.locator('xpath=ancestor::div[contains(@class,"bg-surface-1")][1]');
 		const nameTop = (await page.locator('h1').boundingBox())!.y;
-		const lead = panel.getByText('I think technology should be weird');
+		const lead = panel.getByText('Technology is better when it');
 		expect((await lead.boundingBox())!.y).toBeGreaterThan(nameTop);
 		await expect(page.locator('body')).not.toContainText('15 years writing software');
 	});
