@@ -34,7 +34,7 @@ const THRESHOLDS = {
 	// chapter openers) took it to 20.1KB. Raised to 23KB on 2026-11-16 (Joe's OK): margin
 	// notes beyond citations (quotes, terms, updates, see-also cards) took it to 22.1KB.
 	maxTotalCssGzip: 23 * 1024,
-	// No total dist cap: it was raised six times in November 2026 and every new post tripped
+	// No total dist cap: it was raised six times in November 2026 as new media kept tripping
 	// it, while visitors only ever fetch one page. These catch what it was there for (raw
 	// footage, unconverted GIFs); per-page weight is the homepage budget, Lighthouse and
 	// validate-images.sh. The biggest file was a 14MB tour video and the biggest GIF 345KB.
