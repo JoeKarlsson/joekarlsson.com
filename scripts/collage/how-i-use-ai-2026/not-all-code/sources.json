@@ -1,0 +1,30 @@
+[
+	{
+		"element": "elements/house.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Dollhouse_of_Petronella_Ortman_by_Jacob_Appel.jpg",
+		"license": "Public domain (PD-Art; Jacob Appel, c. 1710)",
+		"shows": "Petronella Oortman's cabinet dollhouse, nine open rooms",
+		"derivative": "cropped to the cabinet, lifted with Apple Vision, largest piece kept, toned black and white (--crop 90,60,1090,1160 --largest --width 1000)"
+	},
+	{
+		"element": "elements/terminal.png",
+		"source": "https://commons.wikimedia.org/wiki/File:DEC_VT100_(15272092560).jpg",
+		"license": "CC0",
+		"shows": "A DEC VT100 terminal and keyboard with a printout on top",
+		"derivative": "cropped to the terminal, lifted, toned black and white (--width 700)"
+	},
+	{
+		"element": "elements/tv.png",
+		"source": "https://commons.wikimedia.org/wiki/File:TV22a_portable_television_receiver,_designed_and_manufactured_by_Bush,_1950_-_Design_Museum,_Kensington_-_London_-_DSC01605.jpg",
+		"license": "CC0",
+		"shows": "A 1950 Bush TV22 television",
+		"derivative": "lifted, toned black and white (--width 600)"
+	},
+	{
+		"element": "elements/bulb.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Light_bulb,_manufactured_1881,_designed_by_Thomas_Edison,_TM15572_-_Tekniska_museet_-_Stockholm,_Sweden_-_DSC01425.JPG",
+		"license": "CC0",
+		"shows": "An 1881 Edison light bulb, Tekniska museet",
+		"derivative": "cropped to the bulb, lifted, toned pink (--tone pink --width 400)"
+	}
+]

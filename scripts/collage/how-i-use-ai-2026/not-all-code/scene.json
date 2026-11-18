@@ -1,0 +1,79 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#D6CEBE",
+		"grain": 0.05
+	},
+	"cadence": { "hold_frames": 2, "jitter_px": 1.5, "jitter_deg": 0.4, "seed": 11 },
+	"duration": 6.4,
+	"elements": [
+		{
+			"image": "elements/house.png",
+			"x": 960,
+			"y": 450,
+			"scale": 0.8,
+			"enter_at": 1.5,
+			"enter_from": "top",
+			"enter_duration": 0.7,
+			"shadow": { "dx": 10, "dy": 12, "blur": 12, "opacity": 0.5 }
+		},
+		{
+			"image": "elements/terminal.png",
+			"x": 960,
+			"y": 520,
+			"scale": 0.8,
+			"rotation": -1.5,
+			"enter_at": 0.3,
+			"enter_from": "bottom",
+			"enter_duration": 0.55,
+			"moves": [{ "at": 1.35, "y": 1900, "rotation": 8, "duration": 0.45, "ease": "in" }],
+			"shadow": { "dx": 10, "dy": 12, "blur": 12, "opacity": 0.5 }
+		},
+		{
+			"image": "elements/terminal.png",
+			"x": 745,
+			"y": 455,
+			"scale": 0.25,
+			"rotation": 1,
+			"enter_at": 2.35,
+			"enter_from": "left",
+			"enter_duration": 0.5,
+			"shadow": { "dx": 6, "dy": 8, "blur": 8, "opacity": 0.55 }
+		},
+		{
+			"image": "elements/tv.png",
+			"x": 1180,
+			"y": 458,
+			"scale": 0.28,
+			"rotation": -2,
+			"enter_at": 2.95,
+			"enter_from": "right",
+			"enter_duration": 0.5,
+			"shadow": { "dx": 6, "dy": 8, "blur": 8, "opacity": 0.55 }
+		},
+		{
+			"image": "elements/bulb.png",
+			"x": 962,
+			"y": 450,
+			"scale": 0.3,
+			"rotation": 3,
+			"enter_at": 3.75,
+			"enter_from": "top",
+			"enter_duration": 0.55,
+			"shadow": { "dx": 6, "dy": 8, "blur": 8, "opacity": 0.55 }
+		}
+	],
+	"label": {
+		"text": "NOT ALL OF IT IS CODE",
+		"font_family": "Anton",
+		"size": 120,
+		"color": "#0A0A0A",
+		"tracking": 4,
+		"x": 960,
+		"y": 900,
+		"enter_at": 4.5,
+		"align": "center"
+	}
+}

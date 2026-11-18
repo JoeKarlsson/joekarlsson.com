@@ -2057,5 +2057,20 @@
 			"color": "chalk"
 		},
 		"motion": "boil"
+	},
+	"how-i-use-ai-2026": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Erie_Canal,_Lockport_New_York,_c.1855.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Erie_Canal,_Lockport_New_York,_c.1855.jpg"
+		},
+		"look": "taped",
+		"alt": "An 1855 engraving of the Erie Canal locks at Lockport, men leaning on a lock gate with the flight of locks stepping down behind them",
+		"focus": 0.55,
+		"mark": {
+			"name": "tally",
+			"at": [84, 3, 13, 22],
+			"color": "chalk"
+		},
+		"motion": "boil"
 	}
 }
