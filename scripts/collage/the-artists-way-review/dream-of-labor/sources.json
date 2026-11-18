@@ -1,0 +1,44 @@
+[
+	{
+		"element": "elements/calendar.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Calligraphic_Trompe-l%27%C5%93il_Calendar_MET_DP145131.jpg (media-sources/collage/the-artists-way-review/calendar-met.jpg)",
+		"license": "CC0 (The Met open access)",
+		"shows": "A calligraphic trompe-l'oeil calendar for December",
+		"derivative": "lifted with Apple Vision, toned black and white, keyline (--tone mono --width 520)"
+	},
+	{
+		"element": "elements/briefcase.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Briefcase_MET_212686.jpg (media-sources/collage/the-artists-way-review/briefcase-met.jpg)",
+		"license": "CC0 (The Met open access)",
+		"shows": "A tooled leather briefcase",
+		"derivative": "lifted with Apple Vision, largest piece kept, toned black and white (--tone mono --largest --width 600)"
+	},
+	{
+		"element": "elements/telephone.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Telephone,_Model_3_G,_Candlestick,_Automatic_Electric_Company,_Chicago,_1918-1919,_lacquered_metal,_cast_stone,_felt_-_Museum_f%C3%BCr_Angewandte_Kunst_K%C3%B6ln_-_Cologne,_Germany_-_DSC09625.jpg (media-sources/collage/the-artists-way-review/telephone.jpg)",
+		"license": "CC0 (photographer Daderot)",
+		"shows": "A 1918 candlestick telephone",
+		"derivative": "lifted with Apple Vision, toned black and white (--tone mono --width 520)"
+	},
+	{
+		"element": "elements/chair.png",
+		"source": "https://commons.wikimedia.org/wiki/File:Adirondack_chairs.jpg (media-sources/collage/the-artists-way-review/adirondack.jpg)",
+		"license": "CC0",
+		"shows": "One yellow plastic Adirondack chair from a row of colored chairs",
+		"derivative": "cropped, keyed to the yellow chair by hue, then lifted, largest piece kept, left in color (--tone none --largest --width 500)"
+	},
+	{
+		"element": "elements/palette.png",
+		"source": "Joe's own photo (media-sources/collage/the-artists-way-review/joe-watercolor-palettes.jpg)",
+		"license": "Joe's own",
+		"shows": "Joe's watercolor palettes and a leaf watercolor on a clipboard",
+		"derivative": "lifted with Apple Vision, left in color (--tone none --width 420)"
+	},
+	{
+		"element": "elements/joe.png",
+		"source": "Joe's own photo at the 2026 Minnesota State Fair crop art wall (media-sources/collage/the-artists-way-review/joe-crop-art.jpg)",
+		"license": "Joe's own",
+		"shows": "Joe in a Hawaiian shirt",
+		"derivative": "lifted with Apple Vision person mode, toned black and white (--tone mono --person --width 520)"
+	}
+]

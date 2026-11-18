@@ -2072,5 +2072,20 @@
 			"color": "chalk"
 		},
 		"motion": "boil"
+	},
+	"the-artists-way-review": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Figure_in_Hammock,_Florida_MET_DT232129.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Figure_in_Hammock,_Florida_MET_DT232129.jpg"
+		},
+		"look": "flat",
+		"alt": "John Singer Sargent watercolor of a man lying in a hammock under palm trees by the water in Florida, 1917",
+		"focus": 0.5,
+		"mark": {
+			"name": "cloud",
+			"at": [82, 4, 14, 18],
+			"color": "chalk"
+		},
+		"motion": "boil"
 	}
 }

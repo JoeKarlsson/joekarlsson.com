@@ -1,0 +1,153 @@
+{
+	"canvas": {
+		"width": 1920,
+		"height": 1080,
+		"fps": 24,
+		"background_hex": "#2B4BD8",
+		"grain": 0.05
+	},
+	"cadence": {
+		"hold_frames": 2,
+		"jitter_px": 1.5,
+		"jitter_deg": 0.4,
+		"seed": 11
+	},
+	"duration": 8.4,
+	"elements": [
+		{
+			"image": "elements/joe.png",
+			"x": 760,
+			"y": 830,
+			"scale": 0.62,
+			"rotation": -1,
+			"enter_at": 0.3,
+			"enter_from": "bottom",
+			"enter_duration": 0.6,
+			"moves": [
+				{
+					"at": 4.5,
+					"x": 1130,
+					"y": 830,
+					"rotation": 1.5,
+					"duration": 1.0,
+					"ease": "out"
+				}
+			],
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.55
+			}
+		},
+		{
+			"image": "elements/calendar.png",
+			"x": 400,
+			"y": 893,
+			"scale": 0.5,
+			"rotation": -3,
+			"enter_at": 1.0,
+			"enter_from": "top",
+			"enter_duration": 0.55,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/briefcase.png",
+			"x": 412,
+			"y": 574,
+			"scale": 0.6,
+			"rotation": 4,
+			"enter_at": 1.5,
+			"enter_from": "top",
+			"enter_duration": 0.5,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/telephone.png",
+			"x": 380,
+			"y": 262,
+			"scale": 0.33,
+			"rotation": -6,
+			"enter_at": 2.1,
+			"enter_from": "top",
+			"enter_duration": 0.45,
+			"moves": [
+				{
+					"at": 2.9,
+					"x": 386,
+					"y": 262,
+					"rotation": 3,
+					"duration": 0.3,
+					"ease": "back"
+				},
+				{
+					"at": 3.3,
+					"x": 382,
+					"y": 262,
+					"rotation": -4,
+					"duration": 0.3,
+					"ease": "back"
+				}
+			],
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/chair.png",
+			"x": 1520,
+			"y": 720,
+			"scale": 0.95,
+			"rotation": 2,
+			"enter_at": 3.75,
+			"enter_from": "right",
+			"enter_duration": 0.6,
+			"shadow": {
+				"dx": 10,
+				"dy": 12,
+				"blur": 12,
+				"opacity": 0.6
+			}
+		},
+		{
+			"image": "elements/palette.png",
+			"x": 1390,
+			"y": 905,
+			"scale": 0.42,
+			"rotation": -9,
+			"enter_at": 5.75,
+			"enter_from": "bottom",
+			"enter_duration": 0.45,
+			"shadow": {
+				"dx": 8,
+				"dy": 10,
+				"blur": 10,
+				"opacity": 0.65
+			}
+		}
+	],
+	"label": {
+		"text": "I DON'T DREAM OF LABOR.",
+		"font_family": "Anton",
+		"size": 92,
+		"color": "#ECE6DA",
+		"tracking": 4,
+		"x": 960,
+		"y": 30,
+		"enter_at": 6.4,
+		"align": "center"
+	}
+}
