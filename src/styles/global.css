@@ -301,8 +301,6 @@
 	margin-block: 70svh;
 	font-size: clamp(3rem, 1rem + 5vw, 7rem);
 	line-height: 1.02;
-	/* the italic T's ink starts inside its box; this puts it on the text edge */
-	text-indent: -0.1em;
 }
 .prose .callout {
 	@apply border-l-4 border-pink pl-4 py-1 my-6 font-sans text-base;
