@@ -30,6 +30,9 @@ Write the opening paragraph two or three ways (A, B, C), each a real draft parag
 - Opens on the reader's question or the thesis from the angle block, then says what they will have or know by the end.
 - Is not the demo's example. The example arrives after the problem is set, labeled as the example.
 - Is not a definition, a teaser, a warm-up or a stat with no point. A question is fine when the post answers it; a rhetorical question the post never answers isn't.
+- A question names exactly what's missing, so the reader can see the gap (Golman and Loewenstein, CMU, 2021). For an essay, the strongest question is about something developers take for granted (Paul Graham, "The Best Essay": "merely having questions about something other people take for granted can be edge enough").
+- A statement opens on what broke or what happened, not a warning ("Is your agent leaking data?"). In about 105,000 Upworthy headline tests, negative words raised clicks and fear and hype words lowered them (Robertson et al., Nature Human Behaviour, 2023).
+- **Bug hunts are the one place to hold the answer back** (Sarna and Dunlop, *Writing for Developers*). Most posts give the conclusion up front; a debugging story opens on the symptom and keeps the cause for the end, and its TL;DR names the symptom and the fix area without spoiling the cause. Example from Joe's own Mac: "Every few days my Mac's internet died and every app hung. It wasn't the Wi-Fi."
 - Varies the framing, not just the wording: the failure the reader fears, the cost or time they lose today, the question they keep asking.
 
 **Test each option as a stranger:** someone who has never seen the demo, the talk or Joe's setup reads only this paragraph. Do they know what problem it solves, whether it's theirs, and what they'll get? Would they read the second paragraph?
