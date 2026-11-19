@@ -14,7 +14,7 @@ test.describe('Homepage', () => {
 
 	test('hero montage video is present and labeled', async ({ page }) => {
 		const video = page.locator('video[aria-label*="Montage"]');
-		await expect(video).toHaveAttribute('poster', /montage-poster/);
+		await expect(video).toHaveAttribute('data-poster', /montage-poster/);
 		await expect(video.locator('source')).toHaveCount(2);
 		await expect(video.locator('source').first()).toHaveAttribute('type', 'video/webm');
 		// Desktop plays the square cut (dated filename busts the 30-day cache)
@@ -123,16 +123,21 @@ test.describe('Homepage', () => {
 test.describe('Homepage - Mobile', () => {
 	test.use({ viewport: { width: 375, height: 667 }, hasTouch: true });
 
-	test('phones keep the montage poster and never download the clip', async ({ page }) => {
-		const clips: string[] = [];
+	test('phones show the headshot and download neither the clip nor its poster', async ({
+		page,
+	}) => {
+		const montage: string[] = [];
 		page.on('request', (request) => {
-			if (/\/montage-[\d-]+\.(webm|mp4)/.test(request.url())) clips.push(request.url());
+			if (/\/montage-/.test(request.url())) montage.push(request.url());
 		});
 		await page.goto('/', { waitUntil: 'networkidle' });
-		const video = page.locator('video[aria-label*="Montage"]');
-		await expect(video).toHaveAttribute('poster', /montage-poster/);
-		expect(await video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
-		expect(clips).toEqual([]);
+		const still = page.locator('section[aria-label="Introduction"] picture img');
+		await expect(still).toBeVisible();
+		expect(await still.evaluate((img: HTMLImageElement) => img.currentSrc)).toMatch(
+			/joe-headshot\.webp$/,
+		);
+		await expect(page.locator('video[aria-label*="Montage"]')).toBeHidden();
+		expect(montage).toEqual([]);
 	});
 
 	test('the drawing board lets touch scroll the page until drawing is on', async ({ page }) => {

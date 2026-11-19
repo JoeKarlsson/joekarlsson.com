@@ -184,15 +184,30 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 	2026-11-16). The clip stops a little short of the window's height, so a 2560px
 	screen still shows the nav on its first screen */}
 	<section slot="hero" aria-label="Introduction" class="grid w-full gap-4 p-4 md:grid-cols-2">
-		{/* Phones: a 16:9 banner of Joe's face, cropped from the poster. Side by side: at least square, growing with a taller text panel so the
+		{/* Phones: a 16:9 banner of Joe's resume headshot. Side by side: at least square, growing with a taller text panel so the
 		video never stops short. Only the video is clipped to the rounded box; the marks
 		sit above everything and spill across the text panel, the gutters and the nav. */}
 		<div class="relative z-10 aspect-video md:aspect-auto md:before:block md:before:aspect-square md:before:max-h-[calc(100svh-6rem)] md:before:content-['']">
 			<div class="absolute inset-0 overflow-hidden rounded-xl">
+				{/* The still under the clip, one download per screen: phones get the headshot
+				(Joe's pick, 2026-11-19) and never the clip, which was 600 KB, more than the rest
+				of the page; wider screens get the montage's own poster until the clip plays. */}
+				<picture>
+					<source media="(min-width: 768px)" srcset="/images/home/montage-poster.webp" />
+					<img
+						src="/images/joe-headshot.webp"
+						alt=""
+						data-halftone="flat"
+						width="640"
+						height="640"
+						fetchpriority="high"
+						class="absolute inset-0 size-full object-cover object-[50%_30%]"
+					/>
+				</picture>
 				<video
 					tabindex="-1"
-					class="absolute inset-0 size-full object-cover object-[50%_25%] md:object-center"
-					poster="/images/home/montage-poster.webp"
+					class="absolute inset-0 size-full object-cover max-md:hidden"
+					data-poster="/images/home/montage-poster.webp"
 					data-halftone="flat"
 					data-autoplay-in-view
 					data-phone-still
@@ -204,8 +219,8 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 				>
 					{/* Plain color clips, each frame auto-leveled, so the live pink
 					(src/scripts/halftone.ts) stay sharp at any size and every shot matches the
-					poster's levels. VP9 is smaller; H.264 is the fallback. Phones keep the poster
-					(data-phone-still): the clip was 600 KB, more than the rest of the page.
+					poster's levels. VP9 is smaller; H.264 is the fallback. data-poster: a poster
+					attribute downloads even on the hidden phone video (in-view-play sets it).
 					preload="none" because iPhone Safari pulls the whole clip for "metadata". */}
 					<source src="/images/home/montage-2026-11-10.webm" type="video/webm" />
 					<source src="/images/home/montage-2026-11-10.mp4" type="video/mp4" />
