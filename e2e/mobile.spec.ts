@@ -9,6 +9,8 @@ const PHONE = {
 	hasTouch: true,
 };
 const DESKTOP = { viewport: { width: 1280, height: 900 } };
+// Phones see the homepage hero's still; the montage clip is hidden there
+const HERO_STILL = 'section[aria-label="Introduction"] picture img';
 
 const box = async (page: Page, selector: string) => {
 	const found = await page.locator(selector).first().boundingBox();
@@ -32,18 +34,18 @@ test.describe('Phone layout', () => {
 	test('the nav sits above the homepage hero', async ({ page }) => {
 		await page.goto('/');
 		const nav = await box(page, 'header nav[aria-label="Main"]');
-		const hero = await box(page, 'video[aria-label*="Montage"]');
+		const hero = await box(page, HERO_STILL);
 		expect(nav.y).toBeLessThan(hero.y);
 		expect(nav.y).toBeLessThan(40);
 	});
 
-	test("the hero coil stays off Joe's face, down on the clip's bottom edge", async ({ page }) => {
+	test("the hero coil stays off Joe's face, down on the still's bottom edge", async ({ page }) => {
 		await page.goto('/');
-		const hero = await box(page, 'video[aria-label*="Montage"]');
-		// The coil is the first scribble after the clip's rounded box
+		const hero = await box(page, HERO_STILL);
+		// The coil is the first scribble after the still's rounded box (img > picture > box)
 		const coil = await page
-			.locator('video[aria-label*="Montage"]')
-			.locator('xpath=../following-sibling::*[name()="svg"][1]')
+			.locator(HERO_STILL)
+			.locator('xpath=../../following-sibling::*[name()="svg"][1]')
 			.boundingBox();
 		expect(coil!.y).toBeGreaterThan(hero.y + hero.height * 0.7);
 	});
