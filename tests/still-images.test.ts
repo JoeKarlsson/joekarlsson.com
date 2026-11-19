@@ -26,11 +26,11 @@ describe('addStills', () => {
 		);
 	});
 
-	it('ships only the still to a paper hero, which boils around it instead', () => {
+	it('ships only the still to a paper hero, at the widths of the still', () => {
 		const html =
-			'<img src="/a/thumb.webp" data-still-only srcset="/a/thumb.400w.webp 400w, /a/thumb.webp 960w" alt="x">';
+			'<img src="/a/thumb-1234abcd.webp" data-still-only srcset="/a/thumb-1234abcd.400w.webp 400w, /a/thumb-1234abcd.webp 960w" alt="x">';
 		expect(addStills(html, (src: string) => stillPath(src))).toBe(
-			'<img src="/a/thumb.still.webp" data-still-only alt="x">',
+			'<img src="/a/thumb-1234abcd.still.webp" data-still-only srcset="/a/thumb-1234abcd.still.400w.webp 400w, /a/thumb-1234abcd.still.webp 960w" alt="x">',
 		);
 	});
 });

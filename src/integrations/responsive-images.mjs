@@ -72,9 +72,12 @@ export function addStills(html, stillOf) {
 		const still = src && stillOf(src);
 		if (!still) return tag;
 		// A post's masthead (src/layouts/BlogPost.astro) is the quiet one: an animated
-		// thumbnail there ships as its still and never as the animation
+		// thumbnail there ships as its still and never as the animation, at the still's
+		// widths so a phone doesn't load the 1200px copy
 		if (/\sdata-still-only[\s>=]/.test(tag)) {
-			return tag.replace(/\ssrcset="[^"]*"/, '').replace(/\ssrc="[^"]+"/, ` src="${still}"`);
+			return tag
+				.replace(/\ssrcset="([^"]*)"/, (_, srcset) => ` srcset="${stillSrcset(srcset)}"`)
+				.replace(/\ssrc="[^"]+"/, ` src="${still}"`);
 		}
 		// The still comes in the same widths, so a phone's 112px card doesn't swap a 10 KB
 		// animation for the 1200px still
