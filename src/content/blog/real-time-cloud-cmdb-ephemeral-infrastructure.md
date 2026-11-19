@@ -8,7 +8,7 @@ tags:
   - Engineering
 date: 2025-10-24
 description: 'Traditional CMDBs miss ephemeral resources because containers live minutes. How cloud CMDBs use tiered sync, from 15 minutes to daily, and what it costs.'
-heroImage: '/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/thumb-432849a5.webp'
+heroImage: '/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/thumb-047ea84b.webp'
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/real-time-cloud-cmdb-ephemeral-infrastructure
@@ -17,7 +17,7 @@ updatedDate: 2026-11-16
 corrections:
   - date: 2026-11-16
     note: "I gave Lambda cold starts as 400-700 ms. AWS says under 100 ms to over 1 second. I also cited Datadog's 2023 container report for most containers living minutes; it has no lifespan data. Datadog's 2019 report does: about a day on Kubernetes and ECS."
-heroAlt: "Chardin's painting of a boy blowing a soap bubble"
+heroAlt: "Chardin's painting of a boy blowing a soap bubble, a chalk thought bubble over him holding a rain cloud"
 marginNotes:
   - type: 'term'
     at: 'Your CMDB updates weekly'

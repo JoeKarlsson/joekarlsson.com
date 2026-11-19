@@ -73,8 +73,9 @@ const MOTIONS = new Set(['boil', 'clip']);
 // The boil in src/layouts/BaseLayout.astro: its three seeds, 1/6 s each
 const BOIL_SEEDS = [11, 22, 33];
 const BOIL_MS = 167;
-// A card with doodles: four seeds at 10 fps and a wider wobble
-const INK_BOIL = { seeds: [4, 9, 15, 21], ms: 100, scale: 7 };
+// A card with doodles: three seeds at 10 fps (a frame less than four keeps a photo-heavy
+// card near 120 KB) and a wider wobble
+const INK_BOIL = { seeds: [4, 9, 15], ms: 100, scale: 7 };
 const CLIP_FPS = 10;
 const CLIP_WIDTH = 960;
 const MAX_ANIMATED_BYTES = 256 * 1024;

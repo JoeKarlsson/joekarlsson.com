@@ -644,7 +644,7 @@
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Soap_Bubbles_LACMA_M.79.251.jpg?width=1600",
 			"credit": "https://commons.wikimedia.org/wiki/File:Soap_Bubbles_LACMA_M.79.251.jpg"
 		},
-		"alt": "Chardin's painting of a boy blowing a soap bubble",
+		"alt": "Chardin's painting of a boy blowing a soap bubble, a chalk thought bubble over him holding a rain cloud",
 		"focus": 0.5,
 		"look": "taped",
 		"tilt": 3,
@@ -1964,7 +1964,7 @@
 			"credit": "https://commons.wikimedia.org/wiki/File:Boy_looking_at_Xmas_toys_in_shop_window_LCCN2014684428.jpg"
 		},
 		"look": "taped",
-		"alt": "A boy in a cap and overcoat studying the Christmas toys in a shop window, a drum and a toy wagon behind the glass",
+		"alt": "A boy in a cap and overcoat studying the Christmas toys in a shop window, a drum and a toy wagon behind the glass, chalk hearts rising from him",
 		"focus": 0.45,
 		"mark": {
 			"name": "bow",
