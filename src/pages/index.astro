@@ -184,7 +184,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 	2026-11-16). The clip stops a little short of the window's height, so a 2560px
 	screen still shows the nav on its first screen */}
 	<section slot="hero" aria-label="Introduction" class="grid w-full gap-4 p-4 md:grid-cols-2">
-		{/* Phones: a 16:9 banner of Joe's face (montage-phone is that crop). Side by side: at least square, growing with a taller text panel so the
+		{/* Phones: a 16:9 banner of Joe's face, cropped from the poster. Side by side: at least square, growing with a taller text panel so the
 		video never stops short. Only the video is clipped to the rounded box; the marks
 		sit above everything and spill across the text panel, the gutters and the nav. */}
 		<div class="relative z-10 aspect-video md:aspect-auto md:before:block md:before:aspect-square md:before:max-h-[calc(100svh-6rem)] md:before:content-['']">
@@ -195,26 +195,18 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 					poster="/images/home/montage-poster.webp"
 					data-halftone="flat"
 					data-autoplay-in-view
+					data-phone-still
 					muted
 					loop
 					playsinline
-					preload="metadata"
+					preload="none"
 					aria-label="Montage of short clips of Joe in pink"
 				>
 					{/* Plain color clips, each frame auto-leveled, so the live pink
 					(src/scripts/halftone.ts) stay sharp at any size and every shot matches the
-					poster's levels. Phones get their own 16:9 cut, already cropped to Joe's face.
-					VP9 is smaller; H.264 is the fallback. */}
-					<source
-						media="(max-width: 767px)"
-						src="/images/home/montage-phone-2026-11-10.webm"
-						type="video/webm"
-					/>
-					<source
-						media="(max-width: 767px)"
-						src="/images/home/montage-phone-2026-11-10.mp4"
-						type="video/mp4"
-					/>
+					poster's levels. VP9 is smaller; H.264 is the fallback. Phones keep the poster
+					(data-phone-still): the clip was 600 KB, more than the rest of the page.
+					preload="none" because iPhone Safari pulls the whole clip for "metadata". */}
 					<source src="/images/home/montage-2026-11-10.webm" type="video/webm" />
 					<source src="/images/home/montage-2026-11-10.mp4" type="video/mp4" />
 				</video>
