@@ -8,3 +8,6 @@ package-lock.json
 .vale/styles/.vale-config/
 brand/index.html
 brand/explorations/
+
+# Local design mockups (ignored by the global gitignore, which Prettier does not read)
+.mockups/
