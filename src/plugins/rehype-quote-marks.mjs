@@ -1,11 +1,13 @@
 /**
- * A blockquote that is a real quotation (its text opens with a quotation mark) gets one giant
+ * A blockquote that is one real quotation (its first paragraph is wrapped in quote marks) gets one giant
  * pink quote mark hanging in the margin beside it, and its own small marks come off, since the
  * big one does their job (big type round, 9A; .quote in global.css). Notes, TL;DRs and lists in
  * blockquotes don't open with a quotation mark, so they keep the plain pink rule.
  *
  * Only the first paragraph is the quote; a paragraph after it is the attribution ("From ...").
  */
+
+import { textOf } from './hast-text.mjs';
 
 const OPENING = /^\s*["“]/;
 const CLOSING = /["”]\s*$/;
@@ -31,12 +33,16 @@ export default function rehypeQuoteMarks() {
 		for (const node of tree.children) {
 			if (node.type !== 'element' || node.tagName !== 'blockquote') continue;
 			const quote = node.children.find((c) => c.type === 'element' && c.tagName === 'p');
-			const first = quote && firstText(quote);
-			if (!first || !OPENING.test(first.value)) continue;
+			const whole = quote ? textOf(quote).trim() : '';
+			// Only one quotation, whole: '"Ship it," she said.' or a quote running on to a second
+			// paragraph would be left with an unpaired mark
+			if (!OPENING.test(whole) || !CLOSING.test(whole) || /["“”]/.test(whole.slice(1, -1)))
+				continue;
 
-			first.value = first.value.replace(OPENING, '');
+			const first = firstText(quote);
 			const last = lastText(quote);
-			if (CLOSING.test(last.value)) last.value = last.value.replace(CLOSING, '');
+			first.value = first.value.replace(OPENING, '');
+			last.value = last.value.replace(CLOSING, '');
 			node.properties = { ...node.properties, className: ['quote'] };
 			node.children.unshift({
 				type: 'element',

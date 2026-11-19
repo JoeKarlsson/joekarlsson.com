@@ -36,6 +36,14 @@ describe('rehype-quote-marks', () => {
 		]);
 	});
 
+	it('leaves a quote that would keep an unpaired mark', () => {
+		for (const words of ['“Ship it,” she said.', '“Ship it,” she said, “today.”', '“Ship it,']) {
+			const quote = el('blockquote', [el('p', [text(words)])]);
+			run({ type: 'root', children: [quote] });
+			expect(quote.properties!.className).toBeUndefined();
+		}
+	});
+
 	it('leaves a note alone', () => {
 		const note = el('blockquote', [el('p', [text('Note: this uses mock data')])]);
 		run({ type: 'root', children: [note] });
