@@ -14,22 +14,22 @@ function isActive(href: string, also: string[] = []): boolean {
 }
 ---
 
-<!--
+{/*
 	One row, always. Spacing is in em, so the whole bar scales with its type: from md
 	up the type shrinks until the bar (about 35em wide) fits the window.
 	Phones: the bar runs the full width, the JK logo on the left and a pink MENU on the
 	right under the thumb, both 44px tall. MENU drops the section links below the bar,
 	with Pause motion as the last row. On a post, once its title scrolls under the bar,
 	the middle shows where you are (reading-context.ts).
--->
-<!-- order-first: on phones the bar sits above a page's hero (BaseLayout's hero slot), so
-the menu is the first thing on screen; from md up the homepage hero comes first -->
+*/}
+{/* order-first: on phones the bar sits above a page's hero (BaseLayout's hero slot), so
+the menu is the first thing on screen; from md up the homepage hero comes first */}
 <header class="pointer-events-none sticky top-2 z-50 flex justify-center px-2 pt-2 max-md:order-first max-md:px-4 md:top-3.5">
 	<nav
 		aria-label="Main"
 		class="group/nav pointer-events-auto relative flex max-w-full items-center gap-[0.19em] rounded-[0.67em] bg-paper p-[0.29em] font-display text-base leading-none whitespace-nowrap text-ink uppercase max-md:w-full [&_:focus-visible]:outline-ink max-md:justify-between max-md:gap-2.5 md:text-[min(21px,calc((100vw-var(--spine-w)-24px)/35))]"
 	>
-		<!-- The name is the home link; on the homepage it goes pink like any current page -->
+		{/* The name is the home link; on the homepage it goes pink like any current page */}
 		<a
 			href="/"
 			aria-current={currentPath === '/' ? 'page' : undefined}
@@ -40,12 +40,12 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 			]}
 		>
 			{currentPath === '/' && <span aria-hidden="true" class="nav-pill" />}
-			<!-- Full name from md up, JK on phones -->
+			{/* Full name from md up, JK on phones */}
 			<Logo text="JOE KARLSSON" class="max-md:hidden" />
 			<Logo text="JK" class="md:hidden" />
 		</a>
-		<!-- Phones, on a post: the category, minutes left and title (reading-context.ts). It
-		repeats the page's own heading, so screen readers skip it -->
+		{/* Phones, on a post: the category, minutes left and title (reading-context.ts). It
+		repeats the page's own heading, so screen readers skip it */}
 		<div
 			aria-hidden="true"
 			class="reading-context hidden min-w-0 flex-1 flex-col gap-0.5 font-sans normal-case"
@@ -60,9 +60,9 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 			aria-controls="nav-section-links"
 			class="group/menu sticker flex h-11 shrink-0 cursor-pointer items-center gap-2 rounded-md bg-pink px-3 text-lg tracking-[0.04em] text-ink uppercase hover:bg-ink hover:text-pink aria-expanded:bg-ink aria-expanded:text-pink md:hidden"
 		>
-			<!-- MENU and a hamburger while closed, CLOSE and an X while open: each pair is
+			{/* MENU and a hamburger while closed, CLOSE and an X while open: each pair is
 			stacked in one cell and crossfades (.icon-swap, motion.css). The shown word is the
-			button's name, so voice control's "click Close" works -->
+			button's name, so voice control's "click Close" works */}
 			<span class="icon-swap">
 				<span data-icon-off>Menu</span>
 				<span data-icon-on>Close</span>
@@ -93,8 +93,8 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 				</svg>
 			</span>
 		</button>
-		<!-- md and up: the links and Pause sit in the bar. Phones: a full-width dropdown under
-		the bar while the menu is open, big links with Pause motion as the last row -->
+		{/* md and up: the links and Pause sit in the bar. Phones: a full-width dropdown under
+		the bar while the menu is open, big links with Pause motion as the last row */}
 		<div
 			id="nav-section-links"
 			class="contents max-md:absolute max-md:inset-x-0 max-md:top-full max-md:mt-[0.29em] max-md:hidden max-md:flex-col max-md:items-stretch max-md:gap-0.5 max-md:rounded-[0.67em] max-md:bg-paper max-md:p-[0.29em] max-md:group-data-[menu-open]/nav:flex"
@@ -115,9 +115,9 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 					{label}
 				</a>
 			))}
-			<!-- Pause bars, pressed in pink while motion is paused (aria-pressed): one name and
+			{/* Pause bars, pressed in pink while motion is paused (aria-pressed): one name and
 			one icon in both states, so nothing reads "Pause" over a play triangle. Phones spell
-			the name out, since it's a row in the menu -->
+			the name out, since it's a row in the menu */}
 			<button
 				type="button"
 				data-pause-motion
@@ -136,7 +136,7 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 				</span>
 			</button>
 		</div>
-		<!-- Phones, on a post: how far through it you are (reading-context.ts) -->
+		{/* Phones, on a post: how far through it you are (reading-context.ts) */}
 		<div
 			aria-hidden="true"
 			data-read-progress

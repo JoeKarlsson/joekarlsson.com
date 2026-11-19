@@ -49,8 +49,8 @@ const SORT_INACTIVE =
 	'sort-btn cursor-pointer rounded-md px-3 py-1.5 text-paper hover:text-pink max-md:min-h-11';
 ---
 
-<!-- One bar for finding posts: search and sort on top, then the categories,
-	which go to their own pages -->
+{/* One bar for finding posts: search and sort on top, then the categories,
+	which go to their own pages */}
 <div class="relative mb-8 rounded-xl bg-surface-1 p-5 sm:p-7">
 	<Scribble
 		path={ARROW}
@@ -113,10 +113,10 @@ const SORT_INACTIVE =
 	<BlogFilterNav {...filter} class="mt-5 border-t border-surface-4 pt-5" />
 </div>
 
-<!-- Post count display (updates with search) -->
+{/* Post count display (updates with search) */}
 <p id="results-count" class="mb-4 text-sm text-muted" aria-live="polite"></p>
 
-<!-- No results message -->
+{/* No results message */}
 <div id="no-results" class="hidden py-12">
 	<p class="font-display text-[clamp(2rem,4vw,3.5rem)] leading-none text-paper uppercase">
 		No posts match that search
@@ -147,7 +147,7 @@ const SORT_INACTIVE =
 	))}
 </ul>
 
-<!-- More posts on a click, not as you scroll, so the page's ending and footer stay reachable -->
+{/* More posts on a click, not as you scroll, so the page's ending and footer stay reachable */}
 <div id="load-more" class="mt-8 flex justify-center">
 	<button type="button" class={SECONDARY_BUTTON}>
 		Show more posts

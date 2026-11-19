@@ -5,8 +5,8 @@
 import { SECONDARY_BUTTON } from '../utils/ui';
 ---
 
-<!-- overscroll-contain on the dialog and its backdrop: a wheel or swipe over the open
-lightbox doesn't scroll the page behind (Safari: the wheel listener in lightbox-gestures) -->
+{/* overscroll-contain on the dialog and its backdrop: a wheel or swipe over the open
+lightbox doesn't scroll the page behind (Safari: the wheel listener in lightbox-gestures) */}
 <dialog
 	id="image-lightbox"
 	aria-label="Enlarged image"
@@ -15,9 +15,9 @@ lightbox doesn't scroll the page behind (Safari: the wheel listener in lightbox-
 	<button type="button" class={`${SECONDARY_BUTTON} fixed top-4 right-4 z-10 bg-ink`}>
 		Close
 	</button>
-	<!-- Sized to fit the screen by fitToScreen below, so its box has the picture's shape
-	and the view transition morphs one picture into the other -->
-	<!-- Not draggable: the browser's image drag would cancel a swipe or pan -->
+	{/* Sized to fit the screen by fitToScreen below, so its box has the picture's shape
+	and the view transition morphs one picture into the other */}
+	{/* Not draggable: the browser's image drag would cancel a swipe or pan */}
 	<img alt="" class="object-contain" draggable="false" />
 	<div class="diagram-enlarged hidden"></div>
 </dialog>

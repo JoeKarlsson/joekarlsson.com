@@ -36,10 +36,10 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 	schemaType="CollectionPage"
 >
 	<div class={PAGE_CONTAINER}>
-		<!-- Mirrors the homepage hero: the featured post's picture (its title on a dark
+		{/* Mirrors the homepage hero: the featured post's picture (its title on a dark
 		strip) beside the pink band with the newest post and a dark panel whose BLOG fills it.
 		Only the picture is clipped; the marks sit in front. On phones the picture is a
-		16:9 banner with the title under it, so it doesn't fill the screen. -->
+		16:9 banner with the title under it, so it doesn't fill the screen. */}
 		<PosterHero
 			title="Blog"
 			wordRatio={1.86}
@@ -101,7 +101,7 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 					<HoverBox featured />
 				</a>
 			)}
-			<!-- Phones skip the count: the title panel is just BLOG -->
+			{/* Phones skip the count: the title panel is just BLOG */}
 			<p class={`${HERO_LEAD} max-md:hidden`}>
 				{allPosts.length} posts since {firstPostYear}
 			</p>

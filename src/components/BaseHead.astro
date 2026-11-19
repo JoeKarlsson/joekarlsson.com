@@ -98,38 +98,38 @@ const SPECULATION_RULES = {
 	}
 />
 
-<!-- Fonts: all four are self-hosted (astro.config.mjs), so no visitor IP goes to Google;
+{/* Fonts: all four are self-hosted (astro.config.mjs), so no visitor IP goes to Google;
 the display and body faces are preloaded since nearly every page opens with both.
-Only the latin files: latin-ext still loads when a page has those characters. -->
+Only the latin files: latin-ext still loads when a page has those characters. */}
 <Font cssVariable="--font-anton" preload={[{ subset: 'latin' }]} />
 <Font cssVariable="--font-hanken-grotesk" preload={[{ subset: 'latin' }]} />
 <Font cssVariable="--font-jetbrains-mono" />
 <Font cssVariable="--font-fraunces" />
 
-<!-- Favicon. Bump ?v= when the icons change: browsers and Cloudflare hold on to old favicons.
-public/favicon.ico has no tag: RSS readers and older clients fetch /favicon.ico directly -->
+{/* Favicon. Bump ?v= when the icons change: browsers and Cloudflare hold on to old favicons.
+public/favicon.ico has no tag: RSS readers and older clients fetch /favicon.ico directly */}
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=3" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=3" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
 <link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#000000" />
-<!-- The site is dark-only. Declaring it stops phone browsers (Samsung Internet, Chrome auto-dark) from inverting it when the phone is in dark mode -->
+{/* The site is dark-only. Declaring it stops phone browsers (Samsung Internet, Chrome auto-dark) from inverting it when the phone is in dark mode */}
 <meta name="color-scheme" content="only dark" />
-<!-- Dark Reader (and the iOS browsers built on it, Firefox and Brave) ignores color-scheme and re-darkens the site anyway, turning paper boxes brown -->
+{/* Dark Reader (and the iOS browsers built on it, Firefox and Brave) ignores color-scheme and re-darkens the site anyway, turning paper boxes brown */}
 <meta name="darkreader-lock" />
-<!-- Home-screen bookmarks on iOS: the name under the icon, a black status bar in
-standalone mode, and no auto-linking of numbers like "72-container" as phone numbers -->
+{/* Home-screen bookmarks on iOS: the name under the icon, a black status bar in
+standalone mode, and no auto-linking of numbers like "72-container" as phone numbers */}
 <meta name="apple-mobile-web-app-title" content={SITE_TITLE} />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no" />
 
-<!-- Identity -->
+{/* Identity */}
 {PROFILE_URLS.map((url) => (
 	<link rel="me" href={url} />
 ))}
 
-<!-- Sitemap & RSS -->
+{/* Sitemap & RSS */}
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
 	rel="alternate"
@@ -144,20 +144,20 @@ standalone mode, and no auto-linking of numbers like "72-container" as phone num
 	href={new URL('newsletter/rss.xml', Astro.site)}
 />
 
-<!-- SEO -->
+{/* SEO */}
 <link rel="canonical" href={canonicalURL} />
 {!noindex && <link rel="alternate" type="text/markdown" href={markdownURL} />}
 <title>{title}</title>
 <meta name="description" content={description} />
 <meta name="author" content="Joe Karlsson" />
 
-<!-- Search engine verification (preserved from WordPress) -->
+{/* Search engine verification (preserved from WordPress) */}
 <meta name="google-site-verification" content="QRPrUDjca6IhevyDBOqQCygKZqp45Xyrr2HZooS1LSE" />
 <meta name="msvalidate.01" content="BA95135B22E369C003B007BEE5ECC2F2" />
 <meta name="p:domain_verify" content="9557bed697f311b040f7e3c0f2c7c503" />
 <meta name="yandex-verification" content="993d1db38acd907f" />
 
-<!-- Open Graph -->
+{/* Open Graph */}
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonicalURL} />
@@ -165,7 +165,7 @@ standalone mode, and no auto-linking of numbers like "72-container" as phone num
 <meta property="og:title" content={socialTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImageURL} />
-<!-- Always a 1200x630 JPEG from src/pages/og/ (tests/build-output.test.ts checks every page) -->
+{/* Always a 1200x630 JPEG from src/pages/og/ (tests/build-output.test.ts checks every page) */}
 <meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -188,7 +188,7 @@ standalone mode, and no auto-linking of numbers like "72-container" as phone num
 	<meta property="article:publisher" content="https://www.facebook.com/joe.karlsson13" />
 )}
 
-<!-- Twitter Card -->
+{/* Twitter Card */}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={socialTitle} />
 <meta name="twitter:description" content={description} />
@@ -197,11 +197,11 @@ standalone mode, and no auto-linking of numbers like "72-container" as phone num
 <meta name="twitter:site" content="@joekarlsson1" />
 <meta name="twitter:creator" content="@joekarlsson1" />
 
-<!-- Fetch the next page while the pointer rests on its link (about 200ms), and render it
+{/* Fetch the next page while the pointer rests on its link (about 200ms), and render it
 in the background on press, so a click lands on a page that's ready. Leaves out feeds, the
-Markdown copies for agents and downloads. -->
+Markdown copies for agents and downloads. */}
 <script is:inline type="speculationrules" set:html={jsonForScript(SPECULATION_RULES)} />
-<!-- JSON-LD Structured Data -->
+{/* JSON-LD Structured Data */}
 <script
 	is:inline
 	type="application/ld+json"
@@ -338,8 +338,8 @@ Markdown copies for agents and downloads. -->
 		],
 	})}
 />
-<!-- Hides img and video[data-halftone] until src/scripts/halftone.ts draws it in pink, so the
-color original never flashes; that script takes the class off again without WebGL -->
+{/* Hides img and video[data-halftone] until src/scripts/halftone.ts draws it in pink, so the
+color original never flashes; that script takes the class off again without WebGL */}
 <script is:inline>
 	document.documentElement.classList.add('halftone-on');
 	// Keeps "Pause motion" on across pages (src/scripts/pause-motion.ts writes it).
@@ -352,12 +352,12 @@ color original never flashes; that script takes the class off again without WebG
 		// Not remembered; motion runs until paused on this page
 	}
 </script>
-<!-- Page changes are cross-document View Transitions (motion.css). The nav bar holds still
+{/* Page changes are cross-document View Transitions (motion.css). The nav bar holds still
 while the page slides the way you're going: toward a section further right in the nav, or
 deeper into one, it comes in from the right; Back plays it in reverse. A thumbnail grows into
 the header of the page it opens, and shrinks back on the way back. Keep exploring's links turn
 the next page in like a sheet of paper. Inline in the head: pagereveal fires before the
-page's own scripts run. -->
+page's own scripts run. */}
 <script is:inline define:vars={{ navSections }}>
 	(function () {
 		const NAME = 'morph-hero';
@@ -551,7 +551,7 @@ page's own scripts run. -->
 		});
 	})();
 </script>
-<!-- Plausible Analytics (self-hosted) - with bot filtering -->
+{/* Plausible Analytics (self-hosted) - with bot filtering */}
 <script is:inline>
 	(function () {
 		// Skip analytics for bots and headless browsers

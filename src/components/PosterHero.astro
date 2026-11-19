@@ -27,7 +27,7 @@ const { title, wordRatio, featured, decorativeMedia = false } = Astro.props;
 	<div class:list={['contents', decorativeMedia && 'poster-media-decorative max-md:hidden']}>
 		<slot name="media" />
 	</div>
-	<!-- First on phones, so the page's name shows before its picture -->
+	{/* First on phones, so the page's name shows before its picture */}
 	<div class="relative grid min-w-0 grid-rows-[auto_1fr] gap-4 max-md:order-first">
 		<Scribble
 			{...MARKS.tally}
@@ -44,14 +44,14 @@ const { title, wordRatio, featured, decorativeMedia = false } = Astro.props;
 				delay="3.2s"
 				class="-right-[4%] -bottom-[9%] z-10 h-[16%] w-[22%]"
 			/>
-			<!-- z-10: the huge title's text box reaches above its line (leading 0.84) and
-			would otherwise sit over this slot's buttons and take their clicks -->
+			{/* z-10: the huge title's text box reaches above its line (leading 0.84) and
+			would otherwise sit over this slot's buttons and take their clicks */}
 			<div class="relative z-10">
 				<slot />
 			</div>
-			<!-- The title fills the panel's width, but no title gets bigger than ABOUT's (ratio
+			{/* The title fills the panel's width, but no title gets bigger than ABOUT's (ratio
 			2.4): short words like USES and BLOG would otherwise tower over every other page.
-			Phones put it first, so every page opens on its name, as the homepage does -->
+			Phones put it first, so every page opens on its name, as the homepage does */}
 			<div class="@container max-md:order-first">
 				<h1
 					class="relative font-display text-[calc(100cqw/max(var(--word-ratio),2.4))] leading-[0.84] font-normal whitespace-nowrap text-paper uppercase"
@@ -68,7 +68,7 @@ const { title, wordRatio, featured, decorativeMedia = false } = Astro.props;
 				</h1>
 			</div>
 		</div>
-		<!-- After the panel, so the page's name is read first; wider screens show it on top -->
+		{/* After the panel, so the page's name is read first; wider screens show it on top */}
 		<FeaturedBand {...featured} class="md:order-first" />
 	</div>
 </header>

@@ -50,9 +50,9 @@ for (const issue of backIssues) {
 	schemaType="CollectionPage"
 >
 	<div class={PAGE_CONTAINER}>
-		<!-- The same top as Blog: the latest issue's photo filling the cell with its title on a
+		{/* The same top as Blog: the latest issue's photo filling the cell with its title on a
 		dark strip, the issue before it in the pink band, and the newsletter's name, pitch and
-		signup in the dark panel above NEWSLETTER -->
+		signup in the dark panel above NEWSLETTER */}
 		<PosterHero
 			title="Newsletter"
 			wordRatio={4.7}
@@ -163,9 +163,9 @@ for (const issue of backIssues) {
 				The weekly link roundup this newsletter used to be, from 2021 to 2024.
 			</p>
 
-			<!-- A year per toggle, newest open: about a hundred issues would otherwise run eight
+			{/* A year per toggle, newest open: about a hundred issues would otherwise run eight
 		screens on a phone. Browsers open a closed year when a #year link or find-in-page
-		lands inside it -->
+		lands inside it */}
 			<div class="border-b border-surface-4">
 				{[...byYear.entries()].map(([year, list], i) => (
 					<details id={String(year)} open={i === 0} class="tldr-year group/year">

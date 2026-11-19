@@ -49,9 +49,9 @@ const SECTION = 'relative mb-12 md:mb-32';
 	schemaType="CollectionPage"
 >
 	<div class={PAGE_CONTAINER}>
-		<!-- The site's standard page top: a reel of the selected works plays where other pages
+		{/* The site's standard page top: a reel of the selected works plays where other pages
 		have a picture, 16:9 like every clip in it so nothing is cropped. Its caption and link
-		follow the piece on screen (src/scripts/work-reel.ts) -->
+		follow the piece on screen (src/scripts/work-reel.ts) */}
 		<PosterHero
 			title="Works"
 			wordRatio={2.6}
@@ -115,7 +115,7 @@ const SECTION = 'relative mb-12 md:mb-32';
 					class="top-[20%] left-[calc(100%+0.3em)] h-[0.45em] w-[0.6em] max-md:hidden"
 				/>
 			</SectionMasthead>
-			<!-- Big rows, the clip alternating sides from md up -->
+			{/* Big rows, the clip alternating sides from md up */}
 			<div class="grid gap-y-12 md:gap-y-16">
 				{selected.map((project, i) => (
 					<a
@@ -174,8 +174,8 @@ const SECTION = 'relative mb-12 md:mb-32';
 
 		<section id="statement" class={SECTION}>
 			<SectionMasthead title="Artist statement" />
-			<!-- Phones get one short paragraph of the same argument; the Markdown copy skips it
-			(data-phone-copy) since the full statement is there -->
+			{/* Phones get one short paragraph of the same argument; the Markdown copy skips it
+			(data-phone-copy) since the full statement is there */}
 			<div class="prose md:hidden" data-phone-copy>
 				<p>
 					The early web was homemade pages, built by amateurs for each other, and I think money
@@ -186,7 +186,7 @@ const SECTION = 'relative mb-12 md:mb-32';
 					freer of the idea that everything they make has to earn&nbsp;money.
 				</p>
 			</div>
-			<!-- The container's full width in two columns, so each line stays a reading length -->
+			{/* The container's full width in two columns, so each line stays a reading length */}
 			<div
 				class="prose max-md:hidden md:columns-2 md:gap-12 [&>p]:break-inside-avoid"
 				style="max-width: none"
@@ -234,7 +234,7 @@ const SECTION = 'relative mb-12 md:mb-32';
 			</div>
 		</section>
 
-		<!-- A quick index of the eras below, two columns like /about/'s Follow me -->
+		{/* A quick index of the eras below, two columns like /about/'s Follow me */}
 		<nav aria-label="Eras" class="mb-12 grid gap-x-10 md:mb-32 md:grid-cols-2">
 			{eras.map((era, i) => (
 				<IndexRow

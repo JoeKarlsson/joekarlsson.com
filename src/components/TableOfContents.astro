@@ -6,9 +6,9 @@ interface Props {
 const { headings } = Astro.props;
 ---
 
-<!-- Wide screens only (global.css): from 1600px it sticks in the left gutter beside its
+{/* Wide screens only (global.css): from 1600px it sticks in the left gutter beside its
 .margin-column the whole way down; from 1280px it heads the right margin and scrolls away so
-the notes below show. About keeps it in its sidebar. Narrower screens get the folded list. -->
+the notes below show. About keeps it in its sidebar. Narrower screens get the folded list. */}
 <div class="margin-toc hidden xl:block">
 	<nav class="text-sm" id="toc-nav" aria-label="Table of contents">
 		<p class="mb-3 font-display text-xl tracking-[0.04em] text-paper uppercase">On this page</p>

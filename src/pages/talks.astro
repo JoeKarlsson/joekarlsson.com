@@ -76,8 +76,8 @@ const FILTERS = [
 			}}
 		>
 			<div slot="media" class="relative z-10 aspect-video md:aspect-auto">
-				<!-- Four talks, oldest first: Web Rebels 2018 on stage, TEDxYouth 2021, the 8 Bits show
-				2021 and CData's Developer View 2026 (media-sources/talks-montage.sh builds it) -->
+				{/* Four talks, oldest first: Web Rebels 2018 on stage, TEDxYouth 2021, the 8 Bits show
+				2021 and CData's Developer View 2026 (media-sources/talks-montage.sh builds it) */}
 				<video
 					tabindex="-1"
 					src="/images/talks/joe-talks.mp4"
@@ -157,7 +157,7 @@ const FILTERS = [
 
 		<ShortVideos />
 
-		<!-- A quick index of the eras below, two columns like /work/'s -->
+		{/* A quick index of the eras below, two columns like /work/'s */}
 		<nav aria-label="Eras" class="mb-12 grid gap-x-10 md:mb-32 xl:grid-cols-2">
 			{eras.map((era, i) => (
 				<IndexRow
@@ -171,9 +171,9 @@ const FILTERS = [
 			))}
 		</nav>
 
-		<!-- Hidden until talk-filter's script runs: without JavaScript everything shows.
+		{/* Hidden until talk-filter's script runs: without JavaScript everything shows.
 			The filters sit in a panel like the Blog and Reviews finders, from tablet width up: on a
-			phone the panel's padding would cut the scrolling row short. -->
+			phone the panel's padding would cut the scrolling row short. */}
 		<div class="mb-8 md:rounded-xl md:bg-surface-1 md:p-7" data-talk-filters hidden>
 			<div id="talk-filters" class={FILTER_ROW} role="group" aria-label="Show">
 				{FILTERS.map((filter, i) => (
@@ -189,7 +189,7 @@ const FILTERS = [
 			</div>
 		</div>
 
-		<!-- Phones open on the two newest eras; older ones fold behind a + (phone-collapse.ts) -->
+		{/* Phones open on the two newest eras; older ones fold behind a + (phone-collapse.ts) */}
 		{eras.map((era, i) => (
 			<section
 				id={era.slug}

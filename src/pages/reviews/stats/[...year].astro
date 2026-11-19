@@ -100,7 +100,7 @@ const milestones = [
 	}
 	schemaType="CollectionPage"
 >
-	<!-- The cut-paper edge the bars get (motion.css has the site's other filters) -->
+	{/* The cut-paper edge the bars get (motion.css has the site's other filters) */}
 	<svg width="0" height="0" class="absolute" aria-hidden="true">
 		<filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
 			<feTurbulence
@@ -477,8 +477,8 @@ const milestones = [
 		<section class={SECTION}>
 			<h2 class={H2}>Every review, by rating</h2>
 			<p class={SUB}>Each row is one star rating, each tile one review</p>
-			<!-- An overview: every film here is also on /reviews/, so the tiles stay out of
-			the tab order and away from screen readers -->
+			{/* An overview: every film here is also on /reviews/, so the tiles stay out of
+			the tab order and away from screen readers */}
 			<div class="flex flex-col-reverse gap-3" aria-hidden="true" data-rating-wall>
 				{s.ratings
 					.filter(({ count }) => count)

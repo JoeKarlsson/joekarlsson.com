@@ -13,7 +13,7 @@ const ECHO_TITLE = 'Works on my machine';
 		style="--echo-fill:#000;--echo-stroke:#000"
 	>
 		<span class="sr-only">{ECHO_TITLE}</span>
-		<!-- Phones keep just the first line, filled in solid (.echo-lead in motion.css) -->
+		{/* Phones keep just the first line, filled in solid (.echo-lead in motion.css) */}
 		{[0, 1, 2, 3, 4].map((index) => (
 			<span
 				aria-hidden="true"
@@ -24,7 +24,7 @@ const ECHO_TITLE = 'Works on my machine';
 			</span>
 		))}
 	</h2>
-	<!-- Starts above the pink and comes down into it -->
+	{/* Starts above the pink and comes down into it */}
 	<Scribble
 		path={COIL}
 		color={CHALK}

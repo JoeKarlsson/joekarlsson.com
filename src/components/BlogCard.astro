@@ -69,10 +69,10 @@ const formattedDate = formatDate(date);
 ---
 
 <li class="ring-host group relative grid grid-cols-[112px_1fr] items-start gap-x-4 border-t border-surface-4 py-[18px] sm:grid-cols-[clamp(140px,22vw,280px)_1fr] sm:items-center sm:gap-x-7">
-	<!-- The thumbnail repeats the title link, so it's skipped by keyboard and screen readers -->
+	{/* The thumbnail repeats the title link, so it's skipped by keyboard and screen readers */}
 	<a href={url} tabindex="-1" aria-hidden="true" class="relative block">
-		<!-- data-morph on the picture alone, so the hover box and corner mark don't fly into
-		the post's header with it (BaseHead.astro) -->
+		{/* data-morph on the picture alone, so the hover box and corner mark don't fly into
+		the post's header with it (BaseHead.astro) */}
 		<img
 			data-morph={url}
 			src={image}
@@ -110,8 +110,8 @@ const formattedDate = formatDate(date);
 			)}{' '}
 			{writtenFor && <WrittenFor employer={writtenFor} />}
 		</MetaParts>
-		<!-- The title link covers the whole row (after:), so wherever the hover box says it's
-		clickable, it is. The meta line sits above it, passing clicks through except on its links -->
+		{/* The title link covers the whole row (after:), so wherever the hover box says it's
+		clickable, it is. The meta line sits above it, passing clicks through except on its links */}
 		<a
 			href={url}
 			class="card-link text-lg leading-tight font-semibold text-balance text-paper no-underline group-hover:text-pink after:absolute after:inset-0 sm:text-[clamp(1.25rem,2.2vw,1.75rem)]"

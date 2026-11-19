@@ -15,9 +15,9 @@ const { newsletter = true } = Astro.props;
 	class="relative bg-pink px-4 pt-11 pb-10 text-ink sm:px-7 [&_:focus-visible]:outline-ink"
 >
 	{newsletter && <NewsletterBand />}
-	<!-- From md up, one row: the links take about 33em, so the type shrinks with the
+	{/* From md up, one row: the links take about 33em, so the type shrinks with the
 	viewport until they fit. Phones: bigger type wrapped onto a few rows, each link a
-	full-height tap target -->
+	full-height tap target */}
 	<nav
 		aria-label="Footer"
 		class:list={[
@@ -35,14 +35,14 @@ const { newsletter = true } = Astro.props;
 		))}
 	</nav>
 	<div class="mt-7 flex flex-col justify-between gap-4 border-t-2 border-ink pt-[18px] font-semibold sm:flex-row sm:items-center">
-		<!-- Signed with the logo, black on the pink like the nav's homepage link -->
+		{/* Signed with the logo, black on the pink like the nav's homepage link */}
 		<p style="display:flex;align-items:center;gap:12px">
 			<Logo text="JK" style="--logo-fill:#000;font-size:24px" />
 			&copy; {year} Joe Karlsson
 			<a href="/privacy-policy/" class="text-ink underline hover:text-paper">
 				Privacy
 			</a>
-			<!-- Signed in his own hand lettering -->
+			{/* Signed in his own hand lettering */}
 			<span class="relative ml-2 hidden h-[26px] w-[156px] sm:inline-block">
 				<Scribble
 					{...MARKS.signature}
@@ -55,8 +55,8 @@ const { newsletter = true } = Astro.props;
 				/>
 			</span>
 		</p>
-		<!-- Phones: each icon gets a 44px tap area (p-[11px] around 22px), pulled back to the edge by -mx.
-		From md up: 28px (p-[3px]), over the 24px WCAG minimum, with the same 18px visual gap -->
+		{/* Phones: each icon gets a 44px tap area (p-[11px] around 22px), pulled back to the edge by -mx.
+		From md up: 28px (p-[3px]), over the 24px WCAG minimum, with the same 18px visual gap */}
 		<div class="-mx-[11px] flex items-center md:-mx-[3px] md:gap-[12px] [&>a]:p-[11px] md:[&>a]:p-[3px]">
 			<a
 				href={SOCIAL_LINKS.github}

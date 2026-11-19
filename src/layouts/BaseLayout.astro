@@ -77,37 +77,37 @@ const spine = spineFor(Astro.url.pathname);
 		/>
 	</head>
 	<body class="flex min-h-dvh flex-col">
-		<!-- Hidden until a keyboard user tabs to it: jumps past the hero and nav -->
+		{/* Hidden until a keyboard user tabs to it: jumps past the hero and nav */}
 		<a
 			href="#main"
 			class="sr-only z-50 rounded-md bg-pink px-4 py-2 font-semibold text-ink no-underline focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
 		>
 			Skip to content
 		</a>
-		<!-- The spine: the section name up the left edge (global.css) -->
+		{/* The spine: the section name up the left edge (global.css) */}
 		<div class="spine" aria-hidden="true">
 			<span class="spine-label">{spine.label}</span>
 		</div>
-		<!-- A page's opening hero, set above the nav, as on the homepage (phones move the nav
-		back above it: Header's max-md:order-first) -->
+		{/* A page's opening hero, set above the nav, as on the homepage (phones move the nav
+		back above it: Header's max-md:order-first) */}
 		<slot name="hero" />
 		<Header />
-		<!-- pb leaves a little room for the footer's coil to rise into without crossing text;
-		the coil keeps its shape now, so it draws mostly inside the footer -->
+		{/* pb leaves a little room for the footer's coil to rise into without crossing text;
+		the coil keeps its shape now, so it draws mostly inside the footer */}
 		<main id="main" tabindex="-1" class="relative flex-1 pb-16 focus:outline-none md:pb-20">
 			{marginDoodles && <MarginDoodles />}
 			<slot />
 		</main>
 		<Footer newsletter={footerNewsletter} />
 
-		<!-- The crayon texture every Scribble draws with, and the wobbles that make lines
+		{/* The crayon texture every Scribble draws with, and the wobbles that make lines
 		boil (motion.css). Each wobble is one filter whose noise seed steps through three
 		values, like a hand-drawn line redrawn every frame. It can't be three filters that
 		CSS swaps between: iPhone Safari never repaints when an element's filter URL
 		changes, so everything froze on the first frame there. The pause button and
-		reduced motion pause these (src/scripts/filter-animations.ts). -->
+		reduced motion pause these (src/scripts/filter-animations.ts). */}
 		<svg width="0" height="0" class="absolute" aria-hidden="true" data-motion-filters>
-			<!-- Hovered text links and the logo outline: a fine, quick warble -->
+			{/* Hovered text links and the logo outline: a fine, quick warble */}
 			<filter id="warble" x="-5%" y="-10%" width="110%" height="120%">
 				<feTurbulence type="turbulence" baseFrequency="0.035" numOctaves="2" seed="7" result="w">
 					<animate
@@ -120,7 +120,7 @@ const spine = spineFor(Astro.url.pathname);
 				</feTurbulence>
 				<feDisplacementMap in="SourceGraphic" in2="w" scale="4"></feDisplacementMap>
 			</filter>
-			<!-- The same warble held still: the logo outline's shape when motion is off -->
+			{/* The same warble held still: the logo outline's shape when motion is off */}
 			<filter id="warble-still" x="-5%" y="-10%" width="110%" height="120%">
 				<feTurbulence
 					type="turbulence"
@@ -131,8 +131,8 @@ const spine = spineFor(Astro.url.pathname);
 				></feTurbulence>
 				<feDisplacementMap in="SourceGraphic" in2="w" scale="4"></feDisplacementMap>
 			</filter>
-			<!-- Scribbles, hover rings and diagram arrows: a slow, wide wobble, so a mark never
-			sits perfectly still. A wide region, because marks stroke past their boxes. -->
+			{/* Scribbles, hover rings and diagram arrows: a slow, wide wobble, so a mark never
+			sits perfectly still. A wide region, because marks stroke past their boxes. */}
 			<filter id="boil" x="-25%" y="-25%" width="150%" height="150%">
 				<feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="1" seed="11" result="w">
 					<animate
@@ -163,8 +163,8 @@ const spine = spineFor(Astro.url.pathname);
 				></feColorMatrix>
 				<feComposite in="d" in2="holes" operator="in"></feComposite>
 			</filter>
-			<!-- The boxes cards draw on hover (src/components/HoverBox.astro), each defined
-			once here and drawn with <use>: a copy per card was half of /blog/'s HTML -->
+			{/* The boxes cards draw on hover (src/components/HoverBox.astro), each defined
+			once here and drawn with <use>: a copy per card was half of /blog/'s HTML */}
 			{BOXES.map((path, i) => (
 				<g
 					id={`hover-box-${i}`}
@@ -178,8 +178,8 @@ const spine = spineFor(Astro.url.pathname);
 					<path pathLength="1" d={compactPath(path)} vector-effect="non-scaling-stroke"></path>
 				</g>
 			))}
-			<!-- The rings index rows and pins draw on hover (Scribble with ring), path only:
-			each <use> sets its own color and width -->
+			{/* The rings index rows and pins draw on hover (Scribble with ring), path only:
+			each <use> sets its own color and width */}
 			{RINGS.map((path, i) => (
 				<path
 					id={`hover-ring-${i}`}

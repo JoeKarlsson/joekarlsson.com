@@ -40,9 +40,9 @@ const PINK = '#ff4fd8';
 			/>
 		</span>
 	</p>
-	<!-- z-10 lifts the crayons over the drawing pad below, which covers the whole board -->
+	{/* z-10 lifts the crayons over the drawing pad below, which covers the whole board */}
 	<div class="absolute right-6 bottom-6 z-10 flex items-center gap-2.5 sm:top-7 sm:bottom-auto">
-		<!-- Touch screens only (styles below): a nudge until drawing is on, then a way out -->
+		{/* Touch screens only (styles below): a nudge until drawing is on, then a way out */}
 		<span class="board-hint font-semibold text-paper">Tap a crayon to draw</span>
 		<button
 			type="button"
@@ -78,9 +78,9 @@ const PINK = '#ff4fd8';
 			class="inset-0 size-full"
 		/>
 	))}
-	<!-- Joe's sketchbook doodles, placed by hand so they read like a page of his book:
+	{/* Joe's sketchbook doodles, placed by hand so they read like a page of his book:
 	different sizes and tilts, uneven gaps, nothing lined up. They draw in once, staggered,
-	and stay (the board's own marks keep looping). -->
+	and stay (the board's own marks keep looping). */}
 	{[
 		{
 			mark: MARKS.face,
@@ -123,7 +123,7 @@ const PINK = '#ff4fd8';
 			class={placement}
 		/>
 	))}
-	<!-- Runs off the board's bottom edge into the next section -->
+	{/* Runs off the board's bottom edge into the next section */}
 	<Scribble
 		{...MARKS.lines}
 		color={PINK}
@@ -131,8 +131,8 @@ const PINK = '#ff4fd8';
 		delay="4s"
 		class="right-[4%] -bottom-[70px] z-10 h-[120px] w-[46%]"
 	/>
-	<!-- A mouse over the board draws with this dot in the picked crayon's color (board-pen in
-	motion.css, drawing-board.ts) -->
+	{/* A mouse over the board draws with this dot in the picked crayon's color (board-pen in
+	motion.css, drawing-board.ts) */}
 	<span class="board-pen" aria-hidden="true"></span>
 	<svg class="drawing-board-pad absolute inset-0 size-full">
 		<g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#crayon)"></g>

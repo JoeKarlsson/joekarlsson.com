@@ -61,7 +61,7 @@ const randomPool = pickRandom
 const firstRandom = randomPool[0];
 ---
 
-<!-- data-page-turn: the post it opens turns in like a page (BaseHead.astro) -->
+{/* data-page-turn: the post it opens turns in like a page (BaseHead.astro) */}
 <nav class="mt-12 md:mt-32" aria-labelledby="keep-exploring" data-page-turn>
 	<h2 id="keep-exploring" class={SECTION_HEADING}>
 		{heading}
@@ -76,8 +76,8 @@ const firstRandom = randomPool[0];
 		/>
 	</div>
 
-	<!-- Phones: the lead card keeps its big picture; the rest are compact rows with a
-	thumbnail beside the title, like the homepage's Recent posts -->
+	{/* Phones: the lead card keeps its big picture; the rest are compact rows with a
+	thumbnail beside the title, like the homepage's Recent posts */}
 	{cards.length > 0 && (
 		<ul class="grid gap-5 sm:grid-cols-[1fr_1.35fr] sm:gap-9">
 			{cards.map((post, index) => {
