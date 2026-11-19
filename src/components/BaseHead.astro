@@ -615,6 +615,9 @@ page's own scripts run. -->
 			if (e.violatedDirective === 'trusted-types' && e.sample !== 'plausible') return;
 			if (e.violatedDirective === 'require-trusted-types-for' && !ownScriptFile(e.sourceFile))
 				return;
+			// Google Translate's proxy (www-joekarlsson-com.translate.goog) serves the page from
+			// its own origin and adds this inline script, which the page's hash list blocks
+			if (e.sample.startsWith('function gtElInit')) return;
 			report(
 				`${e.violatedDirective} ${e.blockedURI} ${e.sample}`,
 				`csp ${e.sourceFile}:${e.lineNumber}`,

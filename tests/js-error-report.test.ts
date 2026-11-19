@@ -8,18 +8,14 @@ const head = readFileSync(new URL('../src/components/BaseHead.astro', import.met
 const script = head.match(/Plausible Analytics[^\n]*\n<script is:inline>([\s\S]*?)<\/script>/)![1];
 const PAGE = 'https://www.joekarlsson.com/blog/homelab-gift-ideas-2026/';
 
-function load() {
+function load(page = PAGE) {
 	const listeners: Record<string, (event: unknown) => void> = {};
 	const sent: unknown[] = [];
 	const window = { trustedTypes: undefined, plausible: (_: string, o: unknown) => sent.push(o) };
 	runInNewContext(script, {
 		window,
 		navigator: { webdriver: false, userAgent: 'Mozilla/5.0', languages: ['en'] },
-		location: {
-			origin: 'https://www.joekarlsson.com',
-			href: PAGE,
-			pathname: new URL(PAGE).pathname,
-		},
+		location: { origin: new URL(page).origin, href: page, pathname: new URL(page).pathname },
 		document: { createElement: () => ({ dataset: {} }), head: { appendChild: () => {} } },
 		addEventListener: (type: string, fn: (event: unknown) => void) => (listeners[type] = fn),
 	});
@@ -54,6 +50,16 @@ describe('JS Error reporting', () => {
 		fire('unhandledrejection', {
 			reason: { name: 'AbortError', toString: () => 'AbortError: Skipping view transition' },
 		});
+		expect(sent).toEqual([]);
+	});
+
+	it('ignores the inline script Google Translate’s proxy adds to the page', () => {
+		const proxied = 'https://www-joekarlsson-com.translate.goog/work/';
+		const { fire, sent } = load(proxied);
+		fire(
+			'securitypolicyviolation',
+			csp('script-src-elem', 'function gtElInit() {var lib = new googl', proxied),
+		);
 		expect(sent).toEqual([]);
 	});
 
