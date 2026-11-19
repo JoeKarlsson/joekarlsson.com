@@ -3,7 +3,7 @@ title: 'I Replaced Alexa with a Dumber Voice Assistant (But at Least It’s Priv
 seoTitle: 'I Replaced Alexa with a Private Assistant'
 date: 2025-06-18
 slug: 'i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private'
-description: "After five years of Home Assistant automations, I replaced Amazon Alexa with Home Assistant Voice Preview Edition for privacy. Here's where it falls short."
+description: 'I swapped every Alexa in my house for Home Assistant Voice Preview Edition: what works, where it hears worse than Alexa, and how my family took it.'
 categories: ['Homelab']
 heroImage: '/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/thumb-fc607044.webp'
 heroAlt: 'A hand holding the Home Assistant Voice Preview Edition'
