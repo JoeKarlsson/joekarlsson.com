@@ -31,12 +31,13 @@ export function withoutMarginCopies(html) {
 
 // What only works on the page, with its CSS and scripts: the crayon rings round noted words
 // (an empty box in a reader), heading # links, chapter numerals, FAQ +/- signs, the phone copy
-// of a note's number, citation numbers whose notes the feed drops, and desktop-only embeds,
+// of a note's number, a post's interlude (a line the post already says), citation numbers whose notes the feed drops, and desktop-only embeds,
 // which have no src until a script sets one (their phone link, just before, stays)
 const PAGE_ONLY = [
 	/<svg class="hover-ring[^"]*"[\s\S]*?<\/svg>/g,
 	/<a class="heading-anchor"[^>]*>[\s\S]*?<\/a>/g,
 	/<span class="chapter-num"[^>]*>[^<]*<\/span>/g,
+	/<p class="interlude"[^>]*>[^<]*<\/p>/g,
 	/<span class="faq-sign[^"]*"[^>]*>(?:<span[^>]*>[^<]*<\/span>)*<\/span>/g,
 	/<sup class="cite-num mn-num mn-phone">[\s\S]*?<\/sup>/g,
 	/<sup class="cite-num"[^>]*>[^<]*<\/sup>/g,
