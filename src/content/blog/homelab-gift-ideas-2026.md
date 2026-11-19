@@ -20,7 +20,7 @@ faq:
     answer: "A Raspberry Pi 5 with 4GB or 8GB, or a small mini PC like the Beelink EQ14 (Intel N150), which I haven't used myself. Someone without a lab hasn't made the decisions a gift could clash with, so this is the one case where buying the server works. Skip the 16GB Pi 5: 2026 RAM prices pushed it to about $385."
   - question: 'What smart home gifts work with Home Assistant?'
     answer: 'The Home Assistant Voice Preview Edition is made by the Home Assistant team and runs voice locally. Aqara leak sensors work over Zigbee, and the Aranet4 CO2 monitor has a built-in Home Assistant integration over Bluetooth. A Home Assistant Link subscription ($65 a year, formerly Home Assistant Cloud) helps pay for Home Assistant development.'
-heroImage: '/images/blog/homelab-gift-ideas-2026/thumb-132c6701.webp'
+heroImage: '/images/blog/homelab-gift-ideas-2026/thumb-ef2b0722.webp'
 heroAlt: 'A boy in a cap and overcoat studying the Christmas toys in a shop window, a drum and a toy wagon behind the glass'
 marginNotes:
   - type: 'see'
@@ -36,7 +36,7 @@ marginNotes:
     text: 'For smaller 2-node clusters, the QDevice can be used to provide a 3rd vote.'
     by: "Proxmox VE's cluster docs"
     url: 'https://pve.proxmox.com/wiki/Cluster_Manager'
-mastheadImage: '/images/blog/homelab-gift-ideas-2026/masthead-f7ba128f.webp'
+mastheadImage: '/images/blog/homelab-gift-ideas-2026/masthead-0db8024e.webp'
 ---
 
 These are my homelab gift ideas for 2026, for software engineers, homelabbers and anyone who works at a computer all day.

@@ -15,6 +15,11 @@
  * - whole: true keeps a taped picture uncropped (memes, so the caption survives); the print takes its shape
  * - ring: [left, top, width, height] in % of the picture, a crayon ring around the detail
  * - mark: { "name": <MARKS key>, "at": [left, top, width, height] in % of the card, "color": "pink"|"chalk" }
+ * - doodles: [{ "name": <MARKS key>, "at": [left, top, width, height] in % of the picture, "color", "width" }],
+ *   chalk drawings on the photo itself (a thought bubble over a head, hearts, a spark at a fingertip),
+ *   after Lera Lesyk's Brik "Stop Motion Lines" (DECISIONS.md 2026-11-19). They ride on a taped print's
+ *   tilt and land in the same place on its flat masthead copy. A boiling card with doodles boils
+ *   harder and faster (INK_BOIL), so the lines redraw like stop motion
  * - tilt: degrees for a taped print
  * - inset: percent cut off every edge first, for a scan with a white margin
  * - alt: what the picture shows, used as heroAlt
@@ -68,6 +73,8 @@ const MOTIONS = new Set(['boil', 'clip']);
 // The boil in src/layouts/BaseLayout.astro: its three seeds, 1/6 s each
 const BOIL_SEEDS = [11, 22, 33];
 const BOIL_MS = 167;
+// A card with doodles: four seeds at 10 fps and a wider wobble
+const INK_BOIL = { seeds: [4, 9, 15, 21], ms: 100, scale: 7 };
 const CLIP_FPS = 10;
 const CLIP_WIDTH = 960;
 const MAX_ANIMATED_BYTES = 256 * 1024;
@@ -260,8 +267,9 @@ async function cardFrames(page, sharp, slug, entry, scribbles) {
 	}
 	const picture = await pictureDataUri(sharp, slug, entry);
 	if (!entry.motion) return [[await shoot(picture, BOIL_SEEDS[0]), 0]];
+	const [seeds, ms] = entry.doodles ? [INK_BOIL.seeds, INK_BOIL.ms] : [BOIL_SEEDS, BOIL_MS];
 	const frames = [];
-	for (const seed of BOIL_SEEDS) frames.push([await shoot(picture, seed), BOIL_MS]);
+	for (const seed of seeds) frames.push([await shoot(picture, seed), ms]);
 	return frames;
 }
 
@@ -295,6 +303,10 @@ function markSvg(MARKS, mark, boil = '') {
 	return `<svg class="m${boil}" viewBox="${shape.viewBox}" style="left:${left}%;top:${top}%;width:${width}%;height:${height}%">${edge}<path d="${shape.path}" stroke="${color}" stroke-width="${stroke}"/></svg>`;
 }
 
+/** A card's doodles, in % of the box they're drawn in: the print's picture, or the whole flat card */
+const doodlesSvg = (MARKS, doodles = [], boil) =>
+	doodles.map((doodle) => markSvg(MARKS, { width: 12, ...doodle }, boil)).join('');
+
 function ringSvg(RINGS, ring) {
 	const [left, top, width, height] = ring;
 	return `<svg class="m" viewBox="0 0 900 300" preserveAspectRatio="none" style="left:${left}%;top:${top}%;width:${width}%;height:${height}%"><path d="${RINGS[0]}" stroke="${COLORS.chalk}" stroke-width="16"/></svg>`;
@@ -307,10 +319,10 @@ function cardHtml(entry, picture, { MARKS, RINGS }, seed) {
 		// The print is the picture plus a 16px white border, centred on the card
 		const left = (WIDTH - picture.width - 32) / 2;
 		const top = (HEIGHT - picture.height - 32) / 2;
-		body = `<div class="print" style="left:${left}px;top:${top}px;width:${picture.width + 32}px;height:${picture.height + 32}px;transform:rotate(${entry.tilt ?? -3}deg)"><img src="${picture.uri}" alt="">${entry.ring ? ringSvg(RINGS, entry.ring) : ''}<span class="tape t1${boil}"></span><span class="tape t2${boil}"></span></div>`;
+		body = `<div class="print" style="left:${left}px;top:${top}px;width:${picture.width + 32}px;height:${picture.height + 32}px;transform:rotate(${entry.tilt ?? -3}deg)"><img src="${picture.uri}" alt="">${entry.ring ? ringSvg(RINGS, entry.ring) : ''}<div class="pic">${doodlesSvg(MARKS, entry.doodles, boil)}</div><span class="tape t1${boil}"></span><span class="tape t2${boil}"></span></div>`;
 	} else {
 		// A whole picture (a meme) keeps its shape on black, so its caption survives
-		body = `<img class="full" src="${picture.uri}" alt=""${entry.whole ? ' style="object-fit:contain"' : ''}>`;
+		body = `<img class="full" src="${picture.uri}" alt=""${entry.whole ? ' style="object-fit:contain"' : ''}>${doodlesSvg(MARKS, entry.doodles, boil)}`;
 	}
 	return `<!doctype html><html><head><meta charset="utf-8">
 <style>
@@ -321,13 +333,14 @@ body { width: ${WIDTH}px; height: ${HEIGHT}px; background: #000; overflow: hidde
 .m { position: absolute; overflow: visible; }
 .m path { fill: none; stroke-linecap: round; stroke-linejoin: round; filter: url(#crayon); }
 .print { position: absolute; background: #fff; padding: 16px; }
+.print .pic { position: absolute; inset: 16px; }
 .print img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .tape { position: absolute; width: 170px; height: 50px; background: rgba(236, 230, 218, 0.85); transform: rotate(-32deg); }
 .t1 { left: -50px; top: -8px; }
 .t2 { right: -50px; bottom: -8px; }
 .boil { filter: url(#boil); }
 </style></head><body>
-<svg width="0" height="0" style="position:absolute"><filter id="crayon" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter><filter id="boil" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="1" seed="${seed}" result="w"/><feDisplacementMap in="SourceGraphic" in2="w" scale="5"/></filter></svg>
+<svg width="0" height="0" style="position:absolute"><filter id="crayon" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter><filter id="boil" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="1" seed="${seed}" result="w"/><feDisplacementMap in="SourceGraphic" in2="w" scale="${entry.doodles ? INK_BOIL.scale : 5}"/></filter></svg>
 <div class="card">${body}${entry.mark ? markSvg(MARKS, entry.mark, boil) : ''}</div>
 </body></html>`;
 }

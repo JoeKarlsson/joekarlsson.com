@@ -652,7 +652,21 @@
 			"name": "tally",
 			"at": [87, 3, 10, 17],
 			"color": "pink"
-		}
+		},
+		"doodles": [
+			{
+				"name": "thought",
+				"at": [60.5, 3, 31, 35.4],
+				"color": "chalk"
+			},
+			{
+				"name": "rainCloud",
+				"at": [75.5, 9.5, 11, 15.5],
+				"color": "chalk",
+				"width": 10
+			}
+		],
+		"motion": "boil"
 	},
 	"cloud-cmdb-vs-traditional-cmdb-2026": {
 		"picture": {
@@ -1532,7 +1546,15 @@
 			"name": "burst",
 			"at": [87, 3, 10, 17],
 			"color": "pink"
-		}
+		},
+		"doodles": [
+			{
+				"name": "spark",
+				"at": [45, 62.2, 16.7, 20.7],
+				"color": "chalk"
+			}
+		],
+		"motion": "boil"
 	},
 	"mongodb-aggregation-pipeline-queries-vs-sql-queries": {
 		"picture": {
@@ -1950,6 +1972,13 @@
 			"width": 5,
 			"color": "chalk"
 		},
+		"doodles": [
+			{
+				"name": "hearts",
+				"at": [43.5, 4, 24, 41],
+				"color": "chalk"
+			}
+		],
 		"motion": "boil",
 		"inset": 4
 	},

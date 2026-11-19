@@ -250,6 +250,54 @@ export const tangle = {
 };
 
 /** Every mark by name, for a spread or a lookup by name (the work thumbnails) */
+// Claude's, from the line boil round (DECISIONS.md 2026-11-19): a thought bubble: two dots trailing off to the lower left, then the cloud; put what the subject is thinking inside it as a second doodle
+export const thought = {
+	viewBox: '0 0 300 200',
+	path: 'M18,173 C23,173 27,177 27,182 C27,187 23,191 18,191 C13,191 9,187 9,182 C9,177 13,173 18,173 M48,136 C55.7,136 62,142.3 62,150 C62,157.7 55.7,164 48,164 C40.3,164 34,157.7 34,150 C34,142.3 40.3,136 48,136 M100,110 Q86,70 126,64 Q142,26 184,42 Q220,20 244,58 Q286,66 270,108 Q262,142 220,134 Q190,160 152,140 Q108,152 100,110',
+};
+
+// Claude's, from the line boil round (DECISIONS.md 2026-11-19): a spark: five short strokes bursting up and out from where a finger or tool touches, at the bottom middle
+export const spark = {
+	viewBox: '0 0 200 140',
+	path: 'M100,72 L100,30 M134,86 L164,58 M150,118 L192,116 M66,86 L36,58 M50,118 L8,116',
+};
+
+// Claude's, from the line boil round (DECISIONS.md 2026-11-19): hearts: three, rising and growing toward the upper right
+export const hearts = {
+	viewBox: '0 0 200 200',
+	path: 'M30,182 C6,166 20,148 30,162 C40,148 54,166 30,182 M84,140.2 C51.6,118.6 70.5,94.3 84,113.2 C97.5,94.3 116.4,118.6 84,140.2 M152,85.6 C108.8,56.8 134,24.4 152,49.6 C170,24.4 195.2,56.8 152,85.6',
+};
+
+// Claude's, from the line boil round (DECISIONS.md 2026-11-19): a hand waving hello, with two motion lines
+export const waveHand = {
+	viewBox: '0 0 220 240',
+	path: 'M60,230 L66,150 C50,120 40,96 48,88 C58,80 70,104 78,120 L80,40 C80,26 98,26 98,40 L100,110 L104,26 C104,12 122,12 122,26 L120,112 L128,40 C130,26 146,28 144,42 L138,120 L150,66 C154,54 168,58 166,72 L152,160 C146,196 140,212 140,230 M178,40 Q194,60 186,86 M194,22 Q216,50 206,92',
+};
+
+// Claude's, from the line boil round (DECISIONS.md 2026-11-19): a cat asleep, curled up, with z z
+export const cat = {
+	viewBox: '0 0 200 180',
+	path: 'M30,170 Q30,118 88,112 Q132,110 150,138 Q160,180 140,185 L50,185 Q30,185 30,170 M112,124 L116,92 L134,112 L150,94 L156,128 Q146,148 126,144 Q110,140 112,124 M124,126 Q128,130 132,126 M140,126 Q144,130 148,126 M40,180 Q6,186 16,148 M160,60 L180,60 L160,80 L180,80 M178,26 L192,26 L178,40 L192,40',
+};
+
+// Claude's, from the line boil round (DECISIONS.md 2026-11-19): a rubber duck, for rubber-duck debugging
+export const duck = {
+	viewBox: '0 0 200 200',
+	path: 'M40,130 Q40,172 100,172 Q160,172 165,130 Q160,110 135,112 Q150,90 140,70 Q125,45 100,52 Q78,60 80,85 Q82,105 95,112 Q60,105 40,130 M80,80 Q58,80 60,92 Q72,98 84,90 M92,132 Q118,152 144,130 M106,70 C108.2,70 110,71.8 110,74 C110,76.2 108.2,78 106,78 C103.8,78 102,76.2 102,74 C102,71.8 103.8,70 106,70',
+};
+
+// Claude's, from the line boil round (DECISIONS.md 2026-11-19): a paper plane at the end of a looping flight
+export const paperPlane = {
+	viewBox: '0 0 200 200',
+	path: 'M120,42 L192,18 L150,82 L140,58 L120,42 M140,58 L192,18 M112,50 Q70,62 62,100 Q54,140 86,140 Q114,134 100,106 Q82,86 44,120 Q24,140 14,186',
+};
+
+// Claude's, from the line boil round (DECISIONS.md 2026-11-19): a small rain cloud, to sit inside a thought bubble
+export const rainCloud = {
+	viewBox: '0 0 120 100',
+	path: 'M20,56 Q14,30 40,30 Q50,8 74,20 Q100,16 100,42 Q112,56 96,62 Q60,66 24,64 Q14,62 20,56 M34,76 L28,92 M60,76 L54,92 M86,76 L80,92',
+};
+
 export const MARKS = {
 	hatch,
 	tally,
@@ -282,6 +330,10 @@ export const MARKS = {
 	daisy,
 	sparkle,
 	tangle,
+	thought,
+	spark,
+	hearts,
+	rainCloud,
 };
 
 /** Boxes a card draws round its picture on hover (src/components/HoverBox.astro), all

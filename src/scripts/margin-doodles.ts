@@ -9,18 +9,22 @@ import {
 	asterisk,
 	bolt,
 	burstDense,
+	cat,
 	CHALK,
 	cloud,
 	daisy,
 	devil,
+	duck,
 	face,
 	flower,
 	flowerBig,
+	paperPlane,
 	sparkle,
 	spiral,
 	star,
 	tally,
 	tangle,
+	waveHand,
 } from '../data/scribbles';
 import { compactPath } from '../utils/compact-path';
 
@@ -42,6 +46,12 @@ const DOODLES = [
 	{ mark: daisy, width: 84 },
 	{ mark: sparkle, width: 80 },
 	{ mark: tangle, width: 92 },
+	// Line figures (DECISIONS.md 2026-11-19): never drawn smaller than this width, so they
+	// read as drawings rather than icons
+	{ mark: waveHand, width: 130, figure: true },
+	{ mark: cat, width: 140, figure: true },
+	{ mark: duck, width: 120, figure: true },
+	{ mark: paperPlane, width: 130, figure: true },
 ];
 // Room for the longest pages; the ones past the end are dropped
 const SLOTS = 60;
@@ -161,7 +171,7 @@ if (layer) {
 	let cursor = FIRST_TOP + random() * 160;
 	const nextFree = { left: 0, right: 0 };
 	for (let i = 0; i < SLOTS; i++) {
-		const { mark, width } = order[i % order.length];
+		const { mark, width, figure } = order[i % order.length];
 		const [, , vbWidth, vbHeight] = mark.viewBox.split(' ').map(Number);
 		// Three sizes, like a margin filled over time: about a third small, half medium, the
 		// rest big. Capped to fit the narrowest margin (224px at 1600px, less the insets).
@@ -172,7 +182,7 @@ if (layer) {
 				: size < 0.85
 					? 0.85 + random() * 0.45
 					: 1.6 + random() * 0.6;
-		const w = Math.max(MIN_WIDTH, Math.min(MAX_WIDTH, Math.round(width * scale)));
+		const w = Math.max(figure ? width : MIN_WIDTH, Math.min(MAX_WIDTH, Math.round(width * scale)));
 		const h = Math.round((w * vbHeight) / vbWidth);
 		const tilt = Math.round((random() - 0.5) * 34);
 		const color = random() < 0.55 ? CHALK : PINK;
