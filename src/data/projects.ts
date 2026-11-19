@@ -32,6 +32,8 @@ export interface ProjectPage {
 		text: string[];
 		diagram?: { src: string; alt: string };
 	};
+	// One line of the statement, set alone just before How it's made (big type round 4A)
+	interlude?: string;
 	// Projects this one grew out of or led to, as cards at the end of its page
 	lineage?: { label: string; title: string }[];
 	// Notes and small pictures in the right margin, each beside the paragraph holding `at`
@@ -629,6 +631,7 @@ export const projects: Project[] = curlEveryString(
 			stars: 2,
 			page: {
 				slug: 'go-home-tanuki',
+				interlude: 'He never gets home.',
 				marginNotes: [
 					{
 						type: 'aside',
@@ -742,6 +745,7 @@ export const projects: Project[] = curlEveryString(
 			demoUrl: 'https://corners.joekarlsson.com/',
 			page: {
 				slug: 'nothing-but-corners',
+				interlude: 'Mine has nothing to wait for, and every logo hits.',
 				marginNotes: [
 					{
 						type: 'quote',
@@ -1853,6 +1857,7 @@ export const projects: Project[] = curlEveryString(
 			blogUrl: '/blog/adult-swim-bumpers-plex-pre-rolls/',
 			page: {
 				slug: 'adult-swim-bumper',
+				interlude: 'Nobody has ever said a word about my transcoding settings.',
 				marginNotes: [
 					{
 						type: 'see',

@@ -19,6 +19,9 @@ const shareTitle = z.string().max(SHARE_TITLE_MAX).transform(curlyApostrophes).o
 export const SEO_TITLE_MAX = 45;
 const seoTitle = z.string().max(SEO_TITLE_MAX).transform(curlyApostrophes).optional();
 
+// One line of the page's own text, set alone between two sections (rehype-interlude.mjs)
+const interlude = z.object({ after: z.string(), line: z.string() }).optional();
+
 const postSchema = z.object({
 	title: prose,
 	shareTitle,
@@ -54,8 +57,7 @@ const postSchema = z.object({
 	epigraphs: z
 		.array(z.object({ section: z.string(), quote: z.string(), cite: z.string() }))
 		.optional(),
-	// One line of the post's own text, set alone between two sections (rehype-interlude.mjs)
-	interlude: z.object({ after: z.string(), line: z.string() }).optional(),
+	interlude,
 	faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
 	howToSteps: z.array(z.object({ name: z.string(), text: z.string() })).optional(),
 	marginNotes,
@@ -107,6 +109,7 @@ const newsletter = defineCollection({
 		// Slug of the blog post this issue condenses. Recaps stay on /newsletter/ only, so the
 		// blog list, homepage and RSS don't show the same post twice.
 		recapOf: z.string().optional(),
+		interlude,
 		marginNotes,
 	}),
 });

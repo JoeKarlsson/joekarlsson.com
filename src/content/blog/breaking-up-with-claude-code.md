@@ -43,6 +43,9 @@ marginNotes:
     at: 'describes whoever is at the door at 2 AM'
     text: 'How the doorbell description works, and why a bad answer there costs me nothing.'
     post: 'best-home-assistant-automations'
+interlude:
+  after: 'What I use for what'
+  line: 'Claude is the ex I still call when something is hard.'
 ---
 
 I switched my default coding agent from Claude Code to [OpenCode](https://opencode.ai/) running open models. Claude Code was doing work for me that I never noticed until it was gone, like passing the model's reasoning back between steps and checking its own work more often. The model itself was fine, but I had to fix a lot of what was around it.

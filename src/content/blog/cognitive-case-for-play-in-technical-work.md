@@ -13,6 +13,9 @@ marginNotes:
     text: 'The researchers found that what really mattered was less about who is on the team, and more about how the team worked together.'
     by: 'Google re:Work, on Project Aristotle'
     url: 'https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness'
+interlude:
+  after: 'The planning trap'
+  line: 'Only one had room to play.'
 ---
 
 The best work I've ever done felt like play.

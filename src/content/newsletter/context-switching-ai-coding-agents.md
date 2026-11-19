@@ -8,6 +8,9 @@ cardPhoto: '/images/newsletter/context-switching-ai-coding-agents/card-photo-pla
 cardPhotoAlt: 'circus performers spinning plates on tall sticks under a spotlight, seen from above'
 heroImage: '/images/newsletter/context-switching-ai-coding-agents/card-abcf2372.webp'
 heroAlt: 'Works on My Machine card for I run eight Claude Code panes at once, and my brain is melting, with circus performers spinning plates on tall sticks under a spotlight, seen from above framed in a pink crayon box'
+interlude:
+  after: 'One pane instead of eight'
+  line: "A summary hides detail, and I've caught myself approving work I never read."
 ---
 
 Most days I have six to eight terminal panes open, each one a Claude Code session working through a problem. Some are in different projects. A few are in the same repo, working on different parts of it. Switching between those panes is what I do all day, every day.

@@ -21,6 +21,9 @@ faq:
     answer: "The book is a 12-week program with one chapter a week. On top of reading, you write three pages of morning pages every day and take one artist date a week. Some people take a lot longer than 12 weeks, and that's fine."
 heroImage: '/images/blog/the-artists-way-review/thumb-5e609541.webp'
 heroAlt: 'John Singer Sargent watercolor of a man lying in a hammock under palm trees by the water in Florida, 1917'
+interlude:
+  after: 'The God language'
+  line: "I'm content with my beautiful little life here in Minnesota."
 ---
 
 In high school I wanted to draw comic books. Then I started college in 2008, in the middle of the Great Recession, picked the stable job, and spent most of my career writing code instead. Julia Cameron's _The Artist's Way_ is the first thing in years that got me listening to that kid again.

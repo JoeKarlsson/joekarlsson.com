@@ -88,6 +88,11 @@ if (page.introFigure && !introFigure)
 	throw new Error(`${project.title}'s statement figure ${page.introFigure.src} isn't in public/`);
 if (madeDiagram && !diagram)
 	throw new Error(`${project.title}'s diagram ${madeDiagram.src} isn't in public/`);
+// The interlude repeats a line of the statement, so it must still say it, word for word
+if (page.interlude && !(page.made && page.intro.some((p) => p.includes(page.interlude!))))
+	throw new Error(
+		`${project.title}'s interlude isn't in its statement, or it has no How it's made`,
+	);
 
 // Margin notes beside the statement, supporting text and How it's made, numbered in page order
 const marginNotes = parseProjectNotes(page.slug, page.marginNotes);
@@ -434,6 +439,14 @@ const sections = [
 					))}
 				</div>
 			</section>
+		)}
+
+		{page.interlude && (
+			<div class="prose">
+				<p class="interlude" aria-hidden="true">
+					{page.interlude}
+				</p>
+			</div>
 		)}
 
 		{page.made && (
