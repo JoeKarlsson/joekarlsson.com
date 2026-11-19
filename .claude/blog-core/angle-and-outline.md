@@ -20,11 +20,16 @@ The thesis, "what it adds" and scope lines start from `blog-positioning-reviewer
 
 ## Hook options
 
-Write the opening paragraph two or three ways (A, B, C), each a real draft paragraph, not a description of one, and recommend one. Each option:
+**What a hook is (Joe, 2026-11-19):** a question or a statement, and the rest of the piece answers that question or proves that statement. For a post that means the intro poses the reader's question (angle block line 1) or states the thesis (line 2), and every section is a step toward the answer or a piece of evidence for the claim. A section that does neither gets cut or moves to the repo docs. It's looser than in a social post: the question can be implied by the problem the intro describes instead of asked word for word, and the statement can take the whole first paragraph to land instead of one line. The ending settles it: the answer, or what the claim means now that it's proven. Examples:
 
-- Opens on the reader's problem or question from the angle block, then says what they will have or know by the end.
+- Question: "Why does my agent have to read every table just to answer one question about a customer?" The post answers it: what the agent pulls today, what changes when it doesn't have to, and how to set that up.
+- Statement: "I could have bought a Pixoo, but it couldn't do what I wanted, so I built PixelPane." The post proves it: what the Pixoo does, where it fell short for Joe, what the build does instead.
+
+Write the opening paragraph two or three ways (A, B, C), each a real draft paragraph, not a description of one, and recommend one. Mix the two kinds across options. Each option:
+
+- Opens on the reader's question or the thesis from the angle block, then says what they will have or know by the end.
 - Is not the demo's example. The example arrives after the problem is set, labeled as the example.
-- Is not a definition, a rhetorical question, a teaser, a warm-up or a stat with no point.
+- Is not a definition, a teaser, a warm-up or a stat with no point. A question is fine when the post answers it; a rhetorical question the post never answers isn't.
 - Varies the framing, not just the wording: the failure the reader fears, the cost or time they lose today, the question they keep asking.
 
 **Test each option as a stranger:** someone who has never seen the demo, the talk or Joe's setup reads only this paragraph. Do they know what problem it solves, whether it's theirs, and what they'll get? Would they read the second paragraph?
