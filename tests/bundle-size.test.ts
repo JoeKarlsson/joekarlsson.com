@@ -140,29 +140,40 @@ describe('Bundle Size', () => {
 	});
 });
 
-// The homepage's media: what a visitor pulls before scrolling (the montage, in the
-// first <source> a browser picks, plus its poster), and everything on the page if
-// they scroll to the end. Lazy clips (preload="none") count only toward the total.
+// The homepage's media: what a visitor pulls before scrolling (the hero above <main>:
+// the montage in the first <source> a browser picks, and its stills, both counted though
+// a phone or a desktop gets one), and everything on the page if they scroll to the end.
+// Below the hero, lazy clips (preload="none") count only toward the total.
 // Measured 2026-11-05: about 2.4MB first view, about 7MB in all.
 const HOME_MEDIA_BUDGET = {
 	firstView: 3.5 * 1024 * 1024,
 	total: 9 * 1024 * 1024,
 };
 
-/** Each <video>'s first source (or src), poster, and every <img> on a built page. */
+/** Each <video>'s first source (or src) and poster, every <img> and <picture> source on a
+ * built page. Everything in the hero, above <main>, is first view. */
 function pageMedia(html: string): { path: string; eager: boolean }[] {
 	const media: { path: string; eager: boolean }[] = [];
-	for (const [, attrs, inner] of html.matchAll(/<video\b([^>]*)>([\s\S]*?)<\/video>/g)) {
-		const eager = !/preload="none"/.test(attrs);
+	const heroEnd = html.indexOf('<main');
+	for (const { index, 1: attrs, 2: inner } of html.matchAll(
+		/<video\b([^>]*)>([\s\S]*?)<\/video>/g,
+	)) {
+		const eager = index < heroEnd || !/preload="none"/.test(attrs);
 		const src =
 			attrs.match(/\ssrc="([^"]+)"/)?.[1] ?? inner.match(/<source[^>]*\ssrc="([^"]+)"/)?.[1];
-		const poster = attrs.match(/\sposter="([^"]+)"/)?.[1];
+		const poster = attrs.match(/\s(?:data-)?poster="([^"]+)"/)?.[1];
 		if (src) media.push({ path: src, eager });
 		if (poster) media.push({ path: poster, eager });
 	}
-	for (const [, attrs] of html.matchAll(/<img\b([^>]*)>/g)) {
+	for (const { index, 1: inner } of html.matchAll(/<picture\b[^>]*>([\s\S]*?)<\/picture>/g)) {
+		const eager = index < heroEnd || !/loading="lazy"/.test(inner);
+		for (const [, srcset] of inner.matchAll(/<source[^>]*\ssrcset="([^"\s,]+)/g))
+			if (srcset.startsWith('/')) media.push({ path: srcset, eager });
+	}
+	for (const { index, 1: attrs } of html.matchAll(/<img\b([^>]*)>/g)) {
 		const src = attrs.match(/\ssrc="([^"]+)"/)?.[1];
-		if (src?.startsWith('/')) media.push({ path: src, eager: !/loading="lazy"/.test(attrs) });
+		if (src?.startsWith('/'))
+			media.push({ path: src, eager: index < heroEnd || !/loading="lazy"/.test(attrs) });
 	}
 	return media;
 }
