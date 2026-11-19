@@ -248,7 +248,7 @@
 	font-size: 1.08em;
 }
 /* A real quotation hangs one giant pink mark in the margin, its text on the column's edge
-   (rehype-quote-marks.mjs; big type round 9A). Phones have no margin, so it sits above */
+   (rehype-quote-marks.mjs; big type round 9A). Below 60rem the spine would cover it, so it sits above */
 .prose blockquote.quote {
 	@apply relative border-l-0 pl-0 my-12;
 }
@@ -256,20 +256,30 @@
 	@apply italic;
 	font-size: 1.12em;
 }
+.prose blockquote.quote.long > p:first-of-type {
+	@apply not-italic;
+}
 .prose blockquote.quote > p + p {
 	@apply font-sans text-sm text-muted;
+}
+.prose blockquote.quote > :last-child {
+	@apply mb-0;
 }
 .prose .quote-mark {
 	@apply block font-serif font-bold italic text-pink select-none;
 	font-size: 6rem;
 	line-height: 0.6;
 	height: 0.4em;
+	/* the glyph's own left bearing, so its ink starts on the text edge */
+	margin-left: -0.08em;
 }
-@media (width >= 48rem) {
+@media (width >= 60rem) {
 	.prose .quote-mark {
-		@apply absolute;
-		right: calc(100% + 0.75rem);
-		top: 0.1em;
+		@apply absolute ml-0;
+		/* + 0.1em: the italic tail overhangs its box toward the text */
+		right: calc(100% + 0.75rem + 0.1em);
+		/* the mark's top on the first line's ascenders */
+		top: 0.21em;
 		height: auto;
 		font-size: 9rem;
 	}
@@ -280,6 +290,7 @@
 		position: static;
 		height: 0.4em;
 		font-size: 6rem;
+		margin-left: -0.08em;
 	}
 }
 /* One line of the post, alone between two sections with a screen of black around it
@@ -290,6 +301,8 @@
 	margin-block: 70svh;
 	font-size: clamp(3rem, 1rem + 5vw, 7rem);
 	line-height: 1.02;
+	/* the italic T's ink starts inside its box; this puts it on the text edge */
+	text-indent: -0.1em;
 }
 .prose .callout {
 	@apply border-l-4 border-pink pl-4 py-1 my-6 font-sans text-base;

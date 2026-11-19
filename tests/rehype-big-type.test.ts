@@ -44,6 +44,12 @@ describe('rehype-quote-marks', () => {
 		}
 	});
 
+	it('marks a long quote so it stays roman', () => {
+		const quote = el('blockquote', [el('p', [text(`“${'word '.repeat(61).trim()}.”`)])]);
+		run({ type: 'root', children: [quote] });
+		expect(quote.properties!.className).toEqual(['quote', 'long']);
+	});
+
 	it('leaves a note alone', () => {
 		const note = el('blockquote', [el('p', [text('Note: this uses mock data')])]);
 		run({ type: 'root', children: [note] });

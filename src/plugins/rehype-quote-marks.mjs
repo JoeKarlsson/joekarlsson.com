@@ -9,6 +9,7 @@
 
 import { textOf } from './hast-text.mjs';
 
+const LONG_QUOTE_WORDS = 60;
 const OPENING = /^\s*["“]/;
 const CLOSING = /["”]\s*$/;
 
@@ -43,7 +44,9 @@ export default function rehypeQuoteMarks() {
 			const last = lastText(quote);
 			first.value = first.value.replace(OPENING, '');
 			last.value = last.value.replace(CLOSING, '');
-			node.properties = { ...node.properties, className: ['quote'] };
+			// Italic slows a long passage, so a long quote stays roman
+			const long = whole.split(/\s+/).length > LONG_QUOTE_WORDS;
+			node.properties = { ...node.properties, className: long ? ['quote', 'long'] : ['quote'] };
 			node.children.unshift({
 				type: 'element',
 				tagName: 'span',
