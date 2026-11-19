@@ -247,6 +247,49 @@
 	@apply border-l-4 border-pink pl-5 py-1 my-8 text-paper;
 	font-size: 1.08em;
 }
+/* A real quotation hangs one giant pink mark in the margin, its text on the column's edge
+   (rehype-quote-marks.mjs; big type round 9A). Phones have no margin, so it sits above */
+.prose blockquote.quote {
+	@apply relative border-l-0 pl-0 my-12;
+}
+.prose blockquote.quote > p:first-of-type {
+	@apply italic;
+	font-size: 1.12em;
+}
+.prose blockquote.quote > p + p {
+	@apply font-sans text-sm text-muted;
+}
+.prose .quote-mark {
+	@apply block font-serif font-bold italic text-pink select-none;
+	font-size: 6rem;
+	line-height: 0.6;
+	height: 0.4em;
+}
+@media (width >= 48rem) {
+	.prose .quote-mark {
+		@apply absolute;
+		right: calc(100% + 0.75rem);
+		top: 0.1em;
+		height: auto;
+		font-size: 9rem;
+	}
+}
+/* From 100rem "On this page" fills the left gutter, so the mark sits above the quote again */
+@media (width >= 100rem) {
+	.margin-column:has(> .margin-toc) .prose .quote-mark {
+		position: static;
+		height: 0.4em;
+		font-size: 6rem;
+	}
+}
+/* One line of the post, alone between two sections with a screen of black around it
+   (rehype-interlude.mjs; big type round 4A) */
+.prose .interlude {
+	@apply font-serif italic text-paper text-balance;
+	margin-block: 70dvh;
+	font-size: clamp(3rem, 1rem + 5vw, 7rem);
+	line-height: 1.02;
+}
 .prose .callout {
 	@apply border-l-4 border-pink pl-4 py-1 my-6 font-sans text-base;
 }
@@ -1271,6 +1314,10 @@ header nav .sticker {
 	.margin-column:has(> .margin-toc) .prose.wide-media > figure.frame-pair,
 	.margin-column .prose.wide-media > figure.frame-pair.beside-credits {
 		width: 100%;
+	}
+	/* An interlude reaches across the margin too: "On this page" only heads the margin, far above */
+	.margin-column .prose > .interlude {
+		width: calc(100% + var(--margin-col));
 	}
 	/* Here the masthead spans the text and the margin, so title, picture and text still share
 	   one left edge */

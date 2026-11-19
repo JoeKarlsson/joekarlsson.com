@@ -10,6 +10,8 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import rehypeAmazonAffiliate from './src/plugins/rehype-amazon-affiliate.mjs';
 import rehypeChapters from './src/plugins/rehype-chapters.mjs';
+import rehypeInterlude from './src/plugins/rehype-interlude.mjs';
+import rehypeQuoteMarks from './src/plugins/rehype-quote-marks.mjs';
 import rehypeCollapsibleToc from './src/plugins/rehype-collapsible-toc.mjs';
 import rehypeEmptyCornerCell from './src/plugins/rehype-empty-corner-cell.mjs';
 import rehypeFaqDetails from './src/plugins/rehype-faq-details.mjs';
@@ -199,7 +201,9 @@ export default defineConfig({
 						},
 					},
 				],
-				// After the permalinks: chapters wrap each .heading-group
+				rehypeQuoteMarks,
+				// After the permalinks: these find each h2 inside its .heading-group
+				rehypeInterlude,
 				rehypeChapters,
 				rehypeMarginNotes,
 			],

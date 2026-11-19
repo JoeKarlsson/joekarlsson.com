@@ -7,6 +7,9 @@ description: "I reread Paul Graham's Hackers and Painters as a painter who codes
 categories: ['AI', 'Career']
 tldr: 'In "Hackers and Painters" (2003), Paul Graham argued that programming is sketching: you figure a program out while you write it, so a language should be "a pencil, not a pen." I paint and I write code, and since AI coding agents came along, programming feels more like painting to me, not less. I can explore ideas faster and more iteratively. What I miss is beauty in code nobody reads, though I don''t think AI will kill it any more than photography killed painting.'
 heroImage: '/images/blog/hackers-and-painters-ai-agents/thumb-17c4f83f.webp'
+interlude:
+  after: 'Static types came back'
+  line: "That's the part I miss."
 faq:
   - question: "What is Paul Graham's Hackers and Painters about?"
     answer: '"Hackers and Painters" is a 2003 essay Paul Graham turned from a Harvard guest lecture. He argued that hackers and painters are both makers ("what hackers and painters are trying to do is make good things") and that programming is sketching: you figure a program out while you write it, so a programming language should be "a pencil, not a pen."'

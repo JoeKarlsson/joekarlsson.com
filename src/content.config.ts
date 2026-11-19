@@ -54,6 +54,8 @@ const postSchema = z.object({
 	epigraphs: z
 		.array(z.object({ section: z.string(), quote: z.string(), cite: z.string() }))
 		.optional(),
+	// One line of the post's own text, set alone between two sections (rehype-interlude.mjs)
+	interlude: z.object({ after: z.string(), line: z.string() }).optional(),
 	faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
 	howToSteps: z.array(z.object({ name: z.string(), text: z.string() })).optional(),
 	marginNotes,
