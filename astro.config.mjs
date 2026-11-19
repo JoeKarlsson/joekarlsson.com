@@ -29,6 +29,7 @@ import rehypeYouTubeEmbed from './src/plugins/rehype-youtube-embed.mjs';
 import externalLinks from './src/integrations/external-links.mjs';
 import markdownPages from './src/integrations/markdown-pages.mjs';
 import responsiveImages from './src/integrations/responsive-images.mjs';
+import minifyInlineScripts from './src/integrations/minify-inline-scripts.mjs';
 import scriptCsp from './src/integrations/script-csp.mjs';
 import { lastmodByPath } from './src/integrations/sitemap-lastmod.mjs';
 
@@ -126,6 +127,8 @@ export default defineConfig({
 				return lastmod ? { ...item, lastmod } : item;
 			},
 		}),
+		// Before script-csp, so the hashes match the minified scripts
+		minifyInlineScripts(),
 		// Last: hashes each page's inline scripts as they ship (meta CSP + Trusted Types)
 		scriptCsp(),
 	],
