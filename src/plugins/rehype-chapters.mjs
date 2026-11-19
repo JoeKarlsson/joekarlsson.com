@@ -7,6 +7,7 @@
  * closing reference lists and an FAQ, which stay plain headings. Runs after the heading
  * permalinks, so it wraps the .heading-group they made.
  */
+import { h2Of, textOf } from './hast-text.mjs';
 import { joinLastWord } from './rehype-no-widows.mjs';
 
 const LONG_POST_WORDS = 3000;
@@ -14,19 +15,8 @@ const MIN_CHAPTERS = 4;
 const NOT_CHAPTERS =
 	/^(references|sources|footnotes|further reading|faqs?|frequently asked questions)$/i;
 
-function textOf(node) {
-	if (node.type === 'text') return node.value;
-	return (node.children ?? []).map(textOf).join('');
-}
-
 const el = (tagName, properties, children) => ({ type: 'element', tagName, properties, children });
 const text = (value) => ({ type: 'text', value });
-const h2Of = (node) =>
-	node.tagName === 'h2'
-		? node
-		: node.properties?.className?.includes('heading-group')
-			? node.children.find((child) => child.tagName === 'h2')
-			: undefined;
 
 export default function rehypeChapters() {
 	return (tree, file) => {

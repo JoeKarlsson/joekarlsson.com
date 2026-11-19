@@ -10,20 +10,7 @@
  * The line repeats words the post already says, so screen readers skip it (aria-hidden).
  * Runs after the heading permalinks, so a heading may sit inside a .heading-group.
  */
-
-function textOf(node) {
-	if (node.type === 'text') return node.value;
-	return (node.children ?? []).map(textOf).join('');
-}
-
-const h2Of = (node) =>
-	node.type !== 'element'
-		? undefined
-		: node.tagName === 'h2'
-			? node
-			: node.properties?.className?.includes('heading-group')
-				? node.children.find((child) => child.tagName === 'h2')
-				: undefined;
+import { h2Of, textOf } from './hast-text.mjs';
 
 export default function rehypeInterlude() {
 	return (tree, file) => {

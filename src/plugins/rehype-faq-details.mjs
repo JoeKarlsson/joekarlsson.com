@@ -7,12 +7,8 @@
  * short list of questions instead of several screens of answers. The answers stay
  * in the page, so search engines still read them.
  */
+import { textOf } from './hast-text.mjs';
 const FAQ_HEADING = /^(frequently asked questions|faqs?)$/i;
-
-function textOf(node) {
-	if (node.type === 'text') return node.value;
-	return (node.children ?? []).map(textOf).join('');
-}
 
 // The pink plus that turns to a minus while the answer is open: both glyphs stacked
 // in one cell so they crossfade (.icon-swap, motion.css)

@@ -33,6 +33,7 @@
  *   (.code-noted, global.css). Where the margin is hidden, or anchor positioning is missing,
  *   it stays an ordinary comment in the code, so copying the code keeps it either way.
  */
+import { textOf } from './hast-text.mjs';
 import { curlyApostrophes } from '../utils/curly-apostrophes.mjs';
 import { halftoneMode } from '../utils/halftone.ts';
 import { localImageSize } from '../utils/image-size.mjs';
@@ -59,11 +60,6 @@ const RING_COUNT = 8;
 const PINK = '#ff4fd8';
 // Kinds shown on phones too, under their paragraph (round 6: too useful to lose)
 const SHOWN_ON_PHONES = new Set(['quote', 'update']);
-
-function textOf(node) {
-	if (node.type === 'text') return node.value;
-	return (node.children ?? []).map(textOf).join('');
-}
 
 const el = (tagName, properties, children) => ({ type: 'element', tagName, properties, children });
 const text = (value) => ({ type: 'text', value });
