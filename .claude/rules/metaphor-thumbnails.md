@@ -16,7 +16,7 @@ node scripts/commons-search.mjs telephone switchboard operator   # one candidate
 
 It keeps hits whose search metadata says public domain or CC0, then reads each file page and drops any without a public-domain or CC0 license template, since the search metadata alone can be wrong. Each line is the template, the size and the Commons page, with a download URL under it.
 
-Old photos (archives, museums, Library of Congress, NASA, US government) are usually public domain and take the pink filter well. Prefer one strong subject with clear contrast: busy scenes turn to mud at 300px.
+Old photos (archives, museums, Library of Congress, NASA, US government) are usually public domain and take the pink filter well. If Commons comes up short, browse the other libraries in `docs/public-domain-sources.md`, then find the same picture's copy on Commons. Prefer one strong subject with clear contrast: busy scenes turn to mud at 300px.
 
 Download the best 3-4 into the scratchpad from their download URLs, Read them, and pick one.
 

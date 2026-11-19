@@ -110,7 +110,8 @@ Sources, in this order:
 1. **Joe's own photos and footage** (Immich, `media-sources/`, the video archive on the NAS).
    Joe picks any frame with his face in it.
 2. **Public-domain and CC0 archives**: the Met's open access (studio shots on plain grounds,
-   ideal to cut), NASA, the Library of Congress, Wikimedia Commons. Search Commons as in
+   ideal to cut), NASA, the Library of Congress, Wikimedia Commons, and the rest of
+   `docs/public-domain-sources.md`. Search Commons as in
    `.claude/rules/metaphor-thumbnails.md` and confirm the license on the file page. Old photos
    of whole scenes work: cut one subject out of each.
 3. An image model only if Joe asks and has set a key. Pasteup's Gemini route is vendored
