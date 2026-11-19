@@ -286,7 +286,8 @@
    (rehype-interlude.mjs; big type round 4A) */
 .prose .interlude {
 	@apply font-serif italic text-paper text-balance;
-	margin-block: 70dvh;
+	/* svh, so the space doesn't jump when a phone's address bar hides */
+	margin-block: 70svh;
 	font-size: clamp(3rem, 1rem + 5vw, 7rem);
 	line-height: 1.02;
 }
