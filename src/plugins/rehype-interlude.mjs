@@ -19,12 +19,18 @@ export default function rehypeInterlude() {
 		const { after, line } = interlude;
 
 		// A heading or line edited out from under the interlude would otherwise vanish or misquote.
-		// Match with straight quotes, since Markdown curls the post's; show the post's curled copy
-		const straight = (s) => s.replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
+		// Match with straight quotes and plain spaces, since Markdown curls the post's quotes and
+		// no-widows ties a paragraph's last word; show the post's own copy
+		const straight = (s) =>
+			s
+				.replace(/[‘’]/g, "'")
+				.replace(/[“”]/g, '"')
+				.replace(/\u00a0/g, ' ');
 		const body = textOf(tree);
-		const at0 = straight(body).indexOf(straight(line));
-		if (at0 === -1) throw new Error(`Interlude "${line}": the post doesn't say that word for word`);
-		const shown = body.slice(at0, at0 + line.length);
+		const lineAt = straight(body).indexOf(straight(line));
+		if (lineAt === -1)
+			throw new Error(`Interlude "${line}": the post doesn't say that word for word`);
+		const shown = body.slice(lineAt, lineAt + line.length);
 		const headings = tree.children
 			.map((node, index) => ({ index, h2: h2Of(node) }))
 			.filter((h) => h.h2);

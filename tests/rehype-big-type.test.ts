@@ -79,6 +79,13 @@ describe('rehype-interlude', () => {
 		expect(root.children[2].children![0].value).toBe('That’s the part I miss.');
 	});
 
+	it('matches a line that ends its paragraph, where no-widows tied the last word', () => {
+		const root = post();
+		root.children[1].children![0].value = 'Only one had room to\u00a0play.';
+		run(root, { after: 'One', line: 'Only one had room to play.' });
+		expect(root.children[2].children![0].value).toBe('Only one had room to\u00a0play.');
+	});
+
 	it('fails the build on a line the post never says or a missing section', () => {
 		expect(() => run(post(), { after: 'One', line: 'Not in the post.' })).toThrow(/word for word/);
 		expect(() => run(post(), { after: 'Gone', line: 'More words.' })).toThrow(/no section/);
