@@ -1,7 +1,7 @@
 /**
  * A post's interlude: one line of the post's own text, set alone in big Fraunces italic between
- * two sections with a screen of black around it, like turning a page (big type round, 4A;
- * .interlude in global.css). The front matter names the section it follows and the line:
+ * two sections with a short band of black around it (big type round, 4A; DECISIONS.md
+ * 2026-11-20; .interlude in global.css). The front matter names the section it follows and the line:
  *
  *   interlude:
  *     after: 'Static types came back'

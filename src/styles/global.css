@@ -293,14 +293,24 @@
 		margin-left: -0.08em;
 	}
 }
-/* One line of the post, alone between two sections with a screen of black around it
-   (rehype-interlude.mjs; big type round 4A) */
+/* One line of the post, alone between two sections (rehype-interlude.mjs; big type round 4A).
+   The black around it stays short enough that the end of the last section and the start
+   of the next still show on screen with it (DECISIONS.md 2026-11-20). */
 .prose .interlude {
 	@apply font-serif italic text-paper text-balance;
 	/* svh, so the space doesn't jump when a phone's address bar hides */
-	margin-block: 70svh;
-	font-size: clamp(3rem, 1rem + 5vw, 7rem);
+	margin-block: clamp(2.5rem, 15svh, 10rem);
+	/* 3rem to 7rem with the width, but smaller on a narrow phone (12.5vw) or a short screen
+	   (12svh), so the longest line and the black around it still fit on screen together */
+	font-size: max(2.25rem, min(clamp(3rem, 1rem + 5vw, 7rem), 12.5vw, 12svh));
 	line-height: 1.02;
+}
+/* A sideways phone: the sticky header takes a fifth of the height, so the pause shrinks more */
+@media (height < 30rem) {
+	.prose .interlude {
+		margin-block: 1.75rem;
+		font-size: 2.25rem;
+	}
 }
 .prose .callout {
 	@apply border-l-4 border-pink pl-4 py-1 my-6 font-sans text-base;
