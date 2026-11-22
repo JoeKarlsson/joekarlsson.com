@@ -2,19 +2,20 @@
 title: 'Are English sentences getting shorter? About 40% of the drop is punctuation'
 seoTitle: 'Are English sentences getting shorter?'
 date: 2026-11-10T16:17:13Z
+updatedDate: 2026-11-22
 slug: 'sentence-length-semicolons-punctuation'
 description: "Are English sentences getting shorter? In 1,959 Project Gutenberg books, about 40% of the drop in sentence length is periods doing the semicolon's job."
 categories: ['Web Dev']
 tags:
   ['punc', 'digital-humanities', 'data-analysis', 'punctuation', 'project-gutenberg', 'stylometry']
-tldr: "I stripped the words from 1,959 Project Gutenberg books and tested the 130-year-old claim that English sentences got shorter. Words between periods fell from 30 (1700–49) to 15 (1900–49). About 40% of that drop is periods taking over the job semicolons and colons used to do, and the rest survives every check I ran, even in narration with the dialogue taken out. Semicolons fell from 10 to 2 per 1,000 words, and a writer's birth year explains that about as well as the publication date does. Punctuation alone names the author 34% of the time where chance is under 1%, and Dickens gets 0 of 20. You can drop your own .txt on Punc's read page and check any of it."
+tldr: "I stripped the words from 1,959 Project Gutenberg books and tested the 130-year-old claim that English sentences got shorter. Words between periods fell from 31 (1700–49) to 15 (1900–49). About 40% of that drop is periods taking over the job semicolons and colons used to do, and the rest survives every check I ran, even in narration with the dialogue taken out. Semicolons fell from 10 to 2 per 1,000 words, and a writer's birth year explains that about as well as the publication date does. Punctuation alone names the author 34% of the time where chance is under 1%, and Dickens gets 0 of 20. You can drop your own .txt on Punc's read page and check any of it."
 epigraphs:
   - section: 'About 40% of the sentence length drop is punctuation'
     quote: 'A shepherd has a great deal of leisure; a husbandman, in the rude state of husbandry, has some; an artificer or manufacturer has none at all.'
     cite: 'Adam Smith, The Wealth of Nations, 1776'
 faq:
   - question: 'Are English sentences getting shorter?'
-    answer: 'Yes, but by less than the famous numbers say. In 1,959 Project Gutenberg books, the median sentence fell from 30 words (1700–49) to 15 (1900–49) counting only periods, question marks and exclamation marks. Counting semicolons and colons as sentence ends too, it fell from 22 to 13, so about 40% of the drop is a change in punctuation and the rest is real shortening.'
+    answer: 'Yes, but by less than the famous numbers say. In 1,959 Project Gutenberg books, the median sentence fell from 31 words (1700–49) to 15 (1900–49) counting only periods, question marks and exclamation marks. Counting semicolons and colons as sentence ends too, it fell from 22 to 13, so about 40% of the drop is a change in punctuation and the rest is real shortening.'
   - question: 'Why did sentences get shorter?'
     answer: "Partly punctuation, and partly real shortening. Writers in the 1700s joined clauses with semicolons and colons where later writers used a period, so the same words count as more sentences. That explains about 40% of the drop in Punc's 1,959 books. The rest held up in narration with all dialogue removed, so it isn't only more dialogue either."
   - question: 'Is the semicolon dying out?'
@@ -46,7 +47,7 @@ In his 1894 history of the English paragraph, Edwin Lewis wrote that "the Englis
 
 Linguists have had a boring, sensible objection for decades. Maybe sentences didn't shrink so much as get cut up. A writer in 1750 joined clauses with semicolons and colons where a writer in 1950 would put a period. Same words, more sentences. Jeanne Fahnestock suggested the trend might be "a by-product of changing punctuation conventions" [[Fahnestock 2011, in Rudnicka 2018]](https://arxiv.org/abs/2502.04321), and Henry Oliver raised the same suspicion in November 2025 [[Oliver 2025]](https://worksinprogress.co/issue/the-logical-triumph-of-english/ "quote: …most data on sentence length should be taken with a pinch of salt."). I couldn't find anyone who had measured how much of the drop it explains across the 1700s and 1800s, when semicolons were everywhere.
 
-I had a tool that could. [Punc](/work/punc/), my art project that strips the words out of a book and keeps only the punctuation, now holds 1,959 Project Gutenberg books (mostly out of copyright, so the trend runs to the 1970s), and every one of them has a semicolon count. So I counted semicolons and colons as sentence ends and checked how much of the decline in sentence length survives. Both sides are partly right. Sentences did get shorter, but by closer to a third than to Lewis's half once semicolons and colons count, and about 40% of the famous drop is punctuation.
+I had a tool that could. [Punc](/work/punc/), my art project that strips the words out of a book and keeps only the punctuation, now holds 1,959 Project Gutenberg books (mostly out of copyright, so the trend runs to the 1970s), and every one of them has a semicolon count. So I counted semicolons and colons as sentence ends and checked how much of the decline in sentence length survives. Both sides are partly right. Sentences did get shorter, but by closer to two fifths than to Lewis's half once semicolons and colons count, and about 40% of the famous drop is punctuation.
 
 This is an amateur measurement built on an art project's shelf. The code and every number in this post are in the repo, linked under How I counted.
 
@@ -97,9 +98,9 @@ I'll use two measures for the rest of the post:
 
 ## About 40% of the sentence length drop is punctuation
 
-That's what the data shows, across the 954 books with a first-publication date between 1600 and 1974 (the other dated books are older or newer, and about 45% of the shelf has no date I could pin down). Words between periods rise to 30.3 in 1700–49 (just 18 books) and fall to 14.5 by 1900–49 (445 books). Words between stops fall from 21.6 to 13.3 over the same span. That's a drop of 15.8 words counting periods and 8.3 counting stops, so taken at face value, 7.5 of the 15.8 words, or 47% of the drop, disappear once semicolons and colons count. By 1950–74 the two lines meet at 12.5 and 12.4, because modern books barely use either mark, which matches Westin's result.
+That's what the data shows, across the 938 books with a first-publication date between 1600 and 1974, after dropping 16 copies of works the shelf held twice (the other dated books are older or newer, and about 45% of the shelf has no date I could pin down). Words between periods rise to 31.1 in 1700–49 (just 17 books) and fall to 14.5 by 1900–49 (445 books). Words between stops fall from 21.9 to 13.3 over the same span. That's a drop of 16.6 words counting periods and 8.6 counting stops, so taken at face value, 8.0 of the 16.6 words, or 48% of the drop, disappear once semicolons and colons count. By 1950–74 the two lines meet at 12.5 and 12.4, because modern books barely use either mark, which matches Westin's result.
 
-I measure from 1700–49, the peak, not from Lewis's Elizabethans. Nine of the shelf's 21 books from 1600–49 are plays, which run about 8 words a sentence and drag that period's median down. The 11 prose books from those years have a median of 42 words, close to Sherman's 41 for Hooker, but 11 books is too few to measure from.
+I measure from 1700–49, the peak, not from Lewis's Elizabethans. Nine of the shelf's 20 books from 1600–49 are plays, which run about 8 words a sentence and drag that period's median down. The 10 prose books from those years have a median of about 38 words, not far from Sherman's 41 for Hooker, but 10 books is too few to measure from.
 
 ![Line chart of median sentence length in 954 dated Project Gutenberg books, by 50-year period from 1600 to 1974. Counting only periods, question marks and exclamation marks as sentence ends, sentences peak at 30.3 words in 1700–49 and fall to 14.5 in 1900–49 and 12.5 in 1950–74. Counting semicolons and colons as stops too, the second line runs from 21.6 in 1700–49 to 13.3 in 1900–49, and the two lines meet at 12.4 in 1950–74. The gap between them, the glued sentences, is widest before 1800.](/images/blog/sentence-length-semicolons-punctuation/chart-sentence-length.svg)
 
@@ -113,19 +114,19 @@ Here's what one of those glued sentences looks like, punctuated the way the firs
 
 _The same sentence in the first edition of The Wealth of Nations, London, 1776, vol. 2 ([Internet Archive](https://archive.org/details/inquiryintonatur02smit_0))._
 
-That 47% assumes every semicolon and colon joins two clauses that could each stand alone as a sentence, and they don't. Plenty of semicolons separate items in a long list, and plenty of colons just introduce a quotation.
+That 48% assumes every semicolon and colon joins two clauses that could each stand alone as a sentence, and they don't. Plenty of semicolons separate items in a long list, and plenty of colons just introduce a quotation.
 
-So I pulled 100 random semicolons and colons out of 1700s English prose and had each one coded, checking whether the words after the mark could stand as their own sentence. Claude (the Opus 5.5 model) did that first pass while I wrote the analysis. For the semicolons, 43 of 60 did (72%). For the colons, 23 of 40 did (58%). The rest were things like a run of "that" clauses in a list, a colon setting up a quotation, or a chapter heading. If each mark counts only as often as it actually glues two sentences together, the 47% drops to 38%.
+So I pulled 100 random semicolons and colons out of 1700s English prose and had each one coded, checking whether the words after the mark could stand as their own sentence. Claude (the Opus 5.5 model) did that first pass while I wrote the analysis. 18 of the 100 turned out to come from translations that Gutenberg's catalog doesn't flag (Rousseau, Voltaire, Kant), so the rates use the other 82. For the semicolons, 36 of 50 did (72%). For the colons, 19 of 32 did (59%). The rest were things like a run of "that" clauses in a list, a colon setting up a quotation, or a chapter heading. If each mark counts only as often as it actually glues two sentences together, the 48% drops to 40%, with a 95% interval of 24% to 51%. Most of that width comes from having only 17 books in 1700–49.
 
-A second, separate Claude agent that saw only the passages and the rule coded the same 100 and agreed on 95 (Cohen's kappa 0.89). That's one model agreeing with itself, not two linguists, so treat the 38% as a careful estimate. It also coded 100 marks from 1900–49 books, to check whether the marks changed jobs. The semicolons mostly hadn't (62% still glue two clauses), but the colons had: only 18% did, because by then a colon mostly introduced a list or a quotation. Using each era's own rates still gives 38%.
+A second, separate Claude agent that saw only the passages and the rule coded the same 100 and agreed on 95 (Cohen's kappa 0.89). With its codes in place of the first pass, the share is 39%. That's one model agreeing with itself, not two linguists, so treat the 40% as a careful estimate. It also coded 100 marks from 1900–49 books, to check whether the marks changed jobs. The semicolons mostly hadn't (62% still glue two clauses), but the colons had: only 18% did, because by then a colon mostly introduced a list or a quotation.
 
 ![One hundred paper slips, one for each semicolon and colon pulled at random from 1700s English prose and coded twice, by two separate Claude agents that agreed on 95 of 100. Each turns over to pink if the mark glues two clauses that could each stand as a sentence, or dark if it separates a list, introduces a quotation, or sits in a heading or footnote. 43 of 60 semicolons glue two clauses (72%), and 23 of 40 colons do (58%).](/images/blog/sentence-length-semicolons-punctuation/chart-hand-coded.svg)
 
-Other ways of counting move the number around. A stricter sentence splitter that skips "Mr.", initials, ellipses and dialogue tags like `"Help!" he cried` gives 52%. Counting dashes as stops gives 43%. Semicolons alone give 42%. Taking out plays and poetry, dropping translated books, or measuring from 1750 instead of 1700 all land between 48% and 58%. The 58% rests on just 13 English-original books from 1700–49 and drops to 49% measured from 1750. Every version falls between 38% and 58%, and only the two weighted ones account for the marks that don't glue anything. Weighting takes about 10 points off any of the others, which is why I treat 40% as the floor of the range and not the middle.
+Other ways of counting move the number around. With each mark weighted by how often it glues, taking out plays and poetry gives 41%, measuring from 1750 instead of 1700 gives 39%, and dropping the books Gutenberg flags as translations gives 47%, though that flag misses some translations and catches some English originals. Without the weighting, the same counts run from 47% to 59%. The checks that need the full texts (a stricter sentence splitter that skips "Mr.", initials, ellipses and dialogue tags like `"Help!" he cried`, dashes counted as stops, narration only) landed between 43% and 58% before I removed the duplicates, unweighted. Weighting takes 8 to 12 points off every count where I've run both ways, because the unweighted count treats marks that glue nothing as sentence ends.
 
 ![Dot and interval chart: the share of the 1700–49 to 1900–49 drop in sentence length that disappears when semicolons and colons count as sentence ends, measured eleven ways with 95% bootstrap intervals. Weighted by the hand-coded glue rate: 38% (28 to 48). Weighted with a strict sentence splitter: 42%. Semicolons only: 42%. Dashes counted too: 43%. Base count: 47% (38 to 60). Plays and poetry removed: 48%. English originals: 48%. Measured from 1750–99: 49%. Strict sentence splitter: 52%. Narration only: 54%. English originals by both checks: 58% (50 to 61). Every estimate lands between 38% and 58%; a line marks about 40%.](/images/blog/sentence-length-semicolons-punctuation/chart-every-count.svg)
 
-I'm calling it about 40%. The bottom of that range is the number I can defend against someone who knows what a semicolon does, and none of the point estimates drops below a third.
+I'm calling it about 40%. It's the estimate that counts a semicolon or colon only as often as it actually ends a thought, which is the version I can defend against someone who knows what a semicolon does.
 
 ## Dialogue explains little of the rest
 
@@ -147,7 +148,7 @@ One result doesn't line up. Darmon, Bazzi, Howison and Porter found semicolons f
 
 ## Careers and generations
 
-If writers dropped the semicolon, you'd expect to see it in their careers. Seventeen authors on the shelf have five or more dated books spanning 20 or more years. Eight of them use fewer semicolons over time and nine use more, and the median slope is about zero. Dickens drops from about 12 semicolons per 1,000 words to 6, and Henry James from 12 to 7. Jane Austen, Mark Twain and G. K. Chesterton rise, though Austen's first dated book is juvenilia.
+If writers dropped the semicolon, you'd expect to see it in their careers. Seventeen authors on the shelf have five or more dated books spanning 20 or more years. Eight of them use fewer semicolons over time and nine use more, and the median slope is about zero. Dickens drops from about 12 semicolons per 1,000 words to 6, and Henry James from 12 to 7. Jane Austen, Mark Twain and G. K. Chesterton rise, though Austen's first dated book is juvenilia. With translations and duplicate copies taken out, 13 of those authors are left: 7 fall, 6 rise, and the 95% interval on the median slope runs from -0.8 to +0.5 semicolons per 1,000 words per decade, too wide to say anything.
 
 Seventeen authors is too few to settle it, so I tried something with more data. Gutenberg's [catalog](https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv) lists author birth years, which let me put birth year and publication year in the same model for 748 English-original books from 1750 to 1974. Each takes about half of the semicolon's fall: -3.1 per 1,000 words per century for publication year and -3.7 for birth year. Resampling authors rather than books, neither interval crosses zero (publication year only just), but the two overlap almost completely, and birth year and publication year move together, so this can't separate them.
 
@@ -193,7 +194,7 @@ Genres do have fingerprints of their own. Mystery and crime has the most dialogu
 
 ## How I counted
 
-**Corpus.** Gutenberg's 2,000 most-downloaded English books as of November 2026, minus dictionaries, encyclopedias, repeat editions and the few without a plain text, plus a few favorites: 1,959 books, about 2.5% of [Gutenberg's](https://www.gutenberg.org/) roughly 80,000. Gutenberg's license header and footer are cut at the `*** START` and `*** END` lines.
+**Corpus.** Gutenberg's 2,000 most-downloaded English books as of November 2026, minus dictionaries, encyclopedias, repeat editions and the few without a plain text, plus a few favorites: 1,959 books, about 2.5% of [Gutenberg's](https://www.gutenberg.org/) roughly 80,000. Gutenberg's license header and footer are cut at the `*** START` and `*** END` lines. The shelf also held 16 duplicate copies of 13 works (a second edition of _Gulliver's Travels_ or _The Wealth of Nations_, or another volume of one work); the sentence-length numbers keep one copy of each.
 
 **Dates.** First publication, taken from [Wikidata's](https://www.wikidata.org/) date for the work, with a hand-checked override list in Punc's fetch script. Translations take the original's year, which is why I flag translations and rerun without them. The 114 books from before 1600 are left out of everything over time.
 
@@ -201,29 +202,31 @@ Genres do have fingerprints of their own. Mystery and crime has the most dialogu
 
 **Statistics.** Medians of per-book values, so one enormous book can't swing a period. Bootstrap intervals come from resampling books within each period, and for the generations model, from resampling authors, since one writer's books aren't independent. The generations test is a least-squares fit of semicolons per 1,000 words on publication year and author birth year, for authors aged 15 to 90 at publication. Attribution uses the Hellinger distance between the ten-mark fingerprints.
 
-**Hand-coding.** 100 marks drawn at random (seed 42) from 49 English-original prose books dated 1700–1799, and 100 from 382 books dated 1900–1949, coded with Claude Opus 5.5 as described in the main results. The prompt and the codes are in the repo.
+**Hand-coding.** 100 marks drawn at random (seed 42) from 49 prose books dated 1700–1799 that Gutenberg's catalog doesn't list as translations (18 of the marks came from translations anyway and are left out of the rates), and 100 from 382 books dated 1900–1949, coded with Claude Opus 5.5 as described in the main results. The prompt and the codes are in the repo.
 
 The table behind the main result:
 
-| Period    | Books | Words between periods | Words between stops |
-| --------- | ----: | --------------------: | ------------------: |
-| 1600–1649 |    21 |                  20.9 |                13.9 |
-| 1650–1699 |    13 |                  24.3 |                16.6 |
-| 1700–1749 |    18 |                  30.3 |                21.6 |
-| 1750–1799 |    48 |                  27.3 |                19.8 |
-| 1800–1849 |    96 |                  21.4 |                16.4 |
-| 1850–1899 |   288 |                  17.9 |                15.0 |
-| 1900–1949 |   445 |                  14.5 |                13.3 |
-| 1950–1974 |    25 |                  12.5 |                12.4 |
+| Period    | Books | Words between periods | Words between stops | Words between weighted stops |
+| --------- | ----: | --------------------: | ------------------: | ---------------------------: |
+| 1600–1649 |    20 |                  16.2 |                11.8 |                         13.4 |
+| 1650–1699 |    12 |                  25.4 |                16.4 |                         19.7 |
+| 1700–1749 |    17 |                  31.1 |                21.9 |                         23.6 |
+| 1750–1799 |    44 |                  26.7 |                19.3 |                         21.1 |
+| 1800–1849 |    91 |                  21.2 |                16.3 |                         17.6 |
+| 1850–1899 |   284 |                  17.9 |                15.0 |                         15.8 |
+| 1900–1949 |   445 |                  14.5 |                13.3 |                         13.6 |
+| 1950–1974 |    25 |                  12.5 |                12.4 |                         12.4 |
+
+Weighted stops count each semicolon and colon at the rate it glued two clauses in the hand-coded sample (72% and 59%).
 
 Punc's counting code is the same TypeScript the site runs, [on GitHub](https://github.com/JoeKarlsson/punc). The Python scripts behind the new analyses, the hand-coded sample and a ledger of every number in this post are in the repo's [`analysis/` folder](https://github.com/JoeKarlsson/punc/tree/1ac6cf4/analysis), pinned to the commit this post used. I wrote those scripts with Claude Code. Before adding anything new, they reproduce Punc's own numbers: the same period medians and the same 241 of 708 authors.
 
 ## Limitations
 
 - **Editors.** Gutenberg texts are often later editions, and editors change punctuation in both directions. Gutenberg's _Wealth of Nations_ has "hurtful to the landlord; it is frequently hurtful to the tenant; and it is always hurtful to the community," where Smith's 1776 first edition has a period after "landlord" and a comma after "tenant." That semicolon after "tenant" turned up as item 5 of my 100 hand-coded marks, so the problem reaches the sample too. Editors add semicolons as well as remove them, and I can't say which way the editions push the totals.
-- **Few early books, and almost no recent ones.** Before 1800 each 50-year period has 13 to 48 books, so the intervals are wide. At the other end, Gutenberg carries books that are public domain in the US, which mostly means books published before 1931 [[Duke CSPD 2026]](https://cspd.law.duke.edu/publicdomainday/2026). Only 67 of the 1,073 dated books on the shelf came out after 1930, so the trend stops in the 1970s and says nothing about the last 50 years.
-- **The hand-coding** was done by Claude. A linguist coding a few hundred more marks would tighten the 40%.
-- **Only about half the shelf has a date.** 1,073 of 1,959 books have a first-publication year (954 of them fall in the 1600–1974 trend charts). The undated ones are out of every over-time number, and I haven't checked whether they differ from the dated ones.
+- **Few early books, and almost no recent ones.** Before 1800 each 50-year period has 12 to 44 books, so the intervals are wide. At the other end, Gutenberg carries books that are public domain in the US, which mostly means books published before 1931 [[Duke CSPD 2026]](https://cspd.law.duke.edu/publicdomainday/2026). Only 67 of the 1,073 dated books on the shelf came out after 1930, so the trend stops in the 1970s and says nothing about the last 50 years.
+- **The hand-coding** was done by Claude, and the first pass by the same session that ran the numbers, so it knew what I was looking for. A linguist coding a few hundred more marks would tighten the 40%.
+- **Only about half the shelf has a date.** 1,073 of 1,959 books have a first-publication year (954 of them fall in 1600–1974, 938 once duplicate copies are removed). The undated ones are out of every over-time number, and I haven't checked whether they differ from the dated ones.
 - **Translations slip through.** I flag them from Gutenberg's catalog and from each book's title page, and some still get past both (_Candide_ does).
 - **The shelf is today's taste.** These are the books people download now, not a sample of what was printed then. For what it's worth, popularity barely tracks punctuation. The strongest link between download rank and any measure is question marks, at a rank correlation of -0.19.
 - **Dialogue means double quotes.** Books that use single quotes, and plays, undercount it.
@@ -242,6 +245,12 @@ A few experiments I'd love to see someone run:
 - Anything that breaks one of the results above. [Open an issue on Punc's repo](https://github.com/JoeKarlsson/punc/issues) and tell me. If it holds up, I'll fix the post and note the change in a dated update at the bottom.
 
 Go play with it.
+
+## Update, November 22, 2026
+
+While turning this post into a paper, a review pass found two problems in my data. The shelf held 16 duplicate copies of 13 works (two editions of _Gulliver's Travels_ and _The Wealth of Nations_, extra volumes of David Henry's 1774 voyages, and so on), and 18 of the 100 "English-original" marks I had coded came from translations Gutenberg's catalog doesn't flag. I removed both and reran what I could from the per-book table. The headline went from 38% (28–48%) to 40% (24–51%), and the interval now also counts the uncertainty from coding only 82 marks. The text and the table above use the new numbers.
+
+The charts still show the original analysis, so the sentence-length, every-count, hand-coded and careers charts are off by a point or two in places. Rerun with one copy of each work, punctuation names the author 35% of the time (229 of 645 books, where chance is under 1%) and Dickens gets 1 of 19; the authorship section above still shows the original run. The reanalysis is [`paper/reanalysis.py`](https://github.com/JoeKarlsson/punc/blob/main/paper/reanalysis.py) and the authorship rerun [`paper/attribution_one_copy.py`](https://github.com/JoeKarlsson/punc/blob/main/paper/attribution_one_copy.py) in Punc's repo.
 
 ## References
 
