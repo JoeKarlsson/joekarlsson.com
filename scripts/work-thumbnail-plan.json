@@ -1585,6 +1585,21 @@
 			"color": "pink"
 		}
 	},
+	"how-to-automate-continuous-data-copying-from-mongodb-to-s3": {
+		"picture": {
+			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Ice_cutting_crew_at_work_-_NARA_-_285733.jpg?width=1600",
+			"credit": "https://commons.wikimedia.org/wiki/File:Ice_cutting_crew_at_work_-_NARA_-_285733.jpg"
+		},
+		"look": "taped",
+		"alt": "An ice-cutting crew with a horse working along a channel cut in a frozen lake",
+		"focus": 0.6,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
+	},
 	"mongodb-schema-design-best-practices": {
 		"picture": {
 			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/%28Three_elevations_of%29_ceiling_panel_A%2C_door_hall_to_kitchen_dept%2C_north%2C_east_%28elevations%29%2C_section_looking_north_%28GGUSC-BlackerR-5354%29.jpg?width=1600",
