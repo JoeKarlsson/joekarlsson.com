@@ -35,7 +35,11 @@ const THRESHOLDS = {
 	// notes beyond citations (quotes, terms, updates, see-also cards) took it to 22.1KB.
 	// Raised to 25KB on 2026-11-19 (Joe's OK): the big type round (hanging quote mark,
 	// interlude) took it to 23.2KB; 25KB leaves ~2KB of headroom again.
-	maxTotalCssGzip: 25 * 1024,
+	// Raised to 26KB on 2026-11-22, temporarily (Joe: "do the cap now ... I just want this
+	// get the shit deployed"): keyboard heading links, table scroll boxes and the /papers/
+	// section took it to 25.1KB. The lasting fix is splitting the CSS by page type with a
+	// budget per page type, planned for the next session; that replaces this number.
+	maxTotalCssGzip: 26 * 1024,
 	// No total dist cap: it was raised six times in November 2026 as new media kept tripping
 	// it, while visitors only ever fetch one page. These catch what it was there for (raw
 	// footage, unconverted GIFs); per-page weight is the homepage budget, Lighthouse and
@@ -121,7 +125,7 @@ describe('Bundle Size', () => {
 	});
 
 	describe('CSS bundles', () => {
-		it('total CSS is under 23KB gzipped', () => {
+		it('total CSS is under 26KB gzipped', () => {
 			const cssFiles = getFilesWithExtension(ASTRO_DIR, '.css').map((f) => ({
 				name: f.name,
 				size: gzipSync(readFileSync(join(ASTRO_DIR, f.name))).length,
