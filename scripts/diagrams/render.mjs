@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Renders a post's diagrams from scripts/diagrams/<slug>/*.mjs.
 //
-//   npm run diagrams -- <slug>                     writes public/images/blog/<slug>/<name>.svg + .phone.svg
+//   npm run diagrams -- <slug>                     writes public/images/blog/<slug>/<name>.svg + .phone.svg (posts and talks)
 //                                                   (newsletter/ for an issue, projects/ for a project page)
 //   npm run diagrams -- <slug> --preview <file>    writes a review page with every figure at both sizes
 //
@@ -57,13 +57,17 @@ for (const name of names) {
 			problems++;
 		}
 		if (!flag) {
-			// Newsletter issues keep their images under /images/newsletter, posts under
-			// /images/blog, and a slug with neither is a project page's (/images/projects)
+			// Newsletter issues keep their images under /images/newsletter, posts and talks
+			// under /images/blog, and a slug with none of those is a project page's (/images/projects)
 			const isPost = (dir) =>
 				['md', 'mdx'].some((ext) =>
 					existsSync(path.join(root, 'src/content', dir, `${slug}.${ext}`)),
 				);
-			const collection = isPost('newsletter') ? 'newsletter' : isPost('blog') ? 'blog' : 'projects';
+			const collection = isPost('newsletter')
+				? 'newsletter'
+				: isPost('blog') || isPost('talks')
+					? 'blog'
+					: 'projects';
 			const out = path.join(root, 'public/images', collection, slug, `${name}${suffix}.svg`);
 			mkdirSync(path.dirname(out), { recursive: true });
 			writeFileSync(out, svgs[layout]);
