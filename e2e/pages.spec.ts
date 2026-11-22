@@ -242,7 +242,7 @@ test('clicking a post heading puts its section link in the address bar and copie
 	expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(page.url());
 });
 
-test('the keyboard copies a section heading’s link with Enter', async ({
+test('the keyboard copies a section heading’s link with Enter on its self link', async ({
 	page,
 	context,
 	browserName,
@@ -250,8 +250,7 @@ test('the keyboard copies a section heading’s link with Enter', async ({
 	test.skip(browserName !== 'chromium', 'only Chromium lets a test grant clipboard access');
 	await context.grantPermissions(['clipboard-read', 'clipboard-write']);
 	await page.goto('/featured/');
-	const heading = page.locator('#built-on-my-work');
-	await heading.focus();
+	await page.locator('#built-on-my-work .heading-self-link').focus();
 	await page.keyboard.press('Enter');
 	await expect(page.locator('.link-copied')).toHaveText('Link copied');
 	expect(new URL(page.url()).hash).toBe('#built-on-my-work');

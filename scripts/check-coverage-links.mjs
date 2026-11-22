@@ -39,13 +39,14 @@ function apiFor(url) {
 	if (hostname === 'news.ycombinator.com')
 		return {
 			url: `https://hacker-news.firebaseio.com/v0/item/${searchParams.get('id')}.json`,
-			empty: 'null',
+			// null: never existed; a deleted or flagged-dead item still answers, marked so
+			gone: (body) => body === 'null' || /"(deleted|dead)":true/.test(body),
 		};
 	if (hostname === 'stackoverflow.com') {
 		const id = pathname.match(/^\/(?:a|q|questions)\/(\d+)/)?.[1];
 		return {
 			url: `https://api.stackexchange.com/2.3/posts/${id}?site=stackoverflow`,
-			empty: '"items":[]',
+			gone: (body) => body.includes('"items":[]'),
 		};
 	}
 	return { url, headers: { 'User-Agent': UA } };
@@ -60,7 +61,7 @@ async function status(url) {
 			signal: AbortSignal.timeout(20_000),
 		});
 		// A deleted item still answers 200, with nothing in it
-		if (probe.empty) return (await res.text()).includes(probe.empty) ? 404 : res.status;
+		if (probe.gone) return probe.gone(await res.text()) ? 404 : res.status;
 		await res.body?.cancel();
 		return res.status;
 	} catch (error) {

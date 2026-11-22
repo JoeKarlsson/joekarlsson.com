@@ -4,9 +4,17 @@
 // because the specific types (Course, DiscussionForumPosting, NewsArticle) come with Google
 // rich-result requirements these third-party pages can't meet from here.
 import { SITE_URL } from '../consts';
-import { coverage, papers } from '../data/coverage';
+import { type Coverage, coverage, papers } from '../data/coverage';
 
 const JOE = { '@id': `${SITE_URL}/#/schema/person` };
+
+// Press, newsletters, courses and forums are organizations; a write-up's outlet is the person
+// who wrote it; a repo's outlet is just its owner, so it's left out
+function whoMadeIt({ kind, outlet }: Coverage) {
+	if (kind === 'writeup') return { author: { '@type': 'Person', name: outlet } };
+	if (kind === 'code' || kind === 'reuse') return {};
+	return { publisher: { '@type': 'Organization', name: outlet } };
+}
 
 export function featuredItemList() {
 	const items = [
@@ -15,14 +23,15 @@ export function featuredItemList() {
 			name: paper.title,
 			url: paper.url,
 			datePublished: String(paper.year),
-			description: `${paper.venue} ${paper.year}. Cites ${paper.cites}.`,
+			// The data says "my"; a crawler needs the name
+			description: `${paper.venue} ${paper.year}. Cites ${paper.cites.replace(/\bmy\b/g, 'Joe Karlsson’s')}.`,
 			mentions: JOE,
 		})),
 		...coverage.map((entry) => ({
 			'@type': 'CreativeWork',
 			name: entry.title,
 			url: entry.url,
-			publisher: { '@type': 'Organization', name: entry.outlet },
+			...whoMadeIt(entry),
 			...(entry.date ? { datePublished: entry.date } : {}),
 			mentions: JOE,
 		})),

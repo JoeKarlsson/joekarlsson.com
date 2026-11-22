@@ -174,6 +174,11 @@
 [data-heading-link] {
 	cursor: pointer;
 }
+/* A section page's heading is a link to itself (heading-links.ts), in the heading's own look */
+.heading-self-link {
+	color: inherit;
+	text-decoration: none;
+}
 .prose .heading-group:hover > [data-heading-link] {
 	@apply text-pink;
 }
@@ -191,7 +196,7 @@
 		@apply absolute top-0 right-full mr-2 opacity-0 text-pink transition-opacity;
 		content: '#' / '';
 	}
-	main [data-heading-link]:not(.prose *):focus-visible::before {
+	main [data-heading-link]:not(.prose *):has(> .heading-self-link:focus-visible)::before {
 		@apply opacity-100;
 	}
 }
@@ -200,21 +205,26 @@
 		@apply opacity-100;
 	}
 }
-/* The tag that says the link was copied, over the heading for a moment */
+/* The tag that says the link was copied, by the heading for a moment. Hidden by opacity so it
+   stays a live region screen readers announce (heading-links.ts) */
 .link-copied {
-	@apply absolute z-[60] rounded bg-pink px-2 py-1.5 font-sans text-xs leading-none font-bold tracking-widest text-ink uppercase pointer-events-none;
+	@apply absolute z-[60] rounded bg-pink px-2 py-1.5 font-sans text-xs leading-none font-bold tracking-widest text-ink uppercase pointer-events-none opacity-0;
+}
+.link-copied.on {
+	@apply opacity-100;
 }
 @media (prefers-reduced-motion: no-preference) {
 	.link-copied {
-		animation: link-copied-in 150ms ease-out;
-	}
-}
-@keyframes link-copied-in {
-	from {
-		opacity: 0;
 		translate: 0 4px;
+		transition:
+			opacity 150ms ease-out,
+			translate 150ms ease-out;
+	}
+	.link-copied.on {
+		translate: 0 0;
 	}
 }
+
 .prose h1,
 .prose h2,
 .prose h3 {
@@ -696,9 +706,10 @@ pre.astro-code {
 			inset: -8px -4px;
 		}
 	}
-	/* A heading's # only shows on hover, so on touch it's an invisible 10px target */
-	.prose .heading-anchor {
-		display: none;
+	/* A heading's # only shows on hover, so on touch it's an invisible 10px target. Clipped, not
+	   removed, so a keyboard on a tablet still reaches it, and it shows once focused */
+	.prose .heading-anchor:not(:focus-visible) {
+		@apply sr-only;
 	}
 	.prose pre .copy-button {
 		@apply px-3 py-3 text-sm;
