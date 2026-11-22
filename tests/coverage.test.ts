@@ -1,6 +1,12 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { LEAD_STORY, coverage, papers } from '../src/data/coverage';
+import {
+	BUILT_ON_GROUPS,
+	COVERAGE_GROUPS,
+	LEAD_STORY,
+	coverage,
+	papers,
+} from '../src/data/coverage';
 
 describe('coverage.ts', () => {
 	it('highlights a part of each paper’s reference line', () => {
@@ -18,6 +24,12 @@ describe('coverage.ts', () => {
 		const about = readFileSync('src/pages/about.astro', 'utf8');
 		for (const { url } of [LEAD_STORY, ...papers, ...coverage])
 			expect(about, url).not.toContain(url);
+	});
+
+	// /featured/ renders only the kinds in these groups; any other kind's entries never show
+	it('puts every entry in a group /featured/ shows', () => {
+		const shown = new Set([...BUILT_ON_GROUPS, ...COVERAGE_GROUPS].map((group) => group.kind));
+		for (const entry of coverage) expect(shown, entry.url).toContain(entry.kind);
 	});
 
 	it('has the lead story’s picture', () => {

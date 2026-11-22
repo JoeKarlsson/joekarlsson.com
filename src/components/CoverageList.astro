@@ -8,16 +8,18 @@ import { GROUP_HEADING } from '../utils/ui';
 interface Props {
 	kind: CoverageKind;
 	heading: string;
+	// h3 inside the Built on my work section, h2 for the lists that stand on their own
+	level?: 'h2' | 'h3';
 }
 
-const { kind, heading } = Astro.props;
+const { kind, heading, level: Heading = 'h2' } = Astro.props;
 const entries = coverage
 	.filter((entry) => entry.kind === kind)
 	.sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''));
 ---
 
 <section class="mb-12 max-w-4xl md:mb-16">
-	<h2 class:list={[GROUP_HEADING, 'mb-3']}>{heading}</h2>
+	<Heading class:list={[GROUP_HEADING, 'mb-3']}>{heading}</Heading>
 	<ul>
 		{entries.map((entry) => (
 			<li class="border-t border-surface-4 last:border-b">
