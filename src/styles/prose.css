@@ -249,9 +249,10 @@
 	font-size: 0.875rem;
 	line-height: 1.7;
 }
-/* Shiki's github-dark paints its own blue-gray (#24292e) inline; code sits on the site's gray */
+/* Shiki's github-dark paints its own blue-gray (#24292e) inline; code sits on the site's gray. theme(), not
+   var(--color-surface-2): @config emits no color variables, and that var() painted nothing */
 pre.astro-code {
-	background-color: var(--color-surface-2) !important;
+	background-color: theme('colors.surface.2') !important;
 }
 /* design-ok: about the code font. Shiki sets some tokens in italic, and JetBrains Mono loads no italic face: draw them
    upright instead of letting the browser slant the roman */
