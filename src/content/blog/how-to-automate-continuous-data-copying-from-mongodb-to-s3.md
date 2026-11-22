@@ -11,7 +11,7 @@ tldr: 'Two scheduled Atlas Triggers do the work: one writes a test document ever
 updatedDate: 2026-11-22
 corrections:
   - date: 2026-11-22
-    note: "The copy trigger was meant to take the last 60 seconds of documents, as the text says, but its `$match` used `60 * 60 * 1000` (an hour). It is `60 * 1000` now, which is what MongoDB's own version of this tutorial uses. The sample IAM policy also lacked `s3:PutObject`, which `$out` needs to write to the bucket."
+    note: "The copy trigger was meant to take the last 60 seconds of documents, as the text says, but its `$match` used `60 * 60 * 1000` (an hour). It is `60 * 1000` now, which is what MongoDB's own version of this tutorial uses. The sample IAM policy lacked `s3:PutObject` and `s3:DeleteObject`, which read and write access needs, and named a role ARN where S3 needs the bucket's ARNs. The steps for creating Triggers now follow today's Atlas sidebar."
 heroImage: '/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/thumb-3e678a1d.webp'
 heroAlt: 'An ice-cutting crew with a horse working along a channel cut in a frozen lake'
 mastheadImage: '/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/masthead-480c0da5.webp'
@@ -33,8 +33,8 @@ One thing we often see users struggle with is getting NoSQL data into Parquet, s
 
 To follow along with this tutorial, you'll need to:
 
-1. Create a [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account, if you don't have one already.
-2. Create [an AWS account with privileges to create IAM roles and S3 buckets](https://www.mongodb.com/docs/atlas/data-federation/deployment/deploy-s3/) (so Data Federation can write data to your S3 bucket).
+1. Create a [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database) account, if you don't have one already, with a cluster that has some data in it. Creating a federated database instance and Triggers needs the Project Owner role.
+2. Create [an AWS account with privileges to create IAM roles and S3 buckets](https://www.mongodb.com/docs/atlas/data-federation/deployment/deploy-adf/) (so Data Federation can write data to your S3 bucket).
 3. [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 4. [Configure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
 5. _Optional_: [Set up unified AWS access](https://www.mongodb.com/docs/atlas/security/set-up-unified-aws-access/).
@@ -43,20 +43,20 @@ To follow along with this tutorial, you'll need to:
 
 We need a federated database instance to copy our MongoDB data and use Atlas Data Federation's `$out` to S3, which converts the data into Parquet and lands it in an S3 bucket.
 
-First, go to "Data Federation" on the left-hand side of your Atlas dashboard, then click "Set up manually" in the "Create new federated database" dropdown in the top right corner.
+First, go to "Data Federation" on the left-hand side of your Atlas dashboard, then click "Manual setup" in the "Create New Federated Database" dropdown in the top right corner.
 
 ![The Atlas Data Federation page with the Create new federated database menu open and Set up manually highlighted](/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/create-federated-database.webp)
 
 Then connect your S3 bucket to your federated database instance. This is where we'll write the Parquet files. The setup wizard guides you through it quickly, but you'll need your AWS credentials.
 
-Note: For more information, see the documentation on [deploying a federated database instance for an S3 data store](https://www.mongodb.com/docs/atlas/data-federation/deployment/deploy-s3/). Be sure to give Atlas Data Federation "Read and Write" access to the bucket, so it can write the Parquet files there.
+Note: For more information, see the documentation on [deploying a federated database instance for an S3 data store](https://www.mongodb.com/docs/atlas/data-federation/deployment/deploy-adf/). Be sure to give Atlas Data Federation "Read and Write" access to the bucket, so it can write the Parquet files there.
 
 ![The Add Data Source dialog, offering AWS S3, Atlas Cluster and HTTP(S) as the data store](/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/add-data-source.webp)
 
 Select an AWS IAM role for Atlas.
 
 - If you created a role that Atlas is already authorized to read and write to your S3 bucket, select it.
-- If you're authorizing Atlas for an existing role or creating a new one, [follow the documentation](https://www.mongodb.com/docs/atlas/data-federation/deployment/deploy-s3/) for how to do it.
+- If you're authorizing Atlas for an existing role or creating a new one, [follow the documentation](https://www.mongodb.com/docs/atlas/data-federation/deployment/deploy-adf/) for how to do it.
 
 Enter the S3 bucket information.
 
@@ -66,7 +66,7 @@ Enter the S3 bucket information.
 Assign an access policy to your AWS IAM role.
 
 - Follow the steps in the Atlas user interface to assign an access policy to your AWS IAM role.
-- Your read and write role policy should look similar to this:
+- Your read and write role policy should look similar to this. The Atlas wizard generates the exact one for your bucket; S3 permissions apply to the bucket's ARNs, not the role's:
 
 ```json
 {
@@ -79,9 +79,10 @@ Assign an access policy to your AWS IAM role.
 				"s3:GetObject",
 				"s3:GetObjectVersion",
 				"s3:GetBucketLocation",
-				"s3:PutObject"
+				"s3:PutObject",
+				"s3:DeleteObject"
 			],
-			"Resource": ["<role arn>"]
+			"Resource": ["arn:aws:s3:::<your-bucket>", "arn:aws:s3:::<your-bucket>/*"]
 		}
 	]
 }
@@ -102,28 +103,30 @@ Now we're going to connect our Atlas cluster, so we can write data from it into 
 
 With all of our data sources set up in our new federated database instance, we can set up a [MongoDB Atlas Trigger](https://www.mongodb.com/docs/atlas/atlas-ui/triggers/) to generate new documents every minute for our continuous replication demo. **Triggers** run server-side logic in response to database events or on a schedule. Atlas has two kinds: **Database** and **Scheduled** triggers. We'll use a [Scheduled trigger](https://www.mongodb.com/docs/atlas/atlas-ui/triggers/scheduled-triggers/) to make sure these documents get archived in our S3 bucket automatically.
 
-1. Click the Atlas tab in the top navigation if you aren't in Atlas already.
-2. Click Triggers in the left-hand navigation.
-3. On the Overview tab of the Triggers page, click Add Trigger to open the trigger configuration page.
-4. Enter these configuration values for the trigger:
+1. In the Atlas sidebar, under **Streaming Data**, click **Triggers**.
+2. Click **Add Trigger** and choose **Scheduled** as the trigger type.
+3. Name it `Create_Event_Every_Min_Trigger`, set it to repeat every minute, and link your cluster as its data source.
+4. Choose **Function** as the event type. The screenshots here are from 2022, so today's Atlas looks a little different, but the settings are the same:
 
 ![The Atlas trigger configuration page for the new trigger. Trigger type: Scheduled. Name: Create_Event_Every_Min_Trigger. Enabled: On. Schedule type: Basic. Linked data sources: Cluster 1 and atlas_data_lake. Event type: Function.](/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/create-event-trigger.webp)
 
 And the Trigger function looks like this:
 
+`context.services.get` takes the name of the linked data source: your cluster here, which Atlas names `mongodb-atlas` by default.
+
 ```js
-exports = function () {
-	const mongodb = context.services.get('NAME_OF_YOUR_ATLAS_SERVICE');
-	const db = mongodb.db('NAME_OF_YOUR DATABASE');
+exports = async function () {
+	const mongodb = context.services.get('mongodb-atlas');
+	const db = mongodb.db('NAME_OF_YOUR_DATABASE');
 	const events = db.collection('NAME_OF_YOUR_COLLECTION');
 
-	const event = events.insertOne({
+	const result = await events.insertOne({
 		time: new Date(),
 		aNumber: Math.random() * 100,
 		type: 'event',
 	});
 
-	return JSON.stringify(event);
+	return JSON.stringify(result);
 };
 ```
 
@@ -133,22 +136,22 @@ Lastly, click Run and check that your database gets a new document every 60 seco
 
 ## Create a MongoDB Atlas Trigger to copy new MongoDB data into S3 every minute
 
-Alright, now the fun part. We're going to create a new Trigger that copies our MongoDB data every 60 seconds using Atlas Data Federation's `$out` to S3 aggregation stage. Create a new Trigger with these settings.
+Alright, now the fun part. We're going to create a new Trigger that copies our MongoDB data every 60 seconds using Atlas Data Federation's `$out` to S3 aggregation stage. Create another Scheduled trigger, name it `Copy_Events_To_S3_Trigger`, set it to repeat every minute, and link your federated database instance this time.
 
 ![The Add Trigger page for a Scheduled trigger that repeats every minute, linked to the federated database](/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/copy-to-s3-trigger.webp)
 
 Your Trigger function will look something like this. There's a lot going on, so let's break it down.
 
-- First, we connect to our new federated database instance. This is different from the previous Trigger, which connected to our Atlas database. Put your virtual database name in `context.services.get`. You must [connect](https://www.mongodb.com/docs/atlas/data-federation/connect/) to your federated database instance to use [`$out`](https://www.mongodb.com/docs/atlas/data-federation/supported-unsupported/pipeline/out/) to S3.
+- First, we connect to our new federated database instance. This is different from the previous Trigger, which connected to our cluster. Atlas names the federated instance's data source `mongodb-datafederation` by default; use yours in `context.services.get`. You must [connect](https://www.mongodb.com/docs/atlas/data-federation/tutorial/connect/) to your federated database instance to use [`$out`](https://www.mongodb.com/docs/atlas/data-federation/supported-unsupported/pipeline/out/) to S3.
 - Next, we build an aggregation pipeline that first matches the MongoDB documents written in the last 60 seconds.
 - Then the `$out` stage copies the documents from the previous stage into S3.
 - In the format, we specify _parquet_ and set a maxFileSize and maxRowGroupSize.
-  - _maxFileSize_ sets the maximum size of each partition. _maxRowGroupSize_ sets how records are grouped inside the Parquet file in "[row groups](https://parquet.apache.org/docs/concepts/)", which affects query performance on your Parquet files much like file size does.
+  - _maxFileSize_ sets the maximum size of each output file, measured as uncompressed BSON before the conversion to Parquet. A document bigger than that gets a file of its own. _maxRowGroupSize_ sets how records are grouped inside the Parquet file in "[row groups](https://parquet.apache.org/docs/concepts/)", which affects query performance on your Parquet files much like file size does.
 - Lastly, we set the S3 path to match the value of the data.
 
 ```js
 exports = function () {
-	const service = context.services.get('NAME_OF_YOUR_FEDERATED_DATA_SERVICE');
+	const service = context.services.get('mongodb-datafederation');
 	const db = service.db('NAME_OF_YOUR_VIRTUAL_DATABASE');
 	const events = db.collection('NAME_OF_YOUR_VIRTUAL_COLLECTION');
 
@@ -164,8 +167,8 @@ exports = function () {
 		{
 			$out: {
 				s3: {
-					bucket: 'mongodb-federated-data-demo',
-					region: 'us-east-1',
+					bucket: 'mongodb-data-lake-demo', // your bucket
+					region: 'us-east-1', // your bucket's region
 					filename: 'events',
 					format: {
 						name: 'parquet',
@@ -181,7 +184,7 @@ exports = function () {
 };
 ```
 
-If all is good, you'll see your new Parquet file in your S3 bucket. I've turned on versions in the AWS console so you can see it being updated every 60 seconds.
+If all is good, you'll see a new Parquet file starting with `events` in your S3 bucket. `$out` overwrites a file with the same name, so it's replaced each run. I've turned on versions in the AWS console so you can see it being updated every 60 seconds.
 
 ![The AWS S3 console listing versions of the events.parquet file that the $out trigger function writes, one a minute](/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/parquet-in-s3.webp)
 
@@ -192,6 +195,8 @@ Some of the settings above were chosen to make this easy to set up and test. If 
 First, this post uses a "deltas" approach: it only copies the new documents from the collection into Parquet files. Another approach is a full snapshot, copying the whole collection into Parquet each time. Which one you pick should depend on how much data is in your collection and what the downstream consumer needs.
 
 Second, however much data you're copying, you ideally want larger Parquet files, partitioned by how you're going to query them. [Apache recommends](https://parquet.apache.org/docs/file-format/configurations/) row group sizes of 512 MB to 1 GB. You can go smaller depending on your needs, but larger files are better. And if you plan to query this data as Parquet, partition it to match your query pattern. If you'll query on a date field, for instance, you might want each file to hold a single day's worth of data.
+
+Third, `$out` skips a document it can't write and carries on by default (`errorMode: 'continue'`), so a bad document never stops the copy, but it never reaches S3 either. If you'd rather the copy fail loudly, set `errorMode: 'stop'` in the `$out` stage.
 
 Lastly, depending on your needs, it may make sense to schedule this with something other than Triggers, like [Temporal](https://docs.temporal.io/) or [Apache Airflow](https://airflow.apache.org/docs/apache-airflow/stable/index.html).
 

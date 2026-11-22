@@ -13,6 +13,8 @@ updatedDate: 2026-11-22
 corrections:
   - date: 2026-11-22
     note: 'The recap said to prefer embedding for one-to-many relationships. The one-to-many section above it uses an array of references, and so does the recap now.'
+  - date: 2026-11-22
+    note: 'The shell examples used `ObjectID` and short placeholder ids, which current mongosh rejects. They use `ObjectId` with valid ids now and run as written on MongoDB 8, and two queries show the one-to-many and log lookups. The atomicity and transactions lines now match the MongoDB docs: writes to one document are atomic, and multi-document transactions came to replica sets in 4.0 and sharded clusters in 4.2.'
 videos:
   - id: 'leNCfU5SYR8'
   - id: 'tYNaXn2wJJo'
@@ -38,7 +40,7 @@ In this post, I'll cover the basics of data modeling using real-world examples. 
 
 [Watch the talk version on YouTube](https://www.youtube.com/watch?v=leNCfU5SYR8)
 
-Okay, first off, did you know that proper MongoDB schema design is the most critical part of deploying a scalable, fast and affordable database? It's true, and schema design is often one of the most overlooked facets of MongoDB administration. Why is MongoDB schema design so important? Well, there are a couple of good reasons. In my experience, most people coming to MongoDB tend to think of MongoDB schema design as the same as legacy relational schema design, which doesn't let you take full advantage of all that MongoDB has to offer. First, let's look at how legacy relational database design compares to MongoDB schema design.
+Okay, first off, did you know that proper MongoDB schema design is one of the most critical parts of deploying a scalable, fast and affordable database? It's true, and schema design is often one of the most overlooked facets of MongoDB administration. Why is MongoDB schema design so important? Well, there are a couple of good reasons. In my experience, most people coming to MongoDB tend to think of MongoDB schema design as the same as legacy relational schema design, which doesn't let you take full advantage of all that MongoDB has to offer. First, let's look at how legacy relational database design compares to MongoDB schema design.
 
 ## Schema design approaches: relational vs. MongoDB
 
@@ -132,9 +134,9 @@ MongoDB schema design actually comes down to only two choices for every piece of
 
 - You can retrieve all relevant information in a single query.
 - You avoid implementing joins in application code or using [$lookup](https://www.mongodb.com/docs/manual/reference/operator/aggregation/lookup/).
-- You update related information as a single atomic operation. [By default, all CRUD operations on a single document are ACID compliant](https://www.mongodb.com/docs/manual/core/read-isolation-consistency-recency/).
+- You update related information as a single atomic operation. [Writes to a single document are atomic](https://www.mongodb.com/docs/manual/core/write-operations-atomicity/), even when they change several fields at once.
 - If you need a transaction across multiple operations, you can use [multi-document transactions](https://www.mongodb.com/docs/manual/core/transactions/).
-- [Transactions have been available since 4.0](https://www.mongodb.com/docs/manual/core/write-operations-atomicity/), but I should add that it's an anti-pattern to rely on them too much in your application.
+- [Multi-document transactions have been available on replica sets since 4.0 and on sharded clusters since 4.2](https://www.mongodb.com/docs/manual/core/transactions/), but I should add that it's an anti-pattern to rely on them too much in your application.
 
 **Limitations:**
 
@@ -143,14 +145,14 @@ MongoDB schema design actually comes down to only two choices for every piece of
 
 ### Referencing
 
-The other option for designing your schema is referencing another document using a document's [unique object ID](https://www.mongodb.com/docs/manual/reference/method/ObjectId/) and connecting them together with the [$lookup](https://www.mongodb.com/docs/manual/reference/operator/aggregation/lookup/) operator. Referencing works much like the JOIN operator in an SQL query. It lets us split up data to make more efficient and scalable queries, yet keep the relationships between data.
+The other option for designing your schema is referencing another document using a document's [unique object ID](https://www.mongodb.com/docs/manual/reference/method/ObjectId/) and connecting them together with the [$lookup](https://www.mongodb.com/docs/manual/reference/operator/aggregation/lookup/) operator. Referencing does the job a JOIN does in an SQL query. It lets us split up data to make more efficient and scalable queries, yet keep the relationships between data.
 
 **Advantages:**
 
 - By splitting up data, you get smaller documents.
 - You're less likely to reach the [16 MB per document limit](https://www.mongodb.com/docs/manual/reference/limits/).
 - Infrequently accessed information isn't needed on every query.
-- You reduce the amount of duplicated data. However, it's important to note that you shouldn't avoid duplicating data if it results in a better schema.
+- You reduce the amount of duplicated data. But don't avoid duplication at any cost: if repeating some data gives you a better schema, repeat it.
 
 **Limitations:**
 
@@ -160,21 +162,21 @@ The other option for designing your schema is referencing another document using
 
 Now that we have explored the two ways to split up data when designing schemas in MongoDB, let's look at common relationships you're probably familiar with modeling if you come from an SQL background. I'll start with the simpler relationships and work up to some interesting patterns, and show how to model each with a real-world example. Note that we're only going to scratch the surface of modeling relationships in MongoDB here.
 
-It's also important to note that even if your application has the exact same data as the examples below, you might end up with a completely different schema than the one I outline here. That's because the most important consideration for your schema is how your system is going to use your data. In each example, I'll outline the requirements for the application and why a given schema was used. If you want to discuss the specifics of your schema, open a conversation on the [MongoDB Community Forums](https://www.mongodb.com/community/forums/), and we can all discuss what will work best for your unique application.
+It's also important to note that even if your application has the exact same data as the examples below, you might end up with a completely different schema than the one I outline here. That's because the most important consideration for your schema is how your system is going to use your data. In each example, I'll outline the requirements for the application and why a given schema was used. If you want to discuss the specifics of your schema, open a conversation on the [MongoDB Community Hub](https://www.mongodb.com/community/forums/), and we can all discuss what will work best for your unique application.
 
 ### One-to-one
 
 Let's look at our User document. This example has some great one-to-one data in it. For example, in our system, one user can only have one name. So, this is an example of a one-to-one relationship. We can model all one-to-one data as key-value pairs in our database.
 
-```json
+```js
 {
-	"_id": "ObjectId('AAA')",
-	"name": "Joe Karlsson",
-	"company": "MongoDB",
-	"twitter": "@JoeKarlsson1",
-	"twitch": "joe_karlsson",
-	"tiktok": "joekarlsson",
-	"website": "joekarlsson.com"
+	_id: ObjectId("64b7e1f0a1b2c3d4e5f60001"),
+	name: "Joe Karlsson",
+	company: "MongoDB",
+	x: "@JoeKarlsson1",
+	twitch: "joe_karlsson",
+	tiktok: "joekarlsson",
+	website: "joekarlsson.com"
 }
 ```
 
@@ -191,18 +193,18 @@ One-to-one tl;dr:
 
 Now let's say we're dealing with a small sequence of data that's associated with our users. For example, we might need to store several addresses for a given user. It's unlikely that a user of our application would have more than a couple of different addresses. We call a relationship like this a _one-to-few relationship._
 
-```json
+```js
 {
-	"_id": "ObjectId('AAA')",
-	"name": "Joe Karlsson",
-	"company": "MongoDB",
-	"twitter": "@JoeKarlsson1",
-	"twitch": "joe_karlsson",
-	"tiktok": "joekarlsson",
-	"website": "joekarlsson.com",
-	"addresses": [
-		{ "street": "123 Sesame St", "city": "Anytown", "cc": "USA" },
-		{ "street": "123 Avenue Q", "city": "New York", "cc": "USA" }
+	_id: ObjectId("64b7e1f0a1b2c3d4e5f60001"),
+	name: "Joe Karlsson",
+	company: "MongoDB",
+	x: "@JoeKarlsson1",
+	twitch: "joe_karlsson",
+	tiktok: "joekarlsson",
+	website: "joekarlsson.com",
+	addresses: [
+		{ street: "123 Sesame St", city: "Anytown", cc: "USA" },
+		{ street: "123 Avenue Q", city: "New York", cc: "USA" }
 	]
 }
 ```
@@ -227,26 +229,39 @@ With a schema that could be saving thousands of sub-parts, we probably don't nee
 
 Products:
 
-```json
+```js
 {
-	"name": "left-handed smoke shifter",
-	"manufacturer": "Acme Corp",
-	"catalog_number": "1234",
-	"parts": ["ObjectID('AAAA')", "ObjectID('BBBB')", "ObjectID('CCCC')"]
+	name: "left-handed smoke shifter",
+	manufacturer: "Acme Corp",
+	catalog_number: "1234",
+	parts: [
+		ObjectId("64b7e1f0a1b2c3d4e5f60101"),
+		ObjectId("64b7e1f0a1b2c3d4e5f60102"),
+		ObjectId("64b7e1f0a1b2c3d4e5f60103")
+	]
 }
 ```
 
 Parts:
 
-```json
+```js
 {
-	"_id": "ObjectID('AAAA')",
-	"partno": "123-aff-456",
-	"name": "#4 grommet",
-	"qty": "94",
-	"cost": "0.94",
-	"price": " 3.99"
+	_id: ObjectId("64b7e1f0a1b2c3d4e5f60101"),
+	partno: "123-aff-456",
+	name: "#4 grommet",
+	qty: 94,
+	cost: 0.94,
+	price: 3.99
 }
+```
+
+When the product page needs the parts too, one `$lookup` pulls them in:
+
+```js
+db.products.aggregate([
+	{ $match: { catalog_number: '1234' } },
+	{ $lookup: { from: 'parts', localField: 'parts', foreignField: '_id', as: 'parts' } },
+]);
 ```
 
 **Rule 2:** Needing to access an object on its own is a compelling reason not to embed it.
@@ -269,9 +284,9 @@ Hosts:
 
 ```js
 {
-    "_id": ObjectID("AAAB"),
-    "name": "goofy.example.com",
-    "ipaddr": "127.66.66.66"
+	_id: ObjectId("64b7e1f0a1b2c3d4e5f60201"),
+	name: "goofy.example.com",
+	ipaddr: "127.66.66.66"
 }
 ```
 
@@ -279,13 +294,23 @@ Log Message:
 
 ```js
 {
-    "time": ISODate("2014-03-28T09:42:41.382Z"),
-    "message": "cpu is on fire!",
-    "host": ObjectID("AAAB")
+	time: ISODate("2014-03-28T09:42:41.382Z"),
+	message: "cpu is on fire!",
+	host: ObjectId("64b7e1f0a1b2c3d4e5f60201")
 }
 ```
 
-**Rule 4:** Arrays should not grow without bound. If there are more than a couple of hundred documents on the "many" side, don't embed them; if there are more than a few thousand documents on the "many" side, don't use an array of ObjectID references. High-cardinality arrays are a compelling reason not to embed.
+To read a host's latest messages, query the logs by host, with an index on `host` and `time` so it stays fast as the logs pile up:
+
+```js
+db.logmsg.createIndex({ host: 1, time: -1 });
+db.logmsg
+	.find({ host: ObjectId('64b7e1f0a1b2c3d4e5f60201') })
+	.sort({ time: -1 })
+	.limit(100);
+```
+
+**Rule 4:** Arrays should not grow without bound. If there are more than a couple of hundred documents on the "many" side, don't embed them; if there are more than a few thousand documents on the "many" side, don't use an array of ObjectId references. High-cardinality arrays are a compelling reason not to embed.
 
 ### Many-to-many
 
@@ -299,9 +324,13 @@ Users:
 
 ```js
 {
-    "_id": ObjectID("AAF1"),
-    "name": "Kate Monster",
-    "tasks": [ObjectID("ADF9"), ObjectID("AE02"), ObjectID("AE73")]
+	_id: ObjectId("64b7e1f0a1b2c3d4e5f60301"),
+	name: "Kate Monster",
+	tasks: [
+		ObjectId("64b7e1f0a1b2c3d4e5f60401"),
+		ObjectId("64b7e1f0a1b2c3d4e5f60402"),
+		ObjectId("64b7e1f0a1b2c3d4e5f60403")
+	]
 }
 ```
 
@@ -309,10 +338,10 @@ Tasks:
 
 ```js
 {
-    "_id": ObjectID("ADF9"),
-    "description": "Write blog post about MongoDB schema design",
-    "due_date": ISODate("2014-04-01"),
-    "owners": [ObjectID("AAF1"), ObjectID("BB3G")]
+	_id: ObjectId("64b7e1f0a1b2c3d4e5f60401"),
+	description: "Write blog post about MongoDB schema design",
+	due_date: ISODate("2014-04-01"),
+	owners: [ObjectId("64b7e1f0a1b2c3d4e5f60301"), ObjectId("64b7e1f0a1b2c3d4e5f60302")]
 }
 ```
 
@@ -341,7 +370,7 @@ General rules for MongoDB schema design:
 - **Rule 1:** Favor embedding unless there is a compelling reason not to.
 - **Rule 2:** Needing to access an object on its own is a compelling reason not to embed it.
 - **Rule 3:** Avoid joins and lookups if possible, but don't be afraid if they can provide a better schema design.
-- **Rule 4:** Arrays should not grow without bound. If there are more than a couple of hundred documents on the _many_ side, don't embed them; if there are more than a few thousand documents on the _many_ side, don't use an array of ObjectID references. High-cardinality arrays are a compelling reason not to embed.
+- **Rule 4:** Arrays should not grow without bound. If there are more than a couple of hundred documents on the _many_ side, don't embed them; if there are more than a few thousand documents on the _many_ side, don't use an array of ObjectId references. High-cardinality arrays are a compelling reason not to embed.
 - **Rule 5:** As always, with MongoDB, how you model your data depends **entirely** on your particular application's data access patterns. You want to structure your data to match the ways that your application queries and updates it.
 
 We've only scratched the surface of design patterns in MongoDB. We haven't even started on patterns that aren't remotely possible in a legacy relational model. If you want to learn more about them, check out the resources below.
@@ -364,4 +393,4 @@ If you're coming from SQL, my talk [From SQL to NoSQL](/talks/from-sql-to-nosql-
 - [Building with Patterns: A Summary](https://www.mongodb.com/company/blog/building-with-patterns-a-summary)
 - [Data modeling in the MongoDB docs](https://www.mongodb.com/docs/manual/data-modeling/)
 - [The MongoDB data modeling learning path](https://learn.mongodb.com/learn/learning-path/data-modeling-for-mongodb)
-- [MongoDB Community Forums](https://www.mongodb.com/community/forums/)
+- [MongoDB Community Hub](https://www.mongodb.com/community/forums/)
