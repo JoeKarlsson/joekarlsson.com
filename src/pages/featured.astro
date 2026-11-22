@@ -1,20 +1,21 @@
 ---
 // Everything other people have written about my work, in full (DECISIONS.md 2026-11-21): the
-// papers that cite it first, then press, interviews, newsletters, write-ups and threads. About's
+// papers that cite it first, then the code, courses and reading lists built on it
+// (2026-11-22), then press, interviews, newsletters, write-ups and threads. About's
 // Written about section shows a few and links here. Podcasts and talks stay on /talks/.
-import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CoverageList from '../components/CoverageList.astro';
 import KeepExploring from '../components/KeepExploring.astro';
 import PaperCitations from '../components/PaperCitations.astro';
 import PosterHero from '../components/PosterHero.astro';
 import SectionRule from '../components/SectionRule.astro';
-import { COVERAGE_GROUPS, LEAD_STORY, coverage } from '../data/coverage';
-import { GROUP_HEADING, HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } from '../utils/ui';
+import { BUILT_ON_GROUPS, COVERAGE_GROUPS, LEAD_STORY } from '../data/coverage';
+import { HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } from '../utils/ui';
 ---
 
 <BaseLayout
 	title="Featured on | Joe Karlsson"
-	description="Research papers that cite Joe Karlsson’s work, plus press, interviews, newsletters and threads where other people wrote about it."
+	description="Research papers that cite Joe Karlsson’s work, the code, courses and reading lists built on it, and the press, interviews, newsletters and threads where other people wrote about it."
 	image={LEAD_STORY.image}
 	imageAlt={LEAD_STORY.imageAlt}
 	schemaType="CollectionPage"
@@ -44,8 +45,8 @@ import { GROUP_HEADING, HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } 
 				/>
 			</div>
 			<p class={HERO_LEAD}>
-				Papers, press and threads where other people wrote about my work. The podcasts and talks are
-				on my{' '}
+				Papers that cite my work, the code and courses built on it, and what other people wrote
+				about it. The podcasts and talks are on my{' '}
 				<a href="/talks/" class={TEXT_LINK}>
 					talks page
 				</a>
@@ -59,35 +60,16 @@ import { GROUP_HEADING, HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } 
 		<SectionRule />
 		<PaperCitations />
 
+		<h2 id="built-on-my-work" class={SECTION_HEADING}>
+			Built on my work
+		</h2>
+		<SectionRule />
+		{BUILT_ON_GROUPS.map(({ kind, heading }) => (
+			<CoverageList kind={kind} heading={heading} />
+		))}
+
 		{COVERAGE_GROUPS.map(({ kind, heading }) => (
-			<section class="mb-12 max-w-4xl md:mb-16">
-				<h2 class:list={[GROUP_HEADING, 'mb-3']}>{heading}</h2>
-				<ul>
-					{coverage
-						.filter((entry) => entry.kind === kind)
-						// Newest first; undated entries last
-						.sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
-						.map((entry) => (
-							<li class="border-t border-surface-4 last:border-b">
-								<a
-									href={entry.url}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="group grid grid-cols-[3.5rem_1fr] gap-x-4 gap-y-1 py-3 text-paper no-underline md:grid-cols-[4rem_13rem_1fr_9rem] md:items-baseline"
-								>
-									<span class="text-sm font-semibold text-muted tabular-nums max-md:row-span-3">
-										{entry.date?.slice(0, 4)}
-									</span>
-									<span class="font-semibold">{entry.outlet}</span>
-									<span class="font-serif text-lg leading-snug group-hover:text-pink">
-										{joinLastWord(entry.title)}
-									</span>
-									<span class="text-sm font-semibold text-muted md:text-right">{entry.note}</span>
-								</a>
-							</li>
-						))}
-				</ul>
-			</section>
+			<CoverageList kind={kind} heading={heading} />
 		))}
 
 		<KeepExploring

@@ -1,5 +1,5 @@
-// What other people have written about my work: research papers that cite it, press,
-// interviews, newsletters, write-ups and threads. /featured/ lists all of it; the About page's
+// What other people have written about my work and built on it: research papers that cite it,
+// code, courses and reading lists that use it, press, interviews, newsletters, write-ups and threads. /featured/ lists all of it; the About page's
 // Written about section shows only the lead story and the first three papers, then links here.
 // Podcasts, radio and talks I appeared on live in talks.ts, never here (DECISIONS.md
 // 2026-11-21: nothing here repeats As seen on). Every entry was opened and checked to name me
@@ -21,7 +21,7 @@ export interface Paper {
 }
 
 export type CoverageKind =
-	'press' | 'interview' | 'newsletter' | 'course' | 'writeup' | 'reuse' | 'thread';
+	'press' | 'interview' | 'newsletter' | 'code' | 'course' | 'writeup' | 'reuse' | 'thread';
 
 export interface Coverage {
 	kind: CoverageKind;
@@ -248,12 +248,6 @@ export const coverage: Coverage[] = [
 		outlet: 'Bryan Guner',
 		title: 'A data structures resource list includes my JavaScript repo',
 		url: 'https://github.com/bgoonz/BGOONZ_BLOG_2.0/blob/master/src/pages/blog/data-structures-algorithms-resources.md',
-	},
-	{
-		kind: 'reuse',
-		outlet: 'kairess',
-		title: 'An MNIST sudoku generator built on my Python sudoku solver',
-		url: 'https://github.com/kairess/mnist_sudoku_generator',
 	},
 
 	// Threads, with their comment counts when I found them
@@ -563,18 +557,55 @@ export const coverage: Coverage[] = [
 		url: 'https://github.com/Vong3432/pixelify/blob/main/components/includes/Navbar.tsx',
 	},
 	{
-		kind: 'reuse',
+		kind: 'code',
 		date: '2018-01-23',
 		outlet: 'OpenCV-Sudoku (patrick-gao)',
 		title: 'A computer-vision Sudoku game builds its board generator on my Python Sudoku generator',
 		url: 'https://github.com/patrick-gao/OpenCV-Sudoku/blob/master/sudokuGenerator.py',
 	},
 	{
-		kind: 'reuse',
+		kind: 'code',
 		date: '2017-08-01',
 		outlet: 'PySudoku (prangongh)',
 		title: 'A Flask Sudoku game generates its puzzles with my Python Sudoku generator',
 		url: 'https://github.com/prangongh/PySudoku/blob/master/webserver.py',
+	},
+	{
+		kind: 'code',
+		date: '2018-10-16',
+		outlet: 'mnist_sudoku_generator (kairess)',
+		title: 'An MNIST sudoku generator makes its puzzles with my Python Sudoku generator',
+		url: 'https://github.com/kairess/mnist_sudoku_generator',
+	},
+	{
+		kind: 'code',
+		date: '2025-02-10',
+		outlet: 'Timewise (AD-Archer)',
+		title: 'A mental health app’s music player thanks my React Spotify player for its code',
+		url: 'https://github.com/AD-Archer/Timewise/blob/master/src/app/components/Music/SpotifyPlayer.tsx',
+	},
+	{
+		kind: 'code',
+		date: '2019-10-28',
+		outlet: 'branch.out (ReadySetJoe)',
+		title: 'A concert finder credits my React Spotify player in its footer',
+		url: 'https://github.com/ReadySetJoe/branch-out/blob/master/frontend/static/src/App.js',
+	},
+	{
+		kind: 'code',
+		date: '2020-08-26',
+		outlet: 'IEEE ITBA student branch',
+		title: 'The website of ITBA’s IEEE student branch depends on my angular-instafeed package',
+		url: 'https://github.com/ieee-itba-sb-it/IEEE-ITBA-website/blob/master/package.json',
+		note: 'one of 15 dependents',
+	},
+	{
+		kind: 'code',
+		date: '2026-10-06',
+		outlet: 'simple_prompter (simple-eiffel)',
+		title:
+			'A voice-following teleprompter for Windows lists my Followspot as prior art, down to its settings',
+		url: 'https://github.com/simple-eiffel/simple_prompter/blob/main/.eiffel-workflow/research/REFERENCES.md',
 	},
 	{
 		kind: 'thread',
@@ -646,12 +677,17 @@ export const coverage: Coverage[] = [
 	},
 ];
 
+// /featured/'s Built on my work section, right under the papers (DECISIONS.md 2026-11-22)
+export const BUILT_ON_GROUPS: { kind: CoverageKind; heading: string }[] = [
+	{ kind: 'code', heading: 'Code' },
+	{ kind: 'course', heading: 'Taught in courses' },
+	{ kind: 'reuse', heading: 'Recommended' },
+];
+
 export const COVERAGE_GROUPS: { kind: CoverageKind; heading: string }[] = [
 	{ kind: 'press', heading: 'Press' },
 	{ kind: 'interview', heading: 'Interviews' },
 	{ kind: 'newsletter', heading: 'Newsletters' },
-	{ kind: 'course', heading: 'Taught in courses' },
 	{ kind: 'writeup', heading: 'Written up by others' },
-	{ kind: 'reuse', heading: 'Built on and recommended' },
 	{ kind: 'thread', heading: 'Threads' },
 ];
