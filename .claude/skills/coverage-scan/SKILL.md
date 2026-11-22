@@ -76,4 +76,12 @@ Commit (`feat: Featured adds ...`), push, `npm run deploy`, and check the live /
 - what you couldn't search (a site that blocked automated visits) and leads you couldn't confirm
 - anything of his that has gone dead somewhere others still link to it, once, as an observation
 
+## 6. Feed back into the writing
+
+The point of the list is to learn what gets Joe cited (DECISIONS.md 2026-11-22: two lanes, a reference lane built to be cited). After the report, add a short **What got picked up** section:
+
+- Which of his pieces gained entries this scan, and what they share: lane, title shape (a concept vs. a story), whether there's a repo or dataset, where it was first published. Compare with the patterns in `personal-marketing`'s `references/ideas.md`, **What gets cited**, and say if a new pattern shows up or an old one stops holding; propose the line to add or change there.
+- Newly cited pieces worth a `/blog-new --update`: refresh their code and facts, keeping their headings and `date` (people link to them).
+- Cited URLs that moved or died (an employer's old URL, a renamed heading's anchor), each with the redirect or archived link that fixes it.
+
 Clean up the scratchpad downloads and any temp scripts.

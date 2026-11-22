@@ -112,6 +112,7 @@ Present the topic to the user with:
 - **Working title** (opinionated, Joe's voice - not generic)
 - **One-paragraph pitch** - what's the angle? What makes this worth reading?
 - **What it adds** - one sentence on what this post has that none of the top results do. No sentence: say so, and suggest dropping the idea or making it a share-only piece
+- **Lane** - *reference* (built to be cited: the concept as the title, a definition line, named rules, a repo or dataset) or *story* (homelab, tools, essays, as before). Aim for about one reference piece a quarter, from the pillar he already has authority in. For a reference piece, also give the one-sentence definition, the named rules, and the repo or dataset. The rules are in `references/ideas.md`, **What gets cited** (DECISIONS.md 2026-11-22)
 - **Launch tier** - only when the post launches something (from `launches.md`)
 - **Target audience** - who cares about this?
 - **Category** - one or two of: Homelab, Web Dev, Career, AI, Cloud, Life (`BLOG_CATEGORIES` in `src/utils/categories.ts`; anything else fails the build)
@@ -122,7 +123,7 @@ Write the proposal to `<scratchpad>/{slug}-proposal.md`, open it with `code`, th
 
 ### 1a-ii. Headline test
 
-Before moving on, launch **Agent: `blog-headline-tester`** with the working title, primary keyword, and one-sentence thesis. Use the top-ranked title (or a hybrid) as the title going into Phase 2. If the current working title ranks first, keep it.
+Before moving on, launch **Agent: `blog-headline-tester`** with the working title, primary keyword, one-sentence thesis and the lane. Use the top-ranked title (or a hybrid) as the title going into Phase 2. If the current working title ranks first, keep it.
 
 Also ask the user whether the post is aimed at Hacker News or Reddit. If it is, tell the headline tester, and apply **Distribution fit: Hacker News and Reddit** (Phase 3) while drafting. HN asks submitters to use the original title, so the H1 *is* the HN title. Get it right now, not at submission time.
 
@@ -151,7 +152,7 @@ Launch two sub-agents in parallel to handle research:
 
 **Agent: `blog-source-researcher`** - verifies current versions, dates, product names, and what's changed. Produces a sourced findings list to inform the draft.
 
-**Agent: `blog-competitor-analyst`** - finds the top-ranking competing pages, outlines them, and returns an explicit gap analysis (sections/angles the field covers that this post should address or differentiate from).
+**Agent: `blog-competitor-analyst`** (tell it the lane) - finds the top-ranking competing pages, outlines them, and returns an explicit gap analysis (sections/angles the field covers that this post should address or differentiate from).
 
 Wait for both reports before proceeding to outline. Incorporate their findings into Phase 2.
 
@@ -172,6 +173,7 @@ Create a detailed outline with:
 - Where to link to other joekarlsson.com posts (see Phase 2b)
 - At the top, the angle block and two or three written hook options, and a word budget per section (`.claude/blog-core/angle-and-outline.md`)
 - Numbered visual marks for every spot that gets a visual (`.claude/blog-core/visuals.md`, **Visuals travel with the text**)
+- Reference lane: where the definition line goes (in the first 100 words), each named rule or pattern as its own heading (its anchor never changes once published, since people link straight to it), and the public repo for the code or data
 
 ### 2a. Voice check the outline
 
@@ -608,7 +610,7 @@ Run final review agents in parallel, then apply findings.
 
 ### 6a. Launch review agents (run in parallel)
 
-Launch these three agents simultaneously with the final draft file path:
+Launch these three agents simultaneously with the final draft file path, and tell each one the post's lane (reference or story, from Phase 1a); a reference post gets their **Reference lane** checks:
 
 **Agent: `blog-eeat-reviewer`** - checks originality, first-hand experience, expertise signal, sourcing, and trustworthiness. A post that passes fact-check but has zero original insight gets a REVISE verdict here.
 
@@ -661,6 +663,11 @@ Final human review before moving on. Verify each item:
 - [ ] HN/Reddit (if targeted): every derived number recomputed (totals, W vs kWh, per-month vs per-year), and spec numbers match the vendor sheet?
 - [ ] HN/Reddit (if targeted): the obvious top-comment objection is named and answered in the post?
 - [ ] Memes: each one jokes about a real finding, doesn't echo its header, and isn't in the first screen?
+- [ ] Reference lane: the title names the concept, with no year and no "I"?
+- [ ] Reference lane: one sentence in the first 100 words defines the concept and still makes sense quoted on its own?
+- [ ] Reference lane: each rule or pattern is named and has its own heading?
+- [ ] Reference lane: the code or data is in a public repo with a `CITATION.cff`, linked from the post?
+- [ ] Written for an employer: `date` is the original publication date, not the import date?
 
 ### 6f. Spelling Check
 
@@ -743,6 +750,8 @@ Then push, run `npm run deploy`, and curl the live page to confirm (see CLAUDE.m
 
 Then run the **`distribute`** skill on the slug (employer crossposts too: it links the canonical URL and discloses the affiliation) and open its plan for Joe.
 
+Then save the live URL to the Wayback Machine (`curl -s -o /dev/null "https://web.archive.org/save/<url>"`), and for an employer crosspost the original's URL too. Researchers cite URLs that later die; an archived copy keeps the citation working.
+
 Then promotion (personal posts only, never employer crossposts):
 - **A launch** (it had a launch tier in Phase 1a): hand the live URL and tier to the **`marketing-strategist`** subagent for the launch plan, show Joe the plan, then run `/social` for its posts.
 - **A newsletter issue:** go straight on to **Phase 10**, without asking.
@@ -796,6 +805,8 @@ cat src/content/blog/<slug>.md
 ```
 
 Note the post's original publish date, primary keyword, thesis, and any explicit version numbers, prices, or dated claims.
+
+If the post is listed in `src/data/coverage.ts` (someone cites, teaches or builds on it), keep its H2 wording and anchors and its `date`: a renamed heading breaks the links people cite. Add new sections rather than renaming old ones.
 
 **Step 2: Launch research agents in parallel.**
 

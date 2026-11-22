@@ -39,6 +39,10 @@ You perform competitive research for a blog post. Find what currently ranks for 
 
 5. **Personal-experience gap.** Note where competitors write generically and where a post by someone who actually did this would stand out.
 
+## Reference lane (when the orchestrator says so)
+
+Also check whether the topic has a citing audience: search Google Scholar and GitHub for the concept and the top results' URLs, and report who cites or links them (papers, course repos, handbooks). No citing audience means the piece belongs in the story lane.
+
 ## What to return
 
 Return one self-contained report; it is all the orchestrator sees.

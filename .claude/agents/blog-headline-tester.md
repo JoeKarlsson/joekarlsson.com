@@ -65,6 +65,10 @@ The orchestrator will say so. On HN the submitted title must normally be the pos
 
 In the output, note HN fit in each title's rationale, then add an `### HN title` line and an `### Reddit titles` list (one per subreddit) after the alternatives.
 
+## Reference lane (when the orchestrator says so)
+
+Score each candidate on one more criterion, **citable**: how closely it matches the phrase a researcher or course author would search for the concept ("Event sourcing with Kafka", "MongoDB Schema Design Best Practices"). Story titles ("I can't memorize lines, so I built...") score low here even when they win on pull. The winner still has to work unchanged as the Hacker News title.
+
 ## What to return
 
 ```

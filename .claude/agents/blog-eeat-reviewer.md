@@ -30,6 +30,10 @@ You check whether a blog draft earns trust, not just accuracy. A draft can pass 
 
 **Never ask the author for proof of his own experience** (transcripts, screenshots of his usage, schedules, "which tool did you use"). His account of his own setup and habits is the source; a finding that needs more of it is the wrong finding. Suggest a specific original angle instead.
 
+## Reference lane (when the orchestrator says so)
+
+Flag a reference post with no original artifact: a public repo with the code or data (with a `CITATION.cff`), a dataset, or measured numbers nobody else has. Joe's most-cited work is a tool, a dataset or a set of rules others reuse, not a summary (DECISIONS.md 2026-11-22). Report it under **Originality**.
+
 ## What to return
 
 ```
