@@ -1,27 +1,47 @@
 // Clicking a section heading gives the link to that section (DECISIONS.md 2026-11-22, A): the
 // address bar changes to it without a jump, the link is copied, and a "Link copied" tag shows
-// over the heading. A post heading's # link (rehype-autolink-headings) does the same; without
-// this script it still jumps to its section, as any link would.
-const HEADINGS = 'main :is(h2, h3, h4)[id]:not(.sr-only, summary *, button *)';
+// by the heading. A post heading's # link (rehype-autolink-headings) does the same; without
+// this script it still jumps to its section, as any link would. The newsletter signup and
+// Keep reading headings close a page rather than start a section, so they're left out.
+const HEADINGS =
+	'main :is(h2, h3, h4)[id]:not(.sr-only, summary *, button *, #keep-exploring, #post-newsletter-heading)';
 const SHOW_MS = 1400;
+const GAP_PX = 8;
+
+let tag: HTMLElement;
 
 function flash(heading: Element, text: string) {
-	document.querySelector('.link-copied')?.remove();
-	const tag = document.createElement('span');
-	tag.className = 'link-copied';
-	tag.setAttribute('role', 'status');
+	// One status element, filled on each click: screen readers skip a live region that
+	// arrives with its words already in it
 	tag.textContent = text;
-	// Fixed on the page, not inside the heading, so the heading's text never changes
-	const { left, top } = heading.getBoundingClientRect();
-	tag.style.left = `${Math.max(8, left)}px`;
-	tag.style.top = `${Math.max(8, top - 34)}px`;
-	document.body.append(tag);
-	setTimeout(() => tag.remove(), SHOW_MS);
+	// Shown before it's measured: a hidden tag has no height
+	tag.hidden = false;
+	// Above the heading, unless that would cover the sticky nav: then just under it
+	const rect = heading.getBoundingClientRect();
+	const navBottom = document.querySelector('header.sticky')?.getBoundingClientRect().bottom ?? 0;
+	const above = rect.top - tag.offsetHeight - GAP_PX;
+	const top = above > navBottom + GAP_PX ? above : rect.bottom + GAP_PX;
+	// On the page, not fixed to the screen, so it stays by its heading if you scroll
+	tag.style.left = `${Math.max(GAP_PX, rect.left) + scrollX}px`;
+	tag.style.top = `${top + scrollY}px`;
+	clearTimeout(Number(tag.dataset.timer));
+	tag.dataset.timer = String(
+		setTimeout(() => {
+			tag.hidden = true;
+			tag.textContent = '';
+		}, SHOW_MS),
+	);
 }
 
 export function initHeadingLinks() {
-	for (const heading of document.querySelectorAll<HTMLElement>(HEADINGS))
-		heading.dataset.headingLink = '';
+	const headings = document.querySelectorAll<HTMLElement>(HEADINGS);
+	if (!headings.length) return;
+	for (const heading of headings) heading.dataset.headingLink = '';
+	tag = document.createElement('span');
+	tag.className = 'link-copied';
+	tag.setAttribute('role', 'status');
+	tag.hidden = true;
+	document.body.append(tag);
 	document.addEventListener('click', (event) => {
 		const target = event.target;
 		if (!(target instanceof Element)) return;
