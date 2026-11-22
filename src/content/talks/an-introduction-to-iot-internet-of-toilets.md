@@ -389,7 +389,7 @@ Lastly, you will want to select a database that natively handles time-series dat
 
 Alright, let’s wrap this party up. In this post, I covered why you should consider using Node for your next IoT (Internet of Toilets) project: It’s easy to update over a network, the internet already speaks JavaScript, there are tons of existing libraries/plugins/APIs (including [CylonJS](https://github.com/hybridgroup/cylon) and [Johnny-Five](https://johnny-five.io/)), and JavaScript is great at handling event-driven apps. I walked through a real-life Node-based IoT project, my IoT Kitty Litter Box, and dug into the code base. I also discussed what to look for when selecting a database for IoT projects: It should be able to concurrently write data quickly, have a flexible schema, and be able to handle time-series data.
 
-![Final IoT Kitty Litter Box Assembly process](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process-1.gif)_Final IoT Kitty Litter Box Assembly process_
+![Final IoT Kitty Litter Box Assembly process](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process.gif)_Final IoT Kitty Litter Box Assembly process_
 
 What’s next? Well, if I have inspired you to get started on your own IoT project, I say, “Go for it!” Pick out a project, even if it’s “crappy,” and build it. Google as you go, and make mistakes. I think it’s the best way to learn. I hereby give you permission to make stupid stuff just for you, something to help you learn and grow as a human being and a software engineer. If you want to see what else I’ve been building, check out my other [projects](/work/).
 
