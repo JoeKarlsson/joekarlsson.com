@@ -1,6 +1,7 @@
 ---
 import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 import {
+	GROUP_HEADING,
 	HERO_LEAD,
 	ITEM_TITLE,
 	META,
@@ -36,6 +37,7 @@ const aboutHeadings = [
 	{ slug: 'career', text: 'Career' },
 	{ slug: 'how-i-got-here', text: 'How I got here' },
 	{ slug: 'as-seen-on', text: 'As seen on' },
+	{ slug: 'written-about', text: 'Written about' },
 	{ slug: 'videos', text: 'Videos' },
 	{ slug: 'now', text: 'Right now' },
 	{ slug: 'art', text: 'Art' },
@@ -153,11 +155,6 @@ const featuredPodcasts = [
 
 const moreAppearances = [
 	{
-		name: 'NPR',
-		detail: 'All Things Considered - crop art at the State Fair',
-		url: 'https://www.npr.org/2026/09/04/nx-s1-5954198/at-minnesotas-state-fair-crop-artists-depict-the-struggle-over-immigration-enforcement',
-	},
-	{
 		name: '8 Bits',
 		detail: 'with Chloe Condon & Brandon Minnick',
 		url: 'https://8bits.tv/8-bits-with-joe-karlsson/',
@@ -211,6 +208,9 @@ const cropArtPieces = [
 	},
 ];
 import SectionRule from '../components/SectionRule.astro';
+import PaperCitations from '../components/PaperCitations.astro';
+import MetaParts from '../components/MetaParts.astro';
+import { LEAD_STORY } from '../data/coverage';
 ---
 
 <BaseLayout
@@ -549,6 +549,49 @@ import SectionRule from '../components/SectionRule.astro';
 						</a>
 					</li>
 				</ul>
+
+				<h2 id="written-about" class={`${SECTION_HEADING}`}>
+					Written about
+				</h2>
+				<SectionRule />
+				<a
+					href={LEAD_STORY.url}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="ring-host group mb-12 grid grid-cols-[minmax(0,1fr)] items-center gap-6 text-paper no-underline md:mb-16 md:grid-cols-[1.15fr_1fr] md:gap-9"
+				>
+					<span class="relative block aspect-[4/3]">
+						<img
+							src={LEAD_STORY.image}
+							alt=""
+							data-halftone="flat"
+							data-halftone-no-invert
+							class="block size-full rounded-lg object-cover"
+							width="640"
+							height="480"
+							sizes="(min-width: 768px) 520px, 100vw"
+							loading="lazy"
+						/>
+						<HoverBox featured />
+					</span>
+					<span class="block">
+						<MetaParts
+							parts={[LEAD_STORY.outlet, LEAD_STORY.show, String(LEAD_STORY.year)]}
+							class="text-sm font-semibold text-pink"
+						/>
+						<span class="my-3 block font-serif text-[clamp(1.625rem,2.6vw,2.25rem)] leading-tight text-balance group-hover:text-pink">
+							{LEAD_STORY.title}
+						</span>
+						<span class="block border-l-[3px] border-pink pl-4 font-serif text-lg italic">
+							“{LEAD_STORY.quote}”
+						</span>
+					</span>
+				</a>
+				<h3 class:list={[GROUP_HEADING, 'mb-6']}>Cited in research</h3>
+				<PaperCitations limit={3} />
+				<a href="/featured/" class:list={[MORE_LINK, 'mb-12 inline-block md:mb-16']}>
+					Everything written about me, threads included &rarr;
+				</a>
 
 				<h2 id="videos" class={`${SECTION_HEADING}`}>
 					Videos

@@ -1,0 +1,58 @@
+---
+// The research papers that cite my work, each showing the line from the paper that names me
+// with my part highlighted. About's Written about and /featured/ both open with it, once per
+// page, so the ids stay unique.
+import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
+import { papers } from '../data/coverage';
+import { ITEM_TITLE, META } from '../utils/ui';
+import HoverBox from './HoverBox.astro';
+
+interface Props {
+	// About shows only the first few
+	limit?: number;
+}
+
+const { limit } = Astro.props;
+---
+
+<ul class="mb-12 grid gap-8 md:mb-16 lg:grid-cols-3">
+	{papers.slice(0, limit).map((paper, i) => {
+		const [before, after] = paper.reference.split(paper.highlight);
+		return (
+			<li>
+				<a
+					href={paper.url}
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-labelledby={`paper-title-${i}`}
+					aria-describedby={`paper-ref-${i}`}
+					class="ring-host group block text-paper no-underline"
+				>
+					<span class="mb-3 block font-display text-[1.375rem] leading-none uppercase">
+						{paper.venue}{' '}
+						<span class="ml-1 align-[0.3em] font-sans text-sm text-muted">{paper.year}</span>
+					</span>
+					<span
+						id={`paper-ref-${i}`}
+						class="relative mb-4 block rounded-lg bg-surface-1 p-5 font-serif text-[0.9375rem] leading-relaxed text-muted [overflow-wrap:anywhere]"
+					>
+						<HoverBox index={i} />
+						{paper.context && <span class="mb-3 block italic">…{paper.context}…</span>}
+						{before}
+						<mark class="bg-pink px-1 text-ink [box-decoration-break:clone]">
+							{paper.highlight}
+						</mark>
+						{after}
+					</span>
+					<span
+						id={`paper-title-${i}`}
+						class:list={[ITEM_TITLE, 'block font-serif font-normal group-hover:text-pink']}
+					>
+						{joinLastWord(paper.title)}
+					</span>
+					<span class:list={[META, 'mt-1 block']}>Cites {paper.cites}.</span>
+				</a>
+			</li>
+		);
+	})}
+</ul>

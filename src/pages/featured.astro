@@ -1,0 +1,101 @@
+---
+// Everything other people have written about my work, in full (DECISIONS.md 2026-11-21): the
+// papers that cite it first, then press, interviews, newsletters, write-ups and threads. About's
+// Written about section shows a few and links here. Podcasts and talks stay on /talks/.
+import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import KeepExploring from '../components/KeepExploring.astro';
+import PaperCitations from '../components/PaperCitations.astro';
+import PosterHero from '../components/PosterHero.astro';
+import SectionRule from '../components/SectionRule.astro';
+import { COVERAGE_GROUPS, LEAD_STORY, coverage } from '../data/coverage';
+import { GROUP_HEADING, HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } from '../utils/ui';
+---
+
+<BaseLayout
+	title="Featured on | Joe Karlsson"
+	description="Research papers that cite Joe Karlsson’s work, plus press, interviews, newsletters and threads where other people wrote about it."
+	image={LEAD_STORY.image}
+	imageAlt={LEAD_STORY.imageAlt}
+	schemaType="CollectionPage"
+>
+	<div class={PAGE_CONTAINER}>
+		<PosterHero
+			title="Featured"
+			wordRatio={3.6}
+			featured={{
+				label: 'Lead story',
+				title: LEAD_STORY.title,
+				href: LEAD_STORY.url,
+				meta: `${LEAD_STORY.outlet}, ${LEAD_STORY.year}`,
+			}}
+		>
+			<div slot="media" class="relative z-10 aspect-[4/3] md:aspect-auto">
+				<img
+					src={LEAD_STORY.image}
+					alt={LEAD_STORY.imageAlt}
+					data-halftone="flat"
+					data-halftone-no-invert
+					class="absolute inset-0 block size-full rounded-xl bg-ink object-cover object-center"
+					width="960"
+					height="720"
+					sizes="(min-width: 768px) 560px, 100vw"
+					fetchpriority="high"
+				/>
+			</div>
+			<p class={HERO_LEAD}>
+				Papers, press and threads where other people wrote about my work. The podcasts and talks are
+				on my{' '}
+				<a href="/talks/" class={TEXT_LINK}>
+					talks page
+				</a>
+				.
+			</p>
+		</PosterHero>
+
+		<h2 id="cited-in-research" class={SECTION_HEADING}>
+			Cited in research
+		</h2>
+		<SectionRule />
+		<PaperCitations />
+
+		{COVERAGE_GROUPS.map(({ kind, heading }) => (
+			<section class="mb-12 max-w-4xl md:mb-16">
+				<h2 class:list={[GROUP_HEADING, 'mb-3']}>{heading}</h2>
+				<ul>
+					{coverage
+						.filter((entry) => entry.kind === kind)
+						.map((entry) => (
+							<li class="border-t border-surface-4 last:border-b">
+								<a
+									href={entry.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="group grid grid-cols-[3.5rem_1fr] gap-x-4 gap-y-1 py-3 text-paper no-underline md:grid-cols-[4rem_13rem_1fr_9rem] md:items-baseline"
+								>
+									<span class="text-sm font-semibold text-muted tabular-nums max-md:row-span-3">
+										{entry.date?.slice(0, 4)}
+									</span>
+									<span class="font-semibold">{entry.outlet}</span>
+									<span class="font-serif text-lg leading-snug group-hover:text-pink">
+										{joinLastWord(entry.title)}
+									</span>
+									<span class="text-sm font-semibold text-muted md:text-right">{entry.note}</span>
+								</a>
+							</li>
+						))}
+				</ul>
+			</section>
+		))}
+
+		<KeepExploring
+			heading="Read what they read"
+			from="/featured/"
+			posts={[
+				'homelab-two-years-later',
+				'implementing-mikrotik-binary-api-protocol-in-python',
+				'how-to-build-a-real-time-fraud-detection-system',
+			]}
+		/>
+	</div>
+</BaseLayout>

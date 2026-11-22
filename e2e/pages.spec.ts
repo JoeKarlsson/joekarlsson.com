@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { LEAD_STORY } from '../src/data/coverage';
 
 // Every section page opens its header at the same height under the nav, Talks and
 // Resume included (they light up About in the nav instead of a back link).
@@ -9,6 +10,7 @@ test.describe('Page header position', () => {
 		'/work/',
 		'/uses/',
 		'/talks/',
+		'/featured/',
 		'/resume/',
 		'/contact/',
 		'/newsletter/',
@@ -147,6 +149,28 @@ test.describe('Responsive Breakpoints', () => {
 		});
 		expect(pageWidth).toBeLessThanOrEqual(320);
 		expect(scrollX).toBe(0);
+	});
+
+	// html/body clip overflow, so the check above can't see a card cut off at the edge
+	const PAPERS = 'ul:has([aria-describedby^="paper-ref"])';
+	test('Written about and the papers fit a 320px screen', async ({ page }) => {
+		await page.setViewportSize({ width: 320, height: 568 });
+		for (const [path, selector] of [
+			['/about/', `a[href="${LEAD_STORY.url}"], ${PAPERS}`],
+			['/featured/', PAPERS],
+		]) {
+			await page.goto(path);
+			const rights = await page.locator(selector).evaluateAll((els) =>
+				// Every box inside, but not the hover rings, which hang past on purpose
+				els.flatMap((el) =>
+					[el, ...el.querySelectorAll(':not(svg, svg *)')].map(
+						(node) => node.getBoundingClientRect().right,
+					),
+				),
+			);
+			expect(rights.length, path).toBeGreaterThan(0);
+			for (const right of rights) expect(right, path).toBeLessThanOrEqual(320);
+		}
 	});
 
 	test('large desktop (1920px) renders correctly', async ({ page }) => {
