@@ -110,7 +110,12 @@ Only the latin files: latin-ext still loads when a page has those characters. */
 <Font cssVariable="--font-anton" preload={[{ subset: 'latin' }]} />
 <Font cssVariable="--font-hanken-grotesk" preload={[{ subset: 'latin' }]} />
 <Font cssVariable="--font-jetbrains-mono" />
-<Font cssVariable="--font-fraunces" />
+{/* A review opens on serif text: without the preload it re-wraps when Fraunces lands,
+and its spoilers grow a line (CLS 0.039 on /reviews/zodiac/, 2026-11-22) */}
+<Font
+	cssVariable="--font-fraunces"
+	preload={section.path === '/reviews/' && [{ subset: 'latin', style: 'normal' }]}
+/>
 
 {/* Favicon. Bump ?v= when the icons change: browsers and Cloudflare hold on to old favicons.
 public/favicon.ico has no tag: RSS readers and older clients fetch /favicon.ico directly */}
