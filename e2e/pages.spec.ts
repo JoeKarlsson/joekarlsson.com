@@ -155,10 +155,7 @@ test.describe('Responsive Breakpoints', () => {
 	const PAPERS = 'ul:has([aria-describedby^="paper-ref"])';
 	test('Written about and the papers fit a 320px screen', async ({ page }) => {
 		await page.setViewportSize({ width: 320, height: 568 });
-		for (const [path, selector] of [
-			['/about/', `a[href="${LEAD_STORY.url}"], ${PAPERS}`],
-			['/featured/', PAPERS],
-		]) {
+		for (const [path, selector] of [['/about/', `a[href="${LEAD_STORY.url}"], ${PAPERS}`]]) {
 			await page.goto(path);
 			const rights = await page.locator(selector).evaluateAll((els) =>
 				// Every box inside, but not the hover rings, which hang past on purpose

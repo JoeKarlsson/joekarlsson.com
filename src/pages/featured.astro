@@ -6,10 +6,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CoverageList from '../components/CoverageList.astro';
 import KeepExploring from '../components/KeepExploring.astro';
-import PaperCitations from '../components/PaperCitations.astro';
 import PosterHero from '../components/PosterHero.astro';
 import SectionRule from '../components/SectionRule.astro';
-import { BUILT_ON_GROUPS, COVERAGE_GROUPS, LEAD_STORY, SHARE_CARD } from '../data/coverage';
+import {
+	BUILT_ON_GROUPS,
+	COVERAGE_GROUPS,
+	LEAD_STORY,
+	SHARE_CARD,
+	coverageOf,
+	papers,
+} from '../data/coverage';
 import { HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } from '../utils/ui';
 ---
 
@@ -58,18 +64,26 @@ import { HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } from '../utils/
 			Cited in research
 		</h2>
 		<SectionRule />
-		<PaperCitations />
+		<CoverageList
+			rows={papers.map((paper) => ({
+				date: String(paper.year),
+				outlet: paper.venue,
+				title: paper.title,
+				url: paper.url,
+				cites: paper.cites,
+			}))}
+		/>
 
 		<h2 id="built-on-my-work" class={SECTION_HEADING}>
 			Built on my work
 		</h2>
 		<SectionRule />
 		{BUILT_ON_GROUPS.map(({ kind, heading }) => (
-			<CoverageList kind={kind} heading={heading} level="h3" />
+			<CoverageList rows={coverageOf(kind)} heading={heading} level="h3" />
 		))}
 
 		{COVERAGE_GROUPS.map(({ kind, heading }) => (
-			<CoverageList kind={kind} heading={heading} />
+			<CoverageList rows={coverageOf(kind)} heading={heading} />
 		))}
 
 		<KeepExploring

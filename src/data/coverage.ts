@@ -731,6 +731,12 @@ export const coverage: Coverage[] = [
 ];
 
 // /featured/'s Built on my work section, right under the papers (DECISIONS.md 2026-11-22)
+// One kind's entries, newest first, undated last: the order /featured/ lists them in
+export const coverageOf = (kind: CoverageKind) =>
+	coverage
+		.filter((entry) => entry.kind === kind)
+		.sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''));
+
 export const BUILT_ON_GROUPS: { kind: CoverageKind; heading: string }[] = [
 	{ kind: 'code', heading: 'Code' },
 	{ kind: 'course', heading: 'Taught in courses' },

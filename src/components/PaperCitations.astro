@@ -1,22 +1,15 @@
 ---
-// The research papers that cite my work, each showing the line from the paper that names me
-// with my part highlighted. About's Written about and /featured/ both open with it, once per
-// page, so the ids stay unique.
+// About's Written about: the first three research papers that cite my work, each showing the
+// line from the paper that names me with my part highlighted. /featured/ lists every paper in
+// its ledger (CoverageList).
 import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
 import { papers } from '../data/coverage';
 import { ITEM_TITLE, META } from '../utils/ui';
 import HoverBox from './HoverBox.astro';
-
-interface Props {
-	// About shows only the first few
-	limit?: number;
-}
-
-const { limit } = Astro.props;
 ---
 
 <ul class="mb-12 grid gap-8 md:mb-16 lg:grid-cols-3">
-	{papers.slice(0, limit).map((paper, i) => {
+	{papers.slice(0, 3).map((paper, i) => {
 		const [before, after] = paper.reference.split(paper.highlight);
 		return (
 			<li>
