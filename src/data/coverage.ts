@@ -135,6 +135,18 @@ export const papers: Paper[] = [
 		reference: '[7] Karlsson, J. (2020, December 04). MongoDB Schema Design Best Practices.',
 		highlight: 'Karlsson, J. (2020, December 04). MongoDB Schema Design Best Practices.',
 	},
+	{
+		title: 'Machine Gaze on Women: How Everyday Machine-Vision-Technologies See Women in Films',
+		venue: 'Springer',
+		year: 2020,
+		url: 'https://link.springer.com/chapter/10.1007/978-3-030-56100-0_15',
+		cites:
+			'the Bechdel Test Visualizer, in a chapter of Female Agencies and Subjectivities in Film and Television',
+		// Springer's page refuses automated visitors; the line is from the chapter's Crossref record
+		reference:
+			'Karlsson, Joe. 2015. Bechdel Test Visualizer. Joe Karlsson Portfolio. https://www.joekarlsson.com/portfolio/bechdel-test-visualizer/. Accessed 15 February 2020.',
+		highlight: 'Karlsson, Joe. 2015. Bechdel Test Visualizer.',
+	},
 ];
 
 export const coverage: Coverage[] = [
