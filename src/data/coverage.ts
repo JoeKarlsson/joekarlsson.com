@@ -275,6 +275,14 @@ export const coverage: Coverage[] = [
 		note: 'links my homelab guide',
 	},
 	{
+		kind: 'press',
+		outlet: 'Gadget Hacks',
+		title: 'Turn Google Home Mini into Home Assistant Speaker Using a Drop-In PCB',
+		// Gadget Hacks refuses automated visitors; Joe opened it and checked the line by hand
+		url: 'https://mods-n-hacks.gadgethacks.com/how-to/turn-google-home-mini-into-home-assistant-speaker-using-a-drop-in-pcb/',
+		note: 'cites my wake-word tests',
+	},
+	{
 		kind: 'writeup',
 		date: '2026-08-31',
 		outlet: 'ClickUp',
