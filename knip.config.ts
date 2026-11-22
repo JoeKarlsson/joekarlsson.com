@@ -9,6 +9,8 @@ const config: KnipConfig = {
 		'lychee',
 		// vale is installed from its GitHub release in CI, not npm
 		'vale',
+		// pandoc is a Homebrew tool, used only by scripts/sync-paper.mjs on a local machine
+		'pandoc',
 		// media tests and scripts shell out to the system ffmpeg, which CI installs with apt
 		'ffmpeg',
 		'ffprobe',
