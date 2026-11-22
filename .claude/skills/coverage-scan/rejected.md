@@ -26,10 +26,11 @@ Skip these unless something about them changed. The address, then why.
 - smarthomebrief.com: the whole site is an empty 326-byte shell and the Wayback Machine never saved the Jetson page
 - bbc.co.uk referrer: no public BBC page links joekarlsson.com (searched 2026-11-22); likely an internal tool
 
+- Apress, "Working with MongoDB" (Katamreddy and Upadhyayula, Beginning Spring Boot 3, 2023, doi 10.1007/978-1-4842-8792-7_9): Crossref lists no references and Scholar finds no mention of Joe; dropped as not worth a paywall login
+- Star Tribune crop art pieces "10 crop artworks to catch at the Minnesota State Fair this year" (.../601870585) and "Why crop artists are getting a headstart on their Minnesota State Fair projects" (.../601543806): Joe says he isn't in either (2026-11-22)
+
 ## Unconfirmed: try again
 
 Leads that looked real but couldn't be confirmed. Check each again; move it to coverage.ts or up to Turned down. The ones below need Joe: they sit behind bot checks that ask for a click or mouse movement (which agents don't solve), downloads the permission check blocks, or paywalls.
 
-- Glavaš 2023, University of Pula, "Izrada web aplikacije za upravljanje kalendarom djelatnika fakulteta" (repozitorij.unipu.hr/object/unipu:8182): the PDF wouldn't download, even from Joe's browser (Nov 2026); the other Pula and Osijek theses did
-- Apress, "Working with MongoDB" (Katamreddy and Upadhyayula, Beginning Spring Boot 3, 2023, doi 10.1007/978-1-4842-8792-7_9): paywalled and Crossref lists no references; Joe has Springer access, but not in the Chrome profile the browser tools use
-- Star Tribune crop art pieces, paywalled, and Joe has no subscription (the part that loads doesn't name Joe): "10 crop artworks to catch at the Minnesota State Fair this year" (startribune.com/top-10-crop-artworks-at-the-2026-minnesota-state-fair/601870585) and "Why crop artists are getting a headstart on their Minnesota State Fair projects" (.../601543806)
+None right now (2026-11-22).
