@@ -22,6 +22,7 @@ import rehypeImageDimensions from './src/plugins/rehype-image-dimensions.mjs';
 import rehypeInlineDiagrams from './src/plugins/rehype-inline-diagrams.mjs';
 import rehypeMarginNotes from './src/plugins/rehype-margin-notes.mjs';
 import rehypeNoWidows from './src/plugins/rehype-no-widows.mjs';
+import rehypePaperCitations, { rehypePaperRaw } from './src/plugins/rehype-paper-citations.mjs';
 import rehypeLazyImages from './src/plugins/rehype-lazy-images.mjs';
 import rehypePostPreviews from './src/plugins/rehype-post-previews.mjs';
 import rehypeSpoilers from './src/plugins/rehype-spoilers.mjs';
@@ -146,6 +147,8 @@ export default defineConfig({
 		},
 		processor: unified({
 			rehypePlugins: [
+				// First: a paper's pandoc HTML becomes elements the plugins below can see
+				rehypePaperRaw,
 				rehypeYouTubeEmbed,
 				// gif-video first: it removes <img> nodes that lazy-images would
 				// otherwise annotate for no reason
@@ -211,6 +214,7 @@ export default defineConfig({
 				// After the permalinks: these find each h2 inside its .heading-group
 				rehypeInterlude,
 				rehypeChapters,
+				rehypePaperCitations,
 				rehypeMarginNotes,
 			],
 		}),

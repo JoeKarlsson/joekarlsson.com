@@ -34,7 +34,7 @@ export const NEWSLETTER = {
 // `also`: pages with no nav item of their own, which count as this one's (its link
 // shows as current there, and they link back to it)
 export const NAV_LINKS: { href: string; label: string; also?: string[] }[] = [
-	{ href: '/blog/', label: 'Blog' },
+	{ href: '/blog/', label: 'Blog', also: ['/papers/'] },
 	{ href: '/about/', label: 'About', also: ['/resume/', '/talks/', '/featured/'] },
 	{ href: '/work/', label: 'Works' },
 	{ href: '/newsletter/', label: 'Newsletter' },

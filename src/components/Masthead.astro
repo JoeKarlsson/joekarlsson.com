@@ -17,9 +17,11 @@ interface Props {
 	width?: number;
 	height?: number;
 	halftone?: 'flat';
+	/** A research paper's title: sentence case in Fraunces, as journals set it (DECISIONS.md, 2026-11-22) */
+	paper?: boolean;
 }
 
-const { title, label, caption, heroImage, heroVideo, heroAlt, width, height, halftone } =
+const { title, label, caption, heroImage, heroVideo, heroAlt, width, height, halftone, paper } =
 	Astro.props;
 const lines = mastheadLines(title);
 // A portrait photo (some newsletter card photos) is cropped to 16:9 like every other masthead,
@@ -31,18 +33,24 @@ const portrait = Boolean(width && height && height > width);
 	<p class="masthead-kicker">
 		<slot />
 	</p>
-	<h1 class="masthead-title" style={`font-size:${mastheadFontSize(lines)}`}>
-		{lines.map((line) => (
-			<>
-				<span style={`margin-inline-start:${mastheadLineInset(line)}`}>
-					{/* balance would break REAL- / TIME at its hyphen; keep such words whole */}
-					{line
-						.split(/(\S+-\S+)/)
-						.map((part, i) => (i % 2 ? <span class="whitespace-nowrap">{part}</span> : part))}
-				</span>{' '}
-			</>
-		))}
-	</h1>
+	{paper ? (
+		<h1 class="paper-title">{joinLastWord(title)}</h1>
+	) : (
+		<h1 class="masthead-title" style={`font-size:${mastheadFontSize(lines)}`}>
+			{lines.map((line) => (
+				<>
+					<span style={`margin-inline-start:${mastheadLineInset(line)}`}>
+						{/* balance would break REAL- / TIME at its hyphen; keep such words whole */}
+						{line
+							.split(/(\S+-\S+)/)
+							.map((part, i) => (i % 2 ? <span class="whitespace-nowrap">{part}</span> : part))}
+					</span>{' '}
+				</>
+			))}
+		</h1>
+	)}
+	{/* A note that belongs with the title, like a post's link to its paper */}
+	<slot name="under-title" />
 	{/* controls on the video for the same WCAG 2.2.2 reason as rehype-gif-video;
 	in-view-play starts it, so a remembered pause or reduced motion keeps it still.
 	preload="none": a phone shows the poster (data-phone-still), and iPhone Safari pulled

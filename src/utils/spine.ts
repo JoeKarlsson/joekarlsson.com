@@ -2,6 +2,7 @@
 const SECTIONS: [segment: string, label: string][] = [
 	['', 'Joe Karlsson'],
 	['blog', 'Writing'],
+	['papers', 'Writing'],
 	['about', 'About'],
 	['resume', 'Resume'],
 	['work', 'Works'],

@@ -27,6 +27,8 @@ interface Props {
 	section?: { name: string; path: string };
 	// VideoObject nodes for the videos on the page (src/utils/video-schema.ts)
 	videoObjects?: Record<string, unknown>[];
+	// A research paper: Google Scholar's citation_* tags, and ScholarlyArticle fields for the JSON-LD
+	paper?: { meta: [string, string][]; schema: Record<string, unknown> };
 }
 
 const {
@@ -46,6 +48,7 @@ const {
 	noindex = false,
 	section = { name: 'Blog', path: '/blog/' },
 	videoObjects = [],
+	paper,
 } = Astro.props;
 
 // Use provided canonical URL for syndicated content, otherwise generate from current path
@@ -201,6 +204,9 @@ standalone mode, and no auto-linking of numbers like "72-container" as phone num
 in the background on press, so a click lands on a page that's ready. Leaves out feeds, the
 Markdown copies for agents and downloads. */}
 <script is:inline type="speculationrules" set:html={jsonForScript(SPECULATION_RULES)} />
+{paper?.meta.map(([name, content]) => (
+	<meta name={name} content={content} />
+))}
 {/* JSON-LD Structured Data */}
 <script
 	is:inline
@@ -240,7 +246,7 @@ Markdown copies for agents and downloads. */}
 			...(type === 'article' && publishedDate
 				? [
 						{
-							'@type': 'BlogPosting',
+							'@type': paper ? 'ScholarlyArticle' : 'BlogPosting',
 							'@id': `${canonicalURL}#article`,
 							headline: socialTitle,
 							description: description,
@@ -261,6 +267,7 @@ Markdown copies for agents and downloads. */}
 								'@id': canonicalURL.toString(),
 							},
 							inLanguage: 'en-US',
+							...paper?.schema,
 						},
 					]
 				: []),

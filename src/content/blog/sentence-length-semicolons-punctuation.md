@@ -3,6 +3,7 @@ title: 'Are English sentences getting shorter? About 40% of the drop is punctuat
 seoTitle: 'Are English sentences getting shorter?'
 date: 2026-11-10T16:17:13Z
 updatedDate: 2026-11-22
+paper: sentence-length-punctuation
 slug: 'sentence-length-semicolons-punctuation'
 description: "Are English sentences getting shorter? In 1,959 Project Gutenberg books, about 40% of the drop in sentence length is periods doing the semicolon's job."
 categories: ['Web Dev']

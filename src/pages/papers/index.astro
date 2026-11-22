@@ -1,0 +1,49 @@
+---
+// /papers/: Joe's research papers, newest first. Each has a blog post that tells the same
+// story for general readers; this list is for the ones who want the paper.
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+import PageTitle from '../../components/PageTitle.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { PAGE_CONTAINER } from '../../utils/ui';
+
+const papers = (await getCollection('papers')).sort(
+	(a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
+);
+---
+
+<BaseLayout
+	title="Research papers | Joe Karlsson"
+	description="Research papers by Joe Karlsson, with PDFs and citations: the long form of the data projects on this site."
+	schemaType="CollectionPage"
+>
+	<div class={PAGE_CONTAINER}>
+		<PageTitle
+			title="Papers"
+			back={{ href: '/blog/', label: 'Blog' }}
+			summary="The long form of my data projects, with PDFs and citations."
+		/>
+		<ol class="paper-list">
+			{papers.map((paper) => (
+				<li>
+					<p class="paper-list-meta">
+						<FormattedDate date={paper.data.published} /> · {paper.data.version}
+					</p>
+					<h2>
+						<a href={`/papers/${paper.id}/`}>{paper.data.displayTitle}</a>
+					</h2>
+					<p>{paper.data.description}</p>
+					<p class="paper-list-links">
+						<a href={paper.data.pdf}>PDF</a>
+						{paper.data.doi && (
+							<>
+								{' · '}
+								<a href={`https://doi.org/${paper.data.doi}`}>doi:{paper.data.doi}</a>
+							</>
+						)}
+					</p>
+				</li>
+			))}
+		</ol>
+	</div>
+</BaseLayout>

@@ -61,6 +61,8 @@ const postSchema = z.object({
 	faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
 	howToSteps: z.array(z.object({ name: z.string(), text: z.string() })).optional(),
 	marginNotes,
+	// Slug of the research paper this post is the readable version of (src/content/papers)
+	paper: z.string().optional(),
 });
 
 const blog = defineCollection({
@@ -151,4 +153,43 @@ const reviews = defineCollection({
 	}),
 });
 
-export const collections = { blog, talks, newsletter, reviews };
+// Research papers, served at /papers/<slug>/ (DECISIONS.md, 2026-11-22). Written by
+// scripts/sync-paper.mjs from the paper's own repo, so edit the paper there, not here.
+const papers = defineCollection({
+	loader: glob({ base: './src/content/papers', pattern: '**/*.md' }),
+	schema: z.object({
+		// Headline case, as the paper cites itself; displayTitle is the page's sentence case
+		title: z.string(),
+		displayTitle: z.string(),
+		seoTitle,
+		description: prose,
+		authors: z
+			.array(
+				z.object({
+					name: z.string(),
+					affiliation: z.string().optional(),
+					orcid: z
+						.string()
+						.regex(/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/)
+						.optional(),
+				}),
+			)
+			.min(1),
+		published: z.coerce.date(),
+		revised: z.coerce.date(),
+		version: z.string(),
+		keywords: z.array(z.string()),
+		doi: z.string().optional(),
+		repository: z.url().optional(),
+		// The blog post that tells the same story for general readers
+		blogPost: z.string().optional(),
+		pdf: z.string(),
+		pdfBytes: z.number().int(),
+		// HTML, rendered by pandoc with the paper's own CSL style
+		abstract: z.string(),
+		// Plain-text Chicago entries, for Google Scholar's citation_reference tags
+		references: z.array(z.string()),
+	}),
+});
+
+export const collections = { blog, talks, newsletter, reviews, papers };

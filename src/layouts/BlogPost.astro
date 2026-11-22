@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
 import { categorySlug } from '../utils/categories';
@@ -59,6 +59,8 @@ interface Props {
 	body?: string;
 	/** VideoObject JSON-LD for the videos on the page (src/utils/video-schema.ts) */
 	videoObjects?: Record<string, unknown>[];
+	/** The research paper this post is the readable version of (src/content/papers) */
+	paper?: string;
 }
 
 const {
@@ -91,6 +93,7 @@ const {
 	relatedPosts,
 	body,
 	videoObjects,
+	paper,
 } = Astro.props;
 const SECTIONS = {
 	blog: { name: 'Blog', path: '/blog/' },
@@ -135,6 +138,9 @@ const noticeHtml = noticeMessage
 			'<a href="$2">$1</a>',
 		)
 	: null;
+
+const paperEntry = paper ? await getEntry('papers', paper) : undefined;
+if (paper && !paperEntry) throw new Error(`post ${slug}: no paper ${paper} in src/content/papers`);
 
 const allPosts = await getCollection('blog');
 // Keep reading suggests Joe's own posts, unless this post was written for an employer:
@@ -246,6 +252,27 @@ const captionText =
 				<slot name="meta" />
 			</MetaParts>
 		</Fragment>
+		{paperEntry && (
+			<p slot="under-title" class="paper-strip">
+				<span class="paper-strip-label">Paper</span>
+				<span>
+					This post is the readable version of a research paper:{' '}
+					{/* The title up to its question mark: the subtitle is for the paper page */}
+					<a href={`/papers/${paperEntry.id}/`}>
+						{paperEntry.data.displayTitle.split(/(?<=\?) /)[0]}
+					</a>
+				</span>
+				<span class="paper-strip-links">
+					<a href={paperEntry.data.pdf}>PDF</a>
+					{paperEntry.data.doi && (
+						<>
+							{' · '}
+							<a href={`https://doi.org/${paperEntry.data.doi}`}>doi:{paperEntry.data.doi}</a>
+						</>
+					)}
+				</span>
+			</p>
+		)}
 		<Fragment slot="top">
 			<slot name="margin" />
 			{updateNote && updatedDate && (

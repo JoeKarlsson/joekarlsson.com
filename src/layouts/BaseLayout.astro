@@ -24,6 +24,7 @@ interface Props {
 	noindex?: boolean;
 	section?: { name: string; path: string };
 	videoObjects?: Record<string, unknown>[];
+	paper?: { meta: [string, string][]; schema: Record<string, unknown> };
 	// Joe's doodles down the side margins on wide screens; off where full-width
 	// sections already run through the margins (the homepage)
 	marginDoodles?: boolean;
@@ -48,6 +49,7 @@ const {
 	noindex,
 	section,
 	videoObjects,
+	paper,
 	marginDoodles = true,
 	footerNewsletter = true,
 } = Astro.props;
@@ -74,6 +76,7 @@ const spine = spineFor(Astro.url.pathname);
 			noindex={noindex}
 			section={section}
 			videoObjects={videoObjects}
+			paper={paper}
 		/>
 	</head>
 	<body class="flex min-h-dvh flex-col">

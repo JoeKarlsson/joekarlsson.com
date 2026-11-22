@@ -6,20 +6,21 @@ Every tag in the page head, who reads it, and where it comes from. All of it is 
 
 `BaseLayout` takes these props and hands them to `BaseHead`:
 
-| Prop                            | Used for                                                                                      | Set by                                     |
-| ------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| `title`                         | `<title>`, and (minus " \| Joe Karlsson") og/twitter titles, BlogPosting headline, breadcrumb | every page                                 |
-| `description`                   | meta description, og/twitter description, JSON-LD                                             | every page                                 |
-| `image`, `imageAlt`             | share image and its alt text                                                                  | posts (`heroImage`, `heroAlt`), some pages |
-| `type`                          | `og:type`: `website` (default), `article` (posts, newsletter issues), `profile` (/about)      | layouts and pages                          |
-| `publishedDate`, `modifiedDate` | `article:published_time` / `modified_time`, BlogPosting dates                                 | posts                                      |
-| `keywords`                      | `article:section` (the first), `article:tag` (each), BlogPosting keywords                     | posts (their categories)                   |
-| `schemaType`                    | an extra JSON-LD node (`AboutPage`, `WebSite`, `SoftwareSourceCode`...) for non-article pages | pages                                      |
-| `faq`, `howToSteps`             | FAQPage and HowTo JSON-LD                                                                     | post frontmatter                           |
-| `canonicalUrl`                  | canonical link for cross-posted articles (CData, CloudQuery)                                  | post frontmatter                           |
-| `noindex`                       | `robots: noindex, follow` (Substack-era newsletter back issues)                               | newsletter pages                           |
-| `section`                       | the breadcrumb's middle step: Blog (default) or Talks                                         | talk pages (`/talks/<slug>/`)              |
-| `videoObjects`                  | VideoObject JSON-LD per recording, chapters as Clip parts (`src/utils/video-schema.ts`)       | talk pages (`videos` frontmatter)          |
+| Prop                            | Used for                                                                                                         | Set by                                     |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `title`                         | `<title>`, and (minus " \| Joe Karlsson") og/twitter titles, BlogPosting headline, breadcrumb                    | every page                                 |
+| `description`                   | meta description, og/twitter description, JSON-LD                                                                | every page                                 |
+| `image`, `imageAlt`             | share image and its alt text                                                                                     | posts (`heroImage`, `heroAlt`), some pages |
+| `type`                          | `og:type`: `website` (default), `article` (posts, newsletter issues), `profile` (/about)                         | layouts and pages                          |
+| `publishedDate`, `modifiedDate` | `article:published_time` / `modified_time`, BlogPosting dates                                                    | posts                                      |
+| `keywords`                      | `article:section` (the first), `article:tag` (each), BlogPosting keywords                                        | posts (their categories)                   |
+| `schemaType`                    | an extra JSON-LD node (`AboutPage`, `WebSite`, `SoftwareSourceCode`...) for non-article pages                    | pages                                      |
+| `faq`, `howToSteps`             | FAQPage and HowTo JSON-LD                                                                                        | post frontmatter                           |
+| `canonicalUrl`                  | canonical link for cross-posted articles (CData, CloudQuery)                                                     | post frontmatter                           |
+| `noindex`                       | `robots: noindex, follow` (Substack-era newsletter back issues)                                                  | newsletter pages                           |
+| `section`                       | the breadcrumb's middle step: Blog (default) or Talks                                                            | talk pages (`/talks/<slug>/`)              |
+| `videoObjects`                  | VideoObject JSON-LD per recording, chapters as Clip parts (`src/utils/video-schema.ts`)                          | talk pages (`videos` frontmatter)          |
+| `paper`                         | Google Scholar `citation_*` metas, and the article node becomes ScholarlyArticle (`src/utils/paper-citation.ts`) | paper pages (`/papers/<slug>/`)            |
 
 ## Browsers and devices
 
@@ -60,6 +61,7 @@ Test a preview with the [LinkedIn Post Inspector](https://www.linkedin.com/post-
 | `<link rel="alternate" type="text/markdown">`, `/<page>.md`                                                                  | AI agents and LLM crawlers. Every indexed page has a Markdown copy (`/about/` -> `/about.md`, home -> `/index.md`, plus the llms.txt spec's `/about/index.html.md`; `npm run analytics:agents` shows who reads them) written after the build by `src/integrations/markdown-pages.mjs`; noindex pages get neither |
 | `author` (every page)                                                                                                        | Bing, some AI crawlers and feed readers                                                                                                                                                                                                                                                                          |
 | JSON-LD `@graph`: WebSite, Person, BlogPosting (with an ImageObject), BreadcrumbList, FAQPage, HowTo, VideoObject, page type | Google rich results, Bing, AI crawlers                                                                                                                                                                                                                                                                           |
+| `citation_title`, `citation_author`, `citation_pdf_url`, `citation_reference`... (papers only)                               | Google Scholar, Zotero and other reference managers. Test a paper with Scholar's inclusion guidelines                                                                                                                                                                                                            |
 | `link rel="me"` for each profile                                                                                             | IndieWeb and Mastodon identity checks. The same list is the Person `sameAs`, from `PROFILE_URLS` in BaseHead, and a test checks the two match                                                                                                                                                                    |
 | Search engine verification metas                                                                                             | Google Search Console, Bing Webmaster, Pinterest, Yandex                                                                                                                                                                                                                                                         |
 | `link rel="sitemap"`, `/sitemap-index.xml`                                                                                   | search engines. Posts, reviews, talks and issues carry `lastmod` from `updatedDate`, else `date` (`src/integrations/sitemap-lastmod.mjs`); other pages have none, never the build time                                                                                                                           |

@@ -9,6 +9,7 @@
  */
 import { h2Of, textOf } from './hast-text.mjs';
 import { joinLastWord } from './rehype-no-widows.mjs';
+import { isPaper } from './rehype-paper-citations.mjs';
 
 const LONG_POST_WORDS = 3000;
 const MIN_CHAPTERS = 4;
@@ -20,6 +21,8 @@ const text = (value) => ({ type: 'text', value });
 
 export default function rehypeChapters() {
 	return (tree, file) => {
+		// A paper numbers its own sections instead (DECISIONS.md, 2026-11-22)
+		if (isPaper(file)) return;
 		const words = textOf(tree).split(/\s+/).filter(Boolean).length;
 		const chapters = tree.children.filter((node) => {
 			const h2 = node.type === 'element' && h2Of(node);
