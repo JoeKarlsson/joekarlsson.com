@@ -232,6 +232,17 @@ export const papers: Paper[] = [
 		highlight: 'Joe Karlsson. MongoDB Schema Design Best Practices.',
 	},
 	{
+		title: 'Izrada web aplikacije za upravljanje kalendarom djelatnika fakulteta',
+		venue: 'Pula thesis',
+		year: 2023,
+		url: 'https://repozitorij.unipu.hr/object/unipu:8182',
+		cites:
+			'my MongoDB aggregation pipeline vs SQL article, in a master’s thesis on a faculty calendar app',
+		reference:
+			'4. Karlsson, J. MongoDB Aggregation Pipeline Queries vs SQL Queries, 2022, Dostupno na: https://www.mongodb.com/developer/products/mongodb/sql-to-aggregation-pipeline/ (20. 8. 2023)',
+		highlight: 'Karlsson, J. MongoDB Aggregation Pipeline Queries vs SQL Queries',
+	},
+	{
 		title: 'Mobilna aplikacija za identifikaciju i njegu biljaka',
 		venue: 'Pula thesis',
 		year: 2022,
