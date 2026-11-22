@@ -4,13 +4,13 @@ export const alt =
 	'Many-to-many: in the users collection, Kate Monster\'s user document holds a tasks array of three ObjectIds, each pointing to a task document in the tasks collection. The first task, "Write blog post about MongoDB schema design", holds an owners array of two ObjectIds pointing back to two user documents: Kate Monster and a second user. Each side keeps an array of the other side\'s ids.';
 
 const U2 = [`_id: ${id('0302')}`, '…'];
-const kate = (to) => [
+const KATE = [
 	`_id: ${id('0301')}`,
 	'name: "Kate Monster"',
 	'tasks: [',
-	{ chip: id('0401'), to },
-	{ chip: id('0402'), to },
-	{ chip: id('0403'), to },
+	{ chip: id('0401'), to: 'right' },
+	{ chip: id('0402'), to: 'right' },
+	{ chip: id('0403'), to: 'right' },
 	']',
 ];
 const T1 = [
@@ -30,7 +30,7 @@ export const desktop = {
 		const s = DESKTOP;
 		f.group({ x: 16, y: 50, w: 250, h: 314, label: 'users' });
 		const u2 = doc(f, { x: 26, y: 60, w: 230, rows: U2, s });
-		const k = doc(f, { x: 26, y: 140, w: 230, rows: kate('right'), s });
+		const k = doc(f, { x: 26, y: 140, w: 230, rows: KATE, s });
 		f.group({ x: 374, y: 50, w: 250, h: 374, label: 'tasks' });
 		const t1 = doc(f, { x: 384, y: 70, w: 230, rows: T1, s });
 		const t2 = doc(f, { x: 384, y: 262, w: 230, rows: T2, s });
@@ -72,7 +72,7 @@ export const phone = {
 		const s = PHONE;
 		f.group({ x: 28, y: 40, w: 304, h: 294, label: 'users' });
 		const u2 = doc(f, { x: 38, y: 50, w: 284, rows: U2, s });
-		const k = doc(f, { x: 38, y: 124, w: 284, rows: kate('right'), s });
+		const k = doc(f, { x: 38, y: 124, w: 284, rows: KATE, s });
 		f.group({ x: 28, y: 380, w: 304, h: 336, label: 'tasks' });
 		const t1 = doc(f, { x: 38, y: 390, w: 284, rows: T1, s });
 		const t2 = doc(f, { x: 38, y: 570, w: 284, rows: T2, s });

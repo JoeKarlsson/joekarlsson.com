@@ -38,7 +38,7 @@ export function doc(f, { x, y, w, rows, s }) {
 		const rh = rowHeight(row, s);
 		const cy = top + rh / 2;
 		if (typeof row === 'string') {
-			field(row, x + 12 + (row.startsWith(' ') ? s.indent : 0), cy);
+			field(row, x + 12, cy);
 			if (row.startsWith('_id')) out.idY = cy;
 		} else if (row.chip) {
 			let left = x + 12 + (row.key ? 0 : s.indent);
