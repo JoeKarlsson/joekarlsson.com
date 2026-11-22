@@ -23,6 +23,8 @@ In this post, we're going to set up a way to continuously copy data from a Mongo
 
 ![The pipeline: inside MongoDB Atlas, scheduled Trigger 1 runs every minute and inserts a new document into the Atlas cluster with insertOne. Scheduled Trigger 2 also runs every minute and sends an aggregate to the federated database instance, which reads the last 60 seconds of documents from the cluster. Its $out stage writes them as Parquet to events.parquet in an Amazon S3 bucket, replacing the file on every run.](/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/pipeline.svg)
 
+Every file from this post is in [a repo](https://github.com/JoeKarlsson/mongodb-s3-parquet-triggers), ready to paste.
+
 Note: The values we use for some parameters in this post are for demonstration and testing. If you plan to use this, read the "Production considerations" section and adjust them to your needs.
 
 ## What is Parquet?
@@ -226,4 +228,5 @@ Additional resources:
 
 - [Atlas Data Federation: Get Started](https://www.mongodb.com/docs/atlas/data-federation/tutorial/getting-started/)
 - [The `$out` stage in Atlas Data Federation](https://www.mongodb.com/docs/atlas/data-federation/supported-unsupported/pipeline/out/)
+- [The trigger functions, IAM policy and DuckDB check as files](https://github.com/JoeKarlsson/mongodb-s3-parquet-triggers), with tests of the functions' logic
 - [MongoDB's current version of this tutorial](https://www.mongodb.com/docs/atlas/atlas-ui/triggers/copy-data-to-s3-tutorial/)
