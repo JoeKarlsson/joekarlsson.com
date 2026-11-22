@@ -662,7 +662,7 @@ export const USES_SECTIONS: UsesSection[] = curlEveryString([
 						url: '',
 						descHtml: 'WiFi 7 access points.',
 						nameHtml:
-							'2x <a href="https://ui.com/us/wifi/u7-pro" target="_blank" rel="noopener noreferrer" data-text-link >UniFi U7 Pro</a> + <a href="https://store.ui.com/us/en/products/u7-pro-xg" target="_blank" rel="noopener noreferrer" data-text-link >U7 Pro XG</a>',
+							'2x <a href="https://store.ui.com/us/en/products/u7-pro" target="_blank" rel="noopener noreferrer" data-text-link >UniFi U7 Pro</a> + <a href="https://store.ui.com/us/en/products/u7-pro-xg" target="_blank" rel="noopener noreferrer" data-text-link >U7 Pro XG</a>',
 					},
 					{
 						name: 'AdGuard Home',

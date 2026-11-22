@@ -39,7 +39,7 @@
 		},
 		{
 			"name": "client-side-field-level-encryption-csfle-mongodb-node-demo",
-			"description": "A sample implementation of field level encryption in MongoDB, meant to accompany the CSFLE guide at https://developer.mongodb.com",
+			"description": "A sample implementation of field level encryption in MongoDB, meant to accompany the CSFLE guide at https://www.mongodb.com/docs/manual/core/csfle/",
 			"url": "https://github.com/JoeKarlsson/client-side-field-level-encryption-csfle-mongodb-node-demo",
 			"language": "JavaScript",
 			"commitCount": 1,

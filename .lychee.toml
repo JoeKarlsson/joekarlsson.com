@@ -41,6 +41,8 @@ exclude = [
   "globenewswire\\.com",
   "web\\.archive\\.org",
   "last\\.fm",
+  # 503 to any non-browser client, 200 with browser headers (verified 2026-11-22)
+  "goodreads\\.com",
 
   # Slow or intermittently 5xx from CI, verified reachable 2026-07-30
   "speakerdeck\\.com",
@@ -71,7 +73,8 @@ exclude_path = ["404", "hero-illustration", "http:/https:"]
 
 # Accept these status codes as valid
 # 206: some servers answer a full GET with Partial Content (kalzumeus.com)
-accept = [200, 202, 204, 206, 301, 302, 307, 403, 429]
+# 203: PubMed answers through a proxy with Non-Authoritative Information
+accept = [200, 202, 203, 204, 206, 301, 302, 307, 403, 429]
 
 # Timeout per request (seconds)
 timeout = 30

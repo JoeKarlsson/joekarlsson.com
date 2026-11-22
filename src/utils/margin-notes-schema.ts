@@ -5,13 +5,16 @@ import { z } from 'zod';
 // see-also its `post` (a blog slug, or reviews/x, newsletter/x, talks/x, or work/x with a
 // `title`), an exhibit an `image` with `alt` or just a number in `text`, an aside an optional
 // source `url`. Posts, talks, newsletter issues and reviews all take them.
+// One link per note: z.url() alone accepts "a ; b" (it encodes the spaces), which shipped two 404s.
+const sourceUrl = z.url().refine((u) => !/\s/.test(u), 'one URL per note, no spaces');
+
 const kinds = [
 	z.object({
 		type: z.literal('quote'),
 		at: z.string(),
 		text: z.string(),
 		by: z.string(),
-		url: z.url().optional(),
+		url: sourceUrl.optional(),
 	}),
 	z.object({
 		type: z.literal('term'),
@@ -40,7 +43,7 @@ const kinds = [
 		type: z.literal('aside'),
 		at: z.string(),
 		text: z.string(),
-		url: z.url().optional(),
+		url: sourceUrl.optional(),
 	}),
 ] as const;
 

@@ -37,7 +37,7 @@ marginNotes:
   - type: aside
     at: I caught this in IMAX
     text: Anderson shot most of it in VistaVision, Paramount's 1954 widescreen format that runs 35mm film sideways through the camera. It was also his first film released in IMAX.
-    url: https://en.wikipedia.org/wiki/VistaVision ; https://en.wikipedia.org/wiki/One_Battle_After_Another
+    url: https://en.wikipedia.org/wiki/VistaVision
   - type: see
     at: knowing in my gut that I'd just witnessed
     text: I went back. My rewatch review.

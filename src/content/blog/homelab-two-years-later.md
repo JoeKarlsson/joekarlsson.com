@@ -185,7 +185,7 @@ I wanted to understand networking properly (VLANs, firewall rules, routing, subn
 
 ### UniFi gateway, MikroTik backbone, three access points
 
-The router is a [UniFi Cloud Gateway Ultra](https://store.ui.com/us/en/products/ucg-ultra), which is also the firewall, DHCP server, and WiFi controller. It does all the routing between VLANs and runs Suricata intrusion prevention inline. The MikroTik is just a 10G switch. There are three UniFi access points with 802.11r fast roaming: two [U7 Pros](https://ui.com/us/wifi/u7-pro), one upstairs and one on the main floor, plus a U7 Pro XG I added in the basement later. Devices hand off between APs as I walk through the house without dropping connections, and guests never notice.
+The router is a [UniFi Cloud Gateway Ultra](https://store.ui.com/us/en/products/ucg-ultra), which is also the firewall, DHCP server, and WiFi controller. It does all the routing between VLANs and runs Suricata intrusion prevention inline. The MikroTik is just a 10G switch. There are three UniFi access points with 802.11r fast roaming: two [U7 Pros](https://store.ui.com/us/en/products/u7-pro), one upstairs and one on the main floor, plus a U7 Pro XG I added in the basement later. Devices hand off between APs as I walk through the house without dropping connections, and guests never notice.
 
 ### Four VLANs, and the IoT stragglers
 
