@@ -29,6 +29,8 @@ interface Props {
 	videoObjects?: Record<string, unknown>[];
 	// A research paper: Google Scholar's citation_* tags, and ScholarlyArticle fields for the JSON-LD
 	paper?: { meta: [string, string][]; schema: Record<string, unknown> };
+	// What a collection page lists, as its schemaType node's mainEntity (/featured/)
+	mainEntity?: Record<string, unknown>;
 }
 
 const {
@@ -49,6 +51,7 @@ const {
 	section = { name: 'Blog', path: '/blog/' },
 	videoObjects = [],
 	paper,
+	mainEntity,
 } = Astro.props;
 
 // Use provided canonical URL for syndicated content, otherwise generate from current path
@@ -311,6 +314,7 @@ Markdown copies for agents and downloads. */}
 							...(schemaType === 'ProfilePage'
 								? { mainEntity: { '@id': `${SITE_URL}/#/schema/person` } }
 								: {}),
+							...(mainEntity ? { mainEntity } : {}),
 							inLanguage: 'en-US',
 						},
 					]

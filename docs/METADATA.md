@@ -6,21 +6,22 @@ Every tag in the page head, who reads it, and where it comes from. All of it is 
 
 `BaseLayout` takes these props and hands them to `BaseHead`:
 
-| Prop                            | Used for                                                                                                         | Set by                                     |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| `title`                         | `<title>`, and (minus " \| Joe Karlsson") og/twitter titles, BlogPosting headline, breadcrumb                    | every page                                 |
-| `description`                   | meta description, og/twitter description, JSON-LD                                                                | every page                                 |
-| `image`, `imageAlt`             | share image and its alt text                                                                                     | posts (`heroImage`, `heroAlt`), some pages |
-| `type`                          | `og:type`: `website` (default), `article` (posts, newsletter issues), `profile` (/about)                         | layouts and pages                          |
-| `publishedDate`, `modifiedDate` | `article:published_time` / `modified_time`, BlogPosting dates                                                    | posts                                      |
-| `keywords`                      | `article:section` (the first), `article:tag` (each), BlogPosting keywords                                        | posts (their categories)                   |
-| `schemaType`                    | an extra JSON-LD node (`AboutPage`, `WebSite`, `SoftwareSourceCode`...) for non-article pages                    | pages                                      |
-| `faq`, `howToSteps`             | FAQPage and HowTo JSON-LD                                                                                        | post frontmatter                           |
-| `canonicalUrl`                  | canonical link for cross-posted articles (CData, CloudQuery)                                                     | post frontmatter                           |
-| `noindex`                       | `robots: noindex, follow` (Substack-era newsletter back issues)                                                  | newsletter pages                           |
-| `section`                       | the breadcrumb's middle step: Blog (default) or Talks                                                            | talk pages (`/talks/<slug>/`)              |
-| `videoObjects`                  | VideoObject JSON-LD per recording, chapters as Clip parts (`src/utils/video-schema.ts`)                          | talk pages (`videos` frontmatter)          |
-| `paper`                         | Google Scholar `citation_*` metas, and the article node becomes ScholarlyArticle (`src/utils/paper-citation.ts`) | paper pages (`/papers/<slug>/`)            |
+| Prop                            | Used for                                                                                                          | Set by                                     |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `title`                         | `<title>`, and (minus " \| Joe Karlsson") og/twitter titles, BlogPosting headline, breadcrumb                     | every page                                 |
+| `description`                   | meta description, og/twitter description, JSON-LD                                                                 | every page                                 |
+| `image`, `imageAlt`             | share image and its alt text                                                                                      | posts (`heroImage`, `heroAlt`), some pages |
+| `type`                          | `og:type`: `website` (default), `article` (posts, newsletter issues), `profile` (/about)                          | layouts and pages                          |
+| `publishedDate`, `modifiedDate` | `article:published_time` / `modified_time`, BlogPosting dates                                                     | posts                                      |
+| `keywords`                      | `article:section` (the first), `article:tag` (each), BlogPosting keywords                                         | posts (their categories)                   |
+| `schemaType`                    | an extra JSON-LD node (`AboutPage`, `WebSite`, `SoftwareSourceCode`...) for non-article pages                     | pages                                      |
+| `faq`, `howToSteps`             | FAQPage and HowTo JSON-LD                                                                                         | post frontmatter                           |
+| `canonicalUrl`                  | canonical link for cross-posted articles (CData, CloudQuery)                                                      | post frontmatter                           |
+| `noindex`                       | `robots: noindex, follow` (Substack-era newsletter back issues)                                                   | newsletter pages                           |
+| `section`                       | the breadcrumb's middle step: Blog (default) or Talks                                                             | talk pages (`/talks/<slug>/`)              |
+| `videoObjects`                  | VideoObject JSON-LD per recording, chapters as Clip parts (`src/utils/video-schema.ts`)                           | talk pages (`videos` frontmatter)          |
+| `mainEntity`                    | the `schemaType` node's mainEntity: /featured/'s ItemList of papers and coverage (`src/utils/featured-schema.ts`) | /featured/                                 |
+| `paper`                         | Google Scholar `citation_*` metas, and the article node becomes ScholarlyArticle (`src/utils/paper-citation.ts`)  | paper pages (`/papers/<slug>/`)            |
 
 ## Browsers and devices
 

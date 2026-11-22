@@ -16,6 +16,7 @@ import {
 	coverageOf,
 	papers,
 } from '../data/coverage';
+import { featuredItemList } from '../utils/featured-schema';
 import { HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } from '../utils/ui';
 ---
 
@@ -25,6 +26,7 @@ import { HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } from '../utils/
 	image={SHARE_CARD}
 	imageAlt="FEATURED and Joe Karlsson’s name over a wall of the outlets, courses and threads that wrote about his work, with the research venues that cite him in pink"
 	schemaType="CollectionPage"
+	mainEntity={featuredItemList()}
 >
 	<div class={PAGE_CONTAINER}>
 		<PosterHero

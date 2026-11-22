@@ -25,6 +25,8 @@ interface Props {
 	section?: { name: string; path: string };
 	videoObjects?: Record<string, unknown>[];
 	paper?: { meta: [string, string][]; schema: Record<string, unknown> };
+	// What a collection page lists, as its schemaType node's mainEntity (/featured/)
+	mainEntity?: Record<string, unknown>;
 	// Joe's doodles down the side margins on wide screens; off where full-width
 	// sections already run through the margins (the homepage)
 	marginDoodles?: boolean;
@@ -50,6 +52,7 @@ const {
 	section,
 	videoObjects,
 	paper,
+	mainEntity,
 	marginDoodles = true,
 	footerNewsletter = true,
 } = Astro.props;
@@ -77,6 +80,7 @@ const spine = spineFor(Astro.url.pathname);
 			section={section}
 			videoObjects={videoObjects}
 			paper={paper}
+			mainEntity={mainEntity}
 		/>
 	</head>
 	<body class="flex min-h-dvh flex-col">
