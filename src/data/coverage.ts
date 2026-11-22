@@ -185,6 +185,33 @@ export const papers: Paper[] = [
 	},
 
 	{
+		title:
+			'Entwicklung einer Echtzeit-basierten Recommendation Engine auf Basis eines Stream-Processing Frameworks',
+		venue: 'HS Düsseldorf thesis',
+		year: 2025,
+		// Names the post, not me: the reference has no author
+		url: 'https://opus4.kobv.de/opus4-hs-duesseldorf/frontdoor/index/index/docId/5272',
+		cites: 'my real-time recommendation system post, by title and link, in a bachelor’s thesis',
+		context:
+			'setzen viele Plattformen auf Stream-Processing-Technologien wie Apache Kafka und Flink [4]',
+		reference:
+			'[4] What it takes to build a real-time recommendation system, en. Adresse: https://www.tinybird.co/blog-posts/real-time-recommendation-system (besucht am 05. 01. 2025).',
+		highlight: 'What it takes to build a real-time recommendation system',
+	},
+	{
+		title: 'TravelMate AI',
+		venue: 'UXAI',
+		year: 2025,
+		// UXAI 2025 proceedings (London), no DOI; ResearchGate hosts the paper
+		url: 'https://www.researchgate.net/publication/401544593',
+		cites: 'my real-time recommendation system post',
+		context:
+			'allowing the system to fine-tune the recommendation strategy during the ongoing travel experience(Karlsson, 2023)',
+		reference:
+			'Karlsson, J. (2023) What it takes to build a real-time recommendation system. Available at: https://www.tinybird.co/blog-posts/real-timerecommendationsystem (Accessed: 26 April 2025).',
+		highlight: 'Karlsson, J. (2023) What it takes to build a real-time recommendation system.',
+	},
+	{
 		title: 'Analisis Fitur dan Keunggulan Database Mongo dalam Berbagai Bahasa Pemrograman',
 		venue: 'JSK',
 		year: 2023,
@@ -192,6 +219,20 @@ export const papers: Paper[] = [
 		cites: 'my MongoDB schema design article',
 		reference: '[7] Karlsson, J. (2020, December 04). MongoDB Schema Design Best Practices.',
 		highlight: 'Karlsson, J. (2020, December 04). MongoDB Schema Design Best Practices.',
+	},
+	{
+		title:
+			'A Performance Comparison of SQL and NoSQL Database Management Systems for 5G Radio Base Station Configuration',
+		venue: 'Linköping thesis',
+		year: 2022,
+		// Credits the article to MongoDB, where it ran under my byline
+		url: 'https://liu.diva-portal.org/smash/record.jsf?pid=diva2:1681550',
+		cites: 'my MongoDB schema design article, by link, in a master’s thesis',
+		context:
+			'for simpler 1-To-1 or 1-To-Many relationships embedding is often preferred, but for Many-To-Many, referencing might be the better choice to avoid duplicate data [32, 33]',
+		reference:
+			'[32] MongoDB. URL: https://www.mongodb.com/developer/article/mongodb-schema-design-best-practices/ (visited on 03/10/2022).',
+		highlight: 'https://www.mongodb.com/developer/article/mongodb-schema-design-best-practices/',
 	},
 	{
 		title: 'Machine Gaze on Women: How Everyday Machine-Vision-Technologies See Women in Films',
@@ -238,6 +279,18 @@ export const papers: Paper[] = [
 			'22. MongoDB Schema Design Patterns. URL: https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/ (дата звернення: 25.04.2026).',
 		highlight:
 			'https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/',
+	},
+	{
+		title:
+			'Razvoj varnega komunikacijskega posrednika in učinkovite arhitekture za povezovanje interneta stvari in spletnih aplikacij',
+		venue: 'Ljubljana thesis',
+		year: 2019,
+		// The PDF has no usable text layer; the line is copied from a render of page 83
+		url: 'https://repozitorij.uni-lj.si/IzpisGradiva.php?id=109431',
+		cites: 'my Node client-server communication guide, in a master’s thesis on IoT brokers',
+		reference:
+			'[33] J. Karlsson, “Complete Guide To Node Client-Server Communication”, Dosegljivo: https://medium.com/@joekarlsson/complete-guide-to- node-client-server-communication-b156440c029, [Dostopano: 20. 5. 2019]',
+		highlight: 'J. Karlsson, “Complete Guide To Node Client-Server Communication”',
 	},
 ];
 
