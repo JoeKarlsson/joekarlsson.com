@@ -691,3 +691,53 @@
 .paper-strip-links a {
 	@apply inline-flex min-h-11 items-center sm:min-h-6;
 }
+
+/* "Cite this" at the end of a reference post or talk (CiteThis.astro, DECISIONS.md 2026-11-22
+   option B): a ruled row that opens to Chicago and BibTeX, typeset like /papers/' box */
+.cite-this {
+	@apply mt-10 border-y border-surface-4;
+}
+.cite-this > summary {
+	@apply flex min-h-11 cursor-pointer list-none items-baseline gap-3 py-3.5;
+}
+.cite-this > summary::-webkit-details-marker {
+	display: none;
+}
+.cite-this-title {
+	@apply font-display text-[1.35rem] leading-none tracking-[0.02em] text-paper uppercase;
+}
+.cite-this-hint {
+	@apply text-sm text-muted;
+}
+.cite-this-sign {
+	@apply ml-auto font-display text-[2rem] leading-none text-pink transition-transform;
+}
+.cite-this[open] .cite-this-sign {
+	@apply rotate-45;
+}
+.cite-this > summary:hover .cite-this-title {
+	@apply text-pink;
+}
+.cite-this-panel {
+	/* minmax: the BibTeX scrolls inside its box instead of widening the page */
+	@apply grid grid-cols-[minmax(0,1fr)] gap-4 pb-4;
+}
+.cite-this-panel > div {
+	min-width: 0;
+}
+.cite-this-head {
+	@apply mb-1.5 flex items-center justify-between font-display text-[1.0625rem] tracking-[0.02em] text-paper uppercase;
+}
+.cite-this-panel p {
+	@apply font-serif text-base leading-normal text-paper;
+	overflow-wrap: anywhere;
+}
+.cite-this-panel pre {
+	@apply m-0 overflow-x-auto bg-surface-1 p-3 font-mono text-[0.8125rem] leading-normal text-paper;
+}
+.cite-this-copy {
+	@apply min-h-11 cursor-pointer border-[1.5px] border-pink bg-transparent px-2 py-1 font-sans text-[0.6875rem] font-bold tracking-[0.1em] text-pink uppercase sm:min-h-0;
+}
+.cite-this-copy[data-copied] {
+	@apply bg-pink text-ink;
+}

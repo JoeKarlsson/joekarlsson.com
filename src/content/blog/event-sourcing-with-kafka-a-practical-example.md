@@ -1,10 +1,11 @@
 ---
 title: 'Event sourcing with Kafka: A practical example'
 seoTitle: 'Event Sourcing with Kafka: An Example'
-date: 2024-03-29
+date: 2023-09-27
 slug: 'event-sourcing-with-kafka-a-practical-example'
 description: "Event sourcing with Kafka through a banking example: calculate each customer's balance from account events with Kafka topics and Tinybird snapshots."
 categories: ['Web Dev']
+lane: 'reference'
 writtenFor: 'Tinybird'
 heroImage: '/images/blog/event-sourcing-with-kafka-a-practical-example/thumb-dad033fa.webp'
 heroAlt: 'A chimpanzee typing at an old typewriter'

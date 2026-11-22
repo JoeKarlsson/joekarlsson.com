@@ -33,6 +33,12 @@ const postSchema = z.object({
 	categories: z.array(z.enum(BLOG_CATEGORIES)).min(1).max(2),
 	// The employer a post was written for (a crosspost of their blog); none means personal
 	writtenFor: z.enum(EMPLOYERS).optional(),
+	// A reference post is built to be cited (DECISIONS.md 2026-11-22): it ends with a "Cite
+	// this" box (CiteThis.astro). Talk write-ups always get one. Unset means the story lane
+	lane: z.enum(['reference', 'story']).optional(),
+	// Where and when the text first ran, when that differs from `date` and `writtenFor`: a talk
+	// page dated by the talk that carries the article written afterward. The Cite this box uses it
+	originallyPublished: z.object({ outlet: z.string(), date: z.coerce.date() }).optional(),
 	tags: z.array(z.string()).optional().default([]),
 	heroImage: z.string().optional(),
 	heroAlt: z.string().optional(),

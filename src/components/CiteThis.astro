@@ -1,0 +1,74 @@
+---
+// "Cite this" at the end of a reference post or talk write-up (DECISIONS.md 2026-11-22,
+// option B): a ruled row that opens to a Chicago entry and BibTeX, each with a copy button.
+// A native <details>, so it works without JavaScript; styles in article.css (.cite-this).
+import { bibtexPost, chicagoPost, type PostForCitation } from '../utils/post-citation';
+
+interface Props {
+	post: PostForCitation;
+	pageUrl: string;
+	slug: string;
+}
+
+const { post, pageUrl, slug } = Astro.props;
+const entries = [
+	{ label: 'Chicago', value: chicagoPost(post, pageUrl) },
+	{ label: 'BibTeX', value: bibtexPost(post, pageUrl, slug) },
+];
+---
+
+<details class="cite-this">
+	<summary>
+		<span class="cite-this-title">Cite this</span>
+		<span class="cite-this-hint">Chicago and BibTeX</span>
+		<span class="cite-this-sign" aria-hidden="true">
+			+
+		</span>
+	</summary>
+	<div class="cite-this-panel">
+		{entries.map(({ label, value }) => (
+			<div>
+				<div class="cite-this-head">
+					<span>{label}</span>
+					<button type="button" class="cite-this-copy" data-copy={value}>
+						Copy {label}
+					</button>
+				</div>
+				{label === 'BibTeX' ? (
+					<pre tabindex="0" aria-label="BibTeX citation">{value}</pre>
+				) : (
+					<p>{value}</p>
+				)}
+			</div>
+		))}
+	</div>
+</details>
+
+<script>
+	// One polite live region says "Copied" for both buttons
+	const status = document.createElement('span');
+	status.setAttribute('role', 'status');
+	status.className = 'sr-only';
+	document.body.append(status);
+	for (const button of document.querySelectorAll<HTMLButtonElement>('.cite-this-copy')) {
+		const idle = button.textContent ?? '';
+		let reset: ReturnType<typeof setTimeout> | undefined;
+		button.addEventListener('click', async () => {
+			clearTimeout(reset);
+			try {
+				await navigator.clipboard.writeText(button.dataset.copy ?? '');
+				button.toggleAttribute('data-copied', true);
+				button.textContent = 'Copied';
+				status.textContent = 'Copied';
+			} catch {
+				button.textContent = 'Failed';
+				status.textContent = 'Copy failed: select the text and copy it instead';
+			}
+			reset = setTimeout(() => {
+				button.removeAttribute('data-copied');
+				button.textContent = idle;
+				status.textContent = '';
+			}, 2000);
+		});
+	}
+</script>

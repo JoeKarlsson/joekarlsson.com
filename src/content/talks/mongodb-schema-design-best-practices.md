@@ -5,6 +5,7 @@ slug: 'mongodb-schema-design-best-practices'
 description: 'My talk and article on MongoDB schema design: embedding vs. referencing, how to model each kind of relationship, and my five rules of thumb.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
+originallyPublished: { outlet: 'MongoDB Developer Center', date: 2020-12-04 }
 heroImage: '/images/blog/mongodb-schema-design-best-practices/thumb-b1a8ce46.webp'
 heroAlt: 'An old architectural blueprint'
 contentNotice: 'I wrote this article for the MongoDB Developer Center in December 2020, after giving the talk. MongoDB has since taken that copy down, so the whole article lives here now, with its links pointed at the current MongoDB docs.'

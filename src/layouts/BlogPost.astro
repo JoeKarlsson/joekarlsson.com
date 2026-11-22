@@ -19,6 +19,8 @@ import { localImageSize } from '../utils/image-size.mjs';
 import { rankRelatedPosts } from '../utils/related-posts';
 import popularPosts from '../data/popular-posts.json';
 import { joinLastWord } from '../plugins/rehype-no-widows.mjs';
+import CiteThis from '../components/CiteThis.astro';
+import { outletFor } from '../utils/post-citation';
 interface Props {
 	title: string;
 	shareTitle?: string;
@@ -40,6 +42,9 @@ interface Props {
 	categories?: string[];
 	// The employer this post was written for; none for a personal post
 	writtenFor?: string;
+	/** 'reference' adds the Cite this box (talk write-ups always have it) */
+	lane?: 'reference' | 'story';
+	originallyPublished?: { outlet: string; date: Date };
 	slug: string;
 	contentNotice?: string | boolean;
 	/** The post links to Amazon, so it shows the affiliate disclosure up top */
@@ -79,6 +84,8 @@ const {
 	heroVideo,
 	categories,
 	writtenFor,
+	lane,
+	originallyPublished,
 	slug,
 	contentNotice,
 	hasAffiliateLinks,
@@ -325,6 +332,20 @@ const captionText =
 			<slot />
 		</div>
 		<Fragment slot="end">
+			{(lane === 'reference' || section === 'talks') && (
+				<CiteThis
+					post={{
+						title,
+						// A talk page is dated by the talk, so only its originallyPublished names an outlet
+						date: originallyPublished?.date ?? date,
+						outlet:
+							originallyPublished?.outlet ??
+							(writtenFor && section !== 'talks' ? outletFor(writtenFor) : undefined),
+					}}
+					pageUrl={new URL(`${home.path}${slug}/`, Astro.site).href}
+					slug={slug}
+				/>
+			)}
 			{/* Drawn once around a code block's Copy when it copies (copy-burst, motion.css) */}
 			<Scribble
 				{...MARKS.burst}

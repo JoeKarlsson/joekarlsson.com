@@ -1,10 +1,11 @@
 ---
 title: 'What it takes to build a real-time recommendation system'
 seoTitle: 'Building a Real-Time Recommendation System'
-date: 2024-03-30
+date: 2023-07-25
 slug: 'what-it-takes-to-build-a-real-time-recommendation-system'
 description: 'What goes into a real-time recommendation system: content-based and collaborative filtering, data storage, and starting with SQL before reaching for ML.'
 categories: ['Web Dev']
+lane: 'reference'
 writtenFor: 'Tinybird'
 heroImage: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/thumb-121e2b3d.webp'
 heroAlt: 'A glowing jukebox'

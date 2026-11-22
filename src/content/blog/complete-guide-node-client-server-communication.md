@@ -5,6 +5,7 @@ date: 2016-07-23
 slug: 'complete-guide-node-client-server-communication'
 description: "Node client-server communication based on Ilya Grigorik's High-Performance Browser Networking, with examples of XHR, SSE, WebSockets and HTTP/2."
 categories: ['Web Dev']
+lane: 'reference'
 heroImage: '/images/blog/complete-guide-node-client-server-communication/thumb-1d6d8b03.webp'
 heroAlt: 'Three browser transports side by side, XHR polling, server-sent events and WebSocket, each a client and a server with hand-drawn arrows between them'
 contentNotice: 'This post uses outdated Node.js patterns (CommonJS, `var`). Core concepts like WebSockets and SSE remain relevant, but use ES modules and the Fetch API in modern applications.'

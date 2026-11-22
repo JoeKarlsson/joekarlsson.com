@@ -1,10 +1,11 @@
 ---
 title: 'How to build a real-time fraud detection system'
 seoTitle: 'Build a Real-Time Fraud Detection System'
-date: 2024-03-30
+date: 2023-05-09
 slug: 'how-to-build-a-real-time-fraud-detection-system'
 description: 'How to build a real-time fraud detection system: ingest transaction streams, flag fraud with SQL, and publish the results as APIs with Tinybird and Retool.'
 categories: ['Web Dev']
+lane: 'reference'
 writtenFor: 'Tinybird'
 heroImage: '/images/blog/how-to-build-a-real-time-fraud-detection-system/thumb-f11aa8a5.webp'
 heroAlt: 'A soldier holding a banknote up to check it'
