@@ -191,6 +191,9 @@
 		@apply absolute top-0 right-full mr-2 opacity-0 text-pink transition-opacity;
 		content: '#' / '';
 	}
+	main [data-heading-link]:not(.prose *):focus-visible::before {
+		@apply opacity-100;
+	}
 }
 @media (width >= 84rem) and (hover: hover) {
 	main [data-heading-link]:not(.prose *):hover::before {

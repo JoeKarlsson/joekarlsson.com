@@ -198,9 +198,8 @@ export default defineConfig({
 						properties: (/** @type {HastNode} */ heading) => ({
 							className: ['heading-anchor'],
 							ariaLabel: `Link to section: ${textOf(heading)}`,
-							// Out of the Tab order: a long post had ~30 stops on #s that only show on hover.
-							// Screen readers still list them, and each heading's id still deep-links
-							tabIndex: -1,
+							// In the Tab order so a keyboard can copy a section's link (Joe, 2026-11-22); it
+							// shows when focused (global.css), so no stop is invisible
 						}),
 						content: {
 							type: 'element',

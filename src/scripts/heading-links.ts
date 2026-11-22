@@ -3,6 +3,9 @@
 // by the heading. A post heading's # link (rehype-autolink-headings) does the same; without
 // this script it still jumps to its section, as any link would. The newsletter signup and
 // Keep reading headings close a page rather than start a section, so they're left out.
+// The keyboard gets it too (Joe, 2026-11-22): a post heading's # link is in the Tab order and
+// shows when focused; a section page's heading, which has no # link, takes focus itself and
+// copies on Enter or Space.
 const HEADINGS =
 	'main :is(h2, h3, h4)[id]:not(.sr-only, summary *, button *, #keep-exploring, #post-newsletter-heading)';
 const SHOW_MS = 1400;
@@ -36,7 +39,10 @@ function flash(heading: Element, text: string) {
 export function initHeadingLinks() {
 	const headings = document.querySelectorAll<HTMLElement>(HEADINGS);
 	if (!headings.length) return;
-	for (const heading of headings) heading.dataset.headingLink = '';
+	for (const heading of headings) {
+		heading.dataset.headingLink = '';
+		if (!heading.closest('.heading-group')) heading.tabIndex = 0;
+	}
 	tag = document.createElement('span');
 	tag.className = 'link-copied';
 	tag.setAttribute('role', 'status');
@@ -55,13 +61,24 @@ export function initHeadingLinks() {
 		// Dragging across a heading to select its words isn't a click on it
 		if (getSelection()?.toString()) return;
 		event.preventDefault();
-		history.replaceState(history.state, '', `#${heading.id}`);
-		// No clipboard (an old browser, a refused permission): the link is still in the address bar
-		Promise.resolve()
-			.then(() => navigator.clipboard.writeText(location.href))
-			.then(
-				() => flash(heading, 'Link copied'),
-				() => flash(heading, 'Link in the address bar'),
-			);
+		copyLinkTo(heading);
 	});
+	document.addEventListener('keydown', (event) => {
+		const target = event.target;
+		if (!(target instanceof HTMLElement) || !target.matches('[data-heading-link]')) return;
+		if (event.key !== 'Enter' && event.key !== ' ') return;
+		event.preventDefault();
+		copyLinkTo(target);
+	});
+}
+
+function copyLinkTo(heading: Element) {
+	history.replaceState(history.state, '', `#${heading.id}`);
+	// No clipboard (an old browser, a refused permission): the link is still in the address bar
+	Promise.resolve()
+		.then(() => navigator.clipboard.writeText(location.href))
+		.then(
+			() => flash(heading, 'Link copied'),
+			() => flash(heading, 'Link in the address bar'),
+		);
 }

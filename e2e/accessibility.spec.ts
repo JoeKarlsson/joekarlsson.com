@@ -180,7 +180,7 @@ test.describe('ARIA Attributes', () => {
 		await expect(page.locator('body > footer, footer').first()).toBeVisible();
 	});
 
-	test('margin-note numbers are 24px tap targets and heading #s stay out of the Tab order', async ({
+	test('margin-note numbers are 24px tap targets and heading #s show when the keyboard reaches them', async ({
 		page,
 	}) => {
 		await page.setViewportSize({ width: 1440, height: 900 });
@@ -189,7 +189,9 @@ test.describe('ARIA Attributes', () => {
 		const box = (await back.boundingBox())!;
 		expect(box.width).toBeGreaterThanOrEqual(24);
 		expect(box.height).toBeGreaterThanOrEqual(24);
-		await expect(page.locator('.prose .heading-anchor').first()).toHaveAttribute('tabindex', '-1');
+		const hash = page.locator('.prose .heading-anchor').first();
+		await hash.focus();
+		await expect(hash).toHaveCSS('opacity', '1');
 	});
 
 	test('keyboard focus on a tall card never sits under the floating nav', async ({ page }) => {
