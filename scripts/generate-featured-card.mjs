@@ -82,7 +82,8 @@ function buildWall({ outlets, venues }) {
 				spot.className = '';
 				return false;
 			});
-	const placed = venues.every((venue, i) => {
+	// Every venue gets its try, so one that fails doesn't stop the rest
+	const placed = venues.map((venue, i) => {
 		const want = Math.round((i * (onCard.length - 1)) / Math.max(1, venues.length - 1));
 		const taken = (row) => (row.querySelector('.p') ? 1 : 0);
 		const byPreference = onCard
@@ -93,7 +94,8 @@ function buildWall({ outlets, venues }) {
 	// A venue shorter than the name it replaced can leave a row short of the edge
 	rows.forEach(fill);
 	const pink = [...wall.querySelectorAll('.p')];
-	return placed && pink.length === venues.length && pink.every(visible);
+	// How many venues show, so a failure says how far off it is
+	return placed.every(Boolean) && pink.every(visible) ? pink.length : pink.filter(visible).length;
 }
 // The crayon line's two long strokes, as SectionRule draws it
 const rule = double.path.split(/(?=M)/).slice(0, 2).join(' ');
@@ -103,7 +105,7 @@ const html = `<!doctype html><meta charset="utf-8">
 <style>
 * { margin: 0; box-sizing: border-box; }
 body { width: 1200px; height: 630px; overflow: hidden; background: #000; position: relative; }
-.wall { position: absolute; top: -14px; left: -40px; right: -40px; font: 400 58px/.98 Anton, sans-serif; text-transform: uppercase; color: #232323; }
+.wall { position: absolute; top: -14px; left: -40px; right: -40px; font: 400 44px/.98 Anton, sans-serif; text-transform: uppercase; color: #232323; }
 .wall div { display: flex; gap: .3em; white-space: nowrap; }
 .wall span { flex: none; }
 .p { color: ${PINK}; }
@@ -133,8 +135,11 @@ try {
 	});
 	if (!fontsLoaded)
 		throw new Error('Anton or Hanken Grotesk did not load from Google Fonts; is the network up?');
-	if (!(await page.evaluate(buildWall, { outlets, venues })))
-		throw new Error('Not every paper venue fits on the card where it can be seen');
+	const shown = await page.evaluate(buildWall, { outlets, venues });
+	if (shown !== venues.length)
+		throw new Error(
+			`Only ${shown} of ${venues.length} paper venues fit on the card where they can be seen`,
+		);
 
 	const card = await sharp(await page.screenshot({ type: 'png' }))
 		.webp({ quality: 85 })

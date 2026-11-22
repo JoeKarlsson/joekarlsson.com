@@ -48,7 +48,7 @@ export const LEAD_STORY = {
 };
 
 // /featured/'s share card, drawn from this file by scripts/generate-featured-card.mjs
-export const SHARE_CARD = '/images/featured/share-13c7509c.webp';
+export const SHARE_CARD = '/images/featured/share-1cc96df2.webp';
 
 // About shows the first three
 export const papers: Paper[] = [
@@ -84,6 +84,28 @@ export const papers: Paper[] = [
 		highlight: 'Karlsson, Laurel, and Joe Karlsson. 2015. “The Bechdel Test Visualizer.”',
 	},
 	{
+		title: 'Low End-to-End Latency atop a Speculative Shared Log with Fix-Ante Ordering',
+		venue: 'OSDI',
+		year: 2025,
+		url: 'https://www.usenix.org/conference/osdi25/presentation/bhat',
+		cites: 'my event sourcing with Kafka post, and my real-time fraud detection post',
+		reference:
+			'[37] Joe Karlsson. Event sourcing with Kafka. https://www.tinybird.co/blog-posts/event-sourcing-with-kafka.',
+		highlight: 'Joe Karlsson. Event sourcing with Kafka.',
+	},
+	{
+		// The CHI 2016 extended abstracts
+		title: 'Impromptu Crowd Science and the Mystery of the Bechdel-Wallace Test Movement',
+		venue: 'CHI',
+		year: 2016,
+		url: 'https://dl.acm.org/doi/10.1145/2851581.2892580',
+		cites: 'the Bechdel Test Visualizer, the project before Bechdel.io',
+		reference:
+			'Karlsson, L. and Karlsson, J. The Bechdel Test Visualizer. 2015. https://bechdeltest.herokuapp.com/.',
+		highlight: 'Karlsson, L. and Karlsson, J. The Bechdel Test Visualizer.',
+	},
+
+	{
 		title: 'Trademark Confusion After the Algorithmic Turn',
 		venue: 'SMU Law Review',
 		year: 2026,
@@ -103,6 +125,30 @@ export const papers: Paper[] = [
 			'[62] Joe Karlsson. Event sourcing with Kafka. https://www.tinybird.co/blog-posts/event-sourcing-with-kafka.',
 		highlight: 'Joe Karlsson. Event sourcing with Kafka.',
 	},
+	{
+		// The open copy; the sources list is the paper’s Zenodo appendix (10.5281/zenodo.10517104), which also keeps S70, the joekarlsson.com copy
+		title: 'A Multivocal Mapping Study of MongoDB Smells',
+		venue: 'IEEE SANER',
+		year: 2024,
+		url: 'https://folia.unifr.ch/documents/329705/files/Nagy_Lanza_2024_IEEE_SANER.pdf',
+		cites: 'my MongoDB schema design article as a primary source, and its joekarlsson.com copy',
+		reference:
+			'S74,https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/',
+		highlight:
+			'https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/',
+		context: 'then started a blog series on MongoDB Schema Design Best Practices (S74)',
+	},
+	{
+		title: 'Case Study: Database Schema Design for Improved Performance in MongoDB',
+		venue: 'IEEE ICECCME',
+		year: 2023,
+		url: 'https://ieeexplore.ieee.org/document/10252508',
+		cites: 'my MongoDB schema design article',
+		reference:
+			'5. “MongoDB Schema Design Best Practices,” https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/, accessed: 2023-03-03.',
+		highlight: '“MongoDB Schema Design Best Practices,”',
+	},
+
 	{
 		title: 'Decision Engines: Real-Time Infrastructure for Fraud Detection & Fleet Management',
 		venue: 'JCSTS',
@@ -127,6 +173,18 @@ export const papers: Paper[] = [
 			'Karlsson, J. (2023).” What it takes to build a real-time recommendation system.” Tinybird.',
 	},
 	{
+		title:
+			'Secure WebSocket Based Broker and Architecture for Connecting IoT Devices and Web Based Applications',
+		venue: 'IPSI Transactions',
+		year: 2020,
+		url: 'http://ipsitransactions.org/journals/papers/tar/2020jan/p2.pdf',
+		cites: 'my complete guide to Node client-server communication',
+		reference:
+			'[19] J. Karlsson, ‘Complete Guide To Node Client-Server Communication’, Medium, 01-Aug-2016. [Online]. Available: https://medium.com/@joekarlsson/complete-guide-to-node-client-server-communication-b156440c029. [Accessed: 22-Oct-2019].',
+		highlight: 'J. Karlsson, ‘Complete Guide To Node Client-Server Communication’',
+	},
+
+	{
 		title: 'Analisis Fitur dan Keunggulan Database Mongo dalam Berbagai Bahasa Pemrograman',
 		venue: 'JSK',
 		year: 2023,
@@ -146,6 +204,40 @@ export const papers: Paper[] = [
 		reference:
 			'Karlsson, Joe. 2015. Bechdel Test Visualizer. Joe Karlsson Portfolio. https://www.joekarlsson.com/portfolio/bechdel-test-visualizer/. Accessed 15 February 2020.',
 		highlight: 'Karlsson, Joe. 2015. Bechdel Test Visualizer.',
+	},
+	{
+		// An MSc Data Science thesis at the International Hellenic University
+		title: 'Music Recommendation System on a Social Media Platform Based on User Following Data',
+		venue: 'IHU thesis',
+		year: 2026,
+		url: 'https://repository.ihu.gr/items/3e58d1da-94db-45a9-a386-fd2e90c9bd00',
+		cites: 'my real-time recommendation system post',
+		reference:
+			'29. J. Karlsson, “What it takes to build a real-time recommendation system,” Tinybird.co, July 25, 2023. https://www.tinybird.co/blog/real-time-recommendation-system .',
+		highlight: 'J. Karlsson, “What it takes to build a real-time recommendation system,”',
+	},
+	{
+		// A CS4624 capstone final report
+		title: 'Crisis Events News Coverage Analysis',
+		venue: 'Virginia Tech',
+		year: 2024,
+		url: 'https://vtechworks.lib.vt.edu/items/60432e79-0da1-42fd-ba83-42e77eb47985',
+		cites: 'my MongoDB schema design article',
+		reference:
+			'8. “MongoDB Schema Design Best Practices | MongoDB,” www.mongodb.com. https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/',
+		highlight: '“MongoDB Schema Design Best Practices | MongoDB,”',
+	},
+	{
+		// A bachelor’s thesis at Poltava State Agrarian University, Ukraine
+		title: 'Проєктування інформаційної системи інтернет-магазину товарів для творчості',
+		venue: 'Poltava thesis',
+		year: 2026,
+		url: 'https://dspace.pdau.edu.ua/items/0edeb853-2c81-41f4-9899-5d8841e0c7a3',
+		cites: 'my MongoDB schema design article',
+		reference:
+			'22. MongoDB Schema Design Patterns. URL: https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/ (дата звернення: 25.04.2026).',
+		highlight:
+			'https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/',
 	},
 ];
 
