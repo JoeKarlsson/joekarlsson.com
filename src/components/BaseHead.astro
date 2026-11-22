@@ -354,9 +354,17 @@ Markdown copies for agents and downloads. */}
 	})}
 />
 {/* Hides img and video[data-halftone] until src/scripts/halftone.ts draws it in pink, so the
-color original never flashes; that script takes the class off again without WebGL */}
+color original never flashes; that script takes the class off again without WebGL, and
+marks .halftone-ready when it starts */}
 <script is:inline>
 	document.documentElement.classList.add('halftone-on');
+	// If that script never starts (blocked, failed, very slow), show the originals
+	// rather than leave every hero blank
+	setTimeout(() => {
+		if (!document.documentElement.classList.contains('halftone-ready')) {
+			document.documentElement.classList.remove('halftone-on');
+		}
+	}, 3000);
 	// Keeps "Pause motion" on across pages (src/scripts/pause-motion.ts writes it).
 	// Set before paint, so nothing starts moving and then stops. Storage can be blocked.
 	try {

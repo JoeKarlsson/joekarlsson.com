@@ -306,6 +306,8 @@ if (elements.length) {
 		throw error;
 	}
 	if (draw) {
+		// BaseHead's 3s fallback may have shown the originals already on a slow load
+		document.documentElement.classList.add('halftone-on', 'halftone-ready');
 		// Set up each picture only as it nears the screen: doing all of them at load
 		// (a canvas, a pixel sample and a forced layout each) cost a phone 1-2s of main
 		// thread on /work/ and held back the first screen. A hidden one (a filtered-out

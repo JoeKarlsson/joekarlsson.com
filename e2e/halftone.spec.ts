@@ -35,6 +35,16 @@ test.describe('Halftone', () => {
 		await expectOriginalsShown(page);
 	});
 
+	test('if the halftone script never loads, the originals show within a few seconds', async ({
+		page,
+	}) => {
+		// BaseHead hides the originals before paint; its 3s fallback must not leave a blank hero
+		await page.route('**/scripts/halftone.ts*', (route) => route.abort());
+		await page.goto('/about/');
+		await expect(page.locator('html')).not.toHaveClass(/halftone-on/, { timeout: 5000 });
+		await expect(page.locator('video[data-halftone]').first()).toHaveCSS('opacity', '1');
+	});
+
 	test('with only software WebGL the color originals show', async ({ page }) => {
 		await stubRenderer(
 			page,
