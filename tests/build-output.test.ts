@@ -403,6 +403,17 @@ describe('main page head tags', () => {
 		});
 	}
 
+	it("/resume/'s ProfilePage names Joe as its mainEntity, as Google requires", () => {
+		const html = readDist('resume/index.html');
+		const json = html.match(
+			/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/,
+		)?.[1];
+		const graph = JSON.parse(json ?? '{}')['@graph'] as Record<string, unknown>[];
+		const person = graph.find((node) => node['@type'] === 'Person');
+		const profile = graph.find((node) => node['@type'] === 'ProfilePage');
+		expect(profile?.mainEntity).toEqual({ '@id': person?.['@id'] });
+	});
+
 	it('the homepage has an og:image, and its width and height come together', () => {
 		const html = readDist('index.html');
 		expect(meta(html, 'property', 'og:image')).toMatch(/^https:.*\.(png|jpe?g|webp|gif)/i);

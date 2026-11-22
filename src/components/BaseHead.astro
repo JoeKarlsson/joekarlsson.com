@@ -307,6 +307,10 @@ Markdown copies for agents and downloads. */}
 							description: description,
 							isPartOf: { '@id': `${SITE_URL}/#website` },
 							about: { '@id': `${SITE_URL}/#/schema/person` },
+							// Google's ProfilePage rich result requires mainEntity (the Person)
+							...(schemaType === 'ProfilePage'
+								? { mainEntity: { '@id': `${SITE_URL}/#/schema/person` } }
+								: {}),
 							inLanguage: 'en-US',
 						},
 					]
