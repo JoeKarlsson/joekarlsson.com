@@ -11,13 +11,17 @@ import SectionRule from '../components/SectionRule.astro';
 import {
 	BUILT_ON_GROUPS,
 	COVERAGE_GROUPS,
-	LEAD_STORY,
 	SHARE_CARD,
 	coverageOf,
+	papers,
 	papersNewestFirst,
 } from '../data/coverage';
 import { featuredItemList } from '../utils/featured-schema';
 import { HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } from '../utils/ui';
+
+// The hero shows the newest top-tier paper that cites me (DECISIONS.md 2026-11-22)
+const heroPaper = papers.find((paper) => paper.venue === 'OSDI')!;
+const [heroBefore, heroAfter] = heroPaper.reference.split(heroPaper.highlight);
 ---
 
 <BaseLayout
@@ -33,25 +37,42 @@ import { HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } from '../utils/
 			title="Featured"
 			wordRatio={3.6}
 			featured={{
-				label: 'Lead story',
-				title: LEAD_STORY.title,
-				href: LEAD_STORY.url,
-				meta: `${LEAD_STORY.outlet}, ${LEAD_STORY.year}`,
+				label: 'Cited in',
+				title: `${papers.length} papers, from SOSP and OSDI to CHI and a law review`,
+				href: '#cited-in-research',
+				meta: 'Cited in research, below',
 			}}
 		>
-			<div slot="media" class="relative z-10 aspect-[4/3] md:aspect-auto">
-				<img
-					src={LEAD_STORY.image}
-					alt={LEAD_STORY.imageAlt}
-					data-halftone="flat"
-					data-halftone-no-invert
-					class="absolute inset-0 block size-full rounded-xl bg-ink object-cover object-center"
-					width="960"
-					height="720"
-					sizes="(min-width: 768px) 560px, 100vw"
-					fetchpriority="high"
-				/>
-			</div>
+			<a
+				slot="media"
+				href={heroPaper.url}
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-labelledby="hero-paper-title"
+				aria-describedby="hero-paper-ref"
+				class="card-link group relative z-10 flex flex-col justify-center gap-5 rounded-xl bg-surface-1 p-6 text-paper no-underline md:gap-7 lg:p-10"
+			>
+				<span class="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[0.9] text-pink uppercase">
+					USENIX {heroPaper.venue}
+					<span class="mt-2 block text-[0.45em] text-paper">{heroPaper.year}</span>
+				</span>
+				<span
+					id="hero-paper-title"
+					class="font-serif text-lg leading-snug italic group-hover:text-pink max-md:hidden lg:text-[1.375rem]"
+				>
+					{heroPaper.title}
+				</span>
+				<span
+					id="hero-paper-ref"
+					class="rounded-lg bg-ink p-4 font-serif text-[0.9375rem] leading-relaxed text-muted [overflow-wrap:anywhere] md:p-5 md:text-lg"
+				>
+					{heroBefore}
+					<mark class="bg-pink px-1 text-ink [box-decoration-break:clone]">
+						{heroPaper.highlight}
+					</mark>
+					<span class="max-md:hidden">{heroAfter}</span>
+				</span>
+			</a>
 			<p class={HERO_LEAD}>
 				Papers that cite my work, the code and courses built on it, and what other people wrote
 				about it. The podcasts and talks are on my{' '}
