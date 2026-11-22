@@ -80,6 +80,16 @@ export const papers: Paper[] = [
 		highlight: 'Karlsson, Laurel, and Joe Karlsson. 2015. “The Bechdel Test Visualizer.”',
 	},
 	{
+		title: 'Trademark Confusion After the Algorithmic Turn',
+		venue: 'SMU Law Review',
+		year: 2026,
+		url: 'https://scholar.smu.edu/smulr/vol79/iss3/6',
+		cites: 'my real-time recommendation system post and quotes it, in footnote 91',
+		reference:
+			'91. See Joe Karlsson, What it Takes to Build a Real-Time Recommendation System, Tinybird (Apr. 24, 2025) (“[R]eal-time recommendation systems dynamically adapt to user interactions as they happen . . . .”).',
+		highlight: 'Joe Karlsson, What it Takes to Build a Real-Time Recommendation System, Tinybird',
+	},
+	{
 		title: 'LazyLog: A New Shared Log Abstraction and Design for Modern Low-Latency Applications',
 		venue: 'ACM TOCS',
 		year: 2026,
