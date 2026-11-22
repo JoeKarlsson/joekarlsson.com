@@ -38,7 +38,7 @@ mastheadImage: '/images/blog/mongodb-schema-design-best-practices/masthead-205ab
 
 In this post, I'll cover the basics of data modeling using real-world examples. You'll learn common methodologies and vocabulary you can use when designing the database schema for your application.
 
-[Watch the talk version on YouTube](https://www.youtube.com/watch?v=leNCfU5SYR8)
+[Watch the talk version on YouTube](https://www.youtube.com/watch?v=leNCfU5SYR8), or [run every example from this article](https://github.com/JoeKarlsson/mongodb-schema-design-examples) in mongosh.
 
 Okay, first off, did you know that proper MongoDB schema design is one of the most critical parts of deploying a scalable, fast and affordable database? It's true, and schema design is often one of the most overlooked facets of MongoDB administration. Why is MongoDB schema design so important? Well, there are a couple of good reasons. In my experience, most people coming to MongoDB tend to think of MongoDB schema design as the same as legacy relational schema design, which doesn't let you take full advantage of all that MongoDB has to offer. First, let's look at how legacy relational database design compares to MongoDB schema design.
 
@@ -387,6 +387,7 @@ If you're coming from SQL, my talk [From SQL to NoSQL](/talks/from-sql-to-nosql-
 
 ## Slides and resources
 
+- [Every example as a runnable mongosh script](https://github.com/JoeKarlsson/mongodb-schema-design-examples), checked weekly against current MongoDB
 - [Slides on Speaker Deck](https://speakerdeck.com/joekarlsson/mongodb-schema-design-best-practices)
 - Now that you know how to design a fast, scalable MongoDB schema, learn what _not_ to do: [schema design anti-patterns in the MongoDB docs](https://www.mongodb.com/docs/manual/data-modeling/design-antipatterns/), or [the video series on YouTube](https://www.youtube.com/watch?v=8CZs-0it9r4) if video is more your thing.
 - [6 Rules of Thumb for MongoDB Schema Design](https://www.mongodb.com/company/blog/mongodb/6-rules-of-thumb-for-mongodb-schema-design)
