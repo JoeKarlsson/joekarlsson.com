@@ -32,7 +32,7 @@ Note what kind of thing it is, since communities treat these differently: a writ
 
 Open each candidate's rules or submission page (its `source` in `channels.md`) and compare it with the entry. Update the rule text, status and `verified` date. A newsletter whose newest issue is over six months old is `paused`; one that says it stopped is `dead` and stays listed so nobody re-adds it.
 
-Reddit refuses automated reads of its pages. Try the rules page once with WebFetch; if it's refused, the row says **unverified: read the rules before posting** and links `https://www.reddit.com/r/<sub>/about/rules`. Never guess a rule, never read Reddit through mirrors or a disguised browser, and never mark an unread rule as checked.
+Reddit can't be read by any tool here (checked 2026-11-22): it refuses WebFetch and plain requests, Claude in Chrome blocks reddit.com outright, and new Data API apps need Reddit's manual approval under its Responsible Builder Policy (November 2025). So Joe reads them. The plan page opens with a **Reddit rules to read** box: one `https://www.reddit.com/r/<sub>/about/rules` link per recommended sub. Ask Joe to paste each sub's rules into the chat (or say "checked, nothing new"). Then update that entry with the rule, `verified` date and `verified-by: Joe`, and fix the plan row. Until then the row says **unverified: read the rules before posting**. Never guess a rule, never read Reddit through mirrors or a disguised browser, and never mark an unread rule as checked.
 
 ## 4. Write the plan
 
