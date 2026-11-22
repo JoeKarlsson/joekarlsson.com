@@ -13,8 +13,9 @@ const text = (node) =>
  *
  * The box is a named region with a tab stop, as Shiki's code blocks are, because
  * Safari gives a keyboard no way into a scroll box with nothing focusable inside.
- * Its name is the heading above the table (runs after rehype-slug for the ids),
- * else the table's first header.
+ * Its name is the table's caption ("Table 3" when the caption is numbered, as a paper's
+ * are, since two tables can share a heading), else the heading above the table (runs after
+ * rehype-slug for the ids), else the table's first header.
  */
 export default function rehypeTableScroll() {
 	return (tree) => {
@@ -24,13 +25,17 @@ export default function rehypeTableScroll() {
 			if (node.tagName !== 'table' || !parent || index === undefined) return;
 			if (parent.type === 'element' && parent.properties?.className?.includes('table-scroll'))
 				return;
+			const caption = node.children.find((c) => c.tagName === 'caption');
+			const captionText = caption && text(caption);
 			let th;
 			visit(node, 'element', (cell) => {
 				if (!th && cell.tagName === 'th' && text(cell)) th = cell;
 			});
-			const name = headingId
-				? { ariaLabelledBy: headingId }
-				: { ariaLabel: th ? `Table: ${text(th)}` : 'Table' };
+			const name = captionText
+				? { ariaLabel: captionText.match(/^(Table \d+)\./)?.[1] ?? captionText }
+				: headingId
+					? { ariaLabelledBy: headingId }
+					: { ariaLabel: th ? `Table: ${text(th)}` : 'Table' };
 			parent.children[index] = {
 				type: 'element',
 				tagName: 'div',

@@ -40,4 +40,20 @@ describe('rehype-table-scroll', () => {
 		run(root);
 		expect(root.children?.[0].properties?.ariaLabel).toBe('Table: Model');
 	});
+
+	it("names a captioned table by its number, so two tables under one heading don't share a name", () => {
+		const numbered = (n: number) =>
+			el('table', [
+				el('caption', [el('strong', [text(`Table ${n}.`)]), text(' The share by variant.')]),
+			]);
+		const root: Node = {
+			type: 'root',
+			children: [el('h3', [text('Robustness')], { id: 'robustness' }), numbered(3), numbered(4)],
+		};
+		run(root);
+		expect(root.children?.slice(1).map((box) => box.properties?.ariaLabel)).toEqual([
+			'Table 3',
+			'Table 4',
+		]);
+	});
 });
