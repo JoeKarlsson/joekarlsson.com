@@ -164,7 +164,8 @@
 		@apply top-auto right-auto bottom-full left-0 mr-0;
 	}
 }
-.prose .heading-group:hover .heading-anchor {
+.prose .heading-group:hover .heading-anchor,
+.prose .heading-anchor:focus-visible {
 	@apply opacity-100 text-pink;
 }
 .prose h1,
