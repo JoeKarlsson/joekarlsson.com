@@ -9,6 +9,7 @@ writtenFor: 'Tinybird'
 heroImage: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/thumb-a816dcc9.webp'
 heroAlt: 'Animated needle in a haystack illustration'
 canonicalUrl: 'https://www.tinybird.co/blog/using-bloom-filter-text-indexes-in-clickhouse'
+contentNotice: 'I co-wrote this with Paco González for the [Tinybird blog](https://www.tinybird.co/blog/using-bloom-filter-text-indexes-in-clickhouse), where it ran under his name.'
 tldr: 'Bloom filter indexes in ClickHouse can speed up text search by 25-90x and reduce scan size by 250-750x on large log datasets. I walk through how they work, how to configure n-gram Bloom filters, and share real benchmark results from a customer use case.'
 updatedDate: 2026-11-06
 corrections:
