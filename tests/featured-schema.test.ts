@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { coverage, papers } from '../src/data/coverage';
+import { coverage, papers, papersNewestFirst } from '../src/data/coverage';
 import { featuredItemList } from '../src/utils/featured-schema';
 
 describe('featuredItemList', () => {
@@ -10,6 +10,6 @@ describe('featuredItemList', () => {
 		expect(items.map((item) => item.url)).toEqual([...new Set(items.map((item) => item.url))]);
 		expect(
 			items.filter((item) => item['@type'] === 'ScholarlyArticle').map((item) => item.url),
-		).toEqual(papers.map((paper) => paper.url));
+		).toEqual(papersNewestFirst.map((paper) => paper.url));
 	});
 });

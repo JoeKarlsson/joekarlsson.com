@@ -14,7 +14,7 @@ import {
 	LEAD_STORY,
 	SHARE_CARD,
 	coverageOf,
-	papers,
+	papersNewestFirst,
 } from '../data/coverage';
 import { featuredItemList } from '../utils/featured-schema';
 import { HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } from '../utils/ui';
@@ -67,7 +67,7 @@ import { HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } from '../utils/
 		</h2>
 		<SectionRule />
 		<CoverageList
-			rows={papers.map((paper) => ({
+			rows={papersNewestFirst.map((paper) => ({
 				date: String(paper.year),
 				outlet: paper.venue,
 				title: paper.title,

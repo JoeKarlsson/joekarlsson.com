@@ -7,6 +7,7 @@ import {
 	SHARE_CARD,
 	coverage,
 	papers,
+	papersNewestFirst,
 } from '../src/data/coverage';
 
 describe('coverage.ts', () => {
@@ -31,6 +32,14 @@ describe('coverage.ts', () => {
 	it('puts every entry in a group /featured/ shows', () => {
 		const shown = new Set([...BUILT_ON_GROUPS, ...COVERAGE_GROUPS].map((group) => group.kind));
 		for (const entry of coverage) expect(shown, entry.url).toContain(entry.kind);
+	});
+
+	it('lists /featured/’s papers newest first, keeping the written order within a year', () => {
+		const years = papersNewestFirst.map((paper) => paper.year);
+		expect(years).toEqual([...years].sort((a, b) => b - a));
+		expect(papersNewestFirst).toHaveLength(papers.length);
+		const first2025 = papers.find((paper) => paper.year === 2025);
+		expect(papersNewestFirst.find((paper) => paper.year === 2025)).toBe(first2025);
 	});
 
 	it('has the lead story’s picture and the share card', () => {

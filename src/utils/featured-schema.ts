@@ -4,7 +4,7 @@
 // because the specific types (Course, DiscussionForumPosting, NewsArticle) come with Google
 // rich-result requirements these third-party pages can't meet from here.
 import { SITE_URL } from '../consts';
-import { type Coverage, coverage, papers } from '../data/coverage';
+import { type Coverage, coverage, papersNewestFirst } from '../data/coverage';
 
 const JOE = { '@id': `${SITE_URL}/#/schema/person` };
 
@@ -18,7 +18,7 @@ function whoMadeIt({ kind, outlet }: Coverage) {
 
 export function featuredItemList() {
 	const items = [
-		...papers.map((paper) => ({
+		...papersNewestFirst.map((paper) => ({
 			'@type': 'ScholarlyArticle',
 			name: paper.title,
 			url: paper.url,
