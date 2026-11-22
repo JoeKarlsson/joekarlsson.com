@@ -974,9 +974,16 @@ describe('every page', () => {
 		expect(wrong).toEqual([]);
 	});
 
-	it('sizes every image in a post body', () => {
+	// A clip is sized from its -poster.webp (rehype-gif-video); one without a poster
+	// ships at 300x150 and shoves the text under it as it plays in (scripts/make-video-posters.mjs).
+	// Card clips aren't checked: their card's CSS frame sizes them. Quoted values can hold ">".
+	it('sizes every image and clip in a post body', () => {
 		const unsized = pages.flatMap(({ file, html }) =>
-			[...(html.match(/<div class="prose[\s\S]*?<\/article>/)?.[0] ?? '').matchAll(/<img\b[^>]*>/g)]
+			[
+				...(html.match(/<div class="prose[\s\S]*?<\/article>/)?.[0] ?? '').matchAll(
+					/<img\b(?:[^>"]|"[^"]*")*>|<video\b(?:[^>"]|"[^"]*")*class="gif-video"(?:[^>"]|"[^"]*")*>/g,
+				),
+			]
 				.map((m) => m[0])
 				.filter((img) => !/\bwidth=/.test(img) || !/\bheight=/.test(img))
 				.map((img) => `${file}: ${img.slice(0, 100)}`),

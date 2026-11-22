@@ -83,7 +83,11 @@ if [ ${#ANIMATIONS[@]} -gt 0 ]; then
 
 		for f in "${ANIMATIONS[@]}"; do
 			mp4="${f%.*}.mp4"
-			[ -f "$mp4" ] && git add -- "$mp4"
+			if [ -f "$mp4" ]; then
+				# The poster sizes the clip so the text under it doesn't jump (rehype-gif-video)
+				node scripts/make-video-posters.mjs "$mp4"
+				git add -- "$mp4" "${mp4%.mp4}-poster.webp"
+			fi
 			git add -A -- "$f"
 		done
 	else
