@@ -27,6 +27,8 @@ const PAGES = [
 	['/blog/homelab-two-years-later/', IPHONE],
 	['/blog/why-i-use-doom-to-visualize-mcp-data/', IPHONE],
 	['/blog/ai-gateway-data-access-layer/', IPHONE],
+	// The most clip bytes a phone pulls in one scroll (17 MB, performance review 2026-11-22)
+	['/talks/an-introduction-to-iot-internet-of-toilets/', IPHONE],
 	// A desktop-only game, upright and sideways: neither may load it
 	['/work/connect-ai-doom/', IPHONE],
 	['/work/connect-ai-doom/', SIDEWAYS],

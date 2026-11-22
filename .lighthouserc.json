@@ -10,21 +10,106 @@
 				"http://localhost/about/",
 				"http://localhost/work/",
 				"http://localhost/uses/",
-				"http://localhost/blog/how-to-get-started-building-a-homelab-server-in-2024/",
+				"http://localhost/talks/an-introduction-to-iot-internet-of-toilets/",
 				"http://localhost/blog/recording-setup-tour/",
-				"http://localhost/blog/sentence-length-semicolons-punctuation/"
+				"http://localhost/blog/sentence-length-semicolons-punctuation/",
+				"http://localhost/reviews/stats/"
 			],
 			"numberOfRuns": 3
 		},
 		"assert": {
-			"aggregationMethod": "median",
-			"assertions": {
-				"categories:performance": ["error", { "minScore": 0.8 }],
-				"categories:accessibility": ["error", { "minScore": 0.95 }],
-				"categories:best-practices": ["error", { "minScore": 0.95 }],
-				"categories:seo": ["error", { "minScore": 0.9 }],
-				"total-byte-weight": ["error", { "maxNumericValue": 1572864 }]
-			}
+			"assertMatrix": [
+				{
+					"matchingUrlPattern": ".*",
+					"aggregationMethod": "median",
+					"assertions": {
+						"categories:performance": [
+							"error",
+							{
+								"minScore": 0.8
+							}
+						],
+						"categories:accessibility": [
+							"error",
+							{
+								"minScore": 0.95
+							}
+						],
+						"categories:best-practices": [
+							"error",
+							{
+								"minScore": 0.95
+							}
+						],
+						"categories:seo": [
+							"error",
+							{
+								"minScore": 0.9
+							}
+						],
+						"total-byte-weight": [
+							"error",
+							{
+								"maxNumericValue": 1572864
+							}
+						],
+						"cumulative-layout-shift": [
+							"error",
+							{
+								"maxNumericValue": 0.02
+							}
+						],
+						"total-blocking-time": [
+							"error",
+							{
+								"maxNumericValue": 150
+							}
+						],
+						"resource-summary:script:size": [
+							"error",
+							{
+								"maxNumericValue": 25600
+							}
+						],
+						"resource-summary:font:size": [
+							"error",
+							{
+								"maxNumericValue": 174080
+							}
+						],
+						"resource-summary:image:size": [
+							"error",
+							{
+								"maxNumericValue": 460800
+							}
+						]
+					}
+				},
+				{
+					"matchingUrlPattern": "^(?!.*/talks/).*$",
+					"aggregationMethod": "median",
+					"assertions": {
+						"largest-contentful-paint": [
+							"error",
+							{
+								"maxNumericValue": 1700
+							}
+						]
+					}
+				},
+				{
+					"matchingUrlPattern": "/talks/",
+					"aggregationMethod": "median",
+					"assertions": {
+						"largest-contentful-paint": [
+							"error",
+							{
+								"maxNumericValue": 3000
+							}
+						]
+					}
+				}
+			]
 		},
 		"upload": {
 			"target": "filesystem",
