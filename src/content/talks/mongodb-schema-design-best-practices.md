@@ -33,11 +33,33 @@ videos:
       - { at: '26:23', name: 'Recap' }
       - { at: '33:11', name: "Questions and what's next" }
 mastheadImage: '/images/blog/mongodb-schema-design-best-practices/masthead-205ab989.webp'
+faq:
+  - question: 'What is MongoDB schema design?'
+    answer: "MongoDB schema design means shaping your documents around how your application reads and writes its data. There's no formal process: you choose, for each relationship, whether to embed the data or reference it."
+  - question: 'Should I embed or reference in MongoDB?'
+    answer: 'Embed by default. Reference when you need to read the data on its own, when an array would grow without bound, or when the document would get too big. The five rules above are the short version.'
+  - question: 'What happens when a MongoDB document hits 16 MB?'
+    answer: "The write fails: MongoDB rejects any document over the 16 MB BSON size limit. An array that keeps growing is the usual way a document gets there, which is why Rule 4 says arrays shouldn't grow without bound."
+  - question: 'Are joins an anti-pattern in MongoDB?'
+    answer: 'No. $lookup is a normal tool. Avoid it where embedding does the job, and use it when referencing gives you a better schema (Rule 3).'
+marginNotes:
+  - type: 'update'
+    at: "Let's imagine that you've been asked to build a server logging application."
+    text: "Since MongoDB 5.0 I'd keep these logs in a time series collection, with the host as its metaField and the time as its timeField. MongoDB buckets the messages by host and time for you, and the shape is still one-to-squillions."
+    date: 'Nov 2026'
+  - type: 'update'
+    at: 'Referencing does the job a JOIN does in an SQL query.'
+    text: 'Since MongoDB 5.1, $lookup can join a sharded collection too, so referencing works the same on a sharded cluster.'
+    date: 'Nov 2026'
+  - type: 'update'
+    at: 'the only thing that matters is that you design a schema that will work well for'
+    text: "No rules doesn't mean no guardrails: JSON Schema validation, in MongoDB since 3.6, rejects documents that don't match the shape you declare."
+    date: 'Nov 2026'
 ---
 
 "How do I model a schema for my application?" It's one of the most common questions devs have about MongoDB. And the answer is, _it depends_. Document databases have a rich vocabulary that can express data relationships in more nuanced ways than SQL. There are many things to consider when picking a schema. Is your app read-heavy or write-heavy? What data is frequently accessed together? What are your performance considerations? How will your data set grow and scale?
 
-In this post, I'll cover the basics of data modeling using real-world examples. You'll learn common methodologies and vocabulary you can use when designing the database schema for your application.
+MongoDB schema design means shaping your documents around how your application reads and writes its data. In this post, I'll cover the basics of data modeling using real-world examples. You'll learn common methodologies and vocabulary you can use when designing the database schema for your application.
 
 [Watch the talk version on YouTube](https://www.youtube.com/watch?v=leNCfU5SYR8), or [run every example from this article](https://github.com/JoeKarlsson/mongodb-schema-design-examples) in mongosh.
 
@@ -162,6 +184,16 @@ The other option for designing your schema is referencing another document using
 ## Types of relationships
 
 Now that we have explored the two ways to split up data when designing schemas in MongoDB, let's look at common relationships you're probably familiar with modeling if you come from an SQL background. I'll start with the simpler relationships and work up to some interesting patterns, and show how to model each with a real-world example. Note that we're only going to scratch the surface of modeling relationships in MongoDB here.
+
+Here's the short version, which the rest of this section walks through:
+
+| Relationship      | Example                 | How many on the "many" side | Model it with                                    | Rule |
+| ----------------- | ----------------------- | --------------------------- | ------------------------------------------------ | ---- |
+| One-to-one        | a user's name           | one                         | key-value pairs in the document                  | 1    |
+| One-to-few        | a user's addresses      | a handful                   | an embedded array                                | 1    |
+| One-to-many       | a product's parts       | up to a few thousand        | an array of references on the "one" side         | 2, 3 |
+| One-to-squillions | a server's log messages | no limit                    | a reference to the "one" in each "many" document | 4    |
+| Many-to-many      | users and tasks         | many on both sides          | arrays of references on both sides               | 2, 3 |
 
 It's also important to note that even if your application has the exact same data as the examples below, you might end up with a completely different schema than the one I outline here. That's because the most important consideration for your schema is how your system is going to use your data. In each example, I'll outline the requirements for the application and why a given schema was used. If you want to discuss the specifics of your schema, open a conversation on the [MongoDB Community Hub](https://www.mongodb.com/community/forums/), and we can all discuss what will work best for your unique application.
 
@@ -375,6 +407,24 @@ General rules for MongoDB schema design:
 - **Rule 5:** As always, with MongoDB, how you model your data depends **entirely** on your particular application's data access patterns. You want to structure your data to match the ways that your application queries and updates it.
 
 We've only scratched the surface of design patterns in MongoDB. We haven't even started on patterns that aren't remotely possible in a legacy relational model. If you want to learn more about them, check out the resources below.
+
+## Frequently asked questions
+
+**What is MongoDB schema design?**
+
+MongoDB schema design means shaping your documents around how your application reads and writes its data. There's no formal process: you choose, for each relationship, whether to embed the data or reference it.
+
+**Should I embed or reference in MongoDB?**
+
+Embed by default. Reference when you need to read the data on its own, when an array would grow without bound, or when the document would get too big. The five rules above are the short version.
+
+**What happens when a MongoDB document hits 16 MB?**
+
+The write fails: MongoDB rejects any document over the 16 MB BSON size limit. An array that keeps growing is the usual way a document gets there, which is why Rule 4 says arrays shouldn't grow without bound.
+
+**Are joins an anti-pattern in MongoDB?**
+
+No. `$lookup` is a normal tool. Avoid it where embedding does the job, and use it when referencing gives you a better schema (Rule 3).
 
 ## Where I've given the talk
 

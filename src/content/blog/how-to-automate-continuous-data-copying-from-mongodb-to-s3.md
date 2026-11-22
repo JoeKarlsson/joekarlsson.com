@@ -188,6 +188,18 @@ If all is good, you'll see a new Parquet file starting with `events` in your S3 
 
 ![The AWS S3 console listing versions of the events.parquet file that the $out trigger function writes, one a minute](/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/parquet-in-s3.webp)
 
+To check the data itself, query the Parquet straight from S3 with [DuckDB](https://duckdb.org/). The `credential_chain` provider uses the AWS credentials you set up with the AWS CLI:
+
+```sql
+INSTALL httpfs;
+LOAD httpfs;
+CREATE SECRET (TYPE s3, PROVIDER credential_chain);
+SELECT count(*) AS documents, min(time) AS first, max(time) AS last
+FROM 's3://mongodb-data-lake-demo/events*.parquet';
+```
+
+Expect a count of about one: the file holds the last minute of documents, and the first trigger writes one a minute.
+
 ## Production considerations
 
 Some of the settings above were chosen to make this easy to set up and test. If you're going to use it in production, you'll want to adjust them.
