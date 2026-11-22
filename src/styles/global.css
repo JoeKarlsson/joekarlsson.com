@@ -163,6 +163,10 @@
 	.prose .heading-anchor {
 		@apply top-auto right-auto bottom-full left-0 mr-0;
 	}
+	/* A chapter's big numeral sits above its heading on the left, so the # goes to the right */
+	.prose .chapter .heading-group .heading-anchor {
+		@apply right-0 left-auto;
+	}
 }
 .prose .heading-group:hover .heading-anchor,
 .prose .heading-anchor:focus-visible {

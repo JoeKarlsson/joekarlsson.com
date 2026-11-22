@@ -190,6 +190,7 @@ test.describe('ARIA Attributes', () => {
 		expect(box.width).toBeGreaterThanOrEqual(24);
 		expect(box.height).toBeGreaterThanOrEqual(24);
 		const hash = page.locator('.prose .heading-anchor').first();
+		await expect(hash).not.toHaveAttribute('tabindex', '-1');
 		await hash.focus();
 		await expect(hash).toHaveCSS('opacity', '1');
 	});

@@ -14,10 +14,19 @@ interface Props {
 }
 
 const { rows, heading, level: Heading = 'h2' } = Astro.props;
+// An id, so the heading can be linked to (and copies its link when clicked, heading-links.ts)
+const id = heading
+	?.toLowerCase()
+	.replace(/[^a-z0-9]+/g, '-')
+	.replace(/^-|-$/g, '');
 ---
 
 <section class="mb-12 max-w-4xl md:mb-16">
-	{heading && <Heading class:list={[GROUP_HEADING, 'mb-3']}>{heading}</Heading>}
+	{heading && (
+		<Heading id={id} class:list={[GROUP_HEADING, 'mb-3']}>
+			{heading}
+		</Heading>
+	)}
 	<ul>
 		{rows.map((row) => (
 			<li class="border-t border-surface-4 last:border-b">

@@ -276,7 +276,8 @@ test.describe('Phone layout', () => {
 		// The folded contents list that stands in for the sidebar under 1280px
 		await page.locator('details.group\\/toc summary').click();
 		await tall('details.group\\/toc summary, details.group\\/toc a');
-		await expect(page.locator('.prose .heading-anchor').first()).toBeHidden();
+		// The # is clipped to 1px on touch (no invisible tap target) but stays reachable by keyboard
+		await expect(page.locator('.prose .heading-anchor').first()).toHaveCSS('width', '1px');
 
 		// /uses pins bunch up too close to tap apart at phone width, so phones skip them
 		await page.goto('/uses/');

@@ -69,6 +69,9 @@ export function initHeadingLinks() {
 	tag.setAttribute('role', 'status');
 	document.body.append(tag);
 	document.addEventListener('click', (event) => {
+		// A modified or middle click on a heading link opens it in a new tab, as on any link
+		if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
+			return;
 		const target = event.target;
 		if (!(target instanceof Element)) return;
 		const hash = target.closest('.heading-anchor');
