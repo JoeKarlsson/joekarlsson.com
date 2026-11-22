@@ -126,6 +126,8 @@ Before moving on, launch **Agent: `blog-headline-tester`** with the working titl
 
 Also ask the user whether the post is aimed at Hacker News or Reddit. If it is, tell the headline tester, and apply **Distribution fit: Hacker News and Reddit** (Phase 3) while drafting. HN asks submitters to use the original title, so the H1 *is* the HN title. Get it right now, not at submission time.
 
+Then run the **`distribute`** skill in early mode on the topic (`--early`). If a venue that only takes unpublished pieces fits (Nightingale, for dataviz and research), tell Joe now: publishing on the site first kills that pitch.
+
 ### 1b. SEO Research
 
 Use WebSearch to research the topic from an SEO angle:
@@ -374,7 +376,7 @@ My track record so far: three joekarlsson.com submissions to HN (MikroTik binary
 
 #### Titles for Reddit
 
-- **Every subreddit has its own rules, so read them before posting.** r/homelab, r/selfhosted, r/homeassistant, r/Proxmox, r/programming and r/devops all have different self-promotion rules. Some ban blog links outright, some want a text post or a flair, and many expect your account to participate beyond posting your own links (the old guideline was roughly 9 contributions per self-promotion post).
+- **Every subreddit has its own rules, and they change.** Some ban blog links outright, some want a text post or a flair, some ban AI-assisted posts, and many expect your account to take part beyond posting your own links. The `distribute` skill reads each sub's rules on the day and keeps what it found in `.claude/skills/distribute/channels.md`.
 - **Reddit titles can be more personal and descriptive than HN titles.** Write them as a person talking to the sub: "Two years and $7,400 later, here's what my homelab actually costs to run (with metered power data)". A question or an invitation brings in comments, and comments drive ranking.
 - **Lead with the thing the sub cares about.** r/homelab votes on rack photos, power numbers and hardware. r/selfhosted votes on the service list and the "what I replaced" angle. r/homeassistant votes on the automation itself. One post can produce several angles, so write a different title for each sub and never cross-post the same title everywhere.
 - **Prefer a text post with the substance inline.** Use 3-6 bullets of the actual findings and put the link at the bottom. A bare link to your own blog reads as promotion. A summary that stands on its own reads as a contribution.
@@ -394,12 +396,7 @@ My track record so far: three joekarlsson.com submissions to HN (MikroTik binary
 
 #### Submission (for the user, not the agent)
 
-Never submit, vote, or ask anyone to upvote on the user's behalf. HN's voting-ring detection penalizes coordinated upvotes, and Reddit treats them as vote manipulation. When the post is ready, give the user:
-
-- The HN title (normally the H1, unchanged) and 2-3 Reddit titles, each tied to a specific subreddit and a check of that sub's rules
-- A first comment for HN from the author: who you are, why you wrote it, and what you'd like feedback on. It should be 3-5 sentences and not a sales pitch.
-- The 3 objections most likely to show up in the comments, with a one-line honest answer to each
-- A timing note. US weekday mornings Eastern time are the usual advice, and it matters less than the title and the content. If an HN submission gets no traction, HN allows a resubmission after a while, and moderators sometimes put good posts in the second-chance pool.
+After deploy, the **`distribute`** skill (Phase 9) writes the submission kit: the HN title and author comment, a title and text-post body per subreddit with that sub's rules read the same day, newsletters that take submissions, the 3 likeliest objections with an honest answer each, and the skip list. Never submit, vote, or ask anyone to upvote on the user's behalf.
 
 ### Photos and Visual Content (IMPORTANT)
 
@@ -744,6 +741,8 @@ git commit -m "feat: Add blog post - {title}"
 
 Then push, run `npm run deploy`, and curl the live page to confirm (see CLAUDE.md Build & Deploy).
 
+Then run the **`distribute`** skill on the slug (employer crossposts too: it links the canonical URL and discloses the affiliation) and open its plan for Joe.
+
 Then promotion (personal posts only, never employer crossposts):
 - **A launch** (it had a launch tier in Phase 1a): hand the live URL and tier to the **`marketing-strategist`** subagent for the launch plan, show Joe the plan, then run `/social` for its posts.
 - **A newsletter issue:** go straight on to **Phase 10**, without asking.
@@ -782,7 +781,7 @@ When `$ARGUMENTS` starts with `--review`, skip Phases 0-3 entirely. Run only the
 4. Ask the user which findings to apply
 5. Apply approved edits to the file
 
-If the user says the post is headed to Hacker News or Reddit, also check it against **Distribution fit: Hacker News and Reddit**. Tell the `blog-headline-tester` agent the target, and finish with the Submission handoff from that section.
+If the user says the post is headed to Hacker News or Reddit, also check it against **Distribution fit: Hacker News and Reddit**. Tell the `blog-headline-tester` agent the target, and finish with the `distribute` skill.
 
 Use this for improving older posts or doing a pre-publish review of a draft written outside this skill.
 

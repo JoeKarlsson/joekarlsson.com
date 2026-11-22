@@ -1,0 +1,313 @@
+# Distribution channels
+
+The `distribute` skill's registry. Every entry: lanes, type and size, the rule (quoted where the source words it), format, how to submit, `pitch-first` when the venue wants the piece before Joe publishes it, status (`active`, `paused`, `dead`, `invite`), the source it was checked against, and the date. `verified: never` means nobody has read the live rules yet (Reddit refuses automated reads); the skill flags those rather than guess.
+
+Lanes: `homelab`, `selfhosted`, `data`, `ai`, `webdev`, `python`, `dataviz`, `genart`, `film`, `linguistics`, `research`, `devrel`, `techwriting`, `general-tech`.
+
+Seeded 2026-11-22 from third-party research: each community's own rules or submission page where it loaded, otherwise news coverage of the rule change, cited.
+
+## Aggregators
+
+### Hacker News
+- lanes: general-tech, homelab, data, ai, webdev, research, dataviz
+- rule: "Please don't use HN primarily for promotion. It's ok to post your own stuff part of the time." Original title, no editorializing, no site name. Asking for upvotes gets submissions, accounts and sites "penalized or banned." Repost OK if the story got no significant attention in the last year; don't delete and repost.
+- format: link post, then an author comment
+- status: active
+- source: https://news.ycombinator.com/newsguidelines.html , https://news.ycombinator.com/newsfaq.html
+- verified: 2026-11-22
+- track record: 3 joekarlsson.com submissions (MikroTik API, DevRel 2026, Ship the Ugly Pot) stalled at 1 point (blog-new.md, Distribution fit)
+
+### Show HN
+- lanes: any, only for something runnable
+- rule: off topic: "blog posts, sign-up pages, newsletters, lists, and other reading material... can't be tried out." A repo, tool or interactive viz qualifies.
+- format: submit the tool, link the post from it
+- status: active
+- source: https://news.ycombinator.com/showhn.html
+- verified: 2026-11-22
+
+### Lobsters
+- lanes: general-tech, webdev, data, homelab
+- rule: "Self-promo should be less than a quarter of one's stories and comments in the last year." No self-promo in a new account's first 70 days.
+- submit: needs an invite from a member
+- status: invite (Joe has no account as of 2026-11-22)
+- source: https://lobste.rs/about
+- verified: 2026-11-22
+
+### Tildes
+- lanes: general-tech, film, linguistics
+- rule: "Tildes is a community, not a free advertising platform." Own work in moderation alongside real participation.
+- status: invite (model not confirmed)
+- source: https://docs.tildes.net/policies/code-of-conduct
+- verified: 2026-11-22
+
+## Blog platforms (cross-posts)
+
+### DEV
+- lanes: webdev, ai, data, homelab, devrel, techwriting
+- rule: no content "designed primarily for the purposes of promotion or creating backlinks"; the full text, not a teaser linking out; disclose AI help.
+- format: full repost with `canonical_url` in the front matter; check the canonical in a private window after
+- status: active
+- source: https://dev.to/terms , https://dev.to/code-of-conduct , https://dev.to/help/writing-editing-scheduling
+- verified: 2026-11-22
+
+### Hashnode
+- lanes: webdev, ai, data, devrel
+- rule: none specific found. One author found Hashnode as the canonical on about a dozen cross-posts (https://dev.to/morinaga/how-i-implemented-the-canonical-url-chain-across-devto-hashnode-and-bluesky-50d).
+- format: repost; check the canonical in a private window
+- status: active
+- source: https://hashnode.com/
+- verified: 2026-11-22
+
+## Reddit
+
+Reddit's "9:1" or "90/10" self-promotion ratio isn't in any current official Reddit policy; it lives on in subreddits that write it into their own rules. Read each sub's rules page before posting: `https://www.reddit.com/r/<sub>/about/rules`.
+
+### r/selfhosted
+- lanes: selfhosted, homelab
+- rule (secondhand): blog posts as text posts with the link in the body, not link posts. Projects under 3 months old go in the weekly New Project megathread (since April 2026) with an AI disclosure.
+- status: active
+- source: Q2 2026 summary https://dev.to/mcgregor_c2ef8e78244eb422/rselfhosted-q2-2026-quarter-update-revisiting-rules-what-every-self-hoster-needs-to-know-plus-566k
+- verified: never
+
+### r/homelab
+- lanes: homelab
+- rule (secondhand): late 2026 Rule 6 bans only monetized, referral or company ads. Software posts need "Project: Software" flair, an AI disclosure and why it fits the sub.
+- status: active
+- verified: never
+
+### r/programming
+- lanes: webdev, general-tech
+- rule (news coverage): tightened against "low quality blogspam" (May 2024); LLM content banned as a trial on 2026-04-01, later replaced by quality rules that allow only deep implementation posts about AI.
+- status: active
+- source: https://tomshardware.com/tech-industry/artificial-intelligence/the-largest-programming-community-on-reddit-just-banned-all-content-related-to-ai-llms-r-programming-is-prioritizing-only-high-quality-discussions-about-ai , https://aiweekly.co/alerts/rprogramming-replaces-ai-ban-with-quality-rules
+- verified: never
+
+### r/dataengineering
+- lanes: data
+- rule (secondhand): "Limit Self-Promotion", citing the 9:1 rule of thumb
+- status: active
+- verified: never
+
+### r/LocalLLaMA
+- lanes: ai, homelab
+- rule (news coverage): 2026 karma minimums and a stricter Rule 4 on self-promotion
+- status: active
+- source: https://ai-radar.it/article/qualita-e-controllo-le-nuove-regole-di-r-localllama-migliorano-il-dibattito?lang=en
+- verified: never
+
+### r/dataisbeautiful
+- lanes: dataviz
+- size: 22M members (Wikipedia, Aug 2025)
+- rule (secondhand): `[OC]` in the title for your own work, with the data source and tool named in a comment; a bot removes direct image links without `[OC]`. A 2017 mod comment: self-promo is fine if about 90% of your activity is organic.
+- format: the chart as an image post with `[OC]`, the post link in the source comment
+- status: active
+- source: https://en.wikipedia.org/wiki/R/dataisbeautiful , https://www.randalolson.com/2016/03/18/why-posts-get-removed-from-rdataisbeautiful/
+- verified: never
+
+### r/visualization
+- lanes: dataviz
+- rule (secondhand): wiki welcomes "guides, tutorials… works-in-progress and requests for critiques"
+- status: active
+- verified: never
+
+### r/generative
+- lanes: genart
+- rule (secondhand): "Self-promotion is allowed, but it must be relevant and non-excessive."
+- status: active
+- verified: never
+
+### r/linguistics
+- lanes: linguistics, research
+- rule (secondhand): link "directly to academic linguistics articles or other high quality linguistics content"; no blogspam. Rules loosened in Oct 2023.
+- status: active
+- verified: never
+
+### r/movies
+- lanes: film
+- rule (secondhand): mods point to the old 10% self-promo guideline; a user reports a permanent ban for posting their own review. High risk for blog links.
+- status: active
+- verified: never
+
+### Unchecked subreddits worth reading before use
+r/homeassistant, r/Proxmox, r/devops (named in blog-new's old Distribution fit), r/ClaudeAI, r/mcp, r/Database, r/devrel, r/technicalwriting, r/creativecoding, r/proceduralgeneration, r/DigitalArt, r/TrueFilm, r/AskAcademia. No rule text found 2026-11-22; verified: never.
+
+## Forums and communities
+
+### Write the Docs Slack
+- lanes: techwriting, devrel
+- size: 27,000+
+- rule: post in #community-showcase and say why it matters to docs people; help others about ten times for each self-promo; no cross-channel posting, bare URLs or shorteners.
+- submit: signup form on the page
+- status: active
+- source: https://www.writethedocs.org/slack/
+- verified: 2026-11-22
+
+### DevRel Collective
+- lanes: devrel
+- rule: full-time DevRel practitioners only; application with job title check
+- submit: apply at devrelcollective.fun
+- status: active (site had a certificate error 2026-11-22)
+- source: https://github.com/devrelcollective
+- verified: 2026-11-22
+
+### Processing Discourse (also hosts the p5.js forum)
+- lanes: genart
+- rule: the Gallery category is for showing work; no written self-promo rule found
+- submit: post in Gallery
+- status: active (Gallery threads Nov 2026)
+- source: https://discourse.processing.org/
+- verified: 2026-11-22
+
+### Observable Forum
+- lanes: dataviz
+- rule: the "Show and tell" category
+- submit: https://talk.observablehq.com/c/show-and-tell/7
+- status: active
+- verified: 2026-11-22
+
+### Data Visualization Society Slack
+- lanes: dataviz
+- size: "over 14,000" (DVS's own figure, page not opened directly)
+- rule: #share-critique is for work in progress and feedback; no rule found for finished links
+- submit: join DVS (free) for the invite
+- status: active
+- source: https://nightingaledvs.com/why-were-all-slackers-in-data-visualization-society/
+- verified: 2026-11-22
+
+### vis.social (Mastodon)
+- lanes: dataviz, genart
+- size: 224 monthly active users
+- rule: stay on topic; no text-to-image AI work, NFTs or bots
+- submit: apply; the application must explain your interest and mention "Green Apple candy"
+- status: active
+- source: https://vis.social/api/v2/instance
+- verified: 2026-11-22
+
+### genart.social (Mastodon)
+- lanes: genart
+- size: 70 monthly active users
+- rule: disclose any generative AI use in art
+- status: invite (registration closed)
+- source: https://genart.social/api/v2/instance
+- verified: 2026-11-22
+
+### Humanist (digital humanities mailing list)
+- lanes: research, linguistics, film
+- rule: moderated; members submit posts for moderation
+- submit: apply for membership at the site
+- status: active
+- source: https://dhhumanist.org/
+- verified: 2026-11-22
+
+### Language Log
+- lanes: linguistics
+- rule: group blog with open comments; no tip or submission channel. Comment on a related post or write to a blogger directly.
+- status: active (post 2026-11-21)
+- source: https://languagelog.ldc.upenn.edu/nll/
+- verified: 2026-11-22
+
+## Editorial sites and newsletters
+
+### Nightingale (Data Visualization Society)
+- lanes: dataviz, research, film
+- pitch-first: yes. Must be original to Nightingale; pieces already on your own blog are "generally not preferred." Three weeks' exclusivity, then repost with a link back. Pays $50, a magazine copy, or a donation to DVS.
+- submit: email nightingale@datavisualizationsociety.org with a Google Doc and a Drive folder of images; DVS membership (free); 500-3,000 words
+- status: active
+- source: https://nightingaledvs.com/article-submission/
+- verified: 2026-11-22
+
+### CreativeApplications.Net
+- lanes: genart, dataviz
+- rule: self-submission expected; can't answer every message
+- submit: https://www.creativeapplications.net/submit-project/ (project URL, description, tools, 1200px+ images, video link)
+- status: active (9 posts Oct 23-Nov 17, 2026)
+- verified: 2026-11-22
+
+### Digital Humanities Now
+- lanes: research, linguistics, film, dataviz
+- rule: Editors' Choice picks come from subscribed RSS feeds
+- submit: the "Nominate an RSS Feed or Source" form, once, for the joekarlsson.com feed
+- status: active (newsletters through Feb 2026)
+- source: https://tagteam.harvard.edu/hub_feeds/4038/feed_items/17134110
+- verified: 2026-11-22
+
+### Self-Host Weekly (selfh.st)
+- lanes: selfhosted, homelab
+- size: 35,000+
+- submit: https://selfh.st/submit/ for self-hosting news and launches
+- status: active (issue 2026-11-20)
+- verified: 2026-11-22
+
+### Data Engineering Weekly
+- lanes: data
+- rule: data engineering only, no vendor promotion; op-eds by email
+- submit: https://github.com/ananthdurai/dataengineeringweekly#how-can-i-contribute-articles
+- status: active (#296, 2026-11-16)
+- verified: 2026-11-22
+
+### Python Weekly
+- lanes: python
+- track record: ran the MikroTik binary API post, #742 (2026-04-23), per coverage.ts
+- submit: no public route checked yet
+- status: active
+- verified: never
+
+### Cooperpress (JavaScript Weekly, Postgres Weekly and others)
+- lanes: webdev, data
+- size: JavaScript Weekly 170k+, group 450k+
+- submit: no public form; editor@cooperpress.com
+- status: active
+- source: https://cooperpress.com/publications/
+- verified: 2026-11-22
+
+### Write the Docs newsletter
+- lanes: techwriting
+- size: 12,000+
+- submit: nominated in the Write the Docs Slack with the `:suggest-for-newsletter:` emoji
+- status: active, monthly
+- source: https://www.writethedocs.org/slack/
+- verified: 2026-11-22
+
+### Console.dev
+- lanes: webdev, devrel
+- rule: tools in beta only, no GA releases; no articles
+- submit: hello@console.dev, for a tool
+- status: active
+- source: https://console.dev/selection-criteria
+- verified: 2026-11-22
+
+### Hacker Newsletter
+- lanes: general-tech
+- size: 60,000+
+- rule: hand-picked from HN; the way in is doing well on HN
+- status: active
+- verified: 2026-11-22
+
+### Data Elixir
+- lanes: dataviz, data
+- size: 45,000+
+- submit: only a general contact form, https://dataelixir.com/contact/
+- status: active (#597, 2026-11-10)
+- verified: 2026-11-22
+
+### Visualising Data (Andy Kirk)
+- lanes: dataviz
+- submit: no suggestion process stated
+- status: active, monthly
+- source: https://visualisingdata.com/
+- verified: 2026-11-22
+
+### TLDR, Pointer.io, Bytes
+- lanes: general-tech, webdev
+- rule: no submission route found (TLDR sells ads only)
+- status: active
+- verified: 2026-11-22
+
+## Dead, paused or unclear (don't recommend; kept so nobody re-adds them)
+
+- **DB Weekly**: dead. "No longer published," archive of 360 issues. https://dbweekly.com/ (2026-11-22). It ran Joe's work twice (#351, #320).
+- **Data Science Weekly**: paused. The archive stops at #484, 2023-03-02. https://datascienceweekly.org/newsletters (2026-11-22)
+- **Data Is Plural**: paused. Last edition 2025-08-27, no notice. https://www.data-is-plural.com/archive/ (2026-11-22)
+- **Changelog News**: unclear. The editor wrote that he "shipped [his] final News" (https://jerodsanto.net/2026/03/so-long-changelog) but the site lists #185 dated 2026-04-29.
+- **DevRel Weekly (Mary Thengvall)**: unclear. The site errored and no 2025-26 issues were found (2026-11-22).
+- **FlowingData**: unclear. A /suggest/ page exists but refused automated reads (2026-11-22).
