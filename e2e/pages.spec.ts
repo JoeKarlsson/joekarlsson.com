@@ -224,3 +224,20 @@ test('review search finds a curled title from a straight-quote query', async ({ 
 	await page.locator('#review-search').fill("kiki's");
 	await expect(page.locator('[data-search]:visible').first()).toContainText('Kiki’s');
 });
+
+// DECISIONS.md 2026-11-22: clicking a heading gives the link to its section
+test('clicking a post heading puts its section link in the address bar and copies it', async ({
+	page,
+	context,
+	browserName,
+}) => {
+	test.skip(browserName !== 'chromium', 'only Chromium lets a test grant clipboard access');
+	await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+	await page.goto('/talks/mongodb-schema-design-best-practices/');
+	const heading = page.locator('.prose h2[id]').first();
+	const id = await heading.getAttribute('id');
+	await heading.click();
+	await expect(page.locator('.link-copied')).toHaveText('Link copied');
+	expect(new URL(page.url()).hash).toBe(`#${id}`);
+	expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(page.url());
+});

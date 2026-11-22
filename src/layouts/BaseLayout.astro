@@ -195,6 +195,7 @@ const spine = spineFor(Astro.url.pathname);
 		<script>
 			import { hasCursorTrail, initCursorTrail } from '../scripts/cursor-trail';
 			import { initFilterAnimations } from '../scripts/filter-animations';
+			import { initHeadingLinks } from '../scripts/heading-links';
 			import '../scripts/halftone';
 			import '../scripts/in-view-play';
 			import '../scripts/load-desktop-embeds';
@@ -211,6 +212,7 @@ const spine = spineFor(Astro.url.pathname);
 				.forEach(initPauseMotion);
 			initStillImages();
 			initFilterAnimations();
+			initHeadingLinks();
 			if (hasCursorTrail(window.location.pathname)) initCursorTrail();
 			initScribbleNotice();
 		</script>

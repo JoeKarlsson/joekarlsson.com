@@ -168,6 +168,42 @@
 .prose .heading-anchor:focus-visible {
 	@apply opacity-100 text-pink;
 }
+/* Clicking a section heading copies the link to it (scripts/heading-links.ts, DECISIONS.md
+   2026-11-22). A post heading turns pink beside its #; a section page's heading, pink already,
+   shows a # in the margin the same way */
+[data-heading-link] {
+	cursor: pointer;
+}
+.prose .heading-group:hover > [data-heading-link] {
+	@apply text-pink;
+}
+@media (width >= 48rem) {
+	main [data-heading-link]:not(.prose *) {
+		position: relative;
+	}
+	main [data-heading-link]:not(.prose *)::before {
+		@apply absolute top-0 right-full mr-2 opacity-0 text-pink transition-opacity;
+		content: '#' / '';
+	}
+	main [data-heading-link]:not(.prose *):hover::before {
+		@apply opacity-100;
+	}
+}
+/* The tag that says the link was copied, over the heading for a moment */
+.link-copied {
+	@apply fixed z-[60] rounded bg-pink px-2 py-1.5 font-sans text-xs leading-none font-bold tracking-widest text-ink uppercase pointer-events-none;
+}
+@media (prefers-reduced-motion: no-preference) {
+	.link-copied {
+		animation: link-copied-in 150ms ease-out;
+	}
+}
+@keyframes link-copied-in {
+	from {
+		opacity: 0;
+		translate: 0 4px;
+	}
+}
 .prose h1,
 .prose h2,
 .prose h3 {
