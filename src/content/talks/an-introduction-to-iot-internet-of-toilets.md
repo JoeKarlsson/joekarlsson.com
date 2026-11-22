@@ -4,6 +4,7 @@ date: 2020-11-03
 slug: 'an-introduction-to-iot-internet-of-toilets'
 description: 'My most-given talk: IoT with JavaScript through the litter box I built for my cat, with every event, recording and slide deck, plus the build write-up.'
 categories: ['Homelab']
+writtenFor: 'MongoDB'
 heroImage: '/images/blog/an-introduction-to-iot-internet-of-toilets/thumb-ec97a203.webp'
 heroAlt: 'Stop-motion of the IoT kitty litter box being put together'
 contentNotice: false
