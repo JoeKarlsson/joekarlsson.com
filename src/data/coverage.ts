@@ -404,6 +404,98 @@ export const coverage: Coverage[] = [
 		url: 'https://weekly.thingelstad.com/archive/146/',
 	},
 
+	// Found through Bing Webmaster Tools' backlinks and code searches, 2026-11-22
+	{
+		kind: 'writeup',
+		date: '2026-10-13',
+		outlet: 'Trail',
+		title: 'Build an MCP Server in Four Passes cites my MCP gotchas post on naming tools',
+		url: 'https://trailhq.com/blog/build-an-mcp-server-in-four-passes',
+	},
+	{
+		kind: 'writeup',
+		date: '2026-10-06',
+		outlet: 'Cheatgrid',
+		title: 'Its DevRel program metrics cheat sheet links my Running DevRel post',
+		url: 'https://cheatgrid.com/soft-skills/1423-devrel-program-metrics-strategy-and-portfolio-cheat-sheet',
+	},
+	{
+		kind: 'writeup',
+		date: '2026-09-15',
+		outlet: 'Pilcrino',
+		title: 'Its Claude Code blog workflow guide walks through my /blog command',
+		url: 'https://pilcrino.com/blog/claude-code-blog-workflow',
+	},
+	{
+		kind: 'writeup',
+		date: '2026-08-26',
+		outlet: 'SoftwareSeni',
+		title: 'Cloud Versus Self-Hosted Voice AI links my local voice assistant post',
+		url: 'https://softwareseni.com/cloud-versus-self-hosted-voice-ai-and-the-privacy-first-counter-current',
+	},
+	{
+		kind: 'writeup',
+		date: '2026-08-26',
+		outlet: 'SoftwareSeni',
+		title:
+			'AI Voice Agents and the Multimodal Interface Revolution links my local voice assistant post',
+		url: 'https://softwareseni.com/ai-voice-agents-and-the-multimodal-interface-revolution',
+	},
+	{
+		kind: 'writeup',
+		date: '2026-06-12',
+		outlet: 'BioTeam',
+		title: 'Its AWS ParallelCluster deadlines post cites my Python 3.9 Lambda deprecation guide',
+		url: 'https://bioteam.net/blog/tech/cloud/your-old-aws-parallelcluster-stacks-will-not-break-in-2026',
+	},
+	{
+		kind: 'writeup',
+		date: '2026-05-05',
+		outlet: 'juni (Bear Blog)',
+		title: 'A personal blog’s link roundup includes my Self-Hosted Music Still Sucks post',
+		url: 'https://juni-mp4.bearblog.dev/84-running-late-to-my-life/',
+	},
+	{
+		kind: 'writeup',
+		date: '2026-04-07',
+		outlet: 'PADISO',
+		title: 'Internal Tools with Claude Code at Scale links my skills-repo-as-internal-tooling post',
+		url: 'https://padiso.co/blog/internal-tools-claude-code-scale',
+	},
+	{
+		kind: 'writeup',
+		date: '2025-06-07',
+		outlet: 'IO (agentio.dev)',
+		title: 'The Gateway to your Homelab opens by quoting my homelab guide',
+		url: 'https://agentio.dev/posts/homelab',
+	},
+	{
+		kind: 'writeup',
+		outlet: 'Lonti',
+		title: 'Facts vs. misconceptions about MongoDB quotes me on what NoSQL covers',
+		url: 'https://www.lonti.com/blog/facts-vs-misconceptions-about-mongodb',
+	},
+	{
+		kind: 'writeup',
+		outlet: 'indiegrp',
+		title: 'A home server how-to sends readers to my homelab guide for hardware and budget',
+		url: 'https://indiegrp.com/articles/set-up-your-own-home-server-from-scratch-a-complete-how-to-guide',
+	},
+	{
+		kind: 'code',
+		date: '2019-01-18',
+		outlet: '20Percent (gfitez)',
+		title: 'A student project modifies my Python Sudoku generator to make its boards, and says so',
+		url: 'https://github.com/gfitez/20Percent',
+	},
+	{
+		kind: 'code',
+		date: '2024-01-04',
+		outlet: 'SchoolProjects (hudakj)',
+		title: 'A school Sudoku notebook credits my Python Sudoku generator for its cell methods',
+		url: 'https://github.com/hudakj/SchoolProjects/blob/master/SudokuFinal.ipynb',
+	},
+
 	// Threads, with their comment counts when I found them
 	{
 		kind: 'thread',
