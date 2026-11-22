@@ -162,7 +162,8 @@ const papers = defineCollection({
 		title: z.string(),
 		displayTitle: z.string(),
 		seoTitle,
-		description: prose,
+		// Search results cut descriptions at about 160 characters (tests/build-output.test.ts).
+		description: z.string().max(160).transform(curlyApostrophes),
 		authors: z
 			.array(
 				z.object({
