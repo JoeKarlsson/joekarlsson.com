@@ -221,6 +221,27 @@ export const papers: Paper[] = [
 		highlight: 'Karlsson, J. (2020, December 04). MongoDB Schema Design Best Practices.',
 	},
 	{
+		title: 'Developing An End-To-End E-Commerce Web Solution With Next.js',
+		venue: 'VAMK thesis',
+		year: 2023,
+		url: 'https://www.theseus.fi/handle/10024/802367',
+		cites: 'my MongoDB schema design article, for the data model of a Next.js shop',
+		context:
+			'Utilizing MongoDB in both applications enables a consistent data model and simplifies development and maintenance, ensuring efficient data management throughout the ecosystem. [21]',
+		reference: '[21]:Joe Karlsson. MongoDB Schema Design Best Practices. 2022. Accessed:30.04.2023',
+		highlight: 'Joe Karlsson. MongoDB Schema Design Best Practices.',
+	},
+	{
+		title: 'Mobilna aplikacija za identifikaciju i njegu biljaka',
+		venue: 'Pula thesis',
+		year: 2022,
+		url: 'https://repozitorij.unipu.hr/object/unipu:7327',
+		cites: 'my MongoDB schema design article, in a master’s thesis on a plant-care app',
+		reference:
+			'Karlsson, J. (2022), MongoDB Schema Design Best Practices, dostupno na: https://www.mongodb.com/developer/products/mongodb/mongodb-schema-design-best-practices/, [23.08.2022.]',
+		highlight: 'Karlsson, J. (2022), MongoDB Schema Design Best Practices',
+	},
+	{
 		title:
 			'A Performance Comparison of SQL and NoSQL Database Management Systems for 5G Radio Base Station Configuration',
 		venue: 'Linköping thesis',
