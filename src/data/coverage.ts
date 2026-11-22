@@ -460,6 +460,14 @@ export const coverage: Coverage[] = [
 	// Found through Bing Webmaster Tools' backlinks and code searches, 2026-11-22
 	{
 		kind: 'writeup',
+		date: '2020-07-28',
+		outlet: 'Node.js Design Patterns, 3rd ed.',
+		title: 'Mario Casciaro and Luciano Mammino’s book thanks me among the second edition’s readers',
+		// Packt; the acknowledgements name me, as Google Books' search inside shows
+		url: 'https://books.google.com/books?vid=ISBN9781839214110',
+	},
+	{
+		kind: 'writeup',
 		date: '2026-10-13',
 		outlet: 'Trail',
 		title: 'Build an MCP Server in Four Passes cites my MCP gotchas post on naming tools',

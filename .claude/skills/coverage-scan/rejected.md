@@ -20,7 +20,6 @@ Skip these unless something about them changed. The address, then why.
 - Code that only shares a method name with his: iv-tunate/Bara (getScriptsByGenre in C#)
 - NPR's crop art story on dozens of public radio station sites (kunc.org, wunc.org...): syndicated copies of the NPR lead story already listed
 - Checked 2026-11-22 and they don't cite Joe: COMSNETS 2026 event-sourcing benchmark (doi 10.1109/COMSNETS67989.2026.11418216, 21 references, none his), Insua 2026 (UOC; cites Tinybird's "Fastest database for analytics" by Cameron Archer), Guerrero Carrasco 2024 (UPM; Tinybird anomaly-detection post by Alberto Romeu), Dennis 2026 (Utah State; Tinybird SQL post by Ramirez and Romeu), github.com/C4be/DIPLOMA (two Tinybird entries by other authors, reached only through \nocite{*}). Google Scholar credits Tinybird posts to "Karlsson" whoever wrote them: check the byline on every Tinybird lead
-- Node.js Design Patterns, 3rd ed. (Casciaro and Mammino, Packt 2020): thanks Joe among second-edition readers in its acknowledgements (Google Books snippet); a thank-you, not a citation
 - Mazur 2025 (Khmelnytskyi): no such work found in Scholar or the university's ELAR repository
 - smarthomebrief.com: the whole site is an empty 326-byte shell and the Wayback Machine never saved the Jetson page
 - bbc.co.uk referrer: no public BBC page links joekarlsson.com (searched 2026-11-22); likely an internal tool
