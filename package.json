@@ -13,6 +13,7 @@
 		"update:reviews": "node scripts/update-reviews.mjs",
 		"newsletter:cards": "node scripts/generate-issue-cards.mjs",
 		"featured:card": "node scripts/generate-featured-card.mjs",
+		"coverage:links": "node scripts/check-coverage-links.mjs",
 		"thumbnails:work": "node scripts/generate-work-thumbnails.mjs",
 		"youtube:thumbnails": "node scripts/fetch-youtube-thumbnails.mjs",
 		"media:dither": "python3 scripts/media/halftone.py",

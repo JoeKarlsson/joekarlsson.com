@@ -14,6 +14,10 @@ Finds what's new since the last scan, never the whole list again. `src/data/cove
 - **Never repeat About's As seen on.** Podcasts, radio and talks he appeared on belong in `src/data/talks.ts`, not here. A new podcast goes to talks.ts (and its cover via `npm run talks:covers`).
 - **About shows only** the lead story and the first three papers. Don't add anything to `about.astro`; `tests/coverage.test.ts` fails if a coverage URL appears there.
 
+## 0. Check what's already listed
+
+Run `npm run coverage:links`. It loads every link on /featured/ (GitHub, Hacker News and Stack Overflow through their APIs, since they refuse scripts) and lists the dead ones with the newest Wayback copy. Swap each dead `url` for its archived copy and set `note: 'archived copy'`; never drop an entry. With no archived copy, keep the entry and tell Joe. The few sites it lists under "check by hand" refuse scripts entirely: open those in the browser tools.
+
 ## 1. Know what you're looking for
 
 His work has lived at many addresses. Search for links to all of them, not just his name:
