@@ -405,7 +405,8 @@ pre.astro-code {
    standard), except a pair of frames side by side (rehype-frames.mjs). A picture
    centers itself rather than widening its paragraph, so a caption written in the
    same paragraph stays in the text column */
-.prose.wide-media > :is(pre, figure:not(.frame, .frame-pair, .margin-figure), table, .\@container) {
+.prose.wide-media
+	> :is(pre, figure:not(.frame, .frame-pair, .margin-figure), .table-scroll, .\@container) {
 	width: 100cqw;
 	max-width: none;
 	margin-inline: calc((100% - 100cqw) / 2);
@@ -595,8 +596,26 @@ pre.astro-code {
 .prose hr {
 	@apply border-surface-3 my-8;
 }
+/* Each table sits in a box (rehype-table-scroll.mjs). Below 80rem a table wider than its
+   column scrolls in it, since the page itself never scrolls sideways. A pink bar on the box's
+   right edge says there's more: the bar is fixed to the box, and a black patch fixed to the
+   table's far end covers it once you reach the end, or from the start when the table fits.
+   From 80rem a wide table runs into the empty margin, as it always has, so its last column
+   stays readable without a scrollbar macOS wouldn't show. */
+.prose .table-scroll {
+	@apply my-6;
+}
+@media (width < 80rem) {
+	.prose .table-scroll {
+		@apply overflow-x-auto;
+		/* design-ok: two solid-color layers, a cover and a bar, no fade */
+		background:
+			linear-gradient(theme('colors.ink'), theme('colors.ink')) right / 12px 100% no-repeat local,
+			linear-gradient(theme('colors.pink'), theme('colors.pink')) right / 3px 100% no-repeat scroll;
+	}
+}
 .prose table {
-	@apply w-full my-6 font-sans text-base;
+	@apply w-full font-sans text-base;
 }
 .prose th {
 	@apply text-left text-paper font-semibold p-2 border-b border-surface-4;
@@ -1305,7 +1324,7 @@ header nav .sticker {
 @media (width >= 80rem) {
 	.margin-column
 		.prose.wide-media
-		> :is(pre, figure:not(.frame, .frame-pair, .margin-figure), table, .\@container) {
+		> :is(pre, figure:not(.frame, .frame-pair, .margin-figure), .table-scroll, .\@container) {
 		@apply relative z-20;
 		margin-inline: calc((100% + var(--margin-col) - 100cqw) / 2)
 			calc((100% - var(--margin-col) - 100cqw) / 2);
@@ -1315,7 +1334,7 @@ header nav .sticker {
 	}
 	.margin-column:has(> .margin-toc)
 		.prose.wide-media
-		> :is(pre, figure:not(.frame, .frame-pair, .margin-figure), table, .\@container) {
+		> :is(pre, figure:not(.frame, .frame-pair, .margin-figure), .table-scroll, .\@container) {
 		width: 100%;
 		margin-inline: 0;
 	}

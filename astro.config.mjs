@@ -14,6 +14,7 @@ import rehypeInterlude from './src/plugins/rehype-interlude.mjs';
 import rehypeQuoteMarks from './src/plugins/rehype-quote-marks.mjs';
 import rehypeCollapsibleToc from './src/plugins/rehype-collapsible-toc.mjs';
 import rehypeEmptyCornerCell from './src/plugins/rehype-empty-corner-cell.mjs';
+import rehypeTableScroll from './src/plugins/rehype-table-scroll.mjs';
 import rehypeFaqDetails from './src/plugins/rehype-faq-details.mjs';
 import rehypeFrames from './src/plugins/rehype-frames.mjs';
 import rehypeGifVideo from './src/plugins/rehype-gif-video.mjs';
@@ -164,6 +165,8 @@ export default defineConfig({
 				rehypePostPreviews,
 				rehypeNoWidows,
 				rehypeSlug,
+				// After slug: a table's scroll box is named by the heading above it
+				rehypeTableScroll,
 				[
 					rehypeAutolinkHeadings,
 					{

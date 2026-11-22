@@ -173,6 +173,19 @@ test.describe('Responsive Breakpoints', () => {
 		}
 	});
 
+	// The same clip hid a wide table's last columns; its box scrolls sideways instead
+	test('a wide table scrolls inside the 320px screen', async ({ page }) => {
+		await page.setViewportSize({ width: 320, height: 568 });
+		await page.goto('/talks/mongodb-schema-design-best-practices/');
+		const box = page.locator('.prose .table-scroll').first();
+		const { right, scrolls } = await box.evaluate((el) => ({
+			right: el.getBoundingClientRect().right,
+			scrolls: el.scrollWidth > el.clientWidth && getComputedStyle(el).overflowX === 'auto',
+		}));
+		expect(right).toBeLessThanOrEqual(320);
+		expect(scrolls).toBe(true);
+	});
+
 	test('large desktop (1920px) renders correctly', async ({ page }) => {
 		await page.setViewportSize({ width: 1920, height: 1080 });
 		await page.goto('/');
