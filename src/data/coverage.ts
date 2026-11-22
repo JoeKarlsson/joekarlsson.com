@@ -47,6 +47,9 @@ export const LEAD_STORY = {
 		'Crop art mosaic reading Cave Canem Tumultum depicting the famous Greek riot dog Loukanikos running with a red bandana, made from white and dark seeds',
 };
 
+// /featured/'s share card, drawn from this file by scripts/generate-featured-card.mjs
+export const SHARE_CARD = '/images/featured/share-21d061c8.webp';
+
 // About shows the first three
 export const papers: Paper[] = [
 	{

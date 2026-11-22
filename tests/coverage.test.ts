@@ -4,6 +4,7 @@ import {
 	BUILT_ON_GROUPS,
 	COVERAGE_GROUPS,
 	LEAD_STORY,
+	SHARE_CARD,
 	coverage,
 	papers,
 } from '../src/data/coverage';
@@ -32,7 +33,8 @@ describe('coverage.ts', () => {
 		for (const entry of coverage) expect(shown, entry.url).toContain(entry.kind);
 	});
 
-	it('has the lead story’s picture', () => {
+	it('has the lead story’s picture and the share card', () => {
 		expect(existsSync(`public${LEAD_STORY.image}`)).toBe(true);
+		expect(existsSync(`public${SHARE_CARD}`), 'run npm run featured:card').toBe(true);
 	});
 });

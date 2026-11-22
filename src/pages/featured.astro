@@ -9,15 +9,15 @@ import KeepExploring from '../components/KeepExploring.astro';
 import PaperCitations from '../components/PaperCitations.astro';
 import PosterHero from '../components/PosterHero.astro';
 import SectionRule from '../components/SectionRule.astro';
-import { BUILT_ON_GROUPS, COVERAGE_GROUPS, LEAD_STORY } from '../data/coverage';
+import { BUILT_ON_GROUPS, COVERAGE_GROUPS, LEAD_STORY, SHARE_CARD } from '../data/coverage';
 import { HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } from '../utils/ui';
 ---
 
 <BaseLayout
 	title="Featured on | Joe Karlsson"
 	description="Research papers that cite Joe Karlsson’s work, the code and courses built on it, and the press, newsletters and threads that wrote about it."
-	image={LEAD_STORY.image}
-	imageAlt={LEAD_STORY.imageAlt}
+	image={SHARE_CARD}
+	imageAlt="FEATURED and Joe Karlsson’s name over a wall of the outlets, courses and threads that wrote about his work, with the research venues that cite him in pink"
 	schemaType="CollectionPage"
 >
 	<div class={PAGE_CONTAINER}>
