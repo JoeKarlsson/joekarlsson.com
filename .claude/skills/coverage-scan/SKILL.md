@@ -35,7 +35,12 @@ Spawn four `general-purpose` agents in one message, one per lane below. Give eac
 3. **Courses and code.** `gh search code` and `gh search repos` for each of his domains and post URLs (curricula, bootcamp repos, class projects, awesome lists, handbooks), university course pages, translations of his posts.
 4. **Threads and blogs.** Hacker News through the Algolia API (`hn.algolia.com/api/v1/search?query=<domain>&restrictSearchableAttributes=url`), Stack Overflow (`api.stackexchange.com/2.3/search/excerpts?q=<domain>&site=stackoverflow`), Reddit (old.reddit.com search, often blocked; say so if it is), Lemmy, Lobsters, dev.to, Hashnode, Medium and personal blogs linking his posts.
 
-Yourself, meanwhile: pull the last 90 days of referrers from Plausible (as the `analytics` skill does: `source .env` inside the command, output through `node scripts/untrusted-text.mjs`) and look for sites that send traffic but aren't on the list. A referrer is a lead, not a find: open the page and find the link.
+Yourself, meanwhile, check the two places that already know who links the site:
+
+- **Search Console's Links report** (Links, then Top linking sites) for joekarlsson.com. The Nov 2026 scan found How-To Geek, ClickUp and the Weekly Thing there and nowhere else.
+- **Plausible referrers** for the last 90 days (as the `analytics` skill does: `source .env` inside the command, output through `node scripts/untrusted-text.mjs`).
+
+A linking site or referrer is a lead, not a find: open the page and find the link.
 
 ## 3. Verify every candidate yourself
 
@@ -51,7 +56,7 @@ An agent's find is a claim. For each one:
 Each confirmed find goes in `src/data/coverage.ts`:
 
 - A paper goes in `papers`, ordered by how notable the venue is (top conferences and journals first). The first three show on About, so only move one into the top three if it's at least as strong as what's there.
-- Everything else goes in `coverage` with the right `kind`: `press`, `interview`, `newsletter`, `course`, `writeup`, `reuse` (repos and projects built on his work), `thread`. `date` as `YYYY-MM-DD` when the page has one, else the year. `note` stays short.
+- Everything else goes in `coverage` with the right `kind`. /featured/ shows Built on my work (`BUILT_ON_GROUPS`: `code` for repos and projects built on his work, `course`, `reuse` for lists and handbooks that recommend it) and then the coverage (`COVERAGE_GROUPS`: `press`, `interview`, `newsletter`, `writeup`, `thread`). A test fails on a kind no group shows. `date` as `YYYY-MM-DD` when the page has one, else the year. `note` stays short.
 - Each URL appears once (the test checks).
 
 Redraw the share card so the new outlets join its wall: `npm run featured:card` (it rewrites `SHARE_CARD` in coverage.ts; look at the new card). Then `npx vitest run tests/coverage.test.ts`, build, and look at /featured/ on `npx astro preview`. A new paper changes a visible card: if it lands in the top three, look at About's Written about section at desktop and 320px too (`e2e/pages.spec.ts` has the 320px check).
