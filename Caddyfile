@@ -177,6 +177,6 @@
 	# - no-cache: must revalidate before using cached copy
 	# - s-maxage=0: CDNs must not cache (prevents the HTML/CSS mismatch bug)
 	# - must-revalidate: treat stale responses as errors
-	@html path *.html /
+	@html path *.html */
 	header @html Cache-Control "no-cache, s-maxage=0, must-revalidate"
 }
