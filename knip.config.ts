@@ -19,6 +19,8 @@ const config: KnipConfig = {
 		// youtube-thumbnail.mjs, run by hand on a Mac, compiles its Vision cut-out helper with Xcode's swiftc
 		'swiftc',
 	],
+	// Imported only from CSS (src/styles/global.css: @import 'tailwindcss'), which knip doesn't read
+	ignoreDependencies: ['tailwindcss'],
 	ignoreExportsUsedInFile: true,
 };
 
