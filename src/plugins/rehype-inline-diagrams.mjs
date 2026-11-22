@@ -16,7 +16,7 @@ import { visit } from 'unist-util-visit';
  * replaces that label so the post stays the source of truth.
  *
  * Like rehype-gif-video this reads public/ from disk, which Astro doesn't track:
- * after re-rendering a figure, clear node_modules/.astro before a local build.
+ * after re-rendering a figure, clear .astro before a local build.
  */
 export default function rehypeInlineDiagrams({ publicDir = 'public' } = {}) {
 	return (tree) => {

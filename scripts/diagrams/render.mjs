@@ -79,8 +79,8 @@ if (flag) {
 	console.log(`Rendered ${rendered.length} figures for ${slug}`);
 	// Posts inline their diagrams at build time (rehype-inline-diagrams), but Astro caches
 	// rendered markdown without tracking the SVG files, so the next build would ship the old ones
-	rmSync(path.join(root, 'node_modules/.astro'), { recursive: true, force: true });
-	console.log('Cleared node_modules/.astro so the next build inlines the new figures.');
+	rmSync(path.join(root, '.astro'), { recursive: true, force: true });
+	console.log('Cleared .astro so the next build inlines the new figures.');
 }
 if (problems) {
 	console.error(`${problems} layout problem(s): move or resize the parts named above.`);

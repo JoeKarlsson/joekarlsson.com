@@ -176,9 +176,9 @@ fi
 # broken image, and one CI never sees because its cache is always cold. Drop the
 # content cache so the next build re-renders those posts.
 if [ "$DRY_RUN" -eq 0 ] && [ $((CONVERTED + SKIPPED)) -gt 0 ]; then
-	rm -rf node_modules/.astro
+	rm -rf .astro
 	echo ""
-	echo "Cleared node_modules/.astro so the next build re-renders affected posts."
+	echo "Cleared .astro so the next build re-renders affected posts."
 fi
 
 if [ "$FAILED" -gt 0 ]; then

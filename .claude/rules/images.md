@@ -32,7 +32,7 @@ node scripts/convert-animated-webp-to-video.mjs --min 256 [--dry-run] [paths...]
 
 ## Astro caching gotcha
 
-`rehype-gif-video` probes the filesystem, which Astro does not track as a dependency of the markdown it caches. Converting an animation without clearing `node_modules/.astro` makes the next build re-emit `<img src="...gif">` for a file that no longer exists. Both video converters clear that cache themselves, `validate-images.sh` fails on any built `<img>`/`<video>` whose source is missing from `dist/`, and `deploy.sh` runs that check before shipping. CI never hits this (cold cache); local `./deploy.sh` would have.
+`rehype-gif-video` probes the filesystem, which Astro does not track as a dependency of the markdown it caches. Converting an animation without clearing `.astro` makes the next build re-emit `<img src="...gif">` for a file that no longer exists. Both video converters clear that cache themselves, `validate-images.sh` fails on any built `<img>`/`<video>` whose source is missing from `dist/`, and `deploy.sh` runs that check before shipping. CI never hits this (cold cache); local `./deploy.sh` would have.
 
 ## Size gates
 

@@ -275,9 +275,9 @@ if (bytesBefore > 0) {
 // Same trap as the GIF script: rehype-gif-video probes the filesystem, which
 // Astro does not track as a dependency of the markdown it caches.
 if (!DRY_RUN && converted + skipped > 0) {
-	fs.rmSync('node_modules/.astro', { recursive: true, force: true });
+	fs.rmSync('.astro', { recursive: true, force: true });
 	console.log('');
-	console.log('Cleared node_modules/.astro so the next build re-renders affected posts.');
+	console.log('Cleared .astro so the next build re-renders affected posts.');
 }
 
 process.exit(failed > 0 ? 1 : 0);

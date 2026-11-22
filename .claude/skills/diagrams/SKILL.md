@@ -32,7 +32,7 @@ the phone layout under 640px. Clicking a diagram opens the lightbox.
 5. **Swap the post's images** for `![alt](/images/blog/<slug>/<name>.svg)`, one per
    figure, alt text written for the post. Delete the old image files in the same
    change once nothing else references them.
-6. **Check the built page**: `rm -rf node_modules/.astro` (the plugin reads public/
+6. **Check the built page**: `rm -rf .astro` (the plugin reads public/
    from disk, which Astro's cache doesn't track), `npx astro build`, serve `dist/`
    on a free port, and look at the figure at 1280px, at 390px and in the lightbox.
 
