@@ -1,5 +1,5 @@
 // Every way of counting: each method's estimate slides in from 0 and settles, its interval
-// opens out, and the about-40% line is drawn last.
+// opens out, and the about-40% line is drawn last. The paper's numbers (paper/*-output.md).
 import { COLORS, DATA, MUTED, easeOut, label, layers, n, panel, prog } from './_chart.mjs';
 
 const ROWS = DATA.every_count;
@@ -7,7 +7,7 @@ const MAX = 70;
 const T_LINE = 3.3;
 
 export const alt =
-	'Dot and interval chart: the share of the 1700-49 to 1900-49 drop in sentence length that disappears when semicolons and colons count as sentence ends, measured eleven ways with 95% bootstrap intervals. Weighted by the hand-coded glue rate: 38% (28 to 48). Weighted with a strict sentence splitter: 42%. Semicolons only: 42%. Dashes counted too: 43%. Base count: 47% (38 to 60). Plays and poetry removed: 48%. English originals: 48%. Measured from 1750-99: 49%. Strict sentence splitter: 52%. Narration only: 54%. English originals by both checks: 58% (50 to 61). Every estimate lands between 38% and 58%; a line marks about 40%.';
+	"Dot and interval chart: the share of the 1700-49 to 1900-49 drop in sentence length that is punctuation, measured eleven ways with 95% intervals. Each way counts a semicolon or colon only as often as it glues two clauses, except the last. Dashes counted as stops: 39%. Measured from 1750-99: 39%. The second coder's rates: 39%. The main estimate, all books: 40% (24 to 51). Each era's own glue rates: 41%. Plays and poetry removed: 41%. Editors' notes removed: 41%. Strict sentence splitter: 43%. Narration only: 45%. English originals, checked by title page: 45% (29 to 53). Every semicolon and colon counted as a stop: 48% (33 to 61). A line marks about 40%.";
 
 function chart(f, { W, H, phone }) {
 	const L = phone ? 28 : 270;
@@ -20,7 +20,7 @@ function chart(f, { W, H, phone }) {
 	f.text(
 		phone ? 20 : 16,
 		phone ? 18 : 20,
-		phone ? 'Every way of counting' : 'Every way of counting lands between 38% and 58%',
+		phone ? 'Every way of counting' : 'Every way of counting lands between 39% and 48%',
 		{
 			font: 'display',
 			size: phone ? 19 : 22,
@@ -33,7 +33,7 @@ function chart(f, { W, H, phone }) {
 		phone ? 37 : 62,
 		phone
 			? 'Share of the drop that is punctuation'
-			: 'Share of the 1700-49 to 1900-49 drop in sentence length that disappears, with 95% intervals',
+			: 'Share of the 1700-49 to 1900-49 drop that is punctuation, with 95% intervals',
 		{
 			size: phone ? 14 : 13.5,
 			anchor: 'start',

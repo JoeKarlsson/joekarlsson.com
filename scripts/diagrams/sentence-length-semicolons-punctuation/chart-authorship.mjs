@@ -1,4 +1,4 @@
-// Authorship from punctuation alone: the 708 books drop, a row at a time, into "named right"
+// Authorship from punctuation alone, one copy of each work: the 645 books drop, a row at a time, into "named right"
 // and "named wrong" piles. Then the two shuffled baselines land on a scale under them.
 import { COLORS, DATA, MUTED, easeOut, label, layers, n, panel, prog } from './_chart.mjs';
 
@@ -7,7 +7,7 @@ const T0 = 0.3;
 const ROW = 0.07;
 
 export const alt =
-	'Punctuation alone names the author of 241 of 708 books (34%), across 132 authors with three or more works: the books drop as dots into a pink pile named right and a larger chalk pile named wrong. Underneath, on a percent scale: with author labels shuffled, the same test gets 0.8% (chance is 1 in 132); with labels shuffled only among books of the same genre, 4.2%. English originals alone get 35%.';
+	'Punctuation alone names the author of 229 of 645 books (35.5%), across 122 authors with three or more works, counting one copy of each work: the books drop as dots into a pink pile named right and a larger chalk pile named wrong. Underneath, on a percent scale: with author labels shuffled, the same test gets 0.9% (chance is 1 in 122); with labels shuffled only among books of the same genre, 3.3%. Books not flagged as translations alone get 41%.';
 
 function chart(f, { W, H, phone }) {
 	const cols = phone ? 16 : 24;
@@ -49,8 +49,8 @@ function chart(f, { W, H, phone }) {
 		phone ? 20 : 16,
 		phone ? 37 : 62,
 		phone
-			? '708 books by 132 authors, one dot each'
-			: '708 books by 132 authors, one dot each. Each book is guessed from the other books’ averages.',
+			? `${A.books} books by ${A.authors} authors, one dot each`
+			: `${A.books} books by ${A.authors} authors, one dot each. Each book is guessed from the other books’ averages.`,
 		{
 			size: 13,
 			anchor: 'start',
@@ -84,7 +84,9 @@ function chart(f, { W, H, phone }) {
 	f.text(
 		phone ? 20 : 16,
 		sTop + (phone ? 84 : 76),
-		phone ? 'English originals alone: 35%' : 'English originals alone, no translations: 35%',
+		phone
+			? `English originals alone: ${Math.round(A.english_only)}%`
+			: `English originals alone, no translations: ${Math.round(A.english_only)}%`,
 		{
 			size: 13,
 			anchor: 'start',
@@ -99,21 +101,23 @@ function chart(f, { W, H, phone }) {
 	const markers = [
 		{
 			v: A.rate,
-			text: phone ? '34% real' : '34%: the real test',
+			text: phone ? `${A.rate}% real` : `${A.rate}%: the real test`,
 			color: COLORS.pink,
 			at: T_SCALE,
 			up: true,
 		},
 		{
 			v: A.genre_shuffled_mean,
-			text: phone ? '4.2% genre kept' : '4.2%: shuffled within genre',
+			text: phone
+				? `${A.genre_shuffled_mean}% genre kept`
+				: `${A.genre_shuffled_mean}%: shuffled within genre`,
 			color: COLORS.paper,
 			at: T_SCALE + 0.5,
 			up: false,
 		},
 		{
 			v: A.shuffled_mean,
-			text: phone ? '0.8% shuffled' : '0.8%: labels shuffled',
+			text: phone ? `${A.shuffled_mean}% shuffled` : `${A.shuffled_mean}%: labels shuffled`,
 			color: MUTED,
 			at: T_SCALE + 1,
 			up: true,

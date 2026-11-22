@@ -1,5 +1,5 @@
 // Careers: each author's fitted semicolon rate grows from their first dated book to their
-// last, over the whole shelf's median by period. Half rise, half fall. The inset is the
+// last, over the whole shelf's median by period. About half rise, half fall. The inset is the
 // model with both publication year and birth year: each takes about half.
 import {
 	COLORS,
@@ -21,6 +21,8 @@ const M = DATA.cohort_model;
 const T0 = 0.3;
 const EACH = 0.14;
 const T_INSET = T0 + C.length * EACH + 0.6;
+// Phone: one 20px row per author from y=104, then room for the axis
+const PHONE_B = 104 + C.length * 20 + 26;
 const NAMED = {
 	'Charles Dickens': 'Dickens',
 	'Henry James': 'Henry James',
@@ -29,13 +31,13 @@ const NAMED = {
 };
 
 export const alt =
-	'Seventeen authors with five or more dated books spanning 20 or more years, each drawn as a line from the fitted semicolon rate of their first book to their last, over the median book of the whole shelf by 25-year period. Eight fall and nine rise. Dickens falls from 11.8 to 5.6 semicolons per 1,000 words (1836-1870), Henry James from 12.4 to 6.8; Jane Austen rises from 6.0 to 15.5 and Mark Twain from 8.6 to 13.6. In a model of 748 English-original books from 1750 to 1974 with both, publication year accounts for -3.1 semicolons per 1,000 words per century (95% interval -6.2 to -0.02, resampling authors) and author birth year for -3.7 (-6.7 to -0.7). The intervals overlap, so the model cannot say which matters more.';
+	'Thirteen authors with five or more dated books spanning 20 or more years (English originals, one copy of each work), each drawn as a line from the fitted semicolon rate of their first book to their last, over the median book of the whole shelf by 25-year period. Seven fall and six rise. Dickens falls from 11.9 to 5.5 semicolons per 1,000 words (1836-1870), Henry James from 12.4 to 6.8; Jane Austen rises from 6.0 to 15.5 and Mark Twain from 8.5 to 14.4. In a model of 748 English-original books from 1750 to 1974 with both, publication year accounts for -3.1 semicolons per 1,000 words per century (95% interval -6.2 to -0.02, resampling authors) and author birth year for -3.7 (-6.7 to -0.7). The intervals overlap, so the model cannot say which matters more.';
 
 function chart(f, { W, H, phone }) {
 	const L = phone ? 40 : 56;
 	const R = W - (phone ? 20 : 30);
 	const T = phone ? 102 : 92;
-	const B = phone ? 470 : 330;
+	const B = phone ? PHONE_B : 330;
 	const x = (yr) => L + ((yr - 1590) / (1975 - 1590)) * (R - L);
 	const y = (v) => B - (v / 18) * (B - T);
 	panel(f, 6, phone ? 46 : 42, W - 12, H - (phone ? 52 : 48));
@@ -233,18 +235,24 @@ function chart(f, { W, H, phone }) {
 	function counts(el) {
 		const at = phone ? rowTop - 26 : T - 8;
 		return [
-			label(el, R, at, '8 fall', {
+			label(el, R, at, `${C.filter((c) => c.slope_per_decade < 0).length} fall`, {
 				size: 14,
 				anchor: 'end',
 				color: COLORS.chalk,
 				anims: { opacity: (t) => (t >= T_INSET - 0.4 ? 1 : 0) },
 			}),
-			label(el, R - (phone ? 52 : 58), at, '9 rise', {
-				size: 14,
-				anchor: 'end',
-				color: COLORS.pink,
-				anims: { opacity: (t) => (t >= T_INSET - 0.4 ? 1 : 0) },
-			}),
+			label(
+				el,
+				R - (phone ? 52 : 58),
+				at,
+				`${C.filter((c) => c.slope_per_decade > 0).length} rise`,
+				{
+					size: 14,
+					anchor: 'end',
+					color: COLORS.pink,
+					anims: { opacity: (t) => (t >= T_INSET - 0.4 ? 1 : 0) },
+				},
+			),
 		];
 	}
 
@@ -322,4 +330,7 @@ function chart(f, { W, H, phone }) {
 }
 
 export const desktop = { height: 470, draw: (f) => chart(f, { W: 640, H: 470, phone: false }) };
-export const phone = { height: 620, draw: (f) => chart(f, { W: 360, H: 620, phone: true }) };
+export const phone = {
+	height: PHONE_B + 150,
+	draw: (f) => chart(f, { W: 360, H: PHONE_B + 150, phone: true }),
+};

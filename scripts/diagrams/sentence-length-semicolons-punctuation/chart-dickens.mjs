@@ -1,5 +1,5 @@
-// Dickens, 0 of 20: each of his books flies from his shelf to the author its punctuation was
-// taken for. Seven land on Robert E. Howard.
+// Dickens, 1 of 19 (one copy of each work): each book taken for someone else flies from his shelf
+// to that author; the one matched to him stays put. Five land on Robert E. Howard.
 import { COLORS, DATA, MUTED, PANEL, easeOut, label, layers, n, panel, prog } from './_chart.mjs';
 
 const D = DATA.dickens;
@@ -8,13 +8,13 @@ const T0 = 0.5;
 const EACH = 0.16;
 
 export const alt =
-	'Charles Dickens is 0 of 20: going by punctuation alone, none of his 20 books is matched to him. Each book flies from his shelf to the author it was taken for: Robert E. Howard 7, Alexandre Dumas 3, Fyodor Dostoyevsky 2, and one each to Jules Verne, Robert Louis Stevenson, Homer, Edgar Allan Poe, Jacob Grimm, Leo Tolstoy, John Milton and Bertrand Russell.';
+	'Charles Dickens is 1 of 19: going by punctuation alone, one of his 19 books is matched to him and stays on his shelf. Each of the other 18 flies to the author it was taken for: Robert E. Howard 5, Fyodor Dostoyevsky 2, Alexandre Dumas 2, Lord Byron 2, and one each to Jules Verne, Robert Louis Stevenson, Edgar Allan Poe, Jacob Grimm, Leo Tolstoy, John Milton and Charles Darwin.';
 
 function chart(f, { W, H, phone }) {
 	const bw = phone ? 9 : 14;
 	const bh = phone ? 13 : 20;
 	const step = phone ? 13 : 20;
-	// Dickens's shelf: a grid of his 20 books
+	// Dickens's shelf: a grid of his books
 	const srcCols = phone ? 10 : 4;
 	const srcX = phone ? (W - srcCols * step) / 2 : 84;
 	const srcY = phone ? 104 : 160;
@@ -33,7 +33,9 @@ function chart(f, { W, H, phone }) {
 	f.text(
 		phone ? 20 : 16,
 		phone ? 18 : 20,
-		phone ? 'Dickens: 0 of 20' : 'Dickens: 0 of 20, and 7 went to Robert E. Howard',
+		phone
+			? `Dickens: ${D.right} of ${D.books}`
+			: `Dickens: ${D.right} of ${D.books}, and ${WHO[0][1]} went to ${WHO[0][0]}`,
 		{
 			font: 'display',
 			size: phone ? 19 : 22,
@@ -46,7 +48,7 @@ function chart(f, { W, H, phone }) {
 		phone ? 37 : 62,
 		phone
 			? 'Who his books were taken for'
-			: 'Going by punctuation alone, who each of his 20 books was taken for',
+			: `Going by punctuation alone, who each of his ${D.books} books was taken for`,
 		{
 			size: 13,
 			anchor: 'start',
@@ -120,13 +122,20 @@ function chart(f, { W, H, phone }) {
 				);
 			}
 		});
-		const [, lastY] = src(19);
+		// The books matched to Dickens stay on his shelf, after the ones that flew
+		for (let s = 0; s < D.right; s++) {
+			const [x, y] = src(books.length + s);
+			out.push(
+				`<rect x="${n(x - bw / 2)}" y="${n(y - bh / 2)}" width="${bw}" height="${bh}" fill="${COLORS.pink}" stroke="${PANEL}" stroke-width="1"/>`,
+			);
+		}
+		const [, lastY] = src(D.books - 1);
 		out.push(
 			label(
 				el,
 				phone ? W / 2 : srcX + (srcCols * step) / 2 - 2,
 				lastY + (phone ? 26 : 34),
-				phone ? '0 named Dickens' : '0 named Dickens',
+				`${D.right} named Dickens`,
 				{
 					size: phone ? 15 : 17,
 					color: COLORS.pink,

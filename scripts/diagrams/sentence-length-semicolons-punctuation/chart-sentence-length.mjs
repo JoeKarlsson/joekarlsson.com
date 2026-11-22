@@ -6,7 +6,7 @@ import { COLORS, DATA, MUTED, easeOut, label, layers, n, panel, pathOf, prog } f
 const P = DATA.sentence_length_50yr;
 
 export const alt =
-	'Line chart of median sentence length in 954 dated Project Gutenberg books, by 50-year period from 1600 to 1974. Counting only periods, question marks and exclamation marks as sentence ends, sentences peak at 30.3 words in 1700-49 and fall to 14.5 in 1900-49 and 12.5 in 1950-74. Counting semicolons and colons as stops too, the second line runs from 21.6 in 1700-49 to 13.3 in 1900-49, and the two lines meet at 12.4 in 1950-74. The gap between them, the glued sentences, is widest before 1800.';
+	'Line chart of median sentence length in 938 dated Project Gutenberg books (duplicate copies removed), by 50-year period from 1600 to 1974. Counting only periods, question marks and exclamation marks as sentence ends, sentences peak at 31.1 words in 1700-49 and fall to 14.5 in 1900-49 and 12.5 in 1950-74. Counting semicolons and colons as stops too, the second line runs from 21.9 in 1700-49 to 13.3 in 1900-49, and the two lines meet at 12.4 in 1950-74. The gap between them, the glued sentences, is widest before 1800.';
 
 const T_DRAW = 0.3;
 const DRAW = 1.6;
@@ -161,22 +161,22 @@ function chart(f, { W, H, phone }) {
 					anims: { opacity: shown(T_LABELS) },
 				}),
 			),
-			label(el, px(2), py(30.3) - 15, '30.3', {
+			label(el, px(2), py(P[2].between_periods) - 15, `${P[2].between_periods.toFixed(1)}`, {
 				size: phone ? 14 : 16,
 				color: COLORS.pink,
 				anims: { opacity: shown(T_DRAW + DRAW * 0.3) },
 			}),
-			label(el, px(6), py(14.5) - 15, '14.5', {
+			label(el, px(6), py(P[6].between_periods) - 15, `${P[6].between_periods.toFixed(1)}`, {
 				size: phone ? 14 : 16,
 				color: COLORS.pink,
 				anims: { opacity: shown(T_DRAW + DRAW * 0.9) },
 			}),
-			label(el, px(2), py(21.6) + 17, '21.6', {
+			label(el, px(2), py(P[2].between_stops) + 17, `${P[2].between_stops.toFixed(1)}`, {
 				size: phone ? 14 : 16,
 				color: COLORS.chalk,
 				anims: { opacity: shown(T_LABELS) },
 			}),
-			label(el, px(6), py(13.3) + 17, '13.3', {
+			label(el, px(6), py(P[6].between_stops) + 17, `${P[6].between_stops.toFixed(1)}`, {
 				size: phone ? 14 : 16,
 				color: COLORS.chalk,
 				anims: { opacity: shown(T_LABELS) },

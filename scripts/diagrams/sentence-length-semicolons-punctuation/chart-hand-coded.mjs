@@ -1,5 +1,5 @@
-// The hand-coded sample: 100 random semicolons and colons from 1700s English prose, each a
-// paper slip that turns over, in coding order, to glue (pink: it joins two clauses) or not.
+// The hand-coded sample: the 82 semicolons and colons from English-original 1700s prose (the paper's
+// glue rates), each a paper slip that turns over, in coding order, to glue (pink: it joins two clauses) or not.
 import { COLORS, DATA, PANEL, SANS, label, layers, n, panel, prog, tornRect } from './_chart.mjs';
 
 const CODES = DATA.hand_coded.codes;
@@ -8,7 +8,7 @@ const EACH = 0.035;
 const FLIP = 4 / 12; // four drawings: edge-on at the middle two
 
 export const alt =
-	'One hundred paper slips, one for each semicolon and colon pulled at random from 1700s English prose and coded twice, by two separate Claude agents that agreed on 95 of 100. Each turns over to pink if the mark glues two clauses that could each stand as a sentence, or dark if it separates a list, introduces a quotation, or sits in a heading or footnote. 43 of 60 semicolons glue two clauses (72%), and 23 of 40 colons do (58%).';
+	'Eighty-two paper slips, one for each semicolon and colon from English-original 1700s prose in a random sample of 100. Each turns over to pink if the mark glues two clauses that could each stand as a sentence, or dark if it separates a list, introduces a quotation, or sits in a heading or footnote. 36 of 50 semicolons glue two clauses (72%), and 19 of 32 colons do (59%).';
 
 function chart(f, { W, H, phone }) {
 	const cols = phone ? 10 : 20;
@@ -20,7 +20,7 @@ function chart(f, { W, H, phone }) {
 	f.text(
 		phone ? 20 : 16,
 		phone ? 18 : 20,
-		phone ? 'Does it glue two clauses?' : 'Does the mark glue two clauses? 100 marks, coded twice',
+		phone ? 'Does it glue two clauses?' : 'Does the mark glue two clauses? 82 marks from the 1700s',
 		{
 			font: 'display',
 			size: phone ? 19 : 22,
@@ -29,7 +29,7 @@ function chart(f, { W, H, phone }) {
 		},
 	);
 	if (phone)
-		f.text(12, 37, '100 marks, two coders agree on 95', {
+		f.text(12, 37, '82 marks from English originals', {
 			size: 14,
 			anchor: 'start',
 			color: COLORS.muted,
@@ -39,9 +39,9 @@ function chart(f, { W, H, phone }) {
 		{
 			name: 'Semicolons',
 			codes: CODES.filter((c) => c.mark === ';'),
-			total: '43 of 60 glue (72%)',
+			total: '36 of 50 glue (72%)',
 		},
-		{ name: 'Colons', codes: CODES.filter((c) => c.mark === ':'), total: '23 of 40 glue (58%)' },
+		{ name: 'Colons', codes: CODES.filter((c) => c.mark === ':'), total: '19 of 32 glue (59%)' },
 	];
 	let y = phone ? 82 : 78;
 	const placed = [];
@@ -149,4 +149,4 @@ function chart(f, { W, H, phone }) {
 }
 
 export const desktop = { height: 330, draw: (f) => chart(f, { W: 640, H: 330, phone: false }) };
-export const phone = { height: 520, draw: (f) => chart(f, { W: 360, H: 520, phone: true }) };
+export const phone = { height: 490, draw: (f) => chart(f, { W: 360, H: 490, phone: true }) };

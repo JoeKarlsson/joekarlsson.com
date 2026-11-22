@@ -19,7 +19,7 @@ const T0 = 0.3;
 const DRAW = 2;
 
 export const alt =
-	'Line chart of median words between stops (periods, question marks, exclamation marks, semicolons and colons), by 50-year period from 1700-49 to 1950-74. Narration alone, with every quoted word removed, falls from 21.9 words in 1700-49 to 14.5 in 1900-49 and 13.0 in 1950-74. All the text falls from 21.6 to 13.3 and 12.4. The two lines fall together, so sentences got shorter outside dialogue too. The 1700-49 period has only 18 books.';
+	'Line chart of median words between stops (periods, question marks, exclamation marks, semicolons and colons), by 50-year period from 1700-49 to 1950-74, in the 883 deduplicated books that still have a full text. Narration alone, with every quoted word removed, falls from 21.9 words in 1700-49 to 14.6 in 1900-49. All the text falls from 21.9 to 13.3. The two lines fall together, so sentences got shorter outside dialogue too. 1700-49 has only 16 books and 1950-74 only 17, where narration sits at 14.9 and all the text at 13.2.';
 
 function chart(f, { W, H, phone }) {
 	const L = phone ? 64 : 60;
@@ -111,7 +111,7 @@ function chart(f, { W, H, phone }) {
 					),
 				),
 			);
-			// on a phone the chalk 21.6 lands on its own falling line; the pink 21.9 beside it says enough
+			// on a phone the chalk start value lands on its own falling line; the pink one beside it says enough
 			[phone && s.below ? -1 : 0, P.findIndex((p) => p.period.startsWith('1900'))]
 				.filter((i) => i >= 0)
 				.forEach((i) =>

@@ -20,7 +20,7 @@ const T0 = 0.6;
 const EACH = 0.15;
 
 export const alt =
-	'Bar chart: how often punctuation alone names the author when one of the ten tracked marks is left out of the fingerprint, against 34% with all ten. Without the period: 30.9%. Without the comma or the colon: 31.4%. Without the apostrophe or question mark: 32.1%. Without the semicolon, dash or parentheses: 32.3%. Without the exclamation mark: 32.6%. Without the double quote: 33.8%. No single mark carries the signature.';
+	'Bar chart: how often punctuation alone names the author when one of the ten tracked marks is left out of the fingerprint, against 35.5% with all ten, counting one copy of each work. Without the period: 31.2%. Without the colon: 31.6%. Without the comma: 31.8%. Without the exclamation mark: 32.7%. Without the semicolon or parentheses: 32.9%. Without the apostrophe: 33.3%. Without the question mark: 33.5%. Without the dash: 33.6%. Without the double quote: 34.1%. No single mark carries the signature.';
 
 function chart(f, { W, H, phone }) {
 	const L = phone ? 160 : 210;
@@ -120,10 +120,16 @@ function chart(f, { W, H, phone }) {
 				'stroke-width': 2.5,
 				'stroke-dasharray': '6 5',
 			}),
-			label(el, x(LO.none), top - 24, phone ? 'all ten: 34%' : 'all ten marks: 34%', {
-				size: 13,
-				color: COLORS.pink,
-			}),
+			label(
+				el,
+				x(LO.none),
+				top - 24,
+				phone ? `all ten: ${LO.none}%` : `all ten marks: ${LO.none}%`,
+				{
+					size: 13,
+					color: COLORS.pink,
+				},
+			),
 		);
 		return out.join('');
 	});

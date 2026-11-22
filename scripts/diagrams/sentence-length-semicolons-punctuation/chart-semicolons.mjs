@@ -18,7 +18,7 @@ const P = DATA.by_25yr;
 const T0 = 0.3;
 
 export const alt =
-	'Two dot charts on one time axis, by 25-year period from 1600 to 1974, medians per 1,000 words. Semicolons fall from 10.1 in 1775-99 to 4.6 in 1900-24 and 1.8 in 1950-74, with the steepest fall after 1825. Commas, above for scale, fall less: from 85.9 to 63.1 over the same periods. Periods before 1775 have fewer than 20 books each and are drawn hollow.';
+	'Two dot charts on one time axis, by 25-year period from 1600 to 1974, medians per 1,000 words, duplicate copies removed. Semicolons fall from 10.1 in 1775-99 to 4.6 in 1900-24 and 1.8 in 1950-74, with the steepest fall after 1825. Commas, above for scale, fall less: from 85.4 to 63.1 over the same periods. Periods before 1775 have fewer than 20 books each and are drawn hollow.';
 
 function chart(f, { W, H, phone }) {
 	const L = phone ? 40 : 58;
