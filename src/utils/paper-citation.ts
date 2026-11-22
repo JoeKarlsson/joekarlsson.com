@@ -70,7 +70,7 @@ export function scholarMeta(
 			...(a.orcid ? ([['citation_author_orcid', a.orcid]] as [string, string][]) : []),
 		]),
 		['citation_publication_date', ymd(paper.published, '/')],
-		['citation_online_date', ymd(paper.revised, '/')],
+		['citation_online_date', ymd(paper.published, '/')],
 		['citation_pdf_url', new URL(paper.pdf, site).href],
 		['citation_abstract_html_url', pageUrl],
 		...(paper.doi ? ([['citation_doi', paper.doi]] as [string, string][]) : []),

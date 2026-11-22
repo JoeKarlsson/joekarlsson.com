@@ -3,6 +3,7 @@
 // story for general readers; this list is for the ones who want the paper.
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import MetaParts from '../../components/MetaParts.astro';
 import PageTitle from '../../components/PageTitle.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { PAGE_CONTAINER } from '../../utils/ui';
@@ -27,21 +28,27 @@ const papers = (await getCollection('papers')).sort(
 			{papers.map((paper) => (
 				<li>
 					<p class="paper-list-meta">
-						<FormattedDate date={paper.data.published} /> · {paper.data.version}
+						<MetaParts>
+							<span>
+								<FormattedDate date={paper.data.published} />
+							</span>{' '}
+							<span>{paper.data.version}</span>
+						</MetaParts>
 					</p>
 					<h2>
 						<a href={`/papers/${paper.id}/`}>{paper.data.displayTitle}</a>
 					</h2>
 					<p>{paper.data.description}</p>
-					<p class="paper-list-links">
-						<a href={paper.data.pdf}>PDF</a>
+					<MetaParts class="paper-list-links">
+						<span>
+							<a href={paper.data.pdf}>PDF</a>
+						</span>{' '}
 						{paper.data.doi && (
-							<>
-								{' · '}
+							<span>
 								<a href={`https://doi.org/${paper.data.doi}`}>doi:{paper.data.doi}</a>
-							</>
+							</span>
 						)}
-					</p>
+					</MetaParts>
 				</li>
 			))}
 		</ol>

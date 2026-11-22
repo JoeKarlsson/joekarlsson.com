@@ -37,6 +37,22 @@ const untabbable = (node) =>
 				children: node.children.map(untabbable),
 			};
 
+/**
+ * An entry's children minus its trailing link to `source` and the full stop after it: the
+ * note's heading already links the source ("... Press. https://doi.org/... ." becomes "... Press.").
+ */
+function withoutLink(children, source) {
+	const at = children.indexOf(source);
+	if (at === -1) return children;
+	const before = children[at - 1];
+	const after = children[at + 1];
+	const kept = [...children.slice(0, at - (before?.type === 'text' ? 1 : 0))];
+	if (before?.type === 'text') kept.push(text(before.value.trimEnd()));
+	const rest = children.slice(at + 1);
+	if (after?.type === 'text' && /^\.\s*$/.test(after.value)) rest.shift();
+	return [...kept, ...rest];
+}
+
 function findAll(node, test, found = []) {
 	if (test(node)) found.push(node);
 	for (const child of node.children ?? []) findAll(child, test, found);
@@ -88,7 +104,7 @@ export default function rehypePaperCitations() {
 									]),
 								]),
 								text(' '),
-								...entry.children.map(untabbable),
+								...withoutLink(entry.children, source).map(untabbable),
 							],
 						),
 					);

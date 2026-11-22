@@ -7,6 +7,7 @@
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import ArticleFrame from '../../components/ArticleFrame.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
+import ImageLightbox from '../../components/ImageLightbox.astro';
 import MetaParts from '../../components/MetaParts.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { bibtex, chicagoCitation, scholarMeta } from '../../utils/paper-citation';
@@ -32,7 +33,10 @@ const bib = bibtex(data, pageUrl, paper.id);
 const toc = headings
 	.filter((h) => h.depth === 2 || h.depth === 3)
 	.map((h) => ({ ...h, text: h.text.replace(/#$/, '').trim() }));
-const abstractText = data.abstract.replace(/<[^>]+>/g, '').trim();
+const abstractText = data.abstract
+	.replace(/<[^>]+>/g, '')
+	.replace(/\u2060/g, '')
+	.trim();
 ---
 
 <BaseLayout
@@ -133,45 +137,42 @@ const abstractText = data.abstract.replace(/<[^>]+>/g, '').trim();
 				<a class="paper-act" href={data.pdf} data-plausible-event="Paper+PDF">
 					PDF <small>{Math.round(data.pdfBytes / 1024)} KB</small>
 				</a>
-				<button
-					type="button"
-					class="paper-act paper-act-quiet"
-					aria-expanded="false"
-					aria-controls="paper-cite"
-				>
-					Cite this
-				</button>
 				{data.repository && (
 					<a class="paper-act paper-act-quiet" href={data.repository}>
 						Code and data
 					</a>
 				)}
-			</div>
-			<div class="paper-cite-panel" id="paper-cite" hidden>
-				{[
-					{ label: 'Chicago', value: chicago },
-					{ label: 'BibTeX', value: bib },
-				].map(({ label, value }) => (
-					<div>
-						<div class="paper-cite-head">
-							<span>{label}</span>
-							<button
-								type="button"
-								class="copy-button paper-copy"
-								data-copy={value}
-								aria-label={`Copy the ${label} citation`}
-							>
-								<span class="icon-swap" aria-hidden="true">
-									<span data-icon-off>Copy</span>
-									<span data-icon-on>Copied!</span>
-								</span>
-							</button>
-						</div>
-						{label === 'BibTeX' ? <pre>{value}</pre> : <p>{value}</p>}
+				{/* Native disclosure: works without JS, and find in page reaches the citations */}
+				<details class="paper-cite">
+					<summary class="paper-act paper-act-quiet">Cite this</summary>
+					<div class="paper-cite-panel">
+						{[
+							{ label: 'Chicago', value: chicago },
+							{ label: 'BibTeX', value: bib },
+						].map(({ label, value }) => (
+							<div>
+								<div class="paper-cite-head">
+									<span>{label}</span>
+									<button type="button" class="copy-button paper-copy" data-copy={value}>
+										<span class="icon-swap">
+											<span data-icon-off>Copy {label}</span>
+											<span data-icon-on aria-hidden="true">
+												Copied!
+											</span>
+										</span>
+									</button>
+								</div>
+								{label === 'BibTeX' ? (
+									<pre tabindex="0" aria-label="BibTeX citation">{value}</pre>
+								) : (
+									<p>{value}</p>
+								)}
+							</div>
+						))}
 					</div>
-				))}
+				</details>
 			</div>
-			<section class="paper-abstract" aria-labelledby="abstract">
+			<section class="paper-abstract">
 				<h2 id="abstract">Abstract</h2>
 				<Fragment set:html={data.abstract} />
 				<p class="paper-keywords">
@@ -184,23 +185,18 @@ const abstractText = data.abstract.replace(/<[^>]+>/g, '').trim();
 			<Content />
 		</div>
 	</ArticleFrame>
+	<ImageLightbox />
 </BaseLayout>
 
 <script>
-	const toggle = document.querySelector<HTMLButtonElement>('[aria-controls="paper-cite"]');
-	const panel = document.getElementById('paper-cite');
-	toggle?.addEventListener('click', () => {
-		const open = toggle.getAttribute('aria-expanded') !== 'true';
-		toggle.setAttribute('aria-expanded', String(open));
-		panel?.toggleAttribute('hidden', !open);
-	});
-
 	// One polite live region says "Copied" for both buttons
 	const status = document.createElement('span');
 	status.setAttribute('role', 'status');
 	status.className = 'sr-only';
 	document.body.append(status);
 	document.querySelectorAll<HTMLButtonElement>('.paper-copy').forEach((button) => {
+		const idleLabel = button.querySelector<HTMLElement>('[data-icon-off]')!;
+		const idleText = idleLabel.textContent;
 		let reset: ReturnType<typeof setTimeout> | undefined;
 		button.addEventListener('click', async () => {
 			clearTimeout(reset);
@@ -213,9 +209,14 @@ const abstractText = data.abstract.replace(/<[^>]+>/g, '').trim();
 				button.classList.add('copied');
 				status.textContent = 'Copied';
 			} catch {
+				idleLabel.textContent = 'Failed';
 				status.textContent = 'Copy failed: select the text and copy it instead';
 			}
-			reset = setTimeout(() => button.removeAttribute('data-copied'), 2000);
+			reset = setTimeout(() => {
+				button.removeAttribute('data-copied');
+				idleLabel.textContent = idleText;
+				status.textContent = '';
+			}, 2000);
 		});
 	});
 </script>

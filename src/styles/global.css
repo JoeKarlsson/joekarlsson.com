@@ -1453,7 +1453,7 @@ header nav .sticker {
 	@apply mt-6 mb-3 flex flex-wrap gap-2.5;
 }
 .paper-act {
-	@apply cursor-pointer rounded-md border-2 border-pink bg-pink px-3.5 py-1.5 font-display text-xl leading-tight tracking-[0.02em] text-ink uppercase no-underline;
+	@apply inline-flex min-h-11 items-center cursor-pointer rounded-md border-2 border-pink bg-pink px-3.5 py-1.5 font-display text-xl leading-tight tracking-[0.02em] text-ink uppercase no-underline;
 }
 .paper-act small {
 	@apply ml-1 font-sans text-xs font-semibold;
@@ -1467,18 +1467,25 @@ header nav .sticker {
 .paper-act-quiet:hover {
 	@apply border-pink bg-transparent text-pink;
 }
-.paper-act-quiet[aria-expanded='true'] {
+/* "Cite this" is a native <details>: it opens onto its own full-width row under the buttons */
+.paper-cite[open] {
+	flex-basis: 100%;
+}
+.paper-cite > summary {
+	@apply w-fit list-none;
+}
+.paper-cite > summary::-webkit-details-marker {
+	display: none;
+}
+.paper-cite[open] > summary {
 	@apply bg-paper text-ink;
 }
 .paper-cite-panel {
 	/* minmax: the BibTeX scrolls inside its box instead of widening the page */
-	@apply mb-7 grid grid-cols-[minmax(0,1fr)] gap-4 border-y border-surface-4 py-3.5;
+	@apply mt-3 mb-4 grid grid-cols-[minmax(0,1fr)] gap-4 border-y border-surface-4 py-3.5;
 }
 .paper-cite-panel > div {
 	min-width: 0;
-}
-.paper-cite-panel[hidden] {
-	display: none;
 }
 .paper-cite-head {
 	@apply mb-1.5 flex items-center justify-between font-display text-[1.0625rem] tracking-[0.02em] text-paper uppercase;
@@ -1492,7 +1499,7 @@ header nav .sticker {
 }
 /* The pink ink stamp (DECISIONS.md 2026-11-19, 7B): it tilts and fills when it copies */
 .paper-copy {
-	@apply cursor-pointer border-[1.5px] border-pink bg-transparent px-2 py-1 font-sans text-[0.6875rem] font-bold tracking-[0.1em] text-pink uppercase;
+	@apply min-h-11 sm:min-h-0 cursor-pointer border-[1.5px] border-pink bg-transparent px-2 py-1 font-sans text-[0.6875rem] font-bold tracking-[0.1em] text-pink uppercase;
 }
 .paper-copy[data-copied] {
 	@apply -rotate-4 bg-pink text-ink;
@@ -1510,7 +1517,7 @@ header nav .sticker {
 	@apply mt-3 text-[0.9375rem] text-muted;
 }
 .paper-keywords b {
-	@apply mr-2 font-sans text-xs font-bold tracking-wider text-pink uppercase;
+	@apply mr-2 font-semibold text-paper;
 }
 .prose.paper-body :is(h2, h3) {
 	@apply font-serif text-paper normal-case;
@@ -1524,6 +1531,9 @@ header nav .sticker {
 }
 .prose.paper-body .header-section-number {
 	@apply mr-3 font-display font-normal text-pink not-italic;
+}
+.prose.paper-body a.uri {
+	overflow-wrap: anywhere;
 }
 .prose.paper-body table {
 	@apply text-[0.9375rem];
@@ -1584,6 +1594,10 @@ header nav .sticker {
 }
 .paper-strip a {
 	@apply text-pink;
+}
+.paper-strip-links a,
+.paper-list-links a {
+	@apply inline-flex min-h-11 items-center sm:min-h-6;
 }
 .paper-list {
 	@apply max-w-(--reading-width) list-none p-0;

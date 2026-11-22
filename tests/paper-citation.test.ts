@@ -46,9 +46,28 @@ describe('scholarMeta', () => {
 		const tags = scholarMeta(paper, url, 'https://www.joekarlsson.com');
 		expect(tags).toContainEqual(['citation_author', 'Karlsson, Joe']);
 		expect(tags).toContainEqual(['citation_publication_date', '2026/11/22']);
-		expect(tags).toContainEqual(['citation_online_date', '2026/12/01']);
+		expect(tags).toContainEqual(['citation_online_date', '2026/11/22']);
 		expect(tags).toContainEqual(['citation_pdf_url', 'https://www.joekarlsson.com/papers/x/x.pdf']);
 		expect(tags.filter(([n]) => n === 'citation_reference')).toHaveLength(1);
 		expect(tags.some(([n]) => n === 'citation_doi')).toBe(false);
+	});
+});
+
+describe('rehypePaperCitations', () => {
+	it("heads a source's first citation's note with its link, without repeating that link in the entry", async () => {
+		const { fromHtml } = await import('hast-util-from-html');
+		const { toHtml } = await import('hast-util-to-html');
+		const { default: rehypePaperCitations } =
+			await import('../src/plugins/rehype-paper-citations.mjs');
+		const tree = fromHtml(
+			'<p>As shown <span class="citation">(<a href="#ref-A1" role="doc-biblioref">Ames 1990</a>)</span>.</p>' +
+				'<div id="refs"><div id="ref-A1" class="csl-entry">Ames, Al. 1990. <em>Book</em>. Press. <a href="https://doi.org/10.1/x">https://doi.org/10.1/x</a>.</div></div>',
+			{ fragment: true },
+		);
+		rehypePaperCitations()(tree);
+		const note = toHtml(tree.children[0]);
+		expect(note).toContain('<a href="https://doi.org/10.1/x" tabindex="-1">Ames 1990</a>');
+		expect(note).toContain('Press.</aside>');
+		expect(note.match(/doi\.org/g)).toHaveLength(1);
 	});
 });

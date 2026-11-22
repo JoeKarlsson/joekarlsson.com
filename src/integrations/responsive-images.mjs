@@ -39,7 +39,7 @@ export function variantPath(src, width) {
 export function addSrcsets(html, widthOf) {
 	return html.replace(/<img\b[^>]*>/g, (tag) => {
 		if (!/\ssizes="/.test(tag) || /\ssrcset="/.test(tag)) return tag;
-		const src = tag.match(/\ssrc="(\/images\/[^"]+\.webp)"/)?.[1];
+		const src = tag.match(/\ssrc="(\/(?:images|papers)\/[^"]+\.webp)"/)?.[1];
 		if (!src) return tag;
 		const width = widthOf(src);
 		if (!width) return tag;

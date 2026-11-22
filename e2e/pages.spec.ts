@@ -186,6 +186,33 @@ test.describe('Responsive Breakpoints', () => {
 		expect(scrolls).toBe(true);
 	});
 
+	test('a paper page fits a 320px screen, its tables scrolling in their boxes', async ({
+		page,
+	}) => {
+		await page.setViewportSize({ width: 320, height: 568 });
+		await page.goto('/papers/sentence-length-punctuation/');
+		// Inside a scroll box a table may run wider; everything else has to fit
+		const rights = await page
+			.locator('main :not(.table-scroll *, svg, svg *, math, math *)')
+			.evaluateAll((els) =>
+				els
+					.filter((el) => el.getClientRects().length)
+					.map((el) => el.getBoundingClientRect().right),
+			);
+		for (const right of rights) expect(right).toBeLessThanOrEqual(320);
+		const boxes = await page.locator('.paper-body .table-scroll').evaluateAll((els) =>
+			els.map((el) => ({
+				right: el.getBoundingClientRect().right,
+				overflow: getComputedStyle(el).overflowX,
+			})),
+		);
+		expect(boxes.length).toBe(4);
+		for (const box of boxes) {
+			expect(box.right).toBeLessThanOrEqual(320);
+			expect(box.overflow).toBe('auto');
+		}
+	});
+
 	test('large desktop (1920px) renders correctly', async ({ page }) => {
 		await page.setViewportSize({ width: 1920, height: 1080 });
 		await page.goto('/');

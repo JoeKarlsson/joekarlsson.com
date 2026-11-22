@@ -30,8 +30,9 @@ export function initMarginNotes() {
 		el.addEventListener('focusout', unlight);
 		// A cite link goes to its source; its note is reached from the number beside it
 		if (el.tagName === 'A' && !el.getAttribute('href')?.startsWith('#')) return;
-		// A footnote number goes to the footnote list, the copy a screen reader can read
-		if (el.matches('[data-footnote-ref]')) return;
+		// A footnote number or a paper's citation goes to its list entry, the copy a screen
+		// reader can read; hover and focus still light its note
+		if (el.matches('[data-footnote-ref], [role="doc-biblioref"]')) return;
 		el.addEventListener('click', (event) => {
 			// Selecting text (copying from a code line) isn't asking for the note
 			if (getSelection()?.toString()) return;

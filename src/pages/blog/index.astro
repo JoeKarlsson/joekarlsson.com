@@ -5,7 +5,7 @@ import MetaParts from '../../components/MetaParts.astro';
 import Scribble from '../../components/Scribble.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { DEFAULT_HERO_IMAGE } from '../../consts';
-import { HERO_LEAD, PAGE_CONTAINER, formatDate } from '../../utils/ui';
+import { HERO_LEAD, PAGE_CONTAINER, TEXT_LINK, formatDate } from '../../utils/ui';
 import { halftoneMode } from '../../utils/halftone';
 import { CHALK, MARKS } from '../../data/scribbles';
 import PosterHero from '../../components/PosterHero.astro';
@@ -106,6 +106,15 @@ const featuredReadingTime = featuredPost ? getReadingTime(featuredPost.body || '
 				{allPosts.length} posts since {firstPostYear}
 			</p>
 		</PosterHero>
+
+		{/* Papers stay out of the post list; this is the way in to /papers/ */}
+		<p class="mb-6 text-base text-muted">
+			Some posts have a long form:{' '}
+			<a class={TEXT_LINK} href="/papers/">
+				research papers
+			</a>
+			, with PDFs and citations.
+		</p>
 
 		<PostFinder
 			posts={posts}

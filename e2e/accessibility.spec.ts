@@ -1,7 +1,16 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Accessibility', () => {
-	const pages = ['/', '/blog', '/about', '/work', '/uses', '/contact', '/reviews/stats'];
+	const pages = [
+		'/',
+		'/blog',
+		'/about',
+		'/work',
+		'/uses',
+		'/contact',
+		'/reviews/stats',
+		'/papers/sentence-length-punctuation/',
+	];
 
 	for (const path of pages) {
 		test(`${path} has proper heading hierarchy`, async ({ page }) => {
@@ -25,9 +34,11 @@ test.describe('Accessibility', () => {
 				.locator('img:not([role="presentation"])')
 				.evaluateAll((images) =>
 					images
-						// Alt text, an aria-label, or hidden from assistive tech
+						// Alt text, an aria-label, or hidden from assistive tech (a closed dialog, such
+						// as the lightbox's empty picture, is)
 						.filter(
 							(img) =>
+								!img.closest('dialog:not([open])') &&
 								!img.getAttribute('alt') &&
 								!img.hasAttribute('aria-label') &&
 								img.getAttribute('aria-hidden') !== 'true',

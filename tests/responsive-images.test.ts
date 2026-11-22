@@ -33,7 +33,16 @@ describe('addSrcsets', () => {
 		);
 	});
 
-	it('leaves images without sizes, with a srcset, or outside /images alone', () => {
+	it("offers copies of a paper's figure under /papers", () => {
+		const html = '<img src="/papers/p/figure1.webp" sizes="100vw">';
+		expect(
+			addSrcsets(html, (src) => (src === '/papers/p/figure1.webp' ? 1950 : undefined)),
+		).toContain(
+			'srcset="/papers/p/figure1.100w.webp 100w, /papers/p/figure1.400w.webp 400w, /papers/p/figure1.800w.webp 800w, /papers/p/figure1.1200w.webp 1200w, /papers/p/figure1.webp 1950w"',
+		);
+	});
+
+	it('leaves images without sizes, with a srcset, or outside /images and /papers alone', () => {
 		const untouched = [
 			'<img src="/images/a/hero.webp" alt="">',
 			'<img src="/images/a/hero.webp" srcset="x 1x" sizes="112px">',

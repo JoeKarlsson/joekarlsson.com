@@ -76,6 +76,7 @@ const plain = (html) =>
 	html
 		.replace(/<[^>]+>/g, '')
 		.replace(/&amp;/g, '&')
+		.replace(/\u2060/g, '') // paper-site.lua's word joiners only matter on the page
 		.replace(/\s+/g, ' ')
 		.trim();
 const references = [

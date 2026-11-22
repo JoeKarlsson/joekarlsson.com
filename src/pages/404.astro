@@ -17,6 +17,7 @@ import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { CHALK, MARKS } from '../data/scribbles';
 import { getCategoryCounts } from '../utils/categories';
+import { getCollection } from 'astro:content';
 import { getFeedPosts, isOwnPost } from '../utils/posts';
 import { jsonForScript } from '../utils/json-for-script';
 import popularPosts from '../data/popular-posts.json';
@@ -33,7 +34,13 @@ const mostRead = posts.find((post) => post.href === mostReadHref);
 if (!mostRead) throw new Error('popular-posts.json names no post for the featured band');
 const topics = getCategoryCounts(posts.filter((p) => !p.isNewsletter));
 // For the "Looking for...?" line (closest-post.ts)
-const postLinks = posts.map((post) => ({ href: post.href, title: post.data.title }));
+const postLinks = [
+	...posts.map((post) => ({ href: post.href, title: post.data.title })),
+	...(await getCollection('papers')).map((paper) => ({
+		href: `/papers/${paper.id}/`,
+		title: paper.data.displayTitle,
+	})),
+];
 
 const PLACES = [
 	{ href: '/blog/', label: 'Blog', meta: `${posts.length} posts` },

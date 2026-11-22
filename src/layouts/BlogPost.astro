@@ -262,15 +262,16 @@ const captionText =
 						{paperEntry.data.displayTitle.split(/(?<=\?) /)[0]}
 					</a>
 				</span>
-				<span class="paper-strip-links">
-					<a href={paperEntry.data.pdf}>PDF</a>
+				<MetaParts class="paper-strip-links">
+					<span>
+						<a href={paperEntry.data.pdf}>PDF</a>
+					</span>{' '}
 					{paperEntry.data.doi && (
-						<>
-							{' · '}
+						<span>
 							<a href={`https://doi.org/${paperEntry.data.doi}`}>doi:{paperEntry.data.doi}</a>
-						</>
+						</span>
 					)}
-				</span>
+				</MetaParts>
 			</p>
 		)}
 		<Fragment slot="top">
