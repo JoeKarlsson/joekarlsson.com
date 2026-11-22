@@ -213,6 +213,8 @@ Let's look at our User document. This example has some great one-to-one data in 
 }
 ```
 
+![One-to-one: a single user document in the users collection holds every one-to-one fact as a key-value pair: _id, name "Joe Karlsson", company "MongoDB", x, twitch, tiktok and website. One user, one name, so each is a plain field.](/images/blog/mongodb-schema-design-best-practices/one-to-one.svg)
+
 DJ Khaled would approve.
 
 ![DJ Khaled pointing at the camera saying "Another one" as copies of him multiply across the screen](/images/blog/mongodb-schema-design-best-practices/another-one.gif)
@@ -241,6 +243,8 @@ Now let's say we're dealing with a small sequence of data that's associated with
 	]
 }
 ```
+
+![One-to-few: a user document in the users collection with its addresses embedded inside it. After _id, name and company comes an addresses array holding two small address documents, 123 Sesame St in Anytown and 123 Avenue Q in New York. The addresses live inside the user, so one read gets both.](/images/blog/mongodb-schema-design-best-practices/one-to-few.svg)
 
 Remember when I told you there are no rules to MongoDB schema design? Well, I lied. I've made up a couple of handy rules to help you design the schema for your application.
 
@@ -288,6 +292,8 @@ Parts:
 }
 ```
 
+![One-to-many: a product document in the products collection, the left-handed smoke shifter from Acme Corp, catalog number 1234, holds a parts array of three ObjectIds. Each id points to its own document in the parts collection, starting with part 123-aff-456, a #4 grommet. The product keeps the ids, not the parts themselves.](/images/blog/mongodb-schema-design-best-practices/one-to-many.svg)
+
 When the product page needs the parts too, one `$lookup` pulls them in:
 
 ```js
@@ -333,6 +339,8 @@ Log Message:
 }
 ```
 
+![One-to-squillions: log message documents in the logmsg collection, the first with time 2014-03-28 and message "cpu is on fire!", and millions more after it. Each one holds a host field with the same ObjectId, and every one of those references points to the single host document in the hosts collection: goofy.example.com at 127.66.66.66. The host keeps no array of its messages, because that array would never stop growing.](/images/blog/mongodb-schema-design-best-practices/one-to-squillions.svg)
+
 To read a host's latest messages, query the logs by host, with an index on `host` and `time` so it stays fast as the logs pile up:
 
 ```js
@@ -377,6 +385,8 @@ Tasks:
 	owners: [ObjectId("64b7e1f0a1b2c3d4e5f60301"), ObjectId("64b7e1f0a1b2c3d4e5f60302")]
 }
 ```
+
+![Many-to-many: in the users collection, Kate Monster's user document holds a tasks array of three ObjectIds, each pointing to a task document in the tasks collection. The first task, "Write blog post about MongoDB schema design", holds an owners array of two ObjectIds pointing back to two user documents: Kate Monster and a second user. Each side keeps an array of the other side's ids.](/images/blog/mongodb-schema-design-best-practices/many-to-many.svg)
 
 From this example, you can see that each user has a sub-array of linked tasks, and each task has a sub-array of owners for each item in our to-do app.
 

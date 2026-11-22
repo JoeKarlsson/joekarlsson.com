@@ -21,6 +21,8 @@ Modern always-on applications rely on automatic failover and real-time data acce
 
 In this post, we're going to set up a way to continuously copy data from a MongoDB database into an [AWS S3](https://aws.amazon.com/s3/) bucket in the [Parquet](https://parquet.apache.org/) data format by using [MongoDB Atlas Triggers](https://www.mongodb.com/docs/atlas/atlas-ui/triggers/). First, we'll set up a federated database instance using [MongoDB Atlas Data Federation](https://www.mongodb.com/docs/atlas/data-federation/overview/) to bring a MongoDB database and our S3 bucket together. Next, we'll set up a Trigger that adds a new document to a collection every minute, and another Trigger that copies our data to the S3 bucket. Then we'll check that the data is being copied into S3 from MongoDB. Finally, we'll cover what you'll want to consider when building something like this for your own application.
 
+![The pipeline: inside MongoDB Atlas, scheduled Trigger 1 runs every minute and inserts a new document into the Atlas cluster with insertOne. Scheduled Trigger 2 also runs every minute and sends an aggregate to the federated database instance, which reads the last 60 seconds of documents from the cluster. Its $out stage writes them as Parquet to events.parquet in an Amazon S3 bucket, replacing the file on every run.](/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/pipeline.svg)
+
 Note: The values we use for some parameters in this post are for demonstration and testing. If you plan to use this, read the "Production considerations" section and adjust them to your needs.
 
 ## What is Parquet?
