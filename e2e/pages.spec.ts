@@ -255,3 +255,19 @@ test('the keyboard copies a section heading’s link with Enter on its self link
 	await expect(page.locator('.link-copied')).toHaveText('Link copied');
 	expect(new URL(page.url()).hash).toBe('#built-on-my-work');
 });
+
+// Written for's 44px tap box reached up over the category link when the top line wrapped
+test('each link in a post’s top line gets its own taps at 320px', async ({ page }) => {
+	await page.setViewportSize({ width: 320, height: 640 });
+	await page.goto('/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/');
+	const links = page.locator('.meta-parts a');
+	expect(await links.count()).toBeGreaterThan(1);
+	for (const link of await links.all()) {
+		const hit = await link.evaluate((el) => {
+			const r = el.getBoundingClientRect();
+			const at = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+			return el.contains(at);
+		});
+		expect(hit, (await link.textContent()) ?? '').toBe(true);
+	}
+});

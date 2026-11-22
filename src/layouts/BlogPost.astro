@@ -229,7 +229,8 @@ const captionText =
 		}}
 	>
 		<Fragment slot="kicker">
-			<MetaParts>
+			{/* Room between wrapped rows: Written for's 44px tap box would reach the row above */}
+			<MetaParts class="gap-y-3">
 				<span>
 					<FormattedDate date={date} />
 					{updatedDate && (
@@ -302,7 +303,7 @@ const captionText =
 				</div>
 			)}
 			{noticeMessage && (
-				<p class="mb-6 text-sm text-muted" role="note">
+				<p class="mb-6 max-w-[65ch] text-sm text-muted" role="note">
 					<Fragment set:html={noticeHtml} />
 				</p>
 			)}
