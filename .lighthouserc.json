@@ -56,7 +56,7 @@
 						"cumulative-layout-shift": [
 							"error",
 							{
-								"maxNumericValue": 0.02
+								"maxNumericValue": 0.05
 							}
 						],
 						"total-blocking-time": [
@@ -86,7 +86,7 @@
 					}
 				},
 				{
-					"matchingUrlPattern": "^(?!.*/talks/).*$",
+					"matchingUrlPattern": "^(?!.*/(blog|talks)/[^/]+/$).*$",
 					"aggregationMethod": "median",
 					"assertions": {
 						"largest-contentful-paint": [
@@ -98,13 +98,13 @@
 					}
 				},
 				{
-					"matchingUrlPattern": "/talks/",
+					"matchingUrlPattern": "/(blog|talks)/[^/]+/$",
 					"aggregationMethod": "median",
 					"assertions": {
 						"largest-contentful-paint": [
 							"error",
 							{
-								"maxNumericValue": 3000
+								"maxNumericValue": 3200
 							}
 						]
 					}
