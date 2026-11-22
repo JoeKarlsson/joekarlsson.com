@@ -2,6 +2,7 @@ import { getCollection } from 'astro:content';
 import type { APIRoute } from 'astro';
 import { resolve } from 'node:path';
 import sharp from 'sharp';
+import { LEAD_STORY } from '../../data/coverage';
 import { projects } from '../../data/projects';
 import { DEFAULT_OG_IMAGE, ogJpegPath } from '../../utils/og-image';
 import { gradePink } from '../../../scripts/update-reviews.mjs';
@@ -16,6 +17,7 @@ export async function getStaticPaths() {
 	const images = new Set<string>([
 		DEFAULT_OG_IMAGE,
 		'/images/uses/desk-2026.webp',
+		LEAD_STORY.image,
 		...projects.map((p) => p.image),
 		...[...blog, ...talks, ...newsletter, ...reviews].flatMap(
 			(entry) => entry.data.heroImage ?? [],
