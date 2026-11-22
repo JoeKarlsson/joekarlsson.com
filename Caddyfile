@@ -47,7 +47,32 @@
 	@blog-pages path_regexp ^/blog/page/.*
 	redir @blog-pages /blog/ 301
 
-	# 301 redirects: WordPress portfolio items → work page
+	# 301 redirects: WordPress portfolio items that have a project page now. Before the catch-all
+	# below, since redirects with named matchers run in the order written
+	@portfolio-bechdel-io path /portfolio/bechdel-test-visualizer /portfolio/bechdel-test-visualizer/
+	redir @portfolio-bechdel-io /work/bechdel-io/ 301
+	@portfolio-best-buy-product-locator path /portfolio/best-buy-chrome-extension /portfolio/best-buy-chrome-extension/
+	redir @portfolio-best-buy-product-locator /work/best-buy-product-locator/ 301
+	@portfolio-gaptcha path /portfolio/gaptcha /portfolio/gaptcha/
+	redir @portfolio-gaptcha /work/gaptcha/ 301
+	@portfolio-go-home-tanuki path /portfolio/go-home-tanuki-youre-drunk-a-phaser-js-game /portfolio/go-home-tanuki-youre-drunk-a-phaser-js-game/
+	redir @portfolio-go-home-tanuki /work/go-home-tanuki/ 301
+	@portfolio-iot-kitty-litter-box path /portfolio/iot-kitty-litter-box /portfolio/iot-kitty-litter-box/
+	redir @portfolio-iot-kitty-litter-box /work/iot-kitty-litter-box/ 301
+	@portfolio-movie-script-scraper path /portfolio/movie-script-scraper /portfolio/movie-script-scraper/
+	redir @portfolio-movie-script-scraper /work/movie-script-scraper/ 301
+	@portfolio-night-out path /portfolio/night-out /portfolio/night-out/
+	redir @portfolio-night-out /work/night-out/ 301
+	@portfolio-pixelate path /portfolio/pixelate-js-html5-image-pixelator /portfolio/pixelate-js-html5-image-pixelator/
+	redir @portfolio-pixelate /work/pixelate/ 301
+	@portfolio-poststream path /portfolio/poststream /portfolio/poststream/
+	redir @portfolio-poststream /work/poststream/ 301
+	@portfolio-rose-hobart path /portfolio/rose-hobart /portfolio/rose-hobart/
+	redir @portfolio-rose-hobart /work/rose-hobart/ 301
+	@portfolio-wave-jump path /portfolio/wave-jump /portfolio/wave-jump/
+	redir @portfolio-wave-jump /work/wave-jump/ 301
+
+	# 301 redirects: other WordPress portfolio items → work page
 	@portfolio-items path_regexp ^/portfolio/.+
 	redir @portfolio-items /work/ 301
 
