@@ -2,7 +2,7 @@
 title: How Much of the Decline in English Sentence Length Is Punctuation? Evidence from Dated Project Gutenberg Books, 1600–1974
 displayTitle: How much of the decline in English sentence length is punctuation? Evidence from dated Project Gutenberg books, 1600–1974
 seoTitle: How much of shorter sentences is punctuation?
-description: 'A preprint measuring how much of the fall in English sentence length since 1700 is punctuation: about 40%, in dated Project Gutenberg books with duplicate works removed.'
+description: 'A preprint measuring how much of the fall in English sentence length since 1700 is punctuation: about 40%, in dated Project Gutenberg books, duplicates removed.'
 authors:
   - name: Joe Karlsson
     affiliation: Independent researcher
