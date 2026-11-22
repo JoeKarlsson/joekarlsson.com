@@ -1,5 +1,5 @@
-/* Reading text: .prose type, headings, quotes, code and pictures, and the link highlighter.
-   article.css pulls it in first; pages that set plain text in .prose without the article frame
+/* Reading text: .prose type, headings, quotes, code, pictures, tables, touch tap targets and the
+   link highlighter. article.css pulls it in first; pages that set plain text in .prose without the article frame
    (work.astro, privacy-policy.astro) import only this. */
 @reference './global.css';
 
@@ -249,10 +249,9 @@
 	font-size: 0.875rem;
 	line-height: 1.7;
 }
-/* Shiki's github-dark paints its own blue-gray (#24292e) inline; code sits on the site's gray. theme(), not
-   var(--color-surface-2): @config emits no color variables, and that var() painted nothing */
+/* Shiki's github-dark paints its own blue-gray (#24292e) inline; code sits on the site's gray */
 pre.astro-code {
-	background-color: theme('colors.surface.2') !important;
+	background-color: var(--color-surface-2) !important;
 }
 /* design-ok: about the code font. Shiki sets some tokens in italic, and JetBrains Mono loads no italic face: draw them
    upright instead of letting the browser slant the roman */
@@ -309,5 +308,74 @@ pre.astro-code {
 	.prose a:not(.heading-anchor, :has(img, picture, video)):hover {
 		--highlight: 104%;
 		@apply text-ink;
+	}
+}
+
+.prose video {
+	@apply my-6 mx-auto;
+	display: block;
+	max-width: 100%;
+	max-height: 500px;
+	height: auto;
+}
+
+.prose figure {
+	@apply my-6;
+}
+
+.prose figcaption {
+	@apply mt-2 max-w-[28em] text-left font-serif text-[0.9375rem] leading-snug text-muted italic;
+}
+
+.prose hr {
+	@apply border-surface-3 my-8;
+}
+/* Each table sits in a box (rehype-table-scroll.mjs). Below 80rem a table wider than its
+   column scrolls in it, since the page itself never scrolls sideways. A pink bar on the box's
+   right edge says there's more: the bar is fixed to the box, and a black patch fixed to the
+   table's far end covers it once you reach the end, or from the start when the table fits.
+   From 80rem a wide table runs into the empty margin, as it always has, so its last column
+   stays readable without a scrollbar macOS wouldn't show. */
+.prose .table-scroll {
+	@apply my-6;
+}
+@media (width < 80rem) {
+	.prose .table-scroll {
+		@apply overflow-x-auto;
+		/* design-ok: two solid-color layers, a cover and a bar, no fade */
+		background:
+			linear-gradient(var(--color-ink), var(--color-ink)) right / 12px 100% no-repeat local,
+			linear-gradient(var(--color-pink), var(--color-pink)) right / 3px 100% no-repeat scroll;
+	}
+}
+.prose table {
+	@apply w-full font-sans text-base;
+}
+.prose th {
+	@apply text-left text-paper font-semibold p-2 border-b border-surface-4;
+}
+/* A number column's header sits over its numbers (markdown's `---:` sets align) */
+.prose th[align='right'] {
+	@apply text-right;
+}
+.prose th[align='center'] {
+	@apply text-center;
+}
+.prose td {
+	@apply p-2 border-b border-surface-3;
+	/* same-width digits, so numbers line up down a column */
+	font-variant-numeric: tabular-nums;
+}
+
+@media (pointer: coarse) {
+	/* A heading's # only shows on hover, so on touch it's an invisible 10px target. Clipped, not
+	   removed, so a keyboard on a tablet still reaches it, and it shows once focused */
+	.prose .heading-anchor:not(:focus-visible) {
+		@apply sr-only;
+	}
+	.prose pre .copy-button {
+		@apply px-3 py-3 text-sm;
+		top: 0;
+		right: 0;
 	}
 }

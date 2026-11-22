@@ -15,7 +15,26 @@
 	}
 }
 
-@config '../../tailwind.config.mjs';
+/* The fonts are CSS variables from the fonts in astro.config.mjs, each ending in its fallbacks.
+   inline: a utility uses var(--font-anton) itself, not a --font-display that resolves on :root */
+@theme inline {
+	--font-mono: var(--font-jetbrains-mono);
+	--font-sans: var(--font-hanken-grotesk);
+	--font-display: var(--font-anton);
+	--font-serif: var(--font-fraunces);
+}
+/* Black ink, paper-white text, gray metadata, one hot pink accent. inline: utilities get the
+   literal color; static: the variables exist anyway, for var() in stylesheets and page styles */
+@theme inline static {
+	--color-ink: #000000;
+	--color-paper: #ededed;
+	--color-muted: #a3a3a3;
+	--color-pink: #ff4fd8;
+	--color-surface-1: #111111;
+	--color-surface-2: #1a1a1a;
+	--color-surface-3: #222222;
+	--color-surface-4: #3a3a3a;
+}
 
 /* The newsletter archive is imported prose with no Tailwind classes; scanning its
    95 issues turned ordinary words ("table", "hidden") into unused utilities. */

@@ -44,18 +44,6 @@
 	}
 }
 
-.prose video {
-	@apply my-6 mx-auto;
-	display: block;
-	max-width: 100%;
-	max-height: 500px;
-	height: auto;
-}
-
-.prose figure {
-	@apply my-6;
-}
-
 /* Post diagrams (src/plugins/rehype-inline-diagrams.mjs): the desktop drawing, or
    on phones its phone layout when it has one. Click to enlarge (ImageLightbox). */
 .prose .diagram {
@@ -77,10 +65,6 @@
 		display: block;
 	}
 }
-.prose figcaption {
-	@apply mt-2 max-w-[28em] text-left font-serif text-[0.9375rem] leading-snug text-muted italic;
-}
-
 /* Captioned pictures and frame pairs (rehype-frames.mjs): the caption sits tight under the
    picture, left-aligned like a magazine's, and the figure gets the picture's room */
 .prose figure:is(.frame, .frame-pair) {
@@ -124,59 +108,6 @@
 		width: min(100cqw, 856px);
 		max-width: none;
 		margin-inline: calc((100% - min(100cqw, 856px)) / 2);
-	}
-}
-
-.prose hr {
-	@apply border-surface-3 my-8;
-}
-/* Each table sits in a box (rehype-table-scroll.mjs). Below 80rem a table wider than its
-   column scrolls in it, since the page itself never scrolls sideways. A pink bar on the box's
-   right edge says there's more: the bar is fixed to the box, and a black patch fixed to the
-   table's far end covers it once you reach the end, or from the start when the table fits.
-   From 80rem a wide table runs into the empty margin, as it always has, so its last column
-   stays readable without a scrollbar macOS wouldn't show. */
-.prose .table-scroll {
-	@apply my-6;
-}
-@media (width < 80rem) {
-	.prose .table-scroll {
-		@apply overflow-x-auto;
-		/* design-ok: two solid-color layers, a cover and a bar, no fade */
-		background:
-			linear-gradient(theme('colors.ink'), theme('colors.ink')) right / 12px 100% no-repeat local,
-			linear-gradient(theme('colors.pink'), theme('colors.pink')) right / 3px 100% no-repeat scroll;
-	}
-}
-.prose table {
-	@apply w-full font-sans text-base;
-}
-.prose th {
-	@apply text-left text-paper font-semibold p-2 border-b border-surface-4;
-}
-/* A number column's header sits over its numbers (markdown's `---:` sets align) */
-.prose th[align='right'] {
-	@apply text-right;
-}
-.prose th[align='center'] {
-	@apply text-center;
-}
-.prose td {
-	@apply p-2 border-b border-surface-3;
-	/* same-width digits, so numbers line up down a column */
-	font-variant-numeric: tabular-nums;
-}
-
-@media (pointer: coarse) {
-	/* A heading's # only shows on hover, so on touch it's an invisible 10px target. Clipped, not
-	   removed, so a keyboard on a tablet still reaches it, and it shows once focused */
-	.prose .heading-anchor:not(:focus-visible) {
-		@apply sr-only;
-	}
-	.prose pre .copy-button {
-		@apply px-3 py-3 text-sm;
-		top: 0;
-		right: 0;
 	}
 }
 
@@ -372,7 +303,7 @@
 		position: sticky;
 		top: -4px;
 		z-index: 1;
-		background: theme('colors.ink');
+		background: var(--color-ink);
 	}
 }
 @media (width >= 80rem) {
@@ -644,7 +575,7 @@
 .prose .chapter-num {
 	@apply font-display leading-[0.74] text-ink;
 	font-size: clamp(150px, 15vw, 240px);
-	-webkit-text-stroke: 2px theme('colors.pink');
+	-webkit-text-stroke: 2px var(--color-pink);
 }
 .prose .chapter h2 {
 	@apply m-0 font-serif font-light italic normal-case;

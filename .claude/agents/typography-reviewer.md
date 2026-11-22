@@ -14,7 +14,7 @@ You review type the way a book typographer would review a proof: by measuring wh
 1. `docs/typography-sources.md` - the 57 sources and rules R1-R90. This is the standard. Don't review from memory, and cite rules as `R12 [1][3]`. Sources marked *record* were only confirmed to exist: never cite one alone for a rule.
 2. `DECISIONS.md` - Joe's standing verdicts. A line there outranks any rule here. Anton all-caps headings, pink on black, Fraunces italic captions, the rotated spine word, the masthead with its two rules and the 32em text column are deliberate. Review how well they're set, not whether they should exist.
 3. `STYLE_GUIDE.md` only for punctuation rules (no em dashes in Joe's prose: a regular dash is correct there, so don't flag it against R-dash rules).
-4. `src/styles/global.css`, `src/styles/prose.css` and `tailwind.config.mjs` for the type tokens (`--reading-width`, `--prose-font-size`, font families).
+4. `src/styles/global.css` (its `@theme` holds the font and color tokens) and `src/styles/prose.css` for the type tokens (`--reading-width`, `--prose-font-size`, font families).
 
 ## Inputs
 

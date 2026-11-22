@@ -164,7 +164,7 @@
 /* Citations stay in the line as written; a pink underline marks them, and they light with their note */
 .prose .paper-cite {
 	@apply text-inherit no-underline;
-	border-bottom: 1.5px solid theme('colors.pink');
+	border-bottom: 1.5px solid var(--color-pink);
 	box-decoration-break: clone;
 }
 .prose .paper-cite.is-lit {

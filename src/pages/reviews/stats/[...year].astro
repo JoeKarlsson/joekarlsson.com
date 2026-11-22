@@ -672,8 +672,7 @@ const milestones = [
 </BaseLayout>
 
 <style is:global>
-	/* Colors are the tailwind.config.mjs tokens, which aren't CSS variables here.
-	   Bar charts: counts, bars and labels share one grid, so every label sits under its bar */
+	/* Bar charts: counts, bars and labels share one grid, so every label sits under its bar */
 	.stats-chart {
 		position: relative;
 		display: grid;
@@ -685,7 +684,7 @@ const milestones = [
 		text-align: center;
 		font-size: 0.75rem;
 		line-height: 1rem;
-		color: #a3a3a3;
+		color: var(--color-muted);
 		white-space: nowrap;
 	}
 	.stats-count {
@@ -710,13 +709,13 @@ const milestones = [
 		display: block;
 		min-height: 2px;
 		border-radius: 4px 4px 0 0;
-		background: #ff4fd8;
+		background: var(--color-pink);
 		filter: url(#rough);
 	}
 	.stats-bar.lit,
 	.stats-chart .stats-bar:hover,
 	.stats-decades > div:hover .stats-bar {
-		background: #ededed;
+		background: var(--color-paper);
 	}
 	@media (prefers-reduced-motion: no-preference) {
 		.stats-bar.lit,
@@ -746,7 +745,7 @@ const milestones = [
 
 	/* Ratings labels are stars, like every rating on the site; phones stack them */
 	.stats-label.stats-stars {
-		color: #ff4fd8;
+		color: var(--color-pink);
 		letter-spacing: -0.05em;
 	}
 	@media (width < 48rem) {
@@ -813,9 +812,9 @@ const milestones = [
 		font-family: var(--font-anton);
 		font-size: 1.75rem;
 		line-height: 1;
-		color: #ededed;
+		color: var(--color-paper);
 		paint-order: stroke;
-		-webkit-text-stroke: 5px #000;
+		-webkit-text-stroke: 5px var(--color-ink);
 		pointer-events: none;
 	}
 
@@ -832,7 +831,7 @@ const milestones = [
 		font-family: var(--font-anton);
 		font-size: 1.25rem;
 		line-height: 1;
-		color: #ff4fd8;
+		color: var(--color-pink);
 		text-transform: uppercase;
 		transform: rotate(-4deg);
 		white-space: nowrap;
@@ -914,7 +913,7 @@ const milestones = [
 		border-radius: 2px;
 	}
 	.stats-wall a:hover img {
-		outline: 2px solid #ededed;
+		outline: 2px solid var(--color-paper);
 		outline-offset: -2px;
 	}
 	[data-rating-wall] > div {
@@ -945,10 +944,10 @@ const milestones = [
 		aspect-ratio: 2 / 3;
 		object-fit: cover;
 		border-radius: 6px;
-		background: #222;
+		background: var(--color-surface-3);
 	}
 	.stats-poster:is(:hover, :focus-visible) img {
-		outline: 2px solid #ededed;
+		outline: 2px solid var(--color-paper);
 		outline-offset: -2px;
 	}
 	.stats-star {
@@ -993,7 +992,7 @@ const milestones = [
 		display: block;
 		height: 14px;
 		border-radius: 0 4px 4px 0;
-		background: #ff4fd8;
+		background: var(--color-pink);
 		filter: url(#rough);
 	}
 	@media (width < 48rem) {
@@ -1026,8 +1025,8 @@ const milestones = [
 		width: 260px;
 		padding: 16px;
 		border-radius: 12px;
-		background: #1a1a1a;
-		box-shadow: 0 12px 40px #000;
+		background: var(--color-surface-2);
+		box-shadow: 0 12px 40px var(--color-ink);
 		pointer-events: none;
 		opacity: 0;
 		transform: scale(0.96);
