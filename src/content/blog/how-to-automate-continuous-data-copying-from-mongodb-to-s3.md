@@ -206,7 +206,7 @@ In this post, we set up automated, continuous replication from a MongoDB databas
 
 We also covered why Parquet is a great format for your MongoDB data when you need columnar tools like Tableau for visualizations, or machine learning frameworks that use data frames. Parquet converts quickly and easily into Pandas data frames in Python.
 
-If you have questions, head to the [MongoDB Community Forums](https://www.mongodb.com/community/forums/), where MongoDB engineers and the community help each other build with MongoDB.
+If you have questions, head to the [MongoDB Community Hub](https://www.mongodb.com/community/forums/), where MongoDB engineers and the community help each other build with MongoDB.
 
 Additional resources:
 
