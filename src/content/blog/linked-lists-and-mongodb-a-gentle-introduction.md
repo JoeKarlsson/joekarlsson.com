@@ -1,7 +1,7 @@
 ---
 title: 'Linked Lists and MongoDB: A Gentle Introduction'
 seoTitle: 'Linked Lists and MongoDB'
-date: 2020-11-03
+date: 2020-09-30
 slug: 'linked-lists-and-mongodb-a-gentle-introduction'
 description: 'New to data structures? Learn how linked lists work, how they differ from arrays and when to use one, with a MongoDB twist in Node.js.'
 categories: ['Web Dev']

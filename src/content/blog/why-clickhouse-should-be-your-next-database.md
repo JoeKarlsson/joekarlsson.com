@@ -1,6 +1,6 @@
 ---
 title: 'Why ClickHouse Should Be Your Next Database'
-date: 2024-04-05
+date: 2023-07-06
 slug: 'why-clickhouse-should-be-your-next-database'
 description: “Today, we’re jumping into databases. Another database to learn? But before you sprint for the hills, allow me to introduce you to ClickHouse.”
 categories: ['Web Dev']

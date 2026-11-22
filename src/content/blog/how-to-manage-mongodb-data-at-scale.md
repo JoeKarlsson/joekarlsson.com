@@ -1,6 +1,6 @@
 ---
 title: 'How to Manage MongoDB Data at Scale'
-date: 2021-06-30
+date: 2021-04-05
 slug: 'how-to-manage-mongodb-data-at-scale'
 description: 'How to manage MongoDB data at scale with Atlas Online Archive, moving aging data like IoT readings to cheaper storage while you can still query it.'
 categories: ['Web Dev']

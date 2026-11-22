@@ -1,7 +1,7 @@
 ---
 title: 'MongoDB Aggregation Pipeline Queries vs SQL Queries'
 seoTitle: 'MongoDB Aggregation Pipeline vs SQL'
-date: 2021-05-28
+date: 2021-01-25
 slug: 'mongodb-aggregation-pipeline-queries-vs-sql-queries'
 description: 'MongoDB aggregation pipeline queries vs SQL queries, side by side. I came to MongoDB from SQL, so I map pipeline stages to SQL clauses you already know.'
 categories: ['Web Dev']

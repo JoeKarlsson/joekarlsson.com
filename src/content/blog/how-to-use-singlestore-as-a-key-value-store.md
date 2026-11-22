@@ -1,6 +1,6 @@
 ---
 title: 'How to Use SingleStore as a Key-Value Store'
-date: 2022-06-22
+date: 2022-01-11
 slug: 'how-to-use-singlestore-as-a-key-value-store'
 description: 'How to use SingleStore as a key-value store with plain SQL, so you get fast key-value lookups without running a separate database just for that.'
 categories: ['Web Dev']

@@ -1,7 +1,7 @@
 ---
 title: 'Steampipe vs CloudQuery: Architecture and Trade-offs'
 seoTitle: 'Steampipe vs CloudQuery'
-date: 2026-02-01
+date: 2024-10-02
 slug: 'steampipe-vs-cloudquery'
 description: 'Steampipe queries cloud APIs live from the terminal. CloudQuery syncs cloud configuration into a persistent inventory. Here is when to use each.'
 categories: ['Cloud']

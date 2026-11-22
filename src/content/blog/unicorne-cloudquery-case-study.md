@@ -1,7 +1,7 @@
 ---
 title: 'How Unicorne Increased Well-Architected Review Capacity by 60% with CloudQuery'
 seoTitle: 'Unicorne + CloudQuery Case Study'
-date: 2026-01-01
+date: 2026-03-15
 slug: 'unicorne-cloudquery-case-study'
 description: 'How Unicorne used CloudQuery to automate AWS Well-Architected Reviews and build its FinOps product Stable, cutting engagements from 50 to 20 hours.'
 categories: ['Cloud']

@@ -1,7 +1,7 @@
 ---
 title: 'A step-by-step guide to build a real-time dashboard'
 seoTitle: 'How to Build a Real-Time Dashboard'
-date: 2024-03-30
+date: 2023-09-05
 slug: 'a-step-by-step-guide-to-build-a-real-time-dashboard'
 description: 'A step-by-step guide to build a real-time dashboard with Tinybird, Tremor and Next.js, from a mock data stream to SQL metrics published as APIs.'
 categories: ['Web Dev']

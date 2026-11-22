@@ -1,6 +1,6 @@
 ---
 title: 'How to Seed a MongoDB Database with Fake Data'
-date: 2021-06-30
+date: 2021-02-19
 slug: 'how-to-seed-a-mongodb-database-with-fake-data'
 description: 'How to seed a MongoDB database with fake data using a Node.js seed script and faker.js, for demos, lookup values and proofs of concept.'
 categories: ['Web Dev']

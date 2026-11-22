@@ -1,7 +1,7 @@
 ---
 title: 'Data Warehouses Are Terrible Application Backends'
 seoTitle: 'Data Warehouses Are Terrible App Backends'
-date: 2024-04-05
+date: 2023-07-13
 slug: 'data-warehouses-are-terrible-application-backends'
 description: "Data warehouses can't handle the freshness, latency and concurrency user-facing apps need. Why real-time data platforms make better application backends."
 categories: ['Web Dev']

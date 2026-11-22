@@ -1,7 +1,7 @@
 ---
 title: 'How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js'
 seoTitle: 'MongoDB CSFLE with Node.js'
-date: 2021-05-28
+date: 2021-01-06
 slug: 'how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js'
 description: 'How to use MongoDB Client-Side Field Level Encryption (CSFLE) with Node.js to encrypt sensitive fields like credit card and social security numbers.'
 categories: ['Web Dev']

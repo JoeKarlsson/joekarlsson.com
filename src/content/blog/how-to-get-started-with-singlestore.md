@@ -1,6 +1,6 @@
 ---
 title: 'How to Get Started with SingleStore'
-date: 2021-11-04
+date: 2021-09-30
 slug: 'how-to-get-started-with-singlestore'
 description: 'Are you looking for the fastest possible way to get a new SingleStore Cluster up and running while testing out sample datasets to experiment with and use?'
 categories: ['Web Dev']

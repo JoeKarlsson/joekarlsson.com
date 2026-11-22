@@ -1,7 +1,7 @@
 ---
 title: 'Using Bloom filter indexes for real-time text search in ClickHouse'
 seoTitle: 'Bloom Filter Text Search in ClickHouse'
-date: 2024-03-30
+date: 2023-06-22
 slug: 'using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse'
 description: 'How Bloom filter indexes speed up real-time text search in ClickHouse, covering tokenization vs n-grams, ngrambf_v1 settings and benchmark results.'
 categories: ['Web Dev']

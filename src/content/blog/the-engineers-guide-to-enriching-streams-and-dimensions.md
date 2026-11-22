@@ -1,7 +1,7 @@
 ---
 title: 'The Engineer’s Guide to Enriching Streams and Dimensions'
 seoTitle: 'Enriching Streams and Dimensions'
-date: 2024-04-05
+date: 2023-07-26
 slug: 'the-engineers-guide-to-enriching-streams-and-dimensions'
 description: 'How to enrich real-time Kafka streams with Snowflake dimension tables, with use cases for fraud detection, e-commerce personalization and log analytics.'
 categories: ['Web Dev']

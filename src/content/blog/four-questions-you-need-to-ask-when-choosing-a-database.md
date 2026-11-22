@@ -1,7 +1,7 @@
 ---
 title: 'Four Questions You Need To Ask When Choosing a Database'
 seoTitle: '4 Questions to Ask When Choosing a Database'
-date: 2021-12-29
+date: 2021-12-07
 slug: 'four-questions-you-need-to-ask-when-choosing-a-database'
 description: 'Four questions to ask when choosing a database: does it solve your problem, does it fit your tech stack, is it easy to learn, and what will it cost?'
 writtenFor: 'SingleStore'

@@ -1,6 +1,6 @@
 ---
 title: 'How to Use SingleStore and Node.js'
-date: 2021-11-04
+date: 2021-08-23
 slug: 'how-to-use-singlestore-and-node-js'
 description: 'Do you need to get a basic SingleStore application setup quickly using Node.js?'
 categories: ['Web Dev']

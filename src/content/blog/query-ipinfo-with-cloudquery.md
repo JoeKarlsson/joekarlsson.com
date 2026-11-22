@@ -1,6 +1,6 @@
 ---
 title: 'How to Query ipinfo.io Data with CloudQuery'
-date: 2025-05-01
+date: 2026-04-20
 slug: 'query-ipinfo-with-cloudquery'
 description: 'Enrich your CloudQuery cloud asset inventory with ipinfo.io geolocation, ASN, and privacy detection data using SQL joins. Includes working query examples.'
 categories: ['Cloud']

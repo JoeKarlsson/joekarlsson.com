@@ -1,7 +1,7 @@
 ---
 title: 'How to query Google Sheets with SQL in real time'
 seoTitle: 'Query Google Sheets with SQL in Real Time'
-date: 2024-03-29
+date: 2023-10-11
 slug: 'how-to-query-google-sheets-with-sql-in-real-time'
 description: 'How to query even large Google Sheets with SQL in real time using Tinybird, then publish the metrics as secure APIs. The demo code is on GitHub.'
 categories: ['Web Dev']

@@ -1,7 +1,7 @@
 ---
 title: 'How to Add Machine Learning Predictions with SingleStore and MindsDB'
 seoTitle: 'ML Predictions with SingleStore and MindsDB'
-date: 2021-11-04
+date: 2021-08-17
 slug: 'how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb'
 description: 'Have you ever needed to set a machine learning model on your data before?'
 categories: ['Web Dev']
