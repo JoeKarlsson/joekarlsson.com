@@ -28,6 +28,7 @@ letterboxdAverage: 4.02
 slug: 'fried-green-tomatoes'
 description: 'Contains spoilers.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/fried-green-tomatoes/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/fried-green-tomatoes-1992/'
 poster: '/images/reviews/fried-green-tomatoes/poster.webp'
 heroImage: '/images/reviews/fried-green-tomatoes/backdrop.webp'
 heroAlt: 'Three people with a red parasol walking along the top of a dam as water pours over it into a rocky river.'

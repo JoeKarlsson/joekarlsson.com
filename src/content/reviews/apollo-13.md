@@ -14,6 +14,7 @@ letterboxdAverage: 3.82
 slug: 'apollo-13'
 description: 'Is this Ron Howard’s best film?… Yeah probably.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/apollo-13/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/apollo-13-1995/'
 poster: '/images/reviews/apollo-13/poster.webp'
 heroImage: '/images/reviews/apollo-13/backdrop.webp'
 heroAlt: 'Bill Paxton, Kevin Bacon and Tom Hanks in white flight suits crowded together inside a spacecraft cabin.'

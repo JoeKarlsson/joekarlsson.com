@@ -14,6 +14,7 @@ letterboxdAverage: 3.17
 slug: 'joe-versus-the-volcano'
 description: "It's a throwback 40s rom-com. It's also deeply weird."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/joe-versus-the-volcano/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/joe-versus-the-volcano-1990/'
 poster: '/images/reviews/joe-versus-the-volcano/poster.webp'
 heroImage: '/images/reviews/joe-versus-the-volcano/backdrop.webp'
 heroAlt: 'Meg Ryan in a white gown and Tom Hanks in a flower lei walking down stone steps between tiki statues inside a fiery cave.'

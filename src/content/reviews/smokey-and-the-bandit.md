@@ -14,6 +14,7 @@ letterboxdAverage: 3.67
 slug: 'smokey-and-the-bandit'
 description: "The Muppet Movie, except they're running Coors."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/smokey-and-the-bandit/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/smokey-and-the-bandit-1977/'
 poster: '/images/reviews/smokey-and-the-bandit/poster.webp'
 heroImage: '/images/reviews/smokey-and-the-bandit/backdrop.webp'
 heroAlt: 'A man in a cowboy hat and mustache driving a black convertible beside a young woman with curly brown hair.'

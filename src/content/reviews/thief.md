@@ -15,6 +15,7 @@ letterboxdAverage: 4.07
 slug: 'thief'
 description: 'What if capitalism wouldn’t let you live without accepting your own death? Hahaha. Isn’t that crazy?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/thief/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/thief-1981/'
 poster: '/images/reviews/thief/poster.webp'
 heroImage: '/images/reviews/thief/backdrop.webp'
 heroAlt: 'Tuesday Weld in a fur coat and James Caan in a leather jacket talking in a diner booth at night.'

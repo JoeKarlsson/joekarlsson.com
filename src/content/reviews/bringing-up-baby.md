@@ -22,6 +22,7 @@ letterboxdAverage: 4.01
 slug: 'bringing-up-baby'
 description: "The performances were really fun, but I have to admit that Hepburn's charm had worn off by the time she knocked over the dinosaur skeleton."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bringing-up-baby/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/bringing-up-baby-1938/'
 poster: '/images/reviews/bringing-up-baby/poster.webp'
 heroImage: '/images/reviews/bringing-up-baby/backdrop.webp'
 heroAlt: 'Cary Grant behind jail bars talking to Katharine Hepburn, who holds a cigarette, in black and white.'

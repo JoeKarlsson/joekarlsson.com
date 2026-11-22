@@ -22,6 +22,7 @@ letterboxdAverage: 3.56
 slug: 'civil-war-2024'
 description: 'Loved seeing Priscilla meet Jesse Plemons'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/civil-war-2024/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/civil-war-2024/'
 poster: '/images/reviews/civil-war-2024/poster.webp'
 heroImage: '/images/reviews/civil-war-2024/backdrop.webp'
 heroAlt: 'Cailee Spaeny holding a camera and looking up from the middle of a crowd.'

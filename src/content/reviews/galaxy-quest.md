@@ -22,6 +22,7 @@ letterboxdAverage: 3.73
 slug: 'galaxy-quest'
 description: 'Is this my favorite Star Trek movie? First contact might still be my number one. However, this one’s so much fun. I’ve probably seen it five times now, and…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/galaxy-quest/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/galaxy-quest-1999/'
 poster: '/images/reviews/galaxy-quest/poster.webp'
 heroImage: '/images/reviews/galaxy-quest/backdrop.webp'
 heroAlt: 'Tim Allen, Sigourney Weaver, Alan Rickman and the rest of the crew posing in matching space uniforms among desert rocks.'

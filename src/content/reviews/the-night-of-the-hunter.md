@@ -22,6 +22,7 @@ letterboxdAverage: 4.25
 slug: 'the-night-of-the-hunter'
 description: "A weird psychosexual religious allegorical nightmare. One of the most beautiful films I've ever seen."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-night-of-the-hunter/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-night-of-the-hunter-1955/'
 poster: '/images/reviews/the-night-of-the-hunter/poster.webp'
 heroImage: '/images/reviews/the-night-of-the-hunter/backdrop.webp'
 heroAlt: 'Robert Mitchum in a black hat, his knuckles tattooed LOVE, resting on a fence post.'

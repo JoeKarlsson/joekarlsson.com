@@ -15,6 +15,7 @@ letterboxdAverage: 3.24
 slug: 'idle-hands'
 description: "If Dude Where's My Car and Evil Dead 2 had a baby. This might be the most 90s movie ever made."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/idle-hands/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/idle-hands-1999/'
 poster: '/images/reviews/idle-hands/poster.webp'
 heroImage: '/images/reviews/idle-hands/backdrop.webp'
 heroAlt: 'Four young men at night, one in KISS face paint and a bloodied T-shirt, another sticking out his tongue.'

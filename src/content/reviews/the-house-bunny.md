@@ -16,6 +16,7 @@ letterboxdAverage: 3.01
 slug: 'the-house-bunny'
 description: 'Anna Faris is so funny. They need to start making more 90-minute Hollywood comedies just to give Anna Faris more films to do.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-house-bunny/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-house-bunny-2008/'
 poster: '/images/reviews/the-house-bunny/poster.webp'
 heroImage: '/images/reviews/the-house-bunny/backdrop.webp'
 heroAlt: 'Anna Faris walking arm in arm with seven young women in bright outfits down a sunny campus street.'

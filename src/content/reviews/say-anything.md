@@ -14,6 +14,7 @@ letterboxdAverage: 3.59
 slug: 'say-anything'
 description: "Lloyd Dobler is what we pretended Ferris Bueller was: actually cool, actually sweet, actually worthy of being someone's role model."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/say-anything/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/say-anything-1989/'
 poster: '/images/reviews/say-anything/poster.webp'
 heroImage: '/images/reviews/say-anything/backdrop.webp'
 heroAlt: 'A young man in a tan coat and a laughing young woman leaning toward each other over coffee at a diner counter.'

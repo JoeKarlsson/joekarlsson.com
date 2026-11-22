@@ -28,6 +28,7 @@ letterboxdAverage: 3.1
 slug: 'friday-the-13th-the-final-chapter'
 description: 'Super fun slasher. I really enjoyed myself'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/friday-the-13th-the-final-chapter/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/friday-the-13th-the-final-chapter-1984/'
 poster: '/images/reviews/friday-the-13th-the-final-chapter/poster.webp'
 heroImage: '/images/reviews/friday-the-13th-the-final-chapter/backdrop.webp'
 heroAlt: 'A frightened young woman with curly hair pressing her hands to her mouth in the dark.'
