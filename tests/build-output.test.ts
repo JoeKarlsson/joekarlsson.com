@@ -981,7 +981,7 @@ describe('every page', () => {
 		const unsized = pages.flatMap(({ file, html }) =>
 			[
 				...(html.match(/<div class="prose[\s\S]*?<\/article>/)?.[0] ?? '').matchAll(
-					/<img\b(?:[^>"]|"[^"]*")*>|<video\b(?:[^>"]|"[^"]*")*class="gif-video"(?:[^>"]|"[^"]*")*>/g,
+					/<img\b(?:[^>"]|"[^"]*")*>|<video\b(?:[^>"]|"[^"]*")*class="[^"]*\bgif-video\b[^"]*"(?:[^>"]|"[^"]*")*>/g,
 				),
 			]
 				.map((m) => m[0])
