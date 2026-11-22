@@ -241,16 +241,17 @@ export const projects: Project[] = curlEveryString(
 						caption: 'The finished box',
 					},
 					{
-						video: '/images/blog/an-introduction-to-iot-internet-of-toilets/load_cell_demo.mp4',
+						video: '/images/blog/an-introduction-to-iot-internet-of-toilets/load_cell_demo-v2.mp4',
 						poster:
-							'/images/blog/an-introduction-to-iot-internet-of-toilets/load_cell_demo-poster.webp',
+							'/images/blog/an-introduction-to-iot-internet-of-toilets/load_cell_demo-v2-poster.webp',
 						alt: 'The box open with its white floor plate, and a laptop in front of it printing the load cell readings as weight is pressed onto the plate',
 						caption: 'The load cells reading weight',
 					},
 					{
-						video: '/images/blog/an-introduction-to-iot-internet-of-toilets/cat_eating_project.mp4',
+						video:
+							'/images/blog/an-introduction-to-iot-internet-of-toilets/cat_eating_project-v2.mp4',
 						poster:
-							'/images/blog/an-introduction-to-iot-internet-of-toilets/cat_eating_project-poster.webp',
+							'/images/blog/an-introduction-to-iot-internet-of-toilets/cat_eating_project-v2-poster.webp',
 						alt: 'My black cat chewing on the wires of the load cells and breadboard spread out on a table',
 						caption: 'My cat, helping',
 					},

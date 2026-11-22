@@ -100,7 +100,7 @@ I also talked IoT and JavaScript on [JavaScript Jabber episode 432](https://java
 
 The rest of this page is the full write-up: the hardware, the code and how I store the data.
 
-![Final assembly process](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process.gif)
+![Final assembly process](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process-v2.gif)
 
 ## IoT And JS(?!?!)
 
@@ -126,7 +126,7 @@ Lastly, it’s important to note that there is a mature community of IoT develop
 
 Just be careful that your cat doesn’t try to eat your project while you are getting your Hello World app up and running.
 
-![My cat eating the IoT Hello World project](/images/blog/an-introduction-to-iot-internet-of-toilets/cat_eating_project.gif)_My cat eating the IoT Hello World project_
+![My cat eating the IoT Hello World project](/images/blog/an-introduction-to-iot-internet-of-toilets/cat_eating_project-v2.gif)_My cat eating the IoT Hello World project_
 
 ## IoT (AKA: Internet of Toilets) Kitty Litter Box
 
@@ -249,7 +249,7 @@ board.on('fail', (error) => {
 
 You can see the event and asynchronous nature of IoT plays nicely with Node’s callback structure. Here’s a demo of the magnetic switch component in action.
 
-![Demo of the magnetic reed switch detecting litter box lid](/images/blog/an-introduction-to-iot-internet-of-toilets/switch_demo.gif)_Demo of the magnetic reed switch detecting litter box lid_
+![Demo of the magnetic reed switch detecting litter box lid](/images/blog/an-introduction-to-iot-internet-of-toilets/switch_demo-v2.gif)_Demo of the magnetic reed switch detecting litter box lid_
 
 ### Load Cells
 
@@ -323,7 +323,7 @@ module.exports = Scale;
 
 This was the first time I have played around with the Spawn Child Process API from Node. Personally, I was impressed by how easy it was to use and troubleshoot. Another Pi 3B now runs [a 32x32 pixel art frame on my desk](/blog/pixelpane-pixel-art-home-assistant/) that Home Assistant pushes alerts to. It’s not the most elegant solution, but it totally works for my project and it uses some cool features of Node. Let’s take a look at what the load cells look like in action. In the video below, you can see how pressure placed on the load cells is registered as a weight measurement from the Raspberry Pi.
 
-![Demo of the load cell measuring weight changes](/images/blog/an-introduction-to-iot-internet-of-toilets/load_cell_demo.gif)_Demo of the load cell measuring weight changes_
+![Demo of the load cell measuring weight changes](/images/blog/an-introduction-to-iot-internet-of-toilets/load_cell_demo-v2.gif)_Demo of the load cell measuring weight changes_
 
 ## How to Handle Internet of Toilets Data
 
@@ -389,7 +389,7 @@ Lastly, you will want to select a database that natively handles time-series dat
 
 Alright, let’s wrap this party up. In this post, I covered why you should consider using Node for your next IoT (Internet of Toilets) project: It’s easy to update over a network, the internet already speaks JavaScript, there are tons of existing libraries/plugins/APIs (including [CylonJS](https://github.com/hybridgroup/cylon) and [Johnny-Five](https://johnny-five.io/)), and JavaScript is great at handling event-driven apps. I walked through a real-life Node-based IoT project, my IoT Kitty Litter Box, and dug into the code base. I also discussed what to look for when selecting a database for IoT projects: It should be able to concurrently write data quickly, have a flexible schema, and be able to handle time-series data.
 
-![Final IoT Kitty Litter Box Assembly process](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process.gif)_Final IoT Kitty Litter Box Assembly process_
+![Final IoT Kitty Litter Box Assembly process](/images/blog/an-introduction-to-iot-internet-of-toilets/final_assembly_process-v2.gif)_Final IoT Kitty Litter Box Assembly process_
 
 What’s next? Well, if I have inspired you to get started on your own IoT project, I say, “Go for it!” Pick out a project, even if it’s “crappy,” and build it. Google as you go, and make mistakes. I think it’s the best way to learn. I hereby give you permission to make stupid stuff just for you, something to help you learn and grow as a human being and a software engineer. If you want to see what else I’ve been building, check out my other [projects](/work/).
 
