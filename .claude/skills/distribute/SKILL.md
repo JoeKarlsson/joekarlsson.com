@@ -16,7 +16,7 @@ Given a post slug, produce a ranked plan of the communities and newsletters wher
 
 ## 1. Read the post
 
-Read `src/content/blog/<slug>.md` (or the newsletter, paper or work page): frontmatter (`categories`, `writtenFor`, `canonicalUrl`, `tags`, `title`, `description`) and the whole body. Name its lanes from the body, not the tags (most personal posts have none). A post can sit in two or three lanes: the Bechdel work is dataviz, film and academic research at once.
+Read `src/content/blog/<slug>.md` (or the newsletter, paper or work page): frontmatter (`categories`, `writtenFor`, `canonicalUrl`, `tags`, `title`, `description`) and the whole body. Name its lanes from the body, not the tags (most personal posts have none). Use the lanes listed at the top of `channels.md`; when none fits, add one there. A post can sit in two or three lanes: the Bechdel work is dataviz, film and academic research at once.
 
 Note what kind of thing it is, since communities treat these differently: a write-up, original data or a chart (`[OC]` subs), a runnable tool or repo (Show HN, project megathreads), a how-to, an essay, research.
 
@@ -24,13 +24,13 @@ Note what kind of thing it is, since communities treat these differently: a writ
 
 ## 2. Pick candidates
 
-1. Every `active` channel in `channels.md` whose lanes match.
-2. A web search per lane for communities the registry lacks: `"<topic>" subreddit`, `<topic> forum`, `<topic> newsletter submit`, `<topic> discord`. Add each real find to `channels.md` with its source and today's date. Narrow finds (r/mikrotik for a MikroTik post) still get an entry; the lanes field keeps them out of unrelated plans.
-3. Joe's track record: `src/data/coverage.ts` newsletter and thread entries (outlets that already ran his work rank higher), and his HN history: `curl -s "https://hn.algolia.com/api/v1/search?query=joekarlsson.com&restrictSearchableAttributes=url"`. Search the topic on HN Algolia too, to see what scored and what was already posted.
+1. Every `active` channel in `channels.md` whose lanes match. Channels marked `joe: regular` go first; ask Joe once where he already takes part if no entry says so, and record it.
+2. A web search per lane for communities the registry lacks: `"<topic>" subreddit`, `<topic> forum`, `<topic> newsletter submit`, `<topic> discord`. Add each real find to `channels.md` with its source and today's date. Narrow finds (r/mikrotik for a MikroTik post) still get an entry; the lanes field keeps them out of unrelated plans. A sub named in the Unchecked line moves out of it into its own entry.
+3. Joe's track record: `src/data/coverage.ts` newsletter and thread entries (outlets that already ran his work rank higher; an outlet that already ran *this* post goes in Skip), and his HN history: `curl -s "https://hn.algolia.com/api/v1/search?query=joekarlsson.com&restrictSearchableAttributes=url"`. Search the topic on HN Algolia too, to see what scored and what was already posted. If this post was already submitted (by anyone) and got no real attention, HN allows a small number of reposts: one repost is fine. If it got a real thread, HN goes in Skip.
 
 ## 3. Read every candidate's rules today
 
-Open each candidate's rules or submission page (its `source` in `channels.md`) and compare it with the entry. Update the rule text, status and `verified` date. A newsletter whose newest issue is over six months old is `paused`; one that says it stopped is `dead` and stays listed so nobody re-adds it.
+Open each candidate's rules or submission page (its `source` in `channels.md`) and compare it with the entry; an entry already verified today counts. Update the rule text, status and `verified` date. A newsletter whose newest issue is over six months old is `paused`; one that says it stopped is `dead` and stays listed so nobody re-adds it.
 
 Reddit can't be read by any tool here (checked 2026-11-22): it refuses WebFetch and plain requests, Claude in Chrome blocks reddit.com outright, and new Data API apps need Reddit's manual approval under its Responsible Builder Policy (November 2025). So Joe reads them. The plan page opens with a **Reddit rules to read** box: one `https://www.reddit.com/r/<sub>/about/rules` link per recommended sub. Ask Joe to paste each sub's rules into the chat (or say "checked, nothing new"). Then update that entry with the rule, `verified` date and `verified-by: Joe`, and fix the plan row. Until then the row says **unverified: read the rules before posting**. Never guess a rule, never read Reddit through mirrors or a disguised browser, and never mark an unread rule as checked.
 
@@ -43,7 +43,7 @@ Rank by fit (would this community's regulars upvote or reply?), then reach, then
 - **The rule**, quoted, with its URL and `verified` date, or the unverified flag
 - **Format**: link post or text post with the link in the body, flair, `[OC]` and source line, megathread, `canonical_url`
 - **Title** for that community. HN: the post's own title, unchanged. Reddit: the angle that sub votes on. Never the same title in two places.
-- **First comment or pitch.** HN: an author comment (who I am, why I wrote it, what I'd like feedback on; 3-5 sentences). Reddit text post: the findings in 3-6 bullets, link at the bottom. Newsletter: 2-3 sentences on why their readers want it, sent only through their stated route.
+- **First comment or pitch.** HN: an author comment (who I am, why I wrote it, what I'd like feedback on; 3-5 sentences). Reddit text post: the findings in 3-6 bullets, link at the bottom. Forum (Discourse, Slack): the same as a Reddit text post, in the category or channel the rules name. Newsletter: 2-3 sentences on why their readers want it, sent only through their stated route.
 - **Timing and order**: communities where Joe already takes part go first. Title and content matter far more than the hour; the HN timing studies disagree with each other.
 
 Then:
@@ -56,7 +56,7 @@ Then:
 
 Run every title, first comment and pitch through the `reader-reviewer` agent, then the humanizer and Vale. Fix their findings.
 
-Write the plan as a local HTML page at `.mockups/distribute-<slug>/index.html` (a copy button per draft, the rule and its date beside each) and `open` it. Commit the updated `channels.md` (`chore: Distribution channels re-checked for <slug>`).
+Write the plan as a local HTML page at `.mockups/distribute-<slug>/index.html` (a copy button per draft, the rule and its date beside each; it's a local file, so a small inline script for the buttons is fine) and `open` it. Commit the updated `channels.md` (`chore: Distribution channels re-checked for <slug>`).
 
 **Never submit, vote, or ask anyone to upvote.** HN penalizes the account and the site for voting rings; Reddit bans vote manipulation.
 
@@ -64,4 +64,4 @@ Write the plan as a local HTML page at `.mockups/distribute-<slug>/index.html` (
 
 - LinkedIn, Bluesky, Threads and X: `/social` after this.
 - A launch (a repo, a series): `marketing-strategist` builds the dated plan; this skill supplies the communities.
-- Titles: `blog-headline-tester` already writes HN and Reddit title candidates during blog-new; start from those.
+- Titles: in blog-new, `blog-headline-tester` already wrote HN and Reddit title candidates; start from those. An old post has none; write them here.

@@ -1,21 +1,21 @@
 # Distribution channels
 
-The `distribute` skill's registry. Every entry: lanes, type and size, the rule (quoted where the source words it), format, how to submit, `pitch-first` when the venue wants the piece before Joe publishes it, status (`active`, `paused`, `dead`, `invite`), the source it was checked against, and the date. `verified: never` means nobody has read the live rules yet (Reddit refuses automated reads); the skill flags those rather than guess.
+The `distribute` skill's registry. Every entry: lanes, type and size, the rule (quoted where the source words it), format, how to submit, `pitch-first` when the venue wants the piece before Joe publishes it, status (`active`, `paused`, `dead`, `invite`), the source it was checked against, and the date. `joe: regular` marks a community Joe already takes part in (those go first in a plan). `verified: never` means nobody has read the live rules yet (Reddit refuses automated reads); the skill flags those rather than guess.
 
-Lanes: `homelab`, `selfhosted`, `data`, `ai`, `webdev`, `python`, `dataviz`, `genart`, `film`, `linguistics`, `research`, `devrel`, `techwriting`, `general-tech`.
+Lanes: `homelab`, `selfhosted`, `networking`, `data`, `ai`, `webdev`, `python`, `dataviz`, `genart`, `film`, `linguistics`, `research`, `devrel`, `techwriting`, `general-tech`.
 
 Seeded 2026-11-22 from third-party research: each community's own rules or submission page where it loaded, otherwise news coverage of the rule change, cited.
 
 ## Aggregators
 
 ### Hacker News
-- lanes: general-tech, homelab, data, ai, webdev, research, dataviz
+- lanes: general-tech, homelab, networking, python, data, ai, webdev, research, dataviz
 - rule: "Please don't use HN primarily for promotion. It's ok to post your own stuff part of the time." Original title, no editorializing, no site name. Asking for upvotes gets submissions, accounts and sites "penalized or banned." Repost OK if the story got no significant attention in the last year; don't delete and repost.
 - format: link post, then an author comment
 - status: active
 - source: https://news.ycombinator.com/newsguidelines.html , https://news.ycombinator.com/newsfaq.html
 - verified: 2026-11-22
-- track record: 3 joekarlsson.com submissions (MikroTik API, DevRel 2026, Ship the Ugly Pot) stalled at 1 point (blog-new.md, Distribution fit)
+- track record (HN Algolia, 2026-11-22): 5 joekarlsson.com submissions. My Homelab Two Years Later reached 17 points and 16 comments (2026-10-05, item 49965959). The rest stalled at 1 point: MikroTik binary API (a reader's submission, 2026-04-20), DevRel 2026, Ship the Ugly Pot, The Cognitive Case for Play (2026-11-18). A 1-point story counts as no "significant attention", so one repost is allowed.
 
 ### Show HN
 - lanes: any, only for something runnable
@@ -82,6 +82,21 @@ Reddit's "9:1" or "90/10" self-promotion ratio isn't in any current official Red
 - source: https://tomshardware.com/tech-industry/artificial-intelligence/the-largest-programming-community-on-reddit-just-banned-all-content-related-to-ai-llms-r-programming-is-prioritizing-only-high-quality-discussions-about-ai , https://aiweekly.co/alerts/rprogramming-replaces-ai-ban-with-quality-rules
 - verified: never
 
+### r/mikrotik
+- lanes: networking, homelab
+- rule: not read; Reddit refused the automated read 2026-11-22. Read https://www.reddit.com/r/mikrotik/about/rules before posting.
+- format: text post with the link in the body
+- status: active
+- source: https://www.reddit.com/r/mikrotik/about/rules
+- verified: never
+
+### r/Python
+- lanes: python
+- rule (secondhand, Feb 2024 mod update): Medium.com articles banned; Showcase posts must link a GitHub, GitLab or Bitbucket repo; extra filtering on showcase posts "to minimize the amount of low quality self promotion".
+- status: active
+- source: https://www.reddit.com/r/Python/about/rules (refused 2026-11-22)
+- verified: never
+
 ### r/dataengineering
 - lanes: data
 - rule (secondhand): "Limit Self-Promotion", citing the 9:1 rule of thumb
@@ -132,6 +147,15 @@ Reddit's "9:1" or "90/10" self-promotion ratio isn't in any current official Red
 r/homeassistant, r/Proxmox, r/devops (named in blog-new's old Distribution fit), r/ClaudeAI, r/mcp, r/Database, r/devrel, r/technicalwriting, r/creativecoding, r/proceduralgeneration, r/DigitalArt, r/TrueFilm, r/AskAcademia. No rule text found 2026-11-22; verified: never.
 
 ## Forums and communities
+
+### MikroTik Forum (official, Discourse)
+- lanes: networking, homelab
+- rule: the guidelines' only line on it: "Respect our forum. Don't post spam or otherwise vandalize the forum." No written self-promotion rule. A proposal to ban third-party advertising is open but not adopted. The 2025-10-15 "Forum Rules / Guide Lines" post covers asking questions only.
+- format: text post that stands on its own, link at the end. RouterOS > Scripting for scripts and API work (API threads in Nov 2026); 3rd party tools for tools and apps.
+- submit: https://forum.mikrotik.com/c/routeros/scripting
+- status: active (topics 2026-11-19 and later)
+- source: https://forum.mikrotik.com/faq , https://forum.mikrotik.com/t/forum-rules-guide-lines/265622
+- verified: 2026-11-22
 
 ### Write the Docs Slack
 - lanes: techwriting, devrel
@@ -248,9 +272,27 @@ r/homeassistant, r/Proxmox, r/devops (named in blog-new's old Distribution fit),
 ### Python Weekly
 - lanes: python
 - track record: ran the MikroTik binary API post, #742 (2026-04-23), per coverage.ts
-- submit: no public route checked yet
+- submit: the homepage names no submission route; hand-curated by Rahul Chaudhary
+- status: active (#772, 2026-11-19)
+- source: https://www.pythonweekly.com/
+- verified: 2026-11-22
+
+### PyCoder's Weekly
+- lanes: python
+- rule: wants "projects you are working on, conferences you are running, and articles you want to share"; "we cannot guarantee to feature every submitted link"
+- submit: the Google Form behind "Submit Your Link" at https://pycoders.com/submit
 - status: active
-- verified: never
+- source: https://pycoders.com/submit
+- verified: 2026-11-22
+
+### Python Hub Weekly Digest
+- lanes: python
+- track record: ran the MikroTik binary API post, 2026-05-03 digest, per coverage.ts
+- rule: "Share a news, article or interesting project"; "published after manual review"; description up to 20 words
+- submit: https://pythonhub.dev/submit/
+- status: active (digest 2026-11-22)
+- source: https://pythonhub.dev/
+- verified: 2026-11-22
 
 ### Cooperpress (JavaScript Weekly, Postgres Weekly and others)
 - lanes: webdev, data

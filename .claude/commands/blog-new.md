@@ -363,7 +363,7 @@ tldr: 'TL;DR summary for the frontmatter field'
 
 Apply this section when the post is meant for HN or Reddit. Both audiences are technical and skeptical, and they read the comments before the post. A post does well there when it gives them something they didn't have before, and when it holds up to someone checking the math in the first five minutes.
 
-My track record so far: three joekarlsson.com submissions to HN (MikroTik binary API, DevRel 2026, Ship the Ugly Pot) all stalled at 1 point and 0 comments. Homelab and self-hosting posts that did well in 2026 had plain, specific titles. Examples: "My Homelab Setup" (350 points), "I tested every IP KVM in my Homelab" (312) and "CLI agents make self-hosting on a home server easier and fun" (775). Check `hn.algolia.com` for the topic before writing the title. It shows what has already been posted, and what scored.
+My track record so far (HN Algolia, 2026-11-22): five joekarlsson.com submissions. Homelab Two Years Later got 17 points and 16 comments; MikroTik binary API, DevRel 2026, Ship the Ugly Pot and The Cognitive Case for Play stalled at 1 point and 0 comments. Homelab and self-hosting posts that did well in 2026 had plain, specific titles. Examples: "My Homelab Setup" (350 points), "I tested every IP KVM in my Homelab" (312) and "CLI agents make self-hosting on a home server easier and fun" (775). Check `hn.algolia.com` for the topic before writing the title. It shows what has already been posted, and what scored.
 
 #### Titles for Hacker News
 
