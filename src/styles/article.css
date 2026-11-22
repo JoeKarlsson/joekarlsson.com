@@ -710,7 +710,8 @@
 	@apply text-sm text-muted;
 }
 .cite-this-sign {
-	@apply ml-auto font-display text-[2rem] leading-none text-pink transition-transform;
+	@apply ml-auto font-display text-[2rem] leading-none text-pink motion-safe:transition-transform;
+	transition-timing-function: var(--ease-enter);
 }
 .cite-this[open] .cite-this-sign {
 	@apply rotate-45;
@@ -720,7 +721,7 @@
 }
 .cite-this-panel {
 	/* minmax: the BibTeX scrolls inside its box instead of widening the page */
-	@apply grid grid-cols-[minmax(0,1fr)] gap-4 pb-4;
+	@apply grid grid-cols-[minmax(0,1fr)] gap-4 pt-1 pb-4;
 }
 .cite-this-panel > div {
 	min-width: 0;
@@ -739,5 +740,5 @@
 	@apply min-h-11 cursor-pointer border-[1.5px] border-pink bg-transparent px-2 py-1 font-sans text-[0.6875rem] font-bold tracking-[0.1em] text-pink uppercase sm:min-h-0;
 }
 .cite-this-copy[data-copied] {
-	@apply bg-pink text-ink;
+	@apply -rotate-4 bg-pink text-ink;
 }

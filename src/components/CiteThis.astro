@@ -30,8 +30,13 @@ const entries = [
 			<div>
 				<div class="cite-this-head">
 					<span>{label}</span>
-					<button type="button" class="cite-this-copy" data-copy={value}>
-						Copy {label}
+					<button type="button" class="copy-button cite-this-copy" data-copy={value}>
+						<span class="icon-swap">
+							<span data-icon-off>Copy {label}</span>
+							<span data-icon-on aria-hidden="true">
+								Copied!
+							</span>
+						</span>
 					</button>
 				</div>
 				{label === 'BibTeX' ? (
@@ -45,28 +50,34 @@ const entries = [
 </details>
 
 <script>
-	// One polite live region says "Copied" for both buttons
+	// One polite live region says "Copied" for both buttons. The two labels sit stacked in
+	// .icon-swap (motion.css), so the button keeps its width; it tilts and fills when it copies,
+	// like the paper page's stamp (DECISIONS.md 2026-11-19, 7B)
 	const status = document.createElement('span');
 	status.setAttribute('role', 'status');
 	status.className = 'sr-only';
 	document.body.append(status);
 	for (const button of document.querySelectorAll<HTMLButtonElement>('.cite-this-copy')) {
-		const idle = button.textContent ?? '';
+		const idleLabel = button.querySelector<HTMLElement>('[data-icon-off]')!;
+		const idleText = idleLabel.textContent;
 		let reset: ReturnType<typeof setTimeout> | undefined;
 		button.addEventListener('click', async () => {
 			clearTimeout(reset);
+			status.textContent = '';
 			try {
 				await navigator.clipboard.writeText(button.dataset.copy ?? '');
 				button.toggleAttribute('data-copied', true);
-				button.textContent = 'Copied';
+				button.classList.remove('copied');
+				void button.offsetWidth; // restart the pop on a second copy
+				button.classList.add('copied');
 				status.textContent = 'Copied';
 			} catch {
-				button.textContent = 'Failed';
+				idleLabel.textContent = 'Failed';
 				status.textContent = 'Copy failed: select the text and copy it instead';
 			}
 			reset = setTimeout(() => {
 				button.removeAttribute('data-copied');
-				button.textContent = idle;
+				idleLabel.textContent = idleText;
 				status.textContent = '';
 			}, 2000);
 		});

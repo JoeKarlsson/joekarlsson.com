@@ -271,3 +271,19 @@ test('each link in a post’s top line gets its own taps at 320px', async ({ pag
 		expect(hit, (await link.textContent()) ?? '').toBe(true);
 	}
 });
+
+// DECISIONS.md 2026-11-22: reference posts and talks end with Cite this; story posts don't
+test('a reference post’s Cite this opens from the keyboard and fits a 320px screen', async ({
+	page,
+}) => {
+	await page.setViewportSize({ width: 320, height: 640 });
+	await page.goto('/blog/what-it-takes-to-build-a-real-time-recommendation-system/');
+	const box = page.locator('details.cite-this');
+	await box.locator('summary').focus();
+	await page.keyboard.press('Enter');
+	await expect(box).toHaveAttribute('open', '');
+	await expect(box).toContainText('Tinybird Blog, July 25, 2023');
+	expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
+	await page.goto('/blog/homelab-two-years-later/');
+	await expect(page.locator('details.cite-this')).toHaveCount(0);
+});
