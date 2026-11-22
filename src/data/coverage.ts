@@ -276,6 +276,7 @@ export const coverage: Coverage[] = [
 	},
 	{
 		kind: 'press',
+		date: '2026-04-29',
 		outlet: 'Gadget Hacks',
 		title: 'Turn Google Home Mini into Home Assistant Speaker Using a Drop-In PCB',
 		// Gadget Hacks refuses automated visitors; Joe opened it and checked the line by hand
