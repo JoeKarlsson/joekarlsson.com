@@ -36,7 +36,7 @@ describe('addSrcsets', () => {
 	it("offers copies of a paper's figure under /papers", () => {
 		const html = '<img src="/papers/p/figure1.webp" sizes="100vw">';
 		expect(
-			addSrcsets(html, (src) => (src === '/papers/p/figure1.webp' ? 1950 : undefined)),
+			addSrcsets(html, (src: string) => (src === '/papers/p/figure1.webp' ? 1950 : undefined)),
 		).toContain(
 			'srcset="/papers/p/figure1.100w.webp 100w, /papers/p/figure1.400w.webp 400w, /papers/p/figure1.800w.webp 800w, /papers/p/figure1.1200w.webp 1200w, /papers/p/figure1.webp 1950w"',
 		);
