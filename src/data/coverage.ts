@@ -1,6 +1,6 @@
 // What other people have written about my work: research papers that cite it, press,
 // interviews, newsletters, write-ups and threads. /featured/ lists all of it; the About page's
-// Written about section shows only the lead story and the papers, then links here.
+// Written about section shows only the lead story and the first three papers, then links here.
 // Podcasts, radio and talks I appeared on live in talks.ts, never here (DECISIONS.md
 // 2026-11-21: nothing here repeats As seen on). Every entry was opened and checked to name me
 // or link my work; a dead link gets an archived copy, not removal.
