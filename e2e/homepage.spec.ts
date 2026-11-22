@@ -47,7 +47,8 @@ test.describe('Homepage', () => {
 			const masthead = page.locator('header', {
 				has: page.getByRole('heading', { level: 2, name, exact: true }),
 			});
-			await expect(masthead.getByRole('link')).toHaveAttribute('href', href);
+			// The heading's own link copies its #id (heading-links.ts); the other goes to the section
+			await expect(masthead.locator('a:not(.heading-self-link)')).toHaveAttribute('href', href);
 		}
 	});
 
