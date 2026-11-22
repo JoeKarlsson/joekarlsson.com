@@ -1,0 +1,125 @@
+/* Reviews only (reviews/[slug].astro imports it): the film's credits, the "Stray thoughts"
+   label and spoilers. */
+@reference './global.css';
+
+/* A film's credits (ReviewCredits.astro): in the right margin on wide screens, after the
+   review below that, where the poster sits beside the list */
+.review-credits {
+	@apply border-t-4 border-pink pt-3 font-sans text-sm leading-snug text-muted;
+}
+.review-credits-end {
+	@apply mt-12 grid grid-cols-[6rem_1fr] gap-x-5;
+}
+.review-credits img,
+.prose .review-credits img {
+	@apply m-0 aspect-[2/3] w-full object-cover;
+	max-height: none;
+}
+.review-credits-margin img {
+	@apply mb-3.5 w-30;
+}
+.review-credits-title {
+	@apply font-display text-[1.75rem] leading-[0.95] text-paper uppercase;
+}
+.prose .review-credits-title {
+	@apply m-0;
+}
+.review-credits-title span {
+	@apply text-muted;
+}
+.review-credits-stars {
+	@apply mt-1.5 mb-3 flex flex-wrap gap-x-2;
+}
+.review-credits dl {
+	@apply mt-0 grid gap-y-0.5 border-t border-surface-4 pt-3;
+}
+.review-credits dt {
+	@apply text-xs font-bold tracking-wider uppercase;
+}
+.review-credits dd {
+	@apply mb-1.5 text-paper;
+}
+.review-credits-link {
+	@apply mr-5 inline-flex min-h-11 items-center font-bold text-pink no-underline hover:text-paper;
+}
+.review-credits-margin {
+	@apply hidden;
+}
+@media (width >= 80rem) {
+	/* A row (poster beside title, stars, Letterboxd) so the margin notes sit beside their
+	   words; the full credits stay in the block at the end (DECISIONS.md, 2026-11-17) */
+	.margin-column > .review-credits-margin {
+		display: grid;
+		grid-template-columns: 5rem 1fr;
+		column-gap: 0.875rem;
+		align-items: start;
+		float: right;
+		width: 15rem;
+		margin-right: calc(-1 * var(--margin-col));
+	}
+	.review-credits-margin img {
+		@apply m-0 w-full;
+	}
+	.review-credits-margin dl {
+		@apply hidden;
+	}
+	.review-credits-end {
+		grid-template-columns: 1fr;
+	}
+	.review-credits-end > img {
+		@apply hidden;
+	}
+}
+
+/* A review's "Stray thoughts" heading, set as a small label (rehype-stray-thoughts.mjs) */
+.prose h2.stray-label {
+	@apply mt-12 mb-4 border-t border-surface-4 pt-3 font-sans text-xs leading-normal font-bold tracking-widest text-pink uppercase;
+}
+
+/* A review spoiler (rehype-spoilers.mjs): blurred until hovered or focused, or until a click
+   on any spoiler reveals them all (.spoilers-shown, reviews/[slug].astro). The block padding
+   fills the gap between lines, so hover holds across a spoiler that wraps */
+.spoiler {
+	@apply cursor-help rounded-sm bg-surface-3 px-0.5 blur-[6px] transition-[filter] duration-150 ease-out motion-reduce:transition-none;
+	padding-block: calc((1lh - 1em) / 2);
+	box-decoration-break: clone;
+}
+.spoiler:hover,
+.spoiler:focus,
+.spoilers-shown .spoiler {
+	@apply blur-none;
+}
+.spoilers-shown .spoiler {
+	@apply cursor-auto bg-transparent px-0;
+	padding-block: 0;
+}
+
+/* A picture that gives something away (rehype-spoilers.mjs): blurred behind a "Show spoiler"
+   label until a click, tap or Enter shows every spoiler. Hover doesn't show it. The clip keeps
+   the blur's edge inside the picture */
+.spoiler-frame {
+	@apply relative cursor-pointer;
+}
+.spoiler-frame img {
+	@apply transition-[filter] duration-200 ease-out motion-reduce:transition-none;
+	filter: blur(28px);
+	clip-path: inset(0);
+}
+.spoiler-frame::after {
+	@apply pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-ink px-4 py-2 text-sm font-semibold text-paper;
+	content: 'Show spoiler' / '';
+}
+/* the picture's zoom-in cursor waits until it's shown: the first click shows, it doesn't enlarge */
+.spoiler-frame[role] img {
+	cursor: inherit;
+}
+.spoiler-frame[role] .lightbox-opener,
+.spoilers-shown .spoiler-frame::after {
+	display: none;
+}
+.spoilers-shown .spoiler-frame {
+	@apply cursor-auto;
+}
+.spoilers-shown .spoiler-frame img {
+	filter: none;
+}

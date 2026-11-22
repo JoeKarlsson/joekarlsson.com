@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 // From 1600px "On this page" sits left of a post's text and stays in view the whole way
-// down (global.css), and the margin doodles on its side stay clear of it (margin-doodles.ts).
+// down (article.css), and the margin doodles on its side stay clear of it (margin-doodles.ts).
 test.describe('On this page', () => {
 	test('follows the reader down the left gutter on wide screens', async ({ page }) => {
 		await page.setViewportSize({ width: 1600, height: 1000 });

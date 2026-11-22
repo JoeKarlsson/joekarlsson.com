@@ -1,7 +1,7 @@
 /**
  * Pictures in a post become figures (DECISIONS.md, 2026-11-15 review page round):
  * - A paragraph of two pictures is a .frame-pair: stacked on phones, side by side and wider than
- *   the text from tablets up (global.css). A picture's title labels it under the frame,
+ *   the text from tablets up (article.css). A picture's title labels it under the frame,
  *   `![alt](/a.webp "The Devils · 1971")`.
  * - One or two pictures with an all-italic line after them, in the next paragraph or on the
  *   next line of the same one, take that line as their figcaption.

@@ -38,6 +38,8 @@ Every head tag, manifest field and well-known file, who reads it, and how to tes
 
 ## Checks
 
+**CSS lives with the page type that uses it.** `src/styles/global.css` (every page) holds only site-wide rules; reading text goes in `prose.css`, the article frame in `article.css` (ArticleFrame imports it, and it pulls in `prose.css`), reviews in `reviews.css`, papers in `papers.css`. `tests/bundle-size.test.ts` budgets the gzipped CSS each page type loads; when one trips, it's Joe's trade-off to record in DECISIONS.md, never a quiet raise.
+
 The pre-commit hook formats and lints staged files; the pre-push hook runs `npm run test:prepush` (about a minute): `npm test` without the build, and the unit tests that don't read `dist/`.
 
 A Stop hook (`scripts/design-review-gate.mjs`, wired in the git-ignored `.claude/settings.json`) holds a session's finish while unpushed changes to `src/layouts`, `src/components`, `src/styles` or a page's `.astro` file have no design review. A `design-reviewer`, `design-critic`, `design-evidence` or `typography-reviewer` run records one; `node scripts/design-review-gate.mjs waive "<reason>"` skips it when nothing visible changed (5 waivers at most); it lets the finish through after 3 blocks.

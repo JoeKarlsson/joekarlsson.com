@@ -1,7 +1,7 @@
 /**
  * Open each big section of a long post like a book chapter: a giant outlined numeral, the
  * heading in Fraunces italic and, when the post's front matter gives one, an epigraph quoted
- * from that section (art book round 2, pick 8B; .chapter in global.css).
+ * from that section (art book round 2, pick 8B; .chapter in article.css).
  *
  * Long means 3,000 words or more with at least four sections. Every h2 counts except the
  * closing reference lists and an FAQ, which stay plain headings. Runs after the heading

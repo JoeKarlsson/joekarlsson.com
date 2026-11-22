@@ -6,6 +6,7 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import MetaParts from '../../components/MetaParts.astro';
 import PageTitle from '../../components/PageTitle.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/papers.css';
 import { PAGE_CONTAINER } from '../../utils/ui';
 
 const papers = (await getCollection('papers')).sort(

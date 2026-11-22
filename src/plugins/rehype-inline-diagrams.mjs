@@ -7,7 +7,7 @@ import { visit } from 'unist-util-visit';
  * Inline a post's diagrams. Markdown references the desktop file like any image,
  * ![alt](/images/blog/<slug>/<name>.svg), and this swaps the paragraph holding it
  * for a <figure class="diagram"> with that SVG and, when one exists, its
- * <name>.phone.svg sibling. global.css shows one or the other at 640px.
+ * <name>.phone.svg sibling. article.css shows one or the other at 640px.
  *
  * Inlined rather than an <img> so the figures use the page's own fonts (an SVG
  * loaded as an image can't), stay sharp and searchable, and skip the 500px

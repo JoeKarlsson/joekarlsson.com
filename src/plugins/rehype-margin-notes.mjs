@@ -1,6 +1,6 @@
 /**
  * Copy a post's notes into the right margin, beside the paragraph they belong to, like
- * the notes in a monograph (art book round 2, pick 7B; .margin-note in global.css).
+ * the notes in a monograph (art book round 2, pick 7B; .margin-note in article.css).
  *
  * Four kinds count:
  * - a bracketed citation link, `[[Oliver 2025]](https://...)`: on wide screens its text
@@ -30,7 +30,7 @@
  *   Smith, the Muir portrait. Wikimedia Commons")`, becomes a small captioned figure in the
  *   margin beside the next paragraph; with no margin it floats small at the paragraph's right.
  * - a code comment starting `[!margin]` moves beside its line, joined to it by a pink rule
- *   (.code-noted, global.css). Where the margin is hidden, or anchor positioning is missing,
+ *   (.code-noted, article.css). Where the margin is hidden, or anchor positioning is missing,
  *   it stays an ordinary comment in the code, so copying the code keeps it either way.
  */
 import { textOf } from './hast-text.mjs';

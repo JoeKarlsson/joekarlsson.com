@@ -4,7 +4,7 @@ const text = (node) =>
 	node.type === 'text' ? node.value : (node.children ?? []).map(text).join('').trim();
 
 /**
- * Wrap each table in a box that scrolls sideways (global.css `.table-scroll`).
+ * Wrap each table in a box that scrolls sideways (article.css `.table-scroll`).
  *
  * The page itself never scrolls sideways (global.css clips it), so a table wider
  * than a phone lost its right-hand columns: 52 of 63 pages with tables did in

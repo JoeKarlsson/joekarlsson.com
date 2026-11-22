@@ -1,6 +1,6 @@
 // Shows a link's post preview (rehype-post-previews.mjs) on hover or focus where the browser
 // has anchor positioning but not `interestfor`, which does this natively (Chrome 142+).
-// Touch screens and browsers without anchor positioning keep plain links (global.css).
+// Touch screens and browsers without anchor positioning keep plain links (article.css).
 const SHOW_DELAY_MS = 500; // Chrome's interestfor default
 const HIDE_DELAY_MS = 250;
 

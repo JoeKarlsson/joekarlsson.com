@@ -1,0 +1,206 @@
+/* Research papers only (papers/[slug].astro and papers/index.astro import it). */
+@reference './global.css';
+
+/* Research papers (/papers/<slug>/, mockup B, DECISIONS.md 2026-11-22): set the way journals
+   set them inside the site's frame. Sentence-case Fraunces title, a ruled ledger of dates and
+   DOI, a shaded abstract, Fraunces headings led by a pink Anton number, three-rule tables
+   and Chicago author-date citations whose full entries sit in the margin. */
+.paper-title {
+	@apply my-5 max-w-[820px] font-serif font-medium text-paper;
+	font-size: clamp(1.8rem, 1.2rem + 2vw, 2.65rem);
+	line-height: 1.15;
+	letter-spacing: -0.01em;
+	font-variation-settings: 'opsz' 72;
+	text-wrap: balance;
+}
+.paper-byline {
+	@apply mb-4 flex flex-wrap items-baseline gap-x-3.5 gap-y-1.5 text-base text-muted;
+}
+.paper-orcid {
+	@apply whitespace-nowrap text-muted no-underline hover:text-paper;
+}
+.paper-orcid svg {
+	@apply mr-1 inline-block size-[15px] align-[-2px];
+}
+.paper-ledger {
+	@apply border-t border-surface-4;
+}
+.paper-ledger > div {
+	@apply grid grid-cols-[7.5rem_1fr] border-b border-surface-4 py-1.5 text-[0.9375rem] sm:grid-cols-[9.5rem_1fr];
+}
+.paper-ledger dt {
+	@apply font-display text-base tracking-[0.02em] text-muted uppercase;
+}
+.paper-ledger a {
+	@apply text-paper underline decoration-pink underline-offset-2;
+}
+.paper-actions {
+	@apply mt-6 mb-3 flex flex-wrap gap-2.5;
+}
+.paper-act {
+	@apply inline-flex min-h-11 items-center cursor-pointer rounded-md border-2 border-pink bg-pink px-3.5 py-1.5 font-display text-xl leading-tight tracking-[0.02em] text-ink uppercase no-underline;
+}
+.paper-act small {
+	@apply ml-1 font-sans text-xs font-semibold;
+}
+.paper-act:hover {
+	@apply bg-[#ff7be3];
+}
+.paper-act-quiet {
+	@apply border-paper bg-transparent text-paper;
+}
+.paper-act-quiet:hover {
+	@apply border-pink bg-transparent text-pink;
+}
+/* "Cite this" is a native <details>: it opens onto its own full-width row under the buttons */
+.paper-cite[open] {
+	flex-basis: 100%;
+}
+.paper-cite > summary {
+	@apply w-fit list-none;
+}
+.paper-cite > summary::-webkit-details-marker {
+	display: none;
+}
+.paper-cite[open] > summary {
+	@apply bg-paper text-ink;
+}
+.paper-cite-panel {
+	/* minmax: the BibTeX scrolls inside its box instead of widening the page */
+	@apply mt-3 mb-4 grid grid-cols-[minmax(0,1fr)] gap-4 border-y border-surface-4 py-3.5;
+}
+.paper-cite-panel > div {
+	min-width: 0;
+}
+.paper-cite-head {
+	@apply mb-1.5 flex items-center justify-between font-display text-[1.0625rem] tracking-[0.02em] text-paper uppercase;
+}
+.paper-cite-panel p {
+	@apply font-serif text-base leading-normal text-paper;
+	overflow-wrap: anywhere;
+}
+.paper-cite-panel pre {
+	@apply m-0 overflow-x-auto bg-surface-1 p-3 font-mono text-[0.8125rem] leading-normal text-paper;
+}
+/* The pink ink stamp (DECISIONS.md 2026-11-19, 7B): it tilts and fills when it copies */
+.paper-copy {
+	@apply min-h-11 sm:min-h-0 cursor-pointer border-[1.5px] border-pink bg-transparent px-2 py-1 font-sans text-[0.6875rem] font-bold tracking-[0.1em] text-pink uppercase;
+}
+.paper-copy[data-copied] {
+	@apply -rotate-4 bg-pink text-ink;
+}
+.paper-abstract {
+	@apply mt-8 mb-10 bg-surface-1 px-5 py-5 sm:px-6;
+}
+.paper-abstract h2 {
+	@apply mb-2 font-display text-xl font-normal tracking-[0.02em] text-paper uppercase;
+}
+.paper-abstract p {
+	@apply text-[1.03rem] leading-relaxed text-paper;
+}
+.paper-keywords {
+	@apply mt-3 text-[0.9375rem] text-muted;
+}
+.paper-keywords b {
+	@apply mr-2 font-semibold text-paper;
+}
+/* Phones: the abstract comes right after the byline so it is on the first screen
+   (Google Scholar asks for that). It holds no links, so focus order is unaffected. */
+@media (width < 40rem) {
+	.paper-front {
+		display: flex;
+		flex-direction: column;
+	}
+	.paper-front .paper-abstract {
+		order: -1;
+	}
+	.paper-front .paper-byline {
+		order: -2;
+	}
+}
+
+.prose.paper-body :is(h2, h3) {
+	@apply font-serif text-paper normal-case;
+	line-height: 1.2;
+}
+.prose.paper-body h2 {
+	@apply mt-14 mb-5 border-t border-surface-4 pt-3.5 text-[1.875rem] font-semibold;
+}
+.prose.paper-body h3 {
+	@apply mt-10 mb-3.5 text-[1.375rem] font-semibold italic;
+}
+.prose.paper-body .header-section-number {
+	@apply mr-3 font-display font-normal text-pink not-italic;
+}
+.prose.paper-body a.uri {
+	overflow-wrap: anywhere;
+}
+.prose.paper-body table {
+	@apply text-[0.9375rem];
+	caption-side: top;
+}
+.prose.paper-body caption,
+.prose.paper-body figcaption {
+	@apply mb-2.5 max-w-none text-left font-sans text-[0.9rem] leading-normal text-muted not-italic;
+}
+.prose.paper-body :is(caption, figcaption) strong {
+	@apply text-paper;
+}
+.prose.paper-body thead th {
+	@apply border-t-2 border-b border-paper;
+}
+.prose.paper-body tbody td {
+	@apply border-0;
+}
+.prose.paper-body tbody tr:last-child td {
+	@apply border-b-2 border-paper;
+}
+.prose.paper-body figure img {
+	@apply my-0 w-full max-h-none;
+}
+.prose.paper-body figcaption {
+	@apply mt-2.5;
+}
+/* Citations stay in the line as written; a pink underline marks them, and they light with their note */
+.prose .paper-cite {
+	@apply text-inherit no-underline;
+	border-bottom: 1.5px solid theme('colors.pink');
+	box-decoration-break: clone;
+}
+.prose .paper-cite.is-lit {
+	@apply bg-pink text-ink;
+}
+.prose .paper-note {
+	overflow-wrap: anywhere;
+}
+.prose #refs .csl-entry {
+	@apply mb-2.5 font-serif text-[1.03rem] leading-normal text-paper;
+	padding-left: 2em;
+	text-indent: -2em;
+	overflow-wrap: anywhere;
+}
+.prose #refs .csl-entry:target {
+	@apply bg-[#33102b];
+}
+.paper-list-links a {
+	@apply inline-flex min-h-11 items-center sm:min-h-6;
+}
+.paper-list {
+	@apply max-w-(--reading-width) list-none p-0;
+}
+.paper-list li {
+	@apply border-t border-surface-4 py-6;
+}
+.paper-list h2 {
+	@apply my-2 font-serif text-2xl leading-snug font-medium;
+}
+.paper-list h2 a {
+	@apply text-paper no-underline hover:text-pink;
+}
+.paper-list-meta,
+.paper-list-links {
+	@apply text-sm text-muted;
+}
+.paper-list-links a {
+	@apply text-pink;
+}

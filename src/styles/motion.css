@@ -929,7 +929,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-	/* A post-link preview (global.css) grows out of its link: fade and 0.95 scale, from below */
+	/* A post-link preview (article.css) grows out of its link: fade and 0.95 scale, from below */
 	.link-peek {
 		transform-origin: bottom center;
 		transition:
@@ -953,7 +953,7 @@
 		scale: 0.95;
 	}
 
-	/* The highlighter sweep on a post's links (global.css) */
+	/* The highlighter sweep on a post's links (prose.css) */
 	.prose a {
 		transition:
 			--highlight 0.3s var(--ease-enter),

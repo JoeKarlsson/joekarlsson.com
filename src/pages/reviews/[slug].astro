@@ -5,6 +5,7 @@
 // first, then films watched around the same time), and blog posts only when one names the film.
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import '../../styles/reviews.css';
 import ReviewPoster from '../../components/ReviewPoster.astro';
 import ReviewCredits from '../../components/ReviewCredits.astro';
 import Scribble from '../../components/Scribble.astro';
@@ -201,7 +202,7 @@ const mentions =
 		});
 	};
 	// A frame pair runs across the right margin on wide screens, unless it would slide under the
-	// credits floated there (global.css .beside-credits keeps it to the text). Floats don't push
+	// credits floated there (article.css .beside-credits keeps it to the text). Floats don't push
 	// a wide block aside, so this is measured, not done in CSS
 	const credits = document.querySelector('.review-credits-margin');
 	const pairs = document.querySelectorAll<HTMLElement>('.prose figure.frame-pair');

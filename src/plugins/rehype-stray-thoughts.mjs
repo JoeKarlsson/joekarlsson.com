@@ -1,6 +1,6 @@
 /**
  * A review's "Stray thoughts:" line before its closing list becomes a heading set as a small label
- * over a thin rule (.stray-label, global.css), like the AV Club's "Stray observations".
+ * over a thin rule (.stray-label, reviews.css), like the AV Club's "Stray observations".
  */
 const LABEL = /^\s*(stray (?:thoughts?|observations)):?\s*$/i;
 

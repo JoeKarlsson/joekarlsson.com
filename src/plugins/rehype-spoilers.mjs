@@ -1,5 +1,5 @@
 /**
- * Hide a spoiler marked Discord style, `||like this||`, behind a blur (.spoiler, global.css).
+ * Hide a spoiler marked Discord style, `||like this||`, behind a blur (.spoiler, reviews.css).
  *
  * Hovering or focusing one shows it; clicking, tapping or pressing Enter on any of them shows
  * every spoiler in the review (reviews/[slug].astro). A screen reader hears "Spoiler:" first.

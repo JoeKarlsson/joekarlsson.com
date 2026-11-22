@@ -1,6 +1,6 @@
 /**
  * Hover previews for links to other posts: after each link to /blog/<slug>/ it adds a
- * hint popover holding that post's thumbnail, date and title, a small taped card (global.css).
+ * hint popover holding that post's thumbnail, date and title, a small taped card (article.css).
  *
  * Chrome shows it on hover or focus through `interestfor` and pins it above the link with
  * anchor positioning; src/scripts/link-peek.ts does the showing where `interestfor` is

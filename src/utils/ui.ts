@@ -8,7 +8,7 @@ export const PAGE_CONTAINER = 'relative mx-auto max-w-6xl px-4 pt-6 pb-10 sm:px-
 export const SIDEBAR_GRID =
 	'xl:grid xl:grid-cols-[minmax(0,1fr)_15rem] xl:gap-10 min-[100rem]:grid-cols-[15rem_minmax(0,1fr)]';
 
-/** A heading inside an article, the size of a prose h2 (global.css). */
+/** A heading inside an article, the size of a prose h2 (prose.css). */
 export const ARTICLE_HEADING =
 	'mb-5 font-display text-[clamp(1.9rem,1.4rem+1.9vw,2.9rem)] leading-none font-normal text-balance text-paper uppercase';
 

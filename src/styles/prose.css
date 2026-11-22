@@ -1,0 +1,312 @@
+/* Reading text: .prose type, headings, quotes, code and pictures, and the link highlighter.
+   article.css pulls it in first; pages that set plain text in .prose without the article frame
+   (work.astro, privacy-policy.astro) import only this. */
+@reference './global.css';
+
+/* Prose styles for blog content: Fraunces for reading, Anton for headings, Hanken Grotesk for code labels, captions and tables. */
+.prose {
+	/* A step down from the paper white: long light text on pure black glows (halation).
+	   Still about 14:1 */
+	@apply font-serif text-[#d8d8d8];
+	font-size: var(--prose-font-size);
+	line-height: 1.65;
+	max-width: var(--reading-width);
+}
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+	@apply relative;
+}
+/* A jump to a chapter lands with its big numeral clear of the nav too (html scroll-padding-top
+   covers every other heading) */
+.prose .chapter h2 {
+	scroll-margin-top: 6rem;
+}
+/* A heading and its # permalink (astro.config.mjs). The # sits in the margin to the left of
+   the heading's first line, since it can't follow the text from outside the heading */
+.prose .heading-group {
+	@apply relative;
+}
+.prose .heading-anchor {
+	@apply absolute top-0 right-full mr-2 opacity-0 text-muted no-underline transition-opacity;
+	font-size: 1.5rem;
+}
+/* Under 48rem the column has no margin to sit in, so the # goes just above the heading */
+@media (width < 48rem) {
+	.prose .heading-anchor {
+		@apply top-auto right-auto bottom-full left-0 mr-0;
+	}
+	/* A chapter's big numeral sits above its heading on the left, so the # goes to the right */
+	.prose .chapter .heading-group .heading-anchor {
+		@apply right-0 left-auto;
+	}
+}
+.prose .heading-group:hover .heading-anchor,
+.prose .heading-anchor:focus-visible {
+	@apply opacity-100 text-pink;
+}
+.prose .heading-group:hover > [data-heading-link] {
+	@apply text-pink;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+	@apply font-display font-normal uppercase text-paper;
+	text-wrap: balance;
+	line-height: 1;
+}
+.prose h1 {
+	font-size: clamp(2.25rem, 1.6rem + 2.4vw, 3.5rem);
+	@apply mt-12 mb-5;
+}
+.prose h2 {
+	font-size: clamp(1.9rem, 1.4rem + 1.9vw, 2.9rem);
+	@apply mt-14 mb-5;
+}
+.prose h3 {
+	font-size: clamp(1.45rem, 1.2rem + 1vw, 1.95rem);
+	@apply mt-10 mb-4;
+}
+/* FAQ questions open and close (src/plugins/rehype-faq-details.mjs): a ruled list of
+   questions with a pink plus that turns to a minus when the answer is open */
+.prose details.faq {
+	@apply border-t border-surface-4;
+}
+.prose details.faq:last-of-type {
+	@apply border-b;
+}
+.prose details.faq summary {
+	@apply flex cursor-pointer items-baseline justify-between gap-4 py-4;
+	list-style: none;
+}
+.prose details.faq summary::-webkit-details-marker {
+	display: none;
+}
+.prose details.faq .faq-sign {
+	@apply font-display text-pink;
+	font-size: 2.75rem;
+	line-height: 1;
+}
+.prose details.faq summary h3 {
+	@apply m-0;
+}
+/* The answer's closing space is padding on its last block, inside the part that
+   eases open, so nothing snaps in when the height lands */
+.prose details.faq > :last-child {
+	margin-bottom: 0;
+	padding-bottom: 2.5rem;
+}
+.prose h4 {
+	@apply font-sans text-lg font-semibold text-paper mt-8 mb-2;
+}
+.prose p {
+	@apply mb-6;
+}
+.prose a {
+	@apply text-pink underline decoration-1 underline-offset-[0.18em] hover:text-paper hover:decoration-pink;
+}
+.prose strong {
+	@apply text-paper font-semibold;
+}
+.prose ul,
+.prose ol {
+	@apply mb-6 pl-6;
+}
+.prose ul {
+	@apply list-disc;
+}
+.prose ol {
+	@apply list-decimal;
+}
+.prose li {
+	@apply mb-2;
+}
+.prose li::marker {
+	@apply text-pink;
+}
+.prose blockquote {
+	@apply border-l-4 border-pink pl-5 py-1 my-8 text-paper;
+	font-size: 1.08em;
+}
+/* A real quotation hangs one giant pink mark in the margin, its text on the column's edge
+   (rehype-quote-marks.mjs; big type round 9A). Below 60rem the spine would cover it, so it sits above */
+.prose blockquote.quote {
+	@apply relative border-l-0 pl-0 my-12;
+}
+.prose blockquote.quote > p:first-of-type {
+	@apply italic;
+	font-size: 1.12em;
+}
+.prose blockquote.quote.long > p:first-of-type {
+	@apply not-italic;
+}
+.prose blockquote.quote > p + p {
+	@apply font-sans text-sm text-muted;
+}
+.prose blockquote.quote > :last-child {
+	@apply mb-0;
+}
+.prose .quote-mark {
+	@apply block font-serif font-bold italic text-pink select-none;
+	font-size: 6rem;
+	line-height: 0.6;
+	height: 0.4em;
+	/* the glyph's own left bearing, so its ink starts on the text edge */
+	margin-left: -0.08em;
+}
+@media (width >= 60rem) {
+	.prose .quote-mark {
+		@apply absolute ml-0;
+		/* + 0.1em: the italic tail overhangs its box toward the text */
+		right: calc(100% + 0.75rem + 0.1em);
+		/* the mark's top on the first line's ascenders */
+		top: 0.21em;
+		height: auto;
+		font-size: 9rem;
+	}
+}
+/* From 100rem "On this page" fills the left gutter, so the mark sits above the quote again */
+@media (width >= 100rem) {
+	.margin-column:has(> .margin-toc) .prose .quote-mark {
+		position: static;
+		height: 0.4em;
+		font-size: 6rem;
+		margin-left: -0.08em;
+	}
+}
+/* One line of the post, alone between two sections (rehype-interlude.mjs; big type round 4A).
+   The black around it stays short enough that the end of the last section and the start
+   of the next still show on screen with it (DECISIONS.md 2026-11-20). */
+.prose .interlude {
+	@apply font-serif italic text-paper text-balance;
+	/* svh, so the space doesn't jump when a phone's address bar hides */
+	margin-block: clamp(2.5rem, 15svh, 10rem);
+	/* 3rem to 7rem with the width, but smaller on a narrow phone (12.5vw) or a short screen
+	   (12svh), so the longest line and the black around it still fit on screen together */
+	font-size: max(2.25rem, min(clamp(3rem, 1rem + 5vw, 7rem), 12.5vw, 12svh));
+	line-height: 1.02;
+}
+/* A sideways phone: the sticky header takes a fifth of the height, so the pause shrinks more */
+@media (height < 30rem) {
+	.prose .interlude {
+		margin-block: 1.75rem;
+		font-size: 2.25rem;
+	}
+}
+.prose .callout {
+	@apply border-l-4 border-pink pl-4 py-1 my-6 font-sans text-base;
+}
+.prose .callout p {
+	@apply my-0 text-paper;
+}
+.prose .callout a {
+	@apply text-pink underline underline-offset-2;
+}
+.prose .pull-quote {
+	@apply my-10 text-center font-display uppercase text-pink;
+	font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
+	line-height: 1.05;
+}
+.prose .pull-quote p {
+	@apply my-0;
+}
+.prose summary {
+	@apply cursor-pointer font-sans text-base text-pink;
+}
+.prose code {
+	/* design-ok: inline code, the one place mono belongs */
+	@apply font-mono text-paper bg-surface-3 px-1.5 py-0.5 rounded-sm;
+	font-size: 0.8em;
+	/* A long identifier breaks instead of running off a phone's edge */
+	overflow-wrap: anywhere;
+}
+/* Cross-posted articles open their body with the original blog's header image, a
+   second copy of the hero right above it. Phones skip it so the text starts sooner */
+@media (width < 48rem) {
+	.prose.has-hero > p:first-child:has(> img[src*='/header.']:only-child) {
+		display: none;
+	}
+}
+/* Phones set prose at 17px, where 0.8em is a 13.6px squint */
+@media (width < 48rem) {
+	.prose :not(pre) > code {
+		font-size: 0.875em;
+	}
+}
+.prose pre {
+	@apply bg-surface-2 border border-surface-4 rounded-lg pt-9 pb-4 px-4 my-6 overflow-x-auto relative;
+}
+/* Phones: a deep indent shouldn't push the code out of view */
+@media (width < 48rem) {
+	.prose pre {
+		tab-size: 2;
+	}
+}
+.prose pre code {
+	@apply bg-transparent p-0 text-paper text-sm;
+	font-size: 0.875rem;
+	line-height: 1.7;
+}
+/* Shiki's github-dark paints its own blue-gray (#24292e) inline; code sits on the site's gray */
+pre.astro-code {
+	background-color: var(--color-surface-2) !important;
+}
+/* design-ok: about the code font. Shiki sets some tokens in italic, and JetBrains Mono loads no italic face: draw them
+   upright instead of letting the browser slant the roman */
+pre.astro-code {
+	font-synthesis-style: none;
+}
+/* Override Shiki comment color for WCAG AA contrast on surface-2 background */
+.prose pre code span[style*='color:#6A737D'] {
+	color: #8b949e !important;
+}
+.prose pre .code-lang-label {
+	@apply absolute top-2 right-20 text-muted font-mono text-xs select-none;
+}
+/* 12px is too small to read on a phone */
+@media (width < 48rem) {
+	.prose pre .code-lang-label {
+		font-size: 0.875rem;
+	}
+}
+.prose pre .copy-button {
+	@apply absolute top-1 right-2 z-10 bg-transparent border-none text-muted hover:text-paper cursor-pointer text-xs px-2 py-1 rounded-sm transition-colors;
+}
+.prose pre .copy-button:hover,
+.prose pre .copy-button:focus-visible {
+	@apply bg-surface-4;
+}
+.prose img {
+	/* Square, with room around it: a film frame or picture is a plate, not a card */
+	@apply my-12 mx-auto;
+	max-width: 100%;
+	max-height: 500px;
+	height: auto;
+	object-fit: contain;
+}
+
+/* A typed --highlight animates; an untyped one would jump. A post's links fill with pink
+   from the left on hover, like a highlighter (motion.css times the sweep) */
+@property --highlight {
+	syntax: '<percentage>';
+	inherits: false;
+	initial-value: 0%;
+}
+@media (hover: hover) {
+	.prose a:not(.heading-anchor, :has(img, picture, video)) {
+		/* design-ok: a hard-edged sweep of solid pink on hover, not a visible blend */
+		background: linear-gradient(
+				100deg,
+				#ff4fd8 calc(var(--highlight) - 2%),
+				transparent var(--highlight)
+			)
+			no-repeat;
+	}
+	/* At rest the pink ends below 0%, so no sliver shows before a hover */
+	.prose a:not(.heading-anchor, :has(img, picture, video)):hover {
+		--highlight: 104%;
+		@apply text-ink;
+	}
+}

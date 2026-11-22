@@ -1,0 +1,693 @@
+/* Article pages only: blog posts, talks, newsletter issues, project pages, reviews and papers
+   (ArticleFrame.astro imports it). Everything else on the site skips these bytes;
+   tests/bundle-size.test.ts budgets each page type (DECISIONS.md 2026-11-22). Its <link> comes before or after the global
+   stylesheet depending on the page, so a rule here must not rely on file order to beat one there. */
+@import './prose.css';
+@reference './global.css';
+
+/* Blog posts, newsletter issues, project pages and reviews: the text keeps its 32em
+   measure, centered under the hero, while code, tables and embeds fill the hero's
+   width; the article is the @container. Pictures and clips stay at the text width
+   or their own size, never wider (Joe, 2026-11-15: the blog post column is the
+   standard), except a pair of frames side by side (rehype-frames.mjs). A picture
+   centers itself rather than widening its paragraph, so a caption written in the
+   same paragraph stays in the text column */
+.prose.wide-media
+	> :is(pre, figure:not(.frame, .frame-pair, .margin-figure), .table-scroll, .\@container) {
+	width: 100cqw;
+	max-width: none;
+	margin-inline: calc((100% - 100cqw) / 2);
+}
+
+/* A portrait (9:16) video in a post floats against the right edge of the hero's
+   width and the text runs down its left side, instead of a narrow video centered
+   over two empty gutters. Below 44rem of article there's no room beside it, so it
+   sits centered at up to 24rem */
+.prose.wide-media > figure.portrait-video {
+	float: right;
+	width: 18rem;
+	max-width: none;
+	margin: 0.5rem calc((100% - 100cqw) / 2) 1.5rem 2rem;
+}
+.prose figure.portrait-video video {
+	aspect-ratio: 9 / 16;
+	width: 100%;
+	max-height: none;
+	margin: 0;
+}
+@container (max-width: 44rem) {
+	.prose.wide-media > figure.portrait-video {
+		float: none;
+		width: auto;
+		max-width: 24rem;
+		margin: 1.5rem auto;
+	}
+}
+
+.prose video {
+	@apply my-6 mx-auto;
+	display: block;
+	max-width: 100%;
+	max-height: 500px;
+	height: auto;
+}
+
+.prose figure {
+	@apply my-6;
+}
+
+/* Post diagrams (src/plugins/rehype-inline-diagrams.mjs): the desktop drawing, or
+   on phones its phone layout when it has one. Click to enlarge (ImageLightbox). */
+.prose .diagram {
+	@apply my-8 cursor-zoom-in;
+}
+.prose .diagram svg {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.prose .diagram-phone {
+	display: none;
+}
+@media (max-width: 639px) {
+	.prose .diagram:has(.diagram-phone) .diagram-wide {
+		display: none;
+	}
+	.prose .diagram-phone {
+		display: block;
+	}
+}
+.prose figcaption {
+	@apply mt-2 max-w-[28em] text-left font-serif text-[0.9375rem] leading-snug text-muted italic;
+}
+
+/* Captioned pictures and frame pairs (rehype-frames.mjs): the caption sits tight under the
+   picture, left-aligned like a magazine's, and the figure gets the picture's room */
+.prose figure:is(.frame, .frame-pair) {
+	@apply my-12;
+}
+.prose figure:is(.frame, .frame-pair) img {
+	@apply my-0;
+}
+/* A portrait picture is narrower than the column (img max-height): the figure shrinks to it,
+   so the caption starts at the picture's edge, and the caption wraps inside that width */
+.prose figure.frame {
+	@apply mx-auto w-fit;
+}
+.prose figure.frame .frame-caption {
+	contain: inline-size;
+}
+.prose .frame-caption {
+	@apply mt-2.5;
+}
+.prose .frame-pair-grid {
+	/* Stacked, more room between frames than under a label, so a label reads as its frame's */
+	@apply grid gap-x-2 gap-y-5;
+}
+.prose .frame-pair img {
+	width: 100%;
+	max-height: none;
+}
+.prose .frame-label {
+	@apply mt-1.5 block font-display text-sm leading-none tracking-[0.04em] text-paper uppercase;
+}
+.prose .frame-pair-cell:last-child .frame-label {
+	@apply text-pink;
+}
+/* From tablets up a pair sits side by side, wider than the text: the frames are the
+   comparison, and half the text column made each one a thumbnail */
+@media (width >= 48rem) {
+	.prose .frame-pair-grid {
+		grid-template-columns: var(--pair-columns, 1fr 1fr);
+	}
+	.prose.wide-media > figure.frame-pair {
+		width: min(100cqw, 856px);
+		max-width: none;
+		margin-inline: calc((100% - min(100cqw, 856px)) / 2);
+	}
+}
+
+.prose hr {
+	@apply border-surface-3 my-8;
+}
+/* Each table sits in a box (rehype-table-scroll.mjs). Below 80rem a table wider than its
+   column scrolls in it, since the page itself never scrolls sideways. A pink bar on the box's
+   right edge says there's more: the bar is fixed to the box, and a black patch fixed to the
+   table's far end covers it once you reach the end, or from the start when the table fits.
+   From 80rem a wide table runs into the empty margin, as it always has, so its last column
+   stays readable without a scrollbar macOS wouldn't show. */
+.prose .table-scroll {
+	@apply my-6;
+}
+@media (width < 80rem) {
+	.prose .table-scroll {
+		@apply overflow-x-auto;
+		/* design-ok: two solid-color layers, a cover and a bar, no fade */
+		background:
+			linear-gradient(theme('colors.ink'), theme('colors.ink')) right / 12px 100% no-repeat local,
+			linear-gradient(theme('colors.pink'), theme('colors.pink')) right / 3px 100% no-repeat scroll;
+	}
+}
+.prose table {
+	@apply w-full font-sans text-base;
+}
+.prose th {
+	@apply text-left text-paper font-semibold p-2 border-b border-surface-4;
+}
+/* A number column's header sits over its numbers (markdown's `---:` sets align) */
+.prose th[align='right'] {
+	@apply text-right;
+}
+.prose th[align='center'] {
+	@apply text-center;
+}
+.prose td {
+	@apply p-2 border-b border-surface-3;
+	/* same-width digits, so numbers line up down a column */
+	font-variant-numeric: tabular-nums;
+}
+
+@media (pointer: coarse) {
+	/* A heading's # only shows on hover, so on touch it's an invisible 10px target. Clipped, not
+	   removed, so a keyboard on a tablet still reaches it, and it shows once focused */
+	.prose .heading-anchor:not(:focus-visible) {
+		@apply sr-only;
+	}
+	.prose pre .copy-button {
+		@apply px-3 py-3 text-sm;
+		top: 0;
+		right: 0;
+	}
+}
+
+/* A post picture's "Enlarge" button (ImageLightbox): out of sight until keyboard focus,
+   then a small button over the picture's top right corner */
+.lightbox-opener {
+	@apply absolute top-3 right-3 z-10 rounded-md border-2 border-pink bg-ink px-4 py-2.5 font-sans font-semibold text-pink;
+}
+.lightbox-opener:not(:focus-visible) {
+	@apply sr-only;
+}
+
+/* A link to another post previews it on hover or focus (rehype-post-previews.mjs): a taped
+   card pinned above the link, below it when there's no room. Touch screens and browsers
+   without anchor positioning keep the plain link */
+.link-peek {
+	inset: auto;
+	position-area: top center;
+	position-try-fallbacks: flip-block;
+	margin: 0 0 12px;
+	width: 16rem;
+	overflow: visible;
+	border: 0;
+	padding: 10px 10px 12px;
+	rotate: -1.5deg;
+	@apply bg-surface-2 text-paper;
+}
+.link-peek::before {
+	content: '';
+	position: absolute;
+	top: -9px;
+	left: calc(50% - 32px);
+	width: 64px;
+	height: 20px;
+	rotate: -3deg;
+	background: #d6cebe; /* masking tape */
+}
+.link-peek img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+.link-peek small {
+	display: block;
+	margin-top: 9px;
+	@apply font-sans text-xs text-muted;
+}
+.link-peek strong {
+	display: block;
+	margin-top: 4px;
+	font-size: 15px;
+	line-height: 1.25;
+	text-wrap: balance;
+	@apply font-sans font-semibold text-paper;
+}
+@media not (hover: hover) {
+	.link-peek {
+		display: none !important;
+	}
+}
+@supports not (anchor-name: --a) {
+	.link-peek {
+		display: none !important;
+	}
+}
+
+/* A live embed (a playable project in an iframe) is framed in pink with a label strip on top,
+   so it reads as a window into another page, not as part of this one (Joe, 2026-11-15) */
+:has(> iframe[data-embed-project]) {
+	@apply relative rounded-lg border-2 border-pink bg-pink pt-7;
+}
+/* Same room above and below as a picture in a post (.prose img) */
+.prose > :has(> iframe[data-embed-project]) {
+	@apply my-12;
+}
+:has(> iframe[data-embed-project])::before {
+	@apply absolute top-1.5 left-3 font-display text-sm leading-none text-ink uppercase;
+	content: 'Live: runs right here' / '';
+}
+
+/* A post's masthead (BlogPost.astro, DECISIONS.md round 4 C): a kicker line between a thick
+   pink rule and a thin one, the title fitted to the column (its font size comes from
+   utils/masthead.ts in cqi of the article), then the picture and an italic caption */
+.masthead-kicker {
+	@apply border-t-4 border-b border-t-pink border-b-surface-4 py-2 font-display text-base leading-tight tracking-[0.04em] text-paper uppercase;
+}
+.masthead-title {
+	@apply my-5 font-display leading-[0.95] font-normal text-paper uppercase;
+	overflow-wrap: anywhere;
+}
+.masthead-title > span {
+	@apply block;
+	/* a line too long for a phone breaks into even halves, not a lone last word */
+	text-wrap: balance;
+}
+.masthead-caption {
+	/* about 60 characters: a caption in small italic reads best shorter than the text */
+	@apply mx-auto mt-2 max-w-[28em] font-serif text-[0.9375rem] leading-snug text-muted italic;
+}
+.masthead-caption b {
+	@apply mr-1.5 font-sans text-xs font-bold tracking-wider text-pink not-italic uppercase;
+}
+
+/* Monograph margins: on wide screens a post's column gets a 15rem margin on its right.
+   "On this page" heads it like a book's contents and scrolls away with the opening, so the
+   citations below sit beside the paragraph they belong to (rehype-margin-notes.mjs) with
+   nothing covering them; About, with no notes, keeps its list in view. Where there's a
+   contents list, wide pictures and code keep to the text column, as in the mockup; without
+   one they run across the margin. */
+/* With no margin, a margin picture floats small at the right of its paragraph instead */
+.prose figure.margin-figure {
+	float: right;
+	clear: right;
+	width: 7.5rem;
+	margin: 0.35rem 0 0.75rem 1rem;
+}
+/* Whatever isn't running text starts below it, however short the paragraph beside it */
+@media (width < 80rem) {
+	.prose .margin-figure ~ :not(p, ul, ol, blockquote, aside, .margin-figure) {
+		clear: right;
+	}
+}
+.prose .margin-figure img {
+	width: 100%;
+	height: auto;
+	margin: 0;
+}
+.prose .margin-figure figcaption {
+	/* 15px only in the real margin: the 120px phone float fits 13px better */
+	@apply mt-1.5 text-left font-serif text-[0.8125rem] leading-snug text-muted italic min-[80rem]:text-[0.9375rem];
+}
+/* A [!margin] comment left in the code (no margin) wraps rather than scrolling the block */
+.prose .code-margin-comment {
+	display: block;
+	white-space: pre-wrap;
+}
+.prose .margin-note,
+.prose .cite-num,
+.prose .code-note,
+.prose .code-note-rule {
+	display: none;
+}
+@media (width >= 80rem) {
+	.margin-column {
+		--margin-col: 18rem;
+		display: flow-root;
+		max-width: calc(var(--reading-width) + var(--margin-col));
+		padding-right: var(--margin-col);
+	}
+	.margin-column > .margin-toc {
+		position: static;
+		float: right;
+		width: 15rem;
+		margin-right: calc(-1 * var(--margin-col));
+	}
+}
+/* A project page's pictures, embeds and grids break out to the article's full width (work/[slug]) */
+.work-wide {
+	width: 100cqw;
+	margin-inline: calc((100% + var(--margin-col, 0px) - 100cqw) / 2)
+		calc((100% - var(--margin-col, 0px) - 100cqw) / 2);
+}
+/* Where the left gutter has room for it (2026-11-16, Joe: "stick to where you are as you
+   scroll... keep the notation on the right"), "On this page" moves left of the text and
+   follows you down the whole page; the margin notes keep the right side to themselves.
+   The box spans the column so the list inside can stick from top to bottom */
+@media (width >= 100rem) {
+	.margin-column {
+		position: relative;
+	}
+	.margin-column > .margin-toc {
+		position: absolute;
+		inset-block: 0;
+		/* the base rule's self-start would keep it content height */
+		align-self: stretch;
+		float: none;
+		width: 12rem;
+		margin: 0;
+		left: -14.5rem;
+	}
+	.margin-column > .margin-toc > nav {
+		position: sticky;
+		top: 6rem;
+		max-height: calc(100dvh - 7rem);
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		/* room for the focus ring, which a scroll box would clip */
+		padding: 4px;
+	}
+	/* A long list scrolls under its heading, which stays put (the -4px undoes the padding) */
+	.margin-column > .margin-toc > nav > p:first-child {
+		position: sticky;
+		top: -4px;
+		z-index: 1;
+		background: theme('colors.ink');
+	}
+}
+@media (width >= 80rem) {
+	.prose .margin-note {
+		@apply block border-t border-surface-4 pt-2 pb-2 font-sans text-sm leading-snug text-muted;
+		float: right;
+		clear: right;
+		width: 15rem;
+		margin: 0.35rem calc(-1 * var(--margin-col)) 1rem 0;
+	}
+	.prose .margin-note b {
+		@apply text-pink;
+	}
+	/* A quote from the source leads its note, behind a pink rule (enrichment pick 2B) */
+	.prose .margin-quote {
+		@apply mb-2 block border-l-[3px] border-pink pl-3 font-serif text-[1.05rem] leading-snug text-paper italic;
+	}
+	/* A small captioned picture beside the paragraph after it (pick 1A) */
+	.prose figure.margin-figure {
+		display: block;
+		float: right;
+		clear: right;
+		width: 15rem;
+		margin: 0.35rem calc(-1 * var(--margin-col)) 1rem 0;
+	}
+	/* At most 11rem tall: --ratio (set by the plugin) turns that into a width, so a portrait
+	   is narrower, a landscape fills the 15rem, and the space is known before it loads */
+	.prose .margin-figure img {
+		width: min(100%, calc(11rem * var(--ratio, 1.364)));
+		height: auto;
+		margin: 0;
+	}
+	/* A code comment marked [!margin] sits level with its line, joined by a pink rule (pick
+	   6B, rehype-margin-notes.mjs). Without anchor positioning it stays a comment in the code. */
+	@supports (anchor-name: --a) {
+		.code-noted {
+			position: relative;
+		}
+		/* Only sideways, so the open animation still clips the growing height */
+		details[open]:has(.code-noted)::details-content {
+			overflow-x: visible;
+		}
+		.prose .code-margin-comment {
+			@apply sr-only;
+		}
+		/* An empty anchor counts as hidden, and Safari then hides what's placed on it */
+		.prose :is(.code-note, .code-note-rule) {
+			position-visibility: always;
+		}
+		.prose .code-note {
+			@apply block font-sans text-sm leading-snug text-muted;
+			position: absolute;
+			top: calc(anchor(center) - 0.5lh);
+			left: calc(100% + var(--margin-col) - 15rem);
+			width: 15rem;
+			margin: 0;
+		}
+		.prose .code-note-rule {
+			@apply block border-t border-pink;
+			position: absolute;
+			/* Whole pixels, or the 1px rule smears across two rows and reads grey */
+			top: round(down, anchor(center), 1px);
+			/* A line too long for the block still gets a short rule from the block's edge */
+			left: min(calc(anchor(right) + 1rem), calc(100% - 1.5rem));
+			right: calc(15rem - var(--margin-col) + 0.5rem);
+		}
+	}
+	.prose .cite-text {
+		@apply sr-only;
+	}
+	.prose .cite-num {
+		@apply inline font-sans text-xs font-bold text-pink;
+	}
+	.prose .margin-note.mn-narrow {
+		display: none;
+	}
+	.prose .margin-note:is(.is-lit, :target) {
+		@apply border-pink text-paper;
+	}
+	/* One line, so the crayon ring has a box to circle (a wrapped span has none) */
+	.prose .mn-words {
+		/* Wraps like the text, so a long phrase never leaves a short line before it; a wrapped
+		   phrase keeps its highlight but loses the ring (DECISIONS.md, 2026-11-17) */
+		@apply cursor-pointer;
+	}
+}
+/* Front matter notes (round 6 B, round 7 A): set like a book, no labels. Quotes and updates
+   also show on phones, as a block under their paragraph, and keep their number in the line */
+@media (width < 80rem) {
+	.prose .margin-note.mn-narrow {
+		@apply mb-6 block border-t-0 border-l-2 border-pink py-1 pl-3 font-sans text-sm leading-snug text-muted;
+	}
+	.prose .cite-num.mn-phone {
+		@apply inline font-sans text-xs font-bold text-pink;
+	}
+}
+.prose .margin-note b a,
+.prose .mn-num a {
+	@apply relative text-pink no-underline;
+	background: none;
+}
+/* The number stays pink under the pointer (post links turn ink on hover) */
+.prose :is(.margin-note b, .mn-num) a:is(:hover, :focus-visible) {
+	@apply text-pink;
+}
+/* A 24px tap target round a one-digit number (WCAG 2.5.8): the link's own box, since a
+   pseudo-element doesn't count, with negative margins so the line doesn't move */
+.prose :is(.margin-note b, .mn-num) a {
+	display: inline-block;
+	box-sizing: border-box;
+	min-width: 24px;
+	min-height: 24px;
+	padding: 4px 6px;
+	margin: -4px -6px;
+	text-align: center;
+	vertical-align: baseline;
+}
+/* A lit or held note's number turns into a pink chip, a change every kind of note shows;
+   the chip hugs the digit, not the whole 24px target */
+.prose .margin-note.is-lit b a,
+.prose .mn-num a.is-lit {
+	@apply bg-pink text-ink;
+	background-clip: content-box;
+}
+.prose .mn-quote {
+	@apply border-t-2 border-pink;
+}
+.prose .mn-quote q {
+	@apply font-serif text-base text-paper italic;
+}
+.prose .mn-quote cite {
+	@apply mt-1 block text-xs not-italic;
+}
+.prose .mn-quote cite a {
+	@apply text-muted;
+}
+.prose .margin-note dfn {
+	@apply font-semibold text-paper not-italic;
+}
+.prose .mn-stamp {
+	@apply mr-1.5 inline-block border border-pink px-1 text-[11px] font-bold tracking-wider text-pink uppercase;
+}
+.prose .mn-see {
+	@apply grid grid-cols-[auto_1fr] items-start gap-x-1.5;
+}
+.prose a.mn-card {
+	@apply grid grid-cols-[56px_1fr] items-start gap-2.5 text-muted no-underline;
+	background: none;
+}
+/* A project page has no thumbnail to read, so its card is text alone, across the card */
+.prose a.mn-card > :only-child {
+	grid-column: 1 / -1;
+}
+.prose a.mn-card img {
+	@apply m-0 size-14 object-cover;
+}
+.prose a.mn-card strong {
+	@apply block font-medium text-paper;
+}
+.prose a.mn-card:hover strong {
+	@apply text-pink;
+}
+.prose .mn-exhibit img {
+	@apply my-1 block w-full;
+}
+/* The phrase a note is about: pink while either is hovered, ringed in crayon once clicked
+   (src/scripts/margin-notes.ts), like a pinned item on /uses */
+.prose .mn-words {
+	@apply relative;
+}
+/* Hovering a note or its words lights both (margin-notes.ts): the words get a pink
+   highlighter, like the note's number chip. A code line gets a soft band, keeping its colors. */
+.prose :is(.mn-words, a[data-note]:not(.cite), a[data-footnote-ref]).is-lit {
+	@apply bg-pink text-ink;
+	box-decoration-break: clone;
+}
+/* A citation's number, and a bracketed citation's only visible part, lights as the note's chip */
+.prose :is(a.cite.is-lit .cite-num, sup.cite-num.is-lit) {
+	@apply bg-pink px-0.5 text-ink;
+}
+.prose .line[data-note].is-lit {
+	/* The pink at 20% over the page black the code block shows, as one solid color */
+	background-color: #33102b;
+}
+.prose .code-note.is-lit {
+	@apply text-paper;
+}
+.prose :is(.margin-note[data-note], .code-note, .line[data-note]) {
+	@apply cursor-pointer;
+}
+.prose .mn-ring {
+	@apply pointer-events-none absolute -top-[35%] -left-[6%] h-[170%] w-[112%] overflow-visible;
+}
+.prose .mn-words.is-held .mn-ring {
+	visibility: visible;
+	stroke-dashoffset: 0;
+}
+/* The masthead keeps to the text column, so title, picture and text share one left edge
+   (ArticleFrame.astro). It's the title's container, so the title still fits its width */
+.post-axis {
+	container-type: inline-size;
+	max-width: var(--reading-width);
+	margin-inline: auto;
+}
+/* The caption sits on the shared left edge */
+.post-axis .masthead-caption {
+	margin-inline: 0;
+}
+@media (width >= 80rem) {
+	.margin-column
+		.prose.wide-media
+		> :is(pre, figure:not(.frame, .frame-pair, .margin-figure), .table-scroll, .\@container) {
+		@apply relative z-20;
+		margin-inline: calc((100% + var(--margin-col) - 100cqw) / 2)
+			calc((100% - var(--margin-col) - 100cqw) / 2);
+	}
+	.margin-column .prose.wide-media > figure.portrait-video {
+		margin-right: calc((100% - var(--margin-col) - 100cqw) / 2);
+	}
+	.margin-column:has(> .margin-toc)
+		.prose.wide-media
+		> :is(pre, figure:not(.frame, .frame-pair, .margin-figure), .table-scroll, .\@container) {
+		width: 100%;
+		margin-inline: 0;
+	}
+	.margin-column:has(> .margin-toc) .prose.wide-media > figure.portrait-video {
+		margin-right: 0;
+	}
+	/* A project page's wide blocks keep to the text beside its contents list, as a post's do */
+	.margin-column:has(> .margin-toc) .work-wide {
+		width: 100%;
+		margin-inline: 0;
+	}
+	/* A frame pair runs across the text and the margin, on the text's left edge; beside a
+	   contents list it keeps to the text, like other wide media */
+	.margin-column .prose.wide-media > figure.frame-pair {
+		width: calc(100% + var(--margin-col));
+		margin-inline: 0;
+	}
+	.margin-column:has(> .margin-toc) .prose.wide-media > figure.frame-pair,
+	.margin-column .prose.wide-media > figure.frame-pair.beside-credits {
+		width: 100%;
+	}
+	/* An interlude reaches across the margin too: "On this page" only heads the margin, far above */
+	.margin-column .prose > .interlude {
+		width: calc(100% + var(--margin-col));
+	}
+	/* Here the masthead spans the text and the margin, so title, picture and text still share
+	   one left edge */
+	.post-axis {
+		max-width: calc(var(--reading-width) + 18rem);
+	}
+	.post-axis .masthead :is(img, video, canvas) {
+		max-width: none;
+	}
+}
+
+/* Chapter openers: each big section of a long post opens with a giant outlined numeral,
+   its heading in Fraunces italic and sometimes an epigraph (rehype-chapters.mjs) */
+.prose .chapter {
+	@apply mt-16 mb-10 grid items-end gap-x-8 gap-y-3 border-t border-surface-3 pt-10;
+	grid-template-columns: auto 1fr;
+	min-height: min(440px, 60dvh);
+}
+.prose .chapter + .heading-group h3 {
+	/* A subheading straight under a chapter title would read as part of the opener */
+	@apply mt-16;
+}
+.prose .chapter-num {
+	@apply font-display leading-[0.74] text-ink;
+	font-size: clamp(150px, 15vw, 240px);
+	-webkit-text-stroke: 2px theme('colors.pink');
+}
+.prose .chapter h2 {
+	@apply m-0 font-serif font-light italic normal-case;
+	font-size: clamp(2rem, 1.2rem + 2vw, 2.8rem);
+	line-height: 1.02;
+}
+.prose .chapter .epigraph {
+	@apply mt-6 mb-0 border-l-2 py-0 pl-4 text-muted;
+	font-size: 0.9em;
+}
+.prose .chapter .epigraph p {
+	@apply m-0;
+}
+.prose .chapter cite {
+	@apply mt-2 block font-sans text-sm not-italic;
+}
+@media (width < 40rem) {
+	/* The numeral stacks above the title here, so the jump leaves room for it too */
+	.prose .chapter h2 {
+		scroll-margin-top: 7.75rem;
+	}
+	.prose .chapter {
+		@apply grid-cols-1;
+		min-height: 0;
+	}
+	.prose .chapter-num {
+		font-size: 150px;
+	}
+}
+
+/* A blog post that's the readable version of a paper says so under its title */
+.paper-strip {
+	@apply mb-6 grid max-w-(--reading-width) grid-cols-[auto_1fr] gap-x-3.5 gap-y-1 border-y border-surface-4 py-2.5 text-[0.9375rem] leading-snug text-paper;
+}
+.paper-strip-label {
+	@apply mt-0.5 self-start border-[1.5px] border-pink px-1.5 py-0.5 font-sans text-[0.6875rem] font-bold tracking-[0.1em] text-pink uppercase;
+}
+.paper-strip-links {
+	@apply col-start-2 text-muted;
+}
+.paper-strip a {
+	@apply text-pink;
+}
+.paper-strip-links a {
+	@apply inline-flex min-h-11 items-center sm:min-h-6;
+}

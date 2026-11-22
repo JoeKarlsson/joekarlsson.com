@@ -1,7 +1,7 @@
 /**
  * A blockquote that is one real quotation (its first paragraph is wrapped in quote marks) gets one giant
  * pink quote mark hanging in the margin beside it, and its own small marks come off, since the
- * big one does their job (big type round, 9A; .quote in global.css). Notes, TL;DRs and lists in
+ * big one does their job (big type round, 9A; .quote in prose.css). Notes, TL;DRs and lists in
  * blockquotes don't open with a quotation mark, so they keep the plain pink rule.
  *
  * Only the first paragraph is the quote; a paragraph after it is the attribution ("From ...").

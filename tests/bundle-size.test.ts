@@ -22,24 +22,6 @@ const THRESHOLDS = {
 	maxSingleJsFile: 50 * 1024,
 	// Total JS bundle should not exceed 150KB
 	maxTotalJsBundle: 150 * 1024,
-	// Total CSS, gzipped: what a visitor downloads. Until 2026-11-12 this counted raw
-	// bytes and sat at its cap (raised 50KB to 72KB in eight days, then held at 70KB),
-	// so every new utility class broke the build and each session trimmed or bumped it.
-	// Gzipped it was 14.6KB; 18KB left room for everyday changes and still caught a
-	// big new block of styles. Raised to 20KB on 2026-11-14 (Joe's OK): main sat at 17.4KB
-	// and the new-CSS round (DECISIONS.md) added 1KB, so 20KB restores ~2KB of headroom.
-	// A coverage run that day found no dead rules to cut (the unused share is spoilers, the
-	// lightbox, callouts and other states), and it's one stylesheet cached for a year.
-	// Raised to 22KB the same day (Joe's OK): the art book layout (spine, margin notes,
-	// chapter openers) took it to 20.1KB. Raised to 23KB on 2026-11-16 (Joe's OK): margin
-	// notes beyond citations (quotes, terms, updates, see-also cards) took it to 22.1KB.
-	// Raised to 25KB on 2026-11-19 (Joe's OK): the big type round (hanging quote mark,
-	// interlude) took it to 23.2KB; 25KB leaves ~2KB of headroom again.
-	// Raised to 26KB on 2026-11-22, temporarily (Joe: "do the cap now ... I just want this
-	// get the shit deployed"): keyboard heading links, table scroll boxes and the /papers/
-	// section took it to 25.1KB. The lasting fix is splitting the CSS by page type with a
-	// budget per page type, planned for the next session; that replaces this number.
-	maxTotalCssGzip: 26 * 1024,
 	// No total dist cap: it was raised six times in November 2026 as new media kept tripping
 	// it, while visitors only ever fetch one page. These catch what it was there for (raw
 	// footage, unconverted GIFs); per-page weight is the homepage budget, Lighthouse and
@@ -124,25 +106,88 @@ describe('Bundle Size', () => {
 		});
 	});
 
-	describe('CSS bundles', () => {
-		it('total CSS is under 26KB gzipped', () => {
-			const cssFiles = getFilesWithExtension(ASTRO_DIR, '.css').map((f) => ({
-				name: f.name,
-				size: gzipSync(readFileSync(join(ASTRO_DIR, f.name))).length,
-			}));
-			const totalSize = getTotalSize(cssFiles);
+	describe('CSS per page type', () => {
+		const pages = builtPageCss();
 
-			if (totalSize >= THRESHOLDS.maxTotalCssGzip) {
-				expect.fail(
-					`Total CSS is ${formatBytes(totalSize)} gzipped, over ${formatBytes(THRESHOLDS.maxTotalCssGzip)}:\n` +
-						breakdown(cssFiles),
-				);
-			}
-
-			expect(totalSize).toBeLessThan(THRESHOLDS.maxTotalCssGzip);
+		it('finds pages of every type', () => {
+			for (const type of Object.keys(CSS_BUDGET))
+				expect(
+					pages.some((p) => p.type === type),
+					type,
+				).toBe(true);
 		});
+
+		for (const [type, budget] of Object.entries(CSS_BUDGET)) {
+			it(`${type} pages load under ${formatBytes(budget)} of CSS, gzipped`, () => {
+				const over = pages
+					.filter((p) => p.type === type && p.size >= budget)
+					.sort((a, b) => b.size - a.size);
+				if (over.length > 0) {
+					const [worst] = over;
+					expect.fail(
+						`${over.length} ${type} page(s) over ${formatBytes(budget)}; the heaviest, ` +
+							`${worst.page}, loads ${formatBytes(worst.size)}:\n${breakdown(worst.parts)}`,
+					);
+				}
+			});
+		}
 	});
 });
+
+// The CSS each kind of page downloads, gzipped: its linked stylesheets plus its inline <style>.
+// Until 2026-11-22 one number capped every stylesheet in the build, since every page loaded the
+// one global.css; it went from 18KB to 26KB in ten days, each feature raising it for every page.
+// Now each page type imports only its own styles (prose.css, article.css from ArticleFrame,
+// reviews.css, papers.css), so a type grows only with its own features. When a budget trips,
+// it's a trade-off for that page type to decide in DECISIONS.md, not a reason to quietly raise
+// it (Joe: "make sure the site remains performant as we like grow and expand out the
+// capabilities of the site"). Measured 2026-11-22, heaviest of each: article 23.3KB, review
+// 25.1KB, paper 25.5KB, homepage 18.2KB, section 20.2KB (/privacy-policy/), review stats 19.6KB.
+const CSS_BUDGET = {
+	article: 25 * 1024,
+	review: 27 * 1024,
+	paper: 27 * 1024,
+	home: 20 * 1024,
+	section: 22 * 1024,
+	'review stats': 22 * 1024,
+} as const;
+
+type PageType = keyof typeof CSS_BUDGET;
+
+/** Posts, talks, issues and projects render through ArticleFrame; reviews and papers do too, with
+ * their own stylesheet on top. */
+function pageType(page: string): PageType {
+	if (page === '/index.html') return 'home';
+	if (page.startsWith('/reviews/stats/')) return 'review stats';
+	if (/^\/papers\/[^/]+\/index\.html$/.test(page)) return 'paper';
+	if (/^\/reviews\/[^/]+\/index\.html$/.test(page)) return 'review';
+	if (/^\/(blog|talks|newsletter|work)\/[^/]+\/index\.html$/.test(page)) return 'article';
+	return 'section';
+}
+
+/** Every built page that links a stylesheet (redirect stubs link none), with what it loads. */
+function builtPageCss() {
+	const gzipped = new Map<string, number>();
+	const sizeOf = (href: string) => {
+		if (!gzipped.has(href)) gzipped.set(href, gzipSync(readFileSync(join(DIST_DIR, href))).length);
+		return gzipped.get(href)!;
+	};
+	return listFiles(DIST_DIR)
+		.filter((f) => f.path.endsWith('.html'))
+		.flatMap(({ path }) => {
+			const html = readFileSync(path, 'utf8');
+			const parts = [
+				...html.matchAll(/<link[^>]+rel="stylesheet"[^>]*href="(\/_astro\/[^"]+\.css)"/g),
+			].map(([, href]) => ({ name: href, size: sizeOf(href) }));
+			if (parts.length === 0) return [];
+			const inline = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)]
+				.map(([, css]) => css)
+				.join('');
+			if (inline) parts.push({ name: 'inline <style>', size: gzipSync(inline).length });
+			const page = path.slice(DIST_DIR.length);
+			return [{ page, type: pageType(page), size: getTotalSize(parts), parts }];
+		});
+}
 
 // The homepage's media: what a visitor pulls before scrolling (the hero above <main>:
 // the montage in the first <source> a browser picks, and its stills, both counted though

@@ -175,7 +175,7 @@ export default defineConfig({
 					{
 						// After the heading, not inside it: a link inside would add its name to the
 						// heading's, so every heading in a screen reader's list ended "Link to section".
-						// The wrapper lets the # sit in the margin beside it (global.css).
+						// The wrapper lets the # sit in the margin beside it (prose.css).
 						behavior: 'after',
 						group: {
 							type: 'element',
@@ -199,7 +199,7 @@ export default defineConfig({
 							className: ['heading-anchor'],
 							ariaLabel: `Link to section: ${textOf(heading)}`,
 							// In the Tab order so a keyboard can copy a section's link (Joe, 2026-11-22); it
-							// shows when focused (global.css), so no stop is invisible
+							// shows when focused (prose.css), so no stop is invisible
 						}),
 						content: {
 							type: 'element',
