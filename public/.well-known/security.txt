@@ -1,4 +1,6 @@
+Contact: https://github.com/JoeKarlsson/joekarlsson.com/security/advisories/new
 Contact: https://www.joekarlsson.com/contact/
 Expires: 2027-11-05T00:00:00.000Z
+Policy: https://github.com/JoeKarlsson/joekarlsson.com/security/policy
 Preferred-Languages: en
 Canonical: https://www.joekarlsson.com/.well-known/security.txt
