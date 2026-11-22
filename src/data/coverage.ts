@@ -20,7 +20,8 @@ export interface Paper {
 	context?: string;
 }
 
-export type CoverageKind = 'press' | 'interview' | 'newsletter' | 'writeup' | 'thread';
+export type CoverageKind =
+	'press' | 'interview' | 'newsletter' | 'course' | 'writeup' | 'reuse' | 'thread';
 
 export interface Coverage {
 	kind: CoverageKind;
@@ -237,19 +238,19 @@ export const coverage: Coverage[] = [
 		url: 'https://www.obiee.co.uk/my-setup/',
 	},
 	{
-		kind: 'writeup',
+		kind: 'reuse',
 		outlet: 'Colby Fayock',
 		title: '50 Projects for React lists my React and MongoDB Stitch tutorial',
 		url: 'https://github.com/colbyfayock/50-projects-for-react-and-the-static-web/tree/master/Personal%20%26%20Portfolio',
 	},
 	{
-		kind: 'writeup',
+		kind: 'reuse',
 		outlet: 'Bryan Guner',
 		title: 'A data structures resource list includes my JavaScript repo',
 		url: 'https://github.com/bgoonz/BGOONZ_BLOG_2.0/blob/master/src/pages/blog/data-structures-algorithms-resources.md',
 	},
 	{
-		kind: 'writeup',
+		kind: 'reuse',
 		outlet: 'kairess',
 		title: 'An MNIST sudoku generator built on my Python sudoku solver',
 		url: 'https://github.com/kairess/mnist_sudoku_generator',
@@ -318,12 +319,339 @@ export const coverage: Coverage[] = [
 		url: 'https://www.reddit.com/r/pihole/comments/1e0z0em/adding_custom_domain_names_on_your_internal/',
 		note: '8 comments',
 	},
+
+	// Found through links to my old addresses and employer bylines, and my analytics' referrers
+	{
+		kind: 'newsletter',
+		date: '2025-06-17',
+		outlet: 'ClickHouse newsletter',
+		title:
+			'ClickHouse’s June 2025 newsletter named me its featured community member and wrote up my CloudQuery full-text search post',
+		url: 'https://clickhouse.com/blog/202506-newsletter',
+	},
+	{
+		kind: 'newsletter',
+		date: '2025-05-12',
+		outlet: 'ClickHouse newsletter',
+		title:
+			'ClickHouse’s May 2025 newsletter summarizes my billion-row insert post (co-written with Mariano Gappa)',
+		url: 'https://clickhouse.com/blog/202505-newsletter',
+	},
+	{
+		kind: 'newsletter',
+		date: '2025-04-16',
+		outlet: 'ClickHouse newsletter',
+		title:
+			'ClickHouse’s April 2025 newsletter summarizes my Six Months with ClickHouse at CloudQuery post',
+		url: 'https://clickhouse.com/blog/202504-newsletter',
+	},
+	{
+		kind: 'writeup',
+		date: '2026-08-26',
+		outlet: 'Kevin Simback',
+		title:
+			'His guide to becoming an AI-native company uses my skills-repo post as one of its case studies',
+		url: 'https://kevinsimback.com/writing/becoming-an-ai-native-company-start-with-shared-skills/',
+	},
+	{
+		kind: 'writeup',
+		date: '2026-05-09',
+		outlet: 'Parallel Content',
+		title:
+			'Their developer marketing channels guide cites the traffic and signup numbers from my Running DevRel post',
+		url: 'https://parallelcontent.ai/blog/developer-marketing-channels',
+	},
+	{
+		kind: 'writeup',
+		date: '2026-01-24',
+		outlet: 'Mo Explains (formerly Everyday AI Blog)',
+		title:
+			'Their Claude Code for non-coders guide links my Claude Code blog skill post as the example of a custom writing skill',
+		url: 'https://moexplains.com/claude-code-for-non-coders/',
+	},
+	{
+		kind: 'writeup',
+		date: '2026-01-06',
+		outlet: 'Hubwiz',
+		title: 'Hubwiz translated my Claude Code blog skill post into Chinese and links the original',
+		url: 'https://www.hubwiz.com/blog/write-blogs-with-claude-skills/',
+	},
+	{
+		kind: 'reuse',
+		date: '2026-09-27',
+		outlet: 'Songarr (TheMrAnderson)',
+		title:
+			'Songarr, a track-level music downloader, says my Self-Hosted Music Still Sucks post gave it both the idea and the name',
+		url: 'https://github.com/TheMrAnderson/songarr',
+	},
+	{
+		kind: 'writeup',
+		date: '2023-06-13',
+		outlet: 'Michael Truong (Medium)',
+		title:
+			'His Mongoose schema post quotes my MongoDB Schema Design Best Practices rule to decide whether to embed',
+		url: 'https://medium.com/@truong.minh.michael/when-to-use-embedded-vs-reference-schema-in-mongoose-and-when-to-use-single-reference-vs-reference-36b757acab7e',
+	},
+	{
+		kind: 'writeup',
+		date: '2024-06-13',
+		outlet: 'AdminCafe',
+		title: 'A German homelab blog shared my homelab server guide with an excerpt and a link back',
+		url: 'https://admincafe.de/archive/18143',
+	},
+	{
+		kind: 'writeup',
+		date: '2025-10-10',
+		outlet: 'Malabar Matrix',
+		title: 'Their home server networking post lists my homelab guide in its references',
+		url: 'https://malabarmatrix.in/blog/02-self-hosting-network-architecture-from-scratch/',
+	},
+	{
+		kind: 'writeup',
+		date: '2026-06-06',
+		outlet: 'Airi Pham',
+		title: 'Her Building a Homelab Server post links my homelab guide first in its links',
+		url: 'https://shaderw1tch.github.io/PhuongPham7112.github.io/2026/06/06/homelab-server/',
+	},
+	{
+		kind: 'writeup',
+		date: '2020-04-03',
+		outlet: 'DJ Graham',
+		title: 'He drew a sketchnote of my Building High Performance React Applications talk',
+		url: 'https://deejaygraham.github.io/2020/04/03/high-performance-react-sketchnote/',
+	},
+	{
+		kind: 'writeup',
+		date: '2025',
+		outlet: 'Deepak Sood (Deep Notes)',
+		title: 'His ClickHouse notes list my CloudQuery ClickHouse posts under Advanced ClickHouse',
+		url: 'https://deepaksood619.github.io/data-warehouses/clickhouse/intro',
+	},
+	{
+		kind: 'writeup',
+		date: '2026',
+		outlet: 'pineman',
+		title: 'His links page saves my CloudQuery full-text search post',
+		url: 'https://pineman.github.io/links',
+	},
+	{
+		kind: 'writeup',
+		date: '2024-02-20',
+		outlet: 'Matt Peyton',
+		title: 'His bookmarks page saves my homelab server guide',
+		url: 'https://github.com/MTPeyton/MTPeyton.github.io/blob/master/public/bookmarks/index.html',
+	},
+	{
+		kind: 'course',
+		date: '2024-01-08',
+		outlet: 'General Assembly curriculum',
+		title:
+			'General Assembly’s MEN stack embedding lesson lists my MongoDB schema design post as its reference',
+		url: 'https://github.com/ga-curriculum/men-stack-embedding-related-data-skyrockit/blob/main/references/README.md',
+	},
+	{
+		kind: 'course',
+		date: '2021-11-09',
+		outlet: 'Re:Coded bootcamp curriculum',
+		title:
+			'Re:Coded’s backend bootcamp reading on schema design sends students to my MongoDB schema design post',
+		url: 'https://github.com/ReCoded-Org/curriculum-backend-readings/blob/main/module3-crud-and-data-models/r1.2-principles-of-setting-up-your-schema/README.md',
+	},
+	{
+		kind: 'course',
+		date: '2024-05-05',
+		outlet: 'RMIT COSC3060 course materials',
+		title:
+			'An RMIT web programming course’s schema design examples reuse the sample documents from my MongoDB schema design post',
+		url: 'https://github.com/TomHuynhSG/COSC3060-Web-Programming-Studio-Materials/blob/main/mongodb%20%26%20mongoose/lecture/schema-design-examples/one-to-few/index.js',
+	},
+	{
+		kind: 'course',
+		date: '2024-08-09',
+		outlet: 'OTUS Node.js course',
+		title:
+			'OTUS’s advanced MongoDB lesson builds its schema examples from the sample documents in my schema design post',
+		url: 'https://github.com/OtusTeam/node/blob/main/2023-11/11%20-%20mongodb-advanced/src/shema-basics/one-to-one.js',
+	},
+	{
+		kind: 'course',
+		date: '2022-09-26',
+		outlet: 'ICT50120 SaaS course (AdyGCode)',
+		title: 'An Australian Diploma of IT course’s link list includes my MongoDB schema design post',
+		url: 'https://github.com/AdyGCode/ICT50120-SaaS-Library/blob/main/_docs/ReadMe-99-Links.md',
+	},
+	{
+		kind: 'course',
+		date: '2018-07-09',
+		outlet: 'NYCDA class notes',
+		title: 'A New York Code + Design Academy class reading list links my data-structures repo',
+		url: 'https://github.com/dpatlut/NYCDA-WDF-June18/blob/master/w04/d01/reading.md',
+	},
+	{
+		kind: 'course',
+		date: '2021-07-21',
+		outlet: 'NxtWave Spotify Remix project',
+		title:
+			'NxtWave’s Spotify Remix course project tells students to follow my Spotify player tutorial to register their app',
+		url: 'https://github.com/arunmacs/spotify-remix-react-v2.2/blob/main/README.md',
+	},
+	{
+		kind: 'course',
+		date: '2019-11-18',
+		outlet: 'UW INFO 340 student project',
+		title:
+			'A University of Washington INFO 340 project credits my Spotify player tutorial for its auth code',
+		url: 'https://github.com/info340b-au19/SpotGen/blob/master/src/Helper.js',
+	},
+	{
+		kind: 'reuse',
+		outlet: 'backend-cheats (cheatsnake)',
+		title:
+			'A 5,000-star backend developer handbook links my MongoDB schema design post as its MongoDB best practices',
+		url: 'https://github.com/cheatsnake/backend-cheats',
+	},
+	{
+		kind: 'reuse',
+		outlet: 'programing-best-practices (dereknguyen269)',
+		title: 'An awesome list of programming best practices links my MongoDB schema design post',
+		url: 'https://github.com/dereknguyen269/programing-best-practices/blob/master/docs/database.md',
+	},
+	{
+		kind: 'reuse',
+		date: '2025-09-19',
+		outlet: 'Platform Engineering Playbook',
+		title:
+			'The Platform Engineering Playbook’s MongoDB page lists my schema design post under specialized guides',
+		url: 'https://github.com/vibesre/Platform-Engineering-Playbook/blob/main/docs/technical/mongodb.md',
+	},
+	{
+		kind: 'reuse',
+		date: '2026-06-22',
+		outlet: 'Database design workshop (Faisal-Sey)',
+		title:
+			'A database design webinar’s further reading calls my MongoDB schema design post the guide to embedding vs referencing',
+		url: 'https://github.com/Faisal-Sey/database-design-workshop/blob/main/resources/further-reading.md',
+	},
+	{
+		kind: 'reuse',
+		date: '2024-03-28',
+		outlet: 'Agile Learning Institute mongoSchemaManager',
+		title: 'A MongoDB schema manager’s README opens by citing my schema design post',
+		url: 'https://github.com/agile-learning-institute/mongoSchemaManager',
+	},
+	{
+		kind: 'reuse',
+		date: '2022-04-10',
+		outlet: 'Nikita Voloboev’s knowledge wiki',
+		title:
+			'Nikita Voloboev’s knowledge wiki lists my data-structures repo among data structures resources',
+		url: 'https://github.com/past-nikiv/knowledge/blob/main/docs/computer-science/data-structures/data-structures.md',
+	},
+	{
+		kind: 'reuse',
+		date: '2020-04-12',
+		outlet: 'card-game-generator (ITenthusiasm)',
+		title:
+			'A card game project’s notes recommend my Node client-server communication guide for WebSockets',
+		url: 'https://github.com/ITenthusiasm/card-game-generator/blob/master/NOTES.md',
+	},
+	{
+		kind: 'reuse',
+		date: '2021-01-22',
+		outlet: 'Pixelify (Vong3432)',
+		title: 'Pixelify, an image pixelation app, links my pixelate-images tutorial from its nav bar',
+		url: 'https://github.com/Vong3432/pixelify/blob/main/components/includes/Navbar.tsx',
+	},
+	{
+		kind: 'reuse',
+		date: '2018-01-23',
+		outlet: 'OpenCV-Sudoku (patrick-gao)',
+		title: 'A computer-vision Sudoku game builds its board generator on my Python Sudoku generator',
+		url: 'https://github.com/patrick-gao/OpenCV-Sudoku/blob/master/sudokuGenerator.py',
+	},
+	{
+		kind: 'reuse',
+		date: '2017-08-01',
+		outlet: 'PySudoku (prangongh)',
+		title: 'A Flask Sudoku game generates its puzzles with my Python Sudoku generator',
+		url: 'https://github.com/prangongh/PySudoku/blob/master/webserver.py',
+	},
+	{
+		kind: 'thread',
+		date: '2024-03-27',
+		outlet: 'Stack Overflow (aneroid)',
+		title:
+			'A Stack Overflow answer on blocked users in a $lookup pipeline links the embedding-vs-referencing section of my MongoDB schema design post',
+		url: 'https://stackoverflow.com/a/78229616',
+	},
+	{
+		kind: 'thread',
+		date: '2022-12-09',
+		outlet: 'Stack Overflow (Ronnie Smith)',
+		title: 'A Stack Overflow answer links my MongoDB schema design post',
+		url: 'https://stackoverflow.com/a/74738491',
+	},
+	{
+		kind: 'thread',
+		date: '2022-02-17',
+		outlet: 'Stack Overflow (sigrid)',
+		title:
+			'A Stack Overflow answer on double relationships between documents links my MongoDB schema design post',
+		url: 'https://stackoverflow.com/a/71151842',
+	},
+	{
+		kind: 'thread',
+		date: '2021-05-28',
+		outlet: 'Stack Overflow',
+		title:
+			'A Stack Overflow question on modeling a clothing catalog starts from my MongoDB schema design post',
+		url: 'https://stackoverflow.com/q/67741010',
+	},
+	{
+		kind: 'thread',
+		date: '2021-02-15',
+		outlet: 'Stack Overflow',
+		title:
+			'A Stack Overflow question works through my MongoDB CSFLE with Node.js guide step by step',
+		url: 'https://stackoverflow.com/q/66202474',
+	},
+	{
+		kind: 'thread',
+		date: '2025-05-14',
+		outlet: 'Hacker News (markhneedham)',
+		title:
+			'ClickHouse’s Mark Needham submitted my billion-row ClickHouse inserts post to Hacker News',
+		url: 'https://news.ycombinator.com/item?id=43982292',
+	},
+	{
+		kind: 'thread',
+		date: '2026-04-26',
+		outlet: 'Hacker News (mooreds)',
+		title: 'Dan Moore submitted my Running DevRel in 2026 post to Hacker News',
+		url: 'https://news.ycombinator.com/item?id=47909862',
+	},
+	{
+		kind: 'thread',
+		date: '2026-04-20',
+		outlet: 'Hacker News (swq115)',
+		title: 'A reader submitted my MikroTik binary API post to Hacker News',
+		url: 'https://news.ycombinator.com/item?id=47833052',
+	},
+	{
+		kind: 'thread',
+		date: '2017-01-30',
+		outlet: 'Hacker News (n0strom0)',
+		title: 'A reader submitted my I Ran My First Hackathon post to Hacker News',
+		url: 'https://news.ycombinator.com/item?id=13525366',
+	},
 ];
 
 export const COVERAGE_GROUPS: { kind: CoverageKind; heading: string }[] = [
 	{ kind: 'press', heading: 'Press' },
 	{ kind: 'interview', heading: 'Interviews' },
 	{ kind: 'newsletter', heading: 'Newsletters' },
+	{ kind: 'course', heading: 'Taught in courses' },
 	{ kind: 'writeup', heading: 'Written up by others' },
+	{ kind: 'reuse', heading: 'Built on and recommended' },
 	{ kind: 'thread', heading: 'Threads' },
 ];

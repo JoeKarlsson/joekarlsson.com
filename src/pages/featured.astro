@@ -65,6 +65,8 @@ import { GROUP_HEADING, HERO_LEAD, PAGE_CONTAINER, SECTION_HEADING, TEXT_LINK } 
 				<ul>
 					{coverage
 						.filter((entry) => entry.kind === kind)
+						// Newest first; undated entries last
+						.sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
 						.map((entry) => (
 							<li class="border-t border-surface-4 last:border-b">
 								<a
