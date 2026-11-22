@@ -81,7 +81,7 @@ const abstractText = data.abstract
 		<Fragment slot="kicker">
 			<MetaParts parts={[data.version.split(',')[0], 'Research paper']} />
 		</Fragment>
-		<Fragment slot="top">
+		<div slot="top" class="paper-front">
 			<p class="paper-byline">
 				{data.authors.map((a) => (
 					<>
@@ -180,7 +180,7 @@ const abstractText = data.abstract
 					{data.keywords.join('; ')}
 				</p>
 			</section>
-		</Fragment>
+		</div>
 		<div class="prose wide-media paper-body">
 			<Content />
 		</div>

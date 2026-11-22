@@ -1519,6 +1519,21 @@ header nav .sticker {
 .paper-keywords b {
 	@apply mr-2 font-semibold text-paper;
 }
+/* Phones: the abstract comes right after the byline so it is on the first screen
+   (Google Scholar asks for that). It holds no links, so focus order is unaffected. */
+@media (width < 40rem) {
+	.paper-front {
+		display: flex;
+		flex-direction: column;
+	}
+	.paper-front .paper-abstract {
+		order: -1;
+	}
+	.paper-front .paper-byline {
+		order: -2;
+	}
+}
+
 .prose.paper-body :is(h2, h3) {
 	@apply font-serif text-paper normal-case;
 	line-height: 1.2;
