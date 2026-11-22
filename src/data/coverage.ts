@@ -250,6 +250,44 @@ export const coverage: Coverage[] = [
 		url: 'https://github.com/bgoonz/BGOONZ_BLOG_2.0/blob/master/src/pages/blog/data-structures-algorithms-resources.md',
 	},
 
+	// Found through Search Console's links report, 2026-11-22
+	{
+		kind: 'press',
+		date: '2026-02-04',
+		outlet: 'How-To Geek',
+		title: '5 interesting things you can use your old desktop PC for',
+		url: 'https://www.howtogeek.com/interesting-uses-old-desktop-pc/',
+		note: 'links my homelab guide',
+	},
+	{
+		kind: 'writeup',
+		date: '2026-08-31',
+		outlet: 'ClickUp',
+		title: 'Its guide to Claude writing skills uses my blog-writing skill as its example',
+		url: 'https://clickup.com/blog/claude-skills-for-writing/',
+	},
+	{
+		kind: 'writeup',
+		date: '2026-11-10',
+		outlet: 'TechUnbloated',
+		title: 'Its OpenCode vs Claude Code comparison quotes my switch to OpenCode',
+		url: 'https://techunbloated.com/opencode-vs-claude-code/',
+	},
+	{
+		kind: 'newsletter',
+		date: '2026-05-03',
+		outlet: 'Python Hub Weekly Digest',
+		title: 'Implementing MikroTik’s binary API protocol in Python',
+		url: 'https://pythonhub.dev/digest/2026-05-03/',
+	},
+	{
+		kind: 'newsletter',
+		date: '2020-05-02',
+		outlet: 'Weekly Thing #146',
+		title: 'Jamie Thingelstad’s Minnebar notes, on my IoT kitty litter box talk',
+		url: 'https://weekly.thingelstad.com/archive/146/',
+	},
+
 	// Threads, with their comment counts when I found them
 	{
 		kind: 'thread',
