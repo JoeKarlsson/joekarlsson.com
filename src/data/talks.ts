@@ -1587,6 +1587,15 @@ export const talks: Talk[] = curlEveryString([
 		cover: '/images/talks/events/stupid-hackathon-hawaii.webp',
 	},
 	{
+		title: 'The Stupid Shit No One Needs Hackathon',
+		kind: 'podcast',
+		event: 'Bytemarks Cafe (Hawaii Public Radio)',
+		place: 'Honolulu, HI',
+		date: '2016-12-14',
+		listen: 'https://bytemarkscafe.org/2016/12/14/episode-433-maui-groundwater-study-dec-14-2016/',
+		cover: '/images/talks/events/bytemarks-cafe.webp',
+	},
+	{
 		title: 'Making Minecraft Mods',
 		kind: 'talk',
 		event: 'Maui STEM Conference',
