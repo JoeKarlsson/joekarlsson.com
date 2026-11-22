@@ -48,7 +48,7 @@ export const LEAD_STORY = {
 };
 
 // /featured/'s share card, drawn from this file by scripts/generate-featured-card.mjs
-export const SHARE_CARD = '/images/featured/share-21d061c8.webp';
+export const SHARE_CARD = '/images/featured/share-87736c4e.webp';
 
 // About shows the first three
 export const papers: Paper[] = [
