@@ -6,6 +6,7 @@ description: 'A preprint measuring how much of the fall in English sentence leng
 authors:
   - name: Joe Karlsson
     affiliation: Independent researcher
+    orcid: 0009-0005-8048-9559
 published: 2026-11-22
 revised: 2026-11-22
 version: Preprint, draft 4
@@ -19,7 +20,7 @@ keywords:
 repository: https://github.com/JoeKarlsson/punc
 blogPost: sentence-length-semicolons-punctuation
 pdf: /papers/sentence-length-punctuation/sentence-length-punctuation.pdf
-pdfBytes: 116861
+pdfBytes: 116999
 abstract: '<p>English sentences are said to have shortened by half since the Elizabethans, and linguists have long suspected that part of the decline is a change in punctuation: writers who once joined clauses with semicolons and colons began ending them with periods. This paper measures how large that part is. In Project Gutenberg books with a known first-publication date, after removing duplicate works, the median number of words between sentence-final marks (. ? !) falls from 31.1 in 1700–⁠1749 to 14.5 in 1900–⁠1949. A sample of 100 eighteenth-century semicolons and colons was coded for whether each joins two clauses that could stand as sentences; on the 82 marks from English originals, 72% of semicolons and 59% of colons do. Counting each mark as a stop at that rate, the median falls from 23.6 to 13.6 words, so 40% of the decline disappears (95% interval 24–⁠51%, resampling both books and coded marks). Restricted to the 13 books of 1700–⁠1749 whose title pages show them to be English originals, the share is 45% (29–⁠53%). Other weighted variants (dropping plays and poetry, starting at 1750, separate glue rates for each era, and, on the books that still have full texts, stripping editorial apparatus, a stricter sentence splitter or narration only) give 35–⁠49%. Removing quoted speech shrinks the remaining decline by about a tenth. The semicolon falls from a median of 10.1 to 1.8 per 1,000 words between 1775–⁠1799 and 1950–⁠1974; publication year and author birth year fit that fall equally well and cannot be separated here. The coding was done by a large language model and checked by a second, blind model run; a human coder is the main outstanding check. Code, per-book data and coded samples are public.</p>'
 references:
   - Biber, Douglas, and Susan Conrad. 2009. Register, Genre, and Style. Cambridge University Press. https://doi.org/10.1017/cbo9780511814358.
