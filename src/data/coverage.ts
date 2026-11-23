@@ -600,6 +600,21 @@ export const coverage: Coverage[] = [
 	},
 	{
 		kind: 'thread',
+		date: '2026',
+		outlet: 'r/homelabindia',
+		title: 'A thread from someone new to homelabbing links my work',
+		url: 'https://www.reddit.com/r/homelabindia/comments/1wp54on/help_new_to_homelab/',
+	},
+	{
+		kind: 'thread',
+		date: '2026',
+		outlet: 'r/selfhosted',
+		title:
+			'A reply in a thread on self-hosting an existing music library points to my self-hosted music post',
+		url: 'https://www.reddit.com/r/selfhosted/comments/1vicy8c/help_with_selfhosting_an_existing_music/',
+	},
+	{
+		kind: 'thread',
 		date: '2026-05-13',
 		outlet: 'r/JellyfinCommunity',
 		title: 'StreamRoll, custom AI pre-rolls for Jellyfin',
@@ -639,10 +654,24 @@ export const coverage: Coverage[] = [
 	},
 	{
 		kind: 'thread',
+		date: '2025',
+		outlet: 'r/Kotlin',
+		title: 'A thread in r/Kotlin links my work',
+		url: 'https://www.reddit.com/r/Kotlin/comments/1ku3d2v/i_cant_deal_with_my_sisters_cats_anymoreshe_has_4/',
+	},
+	{
+		kind: 'thread',
 		date: '2025-02-25',
 		outlet: 'Lemmy',
 		title: 'Getting Started with Self-Hosting? recommends my homelab guide',
 		url: 'https://lemmy.dbzer0.com/post/38648988',
+	},
+	{
+		kind: 'thread',
+		date: '2024',
+		outlet: 'r/selfhosted',
+		title: 'A thread on the Homepage dashboard not working behind Nginx links my work',
+		url: 'https://www.reddit.com/r/selfhosted/comments/1e680fi/homepage_not_working_behind_nginx_please_help/',
 	},
 	{
 		kind: 'thread',
@@ -651,6 +680,20 @@ export const coverage: Coverage[] = [
 		title: 'Custom domain names on your network with Nginx Proxy Manager and Pi-hole',
 		url: 'https://www.reddit.com/r/pihole/comments/1e0z0em/adding_custom_domain_names_on_your_internal/',
 		note: '8 comments',
+	},
+	{
+		kind: 'thread',
+		date: '2024',
+		outlet: 'r/homelab',
+		title: 'A thread on what to run on a secondhand EliteDesk 800 links my work',
+		url: 'https://www.reddit.com/r/homelab/comments/1cjpxrr/stumbled_into_an_elitedesk_800_unsure_what_the/',
+	},
+	{
+		kind: 'thread',
+		date: '2021',
+		outlet: 'r/mongodb',
+		title: 'A thread on joining three collections in MongoDB links my work',
+		url: 'https://www.reddit.com/r/mongodb/comments/ote2ah/need_help_in_joining_3_collections_foreign_key_in/',
 	},
 
 	// Found through links to my old addresses and employer bylines, and my analytics' referrers
