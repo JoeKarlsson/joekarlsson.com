@@ -10,7 +10,7 @@ Crosspost Joe's articles from https://www.cdata.com/blog/author/joe-karlsson/ in
 
 **With no arguments, the import is automatic.** Scan the author page and import every post that isn't already here. Don't ask Joe which posts to import. If the scan finds nothing new, say so and stop. Arguments are only for re-importing specific URLs (see `--force` below). After the import, Joe answers two things: the slug (step 2) and the review page (step 9). Everything else is your call.
 
-A crosspost is Joe's CData article republished with `canonicalUrl` pointing back at CData. It reads in Joe's voice and the site's look (steps 4-8), but it says what CData's page says: the same claims, facts, numbers, code, links and section order. Tell Joe about typos or errors that are also on CData's page so he can fix the original.
+A crosspost is Joe's CData article republished with `canonicalUrl` pointing back at CData. It reads in Joe's voice and the site's look (steps 4-8), but it says what CData's page says: the same claims, facts, numbers, code, links and section order. Tell Joe about typos or errors that are also on CData's page so he can fix the original. Crossposts stay out of the sitemap since their canonical is CData's page; if CData ever takes the original down, remove `canonicalUrl` so the post is indexed here.
 
 ## 1. Import
 
