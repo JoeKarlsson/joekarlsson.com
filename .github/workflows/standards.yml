@@ -3,7 +3,8 @@ name: Modern Web Guidance Check
 # Monthly, never blocking: Google's legacy-scan over src/ and a check for newer guides.
 # Anything to flag goes in one "Modern Web Guidance check" issue (label: maintenance),
 # updated in place and closed once there's nothing left. The full review is the
-# web-standards-reviewer agent (~/.claude/knowledge/modern-web-guidance.md).
+# web-standards-reviewer agent (~/.claude/knowledge/modern-web-guidance.md). The field job
+# does the same for real visitors' Core Web Vitals, in a "Field speed check" issue.
 on:
   schedule:
     - cron: '0 6 1 * *' # The 1st of each month, 6am UTC
@@ -60,3 +61,45 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh issue close "${{ steps.existing.outputs.number }}" --comment "Clean scan and current guides. Closing automatically."
+
+  field:
+    name: Real-visitor Core Web Vitals
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 22
+      # p75 of real Chrome visits over 28 days, phone and desktop (scripts/crux-report.mjs)
+      - name: Check the Chrome UX Report
+        id: crux
+        env:
+          CRUX_API_KEY: ${{ secrets.CRUX_API_KEY }}
+        run: |
+          node scripts/crux-report.mjs https://www.joekarlsson.com > report.md
+          echo "flagged=$([ -s report.md ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          cat report.md
+      - name: Find existing issue
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NUMBER=$(gh issue list --state open --label maintenance --json number,title \
+            --jq '[.[] | select(.title == "Field speed check") | .number] | sort | .[0] // empty')
+          echo "number=$NUMBER" >> "$GITHUB_OUTPUT"
+      - uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6
+        if: steps.crux.outputs.flagged == 'true'
+        with:
+          title: 'Field speed check'
+          content-filepath: ./report.md
+          labels: maintenance
+          issue-number: ${{ steps.existing.outputs.number }}
+      - name: Close the issue when every metric is good again
+        if: steps.crux.outputs.flagged == 'false' && steps.existing.outputs.number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue close "${{ steps.existing.outputs.number }}" --comment "Every Core Web Vital is good at p75 on phone and desktop. Closing automatically."
