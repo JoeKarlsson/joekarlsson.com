@@ -2,7 +2,7 @@
 title: 'Are English sentences getting shorter? About 40% of the drop is punctuation'
 seoTitle: 'Are English sentences getting shorter?'
 date: 2026-11-10T16:17:13Z
-updatedDate: 2026-11-22
+updatedDate: 2026-11-23
 paper: sentence-length-punctuation
 slug: 'sentence-length-semicolons-punctuation'
 description: "Are English sentences getting shorter? In 1,959 Project Gutenberg books, about 40% of the drop in sentence length is periods doing the semicolon's job."
@@ -46,7 +46,7 @@ marginNotes:
 
 In his 1894 history of the English paragraph, Edwin Lewis wrote that "the English sentence has decreased in average length at least one-half in three hundred years." People have been repeating some version of it ever since: English sentences are getting shorter.
 
-Linguists have had a boring, sensible objection for decades. Maybe sentences didn't shrink so much as get cut up. A writer in 1750 joined clauses with semicolons and colons where a writer in 1950 would put a period. Same words, more sentences. Jeanne Fahnestock suggested the trend might be "a by-product of changing punctuation conventions" [[Fahnestock 2011, in Rudnicka 2018]](https://arxiv.org/abs/2502.04321), and Henry Oliver raised the same suspicion in November 2025 [[Oliver 2025]](https://worksinprogress.co/issue/the-logical-triumph-of-english/ "quote: …most data on sentence length should be taken with a pinch of salt."). I couldn't find anyone who had measured how much of the drop it explains across the 1700s and 1800s, when semicolons were everywhere.
+Linguists have had a boring, sensible objection for decades. Maybe sentences didn't shrink so much as get cut up. A writer in 1750 joined clauses with semicolons and colons where a writer in 1950 would put a period. Same words, more sentences. Jeanne Fahnestock suggested the trend might be "a by-product of changing punctuation conventions" [[Fahnestock 2011, in Rudnicka 2018]](https://arxiv.org/abs/2502.04321), and Henry Oliver raised the same suspicion in November 2025 [[Oliver 2025]](https://worksinprogress.co/issue/the-logical-triumph-of-english/ "quote: …most data on sentence length should be taken with a pinch of salt."). Mark Liberman showed semicolon frequency falling along with sentence length over the centuries and concluded that the trend partly reflects "changes in punctuational style" [[Liberman 2022]](https://languagelog.ldc.upenn.edu/myl/LibermanSHEL12.pdf). I couldn't find anyone who had measured how much of the drop it explains across the 1700s and 1800s, when semicolons were everywhere.
 
 I had a tool that could. [Punc](/work/punc/), my art project that strips the words out of a book and keeps only the punctuation, now holds 1,959 Project Gutenberg books (mostly out of copyright, so the trend runs to the 1970s), and every one of them has a semicolon count. So I counted semicolons and colons as sentence ends and checked how much of the decline in sentence length survives. Both sides are partly right. Sentences did get shorter, but by closer to two fifths than to Lewis's half once semicolons and colons count, and about 40% of the famous drop is punctuation.
 
@@ -263,6 +263,7 @@ The authorship test had the same duplicate problem: two editions of one book mat
 - Fahnestock, J. (2011). _Rhetorical Style: The Uses of Language in Persuasion_. Oxford University Press.
 - Hunt, K. W. (1965). _Grammatical Structures Written at Three Grade Levels_. National Council of Teachers of English.
 - Lewis, E. H. (1894). _The History of the English Paragraph_. University of Chicago Press.
+- Liberman, M. (2022). [Historical trends in English sentence length and syntactic complexity](https://languagelog.ldc.upenn.edu/myl/LibermanSHEL12.pdf). Talk slides, SHEL 12.
 - Mosteller, F. and Wallace, D. L. (1964). _Inference and Disputed Authorship: The Federalist_. Addison-Wesley.
 - Muzny, G., Algee-Hewitt, M. and Jurafsky, D. (2017). [Dialogism in the novel](https://academic.oup.com/dsh/article/32/suppl_2/ii31/3865424). _Digital Scholarship in the Humanities_ 32 (suppl. 2), ii31-ii52.
 - Oliver, H. (2025). [The triumph of logical English](https://worksinprogress.co/issue/the-logical-triumph-of-english/). _Works in Progress_ 21, November 26, 2025.
