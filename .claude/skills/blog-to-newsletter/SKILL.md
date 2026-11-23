@@ -1,6 +1,6 @@
 ---
 name: blog-to-newsletter
-description: Turn one of Joe's joekarlsson.com blog posts into a Works on My Machine newsletter issue written for subscribers, with email-safe images (JPEG, GIF flipbooks for clips, rasterized diagrams), the listmonk draft in ~/newsletter-drafts and the site page in src/content/newsletter. Use when Joe shares a post URL or slug and asks to turn it into a newsletter, adapt it for the newsletter, send it to subscribers, or make a newsletter version/recap of it.
+description: Turn one of Joe's joekarlsson.com blog posts into a Works on My Machine newsletter issue written for subscribers, with email-safe images (JPEG, GIF flipbooks for clips, rasterized diagrams), the listmonk draft in ~/claude-skills/drafts/newsletter and the site page in src/content/newsletter. Use when Joe shares a post URL or slug and asks to turn it into a newsletter, adapt it for the newsletter, send it to subscribers, or make a newsletter version/recap of it.
 ---
 
 # Blog post to newsletter issue
@@ -78,7 +78,7 @@ Read every image you make before using it. Alt text is required on all of them.
 - A title over 45 characters needs a short `seoTitle` (a site test caps tab titles), like the OKF issue.
 - Images use site paths (`/images/...`). Diagrams can stay as the post's SVG.
 
-**Email draft:** `~/newsletter-drafts/<send date>-<slug>.md`. Use the same body, with each image swapped for its `https://www.joekarlsson.com/email/<slug>/...` copy. Front matter is `subject` ("Works on My Machine: <Title>"), `description` (the dek), `send_at`, and `recap_of`. Before you pick a send date, check the drafts folder for issues already scheduled. Sends go Tuesday to Friday at 9:00, one issue per day. Joe's issues have gone out on Thursdays, a week apart.
+**Email draft:** `~/claude-skills/drafts/newsletter/<send date>-<slug>.md`. Use the same body, with each image swapped for its `https://www.joekarlsson.com/email/<slug>/...` copy. Front matter is `subject` ("Works on My Machine: <Title>"), `description` (the dek), `send_at`, and `recap_of`. Before you pick a send date, check the drafts folder for issues already scheduled. Sends go Tuesday to Friday at 9:00, one issue per day. Joe's issues have gone out on Thursdays, a week apart.
 
 Work in a worktree (other sessions share the checkout), commit with explicit paths, and don't push until Joe approves. Anything on main goes live the next time any session deploys, because issue pages have no future-date filter.
 
