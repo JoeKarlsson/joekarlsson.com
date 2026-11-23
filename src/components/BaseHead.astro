@@ -1,5 +1,6 @@
 ---
 import { Font } from 'astro:assets';
+import antonLatin from '../assets/fonts/anton-latin.woff2?inline';
 import '../styles/global.css';
 import { NAV_LINKS, SITE_DESCRIPTION, SITE_TITLE, SITE_URL, SOCIAL_LINKS } from '../consts';
 import { roles } from '../data/resume';
@@ -105,25 +106,21 @@ const SPECULATION_RULES = {
 	}
 />
 
-{/* Fonts: all four are self-hosted (astro.config.mjs), so no visitor IP goes to Google;
-the display and body faces are preloaded since nearly every page opens with both.
-Only the latin files: latin-ext still loads when a page has those characters. */}
-{/* Anton's stand-in (astro.config.mjs): Arial scaled so the site's capitals take Anton's
-width (0.7036, averaged over the 426 Anton text runs on the section pages, the same in
-Chromium, Firefox and WebKit), with Anton's ascent and descent (1.1763 and 0.3291 em)
-divided by that scale so lines keep Anton's height. */}
-<style is:inline>
-	@font-face {
-		font-family: 'Anton Caps Fallback';
-		/* Liberation Sans and Arimo share Arial's metrics, so Linux gets the same sizing */
-		src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo');
-		size-adjust: 70.36%;
-		ascent-override: 167.18%;
-		descent-override: 46.77%;
-		line-gap-override: 0%;
-	}
-</style>
-<Font cssVariable="--font-anton" preload={[{ subset: 'latin' }]} />
+{/* Fonts: all four are self-hosted, so no visitor IP goes to Google. Anton, the display
+face, is inlined (12 KB): while a font file loads, Firefox lays text out in its default
+font, ignoring any sized fallback, so every first visit jumped ~30px when Anton landed.
+Inline, it's there at first layout (needs data: in the CSP's font-src, provision.sh.tpl).
+Chromium decodes it just after first layout, and there 'Anton Caps Fallback' holds
+Anton's place: Arial scaled so the site's capitals take Anton's width (0.7036, averaged
+over the 426 Anton text runs on the section pages), with Anton's ascent and descent
+(1.1763 and 0.3291 em) divided by that scale. Liberation Sans and Arimo share Arial's
+metrics. The others come from astro.config.mjs; the body face is preloaded since nearly
+every page opens with it. Only the latin files: latin-ext still loads when a page has
+those characters. */}
+<style
+	is:inline
+	set:html={`@font-face{font-family:Anton;src:url(${antonLatin}) format('woff2');font-display:swap}@font-face{font-family:'Anton Caps Fallback';src:local('Arial'),local('ArialMT'),local('Liberation Sans'),local('Arimo');size-adjust:70.36%;ascent-override:167.18%;descent-override:46.77%;line-gap-override:0%}:root{--font-anton:Anton,'Anton Caps Fallback',sans-serif}`}
+/>
 <Font cssVariable="--font-hanken-grotesk" preload={[{ subset: 'latin' }]} />
 <Font cssVariable="--font-jetbrains-mono" />
 {/* A review opens on serif text: without the preload it re-wraps when Fraunces lands,

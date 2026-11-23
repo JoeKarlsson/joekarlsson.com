@@ -74,19 +74,9 @@ export default defineConfig({
 	// Self-hosted at build time, each with a fallback sized to its metrics, so text
 	// doesn't reflow when the font arrives (that shift cost /work/ and /uses/ their
 	// Lighthouse score). Fraunces loads its real italic too: captions, chapter titles and
-	// quotes are set in it, and without it the browser slanted the roman.
+	// quotes are set in it, and without it the browser slanted the roman. Anton isn't
+	// here: BaseHead inlines it into every page.
 	fonts: [
-		{
-			provider: fontProviders.google(),
-			name: 'Anton',
-			cssVariable: '--font-anton',
-			styles: ['normal'],
-			// Astro sizes its Arial stand-in by lowercase widths, but the site sets Anton in
-			// capitals, which run 31% narrower than that, so labels wrapped differently and the
-			// page jumped when Anton landed. BaseHead declares a stand-in sized by capitals.
-			fallbacks: ['Anton Caps Fallback', 'sans-serif'],
-			optimizedFallbacks: false,
-		},
 		{
 			provider: fontProviders.google(),
 			name: 'Hanken Grotesk',
