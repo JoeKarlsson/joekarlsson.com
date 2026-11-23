@@ -3,11 +3,11 @@ title: 'AI Agents Made Coding Feel More Like Painting'
 seoTitle: 'AI Agents Made Coding Feel Like Painting'
 date: 2026-12-17T08:00:00Z
 slug: 'ai-agents-made-coding-feel-more-like-painting'
-description: 'Nolan Lawson told programmers to stop looking for art in coding. A 2003 Paul Graham essay and my own git logs say otherwise.'
+description: 'Nolan Lawson told programmers to stop looking for art in coding. A 2003 Paul Graham essay and the way I work now say otherwise.'
 recapOf: 'hackers-and-painters-ai-agents'
 cardPhoto: '/images/blog/hackers-and-painters-ai-agents/van-eycks-unfinished-saint-barbara-1437.webp'
 cardPhotoAlt: "Jan van Eyck's unfinished Saint Barbara, 1437: a finely drawn woman reading in front of a Gothic tower under construction, still mostly underdrawing"
-heroImage: "/images/newsletter/ai-agents-made-coding-feel-more-like-painting/card-f189e3f4.webp"
+heroImage: '/images/newsletter/ai-agents-made-coding-feel-more-like-painting/card-f189e3f4.webp'
 heroAlt: "Works on My Machine card for AI Agents Made Coding Feel More Like Painting, with Jan van Eyck's unfinished Saint Barbara, 1437: a finely drawn woman reading in front of a Gothic tower under construction, still mostly underdrawing framed in a pink crayon box"
 ---
 
@@ -26,16 +26,6 @@ So I reread Paul Graham's 2003 essay [Hackers and Painters](https://www.paulgrah
 ## Programming is sketching
 
 Graham was taught in college to work a program out completely on paper before going near a computer. He didn't work that way. He'd "spew out code that was hopelessly broken, and gradually beat it into shape," and he felt bad about it for years, until he noticed that painters and architects had a name for what he was doing: sketching. That's where his best-known line comes from: a programming language "should be a pencil, not a pen."
-
-My git logs look like that now. On November 5 I built [Nothing But Corners](/work/nothing-but-corners/), a DVD screensaver where the logo hits a corner every single time. Here are 5 of that day's 15 commits, in order:
-
-1. `feat: DVD logo that only hits corners`
-2. `feat: Overload at 50 logos with an anime-style implosion`
-3. `feat: Replace the implosion with a ki blast that fires a giant logo into a corner`
-4. `feat: Giant logo tours all four corners, stops in the middle, then crawls into a fifth`
-5. `feat: After the tour, the giant swells into a leviathan that drifts into two corners at a slow, steady pace`
-
-![Bright green, yellow and blue DVD Video logos bouncing on a black screen, with confetti in the corner](/images/blog/hackers-and-painters-ai-agents/nothing-but-corners-with-three-logos.webp)
 
 Working like this, I can get into an artistic flow. It's about what's being represented and what the impact is, as opposed to the process. It's the same thing I wrote about in [The Cognitive Case for Play](/blog/cognitive-case-for-play-in-technical-work/): the best work happens where mistakes are cheap, and agents make a bad sketch cheap.
 
