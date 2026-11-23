@@ -158,8 +158,18 @@
 			display: none;
 		}
 	}
-	/* A play button or label laid over the picture stays above the pink */
-	:not(picture):has(> [data-halftone]) > :not([data-halftone]) {
+	/* A clip with controls (a post's masthead) takes focus, but its own ring would be grayed
+	   by its filter, so its frame draws the pink ring instead */
+	video[data-halftone]:focus-visible {
+		outline: none;
+	}
+	:has(> video[data-halftone]:focus-visible) {
+		@apply outline-2 outline-offset-2 outline-pink;
+	}
+	/* A play button or label laid over the picture (after it, so the pink would cover it)
+	   stays above the pink. A sibling selector, not ":has() > *": that made every element
+	   on the page test its parent and tripled style time on long posts */
+	[data-halftone] ~ :not([data-halftone]) {
 		z-index: 1;
 	}
 

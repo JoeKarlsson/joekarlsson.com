@@ -480,10 +480,13 @@ page's own scripts run. */}
 		const pictureFor = function (path) {
 			return onScreen('[data-morph="' + path + '"]');
 		};
+		// The element morph() named, cleared on a back/forward-cache restore below
+		let named = null;
 		const morph = function (picture, transition) {
 			// A pink picture's pink is on its frame (global.css, "Pink pictures"), so the
 			// frame flies, or the picture would turn gray for the flight
 			const element = picture.matches('[data-halftone]') ? picture.parentElement : picture;
+			named = element;
 			element.style.viewTransitionName = NAME;
 			transition.finished
 				.finally(function () {
@@ -519,10 +522,9 @@ page's own scripts run. */}
 		// A page restored by Back can be frozen before its transition's cleanup ran; a name
 		// left on its thumbnail would clash with the next one and cancel that transition
 		addEventListener('pageshow', function (event) {
-			if (!event.persisted) return;
-			document.querySelectorAll('[data-morph]').forEach(function (element) {
-				element.style.viewTransitionName = '';
-			});
+			if (!event.persisted || !named) return;
+			named.style.viewTransitionName = '';
+			named = null;
 		});
 		// Arriving: pick the slide, and keep the header morph only when the page left named
 		// a picture for it

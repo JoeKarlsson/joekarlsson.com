@@ -56,6 +56,18 @@ describe('halftone levels', () => {
 		expect(await withHalftoneLevels(page, levelsFor)).toBe(page);
 	});
 
+	it('measures the gray CSS grayscale() draws, not the old shader gray', async () => {
+		// Pure red and pure green halves: 709 gray 0.21 and 0.72 (601 gray: 0.30 and 0.59)
+		const file = join(mkdtempSync(join(tmpdir(), 'levels-')), 'red-green.png');
+		const width = 64;
+		const pixels = Buffer.alloc(width * width * 3);
+		for (let i = 0; i < width * width; i++) pixels[i * 3 + (i % width < width / 2 ? 0 : 1)] = 255;
+		await sharp(pixels, { raw: { width, height: width, channels: 3 } }).png().toFile(file);
+		const measured = await measureLevels(file);
+		expect(measured.low).toBeCloseTo(0.2126, 2);
+		expect(measured.high).toBeCloseTo(0.7152, 2);
+	});
+
 	it('measures a file like the browser did: transparent counts as black', async () => {
 		const dir = mkdtempSync(join(tmpdir(), 'levels-'));
 		const file = join(dir, 'half.png');
@@ -68,6 +80,6 @@ describe('halftone levels', () => {
 		const measured = await measureLevels(file);
 		expect(measured.mean).toBeCloseTo(0.5, 1);
 		expect(measured.low).toBe(0);
-		expect(measured.high).toBe(1);
+		expect(measured.high).toBeCloseTo(1, 5);
 	});
 });

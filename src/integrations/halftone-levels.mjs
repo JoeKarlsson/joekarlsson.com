@@ -24,11 +24,18 @@ export async function measureLevels(file) {
 		.resize(SAMPLE_SIZE, SAMPLE_SIZE, { fit: 'fill' })
 		.raw()
 		.toBuffer({ resolveWithObject: true });
+	// The levels stretch the gray CSS grayscale() draws (Rec. 709 weights). Measured on the
+	// old shader's Rec. 601 gray, saturated pictures came out up to 76/255 off and lost
+	// their black ground. Which pictures invert still goes by the 601 mean, as before.
 	const values = [];
-	for (let i = 0; i < data.length; i += 3)
-		values.push((0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2]) / 255);
+	let mean601 = 0;
+	for (let i = 0; i < data.length; i += 3) {
+		const [r, g, b] = [data[i], data[i + 1], data[i + 2]];
+		values.push((0.2126 * r + 0.7152 * g + 0.0722 * b) / 255);
+		mean601 += (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+	}
 	values.sort((a, b) => a - b);
-	const mean = values.reduce((sum, v) => sum + v, 0) / values.length;
+	const mean = mean601 / values.length;
 	const low = values[Math.floor(values.length * LEVELS_CUTOFF)];
 	const high = values[Math.ceil(values.length * (1 - LEVELS_CUTOFF)) - 1];
 	return high - low < MIN_RANGE ? { mean, low: 0, high: 1 } : { mean, low, high };
