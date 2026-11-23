@@ -107,6 +107,11 @@
 .prose a {
 	@apply text-pink underline decoration-1 underline-offset-[0.18em] hover:text-paper hover:decoration-pink;
 }
+/* A newsletter issue ends on <a class="button"> to its post, the same markup the email
+   template styles; here it matches the Subscribe button */
+.prose a.button {
+	@apply inline-flex min-h-11 items-center rounded-md bg-pink px-[18px] py-3 font-sans font-semibold text-ink no-underline transition-colors hover:bg-paper hover:text-ink;
+}
 .prose strong {
 	@apply text-paper font-semibold;
 }
@@ -295,7 +300,7 @@ pre.astro-code {
 	initial-value: 0%;
 }
 @media (hover: hover) {
-	.prose a:not(.heading-anchor, :has(img, picture, video)) {
+	.prose a:not(.heading-anchor, .button, :has(img, picture, video)) {
 		/* design-ok: a hard-edged sweep of solid pink on hover, not a visible blend */
 		background: linear-gradient(
 				100deg,
@@ -305,7 +310,7 @@ pre.astro-code {
 			no-repeat;
 	}
 	/* At rest the pink ends below 0%, so no sliver shows before a hover */
-	.prose a:not(.heading-anchor, :has(img, picture, video)):hover {
+	.prose a:not(.heading-anchor, .button, :has(img, picture, video)):hover {
 		--highlight: 104%;
 		@apply text-ink;
 	}
