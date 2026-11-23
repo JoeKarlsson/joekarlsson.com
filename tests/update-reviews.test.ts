@@ -1,5 +1,9 @@
+import { mkdtempSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+	copyOfImportedReview,
 	filmStats,
 	fromRss,
 	parseCsv,
@@ -97,5 +101,25 @@ describe('filmStats', () => {
 		});
 		expect(filmStats({ duration: 'PT45M' }, '').runtime).toBe(45);
 		expect(filmStats({}, '').runtime).toBeUndefined();
+	});
+});
+
+describe('copyOfImportedReview', () => {
+	const dir = mkdtempSync(join(tmpdir(), 'reviews-'));
+	const review = (film: string, body: string) =>
+		`---\nletterboxdUrl: 'https://letterboxd.com/joekarlsson/film/${film}/'\n---\n\n${body}\n`;
+	writeFileSync(
+		join(dir, 'theater-camp-2023.md'),
+		review('theater-camp-2023', 'It *snuck* up on me.\n'),
+	);
+	writeFileSync(join(dir, 'oddity-2024.md'), review('oddity-2024', 'Creepy doll.'));
+
+	it("skips a re-log of the same film with the same text, despite Prettier's reformatting", () => {
+		expect(copyOfImportedReview('theater-camp-2023', 'It _snuck_ up on me.', dir)).toBe(true);
+	});
+
+	it('imports a rewatch with new text, and never matches a different film', () => {
+		expect(copyOfImportedReview('theater-camp-2023', 'Better the second time.', dir)).toBe(false);
+		expect(copyOfImportedReview('oddity', 'Creepy doll.', dir)).toBe(false);
 	});
 });

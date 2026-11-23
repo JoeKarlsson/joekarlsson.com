@@ -14,7 +14,7 @@ import { MARKS } from '../../data/scribbles';
 import { SECTION_HEADING } from '../../utils/ui';
 import { isOwnPost } from '../../utils/posts';
 import { parseReviewUrl, stars } from '../../../scripts/update-reviews.mjs';
-import { THIN_REVIEW_WORDS, reviewProseWords } from '../../utils/review-words.mjs';
+import { indexedReviewSlugs } from '../../utils/review-words.mjs';
 import { SPOILER_FRAME_TITLE, SPOILER_MARK } from '../../plugins/rehype-spoilers.mjs';
 
 export async function getStaticPaths() {
@@ -76,6 +76,10 @@ const otherFilms = [
 ].map((reviews) =>
 	reviews.reduce((a, b) => ((b.body ?? '').length > (a.body ?? '').length ? b : a)),
 );
+// Search sees one page per film: its longest review, if that isn't a one-liner
+const indexed = indexedReviewSlugs(
+	[review, ...sameFilm].map((r) => ({ slug: r.data.slug, film: film(r), body: r.body ?? '' })),
+).has(slug);
 const directors = new Set((director || '').split(', ').filter(Boolean));
 const byDirector = otherFilms
 	.filter((r) => (r.data.director || '').split(', ').some((d) => directors.has(d)))
@@ -114,7 +118,7 @@ const mentions =
 	heroCaption={heroCaption}
 	readingTime={words > 250 ? Math.ceil(words / 250) : undefined}
 	wordCount={words}
-	noindex={reviewProseWords(review.body || '') < THIN_REVIEW_WORDS}
+	noindex={!indexed}
 	body={review.body}
 	relatedPosts={mentions}
 >

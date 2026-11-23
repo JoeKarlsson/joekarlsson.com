@@ -1,5 +1,6 @@
 import { readFileSync, readdirSync } from 'node:fs';
-import { THIN_REVIEW_WORDS, reviewProseWords } from '../utils/review-words.mjs';
+import { indexedReviewSlugs } from '../utils/review-words.mjs';
+import { parseReviewUrl } from '../../scripts/update-reviews.mjs';
 
 // The sitemap's <lastmod> for every dated page: its updatedDate, else its date. Google
 // uses lastmod only when it's accurate, and Bing asks for the content's real change
@@ -52,15 +53,19 @@ export function offSiteCanonicalPaths(contentDir) {
 	return paths;
 }
 
-/** Reviews too short to index (src/utils/review-words.mjs) @param {URL} contentDir @returns {Set<string>} */
-export function thinReviewPaths(contentDir) {
+/** Reviews search shouldn't index (src/utils/review-words.mjs) @param {URL} contentDir @returns {Set<string>} */
+export function unindexedReviewPaths(contentDir) {
 	const dir = new URL('reviews/', contentDir);
-	const paths = new Set();
-	for (const file of readdirSync(dir).filter((f) => /\.mdx?$/.test(f))) {
-		const md = readFileSync(new URL(file, dir), 'utf8');
-		const body = md.replace(/^---\n[\s\S]*?\n---\n/, '');
-		if (reviewProseWords(body) < THIN_REVIEW_WORDS)
-			paths.add(`/reviews/${frontMatterValue(md, 'slug')}/`);
-	}
-	return paths;
+	const reviews = readdirSync(dir)
+		.filter((f) => /\.mdx?$/.test(f))
+		.map((file) => {
+			const md = readFileSync(new URL(file, dir), 'utf8');
+			return {
+				slug: frontMatterValue(md, 'slug') ?? '',
+				film: parseReviewUrl(frontMatterValue(md, 'letterboxdUrl') ?? '').film,
+				body: md.replace(/^---\n[\s\S]*?\n---\n/, ''),
+			};
+		});
+	const indexed = indexedReviewSlugs(reviews);
+	return new Set(reviews.filter((r) => !indexed.has(r.slug)).map((r) => `/reviews/${r.slug}/`));
 }

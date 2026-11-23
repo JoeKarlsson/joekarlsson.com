@@ -8,7 +8,7 @@
 // letterboxd.com is read: the RSS feed or export for the text, rating and dates, and the
 // film's own page for its poster, backdrop, director and the details /reviews/stats/ counts
 // (runtime, cast, countries, language, studios, Letterboxd's average).
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { format, resolveConfig } from 'prettier';
 import sharp from 'sharp';
 // 159 + the "…" truncateAtWord adds = the 160 characters search results show
@@ -144,6 +144,25 @@ async function saveImage(url, path, width, { pink = false } = {}) {
 	await (pink ? gradePink(image) : image).webp({ quality: 72 }).toFile(path);
 }
 
+/** Letters and digits only, so Prettier's reformatting doesn't hide an identical text */
+const textKey = (markdown) => markdown.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
+
+/** True when a review of this film already on the site has the same text */
+export function copyOfImportedReview(film, body, dir = CONTENT) {
+	const key = textKey(body);
+	return readdirSync(dir)
+		.filter((f) => f.endsWith('.md'))
+		.map((f) => readFileSync(`${dir}/${f}`, 'utf8'))
+		.some((md) => {
+			const url = md.match(/^letterboxdUrl:\s*'([^']+)'/m)?.[1];
+			return (
+				url !== undefined &&
+				parseReviewUrl(url).film === film &&
+				textKey(md.replace(/^---\n[\s\S]*?\n---\n/, '')) === key
+			);
+		});
+}
+
 /** One review ({ url, title, year, watched, rating, rewatch, spoilers, html }); exported so a
  * review missing from a stale RSS feed can be imported straight from its live page */
 export async function importReview(r) {
@@ -152,6 +171,9 @@ export async function importReview(r) {
 	if (existsSync(file)) return false;
 	const body = reviewToMarkdown(r.html);
 	if (!body) return false;
+	// Letterboxd keeps a second diary entry with the same text (a re-log, Theater Camp's /1/)
+	// as its own link; the site keeps one page for it, the one already imported
+	if (copyOfImportedReview(parseReviewUrl(r.url).film, body)) return false;
 	// Never strip a number off the slug to find the film: "oddity-2024" is a film, not a rewatch
 	const film = await filmDetails(parseReviewUrl(r.url).film);
 	mkdirSync(`${IMAGES}/${slug}`, { recursive: true });

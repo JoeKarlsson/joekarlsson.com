@@ -2,9 +2,9 @@ import { describe, expect, it } from 'vitest';
 import {
 	lastmodByPath,
 	offSiteCanonicalPaths,
-	thinReviewPaths,
+	unindexedReviewPaths,
 } from '../src/integrations/sitemap-lastmod.mjs';
-import { reviewProseWords } from '../src/utils/review-words.mjs';
+import { indexedReviewSlugs, reviewProseWords } from '../src/utils/review-words.mjs';
 
 const dates = lastmodByPath(new URL('../src/content/', import.meta.url));
 
@@ -47,9 +47,28 @@ describe('thin reviews', () => {
 		).toBe(5);
 	});
 
-	it('leaves one-liners out of search and keeps long reviews in', () => {
-		const thin = thinReviewPaths(new URL('../src/content/', import.meta.url));
-		expect(thin.has('/reviews/the-silence-of-the-lambs/')).toBe(true);
-		expect(thin.has('/reviews/the-long-walk-2025/')).toBe(false);
+	const long = 'word '.repeat(200);
+	it('indexes one review per film: the longest, and only when it is not a one-liner', () => {
+		const indexed = indexedReviewSlugs([
+			{ slug: 'zodiac', film: 'zodiac', body: 'Great.' },
+			{ slug: 'zodiac-1', film: 'zodiac', body: long },
+			{ slug: 'zodiac-2', film: 'zodiac', body: `${long} more` },
+			{ slug: 'alien', film: 'alien', body: 'Best anti capitalist sci-fi film.' },
+		]);
+		expect([...indexed]).toEqual(['zodiac-2']);
+	});
+
+	it('gives a tie to the first entry', () => {
+		const tie = [
+			{ slug: 'theater-camp-2023-1', film: 'theater-camp-2023', body: long },
+			{ slug: 'theater-camp-2023', film: 'theater-camp-2023', body: long },
+		];
+		expect([...indexedReviewSlugs(tie)]).toEqual(['theater-camp-2023']);
+	});
+
+	it('leaves one-liners out of the sitemap and keeps long reviews in', () => {
+		const out = unindexedReviewPaths(new URL('../src/content/', import.meta.url));
+		expect(out.has('/reviews/the-silence-of-the-lambs/')).toBe(true);
+		expect(out.has('/reviews/the-long-walk-2025/')).toBe(false);
 	});
 });
