@@ -641,6 +641,13 @@ describe('iframe embeds', () => {
 		expect(blocked).toEqual([]);
 	});
 
+	// Same blind spot for fonts: BaseHead inlines Anton as a data: URL, which production
+	// blocks unless font-src allows data:
+	it('font-src allows the data: fonts the pages inline', () => {
+		expect(readDist('index.html')).toContain('src:url(data:font/woff2');
+		expect(caddyfile.match(/font-src ([^;"]+)/)?.[1].split(/\s+/)).toContain('data:');
+	});
+
 	// A CSS-hidden iframe still loads, so a game hidden on phones still runs there:
 	// the Connect AI × DOOM embed crashed an iPhone that way. Anything but a video
 	// player uses data-desktop-src, which src/scripts/load-desktop-embeds.ts turns
