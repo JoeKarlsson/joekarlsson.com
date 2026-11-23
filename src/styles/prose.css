@@ -110,7 +110,7 @@
 /* A newsletter issue ends on <a class="button"> to its post, the same markup the email
    template styles; here it matches the Subscribe button */
 .prose a.button {
-	@apply inline-flex min-h-11 items-center rounded-md border border-transparent bg-pink px-[17px] py-[11px] font-sans font-semibold text-ink no-underline transition-colors hover:bg-paper hover:text-ink;
+	@apply inline-flex min-h-11 items-center rounded-md border border-transparent bg-pink px-[17px] py-[11px] font-sans text-base leading-6 font-semibold text-ink no-underline hover:bg-paper hover:text-ink;
 }
 .prose strong {
 	@apply text-paper font-semibold;
