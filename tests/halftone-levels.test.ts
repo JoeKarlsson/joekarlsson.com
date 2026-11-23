@@ -11,13 +11,19 @@ import {
 
 const dark = { mean: 0.2, low: 0.1, high: 0.5 };
 const light = { mean: 0.9, low: 0.7, high: 1 };
-const levels: Record<string, typeof dark> = { '/a.webp': dark, '/light.webp': light, '/a-poster.webp': dark };
+const levels: Record<string, typeof dark> = {
+	'/a.webp': dark,
+	'/light.webp': light,
+	'/a-poster.webp': dark,
+};
 const levelsFor = async (src: string) => levels[src] ?? null;
 
 describe('halftone levels', () => {
 	it('is the straight-line stretch of low..high to 0..1 that CSS brightness then contrast makes', () => {
 		const { low, high } = dark;
-		const [, b, c] = levelsStyle(dark).match(/--halftone-b:([\d.]+);--halftone-c:([\d.]+)/)!.map(Number);
+		const [, b, c] = levelsStyle(dark)
+			.match(/--halftone-b:([\d.]+);--halftone-c:([\d.]+)/)!
+			.map(Number);
 		const css = (v: number) => (v * b - 0.5) * c + 0.5;
 		expect(css(low)).toBeCloseTo(0, 2);
 		expect(css(high)).toBeCloseTo(1, 2);
@@ -48,7 +54,9 @@ describe('halftone levels', () => {
 			levelsFor,
 		);
 		expect(html.match(/data-halftone-invert/g)).toHaveLength(1);
-		expect(html).toMatch(/<video data-halftone-invert style="[^"]*" poster="\/light.webp" data-halftone/);
+		expect(html).toMatch(
+			/<video data-halftone-invert style="[^"]*" poster="\/light.webp" data-halftone/,
+		);
 	});
 
 	it('leaves pictures without data-halftone, and a clip with no poster, as they are', async () => {
@@ -62,7 +70,9 @@ describe('halftone levels', () => {
 		const width = 64;
 		const pixels = Buffer.alloc(width * width * 3);
 		for (let i = 0; i < width * width; i++) pixels[i * 3 + (i % width < width / 2 ? 0 : 1)] = 255;
-		await sharp(pixels, { raw: { width, height: width, channels: 3 } }).png().toFile(file);
+		await sharp(pixels, { raw: { width, height: width, channels: 3 } })
+			.png()
+			.toFile(file);
 		const measured = await measureLevels(file);
 		expect(measured.low).toBeCloseTo(0.2126, 2);
 		expect(measured.high).toBeCloseTo(0.7152, 2);
@@ -75,8 +85,11 @@ describe('halftone levels', () => {
 		const width = 64;
 		const pixels = Buffer.alloc(width * width * 4);
 		for (let y = 0; y < width; y++)
-			for (let x = 0; x < width / 2; x++) pixels.fill(255, (y * width + x) * 4, (y * width + x) * 4 + 4);
-		await sharp(pixels, { raw: { width, height: width, channels: 4 } }).png().toFile(file);
+			for (let x = 0; x < width / 2; x++)
+				pixels.fill(255, (y * width + x) * 4, (y * width + x) * 4 + 4);
+		await sharp(pixels, { raw: { width, height: width, channels: 4 } })
+			.png()
+			.toFile(file);
 		const measured = await measureLevels(file);
 		expect(measured.mean).toBeCloseTo(0.5, 1);
 		expect(measured.low).toBe(0);

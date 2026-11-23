@@ -31,7 +31,9 @@ async function badFrames(page: Page) {
 			if (!picture.checkVisibility()) return [];
 			const box = picture.getBoundingClientRect();
 			if (box.width === 0 || box.height === 0)
-				return [`${picture.getAttribute('src') ?? picture.getAttribute('poster')}: shown at 0 size`];
+				return [
+					`${picture.getAttribute('src') ?? picture.getAttribute('poster')}: shown at 0 size`,
+				];
 			const parent = picture.parentElement!;
 			const frame = parent.tagName === 'PICTURE' ? parent.parentElement! : parent;
 			const frameStyle = getComputedStyle(frame);
