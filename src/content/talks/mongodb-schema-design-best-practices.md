@@ -448,7 +448,7 @@ If you're coming from SQL, my talk [From SQL to NoSQL](/talks/from-sql-to-nosql-
 
 ## Slides and resources
 
-- [Every example as a runnable mongosh script](https://github.com/JoeKarlsson/mongodb-schema-design-examples), checked weekly against current MongoDB
+- [Every example as a runnable mongosh script](https://github.com/JoeKarlsson/mongodb-schema-design-examples), checked weekly against current MongoDB, and archived on Zenodo as [doi:10.5281/zenodo.24451384](https://doi.org/10.5281/zenodo.24451384)
 - [Slides on Speaker Deck](https://speakerdeck.com/joekarlsson/mongodb-schema-design-best-practices)
 - Now that you know how to design a fast, scalable MongoDB schema, learn what _not_ to do: [schema design anti-patterns in the MongoDB docs](https://www.mongodb.com/docs/manual/data-modeling/design-antipatterns/), or [the video series on YouTube](https://www.youtube.com/watch?v=8CZs-0it9r4) if video is more your thing.
 - [6 Rules of Thumb for MongoDB Schema Design](https://www.mongodb.com/company/blog/mongodb/6-rules-of-thumb-for-mongodb-schema-design)

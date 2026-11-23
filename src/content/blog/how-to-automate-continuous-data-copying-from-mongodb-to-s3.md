@@ -27,6 +27,8 @@ Every file from this post is in [a repo](https://github.com/JoeKarlsson/mongodb-
 
 Note: The values we use for some parameters in this post are for demonstration and testing. If you plan to use this, read the "Production considerations" section and adjust them to your needs.
 
+Both trigger functions, the IAM policy and the DuckDB check are in [a companion repo](https://github.com/JoeKarlsson/mongodb-s3-parquet-triggers), with tests.
+
 ## What is Parquet?
 
 For those of you not familiar with [Parquet](https://parquet.apache.org/), it's an amazing file format that does a lot of the heavy lifting to make queries on data stored in files fast. It's a popular format in the data warehouse and data lake space, and for a variety of machine learning tasks.
@@ -226,6 +228,7 @@ If you have questions, head to the [MongoDB Community Hub](https://www.mongodb.c
 
 Additional resources:
 
+- [The trigger functions, IAM policy and DuckDB check](https://github.com/JoeKarlsson/mongodb-s3-parquet-triggers), archived on Zenodo as [doi:10.5281/zenodo.24451386](https://doi.org/10.5281/zenodo.24451386)
 - [Atlas Data Federation: Get Started](https://www.mongodb.com/docs/atlas/data-federation/tutorial/getting-started/)
 - [The `$out` stage in Atlas Data Federation](https://www.mongodb.com/docs/atlas/data-federation/supported-unsupported/pipeline/out/)
 - [The trigger functions, IAM policy and DuckDB check as files](https://github.com/JoeKarlsson/mongodb-s3-parquet-triggers), with tests of the functions' logic
