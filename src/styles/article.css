@@ -449,8 +449,11 @@
 .prose .mn-stamp {
 	@apply mr-1.5 inline-block border border-pink px-1 text-[11px] font-bold tracking-wider text-pink uppercase;
 }
-.prose .mn-see {
-	@apply grid grid-cols-[auto_1fr] items-start gap-x-1.5;
+/* Only in the real margin: below 80rem a see-also note stays hidden (only quotes and updates show on phones) */
+@media (width >= 80rem) {
+	.prose .mn-see {
+		@apply grid grid-cols-[auto_1fr] items-start gap-x-1.5;
+	}
 }
 .prose a.mn-card {
 	@apply grid grid-cols-[56px_1fr] items-start gap-2.5 text-muted no-underline;

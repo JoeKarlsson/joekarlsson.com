@@ -195,6 +195,17 @@ test.describe('ARIA Attributes', () => {
 		await expect(hash).toHaveCSS('opacity', '1');
 	});
 
+	test('a see-also margin note stays out of the text on a phone and shows in the margin on desktop', async ({
+		page,
+	}) => {
+		await page.setViewportSize({ width: 390, height: 900 });
+		await page.goto('/blog/how-to-query-from-multiple-mongodb-databases/');
+		const see = page.locator('.prose .mn-see').first();
+		await expect(see).toBeHidden();
+		await page.setViewportSize({ width: 1440, height: 900 });
+		await expect(see).toBeVisible();
+	});
+
 	test('keyboard focus on a tall card never sits under the floating nav', async ({ page }) => {
 		await page.setViewportSize({ width: 1280, height: 800 });
 		await page.goto('/blog/doom-mcp-server/');
