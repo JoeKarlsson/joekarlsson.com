@@ -164,6 +164,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 ## Process
 
 - 2026-11-22: CSS budget per page type, not one total. Article styles live in `src/styles/article.css` (ArticleFrame imports it), reviews' and papers' in their own files, so each page type loads only what it uses, and `tests/bundle-size.test.ts` gives articles, the homepage, section pages and review stats each a gzipped budget. When one trips, it's a trade-off for that page type, recorded here, never a quiet raise. Joe: "we're gonna keep adding stuff to the site. So, this is like we're just kicking the can down the road. I'd like to find a more sustainable solution as the site grows," and on the plan, "Yeah, you can do that. That's fine."
+- 2026-11-23: Anton, the display face, is inlined into every page as a data: font (12KB, about 12.5KB gzipped), so Firefox lays out the first frame in it instead of its default font and pages stop jumping on a first visit. CSP font-src allows data: for it. Joe approved the cost ("Do you want Anton built into each page... at about 16KB per page and a CSP change?" "y"). The CSS budgets don't count it; `tests/bundle-size.test.ts` caps inlined fonts at 16KB a page on their own.
 
 - 2026-11-10: Mockups and explainers for review are HTML pages, opened for Joe, not Markdown.
 - 2026-11-06: During mockup and iteration rounds, don't deploy after every note. Deploy at the end of a phase; use judgment.

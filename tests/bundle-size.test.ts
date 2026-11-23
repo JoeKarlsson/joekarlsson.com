@@ -117,6 +117,14 @@ describe('Bundle Size', () => {
 				).toBe(true);
 		});
 
+		// Anton is inlined so Firefox lays out the first frame in it (DECISIONS.md 2026-11-23);
+		// Joe OK'd about 16KB a page for it, measured 12.5KB gzipped
+		it('inlined fonts stay under 16KB a page, gzipped', () => {
+			const heaviest = Math.max(...pages.map((p) => p.fontSize));
+			expect(heaviest).toBeGreaterThan(0);
+			expect(heaviest).toBeLessThan(16 * 1024);
+		});
+
 		for (const [type, budget] of Object.entries(CSS_BUDGET)) {
 			it(`${type} pages load under ${formatBytes(budget)} of CSS, gzipped`, () => {
 				const over = pages
@@ -183,9 +191,13 @@ function builtPageCss() {
 			const inline = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)]
 				.map(([, css]) => css)
 				.join('');
-			if (inline) parts.push({ name: 'inline <style>', size: gzipSync(inline).length });
+			// An inlined font (BaseHead's Anton) is font bytes, not styles: it has its own cap
+			const fonts = [...inline.matchAll(/url\(data:font\/[^)]+\)/g)].map(([url]) => url).join('');
+			const css = inline.replace(/url\(data:font\/[^)]+\)/g, 'url()');
+			if (css) parts.push({ name: 'inline <style>', size: gzipSync(css).length });
 			const page = path.slice(DIST_DIR.length);
-			return [{ page, type: pageType(page), size: getTotalSize(parts), parts }];
+			const fontSize = fonts ? gzipSync(fonts).length : 0;
+			return [{ page, type: pageType(page), size: getTotalSize(parts), parts, fontSize }];
 		});
 }
 
