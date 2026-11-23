@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { lastmodByPath } from '../src/integrations/sitemap-lastmod.mjs';
+import { lastmodByPath, offSiteCanonicalPaths } from '../src/integrations/sitemap-lastmod.mjs';
 
 const dates = lastmodByPath(new URL('../src/content/', import.meta.url));
 
@@ -18,5 +18,17 @@ describe('sitemap lastmod', () => {
 		expect(dates.get('/newsletter/tldr-in-tech-by-joe-karlsson-issue-22-11-29/')).toMatch(
 			/^2022-11-29/,
 		);
+	});
+});
+
+describe('sitemap crossposts', () => {
+	const offSite = offSiteCanonicalPaths(new URL('../src/content/', import.meta.url));
+
+	it('lists posts whose canonical is on another site', () => {
+		expect(offSite.has('/blog/ai-gateway-for-developers/')).toBe(true);
+	});
+
+	it('keeps posts that are canonical here', () => {
+		expect(offSite.has('/blog/running-devrel/')).toBe(false);
 	});
 });

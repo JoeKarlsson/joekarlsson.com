@@ -30,3 +30,23 @@ export function lastmodByPath(contentDir) {
 	}
 	return dates;
 }
+
+/**
+ * Pages whose canonical points at another site (crossposts with a canonicalUrl). They
+ * stay up for readers, but a sitemap lists only canonical URLs, so they're left out.
+ * @param {URL} contentDir @returns {Set<string>} /<collection>/<slug>/
+ */
+export function offSiteCanonicalPaths(contentDir) {
+	const paths = new Set();
+	for (const collection of COLLECTIONS) {
+		const dir = new URL(`${collection}/`, contentDir);
+		for (const file of readdirSync(dir).filter((f) => /\.mdx?$/.test(f))) {
+			const md = readFileSync(new URL(file, dir), 'utf8');
+			const slug = frontMatterValue(md, 'slug');
+			const canonical = frontMatterValue(md, 'canonicalUrl');
+			if (slug && canonical && new URL(canonical).hostname !== 'www.joekarlsson.com')
+				paths.add(`/${collection}/${slug}/`);
+		}
+	}
+	return paths;
+}
