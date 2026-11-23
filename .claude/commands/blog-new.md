@@ -127,7 +127,7 @@ Before moving on, launch **Agent: `blog-headline-tester`** with the working titl
 
 Also ask the user whether the post is aimed at Hacker News or Reddit. If it is, tell the headline tester, and apply **Distribution fit: Hacker News and Reddit** (Phase 3) while drafting. HN asks submitters to use the original title, so the H1 *is* the HN title. Get it right now, not at submission time.
 
-Then run the **`distribute`** skill in early mode on the topic (`--early`). If a venue that only takes unpublished pieces fits (Nightingale, for dataviz and research), tell Joe now: publishing on the site first kills that pitch.
+Then run the **`distribute`** skill in early mode on the topic (`--early`). It returns the **shot list** (moments to film while the thing is still being built, since that footage can't be made later) and any venue that only takes unpublished pieces (Nightingale, for dataviz and research): tell Joe both now, since publishing on the site first kills that pitch.
 
 ### 1b. SEO Research
 
@@ -748,14 +748,14 @@ git commit -m "feat: Add blog post - {title}"
 
 Then push, run `npm run deploy`, and curl the live page to confirm (see CLAUDE.md Build & Deploy).
 
-Then run the **`distribute`** skill on the slug (employer crossposts too: it links the canonical URL and discloses the affiliation) and open its plan for Joe.
+Then run the **`distribute`** skill on the slug (employer crossposts too: it links the canonical URL and discloses the affiliation) and open its plan for Joe. Every post gets one, without asking: it's the dated calendar of social posts, video, HN, communities, curators and the day 2/7/30 checks.
 
 Then save the live URL to the Wayback Machine (`curl -s -o /dev/null "https://web.archive.org/save/<url>"`), and for an employer crosspost the original's URL too. Researchers cite URLs that later die; an archived copy keeps the citation working.
 
 Then promotion (personal posts only, never employer crossposts):
-- **A launch** (it had a launch tier in Phase 1a): hand the live URL and tier to the **`marketing-strategist`** subagent for the launch plan, show Joe the plan, then run `/social` for its posts.
+- **A launch** (it had a launch tier in Phase 1a): hand the live URL, tier and the `distribute` plan to the **`marketing-strategist`** subagent for the launch plan, show Joe the plan, then run `/social` for its posts.
 - **A newsletter issue:** go straight on to **Phase 10**, without asking.
-- **Anything else:** offer `/social` with the live URL.
+- **Anything else:** run `/social` with the live URL and the plan's social rows (launch post plus the follow-ups it dated), and draft them for Joe's approval.
 
 ---
 

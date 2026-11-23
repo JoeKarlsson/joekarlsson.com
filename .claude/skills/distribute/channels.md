@@ -2,7 +2,9 @@
 
 The `distribute` skill's registry. Every entry: lanes, type and size, the rule (quoted where the source words it), format, how to submit, `pitch-first` when the venue wants the piece before Joe publishes it, status (`active`, `paused`, `dead`, `invite`), the source it was checked against, and the date. `joe: regular` marks a community Joe already takes part in (those go first in a plan). `verified: never` means nobody has read the live rules yet (Reddit refuses automated reads); the skill flags those rather than guess.
 
-Lanes: `homelab`, `selfhosted`, `networking`, `data`, `ai`, `webdev`, `python`, `dataviz`, `genart`, `film`, `linguistics`, `research`, `devrel`, `techwriting`, `general-tech`.
+Lanes: `homelab`, `selfhosted`, `networking`, `data`, `ai`, `webdev`, `python`, `dataviz`, `genart`, `film`, `linguistics`, `research`, `devrel`, `techwriting`, `general-tech`, `essay`, `art`, `hardware`.
+
+Evidence behind the routing (2026-11-23 research, 115 sources): `~/.claude/skills/personal-marketing/references/distribution-evidence.md`. Track-record lines (`track record: <slug> <date>: ...`) are added by the skill's day 2/7/30 checks.
 
 Seeded 2026-11-22 from third-party research: each community's own rules or submission page where it loaded, otherwise news coverage of the rule change, cited.
 
@@ -11,6 +13,9 @@ Seeded 2026-11-22 from third-party research: each community's own rules or submi
 ### Hacker News
 - lanes: general-tech, homelab, networking, python, data, ai, webdev, research, dataviz
 - rule: "Please don't use HN primarily for promotion. It's ok to post your own stuff part of the time." Original title, no editorializing, no site name. Asking for upvotes gets submissions, accounts and sites "penalized or banned." Repost OK if the story got no significant attention in the last year; don't delete and repost.
+- also (read 2026-11-23): "Please don't put generated text in HN posts." "Don't post generated text or AI-edited text." Joe's call: Claude drafts, Joe edits; the plan shows this rule beside the HN row.
+- base rates: Show HN median 2 points, 90th percentile 24, across 188,085 posts (danfking, 2026-04-23). A 1-point result is normal.
+- joe: HN sent joekarlsson.com 629 visitors May-Nov 2026 (+92 via hckrnews), his biggest social-style referrer. Judge per piece: measured numbers, a checkable method, research, or Show HN for something runnable; never essays (Joe, 2026-11-23).
 - format: link post, then an author comment
 - status: active
 - source: https://news.ycombinator.com/newsguidelines.html , https://news.ycombinator.com/newsfaq.html
@@ -29,6 +34,7 @@ Seeded 2026-11-22 from third-party research: each community's own rules or submi
 - lanes: general-tech, webdev, data, homelab
 - rule: "Self-promo should be less than a quarter of one's stories and comments in the last year." No self-promo in a new account's first 70 days.
 - submit: needs an invite from a member
+- note: an Oct 2026 meta thread reportedly removed the `vibecoding` tag and tightened submission rules (secondhand, newsletter digest)
 - status: invite (Joe has no account as of 2026-11-22)
 - source: https://lobste.rs/about
 - verified: 2026-11-22
@@ -44,7 +50,7 @@ Seeded 2026-11-22 from third-party research: each community's own rules or submi
 
 ### DEV
 - lanes: webdev, ai, data, homelab, devrel, techwriting
-- rule: no content "designed primarily for the purposes of promotion or creating backlinks"; the full text, not a teaser linking out; disclose AI help.
+- rule: no content "designed primarily for the purposes of promotion or creating backlinks"; the full text, not a teaser linking out; must "Disclose the fact that they were generated or assisted by AI in the post"; no AI-generated educational content the author doesn't understand. Since Aug 2026 a per-post selector: human-only, AI-assisted, fully autonomous (secondhand).
 - format: full repost with `canonical_url` in the front matter; check the canonical in a private window after
 - status: active
 - source: https://dev.to/terms , https://dev.to/code-of-conduct , https://dev.to/help/writing-editing-scheduling
@@ -64,14 +70,14 @@ Reddit's "9:1" or "90/10" self-promotion ratio isn't in any current official Red
 
 ### r/selfhosted
 - lanes: selfhosted, homelab
-- rule (secondhand): blog posts as text posts with the link in the body, not link posts. Projects under 3 months old go in the weekly New Project megathread (since April 2026) with an AI disclosure.
+- rule (secondhand): blog posts as text posts with the link in the body, not link posts. Projects under 3 months old go in the weekly New Project Megathread (replaced each Friday, since April 2026) with an "AI Involvement" line; the mods' stated aim is to "wrangle the shotgun of AI-created tools". selfh.st's editor relays that "the weekly mega-thread is where new projects go to die".
 - status: active
-- source: Q2 2026 summary https://dev.to/mcgregor_c2ef8e78244eb422/rselfhosted-q2-2026-quarter-update-revisiting-rules-what-every-self-hoster-needs-to-know-plus-566k
+- source: selfh.st, 2026-07-10 (https://selfh.st/weekly/2026-07-10/); the dev.to summary previously cited here now 404s
 - verified: never
 
 ### r/homelab
 - lanes: homelab
-- rule (secondhand): late 2026 Rule 6 bans only monetized, referral or company ads. Software posts need "Project: Software" flair, an AI disclosure and why it fits the sub.
+- rule (secondhand): late 2026 Rule 6 bans only monetized, referral or company ads. Software posts need "Project: Software" flair, an AI disclosure and why it fits the sub. Seen 2026-11-23 only in a mirror snippet nobody opened: unverified.
 - status: active
 - verified: never
 
@@ -81,6 +87,13 @@ Reddit's "9:1" or "90/10" self-promotion ratio isn't in any current official Red
 - status: active
 - source: https://tomshardware.com/tech-industry/artificial-intelligence/the-largest-programming-community-on-reddit-just-banned-all-content-related-to-ai-llms-r-programming-is-prioritizing-only-high-quality-discussions-about-ai , https://aiweekly.co/alerts/rprogramming-replaces-ai-ban-with-quality-rules
 - verified: never
+
+### r/opensource
+- lanes: webdev, general-tech
+- rule (news coverage): bans any project that "uses AI, is made by AI, or is intended for AI"; a project must be 1+ year old, actively maintained, "carry an OSI license," have an existing community and "subjectively 3+" contributors; the poster's account must be 1+ year old with "significant Reddit contributions."
+- status: dead for Joe's projects (solo, AI-assisted, under a year old)
+- source: https://helpnetsecurity.com/2026/10/26/reddit-r-opensource-ai-ban (2026-10-26)
+- verified: 2026-11-23 (secondhand)
 
 ### r/mikrotik
 - lanes: networking, homelab
@@ -259,6 +272,7 @@ r/homeassistant, r/Proxmox, r/devops (named in blog-new's old Distribution fit),
 - lanes: selfhosted, homelab
 - size: 35,000+
 - submit: https://selfh.st/submit/ for self-hosting news and launches
+- note: listings made with AI get an "AI-Assisted" badge, not exclusion; the editor says readers click them "as much as ever" (selfh.st, 2026)
 - status: active (issue 2026-11-20)
 - verified: 2026-11-22
 
@@ -312,7 +326,7 @@ r/homeassistant, r/Proxmox, r/devops (named in blog-new's old Distribution fit),
 
 ### Console.dev
 - lanes: webdev, devrel
-- rule: tools in beta only, no GA releases; no articles
+- rule: 2-3 dev tools a week; useful to developers, self-service signup, maintained, documented; beta section needs a pre-1.0 or beta label: "Any GA or stable releases are not eligible." No sponsored reviews; no articles
 - submit: hello@console.dev, for a tool
 - status: active
 - source: https://console.dev/selection-criteria
@@ -353,3 +367,93 @@ r/homeassistant, r/Proxmox, r/devops (named in blog-new's old Distribution fit),
 - **Changelog News**: unclear. The editor wrote that he "shipped [his] final News" (https://jerodsanto.net/2026/03/so-long-changelog) but the site lists #185 dated 2026-04-29.
 - **DevRel Weekly (Mary Thengvall)**: unclear. The site errored and no 2025-26 issues were found (2026-11-22).
 - **FlowingData**: unclear. A /suggest/ page exists but refused automated reads (2026-11-22).
+
+## Added 2026-11-23 from the distribution research
+
+### Hackaday
+- lanes: hardware, homelab, genart
+- rule: projects that teach: "We want you to document what you're doing"; "There's tons to learn from failures!" No press releases. Selection is "hit-or-miss"; resubmitting is fine.
+- format: what it is, why, how; an overview photo with "plenty of space around the project"; "A descriptive subject line will help us get to your hack quickly"; a Hackaday.io project page helps
+- submit: tips@hackaday.com or https://hackaday.com/submit-a-tip/
+- status: active
+- source: https://hackaday.com/submit-a-tip/ , https://hackaday.com/2021/04/27/how-best-to-get-your-project-on-hackaday
+- verified: 2026-11-23
+
+### kottke.org
+- lanes: general-tech, art, dataviz, film, essay
+- rule: "Sending links is appreciated! If you have a project or video you're proud of, send it along." "I read everything I receive."
+- submit: email from https://kottke.org/about
+- status: active
+- source: https://kottke.org/about
+- verified: 2026-11-23
+
+### Changelog News
+- lanes: webdev, ai, general-tech
+- rule: "if your fellow devs will find it interesting, submit it." No "How-tos and tutorials", no commercial products. "Submitting your own work is also encouraged." The form asks "What's interesting about it?"
+- submit: https://changelog.com/news/submit (account needed)
+- status: unclear (its editor wrote he shipped his final issue in March 2026; check for a recent issue first)
+- source: https://changelog.com/news/submit
+- verified: 2026-11-23
+
+### The Public Domain Review
+- lanes: research, linguistics, film, essay
+- pitch-first: yes (proposal and short bio; drafts slightly preferred; ~2,500 words; pays $500)
+- rule: overlooked public-domain subjects (95+ years old), "against-the-grain angles". "We do not accept queries or submissions that feature or adapt AI-generated text." Joe's own words only.
+- submit: submissions@publicdomainreview.org
+- status: active
+- source: https://publicdomainreview.org/about/submissions
+- verified: 2026-11-23
+
+### Colossal
+- lanes: art, genart
+- rule: project or exhibition-based art with imagery; "unlikely to cover speculative work... AI-generated imagery... literature, or guest posts"; can't reply personally
+- submit: https://www.thisiscolossal.com/submissions/ (a few hi-res images or a link)
+- status: active
+- verified: 2026-11-23
+
+### The Pudding
+- lanes: dataviz, research, film, linguistics
+- pitch-first: yes; wants "a thesis that invites debate" and a plain data source
+- rule: "We do not accept pitches solely from AI agents."
+- status: paused (pitches closed for the rest of 2026; try January 2027)
+- source: https://pudding.cool/pitch/
+- verified: 2026-11-23
+
+### Zenodo and Rogue Scholar
+- lanes: research
+- rule: Zenodo issues DOIs with no affiliation; Rogue Scholar archives scholarly blogs from their RSS feed, registers Crossref DOIs and tracks citations
+- format: day 0 for every research piece, so it can be cited
+- status: active
+- source: https://zenodo.org/ , https://rogue-scholar.org/
+- verified: 2026-11-23
+
+### arXiv
+- lanes: research, linguistics
+- rule: an unaffiliated author needs a personal endorsement in the category; since 2026-01-21 an institutional email alone doesn't count. CS review and position papers need documented peer review; original empirical work is still accepted.
+- format: only with an endorser Joe knows lined up first
+- status: active
+- source: https://info.arxiv.org/help/endorsement.html
+- verified: 2026-11-23
+
+### IndieWeb Carnival
+- lanes: essay, art
+- rule: a monthly prompt from a rotating host, who links every response in a roundup
+- format: write to the month's prompt, then send the host the link
+- status: active
+- source: https://indieweb.org/IndieWeb_Carnival
+- verified: 2026-11-23
+
+### Kagi Small Web
+- lanes: essay, art, general-tech
+- rule: personal blogs; add your own only alongside "at least 2 other sites that are not yours"; a post in the last 12 months; "no forms of advertisements"; "No popups, such as newsletter signups or cookie prompts"; no "Auto-generated, LLM-generated" content, though content "heavily guided by and reviewed by humans" is OK and "Effort should be made to acknowledge heavier LLM usage"
+- submit: a pull request to https://github.com/kagisearch/smallweb
+- status: active (check joekarlsson.com for popups first)
+- verified: 2026-11-23
+
+### Are.na Annual
+- lanes: essay, art
+- rule: yearly book with a theme; "No particular writing experience is required"; essays and text with images; pays $200; pitch rooted in an Are.na channel
+- status: closed until the next call (opens around March)
+- source: https://www.are.na/editorial
+- verified: 2026-11-23
+
