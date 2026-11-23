@@ -20,9 +20,11 @@ heroImage: '/images/newsletter/why-does-claude-code-keep-ignoring-your-rules/car
 heroAlt: 'Works on My Machine card for Why Does Claude Code Keep Ignoring Your Rules?, with a c. 1855 lithograph of the Erie Canal locks at Lockport, men leaning on a lock gate with the flight of locks stepping down behind them framed in a pink crayon box'
 ---
 
-When Claude Code kept ignoring my rules, the rule was usually somewhere the agent couldn't see, or advice when it needed to be code. The clearest case was mockups. I want to see a design on my screen before an agent builds it, and agents kept handing me a file path instead. In the four weeks before the fix, I typed some version of "open it" about 45 times. The rule sat in my homelab project's memory, where agents in my other repos never saw it. On November 9 I typed "I always have to remind you, and then tell you to make a skill or a hook or a memory."
+When Claude Code kept ignoring my rules, the rule was usually somewhere the agent couldn't see, or advice when it needed to be code.
 
 ![The same wrong action sent from an agent at my repo three times. The first time, a chat bubble says "No, not like that" and the action gets through anyway. The second time, the rule is a line in CLAUDE.md and it still gets through. The third time, the rule is a hook: a pink gate across the path, and the action is blocked.](/images/blog/how-i-use-ai-2026/third-repeat.svg)
+
+The clearest case was mockups. I want to see a design on my screen before an agent builds it, and agents kept handing me a file path instead. In the four weeks before the fix, I typed some version of "open it" about 45 times. The rule sat in my homelab project's memory, where agents in my other repos never saw it. On November 9 I typed "I always have to remind you, and then tell you to make a skill or a hook or a memory."
 
 The hook shipped on November 12: when an agent makes a page and tries to end its turn without opening it, the hook stops it and hands it the paths to open. In its first five days I had to ask once, which is a short window.
 
