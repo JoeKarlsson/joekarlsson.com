@@ -408,17 +408,20 @@ const captionText =
 					const button = document.createElement('button');
 					button.type = 'button';
 					button.className = 'copy-button';
-					const idleName = lang ? `Copy ${lang} code` : 'Copy code';
-					button.setAttribute('aria-label', idleName);
+					// Its name is the label on show, so a voice user can say what they see
 					const swap = document.createElement('span');
 					swap.className = 'icon-swap';
-					swap.setAttribute('aria-hidden', 'true');
 					const idleLabel = document.createElement('span');
 					idleLabel.toggleAttribute('data-icon-off', true);
 					idleLabel.textContent = 'Copy';
 					const doneLabel = document.createElement('span');
 					doneLabel.toggleAttribute('data-icon-on', true);
 					doneLabel.textContent = 'Copied!';
+					doneLabel.setAttribute('aria-hidden', 'true');
+					const showLabel = (copied: boolean) => {
+						idleLabel.toggleAttribute('aria-hidden', copied);
+						doneLabel.toggleAttribute('aria-hidden', !copied);
+					};
 					swap.append(idleLabel, doneLabel);
 					button.append(swap);
 					let resetTimer: ReturnType<typeof setTimeout> | undefined;
@@ -429,6 +432,7 @@ const captionText =
 						try {
 							await copyToClipboard(code.textContent || '');
 							button.toggleAttribute('data-copied', true);
+							showLabel(true);
 							copyStatus.textContent = 'Copied';
 							button.classList.remove('copied');
 							void button.offsetWidth; // restart the pop on a second copy
@@ -443,6 +447,7 @@ const captionText =
 						}
 						resetTimer = setTimeout(() => {
 							button.removeAttribute('data-copied');
+							showLabel(false);
 							idleLabel.textContent = 'Copy';
 						}, 2000);
 					});
