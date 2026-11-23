@@ -18,7 +18,7 @@ faq:
   - question: 'How do you let an AI agent manage a homelab safely?'
     answer: 'Start read-only. My health check investigates freely, reports every finding, proposes a fix and waits for my go-ahead. Anything irreversible, like writing inside an immutable container or restoring a Home Assistant backup, is blocked by a hook no matter what the agent thinks.'
 heroImage: '/images/blog/how-i-use-ai-2026/thumb-a244ed5a.webp'
-heroAlt: 'An 1855 engraving of the Erie Canal locks at Lockport, men leaning on a lock gate with the flight of locks stepping down behind them'
+heroAlt: 'A c. 1855 lithograph of the Erie Canal locks at Lockport, men leaning on a lock gate with the flight of locks stepping down behind them'
 mastheadImage: '/images/blog/how-i-use-ai-2026/masthead-8d318eef.webp'
 ---
 
