@@ -21,8 +21,12 @@ const REFERENCE_MULTIPLIER = 4;
 
 /** The slowdown that makes a machine with this benchmarkIndex simulate the reference phone. */
 export function cpuMultiplier(benchmarkIndex) {
-	if (!(benchmarkIndex > 0)) throw new Error(`benchmarkIndex must be positive, got ${benchmarkIndex}`);
-	return Math.max(1, Math.round((REFERENCE_MULTIPLIER * benchmarkIndex * 100) / REFERENCE_INDEX) / 100);
+	if (!(benchmarkIndex > 0))
+		throw new Error(`benchmarkIndex must be positive, got ${benchmarkIndex}`);
+	return Math.max(
+		1,
+		Math.round((REFERENCE_MULTIPLIER * benchmarkIndex * 100) / REFERENCE_INDEX) / 100,
+	);
 }
 
 async function measureBenchmarkIndex() {
