@@ -23,8 +23,12 @@ export function originalState(original, response) {
 	if (!response) return 'unknown';
 	if (response.status === 404 || response.status === 410) return 'gone';
 	if (response.status !== 200) return 'unknown';
-	const path = (u) => new URL(u).pathname.replace(/\/$/, '');
-	return path(response.url) === path(original) ? 'ok' : 'moved';
+	// Host too: a blog moved to its new owner's domain under the same path has moved
+	const where = (u) => {
+		const url = new URL(u);
+		return url.host + url.pathname.replace(/\/$/, '');
+	};
+	return where(response.url) === where(original) ? 'ok' : 'moved';
 }
 
 /** @param {{ path: string, original: string, state: string, finalUrl?: string }[]} results */
@@ -50,9 +54,7 @@ export function crosspostReport(results) {
 					'',
 				]
 			: []),
-		...(unknown.length
-			? [`${unknown.length} originals couldn't be checked (blocked or down), so they were skipped.`]
-			: []),
+		...(unknown.length ? [`Couldn't check (blocked or down), skipped: ${unknown.length}.`] : []),
 	].join('\n');
 }
 

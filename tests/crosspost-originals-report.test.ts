@@ -19,6 +19,11 @@ describe('originalState', () => {
 		);
 	});
 
+	it('is moved when the blog moves to another domain under the same path', () => {
+		const elsewhere = 'https://www.cdata.com/blog/steampipe-vs-cloudquery';
+		expect(originalState(original, { status: 200, url: elsewhere })).toBe('moved');
+	});
+
 	it('is unknown when blocked or unreachable, never gone', () => {
 		expect(originalState(original, { status: 403, url: original })).toBe('unknown');
 		expect(originalState(original, null)).toBe('unknown');
@@ -42,6 +47,6 @@ describe('crosspostReport', () => {
 		]);
 		expect(report).toContain('- /blog/steampipe-vs-cloudquery/ (was ' + original + ')');
 		expect(report).toContain('remove `canonicalUrl`');
-		expect(report).toContain("1 originals couldn't be checked");
+		expect(report).toContain("Couldn't check (blocked or down), skipped: 1.");
 	});
 });
