@@ -5,10 +5,10 @@ date: 2026-12-17T08:00:00Z
 slug: 'ai-agents-made-coding-feel-more-like-painting'
 description: 'Nolan Lawson told programmers to stop looking for art in coding. A 2003 Paul Graham essay and my own git logs say otherwise.'
 recapOf: 'hackers-and-painters-ai-agents'
-cardPhoto: '/images/blog/hackers-and-painters-ai-agents/an-oil-pastel-of-red-flowers.webp'
-cardPhotoAlt: "Joe's oil pastel of red flowers with green stems on pink paper, clipped to a clipboard"
-heroImage: '/images/newsletter/ai-agents-made-coding-feel-more-like-painting/card-419908ff.webp'
-heroAlt: "Works on My Machine card for AI Agents Made Coding Feel More Like Painting, with Joe's oil pastel of red flowers with green stems on pink paper, clipped to a clipboard framed in a pink crayon box"
+cardPhoto: '/images/blog/hackers-and-painters-ai-agents/van-eycks-unfinished-saint-barbara-1437.webp'
+cardPhotoAlt: "Jan van Eyck's unfinished Saint Barbara, 1437: a finely drawn woman reading in front of a Gothic tower under construction, still mostly underdrawing"
+heroImage: "/images/newsletter/ai-agents-made-coding-feel-more-like-painting/card-f189e3f4.webp"
+heroAlt: "Works on My Machine card for AI Agents Made Coding Feel More Like Painting, with Jan van Eyck's unfinished Saint Barbara, 1437: a finely drawn woman reading in front of a Gothic tower under construction, still mostly underdrawing framed in a pink crayon box"
 ---
 
 I paint and I write code. Since AI coding agents came along, programming has started to feel more like painting to me, not less. It's easier to explore ideas quickly and iteratively. That might be a hot take, because most of what I read this year went the other way.
@@ -29,13 +29,11 @@ Graham was taught in college to work a program out completely on paper before go
 
 My git logs look like that now. On November 5 I built [Nothing But Corners](/work/nothing-but-corners/), a DVD screensaver where the logo hits a corner every single time. Here are 5 of that day's 15 commits, in order:
 
-```text
-feat: DVD logo that only hits corners
-feat: Overload at 50 logos with an anime-style implosion
-feat: Replace the implosion with a ki blast that fires a giant logo into a corner
-feat: Giant logo tours all four corners, stops in the middle, then crawls into a fifth
-feat: After the tour, the giant swells into a leviathan that drifts into two corners at a slow, steady pace
-```
+1. `feat: DVD logo that only hits corners`
+2. `feat: Overload at 50 logos with an anime-style implosion`
+3. `feat: Replace the implosion with a ki blast that fires a giant logo into a corner`
+4. `feat: Giant logo tours all four corners, stops in the middle, then crawls into a fifth`
+5. `feat: After the tour, the giant swells into a leviathan that drifts into two corners at a slow, steady pace`
 
 ![Bright green, yellow and blue DVD Video logos bouncing on a black screen, with confetti in the corner](/images/blog/hackers-and-painters-ai-agents/nothing-but-corners-with-three-logos.webp)
 
@@ -77,6 +75,6 @@ _Robert Cornelius's 1839 self-portrait, one of the earliest photographs of a per
 
 Photography didn't kill painting, though. I have painter friends, and it's still a viable career, or at least a hobby. I don't think AI is going to kill programming, or the art of making beautiful code, either.
 
-[The full post](/blog/hackers-and-painters-ai-agents/) also covers Maciej Ceglowski's 2005 rebuttal, why static types came back, and how beginners get good.
+The full post also covers Maciej Ceglowski's 2005 rebuttal, why static types came back, and how beginners get good.
 
 <a class="button" href="/blog/hackers-and-painters-ai-agents/">Read the full post</a>
