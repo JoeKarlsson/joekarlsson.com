@@ -117,13 +117,18 @@ uvx --from 'fonttools[woff]' pyftsubset brand/source/Anton-Regular.ttf --no-hint
 U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,
 U+20AC,U+2122,U+2190-2193,U+2212,U+2215,U+FEFF,U+FFFD" */}
 {/*
-Chromium decodes it just after first layout, and there 'Anton Caps Fallback' holds
-Anton's place: Arial scaled so the site's capitals take Anton's width (0.7036, averaged
+Chromium decodes an inlined @font-face just after first layout, so it also gets the same
+data: URL as a font preload, which Chromium waits for before first paint: without it,
+/uses/'s first frame was set in the stand-in, whose wider "THE TOUR" pushed the featured
+post's title below it, and the page shifted 0.057 when Anton landed. The two copies sit
+side by side, so gzip sends the second for almost nothing. Until then 'Anton Caps
+Fallback' holds Anton's place: Arial scaled so the site's capitals take Anton's width (0.7036, averaged
 over the 426 Anton text runs on the section pages), with Anton's ascent and descent
 (1.1763 and 0.3291 em) divided by that scale. Liberation Sans and Arimo share Arial's
 metrics. The others come from astro.config.mjs; the body face is preloaded since nearly
 every page opens with it. Anton is latin only; the other three preload only their latin
 files, and their latin-ext files still load when a page has those characters. */}
+<link rel="preload" as="font" type="font/woff2" crossorigin href={antonLatin} />
 <style
 	is:inline
 	set:html={`@font-face{font-family:Anton;src:url(${antonLatin}) format('woff2');font-display:swap}@font-face{font-family:'Anton Caps Fallback';src:local('Arial'),local('ArialMT'),local('Liberation Sans'),local('Arimo');size-adjust:70.36%;ascent-override:167.18%;descent-override:46.77%;line-gap-override:0%}:root{--font-anton:Anton,'Anton Caps Fallback',sans-serif}`}

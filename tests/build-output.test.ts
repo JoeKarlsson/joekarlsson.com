@@ -648,6 +648,19 @@ describe('iframe embeds', () => {
 		expect(caddyfile.match(/font-src ([^;"]+)/)?.[1].split(/\s+/)).toContain('data:');
 	});
 
+	// Chromium decodes an inlined @font-face after first layout, so /uses/ first painted in
+	// Anton's stand-in and shifted 0.057 when Anton landed (2026-11-23). A preload of the
+	// same data: URL makes Chromium wait for it before first paint.
+	it('every inlined font is also preloaded', () => {
+		const html = readDist('uses/index.html');
+		const inlined = [...html.matchAll(/src:url\((data:font\/[^)]+)\)/g)].map(([, url]) => url);
+		const preloaded = [
+			...html.matchAll(/<link\b[^>]*\brel="preload"[^>]*\bhref="(data:font\/[^"]+)"/g),
+		].map(([, url]) => url);
+		expect(inlined.length).toBeGreaterThan(0);
+		expect(preloaded).toEqual(expect.arrayContaining(inlined));
+	});
+
 	// A CSS-hidden iframe still loads, so a game hidden on phones still runs there:
 	// the Connect AI × DOOM embed crashed an iPhone that way. Anything but a video
 	// player uses data-desktop-src, which src/scripts/load-desktop-embeds.ts turns
