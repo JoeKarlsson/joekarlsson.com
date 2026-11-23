@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { lastmodByPath, offSiteCanonicalPaths } from '../src/integrations/sitemap-lastmod.mjs';
+import {
+	lastmodByPath,
+	offSiteCanonicalPaths,
+	thinReviewPaths,
+} from '../src/integrations/sitemap-lastmod.mjs';
+import { reviewProseWords } from '../src/utils/review-words.mjs';
 
 const dates = lastmodByPath(new URL('../src/content/', import.meta.url));
 
@@ -30,5 +35,21 @@ describe('sitemap crossposts', () => {
 
 	it('keeps posts that are canonical here', () => {
 		expect(offSite.has('/blog/running-devrel/')).toBe(false);
+	});
+});
+
+describe('thin reviews', () => {
+	it('counts only the words Joe wrote', () => {
+		expect(
+			reviewProseWords(
+				'Loved it.\n\n![A frame](/images/x.webp "spoiler")\n\nSee [Guffman](/reviews/waiting-for-guffman/) ||twist||',
+			),
+		).toBe(5);
+	});
+
+	it('leaves one-liners out of search and keeps long reviews in', () => {
+		const thin = thinReviewPaths(new URL('../src/content/', import.meta.url));
+		expect(thin.has('/reviews/the-silence-of-the-lambs/')).toBe(true);
+		expect(thin.has('/reviews/the-long-walk-2025/')).toBe(false);
 	});
 });

@@ -14,6 +14,7 @@ import { MARKS } from '../../data/scribbles';
 import { SECTION_HEADING } from '../../utils/ui';
 import { isOwnPost } from '../../utils/posts';
 import { parseReviewUrl, stars } from '../../../scripts/update-reviews.mjs';
+import { THIN_REVIEW_WORDS, reviewProseWords } from '../../utils/review-words.mjs';
 import { SPOILER_FRAME_TITLE, SPOILER_MARK } from '../../plugins/rehype-spoilers.mjs';
 
 export async function getStaticPaths() {
@@ -113,6 +114,7 @@ const mentions =
 	heroCaption={heroCaption}
 	readingTime={words > 250 ? Math.ceil(words / 250) : undefined}
 	wordCount={words}
+	noindex={reviewProseWords(review.body || '') < THIN_REVIEW_WORDS}
 	body={review.body}
 	relatedPosts={mentions}
 >

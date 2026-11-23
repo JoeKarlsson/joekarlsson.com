@@ -56,6 +56,8 @@ interface Props {
 	howToSteps?: { name: string; text: string }[];
 	headings?: { depth: number; slug: string; text: string }[];
 	canonicalUrl?: string;
+	/** Keep the page out of search (a one-line film review) */
+	noindex?: boolean;
 	/** Where the post lives: /blog/ by default, /talks/ for a talk write-up, /reviews/ for a film review */
 	section?: 'blog' | 'talks' | 'reviews';
 	/** Blog post slugs for "Keep reading", in place of the ones ranked by similar text */
@@ -96,6 +98,7 @@ const {
 	howToSteps,
 	headings,
 	canonicalUrl,
+	noindex,
 	section = 'blog',
 	relatedPosts,
 	body,
@@ -202,6 +205,7 @@ const captionText =
 	faq={faq}
 	howToSteps={howToSteps}
 	canonicalUrl={canonicalUrl}
+	noindex={noindex}
 	section={home}
 	videoObjects={videoObjects}
 >

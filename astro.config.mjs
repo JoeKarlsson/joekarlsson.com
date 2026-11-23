@@ -34,10 +34,15 @@ import responsiveImages from './src/integrations/responsive-images.mjs';
 import minifyInlineScripts from './src/integrations/minify-inline-scripts.mjs';
 import halftoneLevels from './src/integrations/halftone-levels.mjs';
 import scriptCsp from './src/integrations/script-csp.mjs';
-import { lastmodByPath, offSiteCanonicalPaths } from './src/integrations/sitemap-lastmod.mjs';
+import {
+	lastmodByPath,
+	offSiteCanonicalPaths,
+	thinReviewPaths,
+} from './src/integrations/sitemap-lastmod.mjs';
 
 const contentLastmod = lastmodByPath(new URL('./src/content/', import.meta.url));
 const offSiteCanonicals = offSiteCanonicalPaths(new URL('./src/content/', import.meta.url));
+const thinReviews = thinReviewPaths(new URL('./src/content/', import.meta.url));
 
 // TL;DR in Tech back issues (imported from Substack, marked by substackUrl) are
 // noindex on the page, and recaps of a blog post (recapOf) point their canonical at
@@ -118,14 +123,16 @@ export default defineConfig({
 		// A Markdown copy of every indexed page for AI agents: /about/ -> /about.md
 		markdownPages(),
 		// /resume-pdf/ is the noindex source the resume PDF is printed from; crossposts whose
-		// canonical is the original on another site aren't canonical URLs, so they're out too
+		// canonical is the original on another site aren't canonical URLs, so they're out too,
+		// and so are reviews too short to index (noindex on the page)
 		sitemap({
 			filter: (page) => {
 				const { pathname } = new URL(page);
 				return (
 					pathname !== '/resume-pdf/' &&
 					!unindexedIssuePaths.has(pathname) &&
-					!offSiteCanonicals.has(pathname)
+					!offSiteCanonicals.has(pathname) &&
+					!thinReviews.has(pathname)
 				);
 			},
 			serialize: (item) => {

@@ -1,4 +1,5 @@
 import { readFileSync, readdirSync } from 'node:fs';
+import { THIN_REVIEW_WORDS, reviewProseWords } from '../utils/review-words.mjs';
 
 // The sitemap's <lastmod> for every dated page: its updatedDate, else its date. Google
 // uses lastmod only when it's accurate, and Bing asks for the content's real change
@@ -47,6 +48,19 @@ export function offSiteCanonicalPaths(contentDir) {
 			if (slug && canonical && new URL(canonical).hostname !== 'www.joekarlsson.com')
 				paths.add(`/${collection}/${slug}/`);
 		}
+	}
+	return paths;
+}
+
+/** Reviews too short to index (src/utils/review-words.mjs) @param {URL} contentDir @returns {Set<string>} */
+export function thinReviewPaths(contentDir) {
+	const dir = new URL('reviews/', contentDir);
+	const paths = new Set();
+	for (const file of readdirSync(dir).filter((f) => /\.mdx?$/.test(f))) {
+		const md = readFileSync(new URL(file, dir), 'utf8');
+		const body = md.replace(/^---\n[\s\S]*?\n---\n/, '');
+		if (reviewProseWords(body) < THIN_REVIEW_WORDS)
+			paths.add(`/reviews/${frontMatterValue(md, 'slug')}/`);
 	}
 	return paths;
 }
