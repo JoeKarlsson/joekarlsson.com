@@ -13,7 +13,7 @@ on:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   # The guides version last reviewed against; the check says when Google publishes a newer one
-  MODERN_WEB_GUIDANCE: 1.0.0
+  MODERN_WEB_GUIDANCE: 1.0.1
   # The scanner reports usage to Google unless this is set
   DISABLE_TELEMETRY: 1
 

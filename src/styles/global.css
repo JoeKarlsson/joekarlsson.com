@@ -70,7 +70,8 @@
 
 @layer base {
 	/* Crayon marks run past boxes, section edges and the screen edge on purpose. The
-	   page clips sideways here, once, so nothing on the way has to contain them. */
+	   page clips sideways here, once, so nothing on the way has to contain them. A kept
+	   exception to Modern Web Guidance's form-factor-adaptation rule (DECISIONS.md, 2026-11-22) */
 	html,
 	body {
 		overflow-x: clip;
