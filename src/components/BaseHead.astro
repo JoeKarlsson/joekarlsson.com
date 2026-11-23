@@ -488,6 +488,8 @@ page's own scripts run. */}
 			const element = picture.matches('[data-halftone]') ? picture.parentElement : picture;
 			named = element;
 			element.style.viewTransitionName = NAME;
+			// Hides the frame's hover box for the flight (motion.css)
+			transition.types.add('lift');
 			transition.finished
 				.finally(function () {
 					element.style.viewTransitionName = '';

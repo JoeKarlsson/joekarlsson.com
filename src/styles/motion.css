@@ -706,6 +706,11 @@
 		animation-timing-function: var(--ease-move);
 		mix-blend-mode: multiply;
 	}
+	/* A card's hover box sits in its picture's frame, which flies as the header morph
+	   (morph() in BaseHead.astro adds lift), so it's off for the flight */
+	:root:active-view-transition-type(lift) .ring-host .hover-ring {
+		visibility: hidden;
+	}
 	/* The page slides the way you're going: out fast, in 16px from that side. One set of
 	   keyframes serves both ways through --way */
 	:active-view-transition-type(back) {
