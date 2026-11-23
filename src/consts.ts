@@ -20,6 +20,7 @@ export const SOCIAL_LINKS = {
 	medium: 'https://medium.com/@joekarlsson',
 	npm: 'https://www.npmjs.com/~joekarlsson',
 	keybase: 'https://keybase.io/joekarlsson',
+	orcid: 'https://orcid.org/0009-0005-8048-9559',
 	facebook: 'https://www.facebook.com/joe.karlsson13',
 };
 
