@@ -42,7 +42,7 @@ Joe's best-performing work is short vertical video: Reels get 2-7x what the same
   - **None:** essays and opinion posts with nothing to look at.
   - **One clip (default for anything visible):** a 30-60 second vertical "I built X" video. Write the on-screen hook line, a 3-beat script for Followspot (what it is, the moment it works, where to get it), and the caption. Reel first, then Shorts, LinkedIn, Bluesky, X, TikTok, each uploaded natively; link in the reply, first comment or last part.
   - **Long video:** only for an evergreen tutorial or a project with a story (his only long videos that took off were tutorials). Hand to `/video`, then `video-clips` for 3-5 Shorts spread over the next weeks, each with its Related-video link set.
-- Postiz can't post to Instagram or TikTok yet (each needs Joe's developer app; `knowledge/services/postiz/short-form-video.md` in claude-skills): those rows say **post by hand**.
+- Postiz is connected to Instagram (Standalone), YouTube and TikTok, but `postiz-schedule.py` schedules none of them yet: Reels and Shorts go in through Postiz's web UI, and TikTok only as an inbox draft Joe publishes from the app (its app is unaudited). Details: `knowledge/services/postiz/short-form-video.md` in claude-skills.
 
 ## 3. Pick channels
 
