@@ -16,7 +16,7 @@ Read first, every run:
 - **Hacker News is a channel**, judged per piece: measured numbers, a method people can check, original research, or Show HN for something runnable. Never essays. Never drop it from a plan wholesale.
 - **Claude drafts all copy** (social, Reddit, HN, pitches); the humanizer and `reader-reviewer` check it, and Joe edits. The HN row states HN's rule against generated text so he decides with it in view.
 - **AI disclosure only where a venue requires it.** The plan names the venue's rule next to the row.
-- **Every link Joe posts is tagged** so Plausible names the channel (`postiz-schedule.py` adds `?ref=<platform>` for social; the plan writes `?ref=newsletter` and `?ref=<curator>` by hand). HN and Reddit links stay untagged.
+- **Links Joe sends from his own accounts are tagged** so Plausible names the channel: social (`postiz-schedule.py` adds `?ref=<platform>`), the newsletter (`?ref=newsletter`) and curator pitch emails (`?ref=<curator>`). **Community posts stay untagged**: HN, Reddit, forums and Discord carry a referrer anyway and tags read as marketing there, and permanent entries (awesome lists, directories) get the clean URL.
 - **Nothing affiliate goes to a community** (gift guides read as self-promotion).
 
 ## 1. Read the piece and name its kind
@@ -31,6 +31,8 @@ Read the source in full (frontmatter and body). Name its **kind**, which sets th
 | Essay / art | The Artist's Way, Hackers and Painters, Ship the Ugly Pot | Newsletter, Bluesky, LinkedIn, art and personal-web venues; no aggregators |
 | Work post (`writtenFor`) | CData posts | Canonical employer URL, "I wrote this for <employer>", skip communities that ban company content |
 
+**An old post** (published more than a month ago) comes back only with a real update (new data, a fix, a follow-up), and the plan leads with the update; no update means say so and stop. Skip early mode and the Wayback save if a snapshot after the update exists.
+
 Also note: does it have **something to look at** (a demo, a build, a chart, a painting)? That decides the video track. Is it **affiliate** content? Then no communities.
 
 ## 2. Video track (before anything else, because footage can't be made later)
@@ -38,7 +40,7 @@ Also note: does it have **something to look at** (a demo, a build, a chart, a pa
 Joe's best-performing work is short vertical video: Reels get 2-7x what the same clip gets on Shorts, and "here's how I built X" is his best format. Consistency is the problem, so the plan makes video cheap:
 
 - **In early mode (blog-new Phase 1, while he's still building):** a **shot list** of 3-6 moments to film now on his phone or with Screencast Director: the thing working, the before/after, the moment it broke, his hands on it. 5-20 seconds each. These are the progress posts before launch and the clip after.
-- **At launch:** pick the tier and write it into the plan:
+- **At launch:** if no footage exists yet (always true for an old post), the calendar gets the shot list before day 0 and the clip moves to the day 3-7 wave. Pick the tier and write it into the plan:
   - **None:** essays and opinion posts with nothing to look at.
   - **One clip (default for anything visible):** a 30-60 second vertical "I built X" video. Write the on-screen hook line, a 3-beat script for Followspot (what it is, the moment it works, where to get it), and the caption. Reel first, then Shorts, LinkedIn, Bluesky, X, TikTok, each uploaded natively; link in the reply, first comment or last part.
   - **Long video:** only for an evergreen tutorial or a project with a story (his only long videos that took off were tutorials). Hand to `/video`, then `video-clips` for 3-5 Shorts spread over the next weeks, each with its Related-video link set.
@@ -52,6 +54,8 @@ Joe's best-performing work is short vertical video: Reels get 2-7x what the same
 4. **Curators and newsletters:** the lane's curators in `channels.md`, against their published criteria (Changelog: no tutorials; Console.dev: pre-1.0 dev tools only; Hackaday: builds with a wide photo; kottke: projects and videos; Nightingale: pitch before publishing, 3 weeks exclusive). Outlets that already ran Joe's work rank first (`src/data/coverage.ts`).
 5. **Research only:** a DOI on day 0 (Zenodo, or Rogue Scholar for the blog), arXiv only with a personal endorser lined up, the field's mailing lists (Humanist, Digital Humanities Now).
 6. **Essays and art only:** the newsletter, IndieWeb Carnival when the month's prompt fits, Kagi Small Web (once, with two other blogs, no popups on the site), Bluesky starter packs, a podcast-guest pitch when the essay could carry a conversation.
+
+Before dating anything, read what's already queued: Postiz's scheduled posts (`GET /posts?type=scheduled`, as `/social` Step 4 does) and `~/claude-skills/drafts/social/`, and apply `/social`'s slot rules (two posts a day, LinkedIn weekdays with big ones early in the week, no LinkedIn on a US holiday or the day after, no tentpoles in a holiday week).
 
 Rank by fit (would this community's regulars upvote or reply?), then Joe's track record with the channel, then reach. Cut anything that's a stretch; a short plan Joe finishes beats a long one he doesn't.
 
@@ -78,12 +82,12 @@ One calendar, day 0 = publish day. Every row: date, channel, what goes there, th
 | Day 2, 7, 30 | Traffic check (step 6) |
 
 Copy for each row:
-- **HN:** the post's own title, unchanged; an author comment (who he is, why he made it, what feedback he wants; 3-5 sentences). Show HN links the repo or the thing to try.
+- **HN:** the page's `<title>` as published (HN wants the original title, and an H1 written as a hook reads as linkbait to its mods); an author comment (who he is, why he made it, what feedback he wants; 3-5 sentences). Show HN links the repo or the thing to try.
 - **Reddit text post:** a title written for that sub's angle (never the blog title, never the same title twice), 3-6 bullets of the actual findings so the post stands on its own, the link at the bottom, flair if the sub wants it, the AI disclosure only if the sub requires it.
 - **Curator pitch:** subject line = the finding or build in plain words; under 200 words: what it is, why *their* readers care, one number or image, the tagged link. One curator per email; one follow-up after 3-7 days, then stop.
-- **Social:** the angle and media for `/social`, plus each follow-up's point and date. `/social` writes and schedules them.
+- **Social:** the angle, media and date for the launch post and each follow-up (one point each); `/social` writes the copy from these rows and schedules it after Joe approves.
 
-Run every title, comment and pitch through `reader-reviewer`, then the humanizer and Vale; fix what they find.
+Run every title, comment and pitch through `reader-reviewer`, then the humanizer (fact ledger and fact diff against the post, at minimum), then Vale with the site's config; passive-voice hints on community copy are noise. Fix what they find.
 
 Write the plan to `.mockups/distribute-<slug>/plan.md` (the record the checks and `/social` read) and `.mockups/distribute-<slug>/index.html` (rule and date beside each row, a copy button per draft, a checkbox per row), and `open` the page. Commit any `channels.md` changes (`chore: Distribution channels re-checked for <slug>`).
 

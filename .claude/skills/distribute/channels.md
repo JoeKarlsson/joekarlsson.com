@@ -95,6 +95,13 @@ Reddit's "9:1" or "90/10" self-promotion ratio isn't in any current official Red
 - source: https://helpnetsecurity.com/2026/10/26/reddit-r-opensource-ai-ban (2026-10-26)
 - verified: 2026-11-23 (secondhand)
 
+### r/Proxmox
+- lanes: homelab
+- rule: not read; Reddit refuses automated reads. Read https://www.reddit.com/r/Proxmox/about/rules before posting.
+- format: text post with the link in the body
+- status: active
+- verified: never
+
 ### r/mikrotik
 - lanes: networking, homelab
 - rule: not read; Reddit refused the automated read 2026-11-22. Read https://www.reddit.com/r/mikrotik/about/rules before posting.
@@ -157,7 +164,7 @@ Reddit's "9:1" or "90/10" self-promotion ratio isn't in any current official Red
 - verified: never
 
 ### Unchecked subreddits worth reading before use
-r/homeassistant, r/Proxmox, r/devops (named in blog-new's old Distribution fit), r/ClaudeAI, r/mcp, r/Database, r/devrel, r/technicalwriting, r/creativecoding, r/proceduralgeneration, r/DigitalArt, r/TrueFilm, r/AskAcademia. No rule text found 2026-11-22; verified: never.
+r/homeassistant, r/devops (named in blog-new's old Distribution fit), r/ClaudeAI, r/mcp, r/Database, r/devrel, r/technicalwriting, r/creativecoding, r/proceduralgeneration, r/DigitalArt, r/TrueFilm, r/AskAcademia. No rule text found 2026-11-22; verified: never.
 
 ## Forums and communities
 
@@ -169,6 +176,15 @@ r/homeassistant, r/Proxmox, r/devops (named in blog-new's old Distribution fit),
 - status: active (topics 2026-11-19 and later)
 - source: https://forum.mikrotik.com/faq , https://forum.mikrotik.com/t/forum-rules-guide-lines/265622
 - verified: 2026-11-22
+
+### Proxmox Support Forum (official, XenForo)
+- lanes: homelab
+- rule: "referencing or promoting your own work, products, or services is permitted if you clearly disclose your affiliation or authorship in relevant contexts"; no "spamming existing discussion threads solely for the purpose of pitching a product or service"; nothing "spam or spam-like".
+- format: a thread that stands on its own, say you wrote the post, link at the end. No tutorials section: tutorials are threads tagged `tutorial` (https://forum.proxmox.com/tags/tutorial/), mostly in Proxmox VE: Installation and configuration.
+- submit: https://forum.proxmox.com
+- status: active
+- source: https://forum.proxmox.com/help/terms/
+- verified: 2026-11-23
 
 ### Write the Docs Slack
 - lanes: techwriting, devrel
@@ -272,9 +288,10 @@ r/homeassistant, r/Proxmox, r/devops (named in blog-new's old Distribution fit),
 - lanes: selfhosted, homelab
 - size: 35,000+
 - submit: https://selfh.st/submit/ for self-hosting news and launches
+- rule: the submit page's only scope line is "Self-hosted news, content, updates, launches, events, and more" (read 2026-11-23); no written eligibility rules, so a blog post fits as "content"
 - note: listings made with AI get an "AI-Assisted" badge, not exclusion; the editor says readers click them "as much as ever" (selfh.st, 2026)
 - status: active (issue 2026-11-20)
-- verified: 2026-11-22
+- verified: 2026-11-23
 
 ### Data Engineering Weekly
 - lanes: data
@@ -366,6 +383,8 @@ r/homeassistant, r/Proxmox, r/devops (named in blog-new's old Distribution fit),
 - **Data Is Plural**: paused. Last edition 2025-08-27, no notice. https://www.data-is-plural.com/archive/ (2026-11-22)
 - **Changelog News**: unclear. The editor wrote that he "shipped [his] final News" (https://jerodsanto.net/2026/03/so-long-changelog) but the site lists #185 dated 2026-04-29.
 - **DevRel Weekly (Mary Thengvall)**: unclear. The site errored and no 2025-26 issues were found (2026-11-22).
+- **GitHub Discussions "Show and tell" in bpg/terraform-provider-proxmox and opentofu/opentofu**: quiet. Both categories exist, but every recent thread has 0 comments (checked 2026-11-23 via the GitHub API).
+- **awesome-opentofu (virtualroot)**: no fit for posts. It lists tools, courses, conference talks and podcasts; no section for single blog posts (README read 2026-11-23).
 - **FlowingData**: unclear. A /suggest/ page exists but refused automated reads (2026-11-22).
 
 ## Added 2026-11-23 from the distribution research
@@ -425,6 +444,16 @@ r/homeassistant, r/Proxmox, r/devops (named in blog-new's old Distribution fit),
 - format: day 0 for every research piece, so it can be cited
 - status: active
 - source: https://zenodo.org/ , https://rogue-scholar.org/
+- verified: 2026-11-23
+
+### Awesome Proxmox VE (Corsinvest/awesome-proxmox-ve)
+- lanes: homelab
+- size: 1,168 stars; PRs merged within days (latest 2026-11-22)
+- rule: "Append your entry at the end of its category"; "One suggestion per pull request"; "If you are the author of the project, say so in the description: self-submissions are welcome." Wants a direct link and a short description ending in a period. Guides get in: "Add Move from VMware to Proxmox guide to Migration" merged 2026-11-18.
+- format: one list line in "Tutorials, Blogs & Video" (or Migration for a migration guide), via a pull request on day 7
+- submit: https://github.com/Corsinvest/awesome-proxmox-ve
+- status: active
+- source: https://github.com/Corsinvest/awesome-proxmox-ve/blob/master/CONTRIBUTING.md
 - verified: 2026-11-23
 
 ### arXiv
