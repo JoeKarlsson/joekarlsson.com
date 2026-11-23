@@ -116,17 +116,44 @@
 		@apply outline-2 outline-offset-2 outline-pink rounded-xs;
 	}
 
-	/* src/scripts/halftone.ts draws these in pink on a canvas laid over them.
-	   Opacity, not visibility: hidden, keeps their alt text and labels in the
-	   accessibility tree (the canvas is aria-hidden). */
-	.halftone-on :is(img, video)[data-halftone] {
-		opacity: 0;
+	/* Pink pictures (DECISIONS.md 2026-11-22): every img and video[data-halftone] is turned
+	   gray, its levels stretched to black and white (the numbers come from its file at build
+	   time, src/integrations/halftone-levels.mjs) and inverted when it's mostly white; then
+	   its frame, the element right around it (past a <picture>), multiplies pink over it.
+	   Black to pink, on the first paint, no script. A frame must be exactly the picture's
+	   size (e2e/halftone.spec.ts checks every one on each page type). */
+	:is(img, video)[data-halftone] {
+		filter: grayscale(1) brightness(var(--halftone-b, 1)) contrast(var(--halftone-c, 1));
 	}
-
-	/* A clip with controls (the masthead's) stays in the Tab order, but its own
-	   ring is invisible at opacity 0, so the canvas over it draws the ring */
-	.halftone-on video[data-halftone]:focus-visible + canvas {
-		@apply outline-2 outline-offset-2 outline-pink;
+	:is(img, video)[data-halftone][data-halftone-invert] {
+		filter: grayscale(1) brightness(var(--halftone-b, 1)) contrast(var(--halftone-c, 1)) invert(1);
+	}
+	/* Relative here in the base layer, so a frame's own absolute or sticky still wins */
+	:not(picture):has(> [data-halftone], > picture > [data-halftone]) {
+		position: relative;
+	}
+	:not(picture):has(> [data-halftone], > picture > [data-halftone])::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		background: var(--color-pink);
+		mix-blend-mode: multiply;
+		pointer-events: none;
+	}
+	/* The pink takes the picture's own corners (a frame that rounds and clips it keeps its own) */
+	:has(> .rounded-sm[data-halftone])::after {
+		border-radius: var(--radius-sm);
+	}
+	:has(> .rounded-lg[data-halftone])::after {
+		border-radius: var(--radius-lg);
+	}
+	:has(> .rounded-xl[data-halftone])::after {
+		border-radius: var(--radius-xl);
+	}
+	/* A play button or label laid over the picture stays above the pink */
+	:not(picture):has(> [data-halftone]) > :not([data-halftone]) {
+		z-index: 1;
 	}
 
 	::selection {

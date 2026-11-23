@@ -70,20 +70,23 @@ const SECTION = 'relative mb-12 md:mb-32';
 				data-reel-slice={REEL_SLICE_SECONDS}
 				class="plausible-event-name=Reel+Click ring-host group relative z-10 flex flex-col overflow-hidden rounded-xl bg-surface-1 no-underline"
 			>
-				<video
-					tabindex="-1"
-					src={REEL_VIDEO}
-					poster={REEL_VIDEO.replace(/\.mp4$/, '-poster.webp')}
-					loop
-					muted
-					playsinline
-					preload="none"
-					aria-label={`Clips of my selected works: ${SELECTED_WORKS.join(', ')}`}
-					data-autoplay-in-view
-					data-phone-still
-					data-halftone="flat"
-					class="block aspect-video w-full object-cover"
-				/>
+				{/* The clip's frame, where its pink goes (global.css, "Pink pictures") */}
+				<span class="relative block">
+					<video
+						tabindex="-1"
+						src={REEL_VIDEO}
+						poster={REEL_VIDEO.replace(/\.mp4$/, '-poster.webp')}
+						loop
+						muted
+						playsinline
+						preload="none"
+						aria-label={`Clips of my selected works: ${SELECTED_WORKS.join(', ')}`}
+						data-autoplay-in-view
+						data-phone-still
+						data-halftone="flat"
+						class="block aspect-video w-full object-cover"
+					/>
+				</span>
 				{/* The title and the piece's tagline (set like the work cards') sit under the clip */}
 				<span class="flex flex-1 flex-col px-6 pt-4 pb-5">
 					<span class="block font-display text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[0.95] text-balance text-paper uppercase group-hover:text-pink">

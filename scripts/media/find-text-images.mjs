@@ -1,7 +1,7 @@
 // Finds which post hero images and videos, project images and project clips, and the
 // homepage's Around the house clips have text in them,
 // with macOS Vision (count-text.swift), and writes them to
-// src/data/images-with-text.json. The live halftone (src/scripts/halftone.ts) draws
+// src/data/images-with-text.json. The live halftone (global.css, "Pink pictures") draws
 // those as a flat pink-and-black tone instead of dots, which make text unreadable.
 // A clip is judged by one frame a second in.
 //

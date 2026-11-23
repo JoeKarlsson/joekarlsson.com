@@ -1,6 +1,6 @@
 ---
 // One post in a list (blog index, category pages, newsletter): the pink
-// thumbnail (src/scripts/halftone.ts; generated work-post thumbnails come pretreated) on the left, then date, reading time and categories, the title, and
+// thumbnail (pink: global.css, "Pink pictures"; generated work-post thumbnails come pretreated) on the left, then date, reading time and categories, the title, and
 // the description, and which employer a professional post was written for. Same
 // row as the homepage's Recent posts, compact on phones too: a small thumbnail beside
 // the text instead of a full-width picture above it, so a screen holds about twice
@@ -72,20 +72,23 @@ const formattedDate = formatDate(date);
 	{/* The thumbnail repeats the title link, so it's skipped by keyboard and screen readers */}
 	<a href={url} tabindex="-1" aria-hidden="true" class="relative block">
 		{/* data-morph on the picture alone, so the hover box and corner mark don't fly into
-		the post's header with it (BaseHead.astro) */}
-		<img
-			data-morph={url}
-			src={image}
-			alt=""
-			aria-hidden="true"
-			data-halftone={halftoneMode(image)}
-			width="560"
-			height="315"
-			sizes="(min-width: 640px) 280px, 112px"
-			loading="lazy"
-			decoding="async"
-			class="block aspect-video w-full rounded-lg object-cover"
-		/>
+		the post's header with it (BaseHead.astro). Its own frame holds its pink and flies
+		with it (global.css, "Pink pictures") */}
+		<span class="relative block rounded-lg">
+			<img
+				data-morph={url}
+				src={image}
+				alt=""
+				aria-hidden="true"
+				data-halftone={halftoneMode(image)}
+				width="560"
+				height="315"
+				sizes="(min-width: 640px) 280px, 112px"
+				loading="lazy"
+				decoding="async"
+				class="block aspect-video w-full rounded-lg object-cover"
+			/>
+		</span>
 		{mark && markIndex !== undefined && (
 			<Scribble
 				{...mark}

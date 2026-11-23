@@ -32,6 +32,7 @@ import externalLinks from './src/integrations/external-links.mjs';
 import markdownPages from './src/integrations/markdown-pages.mjs';
 import responsiveImages from './src/integrations/responsive-images.mjs';
 import minifyInlineScripts from './src/integrations/minify-inline-scripts.mjs';
+import halftoneLevels from './src/integrations/halftone-levels.mjs';
 import scriptCsp from './src/integrations/script-csp.mjs';
 import { lastmodByPath } from './src/integrations/sitemap-lastmod.mjs';
 
@@ -114,6 +115,8 @@ export default defineConfig({
 		mdx(),
 		// srcset for card images in public/ (components opt in with `sizes`)
 		responsiveImages(),
+		// Each pink picture's levels, measured from its file (global.css, "Pink pictures")
+		halftoneLevels(),
 		// Every link off the site opens in a new tab
 		externalLinks(),
 		// A Markdown copy of every indexed page for AI agents: /about/ -> /about.md

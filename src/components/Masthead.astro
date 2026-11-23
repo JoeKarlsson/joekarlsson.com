@@ -55,43 +55,46 @@ const portrait = Boolean(width && height && height > width);
 	in-view-play starts it, so a remembered pause or reduced motion keeps it still.
 	preload="none": a phone shows the poster (data-phone-still), and iPhone Safari pulled
 	the whole clip at load for "metadata" (406 KB on connect-ai-doom) */}
-	{heroVideo ? (
-		<video
-			src={heroVideo}
-			data-halftone={halftone}
-			poster={heroImage}
-			data-autoplay-in-view
-			data-phone-still
-			loop
-			muted
-			playsinline
-			controls
-			preload="none"
-			aria-label={heroAlt || title}
-			data-morph-target
-			class="mx-auto h-auto max-h-[min(75vh,640px)] w-full max-w-[856px] object-cover"
-			width={width ?? 768}
-			height={height ?? 440}
-		/>
-	) : (
-		heroImage && (
-			<img
-				src={heroImage}
-				alt={heroAlt || title}
-				data-still-only
-				data-halftone={halftone}
-				data-morph-target
-				width={width}
-				height={height}
-				sizes="(min-width: 1024px) 856px, 100vw"
-				loading="eager"
-				fetchpriority="high"
-				class:list={[
-					'mx-auto h-auto max-h-[min(75vh,640px)] w-full max-w-[856px] object-cover',
-					portrait && 'aspect-video',
-				]}
-			/>
-		)
+	{/* The picture's frame, where its pink goes (global.css, "Pink pictures") */}
+	{(heroVideo || heroImage) && (
+		<div class="masthead-picture relative mx-auto max-w-[856px]">
+			{heroVideo ? (
+				<video
+					src={heroVideo}
+					data-halftone={halftone}
+					poster={heroImage}
+					data-autoplay-in-view
+					data-phone-still
+					loop
+					muted
+					playsinline
+					controls
+					preload="none"
+					aria-label={heroAlt || title}
+					data-morph-target
+					class="block h-auto max-h-[min(75vh,640px)] w-full object-cover"
+					width={width ?? 768}
+					height={height ?? 440}
+				/>
+			) : (
+				<img
+					src={heroImage}
+					alt={heroAlt || title}
+					data-still-only
+					data-halftone={halftone}
+					data-morph-target
+					width={width}
+					height={height}
+					sizes="(min-width: 1024px) 856px, 100vw"
+					loading="eager"
+					fetchpriority="high"
+					class:list={[
+						'block h-auto max-h-[min(75vh,640px)] w-full object-cover',
+						portrait && 'aspect-video',
+					]}
+				/>
+			)}
+		</div>
 	)}
 	{caption && (
 		<p class="masthead-caption">

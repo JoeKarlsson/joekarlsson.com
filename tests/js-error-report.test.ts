@@ -67,7 +67,7 @@ describe('JS Error reporting', () => {
 		const { fire, sent } = load();
 		fire('error', {
 			message: 'TypeError: x is undefined',
-			filename: 'https://www.joekarlsson.com/_astro/halftone.js',
+			filename: 'https://www.joekarlsson.com/_astro/in-view-play.js',
 			lineno: 12,
 		});
 		fire('securitypolicyviolation', csp('script-src-elem', 'theme()'));
@@ -75,7 +75,7 @@ describe('JS Error reporting', () => {
 			{
 				props: {
 					message: 'TypeError: x is undefined',
-					source: 'https://www.joekarlsson.com/_astro/halftone.js:12',
+					source: 'https://www.joekarlsson.com/_astro/in-view-play.js:12',
 					path: '/blog/homelab-gift-ideas-2026/',
 				},
 			},

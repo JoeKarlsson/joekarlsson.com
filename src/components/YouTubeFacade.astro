@@ -7,8 +7,8 @@ import { halftoneMode } from '../utils/halftone';
 interface Props {
 	id: string;
 	title: string;
-	// Our own still instead of YouTube's thumbnail
-	poster?: string;
+	// Our own still: pages never load images from YouTube (npm run youtube:thumbnails)
+	poster: string;
 	// A short muted loop played over the poster until the player loads
 	loop?: string;
 	// A short muted montage that plays only while the button is hovered or focused
@@ -48,13 +48,12 @@ const { id, title, poster, loop, hoverLoop, vertical } = Astro.props;
 		/>
 	) : (
 		<img
-			src={poster ?? `https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+			src={poster}
 			alt=""
 			aria-hidden="true"
-			crossorigin={poster ? undefined : 'anonymous'}
 			loading="lazy"
 			decoding="async"
-			data-halftone={poster ? halftoneMode(poster) : 'flat'}
+			data-halftone={halftoneMode(poster)}
 			class="block size-full object-cover"
 		/>
 	)}

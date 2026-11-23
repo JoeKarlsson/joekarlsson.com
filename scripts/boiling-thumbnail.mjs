@@ -42,7 +42,7 @@ const FRAME_MS = 167;
 const DEFAULT_STEP_MS = 220;
 const FIRST_MS = 900;
 const LAST_MS = 2400;
-// The site's pink (src/scripts/halftone.ts INK)
+// The site's pink (global.css --color-pink)
 const PINK = [0xff, 0x4f, 0xd8];
 // Brightness that maps to full pink: the diagrams' chalk, the brightest thing they draw
 const CHALK_LUMA = 0.299 * 0xec + 0.587 * 0xe6 + 0.114 * 0xda;

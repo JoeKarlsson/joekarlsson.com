@@ -1062,9 +1062,10 @@ describe('performance guards', () => {
 		expect(tooMuch).toEqual([]);
 	});
 
-	// What a phone pays for on one page: each data-halftone image or clip is a live WebGL
-	// canvas copy, autoplaying clips decode at once, and every filtered or boiling SVG
-	// element keeps an offscreen buffer that redraws each frame. Posts that blew past this
+	// What a phone pays for on one page: each data-halftone image or clip is filtered and
+	// blended with pink (until 2026-11-22, a live WebGL canvas copy), autoplaying clips
+	// decode at once, and every filtered or boiling SVG element keeps an offscreen buffer
+	// that redraws each frame. Posts that blew past this
 	// (2026-11-07) ran iPhone Safari out of memory and reloaded forever. Limits sit about
 	// 1.5x above the heaviest page at the time, so a page that suddenly doubles fails here
 	// before it crashes a phone. Raise one only after loading that page on an iPhone.

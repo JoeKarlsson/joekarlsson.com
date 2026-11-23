@@ -31,6 +31,7 @@ export default defineConfig({
 			use: { ...devices['Desktop Firefox'] },
 			testMatch: [
 				'consistency.spec.ts',
+				'halftone.spec.ts',
 				'masthead.spec.ts',
 				'table-of-contents.spec.ts',
 				'typography.spec.ts',

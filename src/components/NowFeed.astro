@@ -183,16 +183,19 @@ function ratingStars(rating: number) {
 		{podcastEpisodes.map((episode) => {
 			const content = (
 				<>
-					<img
-						src={episode.cover}
-						alt={`Cover art for ${episode.podcastTitle}`}
-						width="48"
-						height="48"
-						loading="lazy"
-						data-halftone="flat"
-						data-halftone-no-invert
-						class="h-12 w-12 shrink-0 rounded-lg object-cover"
-					/>
+					{/* The cover's frame, where its pink goes (global.css, "Pink pictures") */}
+					<span class="relative block shrink-0 rounded-lg">
+						<img
+							src={episode.cover}
+							alt={`Cover art for ${episode.podcastTitle}`}
+							width="48"
+							height="48"
+							loading="lazy"
+							data-halftone="flat"
+							data-halftone-no-invert
+							class="block h-12 w-12 rounded-lg object-cover"
+						/>
+					</span>
 					<div>
 						<p class:list={['text-sm font-semibold', episode.url ? LINK_TITLE : 'text-paper']}>
 							{episode.episodeTitle}

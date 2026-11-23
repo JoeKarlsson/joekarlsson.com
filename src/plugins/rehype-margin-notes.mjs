@@ -62,6 +62,8 @@ const PINK = '#ff4fd8';
 const SHOWN_ON_PHONES = new Set(['quote', 'update']);
 
 const el = (tagName, properties, children) => ({ type: 'element', tagName, properties, children });
+/** A picture's frame, where its pink goes (global.css, "Pink pictures") */
+const pinkFrame = (img) => el('span', { className: ['mn-frame'] }, [img]);
 const text = (value) => ({ type: 'text', value });
 // Markdown curls quotes on the way in, and rehype-no-widows ties each block's last two
 // words with a no-break space; a note's `at` is matched with both undone (one character
@@ -327,17 +329,19 @@ function noteBody(note, number) {
 				el('a', { href: `/${section}/${slug}/`, className: ['mn-card'] }, [
 					...(post.image
 						? [
-								el(
-									'img',
-									{
-										className: ['mn-img'],
-										sizes: '56px',
-										src: post.image,
-										alt: '',
-										loading: 'lazy',
-										dataHalftone: halftoneMode(post.image),
-									},
-									[],
+								pinkFrame(
+									el(
+										'img',
+										{
+											className: ['mn-img'],
+											sizes: '56px',
+											src: post.image,
+											alt: '',
+											loading: 'lazy',
+											dataHalftone: halftoneMode(post.image),
+										},
+										[],
+									),
 								),
 							]
 						: []),
@@ -350,17 +354,19 @@ function noteBody(note, number) {
 				back,
 				...(note.image
 					? [
-							el(
-								'img',
-								{
-									className: ['mn-img'],
-									sizes: '15rem',
-									src: note.image,
-									alt: note.alt,
-									loading: 'lazy',
-									dataHalftone: halftoneMode(note.image),
-								},
-								[],
+							pinkFrame(
+								el(
+									'img',
+									{
+										className: ['mn-img'],
+										sizes: '15rem',
+										src: note.image,
+										alt: note.alt,
+										loading: 'lazy',
+										dataHalftone: halftoneMode(note.image),
+									},
+									[],
+								),
 							),
 						]
 					: []),

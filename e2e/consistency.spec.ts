@@ -170,7 +170,7 @@ test.describe('Consistency across section pages', () => {
 		});
 });
 
-// Firefox puts every <video> in the Tab order, and a graded clip is invisible under its pink
+// Firefox puts every <video> in the Tab order, and a graded clip was invisible under its old pink
 // canvas, so a silent clip with no controls took a Tab stop with no ring: /work/ had 23
 test.describe('Silent clips stay out of the Tab order', () => {
 	for (const path of ['/', '/work/', '/talks/', '/about/', '/uses/', '/contact/', PAGES.project])

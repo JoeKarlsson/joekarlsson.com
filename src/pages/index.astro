@@ -219,7 +219,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 					aria-label="Montage of short clips of Joe in pink"
 				>
 					{/* Plain color clips, each frame auto-leveled, so the live pink
-					(src/scripts/halftone.ts) stay sharp at any size and every shot matches the
+					(global.css, "Pink pictures") stay sharp at any size and every shot matches the
 					poster's levels. VP9 is smaller; H.264 is the fallback. data-poster: a poster
 					attribute downloads even on the hidden phone video (in-view-play sets it).
 					preload="none" because iPhone Safari pulls the whole clip for "metadata". */}
@@ -844,20 +844,23 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 {terminal.map((line) => <>{line.map((run) => <span class:list={[run.pink && 'text-pink', run.muted && 'text-muted', run.bold && 'font-bold']}>{run.text}</span>)}{'\n'}</>)}</pre>
 			</div>
 			<figure class="flex flex-col md:col-span-3">
-				<video
-					tabindex="-1"
-					class="block min-h-[220px] w-full flex-1 object-cover"
-					src="/images/home/cat-wide.mp4"
-					data-poster="/images/home/cat-wide-poster.webp"
-					data-halftone="flat"
-					data-autoplay-in-view
-					data-phone-still
-					muted
-					loop
-					playsinline
-					preload="none"
-					aria-label="Photocopied video of Joe’s cat on the litter box wiring"
-				></video>
+				{/* The clip's frame, where its pink goes (global.css, "Pink pictures") */}
+				<div class="relative flex min-h-[220px] flex-1">
+					<video
+						tabindex="-1"
+						class="block w-full object-cover"
+						src="/images/home/cat-wide.mp4"
+						data-poster="/images/home/cat-wide-poster.webp"
+						data-halftone="flat"
+						data-autoplay-in-view
+						data-phone-still
+						muted
+						loop
+						playsinline
+						preload="none"
+						aria-label="Photocopied video of Joe’s cat on the litter box wiring"
+					></video>
+				</div>
 				<figcaption class="mt-2 text-[0.9375rem] text-paper">The cat</figcaption>
 			</figure>
 		</div>

@@ -131,18 +131,21 @@ const milestones = [
 				class="ring-host group relative z-10 block no-underline"
 			>
 				<span class="block overflow-hidden rounded-xl bg-ink md:absolute md:inset-0">
-					<img
-						src={hero.heroImage ?? hero.poster}
-						alt=""
-						aria-hidden="true"
-						data-halftone={halftoneMode((hero.heroImage ?? hero.poster)!)}
-						width="1200"
-						height="675"
-						sizes="(min-width: 768px) 50vw, 100vw"
-						class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
-						loading="eager"
-						fetchpriority="high"
-					/>
+					{/* The picture's own frame, where its pink goes (global.css, "Pink pictures") */}
+					<span class="relative block md:absolute md:inset-0">
+						<img
+							src={hero.heroImage ?? hero.poster}
+							alt=""
+							aria-hidden="true"
+							data-halftone={halftoneMode((hero.heroImage ?? hero.poster)!)}
+							width="1200"
+							height="675"
+							sizes="(min-width: 768px) 50vw, 100vw"
+							class="block aspect-video w-full object-cover md:aspect-auto md:size-full"
+							loading="eager"
+							fetchpriority="high"
+						/>
+					</span>
 					<span class="block bg-ink px-6 pt-4 pb-5 md:absolute md:inset-x-0 md:bottom-0 md:z-10">
 						<span class="block font-display text-[clamp(1.625rem,2.6vw,2.5rem)] leading-[0.95] text-balance text-paper uppercase group-hover:text-pink">
 							{hero.title}

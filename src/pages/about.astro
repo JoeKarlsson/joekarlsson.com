@@ -224,7 +224,7 @@ import { LEAD_STORY } from '../data/coverage';
 		am in the dark panel above ABOUT (the same top as every main page). The montage is
 		4:3 at the camera's full height with Joe's eyes on the top third, so the square
 		desktop column only trims the sides, never his head. Pink
-		pink is drawn live (src/scripts/halftone.ts); in-view-play stops it with
+		pink is drawn live (global.css, "Pink pictures"); in-view-play stops it with
 		pause-motion and reduced motion. */}
 		<PosterHero
 			decorativeMedia
@@ -644,10 +644,9 @@ import { LEAD_STORY } from '../data/coverage';
 										>
 											<span class="relative block">
 												<img
-													src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
+													src={`/images/youtube/${video.id}.webp`}
 													alt=""
 													aria-hidden="true"
-													crossorigin="anonymous"
 													data-halftone="flat"
 													data-halftone-no-invert
 													class="block aspect-video w-full rounded-lg object-cover"

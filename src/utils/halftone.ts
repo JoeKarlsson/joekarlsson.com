@@ -1,11 +1,11 @@
-// Whether the live pink treatment (src/scripts/halftone.ts) draws an image or clip:
+// Whether the pink tone (global.css, "Pink pictures") applies to an image or clip:
 // every one gets the clear pink-and-black tone, except files that come pre-graded.
 
 /**
  * Finished thumbnails named thumb-<hash>.webp (and a taped card's flat masthead-<hash>.webp), for posts and projects, already carry their look, so the
  * live pink pass leaves them alone: work-post cards (scripts/generate-work-thumbnails.mjs) come out
  * graded pink with a taped print's border and tape kept, and boiling diagram cards
- * (scripts/boiling-thumbnail.mjs) are animated, which a live canvas copy would freeze.
+ * (scripts/boiling-thumbnail.mjs) are animated, so they keep their own look.
  * /talks/' card pictures and video posters (scripts/fetch-talk-event-covers.mjs) come graded
  * too, so a page with over a hundred cards stays inside a phone's budget.
  */

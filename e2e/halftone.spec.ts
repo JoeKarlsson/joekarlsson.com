@@ -1,127 +1,94 @@
 import { test, expect, type Page } from '@playwright/test';
 
-// src/scripts/halftone.ts draws img/video[data-halftone] in pink on a canvas laid
-// over each one, or shows the color originals when it can't.
-const UNMASKED_RENDERER_WEBGL = 0x9246;
+// The pink tone is CSS (global.css, "Pink pictures"): each img or video[data-halftone] is
+// filtered gray and its frame, the element right around it, multiplies pink over it. That
+// only looks right when the frame is positioned and exactly the picture's box, corners
+// included; a frame any bigger tints whatever else is in it (a caption turns pink).
+// One page of each type that has pink pictures, at desktop and phone widths.
+const PAGES = [
+	'/',
+	'/work/',
+	'/work/adult-swim-bumper/',
+	'/about/',
+	'/blog/',
+	'/blog/doom-mcp-server/',
+	'/talks/',
+	'/talks/an-introduction-to-iot-internet-of-toilets/',
+	'/reviews/',
+	'/reviews/28-years-later/',
+	'/reviews/stats/',
+	'/newsletter/',
+	'/uses/',
+	'/resume/',
+	'/contact/',
+];
 
-async function stubRenderer(page: Page, name: string) {
-	await page.addInitScript(
-		([param, rendererName]) => {
-			const getParameter = WebGLRenderingContext.prototype.getParameter;
-			WebGLRenderingContext.prototype.getParameter = function (p: number) {
-				return p === param ? rendererName : getParameter.call(this, p);
-			};
-		},
-		[UNMASKED_RENDERER_WEBGL, name] as const,
+/** Every shown pink picture whose frame doesn't fit it, and why */
+async function badFrames(page: Page) {
+	return page.$$eval('img[data-halftone], video[data-halftone]', (pictures) =>
+		pictures.flatMap((picture) => {
+			// Hidden on purpose (the other screen size's copy) is fine; shown at no size isn't
+			if (!picture.checkVisibility()) return [];
+			const box = picture.getBoundingClientRect();
+			if (box.width === 0 || box.height === 0)
+				return [`${picture.getAttribute('src') ?? picture.getAttribute('poster')}: shown at 0 size`];
+			const parent = picture.parentElement!;
+			const frame = parent.tagName === 'PICTURE' ? parent.parentElement! : parent;
+			const frameStyle = getComputedStyle(frame);
+			const pink = getComputedStyle(frame, '::after');
+			const frameBox = frame.getBoundingClientRect();
+			// The corners you see: a frame that clips rounds both the picture and the pink
+			const clip =
+				frameStyle.overflow !== 'visible' ? parseFloat(frameStyle.borderTopLeftRadius) : 0;
+			const corner = (radius: string) => `${Math.max(parseFloat(radius), clip)}px`;
+			const problems = [
+				!getComputedStyle(picture).filter.includes('grayscale') && 'no gray filter',
+				pink.mixBlendMode !== 'multiply' && 'frame has no pink layer',
+				frameStyle.position === 'static' && 'frame not positioned',
+				(['x', 'y', 'width', 'height'] as const).some(
+					(side) => Math.abs(box[side] - frameBox[side]) > 1,
+				) &&
+					`frame ${Math.round(frameBox.width)}x${Math.round(frameBox.height)} around a ${Math.round(box.width)}x${Math.round(box.height)} picture`,
+				corner(getComputedStyle(picture).borderTopLeftRadius) !==
+					corner(pink.borderTopLeftRadius) &&
+					`corners ${corner(getComputedStyle(picture).borderTopLeftRadius)} vs pink ${corner(pink.borderTopLeftRadius)}`,
+			].filter(Boolean);
+			return problems.length
+				? [
+						`${picture.getAttribute('src') ?? picture.getAttribute('poster')}: ${problems.join(', ')}`,
+					]
+				: [];
+		}),
 	);
 }
 
-async function expectOriginalsShown(page: Page) {
-	await expect(page.locator('html')).not.toHaveClass(/halftone-on/);
-	await expect(page.locator('canvas[aria-hidden="true"]')).toHaveCount(0);
-	await expect(page.locator('video[data-halftone]').first()).toHaveCSS('opacity', '1');
-}
-
-test.describe('Halftone', () => {
-	test('with no WebGL the color originals show', async ({ page }) => {
-		await page.addInitScript(() => {
-			const getContext = HTMLCanvasElement.prototype.getContext;
-			// @ts-expect-error narrowing the overloads isn't worth it in a stub
-			HTMLCanvasElement.prototype.getContext = function (type: string, ...rest: unknown[]) {
-				return type === 'webgl' ? null : getContext.call(this, type, ...rest);
-			};
-		});
-		await page.goto('/about/');
-		await expectOriginalsShown(page);
-	});
-
-	test('if the halftone script never loads, the originals show within a few seconds', async ({
-		page,
-	}) => {
-		// BaseHead hides the originals before paint; its 3s fallback must not leave a blank hero
-		await page.route('**/scripts/halftone.ts*', (route) => route.abort());
-		await page.goto('/about/');
-		await expect(page.locator('html')).not.toHaveClass(/halftone-on/, { timeout: 5000 });
-		await expect(page.locator('video[data-halftone]').first()).toHaveCSS('opacity', '1');
-	});
-
-	test('with only software WebGL the color originals show', async ({ page }) => {
-		await stubRenderer(
+test.describe('Pink pictures', () => {
+	for (const width of [1440, 390]) {
+		test(`every picture sits in a frame that fits it exactly, ${width}px wide`, async ({
 			page,
-			'ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device), SwiftShader driver)',
-		);
-		await page.goto('/about/');
-		await expectOriginalsShown(page);
-	});
-
-	test('with a GPU, each canvas covers its original and the original keeps its label', async ({
-		page,
-	}) => {
-		// Headless Chromium only has SwiftShader, which draws correctly, just slowly:
-		// name it a GPU so the halftone path runs
-		await stubRenderer(page, 'ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)');
-		await page.goto('/about/');
-
-		await expect(page.locator('html')).toHaveClass(/halftone-on/);
-		const video = page.locator('video[data-halftone]').first();
-		const canvas = video.locator('xpath=following-sibling::canvas[1]');
-		await expect(canvas).toHaveAttribute('aria-hidden', 'true');
-		const [videoBox, canvasBox] = [await video.boundingBox(), await canvas.boundingBox()];
-		expect(canvasBox).toEqual(videoBox);
-
-		// Hidden with opacity, so screen readers still get the alt text and labels
-		await expect(video).toHaveCSS('opacity', '0');
-		const label = (await video.getAttribute('aria-label'))!;
-		await expect(page.getByLabel(label, { exact: true })).toBeAttached();
-	});
-	test('a post masthead canvas spans the column like its picture, not the 856px cap', async ({
-		page,
-	}) => {
-		await stubRenderer(page, 'ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)');
-		await page.setViewportSize({ width: 1600, height: 1000 });
-		await page.goto('/blog/doom-mcp-server/');
-		const image = page.locator('.masthead img[data-halftone]');
-		const canvas = image.locator('xpath=following-sibling::canvas[1]');
-		await expect(canvas).toBeAttached();
-		const [imageBox, canvasBox] = [await image.boundingBox(), await canvas.boundingBox()];
-		expect(imageBox!.width).toBeGreaterThan(856);
-		// within a pixel: the canvas is placed from offsetTop, which rounds
-		for (const key of ['x', 'y', 'width', 'height'] as const)
-			expect(Math.abs(canvasBox![key] - imageBox![key])).toBeLessThan(1);
-	});
-
-	test('a lost WebGL context shows the originals, and pink comes back with it', async ({
-		page,
-	}) => {
-		// iOS Safari drops the context to free GPU memory; drawing on with it painted black
-		await stubRenderer(page, 'ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)');
-		await page.addInitScript(() => {
-			const getContext = HTMLCanvasElement.prototype.getContext;
-			// @ts-expect-error narrowing the overloads isn't worth it in a stub
-			HTMLCanvasElement.prototype.getContext = function (type: string, ...rest: unknown[]) {
-				const context = getContext.call(this, type, ...rest);
-				if (type === 'webgl' && context) Object.assign(window, { halftoneGl: context });
-				return context;
-			};
+		}) => {
+			test.setTimeout(120_000);
+			await page.setViewportSize({ width, height: 900 });
+			const bad: string[] = [];
+			let checked = 0;
+			for (const path of PAGES) {
+				await page.goto(path);
+				checked += await page.locator('img[data-halftone], video[data-halftone]').count();
+				bad.push(...(await badFrames(page)).map((problem) => `${path} ${problem}`));
+			}
+			expect(checked).toBeGreaterThan(100);
+			expect(bad).toEqual([]);
 		});
-		await page.goto('/about/');
-		await expect(page.locator('html')).toHaveClass(/halftone-on/);
+	}
 
-		const loseContext = () =>
-			page.evaluate(() => {
-				const gl = (window as unknown as { halftoneGl: WebGLRenderingContext }).halftoneGl;
-				const extension = gl.getExtension('WEBGL_lose_context')!;
-				Object.assign(window, { halftoneLoseContext: extension });
-				extension.loseContext();
-			});
-		await loseContext();
-		await expect(page.locator('html')).not.toHaveClass(/halftone-on/);
-
-		await page.evaluate(() =>
-			(
-				window as unknown as { halftoneLoseContext: WEBGL_lose_context }
-			).halftoneLoseContext.restoreContext(),
-		);
-		await expect(page.locator('html')).toHaveClass(/halftone-on/);
+	test('a picture is pink before any script runs', async ({ browser }) => {
+		const context = await browser.newContext({ javaScriptEnabled: false });
+		const page = await context.newPage();
+		await page.goto('/blog/doom-mcp-server/');
+		const picture = page.locator('.masthead img[data-halftone]');
+		await expect(picture).toBeVisible();
+		expect(await picture.evaluate((img) => getComputedStyle(img).opacity)).toBe('1');
+		expect(await badFrames(page)).toEqual([]);
+		await context.close();
 	});
 });

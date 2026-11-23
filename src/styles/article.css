@@ -460,8 +460,11 @@
 .prose a.mn-card > :only-child {
 	grid-column: 1 / -1;
 }
+.prose .mn-frame {
+	@apply relative block;
+}
 .prose a.mn-card img {
-	@apply m-0 size-14 object-cover;
+	@apply m-0 block size-14 object-cover;
 }
 .prose a.mn-card strong {
 	@apply block font-medium text-paper;
@@ -469,8 +472,11 @@
 .prose a.mn-card:hover strong {
 	@apply text-pink;
 }
+.prose .mn-exhibit .mn-frame {
+	@apply my-1;
+}
 .prose .mn-exhibit img {
-	@apply my-1 block w-full;
+	@apply m-0 block w-full;
 }
 /* The phrase a note is about: pink while either is hovered, ringed in crayon once clicked
    (src/scripts/margin-notes.ts), like a pinned item on /uses */
@@ -559,7 +565,7 @@
 	.post-axis {
 		max-width: calc(var(--reading-width) + 18rem);
 	}
-	.post-axis .masthead :is(img, video, canvas) {
+	.post-axis .masthead-picture {
 		max-width: none;
 	}
 }

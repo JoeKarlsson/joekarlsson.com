@@ -268,7 +268,7 @@
    doesn't repaint on that change, and every wobble froze there. */
 
 /* Hovered text links warble, so they feel alive. Links around a picture or clip are
-   left alone: they're big, and the halftone canvas is already moving. Off under
+   left alone: they're big. Off under
    reduced motion and while motion is paused, where a frozen wobble would just look blurry. */
 @media (prefers-reduced-motion: no-preference) {
 	/* A card's stretched title link stays still: a filter would shrink its row-wide ::after to the title */

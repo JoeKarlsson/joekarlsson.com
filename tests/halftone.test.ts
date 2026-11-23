@@ -18,7 +18,7 @@ describe('halftoneMode', () => {
 		expect(halftoneMode('/images/blog/soc2/masthead-0a1b2c3d.webp')).toBeUndefined();
 		expect(halftoneMode('/images/blog/soc2/thumbnail.webp')).toBe('flat');
 		expect(halftoneMode('/images/blog/soc2/nested/thumb-0a1b2c3d.webp')).toBe('flat');
-		// Boiling diagram cards for projects are animated; a live canvas copy would freeze them
+		// Boiling diagram cards for projects are animated; they keep their own look
 		expect(halftoneMode('/images/projects/data-structures/thumb-0a1b2c3d.webp')).toBeUndefined();
 		expect(halftoneMode('/images/projects/data-structures.webp')).toBe('flat');
 	});
