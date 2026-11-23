@@ -244,7 +244,10 @@ jobs:
           path: dist/
       - run: |
           mkdir -p .lighthouseci
-          node -e "const c=require('./.lighthouserc.json');c.ci.collect.url=c.ci.collect.url.filter((_,j)=>j%3===${{ matrix.shard }});require('fs').writeFileSync('/tmp/lhci.json',JSON.stringify(c))"
+          # Runners come in two speeds; scale the CPU slowdown so each simulates the same phone
+          CPU=$(node scripts/lighthouse-cpu-multiplier.mjs)
+          echo "Lighthouse CPU slowdown on this runner: ${CPU}x" >> "$GITHUB_STEP_SUMMARY"
+          CPU=$CPU node -e "const c=require('./.lighthouserc.json');c.ci.collect.url=c.ci.collect.url.filter((_,j)=>j%3===${{ matrix.shard }});c.ci.collect.settings={...c.ci.collect.settings,throttling:{cpuSlowdownMultiplier:Number(process.env.CPU)}};require('fs').writeFileSync('/tmp/lhci.json',JSON.stringify(c))"
           npx lhci autorun --config=/tmp/lhci.json
       - name: Scores on the run summary
         if: always()
