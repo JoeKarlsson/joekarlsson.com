@@ -13,13 +13,11 @@ heroAlt: "Works on My Machine card for AI Agents Made Coding Feel More Like Pain
 
 I paint and I write code. Since AI coding agents came along, programming has started to feel more like painting to me, not less. It's easier to explore ideas quickly and iteratively. That might be a hot take, because most of what I read this year went the other way.
 
-![A hand holding a sheet of pink paper covered in red oil pastel flowers with green stems, clipped to a clipboard](/images/blog/hackers-and-painters-ai-agents/an-oil-pastel-of-red-flowers.webp)
+![Red oil pastel flowers with green stems on pink paper, close up](/images/newsletter/ai-agents-made-coding-feel-more-like-painting/oil-pastel-flowers-4x3.webp)
 
 _An oil pastel of red flowers, September 2026._
 
 Nolan Lawson wrote [We mourn our craft](https://nolanlawson.com/2026/02/07/we-mourn-our-craft/), and six weeks later, in [The diminished art of coding](https://nolanlawson.com/2026/03/22/the-diminished-art-of-coding/), he gave this advice: "if you're looking for art in coding: stop looking. If you've never taken an interest in poetry, or painting, or dance, or whatever, now would be a good time."
-
-Lawson even guessed at what I'm describing, and doubted it: "maybe I'll be surprised and there will be an artist-in-residence somewhere wielding agent orchestrators like a paintbrush! But I kind of doubt it."
 
 So I reread Paul Graham's 2003 essay [Hackers and Painters](https://www.paulgraham.com/hp.html) against the way I work now.
 
@@ -35,7 +33,7 @@ I do plan when I start a new project, but usually at a high level. Scaffolding i
 
 ## Starting over: Bechdel.io
 
-Graham noticed that painters leave a trail of work behind them, and each painting builds on the ones before it. "Maybe it would be good for hackers to act more like painters, and regularly start over from scratch, instead of continuing to work for years on one project, and trying to incorporate all their later ideas as revisions."
+Graham noticed that painters leave a trail of work behind them, and each painting builds on the ones before it. He suggested hackers act more like painters and "regularly start over from scratch."
 
 In 2015 my sister and I built [Bechdel.io](/work/bechdel-io/), which reads a movie's screenplay and checks it against the Bechdel Test. My commit messages from that December include "editted procfile3", "editted procfile4" and "editted procfile5", which tells you how deploying to Heroku was going. Eventually it died there, like a lot of my old apps (RIP).
 
@@ -53,15 +51,9 @@ That's the part I miss. With agents, code has become more of a black box to engi
 
 I try to read as much of it as I can, but reading every line isn't feasible anymore, especially when you're working on a team or collaborating on code. I read for the big things, I rely on my agents to spot problems too, and I keep backups. What I want is to understand the flow: where things are, and how to solve a problem if something goes wrong.
 
-Clean code still pays off in a practical way. It isn't always shorter, but my coding style has changed to favor token efficiency, which usually means splitting things up, cutting duplication as much as possible and consolidating abstractions. Fewer tokens means a smaller bill, and price was the main reason I [switched my default coding agent](/blog/breaking-up-with-claude-code/).
-
 ## Photography and painting
 
 Graham has a footnote about photography: "The greatest damage that photography has done to painting may be the fact that it killed the best day job." Most of the great painters in history paid their bills with portraits.
-
-![Robert Cornelius's 1839 self-portrait: a young man with messy hair and crossed arms, looking off to the side, on a scratched and spotted silver plate](/images/blog/hackers-and-painters-ai-agents/robert-cornelius-1839.webp)
-
-_Robert Cornelius's 1839 self-portrait, one of the earliest photographs of a person._
 
 Photography didn't kill painting, though. I have painter friends, and it's still a viable career, or at least a hobby. I don't think AI is going to kill programming, or the art of making beautiful code, either.
 
