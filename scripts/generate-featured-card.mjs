@@ -105,7 +105,7 @@ const html = `<!doctype html><meta charset="utf-8">
 <style>
 * { margin: 0; box-sizing: border-box; }
 body { width: 1200px; height: 630px; overflow: hidden; background: #000; position: relative; }
-.wall { position: absolute; top: -14px; left: -40px; right: -40px; font: 400 44px/.98 Anton, sans-serif; text-transform: uppercase; color: #232323; }
+.wall { position: absolute; top: -14px; left: -40px; right: -40px; font: 400 40px/.98 Anton, sans-serif; text-transform: uppercase; color: #232323; }
 .wall div { display: flex; gap: .3em; white-space: nowrap; }
 .wall span { flex: none; }
 .p { color: ${PINK}; }
