@@ -126,7 +126,10 @@
 .link-peek {
 	inset: auto;
 	position-area: top center;
-	position-try-fallbacks: flip-block;
+	position-try-fallbacks:
+		flip-block,
+		flip-inline,
+		flip-block flip-inline;
 	margin: 0 0 12px;
 	width: 16rem;
 	overflow: visible;
