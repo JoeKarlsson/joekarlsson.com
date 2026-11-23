@@ -134,17 +134,23 @@ Reddit's "9:1" or "90/10" self-promotion ratio isn't in any current official Red
 ### r/dataisbeautiful
 - lanes: dataviz
 - size: 22M members (Wikipedia, Aug 2025)
-- rule (secondhand): `[OC]` in the title for your own work, with the data source and tool named in a comment; a bot removes direct image links without `[OC]`. A 2017 mod comment: self-promo is fine if about 90% of your activity is organic.
-- format: the chart as an image post with `[OC]`, the post link in the source comment
+- rule: a post must be or contain a qualifying data visualization with at least one computer-generated element (Rules 1, 5). "Directly link to the original source article", the full page, not just the image; tag your own work [OC] (Rule 2). [OC] posts state the data source(s) and tool(s) "in the first top-level comment" (Rule 3). Plain titles, no sensational headlines (Rule 7). U.S. politics only on Thursdays ET; personal data only on Mondays ET (Rules 8, 9). No reposts of popular posts within a month (Rule 6).
+- format: [OC] link post to the article; Joe's first top-level comment names the data and tools
 - status: active
-- source: https://en.wikipedia.org/wiki/R/dataisbeautiful , https://www.randalolson.com/2016/03/18/why-posts-get-removed-from-rdataisbeautiful/
-- verified: never
+- verified: 2026-11-23 (verified-by: Joe, pasted rules page)
 
 ### r/visualization
 - lanes: dataviz
 - rule (secondhand): wiki welcomes "guides, tutorials… works-in-progress and requests for critiques"
 - status: active
 - verified: never
+
+### r/blackoutpoetry
+- lanes: art, poetry
+- rule: no sub-specific rules listed; Reddit's sitewide rules apply
+- format: image post of Joe's own work, with a short comment
+- status: active
+- verified: 2026-11-23 (verified-by: Joe, pasted rules page)
 
 ### r/generative
 - lanes: genart
@@ -154,9 +160,10 @@ Reddit's "9:1" or "90/10" self-promotion ratio isn't in any current official Red
 
 ### r/linguistics
 - lanes: linguistics, research
-- rule (secondhand): link "directly to academic linguistics articles or other high quality linguistics content"; no blogspam. Rules loosened in Oct 2023.
-- status: active
-- verified: never
+- rule: posts must link "academic linguistics articles or other high quality linguistics content" (lectures, databases, pop-science by or involving specialists, "projects by long-time members of this subreddit") (Rule 1). Questions go in the stickied weekly Q&A thread (Rule 2). No "lay speculation"; claims must be "grounded in a familiarity with relevant research" (Rule 4). No soapboxing (Rule 6).
+- format: for Joe today, a question in the weekly Q&A thread; a post only once a piece is an academic article (preprint or journal)
+- status: active (Q&A thread only, until Joe has a paper out)
+- verified: 2026-11-23 (verified-by: Joe, pasted rules page)
 
 ### r/movies
 - lanes: film
