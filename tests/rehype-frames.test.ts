@@ -37,19 +37,26 @@ describe('rehype-frames', () => {
 		);
 	});
 
-	it("puts a spoiler pair's button around the pictures, not the caption", async () => {
+	it("puts a spoiler pair's Show spoiler button over the pictures, not the caption", async () => {
 		const html = await render('![A](/a.webp "spoiler") ![B](/b.webp "spoiler")\n\n_Cap_');
 		expect(html).toMatch(/^<figure class="frame-pair"><div class="frame-pair-grid spoiler-frame"/);
-		expect(html).toContain('role="button"');
 		expect(html).toMatch(
-			/<span class="sr-only">Spoiler picture: <\/span><div class="frame-pair-cell">.*<\/div><\/div><figcaption class="frame-caption">Cap<\/figcaption><\/figure>$/,
+			/<span class="sr-only">Spoiler picture: <\/span><div class="frame-pair-cell">.*<\/div><button type="button" class="spoiler-show"><span>Show spoiler<\/span><\/button><\/div><figcaption class="frame-caption">Cap<\/figcaption><\/figure>$/,
 		);
 		expect(html).not.toContain('frame-label');
 	});
 
+	it('keeps the caption on the next line of a spoiler pair (After Hours, 2026-11-22)', async () => {
+		const html = await render('![A](/a.webp "spoiler") ![B](/b.webp "spoiler")\n_Cap_');
+		expect(html).toMatch(/^<figure class="frame-pair"><div class="frame-pair-grid spoiler-frame"/);
+		expect(html).toMatch(
+			/<\/button><\/div><figcaption class="frame-caption">Cap<\/figcaption><\/figure>$/,
+		);
+	});
+
 	it('wraps a single spoiler picture so its caption stays outside the button', async () => {
-		expect(await render('![A](/a.webp "spoiler")\n\n_Cap_')).toMatch(
-			/^<figure class="frame"><div class="spoiler-frame"[^>]*role="button"[^>]*><span class="sr-only">Spoiler picture: <\/span><img src="\/a.webp" alt="A"><\/div><figcaption class="frame-caption">Cap<\/figcaption><\/figure>$/,
+		expect(await render('![A](/a.webp "spoiler")\n\n_Cap_')).toBe(
+			'<figure class="frame"><div class="spoiler-frame"><span class="sr-only">Spoiler picture: </span><img src="/a.webp" alt="A"><button type="button" class="spoiler-show"><span>Show spoiler</span></button></div><figcaption class="frame-caption">Cap</figcaption></figure>',
 		);
 	});
 

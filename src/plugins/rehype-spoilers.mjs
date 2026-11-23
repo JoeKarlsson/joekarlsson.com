@@ -6,9 +6,12 @@
  * A mark only counts inside one run of plain text, and never in code, where `a || b` is an or.
  *
  * A picture that gives something away is marked by its title, `![alt](/frame.webp "spoiler")`.
- * Its paragraph becomes a .spoiler-frame: the picture stays blurred under a "Show spoiler" label
+ * Its paragraph becomes a .spoiler-frame: the picture stays blurred under a "Show spoiler" button
  * (hover doesn't show it, a picture is too big to brush past) until a click, tap or Enter shows
  * every spoiler in the review.
+ *
+ * The text spoiler stays a span with role="button": a <button> never wraps onto a second line
+ * in any browser, so a long spoiler would break its sentence into a block.
  */
 export const SPOILER_MARK = /\|\|(?=\S)(.+?)(?<=\S)\|\|/g;
 
@@ -54,15 +57,25 @@ function markSpoilerFrame(paragraph) {
 	paragraph.properties = {
 		...paragraph.properties,
 		className: [...(paragraph.properties?.className ?? []), 'spoiler-frame'],
-		tabIndex: 0,
-		role: 'button',
-		ariaPressed: 'false',
 	};
 	paragraph.children.unshift({
 		type: 'element',
 		tagName: 'span',
 		properties: { className: ['sr-only'] },
 		children: [{ type: 'text', value: 'Spoiler picture: ' }],
+	});
+	paragraph.children.push({
+		type: 'element',
+		tagName: 'button',
+		properties: { type: 'button', className: ['spoiler-show'] },
+		children: [
+			{
+				type: 'element',
+				tagName: 'span',
+				properties: {},
+				children: [{ type: 'text', value: 'Show spoiler' }],
+			},
+		],
 	});
 }
 

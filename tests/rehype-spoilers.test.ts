@@ -47,14 +47,14 @@ describe('rehype-spoilers', () => {
 		};
 		const p = el('p', img);
 		run(el('root', p));
-		expect(p.properties).toMatchObject({
-			className: ['spoiler-frame'],
-			tabIndex: 0,
-			role: 'button',
-			ariaPressed: 'false',
+		expect(p.properties).toEqual({ className: ['spoiler-frame'] });
+		const button = p.children!.at(-1)!;
+		expect(button).toMatchObject({
+			tagName: 'button',
+			properties: { type: 'button', className: ['spoiler-show'] },
 		});
 		expect(img.properties).not.toHaveProperty('title');
-		expect(textOf(p)).toBe('Spoiler picture: ');
+		expect(textOf(p)).toBe('Spoiler picture: Show spoiler');
 	});
 
 	it('clears the title from both pictures of a spoiler pair', () => {

@@ -105,16 +105,18 @@
 	filter: blur(28px);
 	clip-path: inset(0);
 }
-.spoiler-frame::after {
-	@apply pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-ink px-4 py-2 text-sm font-semibold text-paper;
-	content: 'Show spoiler' / '';
+/* The button covers the whole picture, so a click anywhere on it shows; its label sits in the
+   middle. The picture's zoom-in cursor and Enlarge button wait until it's shown */
+.spoiler-show {
+	@apply absolute inset-0 grid cursor-pointer place-items-center;
 }
-/* the picture's zoom-in cursor waits until it's shown: the first click shows, it doesn't enlarge */
-.spoiler-frame[role] img {
+.spoiler-show > span {
+	@apply bg-ink px-4 py-2 text-sm font-semibold text-paper;
+}
+.spoiler-frame:has(.spoiler-show) img {
 	cursor: inherit;
 }
-.spoiler-frame[role] .lightbox-opener,
-.spoilers-shown .spoiler-frame::after {
+.spoiler-frame:has(.spoiler-show) .lightbox-opener {
 	display: none;
 }
 .spoilers-shown .spoiler-frame {

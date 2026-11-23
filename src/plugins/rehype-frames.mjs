@@ -5,8 +5,8 @@
  *   `![alt](/a.webp "The Devils · 1971")`.
  * - One or two pictures with an all-italic line after them, in the next paragraph or on the
  *   next line of the same one, take that line as their figcaption.
- * Runs after rehype-spoilers: a spoiler paragraph's button (role, class, spoken label) moves onto
- * a wrapper around just the pictures, so the caption never becomes the button's name.
+ * Runs after rehype-spoilers: a spoiler paragraph's class, spoken label and Show spoiler button
+ * move onto a wrapper around just the pictures, so the button covers the pictures, not the caption.
  */
 export const PAIR_SIZES = '(min-width: 80rem) 464px, (min-width: 48rem) 50vw, 100vw';
 
@@ -17,12 +17,16 @@ const isSrOnly = (node) =>
 	node.type === 'element' &&
 	node.tagName === 'span' &&
 	node.properties?.className?.includes('sr-only');
+const isSpoilerShow = (node) =>
+	node.type === 'element' &&
+	node.tagName === 'button' &&
+	node.properties?.className?.includes('spoiler-show');
 const content = (node) => node.children.filter((child) => !isBlank(child));
 
 // A paragraph's pictures, and an italic line written right under them in the same paragraph
 const pictures = (node) => {
 	if (node?.type !== 'element' || node.tagName !== 'p') return { images: [] };
-	const children = content(node);
+	const children = content(node).filter((child) => !isSpoilerShow(child));
 	const inlineCaption = children.length > 1 && isEm(children.at(-1)) ? children.at(-1) : undefined;
 	const rest = inlineCaption ? children.slice(0, -1) : children;
 	const images = rest.filter(isImage);
@@ -87,14 +91,15 @@ export default function rehypeFrames() {
 			const isPair = images.length === 2;
 			let pictured = isPair ? pairGrid(images) : images[0];
 			if (paragraph.properties?.className?.includes('spoiler-frame')) {
-				const button = isPair ? pictured : element('div', 'spoiler-frame', [pictured]);
-				button.properties = {
+				const wrapper = isPair ? pictured : element('div', 'spoiler-frame', [pictured]);
+				wrapper.properties = {
 					...paragraph.properties,
-					...button.properties,
-					className: [...new Set([...button.properties.className, 'spoiler-frame'])],
+					...wrapper.properties,
+					className: [...new Set([...wrapper.properties.className, 'spoiler-frame'])],
 				};
-				button.children.unshift(...content(paragraph).filter(isSrOnly));
-				pictured = button;
+				wrapper.children.unshift(...content(paragraph).filter(isSrOnly));
+				wrapper.children.push(...content(paragraph).filter(isSpoilerShow));
+				pictured = wrapper;
 			}
 			const figure = element('figure', isPair ? 'frame-pair' : 'frame', [
 				pictured,

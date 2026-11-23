@@ -185,21 +185,43 @@ const mentions =
 
 <script>
 	// A click, tap, Enter or Space on any spoiler shows every spoiler in the review
-	// or spoiler picture (rehype-spoilers.mjs). Space fires on release and Enter on press, like a
-	// native button.
+	// (rehype-spoilers.mjs). The text spoiler is a span acting as a button: Space fires on release
+	// and Enter on press, like a native one. A picture's Show spoiler is a real button, so its
+	// keys arrive as a click.
 	const revealAll = (event: Event) => {
 		const spoiler = (event.target as Element).closest?.('.spoiler, .spoiler-frame');
-		if (!spoiler) return;
+		const article = spoiler?.closest('article');
+		if (!spoiler || !article || article.classList.contains('spoilers-shown')) return;
 		if (event instanceof KeyboardEvent) {
+			if (!spoiler.matches('.spoiler')) return;
 			if (event.key === ' ') event.preventDefault(); // no page scroll
 			if (event.type === 'keydown' ? event.key !== 'Enter' : event.key !== ' ') return;
 		}
-		const article = spoiler.closest('article');
-		article?.classList.add('spoilers-shown');
+		article.classList.add('spoilers-shown');
+		const focused = document.activeElement;
 		// Shown spoilers are plain text again: no dead buttons or tab stops left in the sentence
-		article?.querySelectorAll('.spoiler, .spoiler-frame').forEach((s) => {
-			for (const attribute of ['role', 'tabindex', 'aria-pressed']) s.removeAttribute(attribute);
+		article.querySelectorAll<HTMLElement>('.spoiler').forEach((s) => {
+			s.removeAttribute('role');
+			s.removeAttribute('aria-pressed');
+			if (s === focused) keepFocusUntilLeft(s);
+			else s.removeAttribute('tabindex');
 		});
+		article.querySelectorAll<HTMLElement>('.spoiler-show').forEach((button) => {
+			const frame = button.parentElement!;
+			button.remove();
+			if (button !== focused) return;
+			// Focus goes to the picture's Enlarge button, or stays on the picture
+			const opener = frame.querySelector<HTMLElement>('.lightbox-opener');
+			if (opener) opener.focus();
+			else keepFocusUntilLeft(frame).focus();
+		});
+	};
+	// A shown spoiler that has focus keeps it, so a keyboard or screen reader stays in place,
+	// but leaves the tab order once focus moves on
+	const keepFocusUntilLeft = (element: HTMLElement) => {
+		element.tabIndex = -1;
+		element.addEventListener('blur', () => element.removeAttribute('tabindex'), { once: true });
+		return element;
 	};
 	// A frame pair runs across the right margin on wide screens, unless it would slide under the
 	// credits floated there (article.css .beside-credits keeps it to the text). Floats don't push
