@@ -714,3 +714,6 @@ Kiki
 Lexi
 datafederation
 Zenodo
+Liberman
+punctuational
+SHEL
