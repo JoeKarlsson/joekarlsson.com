@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { indexedReviewSlugs } from '../utils/review-words.mjs';
-import { parseReviewUrl } from '../../scripts/update-reviews.mjs';
+import { parseReviewUrl } from '../utils/letterboxd-url.mjs';
 
 // The sitemap's <lastmod> for every dated page: its updatedDate, else its date. Google
 // uses lastmod only when it's accurate, and Bing asks for the content's real change

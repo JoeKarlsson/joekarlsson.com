@@ -13,7 +13,8 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import { MARKS } from '../../data/scribbles';
 import { SECTION_HEADING } from '../../utils/ui';
 import { isOwnPost } from '../../utils/posts';
-import { parseReviewUrl, stars } from '../../../scripts/update-reviews.mjs';
+import { stars } from '../../../scripts/update-reviews.mjs';
+import { parseReviewUrl } from '../../utils/letterboxd-url.mjs';
 import { indexedReviewSlugs } from '../../utils/review-words.mjs';
 import { SPOILER_FRAME_TITLE, SPOILER_MARK } from '../../plugins/rehype-spoilers.mjs';
 

@@ -13,6 +13,7 @@ import { format, resolveConfig } from 'prettier';
 import sharp from 'sharp';
 // 159 + the "…" truncateAtWord adds = the 160 characters search results show
 import { truncateAtWord } from './now-feed-parsing.mjs';
+import { parseReviewUrl } from '../src/utils/letterboxd-url.mjs';
 
 const USER = 'joekarlsson';
 const CONTENT = 'src/content/reviews';
@@ -32,13 +33,6 @@ async function get(url) {
 	const res = await fetch(url, { headers: HEADERS });
 	if (!res.ok) throw new Error(`${res.status} for ${url}`);
 	return res;
-}
-
-/** Review URL -> the film's Letterboxd slug and the review's index (a second review of a film is /1/) */
-export function parseReviewUrl(url) {
-	const m = new URL(url).pathname.match(/\/film\/([^/]+)\/(?:(\d+)\/)?$/);
-	if (!m) throw new Error(`Not a Letterboxd review URL: ${url}`);
-	return { film: m[1], index: m[2] };
 }
 
 /** Site slug, mirroring Letterboxd's: /film/zodiac/ -> zodiac, /film/zodiac/1/ -> zodiac-1 */

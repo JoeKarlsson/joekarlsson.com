@@ -7,11 +7,11 @@ import {
 	filmStats,
 	fromRss,
 	parseCsv,
-	parseReviewUrl,
 	reviewToMarkdown,
 	slugFromReviewUrl,
 	stars,
 } from '../scripts/update-reviews.mjs';
+import { parseReviewUrl } from '../src/utils/letterboxd-url.mjs';
 
 describe('parseReviewUrl', () => {
 	it("keeps a number that is part of the film's slug, so the right film page is fetched", () => {
