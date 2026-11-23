@@ -72,7 +72,7 @@ test('a project picture grows into its page header, and shrinks back on Back', a
 	await devtools.send('Emulation.setCPUThrottlingRate', { rate: 20 });
 	await page.goBack();
 	await page.waitForURL('**/work/');
-	await expect.poll(() => typesOnArrival(page)).toEqual(['back']);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['back', 'lift']);
 	await expect.poll(() => thumbnailNamedOnArrival(page)).toBe(true);
 });
 
@@ -100,7 +100,7 @@ test("a related project's picture grows into its page from another project page,
 
 	await page.goBack();
 	await page.waitForURL('**/work/pixelpane/');
-	await expect.poll(() => typesOnArrival(page)).toEqual(['back']);
+	await expect.poll(() => typesOnArrival(page)).toEqual(['back', 'lift']);
 });
 
 test('Keep exploring turns the next post in like a page, and Back turns it back', async ({
