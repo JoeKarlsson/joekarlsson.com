@@ -34,7 +34,7 @@ marginNotes:
 
 _Co-authored with Mariano Gappa at CloudQuery._
 
-At [CloudQuery](https://www.cloudquery.io/), we've been on a journey with [ClickHouse](https://clickhouse.com/) for a couple of months. [We recently wrote about our experience with our first 6 months of ClickHouse](/blog/six-months-with-clickhouse-at-cloudquery) as our database of choice for CloudQuery. While it's changed how we process data at scale, we're still learning how to use it effectively and discovering ways to work around some of its rough edges.
+At [CloudQuery](https://www.cloudquery.io/), we've been on a journey with [ClickHouse](https://clickhouse.com/) for a couple of months. [We recently wrote about our experience with our first 6 months of ClickHouse](/blog/six-months-with-clickhouse-at-cloudquery/) as our database of choice for CloudQuery. While it's changed how we process data at scale, we're still learning how to use it effectively and discovering ways to work around some of its rough edges.
 
 One of those rough edges involves handling extremely large data volumes, particularly during bulk insert operations. As we've scaled our platform to handle and analyze more and more cloud configuration data, we've had to develop creative solutions to the memory challenges that come with processing billions of rows of data.
 

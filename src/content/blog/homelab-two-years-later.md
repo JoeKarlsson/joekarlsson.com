@@ -212,7 +212,7 @@ Here's how the network is structured:
 
 ## What the 73 containers run
 
-There are 73 LXC containers plus the Home Assistant VM, 45 on prxbox1 and 28 on prxbox2. This isn't exhaustive (see my [uses page](/uses)), but here's what runs:
+There are 73 LXC containers plus the Home Assistant VM, 45 on prxbox1 and 28 on prxbox2. This isn't exhaustive (see my [uses page](/uses/)), but here's what runs:
 
 **Media:** Plex - the busiest it got in the last 30 days was 5 streams and 3 transcodes at once. Immich, self-hosted Google Photos, holds 55,581 photos and 12,296 videos, and the only thing I miss from Google is photo editing. Plus the \*arr stack ([Sonarr](https://sonarr.tv/), [Radarr](https://radarr.video/), [Prowlarr](https://prowlarr.com/), [Lidarr](https://lidarr.audio/), and a few more), [LazyLibrarian](https://lazylibrarian.gitlab.io/) for books since Readarr was retired, Tdarr for automated video health checking and transcoding, a [GPU-accelerated subtitle generator](/blog/building-a-gpu-accelerated-subtitle-generator/) I built with Whisper AI, and [Audiobookshelf](https://audiobookshelf.org/).
 

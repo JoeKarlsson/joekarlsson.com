@@ -150,7 +150,7 @@ Once I had Claude Code, the constraint became data access instead of implementat
 
 "AI makes me faster" is one of the laziest sentences in tech right now, so here's what it looks like in practice. The gap between spotting a problem and shipping the fix **went from weeks to hours.** I find a batch of 404s with link equity and describe the redirect logic to Claude Code. It writes the code, tests it, and opens the PR. I review it and it ships that afternoon. Before, that finding would sit in a doc for a month.
 
-I can also combine the data sources that don't talk to each other. They rarely agree, and no single one shows the whole picture, so I built a [Claude Code skill](/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling) - I've been calling it `/seo-analysis` - that pulls all of them, correlates the signals, compares against last week's snapshot, and surfaces what moved. Building and iterating on that alone would have taken me months. With Claude Code it took a few days.
+I can also combine the data sources that don't talk to each other. They rarely agree, and no single one shows the whole picture, so I built a [Claude Code skill](/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/) - I've been calling it `/seo-analysis` - that pulls all of them, correlates the signals, compares against last week's snapshot, and surfaces what moved. Building and iterating on that alone would have taken me months. With Claude Code it took a few days.
 
 What I underestimated is how fast a passing thought turns into work now. "I wonder if these resource hub pages are invisible because nothing links to them" used to die in a Slack message. Now it becomes an Ahrefs crawl export, an analysis, and a PR before lunch.
 
@@ -162,7 +162,7 @@ What I underestimated is how fast a passing thought turns into work now. "I wond
 
 **Step 1: Pull a multi-source snapshot.**
 
-Every week I run `/seo-analysis`, the [Claude Code skill I built](/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling). If you're not familiar with Claude Code skills, think of them as reusable slash commands you build yourself. This one pulls from:
+Every week I run `/seo-analysis`, the [Claude Code skill I built](/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/). If you're not familiar with Claude Code skills, think of them as reusable slash commands you build yourself. This one pulls from:
 
 - [Google Search Console](https://search.google.com/search-console/welcome): impressions, clicks, position changes (free, authoritative on your own data)
 - [Plausible](https://plausible.io): actual visitor counts (I trust this more than GA for accuracy)
@@ -205,7 +205,7 @@ One finding has held up every week: **in-depth, definitional, long-form guide pa
 
 ## The numbers after four weeks
 
-The first week after I got `/seo-analysis` running and started shipping fixes, I opened Ahrefs on a Monday morning and the impressions chart had gone hockey stick. It was a steep enough climb that I refreshed the page to make sure. I screenshotted it and sent it to my manager right away. (I wrote about [what showing those numbers did for me](/blog/proving-my-work-mattered) separately.)
+The first week after I got `/seo-analysis` running and started shipping fixes, I opened Ahrefs on a Monday morning and the impressions chart had gone hockey stick. It was a steep enough climb that I refreshed the page to make sure. I screenshotted it and sent it to my manager right away. (I wrote about [what showing those numbers did for me](/blog/proving-my-work-mattered/) separately.)
 
 ![Ahrefs 5-year performance chart showing referring domains (blue), organic traffic (orange), and impressions (pink) from 2021 to April 2026. Red arrows annotate the "SEO Start" date and point to the hockey-stick spike in impressions and organic traffic in early 2026.](/images/blog/reversing-seo-traffic-decline-ai-overviews/chart-5yr-performance.webp)
 _Five years of data: the slow decline after AI Overviews launched, the date I started the weekly audit, and what happened next._
@@ -321,7 +321,7 @@ After the technical cleanup comes the high-impressions, low-CTR hit list from St
 
 On content strategy, the Learning Center articles behind those 8 of 9 top gainers are in-depth, definitional guides on topics our audience searches for, updated regularly, with original research where we can get it. I'm not saying stop blogging. Build the hub, link to it from everything, and keep it current.
 
-For GEO specifically, the highest-signal thing you can add is FAQ schema, especially on how-to and comparison pages. It hands AI systems a clean question-and-answer pair to lift. Don't count on a rich result from it, though: since August 2023, Google only shows FAQ rich results for well-known government and health sites. I also use [a blog skill that bakes these SEO and LLM-citation checks into the writing workflow](/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation).
+For GEO specifically, the highest-signal thing you can add is FAQ schema, especially on how-to and comparison pages. It hands AI systems a clean question-and-answer pair to lift. Don't count on a rich result from it, though: since August 2023, Google only shows FAQ rich results for well-known government and health sites. I also use [a blog skill that bakes these SEO and LLM-citation checks into the writing workflow](/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/).
 
 !["I'm Something of a Scientist Myself" meme: Willem Dafoe smiling. Top: adds FAQ schema to one page. Bottom: you know, I'm something of an SEO myself](/images/blog/reversing-seo-traffic-decline-ai-overviews/meme-something-of-an-seo.webp)
 
@@ -359,7 +359,7 @@ The top of the funnel has moved. More and more people start their research by as
 
 What makes content good hasn't changed: be accurate, answer the question people are asking, and back up your claims with real data and first-person experience. What's different is that you're writing for people _and_ for the AI systems that summarize content for them, and those systems have no use for vague claims or sales language.
 
-I think technical DevRels are well-positioned for this, and not because we're better at marketing. The content we naturally produce - tutorials, technical opinions, first-person accounts of building things, docs written from real usage - is exactly what AI systems cite. We write for developer trust rather than conversion rates, and writing for developer trust turns out to be what gets you into AI answers. I wrote more about [how I run DevRel in 2026](/blog/running-devrel) separately.
+I think technical DevRels are well-positioned for this, and not because we're better at marketing. The content we naturally produce - tutorials, technical opinions, first-person accounts of building things, docs written from real usage - is exactly what AI systems cite. We write for developer trust rather than conversion rates, and writing for developer trust turns out to be what gets you into AI answers. I wrote more about [how I run DevRel in 2026](/blog/running-devrel/) separately.
 
 ---
 

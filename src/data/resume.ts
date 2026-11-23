@@ -362,7 +362,7 @@ export const writingSamples: WritingSampleGroup[] = curlEveryString([
 		items: [
 			{
 				title: 'Running DevRel in 2027 Means Owning Three Discovery Surfaces',
-				url: 'https://joekarlsson.com/blog/running-devrel/',
+				url: 'https://www.joekarlsson.com/blog/running-devrel/',
 				publisher: 'joekarlsson.com',
 			},
 			{

@@ -43,7 +43,7 @@ These are my homelab gift ideas for 2026, for software engineers, homelabbers an
 
 Skip anything that has to match gear they already picked, like servers and switches. A few picks below do depend on their setup, like rack accessories and smart home gear, and for those I've written the one yes/no question to text them before you buy.
 
-Everything in the price sections is in my house right now. I run two Dell R730 servers in my attic with about 70 self-hosted services, and a Home Assistant setup with fully local voice control. The full inventory lives on my [uses page](/uses). The stuff I don't own yet is in its own [wishlist section](#on-my-wishlist-i-dont-own-these-yet). Prices are rough bands, checked in November 2026.
+Everything in the price sections is in my house right now. I run two Dell R730 servers in my attic with about 70 self-hosted services, and a Home Assistant setup with fully local voice control. The full inventory lives on my [uses page](/uses/). The stuff I don't own yet is in its own [wishlist section](#on-my-wishlist-i-dont-own-these-yet). Prices are rough bands, checked in November 2026.
 
 ## Homelab gift ideas at a glance
 
@@ -229,7 +229,7 @@ Homelabbers run a lot of free software built by small teams. Paying for it in th
 - **[GitHub Sponsors](https://github.com/open-source/sponsors)** for a project they run. Pick the project they talk about most.
 - **A gift card to Micro Center or Amazon**, with a note naming the thing they keep talking about.
 
-Everything else I use, gift-worthy or not, is on my [uses page](/uses).
+Everything else I use, gift-worthy or not, is on my [uses page](/uses/).
 
 ## FAQ
 
