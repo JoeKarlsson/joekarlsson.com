@@ -47,6 +47,10 @@
 	@blog-pages path_regexp ^/blog/page/.*
 	redir @blog-pages /blog/ 301
 
+	# A film review Letterboxd logged twice; the second copy (/1/) folded into the first
+	@review-theater-camp-dup path /reviews/theater-camp-2023-1 /reviews/theater-camp-2023-1/
+	redir @review-theater-camp-dup /reviews/theater-camp-2023/ 301
+
 	# 301 redirects: WordPress portfolio items that have a project page now. Before the catch-all
 	# below, since redirects with named matchers run in the order written
 	@portfolio-bechdel-io path /portfolio/bechdel-test-visualizer /portfolio/bechdel-test-visualizer/
