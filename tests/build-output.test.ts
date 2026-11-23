@@ -948,11 +948,13 @@ describe('every page', () => {
 	const isNoindex = (html: string) => /<meta name="robots" content="noindex/.test(html);
 	const indexable = pages.filter(({ html }) => !isNoindex(html));
 	// A recap whose canonical points at another page shares that page's title and stays out of the sitemap
+	// A canonical on another page here, or on another site (a crosspost's original)
 	const canonicalElsewhere = (file: string, html: string) => {
-		const path = html.match(
-			/<link rel="canonical" href="https:\/\/www\.joekarlsson\.com\/([^"]*)"/,
-		)?.[1];
-		return path !== undefined && `${path}index.html` !== file;
+		const href = html.match(/<link rel="canonical" href="([^"]*)"/)?.[1];
+		return (
+			href !== undefined &&
+			href !== `https://www.joekarlsson.com/${file.replace(/index\.html$/, '')}`
+		);
 	};
 
 	it('locks out Dark Reader and names the author', () => {
@@ -1025,7 +1027,9 @@ describe('every page', () => {
 			.filter(({ file }) => !listed.has(file))
 			.map(({ file }) => file);
 		const unindexed = pages
-			.filter(({ file, html }) => listed.has(file) && isNoindex(html))
+			.filter(
+				({ file, html }) => listed.has(file) && (isNoindex(html) || canonicalElsewhere(file, html)),
+			)
 			.map(({ file }) => file);
 		expect({ missing, unindexed }).toEqual({ missing: [], unindexed: [] });
 	});

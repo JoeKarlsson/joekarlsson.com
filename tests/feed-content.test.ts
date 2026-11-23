@@ -78,22 +78,6 @@ describe('RSS Feed Content', () => {
 
 describe('Sitemap Content', () => {
 	const sitemap = readDist('sitemap-0.xml');
-	const blogSlugs = getBlogPostSlugs();
-
-	it('sitemap includes most blog posts', () => {
-		// Count how many blog slugs appear in sitemap
-		let foundCount = 0;
-		for (const slug of blogSlugs) {
-			if (sitemap.includes(`/blog/${slug}/`)) {
-				foundCount++;
-			}
-		}
-
-		// At least 80% of posts should be in sitemap
-		const percentage = foundCount / blogSlugs.length;
-		expect(percentage).toBeGreaterThan(0.8);
-	});
-
 	it('sitemap URLs are properly encoded', () => {
 		const urls = sitemap.match(/<loc>(.*?)<\/loc>/g) || [];
 		for (const urlTag of urls) {
