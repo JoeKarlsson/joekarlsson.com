@@ -1,4 +1,4 @@
-import { readFileSync, existsSync, readdirSync } from 'fs';
+import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
 import { filteredAreaRatio, MAX_FILTERED_AREA_PER_FIGURE } from './svg-filter-area';
 import { resolve } from 'path';
 import sharp from 'sharp';
@@ -1073,6 +1073,9 @@ describe('performance guards', () => {
 		'autoplaying clips': 25, // /work: 17
 		'filtered SVG elements': 250, // the AI gateway post: 169 (desktop and phone diagrams)
 		'boiling SVG elements': 250, // the linked lists post: 161
+		// Clips that play on a phone (data-phone-still ones show their poster there), all
+		// downloaded once the reader scrolls through. The IoT talk was 14 MB before its re-encode.
+		'MB of clips playing on a phone': 10, // the React performance talk: 6.6
 	};
 	it('no page goes over the phone budget', () => {
 		const over: string[] = [];
@@ -1087,6 +1090,21 @@ describe('performance guards', () => {
 				'boiling SVG elements':
 					html.match(/class="[^"]*\b(?:d-flow|d-callout|d-paper|redraw|redraw-strokes)\b/g)
 						?.length ?? 0,
+				'MB of clips playing on a phone':
+					[
+						...new Set(
+							(html.match(/<video\b[^>]*>/g) ?? [])
+								.filter(
+									(tag) =>
+										/\sautoplay|data-autoplay-in-view/.test(tag) &&
+										!tag.includes('data-phone-still'),
+								)
+								.map((tag) => tag.match(/\ssrc="\/([^"]+)"/)?.[1]),
+						),
+					]
+						.filter((src) => src !== undefined)
+						.reduce((bytes, src) => bytes + statSync(resolve(dist, src)).size, 0) /
+					2 ** 20,
 			};
 			for (const [what, count] of Object.entries(cost)) {
 				const limit = PHONE_BUDGET[what as keyof typeof PHONE_BUDGET];
