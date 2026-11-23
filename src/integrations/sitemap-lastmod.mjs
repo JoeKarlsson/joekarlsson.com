@@ -34,24 +34,29 @@ export function lastmodByPath(contentDir) {
 }
 
 /**
- * Pages whose canonical points at another site (crossposts with a canonicalUrl). They
- * stay up for readers, but a sitemap lists only canonical URLs, so they're left out.
- * @param {URL} contentDir @returns {Set<string>} /<collection>/<slug>/
+ * Crossposts: pages whose canonical points at the original on another site. They stay up
+ * for readers, but a sitemap lists only canonical URLs, so they're left out of it, and
+ * scripts/crosspost-originals-report.mjs checks monthly that each original still exists.
+ * @param {URL} contentDir @returns {{ path: string, original: string }[]} path is /<collection>/<slug>/
  */
-export function offSiteCanonicalPaths(contentDir) {
-	const paths = new Set();
+export function crossposts(contentDir) {
+	const found = [];
 	for (const collection of COLLECTIONS) {
 		const dir = new URL(`${collection}/`, contentDir);
 		for (const file of readdirSync(dir).filter((f) => /\.mdx?$/.test(f))) {
 			const md = readFileSync(new URL(file, dir), 'utf8');
 			const slug = frontMatterValue(md, 'slug');
-			const canonical = frontMatterValue(md, 'canonicalUrl');
-			if (slug && canonical && new URL(canonical).hostname !== 'www.joekarlsson.com')
-				paths.add(`/${collection}/${slug}/`);
+			const original = frontMatterValue(md, 'canonicalUrl');
+			if (slug && original && new URL(original).hostname !== 'www.joekarlsson.com')
+				found.push({ path: `/${collection}/${slug}/`, original });
 		}
 	}
-	return paths;
+	return found;
 }
+
+/** @param {URL} contentDir @returns {Set<string>} */
+export const offSiteCanonicalPaths = (contentDir) =>
+	new Set(crossposts(contentDir).map((c) => c.path));
 
 /** Reviews search shouldn't index (src/utils/review-words.mjs) @param {URL} contentDir @returns {Set<string>} */
 export function unindexedReviewPaths(contentDir) {
