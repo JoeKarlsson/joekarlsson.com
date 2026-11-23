@@ -70,16 +70,17 @@ Reddit's "9:1" or "90/10" self-promotion ratio isn't in any current official Red
 
 ### r/selfhosted
 - lanes: selfhosted, homelab
-- rule (secondhand): blog posts as text posts with the link in the body, not link posts. Projects under 3 months old go in the weekly New Project Megathread (replaced each Friday, since April 2026) with an "AI Involvement" line; the mods' stated aim is to "wrangle the shotgun of AI-created tools". selfh.st's editor relays that "the weekly mega-thread is where new projects go to die".
+- rule: all posts about self-hosting. Blog posts allowed, "but do not post just a link": say what it's about, why it matters and how it helps (Rule 4). Don't promote your own projects "too much", per Reddit's self-promotion guideline; promoted apps must be production ready with docs (Rule 2). Projects younger than 3 months (first public commit or post) go only in the current New Project Megathread (Rule 6), which carries the AI Involvement field; a blog post needs no AI line. Dashboards and tools that aren't self-hosted: Wednesdays only, flaired (Rule 5).
+- format: text post with the explanation and the link in the body
 - status: active
-- source: selfh.st, 2026-07-10 (https://selfh.st/weekly/2026-07-10/); the dev.to summary previously cited here now 404s
-- verified: never
+- verified: 2026-11-23 (verified-by: Joe, pasted rules page)
 
 ### r/homelab
 - lanes: homelab
-- rule (secondhand): late 2026 Rule 6 bans only monetized, referral or company ads. Software posts need "Project: Software" flair, an AI disclosure and why it fits the sub. Seen 2026-11-23 only in a mirror snippet nobody opened: unverified.
+- rule: posts must be homelab related and detailed ("as much detail about your lab as possible"; detail can go in a reply to your own post); low-effort posts removed (Rules 2-4). No monetized referral, affiliate or company ads; non-commercial personal projects are fine (Rule 6). Software projects need "Project: Software" flair, an AI disclosure in the flair and the text, answers to the posting prompt, and minimum sub karma (Rule 7); a write-up of Joe's own lab isn't a software project. No "humble lab" or age-pandering titles (Rule 9).
+- format: text post with lab detail, the link in the body
 - status: active
-- verified: never
+- verified: 2026-11-23 (verified-by: Joe, pasted rules page)
 
 ### r/programming
 - lanes: webdev, general-tech
@@ -97,10 +98,10 @@ Reddit's "9:1" or "90/10" self-promotion ratio isn't in any current official Red
 
 ### r/Proxmox
 - lanes: homelab
-- rule: not read; Reddit refuses automated reads. Read https://www.reddit.com/r/Proxmox/about/rules before posting.
-- format: text post with the link in the body
+- rule: self-promotion only on Community Showcase Day, every Monday 00:00-23:59 UTC (Sun 6 PM to Mon 5:59 PM Central); a blog or video post "without raising any discussion points" is removed, and the rule covers comments too (Rule 5). Posts or comments that appear AI-generated are removed, heavy emoji counts as a signal, and posts about AI-assisted sysadmin tooling (MCP servers for Proxmox) are removed (Rule 4). No curl-bash scripts: link the script itself (Rule 3). Stay on Proxmox (Rule 1).
+- format: text post on a Monday (UTC), in Joe's own words, ending on a question; keep Claude and AI tooling out of it
 - status: active
-- verified: never
+- verified: 2026-11-23 (verified-by: Joe, pasted rules page)
 
 ### r/mikrotik
 - lanes: networking, homelab
