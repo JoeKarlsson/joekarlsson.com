@@ -81,6 +81,11 @@ export default defineConfig({
 			name: 'Anton',
 			cssVariable: '--font-anton',
 			styles: ['normal'],
+			// Astro sizes its Arial stand-in by lowercase widths, but the site sets Anton in
+			// capitals, which run 31% narrower than that, so labels wrapped differently and the
+			// page jumped when Anton landed. BaseHead declares a stand-in sized by capitals.
+			fallbacks: ['Anton Caps Fallback', 'sans-serif'],
+			optimizedFallbacks: false,
 		},
 		{
 			provider: fontProviders.google(),

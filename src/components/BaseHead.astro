@@ -108,6 +108,21 @@ const SPECULATION_RULES = {
 {/* Fonts: all four are self-hosted (astro.config.mjs), so no visitor IP goes to Google;
 the display and body faces are preloaded since nearly every page opens with both.
 Only the latin files: latin-ext still loads when a page has those characters. */}
+{/* Anton's stand-in (astro.config.mjs): Arial scaled so the site's capitals take Anton's
+width (0.7036, averaged over the 426 Anton text runs on the section pages, the same in
+Chromium, Firefox and WebKit), with Anton's ascent and descent (1.1763 and 0.3291 em)
+divided by that scale so lines keep Anton's height. */}
+<style is:inline>
+	@font-face {
+		font-family: 'Anton Caps Fallback';
+		/* Liberation Sans and Arimo share Arial's metrics, so Linux gets the same sizing */
+		src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo');
+		size-adjust: 70.36%;
+		ascent-override: 167.18%;
+		descent-override: 46.77%;
+		line-gap-override: 0%;
+	}
+</style>
 <Font cssVariable="--font-anton" preload={[{ subset: 'latin' }]} />
 <Font cssVariable="--font-hanken-grotesk" preload={[{ subset: 'latin' }]} />
 <Font cssVariable="--font-jetbrains-mono" />
