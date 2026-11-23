@@ -151,6 +151,13 @@
 	:has(> .rounded-xl[data-halftone])::after {
 		border-radius: var(--radius-xl);
 	}
+	/* High contrast mode forces the pink to the system background, often black, which
+	   multiplied every picture to black: there they stay gray */
+	@media (forced-colors: active) {
+		:not(picture):has(> [data-halftone], > picture > [data-halftone])::after {
+			display: none;
+		}
+	}
 	/* A play button or label laid over the picture stays above the pink */
 	:not(picture):has(> [data-halftone]) > :not([data-halftone]) {
 		z-index: 1;

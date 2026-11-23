@@ -56,8 +56,12 @@ export async function withHalftoneLevels(html, levelsFor) {
 			: (attribute('poster') ?? attribute('data-poster'));
 		const levels = still ? await levelsFor(still) : null;
 		if (!levels) continue;
+		// A clip with controls is never inverted: the filter paints the browser's controls
+		// too, and inverted they turned into an unreadable pink band
 		const invert =
-			levels.mean > LIGHT_IMAGE_MEAN && !/\sdata-halftone-no-invert\b/.test(tag)
+			levels.mean > LIGHT_IMAGE_MEAN &&
+			!/\sdata-halftone-no-invert\b/.test(tag) &&
+			!/^<video\b(?:[^>"]|"[^"]*")*\scontrols\b/.test(tag)
 				? ' data-halftone-invert'
 				: '';
 		const style = levelsStyle(levels);

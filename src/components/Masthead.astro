@@ -57,7 +57,7 @@ const portrait = Boolean(width && height && height > width);
 	the whole clip at load for "metadata" (406 KB on connect-ai-doom) */}
 	{/* The picture's frame, where its pink goes (global.css, "Pink pictures") */}
 	{(heroVideo || heroImage) && (
-		<div class="masthead-picture relative mx-auto max-w-[856px]">
+		<div class="masthead-picture relative mx-auto max-w-[856px]" data-morph-target>
 			{heroVideo ? (
 				<video
 					src={heroVideo}
@@ -71,7 +71,6 @@ const portrait = Boolean(width && height && height > width);
 					controls
 					preload="none"
 					aria-label={heroAlt || title}
-					data-morph-target
 					class="block h-auto max-h-[min(75vh,640px)] w-full object-cover"
 					width={width ?? 768}
 					height={height ?? 440}
@@ -82,7 +81,6 @@ const portrait = Boolean(width && height && height > width);
 					alt={heroAlt || title}
 					data-still-only
 					data-halftone={halftone}
-					data-morph-target
 					width={width}
 					height={height}
 					sizes="(min-width: 1024px) 856px, 100vw"

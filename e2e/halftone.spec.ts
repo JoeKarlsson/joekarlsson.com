@@ -81,6 +81,13 @@ test.describe('Pink pictures', () => {
 		});
 	}
 
+	test('high contrast mode drops the pink, which it would force to black', async ({ page }) => {
+		await page.emulateMedia({ forcedColors: 'active', colorScheme: 'dark' });
+		await page.goto('/blog/doom-mcp-server/');
+		const frame = page.locator('.masthead-picture');
+		expect(await frame.evaluate((el) => getComputedStyle(el, '::after').display)).toBe('none');
+	});
+
 	test('a picture is pink before any script runs', async ({ browser }) => {
 		const context = await browser.newContext({ javaScriptEnabled: false });
 		const page = await context.newPage();

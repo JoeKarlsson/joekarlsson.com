@@ -42,6 +42,15 @@ describe('halftone levels', () => {
 		expect(html.match(/data-halftone-invert/g)).toHaveLength(1);
 	});
 
+	it('never inverts a clip with controls, whose controls the filter would invert too', async () => {
+		const html = await withHalftoneLevels(
+			'<video poster="/light.webp" controls data-halftone="flat"></video><video poster="/light.webp" data-halftone="flat"></video>',
+			levelsFor,
+		);
+		expect(html.match(/data-halftone-invert/g)).toHaveLength(1);
+		expect(html).toMatch(/<video data-halftone-invert style="[^"]*" poster="\/light.webp" data-halftone/);
+	});
+
 	it('leaves pictures without data-halftone, and a clip with no poster, as they are', async () => {
 		const page = '<img src="/a.webp" alt=""><video src="/a.mp4" data-halftone="flat"></video>';
 		expect(await withHalftoneLevels(page, levelsFor)).toBe(page);
