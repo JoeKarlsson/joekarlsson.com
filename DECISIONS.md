@@ -162,6 +162,10 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 - 2026-11-15: Kokonut UI round (mockup ~/mockups/joekarlsson-kokonut-ideas): rejected all three, page flip at chapter openers, a synced video transcript and a contact sheet for photo runs. Joe: "They don't feel like they fit. They look bad. I don't really get the purpose of them. They don't add anything and aren't very interesting." Don't port UI-library components; an idea has to come from what a page needs.
 - 2026-11-14: No cut corners on the nav pills or buttons (`.sticker`): the beveled nav bar shipped in the new-CSS round got "I do not like the beveled nav bar revert that - YUCK"; notched ones read as 8-bit before that. They stay plain rounded.
 
+## Posts
+
+- 2026-11-24: The script-vs-screen post (Bechdel Script Test, 2,112 films) argues a point instead of listing results. Thesis: movies rewrite most of their scripts but not who gets to talk, so a film's gender imbalance is set when it's written. It also covers how little passing takes (median 43 seconds) and what that means for writers, script-based studies and the site. Rejected along the way: a "My method says one film in ten" title, a short findings-list draft and a trivia headline ("Bridesmaids kept 6% of its script"). Joe on the trivia version: "There's like no depth here. What does this say? ... What's the result of this on society"; on the thesis outline: "much better". Format fits the content; don't copy the Punc post's layout.
+
 ## Process
 
 - 2026-11-22: CSS budget per page type, not one total. Article styles live in `src/styles/article.css` (ArticleFrame imports it), reviews' and papers' in their own files, so each page type loads only what it uses, and `tests/bundle-size.test.ts` gives articles, the homepage, section pages and review stats each a gzipped budget. When one trips, it's a trade-off for that page type, recorded here, never a quiet raise. Joe: "we're gonna keep adding stuff to the site. So, this is like we're just kicking the can down the road. I'd like to find a more sustainable solution as the site grows," and on the plan, "Yeah, you can do that. That's fine."
