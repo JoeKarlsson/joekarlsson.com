@@ -517,17 +517,18 @@ r/homeassistant, r/devops (named in blog-new's old Distribution fit), r/ClaudeAI
 
 ### r/Screenwriting
 - lanes: film
-- rule: not read; Reddit refuses automated reads. Read https://www.reddit.com/r/Screenwriting/about/rules before posting.
-- format: text post with the findings as bullets, link at the bottom
-- status: active
-- verified: never
+- rule: "Don't Post Personal Blogs, Websites, Software or Unapproved Self-Promotion": no personal blogs or self-promotion; exceptions only for established community partners (Rule 9). No film/TV discussion that doesn't include scripted material (Rule 7). No AI content (Rule 4). Descriptive titles, text required, flair required (Rule 14).
+- status: dead for Joe's blog posts (closed to personal blogs and self-promotion)
+- source: https://www.reddit.com/r/Screenwriting/about/rules
+- verified: 2026-11-24 (verified-by: Joe, pasted rules page)
 
 ### r/TrueFilm
 - lanes: film
-- rule: not read; Reddit refuses automated reads. Read https://www.reddit.com/r/TrueFilm/about/rules before posting.
-- format: discussion text post ending on a question, link at the bottom
-- status: active
-- verified: never
+- rule: links must be self-posts with a summary of a paragraph or more, and "Self-promotion posts are not allowed; they belong in 'Fun & Fancy Free' discussion threads" (posted Mon/Wed/Fri) (Rule 6). Posts in-depth and specific, 360-character minimum (Rules 4-5). Top-level comments 180-character minimum (Rule 8). Be civil (Rule 7).
+- format: for Joe's own work, a top-level comment (180+ characters) in a "Fun & Fancy Free" thread, discussion first, link at the end; never a standalone post
+- status: active (Fun & Fancy Free threads only)
+- source: https://www.reddit.com/r/TrueFilm/about/rules
+- verified: 2026-11-24 (verified-by: Joe, pasted rules page)
 
 ### No Film School
 - lanes: film
