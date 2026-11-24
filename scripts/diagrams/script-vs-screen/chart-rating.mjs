@@ -1,7 +1,7 @@
 // Every film as a dot, IMDb rating against how much of its script was said on screen. The
 // dots are drawn once, outside the motion layers (2,112 of them twice would double the page);
 // the build-in is a cover that wipes off left to right, then the pink medians land.
-import { COLORS, DATA, MUTED, easeOut, escapeXml, film, label, layers, n, panel, pct, prog } from './_chart.mjs';
+import { COLORS, DATA, MUTED, easeOut, escapeXml, film, label, layers, n, panel, pct, prog, yAxisLabel } from './_chart.mjs';
 
 const LO = 2.4;
 const HI = 9.5;
@@ -31,7 +31,7 @@ const spread = (i) => (((i * 2654435761) >>> 0) / 4294967296 - 0.5) * 0.09;
 export const alt = `Scatter chart of ${DATA.films.length.toLocaleString()} films: IMDb rating against the share of the script's dialogue said word for word on screen. The median rises with the rating: ${DATA.bands.map((b) => `${pct(b.kept)} for films rated ${b.label.toLowerCase()}`).join(', ')}. There are big exceptions both ways, like Interstellar (rated 8.7, 9% kept) and Bridesmaids (6.8, 6%).`;
 
 function chart(f, { W, H, phone }) {
-	const L = phone ? 48 : 60;
+	const L = phone ? 64 : 78;
 	const R = W - (phone ? 16 : 24);
 	const top = phone ? 92 : 96;
 	const bottom = H - 48;
@@ -45,17 +45,13 @@ function chart(f, { W, H, phone }) {
 		anchor: 'start',
 		upper: true,
 	});
-	f.text(phone ? 20 : 16, phone ? 37 : 62, 'Share of each script said word for word on screen', {
-		size: 13,
-		anchor: 'start',
-		color: MUTED,
-	});
 	[0, 0.25, 0.5, 0.75, 1].forEach((v) => {
 		f.line([[L, y(v)], [R, y(v)]], { color: v ? '#2c2c2c' : MUTED, width: v ? 1 : 1.5 });
 		f.text(L - 8, y(v), pct(v), { size: 13, color: MUTED, anchor: 'end' });
 	});
 	[3, 4, 5, 6, 7, 8, 9].forEach((r) => f.text(x(r), bottom + 16, String(r), { size: 13, color: MUTED }));
-	f.text((L + R) / 2, bottom + 34, 'IMDb rating', { size: 13, color: MUTED });
+	f.text((L + R) / 2, bottom + 34, 'IMDb rating (out of 10)', { size: 13, color: MUTED });
+	f.raw(yAxisLabel(phone ? 20 : 24, (top + bottom) / 2, 'Script kept word for word (%)'), 'groups');
 
 	// The dots, still, under everything that moves. data-tips feeds the hover card
 	// (src/scripts/chart-tips.ts): one "title|year|rating|kept" line per dot, in order

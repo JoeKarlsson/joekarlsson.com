@@ -32,14 +32,6 @@ marginNotes:
     text: 'Survivorship bias is your tendency to focus on survivors instead of whatever you would call a non-survivor.'
     by: 'David McRaney, You Are Not So Smart, 2013'
     url: 'https://youarenotsosmart.com/2013/05/23/survivorship-bias/'
-  - type: 'see'
-    at: 'my favorites are full of miracles'
-    text: 'my review of The Truman Show, five stars and 19% of its script'
-    post: 'reviews/the-truman-show'
-  - type: 'see'
-    at: 'I remember the ones that pulled it off'
-    text: 'my review of Jaws, five stars and 26% of its script'
-    post: 'reviews/jaws'
   - type: 'quote'
     at: 'rewrite a scene the night before'
     text: 'He was on set every day and would literally rewrite a scene the night before they shot it.'
@@ -53,10 +45,6 @@ marginNotes:
     at: 'called the scripted speech opera talk'
     text: "Hauer told the story in Channel 4's On the Edge of Blade Runner and in his 2007 autobiography, titled All Those Moments. David Peoples, who rewrote Fancher's draft, confirms in the documentary Dangerous Days that Hauer changed the speech."
     url: 'https://en.wikipedia.org/wiki/Tears_in_rain_monologue'
-  - type: 'see'
-    at: 'originally developed the film with Steven Spielberg'
-    text: 'my review of Interstellar'
-    post: 'reviews/interstellar'
   - type: 'aside'
     at: 'too much money, too much equipment'
     text: 'Coppola at the 1979 Cannes press conference. The shoot in the Philippines was planned for five months and ran 238 days.'
@@ -94,66 +82,7 @@ The typical movie keeps 42% of its script's dialogue word for word. And the less
 
 ![Scatter chart of 2,112 films: IMDb rating against the share of the script's dialogue said word for word on screen. The median rises with the rating: 30% for films rated under 6, 38% for 6 to 7, 47% for 7 to 8 and 50% for 8 and up. Big exceptions both ways: Interstellar (rated 8.7, 9% kept) and Bridesmaids (6.8, 6%) near the bottom, The Princess Bride (8.0, 97%) at the top.](/images/blog/script-vs-screen/chart-rating.svg)
 
-Movies rated under 6 on IMDb kept 30% of their scripts. Movies rated 8 or higher kept 50%. It's a real pattern with plenty of exceptions. Hover over a dot to find a film.
-
-## \*Some of the greatest movies did too
-
-Look at the bottom of that chart. _Jaws_ kept 26% of its script, _Apocalypse Now_ 10% and _Interstellar_ 9%. Some of the best movies ever made threw most of their scripts away, and they sit right next to _Inspector Gadget_.
-
-I think those exceptions belong to the same story as the flops.
-
-_Jaws_ was written while it was shot. The mechanical shark kept breaking down (during the shoot, [American Cinematographer reported](https://theasc.com/articles/on-location-with-jaws) a week's delay "while Bruce got a nose job"), and [Carl Gottlieb](https://www.finaldraft.com/blog/jaws-masterpiece-created-collaboration-deadline) would rewrite a scene the night before they shot it. Its most famous line isn't in [the script I have](https://imsdb.com/scripts/Jaws.html). [Gottlieb says](https://bostonmagazine.com/?p=2009170) Roy Scheider ad-libbed "You're gonna need a bigger boat" on set. Who came up with it is disputed, but every version of the story has it coming from the set, not the page.
-
-https://www.youtube.com/watch?v=qCzncv0ISaE
-
-Going off the page is a gamble, and on average it loses. But once in a while it pays off big, and those are the movies we tell stories about. Nobody tells stories about what got rewritten on _Inspector Gadget_. The wins are famous and the losses are forgotten, so going off script looks a lot better than it is. It's survivorship bias, the same mistake as [studying only the planes that made it home](https://youarenotsosmart.com/2013/05/23/survivorship-bias/).
-
-I'm as guilty of this as anyone. I've reviewed 127 of these films on this site, and my favorites are full of miracles: _Jaws_, _The Truman Show_, _Alien_ and _Interstellar_ all kept less than a third of their scripts. My ratings barely follow the pattern at all. The movies I love kept about as much of their scripts as the ones I didn't. I remember the ones that pulled it off.
-
-When it does work, it's close to a miracle, and you can't count on it happening twice. It takes a director who can hold a sprawling, improvised, constantly changing shoot together and still come out with a movie. Some directors can. Most can't, and the ones who can don't always manage it either.
-
-## Blade Runner's ending was rewritten twice
-
-_Blade Runner_ kept 19% of its script. The one in the study is [Hampton Fancher's draft](https://imsdb.com/scripts/Blade-Runner.html), and in it Roy Batty never gives a speech. He pulls a nail out of the wall, hands it to Deckard, and tells him to stick it in his ear. Deckard shoots him a few lines later.
-
-![Blade Runner's ending, script against screen. In Hampton Fancher's draft, Batty says "It's time to die," hands Deckard a nail ("Stick it in your ear and push"), and Deckard shoots him dead. In the film, Batty saves Deckard and says: I've seen things you people wouldn't believe. Attack ships on fire off the shoulder of Orion. I watched C-beams glitter in the dark near the Tannhäuser Gate. All those moments will be lost in time like tears in the rain. Time to die. Of the draft's lines, only "time to die" is said on screen.](/images/blog/script-vs-screen/chart-blade-runner.svg)
-
-Three words made it: "time to die." David Peoples rewrote Fancher's script and gave Batty a speech. Then [Rutger Hauer](https://en.wikipedia.org/wiki/Tears_in_rain_monologue) called the scripted speech opera talk, cut it down the night before they filmed, and added the line about tears in rain. It's one of the most quoted speeches in film.
-
-https://www.youtube.com/watch?v=jvFYgELj2X0
-
-The other famous outliers look the same once you check which script I had.
-
-**_Apocalypse Now_ kept 10% of its script.** The [one in the study](https://imsdb.com/scripts/Apocalypse-Now.html) is Coppola's draft from December 1975. The shoot was planned for five months and ran 238 days. Brando showed up overweight, and [Coppola has said](https://en.wikipedia.org/wiki/Apocalypse_Now) he had no ending because Brando couldn't play the scenes as written, so they rewrote it on location. At Cannes in 1979 Coppola [said](https://en.wikipedia.org/wiki/Apocalypse_Now), "We had access to too much money, too much equipment, and little by little we went insane." The making of it got its own documentary, _Hearts of Darkness_.
-
-![The title page of the Apocalypse Now draft: A P O C A L Y P S E N O W. Original screenplay by John Milius. Inspired by Joseph Conrad's "HEART OF DARKNESS". This draft by Francis Ford Coppola. December 3, 1975.](/images/blog/script-vs-screen/apocalypse-now-title-page.webp 'margin: The title page of the Apocalypse Now draft.')
-
-![Willard's head rising out of a dark, misty river at night, his face painted in camouflage.](/images/blog/script-vs-screen/apocalypse-now-river.webp)
-_Apocalypse Now's ending, rewritten on location. Frame from Movieclips' official clip._
-
-**_Interstellar_ kept 9% of its script,** and I gave it four and a half stars. The [one in the study](https://imsdb.com/scripts/Interstellar.html) is Jonathan Nolan's. Christopher Nolan [has said](https://nofilmschool.com/who-wrote-interstellar) Paramount "originally developed the film with Steven Spielberg" and "hired my brother to come up with a story and a script." The finished film credits both brothers, and Jonathan [has said](https://www.slashfilm.com/536845/original-interstellar-ending/) his original ending was "much more straightforward."
-
-**_Taxi Driver_ kept 27% of its script.** De Niro's own copy of [Paul Schrader's script](https://imsdb.com/scripts/Taxi-Driver.html), now at the Harry Ransom Center, has his handwritten note "Mirror thing here?" The [archive says](https://sites.utexas.edu/ransomcentermagazine/2016/10/13/you-talkin-to-me/) the note confirms he improvised the "You talkin' to me?" bit in rehearsal.
-
-![Travis Bickle in his army jacket, facing the mirror in his apartment.](/images/blog/script-vs-screen/taxi-driver-mirror.webp)
-_Frame from Movieclips' official clip._
-
-**_The Truman Show_ kept 19% of [its script](https://imsdb.com/scripts/Truman-Show,-The.html).** Andrew Niccol's first draft was a science fiction thriller set in New York City. He rewrote it twelve times for Peter Weir, who [said](https://en.wikipedia.org/wiki/The_Truman_Show), "where [Niccol] had it depressing, I could make it light."
-
-![Truman standing in the open door in the painted sky wall, arms spread, taking his bow.](/images/blog/script-vs-screen/truman-show-door.webp)
-_Frame from Movieclips' official clip._
-
-None of these are sloppy movies. They kept getting written after the script was done, and each had someone who could steer that.
-
-## When rewrites sink a movie
-
-The flops that lost their scripts don't get documentaries, but some left a trail.
-
-_Inspector Gadget_ kept 7% of its script. Rupert Everett, who played the villain, wrote in his memoir, [_Red Carpets and Other Banana Skins_](https://openlibrary.org/works/OL4281847W) (2006), [quoted by Den of Geek](https://www.denofgeek.com/movies/1999-s-inspector-gadget-and-its-hugely-underappreciated-gag/), that "a string of writers had written version after version, each adding to our scripts on a different-colored paper," for "a panel of executives, each with their own theory and agenda." After bad test screenings, the film was cut from 110 minutes to 78.
-
-_Battlefield Earth_ kept 17%, and IMDb voters rate it 2.5 out of 10. The script went through ten revisions before another writer was brought in. When the original writer, J.D. Shapiro, accepted its Razzie for Worst Picture of the Decade, he [thanked that writer](<https://en.wikipedia.org/wiki/Battlefield_Earth_(film)>) for "rewriting my script in a way I never, ever, ever — could have imagined or conceived of myself."
-
-_Jaws_ didn't stick to the plan either. What it had was a director who could hold the movie together while everything changed.
+Movies rated under 6 on IMDb kept 30% of their scripts. Movies rated 8 or higher kept 50%. Hover over a dot to find a film. It's a real pattern with plenty of exceptions, and I'll get to those.
 
 ## Better movies keep more in every kind of draft
 
@@ -167,6 +96,48 @@ It doesn't. The study has 640 shooting scripts and 131 early drafts, and better-
 | 6 to 7      |   768 |         38% |              38% |          23% |
 | 7 to 8      |   899 |         47% |              47% |          35% |
 | 8 and up    |   196 |         50% |              51% |          45% |
+
+## When rewrites sink a movie
+
+The flops at the bottom of the chart left a trail.
+
+_Inspector Gadget_ kept 7% of its script. Rupert Everett, who played the villain, wrote in his memoir, [_Red Carpets and Other Banana Skins_](https://openlibrary.org/works/OL4281847W) (2006), [quoted by Den of Geek](https://www.denofgeek.com/movies/1999-s-inspector-gadget-and-its-hugely-underappreciated-gag/), that "a string of writers had written version after version, each adding to our scripts on a different-colored paper," for "a panel of executives, each with their own theory and agenda." After bad test screenings, the film was cut from 110 minutes to 78.
+
+_Battlefield Earth_ kept 17%, and IMDb voters rate it 2.5 out of 10. The script went through ten revisions before another writer was brought in. When the original writer, J.D. Shapiro, accepted its Razzie for Worst Picture of the Decade, he [thanked that writer](<https://en.wikipedia.org/wiki/Battlefield_Earth_(film)>) for "rewriting my script in a way I never, ever, ever — could have imagined or conceived of myself."
+
+Both movies had the same problem: a lot of people changing the script, and nobody holding the movie together.
+
+## \*The exceptions: classics that went off script
+
+Some of the best movies ever made sit at the bottom of that first chart, right next to _Inspector Gadget_. <a href="/reviews/jaws/" target="_blank" rel="noopener"><em>Jaws</em></a> kept 26% of its script, _Apocalypse Now_ 10% and <a href="/reviews/interstellar/" target="_blank" rel="noopener"><em>Interstellar</em></a> 9%.
+
+_Jaws_ was written while it was shot. The mechanical shark kept breaking down ([American Cinematographer reported](https://theasc.com/articles/on-location-with-jaws) a week's delay during the shoot "while Bruce got a nose job"), and [Carl Gottlieb](https://www.finaldraft.com/blog/jaws-masterpiece-created-collaboration-deadline) would rewrite a scene the night before they shot it. Its most famous line isn't in [the script I have](https://imsdb.com/scripts/Jaws.html). [Gottlieb says](https://bostonmagazine.com/?p=2009170) Roy Scheider ad-libbed "You're gonna need a bigger boat" on set. Who came up with it is disputed, but every version of the story has it coming from the set, not the page.
+
+https://www.youtube.com/watch?v=qCzncv0ISaE
+
+_Blade Runner_ kept 19% of its script. The one in the study is [Hampton Fancher's draft](https://imsdb.com/scripts/Blade-Runner.html), and in it Roy Batty never gives a speech. He pulls a nail out of the wall, hands it to Deckard, and tells him to stick it in his ear. Deckard shoots him a few lines later.
+
+![Blade Runner's ending, script against screen. In Hampton Fancher's draft, Batty says "It's time to die," hands Deckard a nail ("Stick it in your ear and push"), and Deckard shoots him dead. In the film, Batty saves Deckard and says: I've seen things you people wouldn't believe. Attack ships on fire off the shoulder of Orion. I watched C-beams glitter in the dark near the Tannhäuser Gate. All those moments will be lost in time like tears in the rain. Time to die. Of the draft's lines, only "time to die" is said on screen.](/images/blog/script-vs-screen/chart-blade-runner.svg)
+
+Three words made it: "time to die." David Peoples rewrote Fancher's script and gave Batty a speech. Then [Rutger Hauer](https://en.wikipedia.org/wiki/Tears_in_rain_monologue) called the scripted speech opera talk, cut it down the night before they filmed, and added the line about tears in rain. It's one of the most quoted speeches in film.
+
+https://www.youtube.com/watch?v=jvFYgELj2X0
+
+The other classics near the bottom have stories like these:
+
+- _Apocalypse Now_: the script in the study is a [Coppola draft](https://imsdb.com/scripts/Apocalypse-Now.html) from 1975. The shoot was planned for five months, ran 238 days, and the ending was rewritten on location. Coppola at Cannes: "We had access to too much money, too much equipment, and little by little we went insane."
+- _Interstellar_ started as [Jonathan Nolan's script](https://imsdb.com/scripts/Interstellar.html). Paramount, as Christopher Nolan [put it](https://nofilmschool.com/who-wrote-interstellar), "originally developed the film with Steven Spielberg." Christopher directed the film that got made.
+- _Taxi Driver_ (27% kept): De Niro improvised "You talkin' to me?" in rehearsal, according to [his own annotated script](https://sites.utexas.edu/ransomcentermagazine/2016/10/13/you-talkin-to-me/) at the Harry Ransom Center.
+- <a href="/reviews/the-truman-show/" target="_blank" rel="noopener"><em>The Truman Show</em></a> (19% kept): Andrew Niccol's first draft was a science fiction thriller. He rewrote it twelve times for Peter Weir, who [said](https://en.wikipedia.org/wiki/The_Truman_Show), "where [Niccol] had it depressing, I could make it light."
+
+![Travis Bickle in his army jacket, facing the mirror in his apartment.](/images/blog/script-vs-screen/taxi-driver-mirror.webp)
+_Taxi Driver. Frame from Movieclips' official clip._
+
+Going off the page is a gamble, and on average it loses. But once in a while it pays off big, and those are the movies we tell stories about. Nobody tells stories about what got rewritten on _Inspector Gadget_. The wins are famous and the losses are forgotten, so going off script looks a lot better than it is. It's survivorship bias, the same mistake as [studying only the planes that made it home](https://youarenotsosmart.com/2013/05/23/survivorship-bias/).
+
+I'm as guilty of this as anyone. I've reviewed 127 of these films on this site, and my favorites are full of these miracles: _Jaws_, _The Truman Show_, <a href="/reviews/alien/" target="_blank" rel="noopener"><em>Alien</em></a> and _Interstellar_ all kept less than a third of their scripts. My ratings barely follow the pattern at all. The movies I love kept about as much of their scripts as the ones I didn't.
+
+When it does work, it's close to a miracle, and you can't count on it happening twice. It takes a director who can hold a sprawling, improvised, constantly changing shoot together and still come out with a movie.
 
 ## The directors who can wrangle it
 
@@ -200,28 +171,6 @@ You'd guess improvised comedies throw out the most dialogue. They don't. Comedie
 
 I couldn't find a good explanation for why war and sport movies sit down at the bottom with action.
 
-## The films in this post
-
-| Film                     | Year | IMDb rating | Script kept word for word |
-| ------------------------ | ---: | ----------: | ------------------------: |
-| Shrek                    | 2001 |         7.9 |                       97% |
-| The Princess Bride       | 1987 |         8.0 |                       97% |
-| Up                       | 2009 |         8.3 |                       96% |
-| The Dark Knight          | 2008 |         9.1 |                       77% |
-| The Shawshank Redemption | 1994 |         9.3 |                       71% |
-| Taxi Driver              | 1976 |         8.2 |                       27% |
-| Jaws                     | 1975 |         8.1 |                       26% |
-| Alien                    | 1979 |         8.4 |                       22% |
-| Blade Runner             | 1982 |         8.1 |                       19% |
-| The Truman Show          | 1998 |         8.2 |                       19% |
-| Anchorman                | 2004 |         7.1 |                       18% |
-| Battlefield Earth        | 2000 |         2.5 |                       17% |
-| Step Brothers            | 2008 |         6.9 |                       15% |
-| Apocalypse Now           | 1979 |         8.4 |                       10% |
-| Interstellar             | 2014 |         8.7 |                        9% |
-| Inspector Gadget         | 1999 |         4.2 |                        7% |
-| Bridesmaids              | 2011 |         6.8 |                        6% |
-
 ## Why I ran this
 
 I didn't set out to study script rewrites. I run [Bechdel Script Test](https://bechdel.joekarlsson.com/), which checks 3,711 movies against the Bechdel test by reading their scripts, and the first thing anyone says about it is that the script isn't the movie. This was my way of checking. The words change a lot, but the verdict mostly doesn't: it holds for about 95% of films, checked against [bechdeltest.com](https://bechdeltest.com/) readers who rated the released movies.
@@ -234,7 +183,37 @@ For each film I took the share of the script's dialogue words that turn up in th
 
 The limits: subtitles aren't a transcript, and "not in the script" means not in the draft I had. Scripts online skew popular, American and recent. Ratings are IMDb's. The method and every check are in [METHODS.md](https://github.com/JoeKarlsson/bechdel-test/blob/main/docs/page-vs-screen/METHODS.md).
 
+## The films in this post
+
+<details>
+<summary>Show all 17 films</summary>
+
+| Film                     | Year | IMDb rating | Script kept word for word | My review                                                                                             |
+| ------------------------ | ---: | ----------: | ------------------------: | ----------------------------------------------------------------------------------------------------- |
+| Shrek                    | 2001 |         7.9 |                       97% |                                                                                                       |
+| The Princess Bride       | 1987 |         8.0 |                       97% |                                                                                                       |
+| Up                       | 2009 |         8.3 |                       96% |                                                                                                       |
+| The Dark Knight          | 2008 |         9.1 |                       77% |                                                                                                       |
+| The Shawshank Redemption | 1994 |         9.3 |                       71% |                                                                                                       |
+| Taxi Driver              | 1976 |         8.2 |                       27% |                                                                                                       |
+| Jaws                     | 1975 |         8.1 |                       26% | <a href="/reviews/jaws/" target="_blank" rel="noopener">5 stars</a>                                   |
+| Alien                    | 1979 |         8.4 |                       22% | <a href="/reviews/alien/" target="_blank" rel="noopener">4.5 stars</a>                                |
+| Blade Runner             | 1982 |         8.1 |                       19% |                                                                                                       |
+| The Truman Show          | 1998 |         8.2 |                       19% | <a href="/reviews/the-truman-show/" target="_blank" rel="noopener">5 stars</a>                        |
+| Anchorman                | 2004 |         7.1 |                       18% | <a href="/reviews/anchorman-the-legend-of-ron-burgundy/" target="_blank" rel="noopener">4.5 stars</a> |
+| Battlefield Earth        | 2000 |         2.5 |                       17% |                                                                                                       |
+| Step Brothers            | 2008 |         6.9 |                       15% |                                                                                                       |
+| Apocalypse Now           | 1979 |         8.4 |                       10% |                                                                                                       |
+| Interstellar             | 2014 |         8.7 |                        9% | <a href="/reviews/interstellar/" target="_blank" rel="noopener">4.5 stars</a>                         |
+| Inspector Gadget         | 1999 |         4.2 |                        7% |                                                                                                       |
+| Bridesmaids              | 2011 |         6.8 |                        6% |                                                                                                       |
+
+</details>
+
 ## Sources
+
+<details>
+<summary>Show all 13 sources</summary>
 
 - American Cinematographer, ["On Location With Jaws"](https://theasc.com/articles/on-location-with-jaws), March 1975.
 - Boston Magazine, [Carl Gottlieb interview](https://bostonmagazine.com/?p=2009170), 2015.
@@ -249,3 +228,5 @@ The limits: subtitles aren't a transcript, and "not in the script" means not in 
 - Collider, [Christopher McQuarrie interview](https://collider.com/christopher-mcquarrie-interview-mission-impossible-fallout-top-gun-2/), 2018; ComicBook.com, [McQuarrie on Rogue Nation](https://comicbook.com/news/mcquarrie-reveals-how-involved-tom-cruise-was-in-mission-impossi), 2017; CinemaBlend, [Kevin Feige on reshoots](https://cinemablend.com/news/2448060/why-reshoots-for-marvel-movies-arent-a-big-deal-according-to-kevin-feige), 2018.
 - DGA Quarterly, ["Apatow & Friends"](https://www.dga.org/craft/dgaq/issues/0902-summer-2009/apatow-and-friends), 2009; Paste, [Adam McKay interview](https://www.pastemagazine.com/comedy/catching-up-with-adam-mckay), 2013; CinemaBlend, [Paul Feig interview](https://cinemablend.com/new/Exclusive-Interview-Bridesmaids-Director-Paul-Feig-24650.html), 2011.
 - David McRaney, ["Survivorship Bias"](https://youarenotsosmart.com/2013/05/23/survivorship-bias/), 2013.
+
+</details>

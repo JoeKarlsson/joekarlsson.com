@@ -24,16 +24,12 @@ function chart(f, { W, H, phone }) {
 		anchor: 'start',
 		upper: true,
 	});
-	f.text(phone ? 20 : 16, phone ? 37 : 62, 'Share of each script said word for word on screen', {
-		size: 13,
-		anchor: 'start',
-		color: MUTED,
-	});
 	const bottom = top + ROWS.length * rowH - 10;
 	[0, 0.5, 1].forEach((v) => {
 		f.line([[x(v), top - 14], [x(v), bottom]], { color: '#2c2c2c', width: 1 });
 		f.text(x(v), bottom + 16, pct(v), { size: 13, color: MUTED });
 	});
+	f.text((L + R) / 2, bottom + 34, 'Script kept word for word (%)', { size: 13, color: MUTED });
 
 	// Every dot at its resting place, invisible, for the hover card (src/scripts/chart-tips.ts):
 	// the drawn dots move during the build-in and exist twice (live and still layers)
@@ -66,5 +62,5 @@ function chart(f, { W, H, phone }) {
 	});
 }
 
-export const desktop = { height: 420, draw: (f) => chart(f, { W: 640, H: 420, phone: false }) };
-export const phone = { height: 500, draw: (f) => chart(f, { W: 360, H: 500, phone: true }) };
+export const desktop = { height: 440, draw: (f) => chart(f, { W: 640, H: 440, phone: false }) };
+export const phone = { height: 520, draw: (f) => chart(f, { W: 360, H: 520, phone: true }) };

@@ -3,6 +3,8 @@
 // data.json is exported from the bechdel-test repo's data/screen and data/films.
 import { readFileSync } from 'node:fs';
 
+import { MUTED, SANS, n } from '../sentence-length-semicolons-punctuation/_chart.mjs';
+
 export {
 	COLORS,
 	MUTED,
@@ -20,6 +22,11 @@ export const DATA = JSON.parse(readFileSync(new URL('./data.json', import.meta.u
 export const pct = (v) => `${Math.round(v * 100)}%`;
 export const escapeXml = (s) =>
 	String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+
+/** A y-axis title, rotated to read bottom to top, centred on (x, y). */
+export function yAxisLabel(x, y, text) {
+	return `<text transform="rotate(-90 ${n(x)} ${n(y)})" x="${n(x)}" y="${n(y)}" text-anchor="middle" dominant-baseline="central" font-family="${SANS}" font-size="13" fill="${MUTED}">${escapeXml(text)}</text>`;
+}
 
 /** A film as found in DATA.films: [title, year, rating, kept]. */
 export function film(title) {

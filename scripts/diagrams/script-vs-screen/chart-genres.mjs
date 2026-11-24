@@ -20,12 +20,11 @@ function chart(f, { W, H, phone }) {
 		anchor: 'start',
 		upper: true,
 	});
-	if (!phone)
-		f.text(16, 62, 'Median share of the script said word for word, by genre', { size: 13, anchor: 'start', color: MUTED });
 	ROWS.forEach((g, i) => {
 		const cy = top + i * rowH + rowH / 2;
 		f.text(L - 10, cy, g.genre, { size: 13, anchor: 'end', weight: LOUD.has(g.genre) ? 700 : 400, color: LOUD.has(g.genre) ? COLORS.paper : MUTED });
 	});
+	f.text((L + R) / 2, top + ROWS.length * rowH + 18, 'Median script kept word for word (%)', { size: 13, color: MUTED });
 	layers(f, phone, (el) => {
 		const out = [];
 		ROWS.forEach((g, i) => {
@@ -42,5 +41,5 @@ function chart(f, { W, H, phone }) {
 }
 
 const rows = ROWS.length;
-export const desktop = { height: 96 + rows * 22 + 30, draw: (f) => chart(f, { W: 640, H: 96 + rows * 22 + 30, phone: false }) };
-export const phone = { height: 76 + rows * 21 + 26, draw: (f) => chart(f, { W: 360, H: 76 + rows * 21 + 26, phone: true }) };
+export const desktop = { height: 96 + rows * 22 + 50, draw: (f) => chart(f, { W: 640, H: 96 + rows * 22 + 50, phone: false }) };
+export const phone = { height: 76 + rows * 21 + 46, draw: (f) => chart(f, { W: 360, H: 76 + rows * 21 + 46, phone: true }) };
