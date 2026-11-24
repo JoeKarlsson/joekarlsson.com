@@ -4,6 +4,9 @@
  * lines. The card shows the dot nearest the pointer within a few units, so 2px dots don't need
  * pixel-perfect aim, and a pink ring marks it. Tapping works the same on touch screens.
  *
+ * One listener on the document, not one per chart, so it also works on the copy of a chart the
+ * lightbox (ImageLightbox.astro) shows when a reader clicks to zoom.
+ *
  * Styled here rather than in article.css: only posts with such charts pay for it, and the
  * article stylesheet is near its budget (tests/bundle-size.test.ts).
  */
@@ -22,7 +25,7 @@ function cardElement(): HTMLDivElement {
 	card.setAttribute('aria-live', 'polite');
 	Object.assign(card.style, {
 		position: 'fixed',
-		zIndex: '60',
+		zIndex: '1000',
 		pointerEvents: 'none',
 		display: 'none',
 		maxWidth: '260px',
@@ -48,59 +51,67 @@ function describe([title, year, rating, kept]: string[]): Node[] {
 	);
 }
 
-export function initChartTips(): void {
-	const groups = document.querySelectorAll<SVGGElement>('figure.diagram g[data-tips]');
-	if (!groups.length) return;
-	const card = cardElement();
-
-	for (const group of groups) {
-		const svg = group.ownerSVGElement;
-		if (!svg) continue;
+/** Each tip group's dots, read once per group (a lightbox copy is a new group). */
+const dotsOf = new WeakMap<SVGGElement, Dot[]>();
+function dots(group: SVGGElement): Dot[] {
+	let found = dotsOf.get(group);
+	if (!found) {
 		const records = (group.dataset.tips ?? '').split('\n');
-		const dots: Dot[] = [...group.querySelectorAll('circle')].map((c, i) => ({
+		found = [...group.querySelectorAll('circle')].map((c, i) => ({
 			x: Number(c.getAttribute('cx')),
 			y: Number(c.getAttribute('cy')),
 			tip: (records[i] ?? '').split('|'),
 		}));
-		const ring = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-		ring.setAttribute('r', '6');
-		ring.setAttribute('fill', 'none');
-		ring.setAttribute('stroke', '#ff4fd8');
-		ring.setAttribute('stroke-width', '2.5');
-		ring.setAttribute('pointer-events', 'none');
-		ring.style.display = 'none';
-		svg.append(ring);
-
-		const hide = () => {
-			card.style.display = 'none';
-			ring.style.display = 'none';
-		};
-		const show = (event: PointerEvent) => {
-			const matrix = svg.getScreenCTM();
-			if (!matrix) return;
-			const at = new DOMPoint(event.clientX, event.clientY).matrixTransform(matrix.inverse());
-			let best: Dot | null = null;
-			let bestDistance = REACH * REACH;
-			for (const dot of dots) {
-				const distance = (dot.x - at.x) ** 2 + (dot.y - at.y) ** 2;
-				if (distance < bestDistance) {
-					bestDistance = distance;
-					best = dot;
-				}
-			}
-			if (!best) return hide();
-			ring.setAttribute('cx', String(best.x));
-			ring.setAttribute('cy', String(best.y));
-			ring.style.display = '';
-			card.replaceChildren(...describe(best.tip));
-			card.style.display = 'block';
-			const left = Math.min(event.clientX + 14, window.innerWidth - card.offsetWidth - 8);
-			const top = event.clientY - card.offsetHeight - 12;
-			card.style.left = `${left}px`;
-			card.style.top = `${top < 8 ? event.clientY + 18 : top}px`;
-		};
-		svg.addEventListener('pointermove', show);
-		svg.addEventListener('pointerdown', show);
-		svg.addEventListener('pointerleave', hide);
+		dotsOf.set(group, found);
 	}
+	return found;
+}
+
+export function initChartTips(): void {
+	if (!document.querySelector('figure.diagram g[data-tips]')) return;
+	const card = cardElement();
+	const ring = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+	ring.setAttribute('r', '6');
+	ring.setAttribute('fill', 'none');
+	ring.setAttribute('stroke', '#ff4fd8');
+	ring.setAttribute('stroke-width', '2.5');
+	ring.setAttribute('pointer-events', 'none');
+
+	const hide = () => {
+		card.style.display = 'none';
+		ring.remove();
+	};
+	const show = (event: PointerEvent) => {
+		const svg = (event.target as Element | null)?.closest?.('svg');
+		const group = svg?.querySelector<SVGGElement>('g[data-tips]');
+		const matrix = svg?.getScreenCTM();
+		if (!svg || !group || !matrix) return hide();
+		const at = new DOMPoint(event.clientX, event.clientY).matrixTransform(matrix.inverse());
+		let best: Dot | null = null;
+		let bestDistance = REACH * REACH;
+		for (const dot of dots(group)) {
+			const distance = (dot.x - at.x) ** 2 + (dot.y - at.y) ** 2;
+			if (distance < bestDistance) {
+				bestDistance = distance;
+				best = dot;
+			}
+		}
+		if (!best) return hide();
+		ring.setAttribute('cx', String(best.x));
+		ring.setAttribute('cy', String(best.y));
+		if (ring.ownerSVGElement !== svg) svg.append(ring);
+		// An open <dialog> (the lightbox) sits in the top layer, above any z-index: the card
+		// has to live inside it to show
+		const host = svg.closest('dialog') ?? document.body;
+		if (card.parentElement !== host) host.append(card);
+		card.replaceChildren(...describe(best.tip));
+		card.style.display = 'block';
+		const left = Math.min(event.clientX + 14, window.innerWidth - card.offsetWidth - 8);
+		const top = event.clientY - card.offsetHeight - 12;
+		card.style.left = `${left}px`;
+		card.style.top = `${top < 8 ? event.clientY + 18 : top}px`;
+	};
+	document.addEventListener('pointermove', show, { passive: true });
+	document.addEventListener('pointerdown', show, { passive: true });
+	document.addEventListener('scroll', hide, { passive: true });
 }
