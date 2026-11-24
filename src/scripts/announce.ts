@@ -4,7 +4,7 @@
 const lastMessage = new WeakMap<Element, string>();
 
 export function announce(region: Element, message: string) {
-	const text = lastMessage.get(region) === message ? `${message} ` : message;
+	const text = lastMessage.get(region) === message ? `${message}\u00A0` : message;
 	region.textContent = text;
 	lastMessage.set(region, text);
 }

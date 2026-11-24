@@ -15,7 +15,7 @@ describe('announce', () => {
 		const second = region.textContent;
 		announce(region, 'Copied');
 		expect(first).toBe('Copied');
-		expect(second).toBe('Copied ');
+		expect(second).toBe('Copied\u00A0');
 		expect(region.textContent).toBe('Copied');
 	});
 
