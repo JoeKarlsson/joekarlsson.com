@@ -172,7 +172,7 @@ Reddit's "9:1" or "90/10" self-promotion ratio isn't in any current official Red
 - verified: never
 
 ### Unchecked subreddits worth reading before use
-r/homeassistant, r/devops (named in blog-new's old Distribution fit), r/ClaudeAI, r/mcp, r/Database, r/devrel, r/technicalwriting, r/creativecoding, r/proceduralgeneration, r/DigitalArt, r/TrueFilm, r/AskAcademia. No rule text found 2026-11-22; verified: never.
+r/homeassistant, r/devops (named in blog-new's old Distribution fit), r/ClaudeAI, r/mcp, r/Database, r/devrel, r/technicalwriting, r/creativecoding, r/proceduralgeneration, r/DigitalArt, r/AskAcademia. (r/TrueFilm has its own entry since 2026-11-24.) No rule text found 2026-11-22; verified: never.
 
 ## Forums and communities
 
@@ -494,3 +494,44 @@ r/homeassistant, r/devops (named in blog-new's old Distribution fit), r/ClaudeAI
 - source: https://www.are.na/editorial
 - verified: 2026-11-23
 
+
+## Added 2026-11-24 for script-vs-screen
+
+### Scriptnotes (John August and Craig Mazin's podcast)
+- lanes: film
+- rule: "Please include your first name and location (i.e. Tom in Bristol, England)." "Your question may show up on the site, or be answered in the podcast." "Craig and I can't answer every question." "We won't read your script, your treatment, your query letter, etc." "We almost never answer private emails."
+- format: a question for the show, built on the finding; not a pitch
+- submit: ask@johnaugust.com
+- status: active
+- source: https://johnaugust.com/ask
+- verified: 2026-11-24
+
+### Data Vis Dispatch (Datawrapper)
+- lanes: dataviz
+- rule: weekly on Tuesdays, "the best of last week's big and small data visualizations," "especially from news organizations"; the editors find most work themselves. Readers are invited to "Write us at hello@datawrapper.de"
+- format: a short email before the Tuesday after publishing (it covers the last seven days only)
+- submit: hello@datawrapper.de
+- status: active
+- source: https://www.datawrapper.de/blog/data-vis-dispatch-march-18-2025
+- verified: 2026-11-24
+
+### r/Screenwriting
+- lanes: film
+- rule: not read; Reddit refuses automated reads. Read https://www.reddit.com/r/Screenwriting/about/rules before posting.
+- format: text post with the findings as bullets, link at the bottom
+- status: active
+- verified: never
+
+### r/TrueFilm
+- lanes: film
+- rule: not read; Reddit refuses automated reads. Read https://www.reddit.com/r/TrueFilm/about/rules before posting.
+- format: discussion text post ending on a question, link at the bottom
+- status: active
+- verified: never
+
+### No Film School
+- lanes: film
+- rule: no tip or submission route found (search 2026-11-24); a Contact link exists, contents unread
+- status: unclear
+- source: https://nofilmschool.com/about
+- verified: 2026-11-24
