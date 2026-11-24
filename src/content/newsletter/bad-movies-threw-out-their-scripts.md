@@ -18,7 +18,7 @@ Going off script is a gamble, and most of the time it loses. The famous wins, li
 
 A film that kept under 20% of its script is about seven times as likely to be a flop (under 6 on IMDb) as one that kept 80% or more, and about a third as likely to be a classic (8 or higher). It's a real pattern with plenty of exceptions.
 
-I run [Bechdel Script Test](https://bechdel.joekarlsson.com/), which scores 3,711 movies against the Bechdel test by parsing their scripts, and the first thing anyone says about it is that the script isn't the movie. This was my way of checking: a tool that lines up each script with the released film's subtitles, the way `diff` lines up two versions of a file.
+I run [Bechdel Script Test](https://bechdel.joekarlsson.com/), which scores 3,711 movies against the Bechdel test by parsing their scripts, and the first thing anyone says about it is that the script isn't the movie. This was my way of checking: a tool that lines up each script with the released film's subtitles, the way `diff` lines up two versions of a file. And I accidentally made some discoveries about how films get made!
 
 [The full post](/blog/script-vs-screen/) has the interactive chart, where you can find any film. It also breaks the numbers down by script draft, genre and director, and has two clips and the full method.
 
@@ -72,14 +72,28 @@ What subtitles can't tell me is which way it runs: whether rewriting sinks films
 
 Bechdel Script Test already parsed the scripts, so the new parts were the screen side and the diff.
 
+### Getting the subtitles
+
 The subtitles come from the English part of the OpenSubtitles corpus, filed by IMDb id. The archive is 36 GB. The tool reads only the files it needs, with HTTP range requests. A film has a median of 17 English subtitle uploads. The tool takes up to nine, and a script word counts as said only when more than half of them have it, so one sloppy subtitler can't make a line look cut.
+
+### Diffing the script against the screen
+
+![How each film is scored, on one line from Blade Runner. The script has Pris say "I have some, but I have to find out where they are staying." The subtitles, up to nine versions per film, have "I have some, but I have to find them." Lined up word by word in order, 8 of the script's 13 words are said; a word counts only if most subtitle versions have it. Blade Runner's whole script scores 19%.](/images/blog/script-vs-screen/diagram-counting.svg)
 
 The diff normalizes both sides first (gonna becomes going to, numbers become words, ums are dropped). Then it anchors on word 4-grams that appear exactly once on each side, like patience diff, recurses into the gaps with shorter n-grams, and runs an exact longest common subsequence on small gaps. A reworded line counts as lost, so this measures exact wording, not plot.
 
-I checked it two ways. Five lines known to be improvised or rewritten, like "You're gonna need a bigger boat" and "tears in rain," have to come out as not in the script. When a famous line matched anyway (The Shining's script had "Here's Johnny!"), the script was a post-production transcript of the finished film, which is how I spotted transcripts. And I listened to 100 lines the tool called cut or reworded, in the films themselves. About nine in ten really were; the rest were subtitles shortening speech.
+### Checking it
+
+I checked it two ways. First, five lines known to be improvised or rewritten, like "You're gonna need a bigger boat" and "tears in rain," have to come out as not in the script. When a famous line matched anyway (The Shining's script had "Here's Johnny!"), the script was a post-production transcript of the finished film, which is how I spotted transcripts.
+
+Second, I listened to 100 lines the tool called cut or reworded, in the films themselves. About nine in ten really were; the rest were subtitles shortening speech.
+
+### Limits
 
 The correlation is real but modest (Spearman 0.26). Scripts online skew popular, American and recent, and ratings are IMDb's as of November 2026, so trust the patterns more than any one dot. The method and every check are in [METHODS.md](https://github.com/JoeKarlsson/bechdel-test/blob/main/docs/page-vs-screen/METHODS.md).
 
-As for the Bechdel scores: the words change a lot, but the verdict mostly doesn't. It holds for about 95% of the 1,699 films checked against [bechdeltest.com](https://bechdeltest.com/) readers who rated the released movies.
+### Did the Bechdel scores hold up?
+
+Mostly. The words change a lot, but the verdict doesn't. It holds for about 95% of the 1,699 films checked against [bechdeltest.com](https://bechdeltest.com/) readers who rated the released movies.
 
 <a class="button" href="/blog/script-vs-screen/">Read the full post</a>
