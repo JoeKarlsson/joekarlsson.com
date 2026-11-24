@@ -92,7 +92,6 @@ That's the asterisk in the title. Look at the bottom of that chart. _Jaws_ kept 
 
 I don't think that breaks the pattern. I think it explains it.
 
-![Chief Brody at the stern of the Orca with a cigarette in his mouth, the shark's head rising out of the bloody water right behind him.](/images/blog/script-vs-screen/jaws-bigger-boat-frame.webp "Jaws (1975), seconds before “You’re gonna need a bigger boat.” Frame from Universal Pictures’ official clip.")
 
 _Jaws_ was written while it was shot. The mechanical shark kept breaking down (during the shoot, American Cinematographer reported a week's delay "while Bruce got a nose job"), and Carl Gottlieb would rewrite a scene the night before they shot it. Its most famous line isn't in the script I have. Gottlieb says Roy Scheider ad-libbed "You're gonna need a bigger boat" on set. Who came up with it is disputed, but every version of the story has it coming from the set, not the page.
 
@@ -108,7 +107,6 @@ When it does work, it's close to a miracle, and you can't count on it happening 
 
 Here's the end of _Blade Runner_ (19% kept). The script in the study is Hampton Fancher's draft, and in it Roy Batty never gives a speech. He pulls a nail out of the wall, hands it to Deckard, and tells him what to do with it.
 
-![A page of Hampton Fancher's Blade Runner draft, scene 116, INT. TENTH FLOOR HALL - NIGHT. Batty says "It's time to die," pulls a ten-penny nail out of the wall, drops it in Deckard's hand and says "Stick it in your ear and push. If that doesn't work, try the eye."](/images/blog/script-vs-screen/blade-runner-draft-ending.webp 'margin: Page 116 of the draft in the study, as written.')
 
 Deckard shoots him a few lines later. Here's the same scene, script against screen:
 
@@ -116,7 +114,6 @@ Deckard shoots him a few lines later. Here's the same scene, script against scre
 
 Three words made it: "time to die." David Peoples rewrote Fancher's script and gave Batty a speech. Then Rutger Hauer called the scripted speech opera talk, cut it down the night before they filmed, and added the line about tears in rain. The result is one of the most quoted speeches in film.
 
-![Rutger Hauer in 1972, young, curly-haired, on the set of Paul Verhoeven's Turks Fruit with Monique van de Ven.](/images/blog/script-vs-screen/hauer-1972.webp 'margin: Rutger Hauer in 1972, ten years before Blade Runner. Rob Mieremet / Anefo, Nationaal Archief, CC0.')
 
 https://www.youtube.com/watch?v=jvFYgELj2X0
 
@@ -131,7 +128,6 @@ The other famous outliers have the same shape when you look at which script I ha
 
 ![The title page of the Apocalypse Now draft: A P O C A L Y P S E N O W. Original screenplay by John Milius. Inspired by Joseph Conrad's "HEART OF DARKNESS". This draft by Francis Ford Coppola. December 3, 1975.](/images/blog/script-vs-screen/apocalypse-now-title-page.webp 'margin: The title page of the Apocalypse Now script in the study.')
 
-![Francis Ford Coppola in 1976, bearded, in glasses.](/images/blog/script-vs-screen/coppola-1976.webp 'margin: Coppola in 1976, the year the shoot started. NBC publicity photo, public domain.')
 
 https://www.youtube.com/watch?v=NuxlYozLpeI
 
