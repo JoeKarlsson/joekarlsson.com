@@ -1773,7 +1773,7 @@
 		"alt": "My MagicMirror showing the song playing on Spotify",
 		"focus": 0.5,
 		"mark": {
-			"name": "cloud",
+			"name": "bolt",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
 		},
@@ -1879,7 +1879,7 @@
 		"alt": "Workers along an early Ford assembly line",
 		"focus": 0.5,
 		"mark": {
-			"name": "cloud",
+			"name": "star",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
 		},
@@ -2126,7 +2126,7 @@
 		"alt": "John Singer Sargent watercolor of a man lying in a hammock under palm trees by the water in Florida, 1917",
 		"focus": 0.5,
 		"mark": {
-			"name": "cloud",
+			"name": "flower",
 			"at": [82, 4, 14, 18],
 			"color": "chalk"
 		},

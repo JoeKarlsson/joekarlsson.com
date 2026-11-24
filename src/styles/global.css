@@ -399,6 +399,22 @@ header nav .sticker {
 	}
 }
 
+/* Crayon line on phones. A mark's line width is in its own drawing's units, so a mark drawn
+   at a third of its desktop size gets a third of the line, under 2px on a phone. Phones draw
+   it half again as thick (px here are the mark's own units, like the attribute) */
+@media (width < 48rem) {
+	.crayon-line > g {
+		stroke-width: calc(var(--line) * 1.5px);
+	}
+}
+/* A blog card's corner mark sits in a box too small for even that: a fixed screen line */
+@media (width < 40rem) {
+	.corner-mark path {
+		vector-effect: non-scaling-stroke;
+		stroke-width: 3px;
+	}
+}
+
 /* The crayon line under a section header (SectionRule) already divides the header from its
    list, so the list's own grey top border would draw a second line just under it: off on
    whatever comes right after the line, its first row, and a two-column list's second */

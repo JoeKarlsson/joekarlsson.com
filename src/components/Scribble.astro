@@ -61,10 +61,18 @@ if (ring && ringIndex < 0) throw new Error('Scribble: a ring must be one of RING
 	class:list={[
 		ring ? 'hover-ring' : oneStrokeAtATime ? 'redraw-strokes' : 'redraw',
 		once && 'draw-once',
+		// The line is in the mark's own units, so it thins as the box shrinks: phones thicken it
+		// (global.css, "Crayon line on phones"). Not stretched marks: they run a target's width
+		// and keep their weight already
+		!ring && !stretch && 'crayon-line',
 		'pointer-events-none absolute overflow-visible',
 		className,
 	]}
-	style={ring ? undefined : `--dur:${duration};--del:${delay};--n:${strokes.length}`}
+	style={
+		ring
+			? undefined
+			: `--dur:${duration};--del:${delay};--n:${strokes.length};--line:${strokeWidth}`
+	}
 	viewBox={viewBox}
 	preserveAspectRatio={ring || stretch ? 'none' : 'xMidYMid meet'}
 	aria-hidden="true"

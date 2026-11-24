@@ -11,7 +11,6 @@ import {
 	burstDense,
 	cat,
 	CHALK,
-	cloud,
 	daisy,
 	devil,
 	duck,
@@ -30,37 +29,44 @@ import { compactPath } from '../utils/compact-path';
 
 const PINK = '#ff4fd8';
 const SVG = 'http://www.w3.org/2000/svg';
-// Width in px of each doodle in the margin; height follows its viewBox
 const DOODLES = [
-	{ mark: face, width: 118 },
-	{ mark: spiral, width: 78 },
-	{ mark: flower, width: 104 },
-	{ mark: star, width: 70 },
-	{ mark: cloud, width: 96 },
-	{ mark: devil, width: 84 },
-	{ mark: bolt, width: 46 },
-	{ mark: asterisk, width: 42 },
-	{ mark: burstDense, width: 62 },
-	{ mark: tally, width: 96 },
-	{ mark: flowerBig, width: 110 },
-	{ mark: daisy, width: 84 },
-	{ mark: sparkle, width: 80 },
-	{ mark: tangle, width: 92 },
-	// Line figures (DECISIONS.md 2026-11-19): never drawn smaller than this width, so they
-	// read as drawings rather than icons
-	{ mark: waveHand, width: 130, figure: true },
-	{ mark: cat, width: 140, figure: true },
-	{ mark: duck, width: 120, figure: true },
-	{ mark: paperPlane, width: 130, figure: true },
+	{ mark: face },
+	{ mark: spiral },
+	{ mark: flower },
+	{ mark: star },
+	{ mark: devil },
+	{ mark: bolt },
+	{ mark: asterisk },
+	{ mark: burstDense },
+	{ mark: tally },
+	{ mark: flowerBig },
+	{ mark: daisy },
+	{ mark: sparkle },
+	{ mark: tangle },
+	// Line figures (DECISIONS.md 2026-11-19): never drawn small, so they read as drawings
+	// rather than icons
+	{ mark: waveHand, figure: true },
+	{ mark: cat, figure: true },
+	{ mark: duck, figure: true },
+	{ mark: paperPlane, figure: true },
 ];
 // Room for the longest pages; the ones past the end are dropped
 const SLOTS = 60;
 const FIRST_TOP = 180;
-// Doodle widths stay between these, so a big one fits a 224px margin
-const MIN_WIDTH = 26;
-const MAX_WIDTH = 172;
+// A doodle's longest side in px, by size: small, medium, big (big is capped to its margin)
+const SIZES = [
+	[80, 110],
+	[140, 190],
+	[240, 320],
+];
+const FIGURE_MIN = 130;
 // Smallest gap in px between a doodle and the window edge or the text column
 const MARGIN_INSET = 24;
+// Thinnest a doodle's line draws, in screen px: its width is in the mark's own units, so a
+// small doodle with a wide viewBox would otherwise draw a hairline
+const MIN_LINE = 3.5;
+// and thickest, so a small viewBox drawn big doesn't come out heavier than its neighbours
+const MAX_LINE = 6;
 // Clear space kept between the last doodle and the end of the content
 const BOTTOM_CLEARANCE = 40;
 
@@ -74,7 +80,12 @@ function seededRandom(seed: number) {
 	};
 }
 
-function drawDoodle(mark: { viewBox: string; path: string }, color: string): SVGSVGElement {
+function drawDoodle(
+	mark: { viewBox: string; path: string },
+	color: string,
+	minStroke: number,
+	maxStroke: number,
+): SVGSVGElement {
 	const svg = document.createElementNS(SVG, 'svg');
 	// The classes Scribble gives a multi-stroke mark drawn once
 	svg.setAttribute('class', 'redraw-strokes draw-once absolute inset-0 size-full overflow-visible');
@@ -90,7 +101,7 @@ function drawDoodle(mark: { viewBox: string; path: string }, color: string): SVG
 	for (const [name, value] of Object.entries({
 		fill: 'none',
 		stroke: color,
-		'stroke-width': '6',
+		'stroke-width': String(Math.min(Math.max(6, minStroke), maxStroke)),
 		'stroke-linecap': 'round',
 		'stroke-linejoin': 'round',
 		filter: 'url(#crayon)',
@@ -168,21 +179,37 @@ if (layer) {
 	// and lands at the cursor or, if that side is still busy, just below its last one.
 	// Across, it can sit anywhere in its margin, from near the window edge to near the
 	// text, so the two margins never line up into columns.
+	// A hidden width box at the column's real width: doodles size to the margin beside it,
+	// and the thread measures its lane from it
+	const lane = document.createElement('div');
+	lane.className = 'margin-lane invisible mx-auto';
+	lane.style.width = 'min(100%, var(--doodle-column))';
+	layer.append(lane);
+	const marginWidth = () => (layer.clientWidth - lane.clientWidth) / 2;
+	// The widest a doodle can be and still fit its margin at this window size (the script
+	// loads only once the window is wide enough for doodles)
+	const maxSide = marginWidth() - 2 * MARGIN_INSET;
+	// A margin too narrow for the biggest size squeezes all three into it, so they still differ
+	const [smallest, biggest] = [SIZES[0][0], SIZES[2][1]];
+	const floor = Math.min(smallest, maxSide * 0.6);
+	const fitSize = (side: number) =>
+		maxSide >= biggest
+			? side
+			: floor + ((side - smallest) * (maxSide - floor)) / (biggest - smallest);
 	let cursor = FIRST_TOP + random() * 160;
 	const nextFree = { left: 0, right: 0 };
 	for (let i = 0; i < SLOTS; i++) {
-		const { mark, width, figure } = order[i % order.length];
+		const { mark, figure } = order[i % order.length];
 		const [, , vbWidth, vbHeight] = mark.viewBox.split(' ').map(Number);
-		// Three sizes, like a margin filled over time: about a third small, half medium, the
-		// rest big. Capped to fit the narrowest margin (224px at 1600px, less the insets).
+		// Three sizes, like a margin filled over time: about a third small, a third medium, the
+		// rest big, so neighbours differ at a glance
 		const size = random();
-		const scale =
-			size < 0.35
-				? 0.45 + random() * 0.3
-				: size < 0.85
-					? 0.85 + random() * 0.45
-					: 1.6 + random() * 0.6;
-		const w = Math.max(figure ? width : MIN_WIDTH, Math.min(MAX_WIDTH, Math.round(width * scale)));
+		const [low, high] = SIZES[size < 0.33 ? 0 : size < 0.66 ? 1 : 2];
+		const longest = Math.min(
+			maxSide,
+			Math.max(figure ? FIGURE_MIN : 0, fitSize(low + random() * (high - low))),
+		);
+		const w = Math.round((longest * vbWidth) / Math.max(vbWidth, vbHeight));
 		const h = Math.round((w * vbHeight) / vbWidth);
 		const tilt = Math.round((random() - 0.5) * 34);
 		const color = random() < 0.55 ? CHALK : PINK;
@@ -203,14 +230,14 @@ if (layer) {
 				? 'var(--left-room, (100% - var(--doodle-column)) / 2)'
 				: '((100% - var(--doodle-column)) / 2)';
 		doodle.style.cssText = `top:${Math.round(top)}px;${side}:calc(${MARGIN_INSET}px + (${margin} - ${w + 2 * MARGIN_INSET}px) * ${across});width:${w}px;height:${h}px;transform:rotate(${tilt}deg)`;
-		doodle.append(drawDoodle(mark, color));
+		doodle.append(drawDoodle(mark, color, (MIN_LINE * vbWidth) / w, (MAX_LINE * vbWidth) / w));
 		layer.append(doodle);
 
 		nextFree[side] = top + h + 60 + random() * 240;
 		cursor += 90 + random() * 330;
 	}
 
-	const doodles = [...layer.children] as HTMLElement[];
+	const doodles = [...layer.children].filter((child) => child !== lane) as HTMLElement[];
 	// Hold each one until it's on screen, so it draws in as it scrolls into view
 	const setPlay = (doodle: Element, state: string) =>
 		doodle.querySelectorAll('path').forEach((path) => (path.style.animationPlayState = state));
@@ -226,13 +253,6 @@ if (layer) {
 		onScreen.observe(doodle);
 	}
 
-	// A hidden width box: the thread measures its lane from the column's real width
-	if (thread) {
-		const lane = document.createElement('div');
-		lane.className = 'margin-lane invisible mx-auto';
-		lane.style.width = 'min(100%, var(--doodle-column))';
-		layer.append(lane);
-	}
 	const threadSeed = random() * 2 ** 32;
 	// From the markup, not offsetTop: a hidden doodle measures 0 and would flip back on
 	const fit = () => {
@@ -241,9 +261,12 @@ if (layer) {
 		const leftRoom = tocLeft === null ? null : tocLeft - layer.getBoundingClientRect().left;
 		if (leftRoom === null) layer.style.removeProperty('--left-room');
 		else layer.style.setProperty('--left-room', `${leftRoom}px`);
+		// Sized for the margin at load; narrowed since, the big ones would run over the text
+		const margin = marginWidth();
 		for (const doodle of doodles)
 			doodle.hidden =
 				Number(doodle.dataset.bottom) > layer.clientHeight - BOTTOM_CLEARANCE ||
+				Number(doodle.dataset.room) > margin ||
 				(leftRoom !== null &&
 					doodle.dataset.left !== undefined &&
 					Number(doodle.dataset.room) > leftRoom);

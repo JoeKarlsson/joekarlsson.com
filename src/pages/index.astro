@@ -232,24 +232,24 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 				color={CHALK}
 				duration="10s"
 				delay="1s"
-				class="top-[52%] -left-[10%] h-[24%] w-[150%] max-md:top-[80%] max-md:left-[34%] max-md:h-[34%] max-md:w-[76%]"
+				class="top-[52%] -left-[10%] h-[24%] w-[150%] max-md:top-[70%] max-md:left-[16%] max-md:h-[52%] max-md:w-[92%]"
 			/>
 			{/* Phones: the 16:9 cut is all face, so the coil above drops to straddle the
-			clip's bottom-right edge instead of crossing it, and the lines below make room */}
+			clip's bottom edge instead of crossing it, and the lines below make room */}
 			<Scribble
 				{...MARKS.burst}
 				color={CHALK}
 				strokeWidth={6}
 				duration="8s"
 				delay="2.4s"
-				class="-top-[7%] -left-[7%] size-[22%]"
+				class="-top-[7%] -left-[7%] size-[22%] max-md:-top-[5%] max-md:-left-[3%] max-md:h-auto max-md:w-[32%] max-md:aspect-square"
 			/>
 			<Scribble
 				{...MARKS.tally}
 				color={CHALK}
 				duration="9s"
 				delay="0.6s"
-				class="top-[3%] -right-[8%] h-[12%] w-[26%]"
+				class="top-[3%] -right-[8%] h-[12%] w-[26%] max-md:h-[26%] max-md:w-[36%]"
 			/>
 			<Scribble
 				{...MARKS.lines}
@@ -263,7 +263,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 				color="#ff4fd8"
 				duration="8s"
 				delay="3.2s"
-				class="-right-[9%] -bottom-[12%] h-[13%] w-[24%]"
+				class="-right-[9%] -bottom-[12%] h-[13%] w-[24%] max-md:-bottom-[30%] max-md:h-[30%] max-md:w-[40%]"
 			/>
 		</div>
 		<div class="grid min-w-0 grid-rows-[auto_1fr] gap-4">
@@ -275,7 +275,7 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 						<Scribble
 							{...MARKS.rays}
 							color="#ff4fd8"
-							strokeWidth={10}
+							strokeWidth={7}
 							duration="6s"
 							delay="1.2s"
 							class="top-[2%] left-[42%] h-[30%] w-[22%]"

@@ -19,7 +19,7 @@ faq:
     answer: "They work for me: I write them every day, and they stop me from chewing on the same thoughts all day. I couldn't find a study of morning pages themselves, though. A 2006 meta-analysis of 146 expressive writing studies found a small average benefit, so I can only say they work for me."
   - question: "How long does The Artist's Way take?"
     answer: "The book is a 12-week program with one chapter a week. On top of reading, you write three pages of morning pages every day and take one artist date a week. Some people take a lot longer than 12 weeks, and that's fine."
-heroImage: '/images/blog/the-artists-way-review/thumb-5e609541.webp'
+heroImage: '/images/blog/the-artists-way-review/thumb-8dd485ac.webp'
 heroAlt: 'John Singer Sargent watercolor of a man lying in a hammock under palm trees by the water in Florida, 1917'
 interlude:
   after: 'The God language'

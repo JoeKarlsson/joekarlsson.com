@@ -54,6 +54,27 @@ test.describe("Joe's margin doodles", () => {
 		expect(new Set(sides)).toEqual(new Set(['right']));
 	});
 
+	test('sized for a wide window, never run over the text once it narrows', async ({ page }) => {
+		await page.setViewportSize({ width: 2560, height: 1300 });
+		await page.goto('/blog/the-artists-way-review/');
+		const layer = page.locator('.margin-doodles');
+		await expect.poll(() => layer.locator('.margin-lane').count()).toBe(1);
+		await page.setViewportSize({ width: 1620, height: 1300 });
+		await expect
+			.poll(() =>
+				layer.evaluate((l) => {
+					const text = l.querySelector('.margin-lane')!.getBoundingClientRect();
+					return [...l.querySelectorAll<HTMLElement>(':scope > div[style*="top"]')]
+						.filter((d) => !d.hidden)
+						.filter((d) => {
+							const r = d.getBoundingClientRect();
+							return r.right > text.left && r.left < text.right;
+						}).length;
+				}),
+			)
+			.toBe(0);
+	});
+
 	test('come back after the window narrows and widens again', async ({ page }) => {
 		await page.setViewportSize({ width: 1920, height: 1080 });
 		await page.goto('/contact/');
