@@ -28,7 +28,16 @@ import {
 } from '../../../utils/ui';
 import { halftoneMode } from '../../../utils/halftone';
 import { jsonForScript } from '../../../utils/json-for-script';
-import { oneLiner, reviewStats, reviewYears, type StatsReview } from '../../../utils/review-stats';
+import {
+	oneLiner,
+	reviewStats,
+	reviewYears,
+	watchesIn,
+	watchStats,
+	type DiaryEntry,
+	type StatsReview,
+} from '../../../utils/review-stats';
+import diaryData from '../../../data/letterboxd-diary.json';
 import { stars } from '../../../../scripts/update-reviews.mjs';
 
 export async function getStaticPaths() {
@@ -40,12 +49,18 @@ const year = Astro.params.year ? Number(Astro.params.year) : undefined;
 const all = (await getCollection('reviews')).map((e) => e.data);
 const entries = year ? all.filter((r) => r.date.getUTCFullYear() === year) : all;
 const s = reviewStats(all, year);
+const diary = diaryData as DiaryEntry[];
+const w = watchStats(diary, all, year);
 const years = reviewYears(all);
 const bySlug = new Map(entries.map((r) => [r.slug, r]));
 const firstYear = years.at(-1);
 const latestYear = years[0];
-const pool = s.fiveStars.length ? s.fiveStars : s.top;
-const featured = pool.find((r) => bySlug.get(r.slug)?.heroImage) ?? pool[0];
+// A year shows its #1; all time rotates daily through the five-stars that have a backdrop, picked
+// at build time, so no one film holds the hero (DECISIONS.md 2026-11-24)
+const pool = (s.fiveStars.length ? s.fiveStars : s.top).filter(
+	(r) => bySlug.get(r.slug)?.heroImage,
+);
+const featured = year ? s.top[0] : (pool[Math.floor(Date.now() / 864e5) % pool.length] ?? s.top[0]);
 const hero = bySlug.get(featured.slug)!;
 const when = year ? `in ${year}` : 'all time';
 const ranked = year ? `${year} ranked` : 'All-time ranked';
@@ -63,7 +78,7 @@ const H2 = ARTICLE_HEADING.replace('mb-5', 'mb-2');
 const SUB = `${META} mb-6`;
 const PANEL = 'relative min-w-0 rounded-xl bg-surface-1 p-5 md:p-7';
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const maxRating = Math.max(...s.ratings.map((r) => r.count));
+const maxRating = Math.max(...w.ratings.map((r) => r.watched));
 const maxDecade = Math.max(...s.decades.map((d) => d.count));
 const posterLabel = (r: StatsReview) =>
 	`${r.title} (${r.year})${r.rating ? `, ${r.rating} stars` : ''}`;
@@ -95,8 +110,8 @@ const milestones = [
 	title={`${year ? `${year} film` : 'Film'} review stats | Joe Karlsson`}
 	description={
 		year
-			? `My ${s.reviews} film reviews from ${year} in numbers: ratings, hours, my top ten, the directors, cast and countries I watched most.`
-			: `The numbers behind my ${s.reviews} film reviews: how I rate, what I watch, which decades and directors I keep coming back to.`
+			? `The ${fmt(w.watched)} films I watched in ${year} and my ${s.reviews} reviews in numbers: ratings, hours, my top ten, the directors, cast and countries I watched most.`
+			: `The numbers behind the ${fmt(w.watched)} films I've logged and my ${s.reviews} reviews: how I rate, what I watch, which decades and directors I keep coming back to.`
 	}
 	schemaType="CollectionPage"
 >
@@ -157,8 +172,8 @@ const milestones = [
 			</a>
 			<p class={HERO_LEAD}>
 				{year
-					? `${s.reviews} reviews of ${s.films} films in ${year}.`
-					: `${s.reviews} reviews of ${s.films} films since ${firstYear}.`}{' '}
+					? `${fmt(w.watched)} films watched and ${s.reviews} reviewed in ${year}.`
+					: `${fmt(w.watched)} films logged and ${s.reviews} reviewed since ${firstYear}.`}{' '}
 				<a href="/reviews/" class={MORE_LINK}>
 					All reviews
 				</a>
@@ -173,23 +188,21 @@ const milestones = [
 					aria-current={y === year ? 'page' : undefined}
 				>
 					{y ?? 'All time'}{' '}
-					<span class="text-muted">
-						{y ? all.filter((r) => r.date.getUTCFullYear() === y).length : all.length}
-					</span>
+					<span class="text-muted">{fmt(y ? watchesIn(diary, y).length : diary.length)}</span>
 				</a>
 			))}
 		</nav>
 
 		<div class="mb-3 grid grid-cols-2 gap-3 md:grid-cols-4">
 			{[
-				[fmt(s.reviews), 'reviews'],
-				[fmt(s.films), 'films'],
-				[fmt(s.hours), 'hours'],
-				[averageText(s.average, 2), 'average rating'],
+				[fmt(w.watched), 'films watched'],
+				[fmt(w.reviewed), 'reviewed'],
+				[fmt(w.rewatches), 'rewatches'],
+				[averageText(w.average, 2), 'average rating'],
+				[fmt(s.hours), 'hours reviewed'],
 				[s.directors, 'directors'],
 				[s.countries, 'countries'],
 				[s.streak, s.streak === 1 ? 'week streak' : 'weeks in a row'],
-				[s.multiFilmDays, 'days with 2+ films'],
 			].map(([n, label]) => (
 				<div class="rounded-xl bg-surface-1 p-5 md:p-7">
 					<div class="font-display text-[clamp(2.75rem,6vw,4rem)] leading-none" data-roll>
@@ -202,7 +215,7 @@ const milestones = [
 
 		<div class={`${PANEL} mb-3`}>
 			<h2 class={`${GROUP_HEADING} mb-2`}>Ratings</h2>
-			<p class={SUB}>Stars given {when}</p>
+			<p class={SUB}>Stars given {when}, every rated watch, the reviewed ones solid</p>
 			<div
 				class="stats-chart"
 				style={`--n:${s.ratings.length}`}
@@ -210,7 +223,7 @@ const milestones = [
 				data-rating-chart
 				data-build
 			>
-				{s.ratings.map(({ step, count }, i) => (
+				{w.ratings.map(({ step, watched: count, reviewed }, i) => (
 					<>
 						<span class="stats-count relative" style={`grid-column:${i + 1};--i:${i}`}>
 							{count}
@@ -227,10 +240,14 @@ const milestones = [
 							)}
 						</span>
 						<span
-							class="stats-bar"
+							class="stats-bar stats-split"
 							style={`grid-column:${i + 1};--i:${i};height:${Math.max(2, (count / maxRating) * 160)}px`}
 							data-step={step}
-						/>
+						>
+							{reviewed > 0 && (
+								<span class="stats-part" style={`height:${(reviewed / count) * 100}%`} />
+							)}
+						</span>
 						{/* The figure sits in its own layer over the bar: the bar's rough filter would crop it */}
 						{step === 5 && (
 							<span
@@ -276,10 +293,10 @@ const milestones = [
 						</span>
 					</>
 				))}
-				{s.reviews >= 20 && s.ratings.findIndex((r) => r.count === maxRating) > 0 && (
+				{s.reviews >= 20 && w.ratings.findIndex((r) => r.watched === maxRating) > 0 && (
 					<span
 						class="stats-note-text"
-						style={`grid-column:1 / ${s.ratings.findIndex((r) => r.count === maxRating) + 1}`}
+						style={`grid-column:1 / ${w.ratings.findIndex((r) => r.watched === maxRating) + 1}`}
 						aria-hidden="true"
 					>
 						my default
@@ -287,15 +304,17 @@ const milestones = [
 				)}
 			</div>
 			<table class="sr-only">
-				<caption>{`Reviews by star rating, ${when}`}</caption>
+				<caption>{`Films watched and reviewed by star rating, ${when}`}</caption>
 				<tr>
 					<th scope="col">Stars</th>
-					<th scope="col">Reviews</th>
+					<th scope="col">Watched</th>
+					<th scope="col">Reviewed</th>
 				</tr>
-				{s.ratings.map(({ step, count }) => (
+				{w.ratings.map(({ step, watched, reviewed }) => (
 					<tr>
-						<td>{step}</td>
-						<td>{count}</td>
+						<th scope="row">{step}</th>
+						<td>{watched}</td>
+						<td>{reviewed}</td>
 					</tr>
 				))}
 			</table>
@@ -307,30 +326,36 @@ const milestones = [
 					<>
 						<h2 class={`${GROUP_HEADING} mb-2`}>By month</h2>
 						<p class={SUB}>
-							{s.reviews} reviews in {year}
+							{fmt(w.watched)} films watched in {year}, the {s.reviews} reviewed ones solid
 						</p>
 						<StatsBars
-							caption={`Reviews by month, ${year}`}
-							header={['Month', 'Reviews']}
-							items={s.months.map(({ month, count }) => ({
-								name: MONTHS[month],
-								label: MONTHS[month],
-								value: count,
+							caption={`Films watched and reviewed by month, ${year}`}
+							header={['Month', 'Watched', 'Reviewed']}
+							items={w.months.map(({ watched, reviewed }, m) => ({
+								name: MONTHS[m],
+								label: MONTHS[m],
+								value: watched,
+								part: reviewed,
 							}))}
 						/>
 					</>
 				) : (
 					<>
 						<h2 class={`${GROUP_HEADING} mb-2`}>By year</h2>
-						<p class={SUB}>Reviews each year, with my average rating</p>
+						<p class={SUB}>
+							Films watched each year, the reviewed ones solid, with my average rating
+						</p>
 						<StatsBars
-							caption="Reviews by year"
-							header={['Year', 'Reviews']}
-							items={s.years.map(({ year: y, count, average }) => ({
-								name: `${y}, average ${averageText(average, 1)}`,
+							caption="Films watched and reviewed by year"
+							header={['Year', 'Watched', 'Reviewed']}
+							items={w.years.map(({ year: y, watched, reviewed, average }) => ({
+								name: Number.isNaN(average)
+									? String(y)
+									: `${y}, average ${averageText(average, 1)}`,
 								label: String(y),
-								sub: averageText(average, 1),
-								value: count,
+								sub: Number.isNaN(average) ? undefined : averageText(average, 1),
+								value: watched,
+								part: reviewed,
 							}))}
 						/>
 					</>
@@ -338,11 +363,16 @@ const milestones = [
 			</div>
 			<div class={PANEL}>
 				<h2 class={`${GROUP_HEADING} mb-2`}>By day of the week</h2>
-				<p class={SUB}>The day I watched, {when}</p>
+				<p class={SUB}>The day I watched, {when}, the reviewed ones solid</p>
 				<StatsBars
-					caption={`Reviews by day of the week, ${when}`}
-					header={['Day', 'Reviews']}
-					items={s.weekdays.map(({ day, count }) => ({ name: day, label: day, value: count }))}
+					caption={`Films watched and reviewed by day of the week, ${when}`}
+					header={['Day', 'Watched', 'Reviewed']}
+					items={w.weekdays.map(({ name, watched, reviewed }) => ({
+						name,
+						label: name,
+						value: watched,
+						part: reviewed,
+					}))}
 				/>
 			</div>
 		</div>
@@ -714,6 +744,39 @@ const milestones = [
 		border-radius: 4px 4px 0 0;
 		background: var(--color-pink);
 		filter: url(#rough);
+	}
+	/* Split bars (DECISIONS.md 2026-11-24): the whole bar is every watch, outlined; the solid
+	   part from the bottom is what got a review */
+	.stats-split {
+		background: color-mix(in oklab, var(--color-pink) 18%, var(--color-ink));
+		box-shadow: inset 0 0 0 2px var(--color-pink);
+	}
+	.stats-part {
+		position: absolute;
+		inset: auto 0 0;
+		min-height: 5px;
+		border-radius: inherit;
+		background: var(--color-pink);
+	}
+	/* Lit or hovered, a split bar lights its reviewed part and keeps the outlined rest, so every
+	   bar responds and the split still reads (doubled class: outranks the paper rule below) */
+	.stats-split.stats-split.lit,
+	.stats-chart .stats-split.stats-split:hover {
+		background: color-mix(in oklab, var(--color-pink) 18%, var(--color-ink));
+	}
+	.stats-split:is(.lit, :hover) .stats-part {
+		background: var(--color-paper);
+	}
+	/* High contrast drops box-shadows and recolors fills to Canvas: draw the split with system colors */
+	@media (forced-colors: active) {
+		.stats-bar,
+		.stats-part {
+			background: CanvasText;
+		}
+		.stats-split {
+			background: Canvas;
+			border: 2px solid CanvasText;
+		}
 	}
 	.stats-bar.lit,
 	.stats-chart .stats-bar:hover,

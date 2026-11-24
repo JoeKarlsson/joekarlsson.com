@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import {
+	hasRealWatchDate,
 	longestWeekStreak,
 	oneLiner,
 	reviewStats,
+	watchStats,
+	type DiaryEntry,
 	type StatsReview,
 } from '../src/utils/review-stats';
 import { swellScale } from '../src/scripts/review-stats';
@@ -61,8 +64,6 @@ describe('reviewStats', () => {
 
 	it('counts a rewatch as a review but the film once', () => {
 		expect(stats.reviews).toBe(4);
-		expect(stats.films).toBe(3);
-		expect(stats.rewatches).toBe(1);
 		const coen = stats.directorList.most.find((d) => d.name === 'Joel Coen')!;
 		expect(coen.films.map((f) => f.slug)).toEqual(['fargo-1', 'barton-fink']);
 	});
@@ -72,17 +73,10 @@ describe('reviewStats', () => {
 		expect(stats.decades[1]).toMatchObject({ count: 2, best: { slug: 'fargo-1' } });
 	});
 
-	it("limits a year to its own reviews and runs its months to the newest review's", () => {
+	it('limits a year to its own reviews', () => {
 		const year = reviewStats(reviews, 2026);
 		expect(year.reviews).toBe(3);
-		expect(year.months.map((m) => m.count)).toEqual([0, 1, 1, 0, 1]);
 		expect(year.milestones.first.slug).toBe('new');
-		// A finished year runs all twelve months
-		expect(reviewStats(reviews, 2025).months).toHaveLength(12);
-		expect(stats.years.map((y) => [y.year, y.count])).toEqual([
-			[2025, 1],
-			[2026, 3],
-		]);
 	});
 
 	it('ranks highest rated only past three films, and finds my biggest gaps from Letterboxd', () => {
@@ -117,6 +111,58 @@ describe('reviewStats', () => {
 	it('keeps a five-star film only while its latest review is five stars', () => {
 		expect(stats.fiveStars).toEqual([]);
 		expect(stats.ratings.find((r) => r.step === 5)!.count).toBe(1);
+	});
+});
+
+describe('watchStats', () => {
+	const watch = (watched: string, over: Partial<DiaryEntry> = {}): DiaryEntry => ({
+		title: 'Film',
+		year: 2000,
+		watched,
+		logged: watched,
+		rating: 3,
+		rewatch: false,
+		...over,
+	});
+	const diary = [
+		watch('2026-01-05'),
+		watch('2026-03-01', { rewatch: true, rating: 4 }),
+		watch('2026-05-20', { rating: null }),
+		watch('2025-07-04'),
+		// A backfill logged on the release date: all time only
+		watch('1922-02-16', { year: 1922, logged: '2026-11-21' }),
+	];
+	const reviews = [review({ date: new Date('2026-03-01'), rating: 4 })];
+
+	it('tells a backfilled release date from a real watch', () => {
+		expect(hasRealWatchDate(diary[4])).toBe(false);
+		// Seen in its release year and logged the same week is a real date
+		expect(hasRealWatchDate(watch('2026-11-23', { year: 2026, logged: '2026-11-25' }))).toBe(true);
+	});
+
+	it('counts a year from real dates and all time from everything', () => {
+		const year = watchStats(diary, reviews, 2026);
+		expect([year.watched, year.reviewed, year.rewatches]).toEqual([3, 1, 1]);
+		expect(year.average).toBe(3.5);
+		expect(watchStats(diary, reviews).watched).toBe(5);
+		expect(watchStats(diary, reviews).years.map((y) => y.year)).toEqual([2025, 2026]);
+	});
+
+	it('splits months into watched and reviewed, and runs the latest year to its newest month', () => {
+		const months = watchStats(diary, reviews, 2026).months;
+		expect(months.map((m) => [m.watched, m.reviewed])).toEqual([
+			[1, 0],
+			[0, 0],
+			[1, 1],
+			[0, 0],
+			[1, 0],
+		]);
+		expect(watchStats(diary, reviews, 2025).months).toHaveLength(12);
+	});
+
+	it('never shows fewer watches than reviews in a bar', () => {
+		const five = watchStats(diary, [review({ rating: 5 })], 2026).ratings.at(-1)!;
+		expect([five.watched, five.reviewed]).toEqual([1, 1]);
 	});
 });
 

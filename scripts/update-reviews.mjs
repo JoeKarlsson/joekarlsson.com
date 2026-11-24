@@ -14,13 +14,14 @@ import sharp from 'sharp';
 // 159 + the "…" truncateAtWord adds = the 160 characters search results show
 import { truncateAtWord } from './now-feed-parsing.mjs';
 import { parseReviewUrl } from '../src/utils/letterboxd-url.mjs';
+import { syncDiaryFromRss } from './letterboxd-diary.mjs';
 
 const USER = 'joekarlsson';
 const CONTENT = 'src/content/reviews';
 const IMAGES = 'public/images/reviews';
 const HEADERS = { 'User-Agent': 'Mozilla/5.0 (joekarlsson.com review import)' };
 
-const decode = (s) =>
+export const decode = (s) =>
 	s
 		.replace(/&#0?39;/g, "'")
 		.replace(/&quot;/g, '"')
@@ -280,10 +281,8 @@ function fromExport(path) {
 
 if (import.meta.url === `file://${process.argv[1]}`) {
 	const exportAt = process.argv.indexOf('--export');
-	const reviews =
-		exportAt > 0
-			? fromExport(process.argv[exportAt + 1])
-			: fromRss(await (await get(`https://letterboxd.com/${USER}/rss/`)).text());
+	const rss = exportAt > 0 ? '' : await (await get(`https://letterboxd.com/${USER}/rss/`)).text();
+	const reviews = exportAt > 0 ? fromExport(process.argv[exportAt + 1]) : fromRss(rss);
 	mkdirSync(CONTENT, { recursive: true });
 	let added = 0;
 	for (const r of reviews) {
@@ -298,4 +297,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 		}
 	}
 	console.log(`${added} new reviews, ${reviews.length} checked`);
+	// The stats page counts every logged film, not only reviews (scripts/letterboxd-diary.mjs)
+	if (rss) console.log(`${await syncDiaryFromRss(rss)} new diary entries`);
 }

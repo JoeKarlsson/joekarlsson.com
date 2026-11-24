@@ -2,12 +2,12 @@
 // A /reviews/stats/ bar chart: counts over the bars, labels under them, all on one grid so
 // each label sits under its bar. The styles and the build-in live with the page
 // (pages/reviews/stats/[...year].astro, scripts/review-stats.ts); screen readers get the
-// table.
+// table. With `part`, a bar is split: the part solid pink (reviewed), the rest outlined.
 interface Props {
 	caption: string;
 	// `label` sits under the bar (empty leaves a gap), `name` names it in the table
-	items: { name: string; label: string; sub?: string; value: number }[];
-	header: [string, string];
+	items: { name: string; label: string; sub?: string; value: number; part?: number }[];
+	header: [string, string] | [string, string, string];
 	counts?: boolean;
 	height?: number;
 }
@@ -22,7 +22,7 @@ const max = Math.max(1, ...items.map((i) => i.value));
 	aria-hidden="true"
 	data-build
 >
-	{items.map(({ label, sub, value }, i) => (
+	{items.map(({ label, sub, value, part }, i) => (
 		<>
 			{counts && (
 				<span class="stats-count" style={`grid-column:${i + 1};--i:${i}`}>
@@ -30,9 +30,11 @@ const max = Math.max(1, ...items.map((i) => i.value));
 				</span>
 			)}
 			<span
-				class="stats-bar"
+				class:list={['stats-bar', part !== undefined && 'stats-split']}
 				style={`grid-column:${i + 1};--i:${i};height:${Math.max(2, (value / max) * height)}px`}
-			/>
+			>
+				{!!part && <span class="stats-part" style={`height:${(part / value) * 100}%`} />}
+			</span>
 			<span class="stats-label" style={`grid-column:${i + 1}`}>
 				{label}
 				{sub && (
@@ -49,11 +51,13 @@ const max = Math.max(1, ...items.map((i) => i.value));
 	<tr>
 		<th scope="col">{header[0]}</th>
 		<th scope="col">{header[1]}</th>
+		{header[2] && <th scope="col">{header[2]}</th>}
 	</tr>
-	{items.map(({ name, value }) => (
+	{items.map(({ name, value, part }) => (
 		<tr>
-			<td>{name}</td>
+			<th scope="row">{name}</th>
 			<td>{value}</td>
+			{header[2] && <td>{part}</td>}
 		</tr>
 	))}
 </table>
