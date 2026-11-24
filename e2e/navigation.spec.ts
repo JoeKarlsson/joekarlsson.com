@@ -71,6 +71,40 @@ test.describe('Mobile Navigation', () => {
 		await nav.getByRole('link', { name: 'About' }).click();
 		await expect(page).toHaveURL(/\/about/);
 	});
+
+	// A native popover (Modern Web Guidance, navbar): the browser closes it on Escape and on a
+	// tap outside; tabbing out of the menu still closes it, as before (Joe's call)
+	test('the menu is a popover that Escape, a tap outside and tabbing out all close', async ({
+		page,
+	}) => {
+		await page.goto('/');
+		const nav = page.locator('header nav');
+		const menu = nav.locator('[data-nav-menu-toggle]');
+		const links = page.locator('#nav-section-links');
+
+		await menu.focus();
+		await page.keyboard.press('Enter');
+		await expect(links).toBeVisible();
+		expect(await links.evaluate((el) => el.matches(':popover-open'))).toBe(true);
+		await expect(menu).toHaveAttribute('aria-expanded', 'true');
+		await page.keyboard.press('Tab');
+		await page.keyboard.press('Escape');
+		await expect(links).toBeHidden();
+		await expect(menu).toHaveAttribute('aria-expanded', 'false');
+		await expect(menu).toBeFocused();
+
+		await menu.click();
+		await expect(links).toBeVisible();
+		await page.mouse.click(180, 500);
+		await expect(links).toBeHidden();
+		await expect(menu).toHaveAttribute('aria-expanded', 'false');
+
+		await menu.click();
+		await nav.getByRole('button', { name: 'Pause motion' }).focus();
+		await page.keyboard.press('Tab');
+		await expect(links).toBeHidden();
+		await expect(menu).toHaveAttribute('aria-expanded', 'false');
+	});
 });
 
 test.describe('Pause motion', () => {

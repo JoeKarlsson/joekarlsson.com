@@ -56,6 +56,7 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 		<button
 			type="button"
 			data-nav-menu-toggle
+			popovertarget="nav-section-links"
 			aria-expanded="false"
 			aria-controls="nav-section-links"
 			class="group/menu sticker flex h-11 shrink-0 cursor-pointer items-center gap-2 rounded-md bg-pink px-3 text-lg tracking-[0.04em] text-ink uppercase hover:bg-ink hover:text-pink aria-expanded:bg-ink aria-expanded:text-pink md:hidden"
@@ -217,13 +218,33 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 		.pause-label {
 			display: inline;
 		}
+		/* The links as a popover (the script below sets it on phones): the same box as the
+		   dropdown under the bar, placed under the nav by position-area since a popover leaves
+		   it for the top layer (anchor() lands 8px high in Chromium, which drops the bar's
+		   sticky offset). Undoes the popover's own box: centered, scrolling, system colors */
+		header nav[aria-label='Main'] {
+			anchor-name: --main-nav;
+		}
+		#nav-section-links[popover] {
+			position: fixed;
+			position-anchor: --main-nav;
+			position-area: bottom center;
+			justify-self: stretch;
+			align-self: start;
+			inset: auto;
+			width: auto;
+			height: auto;
+			margin: 0.29em 0 0;
+			overflow: visible;
+			color: inherit;
+		}
 	}
 </style>
 
 <script>
 	import { initReadingContext } from '../scripts/reading-context';
 
-	// Phones: MENU opens the section links; Escape or a tap outside the bar closes them
+	// Phones: MENU opens the section links; Escape, a tap outside or tabbing out closes them
 	const nav = document.querySelector<HTMLElement>('header nav[aria-label="Main"]');
 	const menuToggle = nav?.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
 	if (nav) initReadingContext(nav);
@@ -265,25 +286,47 @@ the menu is the first thing on screen; from md up the homepage hero comes first 
 	addEventListener('pageshow', () =>
 		nav?.querySelectorAll('[data-loading]').forEach((link) => link.removeAttribute('data-loading')),
 	);
-	if (nav && menuToggle) {
+	const menu = nav?.querySelector<HTMLElement>('#nav-section-links');
+	if (nav && menuToggle && menu) {
+		// data-menu-open drives the menu's look and motion (motion.css) in both versions below
 		const setMenuOpen = (open: boolean) => {
 			nav.toggleAttribute('data-menu-open', open);
 			menuToggle.setAttribute('aria-expanded', String(open));
 		};
-		menuToggle.addEventListener('click', () => setMenuOpen(!nav.hasAttribute('data-menu-open')));
-		document.addEventListener('keydown', (event) => {
-			if (event.key === 'Escape' && nav.hasAttribute('data-menu-open')) {
+		let closeMenu = () => setMenuOpen(false);
+		if ('popover' in HTMLElement.prototype && CSS.supports('position-area: bottom')) {
+			// Phones: the links are a popover that MENU toggles (popovertarget), so the browser
+			// closes it on Escape or a tap outside (Modern Web Guidance, navbar). Wider, they sit in
+			// the bar, so they're no popover. Placing it needs anchor positioning, hence the check
+			const phone = matchMedia('(width < 48rem)');
+			menu.addEventListener('beforetoggle', (event) =>
+				setMenuOpen((event as ToggleEvent).newState === 'open'),
+			);
+			const matchLayout = () => {
+				if (phone.matches) return menu.setAttribute('popover', 'auto');
 				setMenuOpen(false);
-				menuToggle.focus();
-			}
-		});
-		document.addEventListener('click', (event) => {
-			if (!nav.contains(event.target as Node)) setMenuOpen(false);
-		});
+				menu.removeAttribute('popover');
+			};
+			matchLayout();
+			phone.addEventListener('change', matchLayout);
+			closeMenu = () => menu.matches(':popover-open') && menu.hidePopover();
+		} else {
+			// Without them: the same by hand
+			menuToggle.addEventListener('click', () => setMenuOpen(!nav.hasAttribute('data-menu-open')));
+			document.addEventListener('keydown', (event) => {
+				if (event.key === 'Escape' && nav.hasAttribute('data-menu-open')) {
+					setMenuOpen(false);
+					menuToggle.focus();
+				}
+			});
+			document.addEventListener('click', (event) => {
+				if (!nav.contains(event.target as Node)) setMenuOpen(false);
+			});
+		}
 		// Tabbing past the last row closes it, so focus never lands on links hidden behind it
 		nav.addEventListener('focusout', (event) => {
 			if (nav.hasAttribute('data-menu-open') && !nav.contains(event.relatedTarget as Node))
-				setMenuOpen(false);
+				closeMenu();
 		});
 	}
 </script>
