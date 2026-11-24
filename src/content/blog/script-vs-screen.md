@@ -91,7 +91,7 @@ Put the films in groups by how much of their script they kept, and the gamble sh
 | 60% to 80%  |   325 |            4% |      11% |
 | 80% or more |   217 |            3% |      16% |
 
-So a film that kept under 20% of its script is about seven times as likely to be a flop as one that kept 80% or more, and about a third as likely to be a classic. The top group is where some of the scripts online are really transcripts, but leave it out and the gap still holds: 15% flops among films that kept 20% to 40%, against 4% among films that kept 60% to 80%.
+So a film that kept under 20% of its script is about seven times as likely to be a flop as one that kept 80% or more, and about a third as likely to be a classic. The top group is where some of the scripts online are transcripts of the finished film, but leave it out and the gap still holds: 15% flops among films that kept 20% to 40%, against 4% among films that kept 60% to 80%.
 
 ## Better movies keep more in every kind of draft
 
@@ -176,7 +176,7 @@ I didn't set out to study script rewrites. I run [Bechdel Script Test](https://b
 
 ![How each film is scored, on one line from Blade Runner. The script has Pris say "I have some, but I have to find out where they are staying." The subtitles have "I have some, but I have to find them." Lined up word by word, in order, 8 of the script's 13 words are said; a word counts only if most of the film's subtitle versions have it. Blade Runner's whole script scores 19%.](/images/blog/script-vs-screen/diagram-counting.svg)
 
-For each film I took the share of the script's dialogue words that turn up in the English subtitles in the same order. A reworded line counts as lost, so this measures exact wording, not plot. Subtitles shorten speech, so I listened to 100 lines my tool called cut or reworded, in the films themselves; about nine in ten really were.
+For each film I took the share of the script's dialogue words that turn up in the English subtitles in the same order. A reworded line counts as lost, so this measures exact wording, not plot. Subtitles shorten speech, so I listened to 100 lines my tool called cut or reworded, in the films themselves; about nine in ten were.
 
 The limits: subtitles aren't a transcript, and "not in the script" means not in the draft I had. A single film's score depends on which version of its script is online: Judd Apatow's _Knocked Up_ kept 96% of its script and his _Funny People_ 11%, and the _Knocked Up_ script online is probably a transcript, so trust the patterns more than any one dot. Scripts online skew popular, American and recent. Ratings are IMDb's, as of November 2026. I couldn't find a good explanation for why war and sport movies sit at the bottom with action. The method and every check are in [METHODS.md](https://github.com/JoeKarlsson/bechdel-test/blob/main/docs/page-vs-screen/METHODS.md).
 
