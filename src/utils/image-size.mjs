@@ -16,7 +16,7 @@ export async function localImageSize(src, publicDir = PUBLIC_DIR) {
 	const { width, height } = await sharp(path)
 		.metadata()
 		.catch((error) => {
-			throw new Error(`Image ${src} not found in public/: ${error.message}`);
+			throw new Error(`Image ${src} not found in public/: ${error.message}`, { cause: error });
 		});
 	return { width, height };
 }

@@ -47,7 +47,7 @@ const aboutHeadings = [
 // What I do. Make stuff and Writing and videos cycle through my newest projects and posts, so the
 // pictures and the "Newest" line change every time I ship something
 const FRAMES = 4;
-const newestProjects = [...projects].sort((a, b) => b.date.localeCompare(a.date)).slice(0, FRAMES);
+const newestProjects = projects.toSorted((a, b) => b.date.localeCompare(a.date)).slice(0, FRAMES);
 const newestPosts = (await getFeedPosts())
 	.filter((post) => isOwnPost(post) && post.data.heroImage)
 	.slice(0, FRAMES);

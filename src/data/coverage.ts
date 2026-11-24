@@ -1328,7 +1328,7 @@ export const coverage: Coverage[] = [
 
 // /featured/'s Cited in research, newest first. The sort is stable, so within a year the order
 // above holds; About keeps the first three of `papers` as written
-export const papersNewestFirst = [...papers].sort((a, b) => b.year - a.year);
+export const papersNewestFirst = papers.toSorted((a, b) => b.year - a.year);
 
 // One kind's entries, newest first, undated last: the order /featured/ lists them in
 export const coverageOf = (kind: CoverageKind) =>

@@ -1748,8 +1748,8 @@ export function talkMainLink(talk: Talk): string | undefined {
 
 /** The newest talk, demo or episode with somewhere to send people (the pink band on /talks and /about) */
 export function newestLinkedTalk(): { talk: Talk; href: string } {
-	const newest = [...talks]
-		.sort((a, b) => b.date.localeCompare(a.date))
+	const newest = talks
+		.toSorted((a, b) => b.date.localeCompare(a.date))
 		.map((talk) => ({ talk, href: talkMainLink(talk) }))
 		.find((item): item is { talk: Talk; href: string } => Boolean(item.href));
 	if (!newest) throw new Error('No talk has a link for the featured band');

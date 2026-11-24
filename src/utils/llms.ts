@@ -147,8 +147,8 @@ export function listFeaturedWork(): string[] {
 
 /** Every project on /work/, newest first, linked to its page or its own site. */
 export function listAllWork(): string[] {
-	return [...projects]
-		.sort((a, b) => b.date.localeCompare(a.date))
+	return projects
+		.toSorted((a, b) => b.date.localeCompare(a.date))
 		.map((project) => {
 			return `- [${project.title}](${projectUrl(project)}): ${project.description} (${project.date.slice(0, 4)})`;
 		});
