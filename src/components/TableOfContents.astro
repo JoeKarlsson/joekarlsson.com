@@ -100,35 +100,45 @@ the notes below show. About keeps it in its sidebar. Narrower screens get the fo
 			currentActive = index;
 		}
 
-		function getActiveIndex(): number {
-			// Past where a jump lands: 96px (html scroll-padding-top), 192px for a chapter opener
-			const offset = 200;
-			let active = 0;
+		// Past where a jump lands: 96px (html scroll-padding-top), 192px for a chapter opener
+		const offset = 200;
 
+		// The last heading at or above the offset line. Measured once, for the first paint
+		function getActiveIndex(): number {
+			let active = 0;
 			for (let i = 0; i < headingEls.length; i++) {
 				const el = headingEls[i];
-				if (!el) continue;
-				if (el.getBoundingClientRect().top <= offset) {
-					active = i;
-				}
+				if (el && el.getBoundingClientRect().top <= offset) active = i;
 			}
 			return active;
 		}
 
-		let ticking = false;
-		window.addEventListener(
-			'scroll',
-			() => {
-				if (!ticking) {
-					requestAnimationFrame(() => {
-						setActive(getActiveIndex());
-						ticking = false;
-					});
-					ticking = true;
-				}
-			},
-			{ passive: true },
-		);
+		// After that an IntersectionObserver says when a heading crosses the line, so scrolling
+		// measures nothing (Modern Web Guidance, scrollspy). Its root runs from far above the page
+		// down to the line, so a heading is in it once it's at or above the line. Chrome's native
+		// scroll-target-group isn't used: it moves the highlight to the next section about 150px
+		// sooner than this line does
+		const above = new Set<number>();
+		let observer: IntersectionObserver | undefined;
+		function observeHeadings() {
+			observer?.disconnect();
+			above.clear();
+			observer = new IntersectionObserver(
+				(entries) => {
+					for (const entry of entries) {
+						const index = headingEls.indexOf(entry.target as HTMLElement);
+						if (entry.isIntersecting) above.add(index);
+						else above.delete(index);
+					}
+					setActive(above.size ? Math.max(...above) : 0);
+				},
+				{ rootMargin: `1000000px 0px ${offset - innerHeight}px 0px` },
+			);
+			for (const el of headingEls) if (el) observer.observe(el);
+		}
+		observeHeadings();
+		// The line sits a fixed distance from the top, so a new window height moves the root's bottom
+		addEventListener('resize', observeHeadings);
 
 		setActive(getActiveIndex());
 	})();

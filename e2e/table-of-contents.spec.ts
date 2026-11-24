@@ -50,4 +50,50 @@ test.describe('On this page', () => {
 		expect(top).toBeGreaterThan(80);
 		expect(top).toBeLessThan(110);
 	});
+
+	// An IntersectionObserver tracks the headings, so scrolling measures none of them, and the
+	// highlight stays on the last heading at or above 200px from the top (Modern Web Guidance,
+	// scrollspy)
+	test('lights up the section under the reader without measuring headings as it scrolls', async ({
+		page,
+	}) => {
+		await page.setViewportSize({ width: 1440, height: 900 });
+		await page.addInitScript(() => {
+			const measure = Element.prototype.getBoundingClientRect;
+			(window as unknown as { headingMeasures: number }).headingMeasures = 0;
+			Element.prototype.getBoundingClientRect = function () {
+				if (document.readyState === 'complete' && /^H[2-4]$/.test(this.tagName))
+					(window as unknown as { headingMeasures: number }).headingMeasures++;
+				return measure.call(this);
+			};
+		});
+		await page.goto('/blog/homelab-two-years-later/');
+		const expected = () =>
+			page.evaluate(() => {
+				const slugs = [...document.querySelectorAll<HTMLElement>('#toc-nav .toc-link')].map(
+					(l) => l.dataset.tocSlug!,
+				);
+				// Not getBoundingClientRect, which the count above would see
+				let active = slugs[0];
+				for (const slug of slugs) {
+					const heading = document.getElementById(slug)!;
+					let top = 0;
+					for (let el: HTMLElement | null = heading; el; el = el.offsetParent as HTMLElement)
+						top += el.offsetTop;
+					if (top - scrollY <= 200) active = slug;
+				}
+				return active;
+			});
+		const current = page.locator('#toc-nav [aria-current="location"]');
+		await page.evaluate(
+			() => ((window as unknown as { headingMeasures: number }).headingMeasures = 0),
+		);
+		for (const share of [0.2, 0.45, 0.7]) {
+			await page.evaluate((s) => scrollTo(0, document.body.scrollHeight * s), share);
+			await expect.poll(async () => current.getAttribute('data-toc-slug')).toBe(await expected());
+		}
+		expect(
+			await page.evaluate(() => (window as unknown as { headingMeasures: number }).headingMeasures),
+		).toBe(0);
+	});
 });
