@@ -26,7 +26,7 @@ His work has lived at many addresses. Search for links to all of them, not just 
 - medium.com/@joekarlsson, levelup.gitconnected.com (his posts there), thenewstack.io/author/joe-karlsson
 - Employer bylines: MongoDB Developer Center (mostly gone now; the schema design article moved to /talks/mongodb-schema-design-best-practices/), Tinybird blog (and tinybird-blog.ghost.io), SingleStore, CloudQuery, CData (`cdata.com/blog/author/joe-karlsson/`)
 - Handles: JoeKarlsson, JoeKarlsson1, joekarlsson on GitHub, Twitch, TikTok
-- Projects with their own names: bechdel.io, Seeds of Justice / crop art (cropart.com), the Stupid Shit No One Needs hackathon, his GitHub repos
+- Projects with their own names: Bechdel Script Test (bechdel.joekarlsson.com, formerly bechdel.io), Seeds of Justice / crop art (cropart.com), the Stupid Shit No One Needs hackathon, his GitHub repos
 
 Other people are named Joe Karlsson (Swedish athletes and businesspeople, among others). A hit only counts when it names his work, links his URLs or describes him (developer, DevRel, Minneapolis, crop art). The Star Tribune and Minnesota Lawyer Seeds of Justice pieces are him.
 

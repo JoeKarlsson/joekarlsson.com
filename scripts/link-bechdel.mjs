@@ -1,4 +1,4 @@
-// Links each review to its film's page on Bechdel.io (bechdel.joekarlsson.com) when the
+// Links each review to its film's page on Bechdel Script Test (bechdel.joekarlsson.com) when the
 // film is in that corpus: adds `bechdelUrl` to the review's front matter, which
 // ReviewCredits.astro shows beside the Letterboxd link. A film matches on its title and
 // a year at most one off (release dates differ between OMDb and Letterboxd).
@@ -7,7 +7,7 @@
 //   node scripts/link-bechdel.mjs --dry  only list the matches
 //
 // Safe to re-run: reviews that already have a bechdelUrl are skipped, so new reviews and
-// films added to Bechdel.io later get linked by running it again.
+// films added to Bechdel Script Test later get linked by running it again.
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { parse } from 'yaml';
 

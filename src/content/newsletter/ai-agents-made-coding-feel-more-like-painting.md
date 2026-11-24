@@ -31,11 +31,11 @@ I paint mostly by feel, going by what feels right and looks right, and a lot of 
 
 I do plan when I start a new project, but usually at a high level. Scaffolding is easy, and it was before agents too. The details are the tricky part, and that's where I think agents struggle, especially with anything visual.
 
-## Starting over: Bechdel.io
+## Starting over: Bechdel Script Test
 
 Graham noticed that painters leave a trail of work behind them, and each painting builds on the ones before it. He suggested hackers act more like painters and "regularly start over from scratch."
 
-In 2015 my sister and I built [Bechdel.io](/work/bechdel-io/), which reads a movie's screenplay and checks it against the Bechdel Test. My commit messages from that December include "editted procfile3", "editted procfile4" and "editted procfile5", which tells you how deploying to Heroku was going. Eventually it died there, like a lot of my old apps (RIP).
+In 2015 my sister and I built [Bechdel.io, now Bechdel Script Test](/work/bechdel-script-test/), which reads a movie's screenplay and checks it against the Bechdel Test. My commit messages from that December include "editted procfile3", "editted procfile4" and "editted procfile5", which tells you how deploying to Heroku was going. Eventually it died there, like a lot of my old apps (RIP).
 
 This year I started it over. In one day it became a static site, and I deleted the server, MongoDB, the old React app and Docker. One script, `npm run analyze`, turns screenplays into the site's film data, and that's the whole backend now. Restructuring it and doing data analysis on it felt like painting, like seeing the project in a new light.
 

@@ -1,4 +1,4 @@
-// "Static types came back": in a real signature from the Bechdel.io rebuild, the pencil
+// "Static types came back": in a real signature from the Bechdel Script Test rebuild, the pencil
 // scribbles out `any` and writes the real type, ShelfFilm, above it, the way you'd correct
 // a word on paper. Then it all clears and the loop starts over.
 import { COLORS } from '../draw.mjs';

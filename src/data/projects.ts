@@ -165,9 +165,9 @@ export const ERAS: {
 // names the piece on screen from it
 export const REEL_SLICE_SECONDS = 2.4;
 // Images cache for 30 days: a new cut needs a new name, or returning visitors see the old one
-export const REEL_VIDEO = '/images/projects/selected-works-reel-2.mp4';
+export const REEL_VIDEO = '/images/projects/selected-works-reel-3.mp4';
 
-export const SELECTED_WORKS = ['Punc', 'Bechdel.io', 'Connect AI × DOOM'];
+export const SELECTED_WORKS = ['Punc', 'Bechdel Script Test', 'Connect AI × DOOM'];
 
 // Every string curled as the page shows it (doesn’t, “now playing”); code to copy keeps its quotes
 export const projects: Project[] = curlEveryString(
@@ -1267,7 +1267,7 @@ export const projects: Project[] = curlEveryString(
 					},
 				},
 				lineage: [
-					{ label: 'Before it', title: 'Bechdel.io' },
+					{ label: 'Before it', title: 'Bechdel Script Test' },
 					{ label: 'After it', title: 'linger' },
 				],
 				introFigure: {
@@ -1385,18 +1385,18 @@ export const projects: Project[] = curlEveryString(
 						alt: "How the Rose Hobart booth works: you run the projector, and the presets, gels, Age dial and Glitch dial all feed one WebGL2 shader that repaints every frame, speed sets the playback rate at 16 or 24 frames a second with the pitch moving too, and music swaps in the film's 1957 records, eight 78s, one 1990 song or silence",
 					},
 				},
-				lineage: [{ label: 'Also with Laurel', title: 'Bechdel.io' }],
+				lineage: [{ label: 'Also with Laurel', title: 'Bechdel Script Test' }],
 			},
 		},
 		{
-			title: 'Bechdel.io',
-			shareTitle: 'Bechdel.io: Checking movie scripts against the Bechdel Test',
+			title: 'Bechdel Script Test',
+			shareTitle: 'Bechdel Script Test: Checking movie scripts against the Bechdel Test',
 			description: 'Does your favorite movie pass the Bechdel Test?',
-			image: '/images/projects/bechdel-io-2026-poster.webp',
-			video: '/images/projects/bechdel-io-2026.mp4',
+			image: '/images/projects/bechdel-script-test-2026-poster.webp',
+			video: '/images/projects/bechdel-script-test-2026.mp4',
 			reelStart: 3,
 			imageAlt:
-				'Bechdel.io: the headline "Do two women talk to each other about something other than a man?", the shelf of movie posters marked passes or fails, filtering to films that pass, then the Gone Girl page scoring 3 of 3 and its cast sized by lines spoken',
+				'Bechdel Script Test: the headline "Do two women talk to each other about something other than a man?", the shelf of movie posters marked passes or fails, filtering to films that pass, then the Gone Girl page scoring 3 of 3 and its cast sized by lines spoken',
 			date: '2015-11',
 			tech: ['Node.js', 'NLP', 'JavaScript', 'MongoDB'],
 			sourceUrl: 'https://github.com/JoeKarlsson/bechdel-test',
@@ -1404,7 +1404,7 @@ export const projects: Project[] = curlEveryString(
 			blogUrl: '/talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/',
 			stars: 30,
 			page: {
-				slug: 'bechdel-io',
+				slug: 'bechdel-script-test',
 				marginNotes: [
 					{
 						type: 'quote',
@@ -1421,7 +1421,7 @@ export const projects: Project[] = curlEveryString(
 					},
 					{
 						type: 'see',
-						at: 'Bechdel.io reads the screenplay',
+						at: 'Bechdel Script Test reads the screenplay',
 						text: 'How I rebuilt it as a static site in 2026, after it died on Heroku.',
 						post: 'hackers-and-painters-ai-agents',
 					},
@@ -1436,8 +1436,8 @@ export const projects: Project[] = curlEveryString(
 				introHeading: 'Artist statement',
 				intro: [
 					"Most people who hear about the Bechdel Test go looking for a movie they love that fails it, and a lot of them find one. The test comes from a 1985 strip in Alison Bechdel's comic Dykes to Watch Out For. A character says she'll only see a movie if it has two women in it, they talk to each other, and they talk about something besides a man, and the joke is that the last one she saw was Alien.",
-					'Bechdel.io reads the screenplay and asks those three questions the same way for every film, including the ones you love. The whole original Star Wars trilogy fails, and so do The Godfather, Back to the Future and The Shawshank Redemption. They sit on the same shelf as the films that pass, under the same pass or fail tag.',
-					"Counting has been a feminist tool for a long time. In 1989 the Guerrilla Girls counted the art at the Met and put the numbers on a poster: fewer than 5% of the artists in the modern art sections were women, but 85% of the nudes were female. Anyone can sit through one movie with a notebook and check it, and one failing movie is easy to wave off. Bechdel.io runs the same check across a director's career or a year of releases, where it gets a lot harder to call any one film an exception.",
+					'Bechdel Script Test reads the screenplay and asks those three questions the same way for every film, including the ones you love. The whole original Star Wars trilogy fails, and so do The Godfather, Back to the Future and The Shawshank Redemption. They sit on the same shelf as the films that pass, under the same pass or fail tag.',
+					"Counting has been a feminist tool for a long time. In 1989 the Guerrilla Girls counted the art at the Met and put the numbers on a poster: fewer than 5% of the artists in the modern art sections were women, but 85% of the nudes were female. Anyone can sit through one movie with a notebook and check it, and one failing movie is easy to wave off. Bechdel Script Test runs the same check across a director's career or a year of releases, where it gets a lot harder to call any one film an exception.",
 					'We made it open source as feminist activism, so anyone can run the count on the movies they care about.',
 				],
 				credit: 'with Laurel Karlsson',
@@ -1448,7 +1448,7 @@ export const projects: Project[] = curlEveryString(
 					],
 					diagram: {
 						src: '/images/blog/bechdel-test-script-parser-works/parsing-method.svg',
-						alt: 'How Bechdel.io reads a screenplay: it gets the cast and each credited gender from a film database, splits the script into scenes, and checks every scene with two or more women for words about a man',
+						alt: 'How Bechdel Script Test reads a screenplay: it gets the cast and each credited gender from a film database, splits the script into scenes, and checks every scene with two or more women for words about a man',
 					},
 				},
 				lineage: [
@@ -1460,12 +1460,12 @@ export const projects: Project[] = curlEveryString(
 				embedNote: 'Pick a movie to see whether it passes.',
 				screenshots: [
 					{
-						poster: '/images/projects/bechdel-io-2026-shelf.webp',
-						alt: 'The Bechdel.io shelf: search, show and sort controls over a grid of movie posters, each tagged passes or fails with its year and how many of the three rules it meets',
-						caption: 'The shelf: 218 films, 111 of them pass',
+						poster: '/images/projects/bechdel-script-test-2026-shelf.webp',
+						alt: 'The Bechdel Script Test shelf: search, show and sort controls over a grid of movie posters, each tagged passes or fails with its year and how many of the three rules it meets',
+						caption: 'The shelf: 3,711 films, 2,301 of them pass',
 					},
 					{
-						poster: '/images/projects/bechdel-io-2026-lines.webp',
+						poster: '/images/projects/bechdel-script-test-2026-lines.webp',
 						alt: 'The Gone Girl page: release details, then the cast sized by lines spoken, with Nick at 496 lines in white and Amy at 287 and Boney at 196 in pink for women',
 						caption: 'Each film page sizes the cast by how many lines they speak',
 					},
@@ -1791,7 +1791,7 @@ export const projects: Project[] = curlEveryString(
 			title: 'Movie Script Scraper',
 			shareTitle: 'Movie Script Scraper: Movie scripts by genre, as text files you can count',
 			description:
-				"A Node CLI and npm package that downloads movie scripts by genre from the Internet Movie Script Database. Tim Kendall started it in 2014; I rewrote it and published it to npm in 2018, and it's where Bechdel.io's scripts came from.",
+				"A Node CLI and npm package that downloads movie scripts by genre from the Internet Movie Script Database. Tim Kendall started it in 2014; I rewrote it and published it to npm in 2018, and it's where Bechdel Script Test's scripts came from.",
 			image: '/images/projects/movie-script-scraper.webp',
 			imageAlt:
 				'The Movie Script Scraper banner: "Movie Script Scraper" in white on red and teal stripes, with a film reel in the corner',
@@ -1808,15 +1808,15 @@ export const projects: Project[] = curlEveryString(
 				marginNotes: [
 					{
 						type: 'see',
-						at: 'It’s where Bechdel.io got its scripts',
-						text: 'How Bechdel.io reads those text files, character by character.',
+						at: 'It’s where Bechdel Script Test got its scripts',
+						text: 'How Bechdel Script Test reads those text files, character by character.',
 						post: 'bechdel-test-script-parser-works',
 					},
 				],
 				tagline: 'Downloads movie scripts by genre, as text files you can count.',
 				credit: 'started by Tim Kendall',
 				intro: [
-					"Movie Script Scraper downloads movie scripts by genre from the Internet Movie Script Database and saves each one as a plain text file you can search and count. It's where Bechdel.io got its scripts.",
+					"Movie Script Scraper downloads movie scripts by genre from the Internet Movie Script Database and saves each one as a plain text file you can search and count. It's where Bechdel Script Test got its scripts.",
 				],
 				made: {
 					text: [
@@ -1824,10 +1824,10 @@ export const projects: Project[] = curlEveryString(
 					],
 					diagram: {
 						src: '/images/projects/movie-script-scraper/how-it-gets-scripts.svg',
-						alt: "How Movie Script Scraper gets scripts: you give it a genre, it loads that genre's page on IMSDB and finds every script link, fetches five scripts at a time with up to three retries, keeps each script's text if it has at least 500 characters, and saves one .txt per movie in a folder named for the genre, which is where Bechdel.io's scripts came from",
+						alt: "How Movie Script Scraper gets scripts: you give it a genre, it loads that genre's page on IMSDB and finds every script link, fetches five scripts at a time with up to three retries, keeps each script's text if it has at least 500 characters, and saves one .txt per movie in a folder named for the genre, which is where Bechdel Script Test's scripts came from",
 					},
 				},
-				lineage: [{ label: 'Written for', title: 'Bechdel.io' }],
+				lineage: [{ label: 'Written for', title: 'Bechdel Script Test' }],
 			},
 		},
 		{

@@ -36,7 +36,7 @@ const FILES = {
 	kind: 'chalk',
 };
 const BECHDEL = {
-	label: 'Bechdel.io',
+	label: 'Bechdel Script Test',
 	sub: 'got its scripts here',
 	icon: 'film',
 	kind: 'outline',

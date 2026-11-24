@@ -201,11 +201,11 @@ export const openSource = curlEveryString([
 		url: '/work/punc/',
 	},
 	{
-		name: 'Bechdel.io',
+		name: 'Bechdel Script Test',
 		description:
 			'Parses film scripts to check them against the Bechdel Test. A digital humanities project I built with my sister.',
 		tech: ['Node.js', 'NLP', 'JavaScript', 'MongoDB'],
-		url: '/work/bechdel-io/',
+		url: '/work/bechdel-script-test/',
 	},
 	{
 		name: 'Homelab',

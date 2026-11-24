@@ -79,7 +79,7 @@ export const papers: Paper[] = [
 		venue: 'DiGRA',
 		year: 2016,
 		url: 'https://dl.digra.org/index.php/dl/article/view/778',
-		cites: 'the Bechdel Test Visualizer, the project before Bechdel.io',
+		cites: 'the Bechdel Test Visualizer, the project before Bechdel Script Test',
 		reference: 'Karlsson, Laurel, and Joe Karlsson. 2015. “The Bechdel Test Visualizer.”',
 		highlight: 'Karlsson, Laurel, and Joe Karlsson. 2015. “The Bechdel Test Visualizer.”',
 	},
@@ -99,7 +99,7 @@ export const papers: Paper[] = [
 		venue: 'CHI',
 		year: 2016,
 		url: 'https://dl.acm.org/doi/10.1145/2851581.2892580',
-		cites: 'the Bechdel Test Visualizer, the project before Bechdel.io',
+		cites: 'the Bechdel Test Visualizer, the project before Bechdel Script Test',
 		reference:
 			'Karlsson, L. and Karlsson, J. The Bechdel Test Visualizer. 2015. https://bechdeltest.herokuapp.com/.',
 		highlight: 'Karlsson, L. and Karlsson, J. The Bechdel Test Visualizer.',

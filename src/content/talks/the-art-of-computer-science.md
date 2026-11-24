@@ -50,7 +50,7 @@ I first gave this as the keynote at PennApps XXI in September 2020, then recorde
 ## Slides and resources
 
 - [Slides from the keynote on Speaker Deck](https://speakerdeck.com/joekarlsson/keynote-the-art-of-computer-science)
-- [bechdel.io](https://bechdel.joekarlsson.com/)
-- [How bechdel.io works](/talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/)
+- [Bechdel Script Test](https://bechdel.joekarlsson.com/)
+- [How Bechdel Script Test works](/talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/)
 - [I Ran My First Hackathon, and So Can You!](/blog/i-ran-my-first-hackathon-and-so-can-you/)
 - [My top resources for learning how to code](/blog/my-top-resources-for-learning-how-to-code/)

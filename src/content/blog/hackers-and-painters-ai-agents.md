@@ -75,13 +75,13 @@ Working like this, I can get into an artistic flow. It's about what's being repr
 
 [linger](/work/linger/) is a sketch where the code was only there for the poems. It's seven poems that only finish if you scroll slowly. Each line starts as a few words floating in white space, and the rest fills in while you hold still. It's plain HTML, CSS and about a hundred lines of JavaScript.
 
-## Starting over: Bechdel.io
+## Starting over: Bechdel Script Test
 
 Graham noticed that painters leave a trail of work behind them, and each painting builds on the ones before it. "Maybe it would be good for hackers to act more like painters, and regularly start over from scratch, instead of continuing to work for years on one project, and trying to incorporate all their later ideas as revisions."
 
-In 2015 my sister and I built [Bechdel.io](/work/bechdel-io/), which [reads a movie's screenplay](/blog/bechdel-test-script-parser-works/) and checks it against the Bechdel Test. My commit messages from that December include "editted procfile3", "editted procfile4" and "editted procfile5", which tells you how deploying to Heroku was going. Eventually it died there, like a lot of my old apps (RIP).
+In 2015 my sister and I built [Bechdel.io, now Bechdel Script Test](/work/bechdel-script-test/), which [reads a movie's screenplay](/blog/bechdel-test-script-parser-works/) and checks it against the Bechdel Test. My commit messages from that December include "editted procfile3", "editted procfile4" and "editted procfile5", which tells you how deploying to Heroku was going. Eventually it died there, like a lot of my old apps (RIP).
 
-![A dark web page of movie posters, each tagged Passes or Fails, with search and sort controls above.](/images/blog/hackers-and-painters-ai-agents/the-rebuilt-bechdelio-shelf-2026.webp 'margin: The rebuilt Bechdel.io shelf, 2026.')
+![A dark web page of movie posters, each tagged Passes or Fails, with search and sort controls above.](/images/blog/hackers-and-painters-ai-agents/the-rebuilt-bechdelio-shelf-2026.webp 'margin: The rebuilt Bechdel Script Test shelf, 2026.')
 
 This year I started it over. In one day it became a static site, and I deleted the server, MongoDB, the old React app and Docker. One script, `npm run analyze`, turns screenplays into the site's film data, and that's the whole backend now.
 

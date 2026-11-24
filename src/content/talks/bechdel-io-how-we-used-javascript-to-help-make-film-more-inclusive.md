@@ -3,11 +3,11 @@ title: 'Bechdel.io - How We Used JavaScript To Help Make Film More Inclusive'
 seoTitle: 'Bechdel.io: JavaScript for Inclusive Film'
 date: 2020-05-16
 slug: 'bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive'
-description: 'My talk on bechdel.io, the tool my sister Laurel and I built to check film scripts for the Bechdel Test, and how the code reads a script.'
+description: 'My talk on bechdel.io (now Bechdel Script Test), the tool my sister Laurel and I built to check film scripts for the Bechdel Test, and how it reads a script.'
 categories: ['Web Dev']
 heroImage: '/images/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/thumb-13e27d52.webp'
 heroAlt: 'A packed movie theater audience watching the screen'
-tldr: "The Social Network, Harry Potter and Citizen Kane all fail the Bechdel Test. bechdel.io splits a film script into scenes, looks up each character's gender on IMDb and checks whether two women talk about something other than a man. The hard part is that patriarchal words are deeply ingrained in our vocabulary."
+tldr: "The Social Network, Harry Potter and Citizen Kane all fail the Bechdel Test. Bechdel Script Test splits a film script into scenes, looks up each character's gender on IMDb and checks whether two women talk about something other than a man. The hard part is that patriarchal words are deeply ingrained in our vocabulary."
 videos:
   - id: '4W5fJTyfj1Q'
   - id: '7az78FYgwx4'
@@ -43,7 +43,7 @@ What do The Social Network, Lord of the Rings, Harry Potter and Citizen Kane hav
 
 **What the test is and isn't.** Did you enjoy Return of the Jedi but hate the Ewoks? Then you understand feminist film criticism: a film can still be good despite its weaker elements. The Bechdel Test is one lens for looking at a film and analyzing it. That's it. It isn't a perfect test, either. Like any metric, it can be gamed: two women talking about a lamp or a salad technically pass. It's the bare minimum. And it only considers women, so it says nothing about non-binary characters.
 
-**How bechdel.io reads a script.** You upload a film script and it tells you whether the film passes. It also runs gender analytics on the film: the gender of the director, writers and producers, and how much dialogue goes to each gender. Film scripts follow a strict format, which makes them easy for code to read:
+**How Bechdel Script Test reads a script.** You upload a film script and it tells you whether the film passes. It also runs gender analytics on the film: the gender of the director, writers and producers, and how much dialogue goes to each gender. Film scripts follow a strict format, which makes them easy for code to read:
 
 1. **Split the script into scenes.** Each scene starts with a heading keyword like `INT.`, so the code looks for those to find where scenes begin and end. That tells us which characters share a conversation.
 2. **Find each character's gender.** The code looks up the film on IMDb, finds who plays each character, and uses the actor's gender from their IMDb page.
@@ -61,7 +61,7 @@ The example in the talk is a kitchen scene from a 2015 Best Picture nominee, wit
 
 I end with Laurie Voss's Bechdel Test for code: a function written by a woman calls another function written by a woman. Does your company's code base pass? If it doesn't, that's a problem.
 
-For the parsing algorithm in more detail, I wrote up [how the Bechdel Test script parser works](/blog/bechdel-test-script-parser-works/). The project has its own page on my [work page](/work/bechdel-io/).
+For the parsing algorithm in more detail, I wrote up [how the Bechdel Test script parser works](/blog/bechdel-test-script-parser-works/). The project has its own page on my [work page](/work/bechdel-script-test/).
 
 ## Where I've given it
 
@@ -73,9 +73,9 @@ Laurel and I gave it together as Bechdel.io: The Future of Film and Feminism at 
 
 ## Slides and resources
 
-The bechdel.io domain is gone, but the site lives on at bechdel.joekarlsson.com.
+The bechdel.io domain is gone, but the site lives on as Bechdel Script Test at bechdel.joekarlsson.com.
 
-- [Try bechdel.io](https://bechdel.joekarlsson.com/)
+- [Try Bechdel Script Test](https://bechdel.joekarlsson.com/)
 - [Laurel's case study](https://bechdel.joekarlsson.com/case-study/)
 - [Slides on Speaker Deck](https://speakerdeck.com/joekarlsson/bechdel-dot-io-how-we-used-javascript-to-help-make-film-more-inclusive)
 - [Source code on GitHub](https://github.com/JoeKarlsson/bechdel-test)

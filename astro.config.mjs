@@ -325,6 +325,9 @@ export default defineConfig({
 		'/all-work': '/work/',
 		'/404-error': '/404',
 
+		// Renamed from Bechdel.io in November 2026
+		'/work/bechdel-io': '/work/bechdel-script-test/',
+
 		// WordPress portfolio URLs
 		'/portfolio': '/work/',
 
