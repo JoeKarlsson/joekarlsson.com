@@ -222,3 +222,14 @@ test.describe('ARIA Attributes', () => {
 		expect(top).toBeGreaterThan(navBottom);
 	});
 });
+
+test('a review at 1440px names its two credits landmarks apart', async ({ page }) => {
+	await page.setViewportSize({ width: 1440, height: 900 });
+	await page.goto('/reviews/sicario-2015/');
+	// Both show from 80rem up, so the same name twice fails axe's landmark-unique
+	const names = await page
+		.locator('aside.review-credits:visible')
+		.evaluateAll((asides) => asides.map((aside) => aside.getAttribute('aria-label')));
+	expect(names).toHaveLength(2);
+	expect(new Set(names).size).toBe(2);
+});

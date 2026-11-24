@@ -37,7 +37,11 @@ const credits = [
 ].filter(([, value]) => value);
 ---
 
-<aside class={`review-credits review-credits-${placement}`} aria-label={`${title} credits`}>
+{/* Both asides show from 80rem up, so each landmark gets its own name (axe landmark-unique) */}
+<aside
+	class={`review-credits review-credits-${placement}`}
+	aria-label={placement === 'margin' ? `${title} at a glance` : `${title} credits`}
+>
 	{poster && <img src={poster} alt="" width="400" height="600" loading="lazy" decoding="async" />}
 	<div>
 		<p class="review-credits-title">
