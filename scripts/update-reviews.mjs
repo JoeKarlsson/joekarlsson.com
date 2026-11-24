@@ -46,7 +46,12 @@ export function reviewToMarkdown(htmlText) {
 	const paragraphs = htmlText.includes('<p>')
 		? [...htmlText.matchAll(/<p>([\s\S]*?)<\/p>/g)]
 				.map((m) => m[1])
-				.filter((p) => !p.includes('<img'))
+				// The poster, and the notice Letterboxd adds when the spoiler box is ticked
+				.filter(
+					(p) =>
+						!p.includes('<img') &&
+						!/^(<\/?em>)*This review may contain spoilers\.(<\/?em>)*$/.test(p.trim()),
+				)
 		: htmlText.split(/\n\s*\n/);
 	return paragraphs
 		.map((p) =>

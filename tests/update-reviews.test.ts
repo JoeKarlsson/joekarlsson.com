@@ -36,6 +36,12 @@ describe('slugFromReviewUrl', () => {
 });
 
 describe('reviewToMarkdown', () => {
+	it('drops the notice Letterboxd adds when the spoiler box is ticked', () => {
+		expect(reviewToMarkdown('<p><em>This review may contain spoilers.</em></p><p>Hook.</p>')).toBe(
+			'Hook.',
+		);
+	});
+
 	it('drops the RSS poster paragraph and keeps the review as Markdown paragraphs', () => {
 		const rss =
 			'<p><img src="https://a.ltrbxd.com/p.jpg"/></p> <p>I don&#039;t think she was <i>acting</i>.<br />Line two.</p><p>Second &amp; last.</p>';
