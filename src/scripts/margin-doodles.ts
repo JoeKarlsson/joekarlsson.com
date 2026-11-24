@@ -175,10 +175,6 @@ if (layer) {
 		.sort((a, b) => a.key - b.key)
 		.map(({ d }) => d);
 
-	// A cursor walks down the page in uneven steps; each doodle picks a side at random
-	// and lands at the cursor or, if that side is still busy, just below its last one.
-	// Across, it can sit anywhere in its margin, from near the window edge to near the
-	// text, so the two margins never line up into columns.
 	// A hidden width box at the column's real width: doodles size to the margin beside it,
 	// and the thread measures its lane from it
 	const lane = document.createElement('div');
@@ -196,6 +192,10 @@ if (layer) {
 		maxSide >= biggest
 			? side
 			: floor + ((side - smallest) * (maxSide - floor)) / (biggest - smallest);
+	// A cursor walks down the page in uneven steps; each doodle picks a side at random
+	// and lands at the cursor or, if that side is still busy, just below its last one.
+	// Across, it can sit anywhere in its margin, from near the window edge to near the
+	// text, so the two margins never line up into columns.
 	let cursor = FIRST_TOP + random() * 160;
 	const nextFree = { left: 0, right: 0 };
 	for (let i = 0; i < SLOTS; i++) {
