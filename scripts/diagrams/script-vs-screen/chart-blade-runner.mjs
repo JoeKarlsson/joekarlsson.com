@@ -33,18 +33,41 @@ function wrap(text, max) {
 
 function chart(f, { W, H, phone }) {
 	const colW = phone ? W - 52 : (W - 64) / 2;
-	const cols = phone ? [[26, 92], [26, 372]] : [[26, 92], [26 + colW + 12, 92]];
+	const cols = phone
+		? [
+				[26, 92],
+				[26, 372],
+			]
+		: [
+				[26, 92],
+				[26 + colW + 12, 92],
+			];
 	const max = phone ? 40 : 36;
 	const lineH = 19;
 	panel(f, 6, phone ? 46 : 42, W - 12, H - (phone ? 52 : 48));
-	f.text(phone ? 20 : 16, phone ? 18 : 20, phone ? "Blade Runner's last scene" : "Blade Runner's last scene, on the page and on screen", {
-		font: 'display',
-		size: phone ? 19 : 22,
+	f.text(
+		phone ? 20 : 16,
+		phone ? 18 : 20,
+		phone ? "Blade Runner's last scene" : "Blade Runner's last scene, on the page and on screen",
+		{
+			font: 'display',
+			size: phone ? 19 : 22,
+			anchor: 'start',
+			upper: true,
+		},
+	);
+	f.text(cols[0][0], cols[0][1] - 24, "The script: Hampton Fancher's draft", {
+		size: 13,
 		anchor: 'start',
-		upper: true,
+		color: MUTED,
+		weight: 700,
 	});
-	f.text(cols[0][0], cols[0][1] - 24, "The script: Hampton Fancher's draft", { size: 13, anchor: 'start', color: MUTED, weight: 700 });
-	f.text(cols[1][0], cols[1][1] - 24, 'The film: what the subtitles say', { size: 13, anchor: 'start', color: MUTED, weight: 700 });
+	f.text(cols[1][0], cols[1][1] - 24, 'The film: what the subtitles say', {
+		size: 13,
+		anchor: 'start',
+		color: MUTED,
+		weight: 700,
+	});
 
 	layers(f, phone, (el) => {
 		const out = [];
@@ -53,7 +76,14 @@ function chart(f, { W, H, phone }) {
 		SCRIPT.forEach(([speaker, text], i) => {
 			const strikeAt = 0.8 + i * 0.7;
 			if (speaker) {
-				out.push(label(el, cols[0][0], y, speaker, { size: 12, anchor: 'start', color: MUTED, weight: 700 }));
+				out.push(
+					label(el, cols[0][0], y, speaker, {
+						size: 12,
+						anchor: 'start',
+						color: MUTED,
+						weight: 700,
+					}),
+				);
 				y += lineH - 2;
 			}
 			wrap(text, max).forEach((line) => {
@@ -70,11 +100,25 @@ function chart(f, { W, H, phone }) {
 				if (survives) {
 					// "time to die" lights up instead of being struck
 					out.push(
-						el('rect', { x: n(cols[0][0] + 33), y: n(y + 8), height: 3, fill: COLORS.pink }, { width: (t) => (t >= strikeAt ? 76 : 0) }),
-						el('rect', { x: n(cols[0][0]), y: n(y - 1), height: 2.5, fill: COLORS.pink }, { width: (t) => (t >= strikeAt ? 30 : 0) }),
+						el(
+							'rect',
+							{ x: n(cols[0][0] + 33), y: n(y + 8), height: 3, fill: COLORS.pink },
+							{ width: (t) => (t >= strikeAt ? 76 : 0) },
+						),
+						el(
+							'rect',
+							{ x: n(cols[0][0]), y: n(y - 1), height: 2.5, fill: COLORS.pink },
+							{ width: (t) => (t >= strikeAt ? 30 : 0) },
+						),
 					);
 				} else {
-					out.push(el('rect', { x: n(cols[0][0]), y: n(y - 1), height: 2.5, fill: COLORS.pink }, { width: (t) => n(Math.min(1, Math.max(0, (t - strikeAt) / 0.35)) * width) }));
+					out.push(
+						el(
+							'rect',
+							{ x: n(cols[0][0]), y: n(y - 1), height: 2.5, fill: COLORS.pink },
+							{ width: (t) => n(Math.min(1, Math.max(0, (t - strikeAt) / 0.35)) * width) },
+						),
+					);
 				}
 				y += lineH;
 			});

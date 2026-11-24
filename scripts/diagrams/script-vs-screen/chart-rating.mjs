@@ -1,7 +1,21 @@
 // Every film as a dot, IMDb rating against how much of its script was said on screen. The
 // dots are drawn once, outside the motion layers (2,112 of them twice would double the page);
 // the build-in is a cover that wipes off left to right, then the pink medians land.
-import { COLORS, DATA, MUTED, easeOut, escapeXml, film, label, layers, n, panel, pct, prog, yAxisLabel } from './_chart.mjs';
+import {
+	COLORS,
+	DATA,
+	MUTED,
+	easeOut,
+	escapeXml,
+	film,
+	label,
+	layers,
+	n,
+	panel,
+	pct,
+	prog,
+	yAxisLabel,
+} from './_chart.mjs';
 
 const LO = 2.4;
 const HI = 9.5;
@@ -39,24 +53,39 @@ function chart(f, { W, H, phone }) {
 	const y = (kept) => bottom - kept * (bottom - top);
 
 	panel(f, 6, phone ? 46 : 42, W - 12, H - (phone ? 52 : 48));
-	f.text(phone ? 20 : 16, phone ? 18 : 20, phone ? 'Better movies kept more' : 'Better-rated movies kept more of their scripts', {
-		font: 'display',
-		size: phone ? 19 : 22,
-		anchor: 'start',
-		upper: true,
-	});
+	f.text(
+		phone ? 20 : 16,
+		phone ? 18 : 20,
+		phone ? 'Better movies kept more' : 'Better-rated movies kept more of their scripts',
+		{
+			font: 'display',
+			size: phone ? 19 : 22,
+			anchor: 'start',
+			upper: true,
+		},
+	);
 	[0, 0.25, 0.5, 0.75, 1].forEach((v) => {
-		f.line([[L, y(v)], [R, y(v)]], { color: v ? '#2c2c2c' : MUTED, width: v ? 1 : 1.5 });
+		f.line(
+			[
+				[L, y(v)],
+				[R, y(v)],
+			],
+			{ color: v ? '#2c2c2c' : MUTED, width: v ? 1 : 1.5 },
+		);
 		f.text(L - 8, y(v), pct(v), { size: 13, color: MUTED, anchor: 'end' });
 	});
-	[3, 4, 5, 6, 7, 8, 9].forEach((r) => f.text(x(r), bottom + 16, String(r), { size: 13, color: MUTED }));
+	[3, 4, 5, 6, 7, 8, 9].forEach((r) =>
+		f.text(x(r), bottom + 16, String(r), { size: 13, color: MUTED }),
+	);
 	f.text((L + R) / 2, bottom + 34, 'IMDb rating (out of 10)', { size: 13, color: MUTED });
 	f.raw(yAxisLabel(phone ? 20 : 24, (top + bottom) / 2, 'Script kept word for word (%)'), 'groups');
 
 	// The dots, still, under everything that moves. data-tips feeds the hover card
 	// (src/scripts/chart-tips.ts): one "title|year|rating|kept" line per dot, in order
 	const r = phone ? 1.6 : 2;
-	const tips = DATA.films.map(([title, year, rating, kept]) => `${title}|${year}|${rating}|${Math.round(kept * 100)}`).join('\n');
+	const tips = DATA.films
+		.map(([title, year, rating, kept]) => `${title}|${year}|${rating}|${Math.round(kept * 100)}`)
+		.join('\n');
 	f.raw(
 		`<g fill="${COLORS.chalk}" fill-opacity="0.42" data-tips="${escapeXml(tips).replace(/\n/g, '&#10;')}">${DATA.films.map(([, , rating, kept], i) => `<circle cx="${n(x(rating + spread(i)))}" cy="${Math.round(y(kept))}" r="${r}"/>`).join('')}</g>`,
 		'groups',
@@ -67,10 +96,14 @@ function chart(f, { W, H, phone }) {
 		// The cover wipes off left to right over the first 1.6 s
 		const wipe = (t) => easeOut(prog(t, 0.3, 1.6));
 		out.push(
-			el('rect', { y: top - 8, height: bottom - top + 12, fill: '#151515' }, {
-				x: (t) => n(L - 6 + (R - L + 12) * wipe(t)),
-				width: (t) => n((R - L + 12) * (1 - wipe(t))),
-			}),
+			el(
+				'rect',
+				{ y: top - 8, height: bottom - top + 12, fill: '#151515' },
+				{
+					x: (t) => n(L - 6 + (R - L + 12) * wipe(t)),
+					width: (t) => n((R - L + 12) * (1 - wipe(t))),
+				},
+			),
 		);
 		// The median of each rating band, as a pink step that drops in after the wipe
 		const edges = [LO, 6, 7, 8, HI];
@@ -80,8 +113,16 @@ function chart(f, { W, H, phone }) {
 			const x0 = x(edges[i]) + 3;
 			const x1 = x(edges[i + 1]) - 3;
 			out.push(
-				el('rect', { x: n(x0), y: n(y(b.kept) - 2), width: n(x1 - x0), height: 4, fill: COLORS.pink }, { opacity: shown }),
-				label(el, (x0 + x1) / 2, y(b.kept) - 13, pct(b.kept), { size: 14, color: COLORS.pink, anims: { opacity: shown } }),
+				el(
+					'rect',
+					{ x: n(x0), y: n(y(b.kept) - 2), width: n(x1 - x0), height: 4, fill: COLORS.pink },
+					{ opacity: shown },
+				),
+				label(el, (x0 + x1) / 2, y(b.kept) - 13, pct(b.kept), {
+					size: 14,
+					color: COLORS.pink,
+					anims: { opacity: shown },
+				}),
 			);
 		});
 		// Named films: a bigger dot and its name, after the medians
@@ -89,8 +130,24 @@ function chart(f, { W, H, phone }) {
 			const [, , rating, kept] = film(title);
 			const shown = (t) => (t >= 3.2 ? 1 : 0);
 			out.push(
-				el('circle', { cx: n(x(rating)), cy: n(y(kept)), r: 4.5, fill: COLORS.paper, stroke: '#151515', 'stroke-width': 1.5 }, { opacity: shown }),
-				label(el, x(rating) + dx, y(kept) + dy, title, { size: 13, anchor, weight: 600, anims: { opacity: shown } }),
+				el(
+					'circle',
+					{
+						cx: n(x(rating)),
+						cy: n(y(kept)),
+						r: 4.5,
+						fill: COLORS.paper,
+						stroke: '#151515',
+						'stroke-width': 1.5,
+					},
+					{ opacity: shown },
+				),
+				label(el, x(rating) + dx, y(kept) + dy, title, {
+					size: 13,
+					anchor,
+					weight: 600,
+					anims: { opacity: shown },
+				}),
 			);
 		});
 		return out.join('');

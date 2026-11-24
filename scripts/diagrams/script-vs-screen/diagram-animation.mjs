@@ -10,7 +10,11 @@ function rowDesktop(f, y, steps) {
 	steps.forEach(([label, sub, icon, kind], i) => {
 		const x = 20 + i * (w + gap);
 		f.box({ x, y, w, h: 100, kind, label, sub: sub ?? undefined, icon, stack: true, size: 17 });
-		if (i) f.arrow([[x - gap + 4, y + 50], [x - 4, y + 50]]);
+		if (i)
+			f.arrow([
+				[x - gap + 4, y + 50],
+				[x - 4, y + 50],
+			]);
 	});
 }
 
@@ -40,8 +44,21 @@ export const desktop = {
 function rowPhone(f, y, steps) {
 	steps.forEach(([label, sub, icon, kind], i) => {
 		const top = y + i * 74;
-		f.box({ x: 30, y: top, w: 300, h: 56, kind, label: sub ? `${label}: ${sub}` : label, icon, size: 16 });
-		if (i) f.arrow([[180, top - 16], [180, top - 3]]);
+		f.box({
+			x: 30,
+			y: top,
+			w: 300,
+			h: 56,
+			kind,
+			label: sub ? `${label}: ${sub}` : label,
+			icon,
+			size: 16,
+		});
+		if (i)
+			f.arrow([
+				[180, top - 16],
+				[180, top - 3],
+			]);
 	});
 	return y + steps.length * 74;
 }

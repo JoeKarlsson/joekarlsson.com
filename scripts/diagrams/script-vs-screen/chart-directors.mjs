@@ -1,6 +1,18 @@
 // Six directors, one row each, a dot per film: the writer-directors bunch up, the directors who
 // shoot other people's scripts spread out. Each dot has a hover title; the row's median is pink.
-import { COLORS, DATA, MUTED, easeOut, escapeXml, label, layers, n, panel, pct, prog } from './_chart.mjs';
+import {
+	COLORS,
+	DATA,
+	MUTED,
+	easeOut,
+	escapeXml,
+	label,
+	layers,
+	n,
+	panel,
+	pct,
+	prog,
+} from './_chart.mjs';
 
 const median = (xs) => {
 	const a = [...xs].sort((p, q) => p - q);
@@ -18,23 +30,38 @@ function chart(f, { W, H, phone }) {
 	const rowH = phone ? 62 : 50;
 	const x = (v) => L + v * (R - L);
 	panel(f, 6, phone ? 46 : 42, W - 12, H - (phone ? 52 : 48));
-	f.text(phone ? 20 : 16, phone ? 18 : 20, phone ? 'Who sticks to the page' : 'Who sticks to the page', {
-		font: 'display',
-		size: phone ? 19 : 22,
-		anchor: 'start',
-		upper: true,
-	});
+	f.text(
+		phone ? 20 : 16,
+		phone ? 18 : 20,
+		phone ? 'Who sticks to the page' : 'Who sticks to the page',
+		{
+			font: 'display',
+			size: phone ? 19 : 22,
+			anchor: 'start',
+			upper: true,
+		},
+	);
 	const bottom = top + ROWS.length * rowH - 10;
 	[0, 0.5, 1].forEach((v) => {
-		f.line([[x(v), top - 14], [x(v), bottom]], { color: '#2c2c2c', width: 1 });
+		f.line(
+			[
+				[x(v), top - 14],
+				[x(v), bottom],
+			],
+			{ color: '#2c2c2c', width: 1 },
+		);
 		f.text(x(v), bottom + 16, pct(v), { size: 13, color: MUTED });
 	});
 	f.text((L + R) / 2, bottom + 34, 'Script kept word for word (%)', { size: 13, color: MUTED });
 
 	// Every dot at its resting place, invisible, for the hover card (src/scripts/chart-tips.ts):
 	// the drawn dots move during the build-in and exist twice (live and still layers)
-	const rest = ROWS.flatMap((d, i) => d.films.map((film) => [film, top + i * rowH + (phone ? 22 : 10)]));
-	const tips = rest.map(([[title, year, kept, rating]]) => `${title}|${year}|${rating}|${Math.round(kept * 100)}`).join('\n');
+	const rest = ROWS.flatMap((d, i) =>
+		d.films.map((film) => [film, top + i * rowH + (phone ? 22 : 10)]),
+	);
+	const tips = rest
+		.map(([[title, year, kept, rating]]) => `${title}|${year}|${rating}|${Math.round(kept * 100)}`)
+		.join('\n');
 	f.raw(
 		`<g fill-opacity="0" data-tips="${escapeXml(tips).replace(/\n/g, '&#10;')}">${rest.map(([[, , kept], cy]) => `<circle cx="${n(x(kept))}" cy="${n(cy)}" r="6"/>`).join('')}</g>`,
 	);
@@ -45,17 +72,31 @@ function chart(f, { W, H, phone }) {
 			const cy = top + i * rowH + (phone ? 22 : 10);
 			const at = 0.5 + i * 0.35;
 			const nameY = phone ? cy - 22 : cy;
-			out.push(label(el, phone ? L : L - 14, nameY, `${d.name} (${d.films.length})`, { size: 13, anchor: phone ? 'start' : 'end', weight: 700 }));
+			out.push(
+				label(el, phone ? L : L - 14, nameY, `${d.name} (${d.films.length})`, {
+					size: 13,
+					anchor: phone ? 'start' : 'end',
+					weight: 700,
+				}),
+			);
 			d.films.forEach(([, , kept], j) => {
 				// each dot drops from above its row onto its value, a few frames apart
 				const p = (t) => easeOut(prog(t, at + j * 0.03, 0.4));
 				out.push(
-					el('circle', { cx: n(x(kept)), r: phone ? 5 : 6, fill: COLORS.chalk, 'fill-opacity': 0.8 }, { cy: (t) => n(cy - 16 * (1 - p(t))), opacity: (t) => (p(t) > 0 ? 1 : 0) }),
+					el(
+						'circle',
+						{ cx: n(x(kept)), r: phone ? 5 : 6, fill: COLORS.chalk, 'fill-opacity': 0.8 },
+						{ cy: (t) => n(cy - 16 * (1 - p(t))), opacity: (t) => (p(t) > 0 ? 1 : 0) },
+					),
 				);
 			});
 			const shown = (t) => (t >= at + 0.9 ? 1 : 0);
 			out.push(
-				el('rect', { x: n(x(d.median) - 1.5), y: n(cy - 12), width: 3, height: 24, fill: COLORS.pink }, { opacity: shown }),
+				el(
+					'rect',
+					{ x: n(x(d.median) - 1.5), y: n(cy - 12), width: 3, height: 24, fill: COLORS.pink },
+					{ opacity: shown },
+				),
 			);
 		});
 		return out.join('');

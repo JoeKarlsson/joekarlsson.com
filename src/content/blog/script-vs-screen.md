@@ -4,7 +4,7 @@ shareTitle: 'I compared 2,112 movie scripts with what was said on screen'
 seoTitle: 'Movie scripts vs. what was said on screen'
 date: 2026-11-24
 slug: 'script-vs-screen'
-description: "I lined up 2,112 screenplays with the subtitles of the finished films. On average, the further a movie strays from its script, the worse it's rated. Jaws, Apocalypse Now and Interstellar strayed anyway."
+description: "I lined up 2,112 screenplays with what was said on screen. The further a movie strays from its script, the worse it tends to be rated. Jaws strayed anyway."
 categories: ['Web Dev']
 tags: ['bechdel', 'digital-humanities', 'data-analysis', 'film', 'screenplays']
 tldr: 'I lined up 2,112 screenplays, word for word, with the subtitles of the films they became. Films rated under 6 on IMDb kept 30% of their scripts, and films rated 8 or more kept 50%. Some of the best movies ever made threw their scripts out anyway. My read: going off the page is a gamble that usually loses, and the wins need a rare kind of director.'
@@ -66,9 +66,9 @@ marginNotes:
     at: 'checks 3,711 movies against the Bechdel test'
     text: 'how the script parser behind the site started, in 2015'
     post: 'bechdel-test-script-parser-works'
-heroImage: "/images/blog/script-vs-screen/thumb-4b72e947.webp"
-heroAlt: "Director Arthur Berthelet and writer Mary MacLane going over a film script together at Essanay Studios in 1918"
-mastheadImage: "/images/blog/script-vs-screen/masthead-63bdda52.webp"
+heroImage: '/images/blog/script-vs-screen/thumb-4b72e947.webp'
+heroAlt: 'Director Arthur Berthelet and writer Mary MacLane going over a film script together at Essanay Studios in 1918'
+mastheadImage: '/images/blog/script-vs-screen/masthead-63bdda52.webp'
 ---
 
 I lined up 2,112 movie scripts, word by word, with the English subtitles of the films they became, to see how much of the plan survives. The typical movie keeps 42% of its script's dialogue word for word. And the less of its script a movie kept, the worse people tend to rate it.
