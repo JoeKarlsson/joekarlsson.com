@@ -3,7 +3,7 @@
 // script error. e2e can't catch these: it runs on the dev server, which has no policy.
 //
 //   node scripts/check-script-policy.mjs http://localhost:4321
-import { chromium } from 'playwright';
+import { chromium, firefox, webkit } from 'playwright';
 
 const base = process.argv[2];
 if (!base) throw new Error('usage: node scripts/check-script-policy.mjs <base-url>');
@@ -27,11 +27,15 @@ const PAGES = [
 ];
 
 const problems = [];
-const browser = await chromium.launch();
-for (const viewport of [
-	{ width: 1440, height: 900 },
-	{ width: 390, height: 844 },
+// Every engine: bundled modules run by hash through an import map's integrity, which each
+// engine checks on its own (script-csp.mjs)
+for (const [engine, viewport] of [
+	[chromium, { width: 1440, height: 900 }],
+	[chromium, { width: 390, height: 844 }],
+	[firefox, { width: 1440, height: 900 }],
+	[webkit, { width: 390, height: 844 }],
 ]) {
+	const browser = await engine.launch();
 	const context = await browser.newContext({ viewport });
 	await context.addInitScript(() => {
 		window.__violations = [];
@@ -40,7 +44,7 @@ for (const viewport of [
 		);
 	});
 	for (const path of PAGES) {
-		const where = `${viewport.width}px ${path}`;
+		const where = `${engine.name()} ${viewport.width}px ${path}`;
 		const page = await context.newPage();
 		page.on('pageerror', (error) => problems.push(`${where}: script error: ${error.message}`));
 		await page.goto(base + path, { waitUntil: 'load' });
@@ -59,11 +63,13 @@ for (const viewport of [
 		await page.close();
 	}
 	await context.close();
+	await browser.close();
 }
-await browser.close();
 
 if (problems.length) {
 	console.error(problems.join('\n'));
 	process.exit(1);
 }
-console.log(`Script policy: ${PAGES.length} pages at 2 widths, nothing blocked, no script errors`);
+console.log(
+	`Script policy: ${PAGES.length} pages in Chromium at 2 widths, Firefox and WebKit, nothing blocked, no script errors`,
+);
