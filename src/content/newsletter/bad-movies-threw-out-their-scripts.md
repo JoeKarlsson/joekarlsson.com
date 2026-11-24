@@ -20,13 +20,11 @@ A film that kept under 20% of its script is about seven times as likely to be a 
 
 I run [Bechdel Script Test](https://bechdel.joekarlsson.com/), which scores 3,711 movies against the Bechdel test by parsing their scripts, and the first thing anyone says about it is that the script isn't the movie. This was my way of checking: [a tool](https://github.com/JoeKarlsson/bechdel-test) that lines up each script with the released film's subtitles, the way `diff` lines up two versions of a file. And I accidentally made some discoveries about how films get made!
 
-[The full post](/blog/script-vs-screen/) has the interactive chart, where you can find any film. It also breaks the numbers down by script draft, genre and director, and has two clips and the full method.
+[The full post](/blog/script-vs-screen/) has the interactive chart, two clips and the full method.
 
 ## Why films leave the page
 
 How much of the script survives depends a lot on what kind of movie it is.
-
-![Bar chart: median share of the script said word for word, by genre. Animation 88%, History 52%, Biography 47%, Fantasy 47%, Romance 47%, Drama 46%, Family 44%, Adventure 43%, Comedy 42%, Mystery 42%, Music 40%, Thriller 39%, Crime 39%, Sci-Fi 39%, Horror 35%, Action 33%, Sport 31%, War 31%.](/images/blog/script-vs-screen/chart-genres.svg)
 
 **Animated films keep 88% of their scripts because they're made backwards.** Ken Schretzmann, who edited _Toy Story 3_, [put it this way](https://blog.frame.io/2019/07/15/animation-editing/): "In live-action, you shoot first and edit later. In animation, you edit first and shoot later." Once a scene's dialogue is recorded, it goes to the animators, and from then on changes are expensive.
 
@@ -35,6 +33,8 @@ How much of the script survives depends a lot on what kind of movie it is.
 **Action films keep 33% because the script often isn't finished when shooting starts.** Christopher McQuarrie, who directed _Mission: Impossible - Fallout_, [said](https://collider.com/christopher-mcquarrie-interview-mission-impossible-fallout-top-gun-2/): "I'm not going to start writing until I know where I'm shooting."
 
 **Comedies land in the middle, at 42%, because they keep the scripted take as insurance.** On Judd Apatow's productions, the rule is to shoot at least one take of a scene as scripted. The structure stays, and the jokes get swapped. _Bridesmaids_ kept 6% of its script, which is what happens when the alternates win.
+
+![Bar chart: median share of the script said word for word, by genre. Animation 88%, History 52%, Biography 47%, Fantasy 47%, Romance 47%, Drama 46%, Family 44%, Adventure 43%, Comedy 42%, Mystery 42%, Music 40%, Thriller 39%, Crime 39%, Sci-Fi 39%, Horror 35%, Action 33%, Sport 31%, War 31%.](/images/blog/script-vs-screen/chart-genres.svg)
 
 ## When rewrites sink a movie
 
@@ -47,6 +47,10 @@ _Battlefield Earth_ kept 17%, and IMDb voters rate it 2.5 out of 10. The script 
 ## The exceptions: classics that went off script
 
 The wins are famous and the losses are forgotten. Nobody tells stories about what got rewritten on _Inspector Gadget_. It's survivorship bias, the same mistake as studying only the planes that made it home. And some of the best movies ever made do sit at the bottom of that first chart. _Apocalypse Now_ kept 10% of its script, _Taxi Driver_ 27% and _The Truman Show_ 19%.
+
+![Travis Bickle in his army jacket, facing the mirror in his apartment, with the subtitle "You talking to me?"](/images/blog/script-vs-screen/taxi-driver-mirror.webp)
+
+_Taxi Driver. Frame from Movieclips' official clip._
 
 _Blade Runner_ is the clearest case. It kept 19% of its script.
 
