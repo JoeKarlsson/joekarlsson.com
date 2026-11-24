@@ -6,8 +6,27 @@
 import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
-export function modernWebReport(scan, pinned, latest) {
+// Leads checked against their rubric and judged fine, keyed by file and line text so a line
+// shift doesn't bring them back. The issue only looks at open issues, so a closed false lead
+// would be re-filed every month without this.
+export const REVIEWED_FINE = [
+	// Spread of a Map (Map.groupBy): the rubric's "fine when", and Map has no toSorted()
+	{ file: 'utils/review-stats.ts', lineContent: 'decades: [...byDecade]' },
+];
+
+export function modernWebReport(scan, pinned, latest, reviewedFine = REVIEWED_FINE) {
 	if (scan.error) throw new Error(`legacy-scan failed: ${scan.error}`);
+	const isReviewed = (f) =>
+		reviewedFine.some((r) => r.file === f.file && r.lineContent === f.lineContent.trim());
+	const guides = scan.guides
+		.map((guide) => ({
+			...guide,
+			rules: guide.rules
+				.map((rule) => ({ ...rule, findings: rule.findings.filter((f) => !isReviewed(f)) }))
+				.filter((rule) => rule.findings.length > 0),
+		}))
+		.filter((guide) => guide.rules.length > 0);
+	const total = guides.reduce((n, g) => n + g.rules.reduce((m, r) => m + r.findings.length, 0), 0);
 	const sections = [];
 	if (latest !== pinned) {
 		sections.push(
@@ -19,15 +38,15 @@ export function modernWebReport(scan, pinned, latest) {
 			'',
 		);
 	}
-	if (scan.totalFindings > 0) {
+	if (total > 0) {
 		sections.push(
-			`## ${scan.totalFindings} legacy pattern${scan.totalFindings === 1 ? '' : 's'} in src/`,
+			`## ${total} legacy pattern${total === 1 ? '' : 's'} in src/`,
 			'',
 			'Leads, not verdicts: check each against its keep/drop rubric before changing code. ' +
 				'Guides are in `~/.claude/vendor/modern-web-guidance/`.',
 			'',
 		);
-		for (const guide of scan.guides) {
+		for (const guide of guides) {
 			for (const rule of guide.rules) {
 				sections.push(`### \`${guide.guideId}\`: ${rule.summary}`, '');
 				if (rule.verifierRubric) {

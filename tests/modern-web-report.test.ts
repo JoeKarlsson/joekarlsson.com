@@ -39,6 +39,11 @@ describe('modern-web-report', () => {
 		expect(report).toContain('- `src/a.ts:3` `el.onclick = x`');
 	});
 
+	it('drops a finding already reviewed as fine, so a closed false lead is not re-filed', () => {
+		const reviewed = [{ file: 'src/a.ts', lineContent: 'el.onclick = x' }];
+		expect(modernWebReport(oneFinding, '1.0.0', '1.0.0', reviewed)).toBe('');
+	});
+
 	it('fails loudly when the scan itself failed', () => {
 		expect(() => modernWebReport({ ...clean, error: 'Target path not found' }, '1', '1')).toThrow(
 			/legacy-scan failed/,
