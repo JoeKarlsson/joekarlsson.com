@@ -2131,5 +2131,20 @@
 			"color": "chalk"
 		},
 		"motion": "boil"
+	},
+	"script-vs-screen": {
+		"picture": {
+			"photo": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Director_Arthur_Berthelet_reviewing_script_with_feminist_writer_Mary_MacLane%2C_1918.jpg",
+			"credit": "https://commons.wikimedia.org/wiki/File:Director_Arthur_Berthelet_reviewing_script_with_feminist_writer_Mary_MacLane,_1918.jpg"
+		},
+		"look": "taped",
+		"alt": "Director Arthur Berthelet and writer Mary MacLane going over a film script together at Essanay Studios in 1918",
+		"focus": 0.4,
+		"mark": {
+			"name": "asterisk",
+			"at": [87, 3, 10, 17],
+			"color": "chalk"
+		},
+		"motion": "boil"
 	}
 }
