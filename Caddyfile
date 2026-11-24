@@ -54,7 +54,10 @@
 	# 301 redirects: WordPress portfolio items that have a project page now. Before the catch-all
 	# below, since redirects with named matchers run in the order written
 	@portfolio-bechdel-io path /portfolio/bechdel-test-visualizer /portfolio/bechdel-test-visualizer/
-	redir @portfolio-bechdel-io /work/bechdel-io/ 301
+	redir @portfolio-bechdel-io /work/bechdel-script-test/ 301
+	# 301 redirects: renamed project pages (Bechdel.io became Bechdel Script Test in November 2026)
+	@work-bechdel-io path /work/bechdel-io /work/bechdel-io/
+	redir @work-bechdel-io /work/bechdel-script-test/ 301
 	@portfolio-best-buy-product-locator path /portfolio/best-buy-chrome-extension /portfolio/best-buy-chrome-extension/
 	redir @portfolio-best-buy-product-locator /work/best-buy-product-locator/ 301
 	@portfolio-gaptcha path /portfolio/gaptcha /portfolio/gaptcha/
