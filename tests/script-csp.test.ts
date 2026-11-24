@@ -79,6 +79,8 @@ describe('script-csp', () => {
 		const stub =
 			'<!doctype html><title>Redirecting</title><meta http-equiv="refresh" content="0;url=/x/">';
 		expect(withScriptPolicy(stub, read)).toBe(stub);
-		expect(() => withScriptPolicy('<head><script>a()</script></head>', read)).toThrow(/meta charset/);
+		expect(() => withScriptPolicy('<head><script>a()</script></head>', read)).toThrow(
+			/meta charset/,
+		);
 	});
 });
