@@ -1,6 +1,6 @@
 ---
 title: 'Bad Movies Threw Out Their Scripts'
-date: 2026-12-22T08:00:00Z
+date: 2027-01-07T08:00:00Z
 slug: 'bad-movies-threw-out-their-scripts'
 description: 'I built a tool that checks how much of a script makes it on screen. Movies rated under 6 on IMDb kept 30%, and movies rated 8+ kept 50%.'
 recapOf: 'script-vs-screen'
