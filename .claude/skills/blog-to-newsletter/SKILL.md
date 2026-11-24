@@ -25,7 +25,8 @@ Read `src/content/blog/<slug>.md` in full, and look at every image, clip and dia
 
 - The story and what Joe learned (for the recording setup: why it rolls, lighting wrong twice and the fix, one cable, "I'm recording").
 - Opinions and advice ("light your face first").
-- One or two real photos, a meme if the post has a good one, and a diagram if it explains the idea.
+- Pictures all the way down, not just at the top: no more than about 250 words (one phone screen) between pictures, including in the closing section. Pull from everything the post has (photos, film frames, memes, charts, diagrams, the post's animations as stills) and place each one where its section talks about it. Short `###` subheads help a long section scan, but they don't replace a picture. Joe called the script-vs-screen issue a "wall of text" twice (2026-11-24): first the build section at the end, then the stretch between the first chart and the next one. The fix both times was a diagram the post already had.
+- Joe's readers are software engineers. When the post is about something Joe built or measured, say in a sentence or two near the top that he built a tool and why (link the repo), and end on how it works at engineer depth, from the project's own docs (data source, algorithm, how it was checked). Name that closing section for what it is ("How I built the script diff"); Joe rejected "Why I counted".
 
 **Cut, and link to the post for:**
 
@@ -88,7 +89,7 @@ Work in a worktree (other sessions share the checkout), commit with explicit pat
 
 1. Run the newsletter skill's step 3 gate on the email draft: the voice/humanizer, fact-checker, E-E-A-T and positioning reviewers, in parallel. Point the fact-checker at the blog post as the source for first-hand claims. Tell it not to curl `/email/` URLs before deploy, because Cloudflare caches the 404 for hours.
 2. Run `vale` with the main checkout's `.vale.ini`. In a worktree, run it from the main checkout, where `.vale/styles` exists.
-3. Count the words: `awk 'n>=2{print} /^---$/{n++}' <file> | sed -E 's/!\[[^]]*\]\([^)]*\)//g' | wc -w`.
+3. Count the words: `awk 'n>=2{print} /^---$/{n++}' <file> | sed -E 's/!\[[^]]*\]\([^)]*\)//g' | wc -w`. Then check for walls of text, and add a picture wherever this prints anything: `awk 'n>=2{print} /^---$/{n++}' <file> | awk '/^!\[/{if(w>250)print w" words in a row before body line "NR; w=0; next} {w+=NF} END{if(w>250)print w" words after the last picture"}'`.
 4. Run `npx astro build` and check that the issue page has its images, the button, and any section anchors you linked. Then `npx astro preview` and launch the `design-reviewer` agent on the issue page's preview URL, asking it to focus on the first phone screen (hook plus an image above the fold) and the end of the issue (peak-end: the last thing a subscriber sees). Fix High and Medium findings.
 5. Open the email draft in VS Code (`code <draft>`). Give Joe a numbered summary: the shape, the word count, what was cut and linked, the send date, the reviewers' verdicts, and any questions.
 
