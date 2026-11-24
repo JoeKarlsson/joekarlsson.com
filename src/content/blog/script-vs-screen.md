@@ -44,7 +44,7 @@ marginNotes:
     text: 'Hauer told the story in Channel 4''s On the Edge of Blade Runner and in his 2007 autobiography, titled All Those Moments. David Peoples, who rewrote Fancher''s draft, confirms in the documentary Dangerous Days that Hauer changed the speech.'
     url: 'https://en.wikipedia.org/wiki/Tears_in_rain_monologue'
   - type: 'see'
-    at: 'The file is Jonathan Nolan''s script'
+    at: 'originally developed the film with Steven Spielberg'
     text: 'my review of Interstellar'
     post: 'reviews/interstellar'
   - type: 'aside'
@@ -92,8 +92,7 @@ That's the asterisk in the title. Look at the bottom of that chart. _Jaws_ kept 
 
 I don't think that breaks the pattern. I think it explains it.
 
-
-_Jaws_ was written while it was shot. The mechanical shark kept breaking down (during the shoot, American Cinematographer reported a week's delay "while Bruce got a nose job"), and Carl Gottlieb would rewrite a scene the night before they shot it. Its most famous line isn't in the script I have. Gottlieb says Roy Scheider ad-libbed "You're gonna need a bigger boat" on set. Who came up with it is disputed, but every version of the story has it coming from the set, not the page.
+_Jaws_ was written while it was shot. The mechanical shark kept breaking down (during the shoot, American Cinematographer reported a week's delay "while Bruce got a nose job"), and Carl Gottlieb would rewrite a scene the night before they shot it. Its most famous line isn't in [the script I have](https://imsdb.com/scripts/Jaws.html). Gottlieb says Roy Scheider ad-libbed "You're gonna need a bigger boat" on set. Who came up with it is disputed, but every version of the story has it coming from the set, not the page.
 
 https://www.youtube.com/watch?v=qCzncv0ISaE
 
@@ -105,8 +104,7 @@ When it does work, it's close to a miracle, and you can't count on it happening 
 
 ## What a miracle looks like
 
-Here's the end of _Blade Runner_ (19% kept). The script in the study is Hampton Fancher's draft, and in it Roy Batty never gives a speech. He pulls a nail out of the wall, hands it to Deckard, and tells him what to do with it.
-
+Here's the end of _Blade Runner_ (19% kept). The script in the study is [Hampton Fancher's draft](https://imsdb.com/scripts/Blade-Runner.html), and in it Roy Batty never gives a speech. He pulls a nail out of the wall, hands it to Deckard, and tells him what to do with it.
 
 Deckard shoots him a few lines later. Here's the same scene, script against screen:
 
@@ -114,22 +112,30 @@ Deckard shoots him a few lines later. Here's the same scene, script against scre
 
 Three words made it: "time to die." David Peoples rewrote Fancher's script and gave Batty a speech. Then Rutger Hauer called the scripted speech opera talk, cut it down the night before they filmed, and added the line about tears in rain. The result is one of the most quoted speeches in film.
 
-
 https://www.youtube.com/watch?v=jvFYgELj2X0
 
 You can't plan for that. You can only make room for it and hope.
 
-The other famous outliers have the same shape when you look at which script I had:
+The other famous outliers have the same shape when you look at which script I had.
 
-- **_Apocalypse Now_ (10%).** The file is Coppola's draft from December 1975, before a shoot planned for five months ran 238 days. Brando showed up overweight, and Coppola has said he had no ending because Brando couldn't play the scenes as written, so they rewrote it there. At Cannes in 1979 Coppola said, "We had access to too much money, too much equipment, and little by little we went insane."
-- **_Interstellar_ (9%, and four and a half stars from me).** The file is Jonathan Nolan's script. Christopher Nolan has said Paramount "originally developed the film with Steven Spielberg" and "hired my brother to come up with a story and a script." The finished film credits both brothers, and Jonathan has said his original ending was "much more straightforward."
-- **_Taxi Driver_ (27%).** De Niro's own copy of the script, at the Harry Ransom Center, has his handwritten note "Mirror thing here?" The archive says the note confirms he improvised the "You talkin' to me?" bit in rehearsal.
-- **_The Truman Show_ (19%).** Andrew Niccol's first draft was a science fiction thriller set in New York City. Niccol rewrote it twelve times for Peter Weir, who said, "where [Niccol] had it depressing, I could make it light."
+**_Apocalypse Now_ (10%).** The [script in the study](https://imsdb.com/scripts/Apocalypse-Now.html) is Coppola's draft from December 1975, before a shoot planned for five months ran 238 days. Brando showed up overweight, and Coppola has said he had no ending because Brando couldn't play the scenes as written, so they rewrote it there. At Cannes in 1979 Coppola said, "We had access to too much money, too much equipment, and little by little we went insane." The making of it became a film of its own, the documentary _Hearts of Darkness_.
 
 ![The title page of the Apocalypse Now draft: A P O C A L Y P S E N O W. Original screenplay by John Milius. Inspired by Joseph Conrad's "HEART OF DARKNESS". This draft by Francis Ford Coppola. December 3, 1975.](/images/blog/script-vs-screen/apocalypse-now-title-page.webp 'margin: The title page of the Apocalypse Now script in the study.')
 
+![Willard's head rising out of a dark, misty river at night, his face painted in camouflage.](/images/blog/script-vs-screen/apocalypse-now-river.webp)
+_The ending they worked out on location: Willard rises from the river on his way to Kurtz. Frame from Movieclips' official clip._
 
-https://www.youtube.com/watch?v=NuxlYozLpeI
+**_Interstellar_ (9%, and four and a half stars from me).** The [script in the study](https://imsdb.com/scripts/Interstellar.html) is Jonathan Nolan's. Christopher Nolan has said Paramount "originally developed the film with Steven Spielberg" and "hired my brother to come up with a story and a script." The finished film credits both brothers, and Jonathan has said his original ending was "much more straightforward."
+
+**_Taxi Driver_ (27%).** De Niro's own copy of [Paul Schrader's script](https://imsdb.com/scripts/Taxi-Driver.html), now at the Harry Ransom Center, has his handwritten note "Mirror thing here?" The archive says the note confirms he improvised the "You talkin' to me?" bit in rehearsal.
+
+![Travis Bickle in his army jacket, facing the mirror in his apartment.](/images/blog/script-vs-screen/taxi-driver-mirror.webp)
+_“You talkin’ to me?”, the bit De Niro worked out in rehearsal. Frame from Movieclips' official clip._
+
+**_The Truman Show_ (19%).** Andrew Niccol's first draft was a science fiction thriller set in New York City. Niccol rewrote it twelve times for Peter Weir, who said, "where [Niccol] had it depressing, I could make it light." The film ends with Truman taking a bow and walking out of the dome. The [script in the study](https://imsdb.com/scripts/Truman-Show,-The.html) kept 19% of its words on the way there.
+
+![Truman standing in the open door in the painted sky wall, arms spread, taking his bow.](/images/blog/script-vs-screen/truman-show-door.webp)
+_Weir's lighter ending: Truman takes his bow at the door in the sky. Frame from Movieclips' official clip._
 
 These aren't sloppy movies. They kept being written after the script was done, and each had someone who could steer that.
 
@@ -177,7 +183,7 @@ You'd guess improv comedies throw out the most dialogue. They don't. Comedy keep
 
 **Action keeps 33% because the script often isn't finished when shooting starts.** Christopher McQuarrie, who wrote and directed the recent _Mission: Impossible_ films, says "Screenplays are the afterthought to the decision to make a movie," and on _Fallout_: "I'm not going to start writing until I know where I'm shooting." On _Rogue Nation_, he says he wrote a scene during the day and shot it that night. Kevin Feige has said Marvel shoots additional material on all of its movies after the main shoot. When the stunts and locations come first, the dialogue is written around them, late, and keeps changing.
 
-**Comedy lands at the average because the scripted take still gets shot.** On Judd Apatow's productions, the rule is to shoot at least one take of a scene as scripted and then keep the cameras rolling for variations, and Adam McKay says he makes sure "to have alts no matter what." The structure stays, and the jokes get swapped out. _Bridesmaids_ (6%) is what happens when the alternates win: Paul Feig has said, "I like when they will just go off."
+**Comedy lands at the average because the scripted take still gets shot.** On Judd Apatow's productions, the rule is to shoot at least one take of a scene as scripted and then keep the cameras rolling for variations, and Adam McKay says he makes sure "to have alts no matter what." The structure stays, and the jokes get swapped out. _Bridesmaids_ ([6%](https://imsdb.com/scripts/Bridesmaids.html)) is what happens when the alternates win: Paul Feig has said, "I like when they will just go off."
 
 I couldn't find a good explanation for why war and sport movies sit down at the bottom with action.
 
