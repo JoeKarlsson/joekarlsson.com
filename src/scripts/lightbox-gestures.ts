@@ -6,6 +6,7 @@
 // - a single tap closes, after DOUBLE_TAP_MS so a second tap can zoom instead
 // While a finger is down nothing tweens (#14 in ~/.claude/knowledge/web-motion.md); only
 // the release animates. Under reduced motion the release lands at once.
+import { tappedChartDot } from './chart-tips';
 import { rubberBand, rubberClamp } from '../utils/rubber-band';
 
 const MAX_ZOOM = 4;
@@ -191,7 +192,9 @@ export function initLightboxGestures(
 				settle();
 			} else {
 				lastTapAt = now;
-				tapTimer = setTimeout(() => scale === 1 && close('morph'), DOUBLE_TAP_MS);
+				// a tap on a chart dot shows its card (chart-tips.ts), so it doesn't close the view
+				if (!tappedChartDot())
+					tapTimer = setTimeout(() => scale === 1 && close('morph'), DOUBLE_TAP_MS);
 			}
 			return;
 		}

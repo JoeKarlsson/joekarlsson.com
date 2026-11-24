@@ -23,6 +23,7 @@ lightbox doesn't scroll the page behind (Safari: the wheel listener in lightbox-
 </dialog>
 
 <script>
+	import { tappedChartDot } from '../scripts/chart-tips';
 	import { initLightboxGestures } from '../scripts/lightbox-gestures';
 
 	// Opening, the picture or diagram itself grows out of the post into the screen (a View
@@ -215,7 +216,8 @@ lightbox doesn't scroll the page behind (Safari: the wheel listener in lightbox-
 			return button;
 		};
 		document.querySelectorAll<HTMLElement>('.prose .diagram').forEach((figure) => {
-			figure.addEventListener('click', () => openDiagram(figure));
+			// A tap on a chart dot shows its hover card (chart-tips.ts) instead of zooming
+			figure.addEventListener('click', () => !tappedChartDot() && openDiagram(figure));
 			// Inside the figure, so its click reaches the listener above
 			figure.append(opener('Enlarge diagram', figure));
 		});

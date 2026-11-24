@@ -33,7 +33,7 @@ const NAMED = {
 	],
 	phone: [
 		['Battlefield Earth', 8, -12, 'start'],
-		['Bridesmaids', 0, 16, 'middle'],
+		['Bridesmaids', 0, -14, 'middle'],
 		['Interstellar', -2, -14, 'end'],
 		['The Princess Bride', -8, 0, 'end'],
 	],

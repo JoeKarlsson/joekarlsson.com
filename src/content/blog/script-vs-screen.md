@@ -77,19 +77,19 @@ Going off script is a gamble, and most of the time it loses. The famous wins, li
 
 ![Scatter chart of 2,112 films: IMDb rating against the share of the script's dialogue said word for word on screen. The median rises with the rating: 30% for films rated under 6, 38% for 6 to 7, 47% for 7 to 8 and 50% for 8 and up. Big exceptions both ways: Interstellar (rated 8.7, 9% kept) and Bridesmaids (6.8, 6%) near the bottom, The Princess Bride (8.0, 97%) at the top.](/images/blog/script-vs-screen/chart-rating.svg)
 
-Movies rated under 6 on IMDb kept 30% of their scripts. Movies rated 8 or higher kept 50%. Hover over a dot to find a film. It's a real pattern with plenty of exceptions.
+Movies rated under 6 on IMDb kept 30% of their scripts. Movies rated 8 or higher kept 50%. Hover over or tap a dot to find a film. It's a real pattern with plenty of exceptions.
 
 ## The odds of going off script
 
 Put the films in groups by how much of their script they kept, and the gamble shows up as odds. Here's the share of each group IMDb voters rate as a flop (under 6) or a classic (8 or higher):
 
-| Script kept word for word | Films | Rated under 6 | Rated 8 or higher |
-| ------------------------- | ----: | ------------: | ----------------: |
-| Under 20%                 |   352 |           20% |                5% |
-| 20% to 40%                |   640 |           15% |                7% |
-| 40% to 60%                |   578 |           12% |               10% |
-| 60% to 80%                |   325 |            4% |               11% |
-| 80% or more               |   217 |            3% |               16% |
+| Script kept | Films | Rated under 6 | Rated 8+ |
+| ----------- | ----: | ------------: | -------: |
+| Under 20%   |   352 |           20% |       5% |
+| 20% to 40%  |   640 |           15% |       7% |
+| 40% to 60%  |   578 |           12% |      10% |
+| 60% to 80%  |   325 |            4% |      11% |
+| 80% or more |   217 |            3% |      16% |
 
 So a film that kept under 20% of its script is about seven times as likely to be a flop as one that kept 80% or more, and about a third as likely to be a classic. The top group is where some of the scripts online are really transcripts, but leave it out and the gap still holds: 15% flops among films that kept 20% to 40%, against 4% among films that kept 60% to 80%.
 
@@ -99,12 +99,12 @@ Famous movies might just have better scripts online: studios publish polished fi
 
 The study has 640 shooting scripts and 131 early drafts, and better-rated films keep more of their scripts in both. It holds for films from before 1990, from 1990 to 2009, and from 2010 on, and inside every big genre, from dramas to action movies. Here's the share of the script kept word for word, as a median:
 
-| IMDb rating | Films | All scripts | Shooting scripts | Early drafts |
-| ----------- | ----: | ----------: | ---------------: | -----------: |
-| Under 6     |   249 |         30% |              32% |          15% |
-| 6 to 7      |   768 |         38% |              38% |          23% |
-| 7 to 8      |   899 |         47% |              47% |          35% |
-| 8 and up    |   196 |         50% |              51% |          45% |
+| IMDb rating | Films | All | Shooting | Early drafts |
+| ----------- | ----: | --: | -------: | -----------: |
+| Under 6     |   249 | 30% |      32% |          15% |
+| 6 to 7      |   768 | 38% |      38% |          23% |
+| 7 to 8      |   899 | 47% |      47% |          35% |
+| 8 and up    |   196 | 50% |      51% |          45% |
 
 ## When rewrites sink a movie
 
@@ -185,25 +185,25 @@ The limits: subtitles aren't a transcript, and "not in the script" means not in 
 <details>
 <summary>Show all 17 films</summary>
 
-| Film                     | Year | IMDb rating | Script kept word for word | My review                                                                                             |
-| ------------------------ | ---: | ----------: | ------------------------: | ----------------------------------------------------------------------------------------------------- |
-| Shrek                    | 2001 |         7.9 |                       97% |                                                                                                       |
-| The Princess Bride       | 1987 |         8.0 |                       97% |                                                                                                       |
-| Up                       | 2009 |         8.3 |                       96% |                                                                                                       |
-| The Dark Knight          | 2008 |         9.1 |                       77% |                                                                                                       |
-| The Shawshank Redemption | 1994 |         9.3 |                       71% |                                                                                                       |
-| Taxi Driver              | 1976 |         8.2 |                       27% |                                                                                                       |
-| Jaws                     | 1975 |         8.1 |                       26% | <a href="/reviews/jaws/" target="_blank" rel="noopener">5 stars</a>                                   |
-| Alien                    | 1979 |         8.4 |                       22% | <a href="/reviews/alien/" target="_blank" rel="noopener">4.5 stars</a>                                |
-| Blade Runner             | 1982 |         8.1 |                       19% |                                                                                                       |
-| The Truman Show          | 1998 |         8.2 |                       19% | <a href="/reviews/the-truman-show/" target="_blank" rel="noopener">5 stars</a>                        |
-| Anchorman                | 2004 |         7.1 |                       18% | <a href="/reviews/anchorman-the-legend-of-ron-burgundy/" target="_blank" rel="noopener">4.5 stars</a> |
-| Battlefield Earth        | 2000 |         2.5 |                       17% |                                                                                                       |
-| Step Brothers            | 2008 |         6.9 |                       15% |                                                                                                       |
-| Apocalypse Now           | 1979 |         8.4 |                       10% |                                                                                                       |
-| Interstellar             | 2014 |         8.7 |                        9% | <a href="/reviews/interstellar/" target="_blank" rel="noopener">4.5 stars</a>                         |
-| Inspector Gadget         | 1999 |         4.2 |                        7% |                                                                                                       |
-| Bridesmaids              | 2011 |         6.8 |                        6% |                                                                                                       |
+| Film                     | Kept | IMDb | Year | My review                                                                                             |
+| ------------------------ | ---: | ---: | ---: | ----------------------------------------------------------------------------------------------------- |
+| Shrek                    |  97% |  7.9 | 2001 |                                                                                                       |
+| The Princess Bride       |  97% |  8.0 | 1987 |                                                                                                       |
+| Up                       |  96% |  8.3 | 2009 |                                                                                                       |
+| The Dark Knight          |  77% |  9.1 | 2008 |                                                                                                       |
+| The Shawshank Redemption |  71% |  9.3 | 1994 |                                                                                                       |
+| Taxi Driver              |  27% |  8.2 | 1976 |                                                                                                       |
+| Jaws                     |  26% |  8.1 | 1975 | <a href="/reviews/jaws/" target="_blank" rel="noopener">5 stars</a>                                   |
+| Alien                    |  22% |  8.4 | 1979 | <a href="/reviews/alien/" target="_blank" rel="noopener">4.5 stars</a>                                |
+| Blade Runner             |  19% |  8.1 | 1982 |                                                                                                       |
+| The Truman Show          |  19% |  8.2 | 1998 | <a href="/reviews/the-truman-show/" target="_blank" rel="noopener">5 stars</a>                        |
+| Anchorman                |  18% |  7.1 | 2004 | <a href="/reviews/anchorman-the-legend-of-ron-burgundy/" target="_blank" rel="noopener">4.5 stars</a> |
+| Battlefield Earth        |  17% |  2.5 | 2000 |                                                                                                       |
+| Step Brothers            |  15% |  6.9 | 2008 |                                                                                                       |
+| Apocalypse Now           |  10% |  8.4 | 1979 |                                                                                                       |
+| Interstellar             |   9% |  8.7 | 2014 | <a href="/reviews/interstellar/" target="_blank" rel="noopener">4.5 stars</a>                         |
+| Inspector Gadget         |   7% |  4.2 | 1999 |                                                                                                       |
+| Bridesmaids              |   6% |  6.8 | 2011 |                                                                                                       |
 
 </details>
 

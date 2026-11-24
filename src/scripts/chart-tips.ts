@@ -11,6 +11,15 @@
  * article stylesheet is near its budget (tests/bundle-size.test.ts).
  */
 const REACH = 12; // SVG units: how far from a dot the pointer can be and still pick it
+const TAP_MS = 600; // how long a touch on a dot keeps the lightbox from opening or closing
+
+let lastDotTap = 0;
+/**
+ * True right after a touch picked a chart dot. The lightbox (ImageLightbox.astro,
+ * lightbox-gestures.ts) checks it so that tap shows the card instead of opening or closing
+ * the zoomed view; a mouse click still zooms.
+ */
+export const tappedChartDot = (): boolean => performance.now() - lastDotTap < TAP_MS;
 
 interface Dot {
 	x: number;
@@ -21,8 +30,6 @@ interface Dot {
 function cardElement(): HTMLDivElement {
 	const card = document.createElement('div');
 	card.className = 'chart-tip';
-	card.setAttribute('role', 'status');
-	card.setAttribute('aria-live', 'polite');
 	Object.assign(card.style, {
 		position: 'fixed',
 		zIndex: '1000',
@@ -44,10 +51,10 @@ function cardElement(): HTMLDivElement {
 function describe([title, year, rating, kept]: string[]): Node[] {
 	const name = document.createElement('strong');
 	name.textContent = title;
-	const parts = [`${kept}% of the script kept`];
-	if (rating) parts.unshift(`IMDb ${rating}`);
-	return [name, ` (${year})`, document.createElement('br'), parts.join(' · ')].map((part) =>
-		typeof part === 'string' ? document.createTextNode(part) : part,
+	const lines = [`${kept}% of the script kept`];
+	if (rating) lines.unshift(`IMDb rating ${Number(rating).toFixed(1)}`);
+	return [name, ` (${year})`, ...lines.flatMap((line) => [document.createElement('br'), line])].map(
+		(part) => (typeof part === 'string' ? document.createTextNode(part) : part),
 	);
 }
 
@@ -97,6 +104,8 @@ export function initChartTips(): void {
 			}
 		}
 		if (!best) return hide();
+		if (event.type === 'pointerdown' && event.pointerType !== 'mouse')
+			lastDotTap = performance.now();
 		ring.setAttribute('cx', String(best.x));
 		ring.setAttribute('cy', String(best.y));
 		if (ring.ownerSVGElement !== svg) svg.append(ring);
@@ -114,4 +123,5 @@ export function initChartTips(): void {
 	document.addEventListener('pointermove', show, { passive: true });
 	document.addEventListener('pointerdown', show, { passive: true });
 	document.addEventListener('scroll', hide, { passive: true });
+	document.addEventListener('keydown', (event) => event.key === 'Escape' && hide());
 }

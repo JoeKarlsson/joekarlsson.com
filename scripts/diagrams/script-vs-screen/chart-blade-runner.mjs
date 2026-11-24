@@ -2,7 +2,7 @@
 // film's subtitles. The draft's lines are struck out one by one; only "time to die" survives,
 // and the film's speech writes in beside it. Script text from the draft, screen text from the
 // subtitles, both verbatim.
-import { COLORS, MUTED, label, layers, n, panel } from './_chart.mjs';
+import { COLORS, MUTED, SANS, label, layers, n, panel } from './_chart.mjs';
 
 const SCRIPT = [
 	['BATTY', "It's time to die."],
@@ -89,26 +89,42 @@ function chart(f, { W, H, phone }) {
 			wrap(text, max).forEach((line) => {
 				const survives = i === 0;
 				const width = line.length * (speaker ? 6.6 : 6.5);
-				out.push(
-					label(el, cols[0][0], y, line, {
-						size: 14,
-						anchor: 'start',
-						weight: speaker ? 600 : 400,
-						color: speaker ? COLORS.paper : MUTED,
-					}),
-				);
+				// Each line is stretched to exactly the width of its mark (textLength), so the strike
+				// and the underline land on the words whatever the font's real metrics are
+				const run = (x, text, length) =>
+					el(
+						'text',
+						{
+							x: n(x),
+							y: n(y),
+							'font-family': SANS,
+							'font-size': 14,
+							'font-weight': speaker ? 600 : 400,
+							fill: speaker ? COLORS.paper : MUTED,
+							'dominant-baseline': 'central',
+							textLength: n(length),
+							lengthAdjust: 'spacing',
+						},
+						{},
+						text,
+					);
+				if (survives) {
+					out.push(run(cols[0][0], "It's", 24), run(cols[0][0] + 28, 'time to die.', 76));
+				} else {
+					out.push(run(cols[0][0], line, width));
+				}
 				if (survives) {
 					// "time to die" lights up instead of being struck
 					out.push(
 						el(
 							'rect',
-							{ x: n(cols[0][0] + 33), y: n(y + 8), height: 3, fill: COLORS.pink },
+							{ x: n(cols[0][0] + 28), y: n(y + 8), height: 3, fill: COLORS.pink },
 							{ width: (t) => (t >= strikeAt ? 76 : 0) },
 						),
 						el(
 							'rect',
 							{ x: n(cols[0][0]), y: n(y - 1), height: 2.5, fill: COLORS.pink },
-							{ width: (t) => (t >= strikeAt ? 30 : 0) },
+							{ width: (t) => (t >= strikeAt ? 24 : 0) },
 						),
 					);
 				} else {
