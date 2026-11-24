@@ -8,6 +8,7 @@ Core file (`.claude/blog-core.md`). Every significant factual claim links to a s
 - **Competitive claims link to the competitor's own documentation**, never its marketing pages, and must be verifiable against it.
 - **A source likely to change** (pricing, a README, a promise a company walked back) gets cited as a dated Wayback Machine snapshot, not the live page.
 - **Quotes match their source exactly**, in quotation marks as published, with `…` where you cut. Otherwise paraphrase.
+- **Every quote links its source at the quote.** A quote from a book names the book (author, title, year) and links it (publisher, Open Library or Google Books page), plus the article where you read it if that's how you found it. Joe (2026-11-24): "We need citations or links to books for all quotes."
 - **Verify every link resolves** before the post ships, and follow redirects to the final URL.
 - **If a claim can't be verified, cut or soften it**, never guess a number, date or source. A removed claim beats a fabricated citation.
 - **Explain the why with research.** A causal claim ("animation keeps its script because...", "action films rewrite because...") needs a named source: a filmmaker or practitioner interview, data study, paper or book, with the quote confirmed on the page. Joe (2026-11-24): "FIND RESEARCH. Back up points and explain what everything means and WHY it is that way with research. BACK UP OUR CLAIMS." Where nothing explains it, say so in the post, or mark it plainly as Joe's guess.

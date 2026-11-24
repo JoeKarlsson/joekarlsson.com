@@ -25,8 +25,10 @@ Fix a tell by cutting it or saying the thing plainly, never by adding a joke, a 
 2. Work through the rest: performed candor, staged reveals, quotable closers, "X, not Y" contrasts, rule-of-three lists, stacked anaphora, announcement and section-preview lines, brochure phrasing, and uniform paragraph rhythm. Leave lines that already sound human alone.
 3. **Rhythm across the draft.** Read the last sentence of every paragraph on its own: if most are punchlines, morals or reversals, make most of them plain. Where three or more sentences in a row run about the same length, or paragraphs and sections all run the same size, vary them because the thoughts differ, not to make a beat.
 4. **Revision rounds.** Name the paragraphs Joe already approved: fix only confirmed tells in them and copy the rest exactly, so a re-run never churns text he signed off on. When Joe says the draft reads as AI, the fix is structure and rhythm, not words: run step 3 on the whole draft with his complaint as the brief.
-5. Run the skill's `scripts/ai_tells.py` on the draft (check its usage first) and fix the hits that are real. Number-dense lines of cited facts and required scaffolding lines are fine to leave.
-6. Confirm there are no em dashes in the body.
+5. **Cut overexplaining (Joe, 2026-11-24: "overexplaining is such an AI tell").** Don't tell readers what they can already see: a chart caption or sentence that restates the chart ("Pink: the only words of the draft said on screen"), a line pointing at the title's own device ("That's the asterisk in the title"), "Here's what the chart shows". Trust the reader and cut the line.
+6. **Numbers say what they count, in one unit.** Every number names its subject ("kept 9% of its script", not "9%"), one unit throughout (percentages, not a mix of percentages and 0.21-style decimals), and no paragraph strings several numbers together. Statistics like correlations go in a margin note, explained in words. Joe on a paragraph of ratings and correlations: "mindless data regurgitation... 9% of what?"
+7. Run the skill's `scripts/ai_tells.py` on the draft (check its usage first) and fix the hits that are real. Number-dense lines of cited facts and required scaffolding lines are fine to leave.
+8. Confirm there are no em dashes in the body.
 
 ## Voice sample
 
