@@ -413,7 +413,7 @@ const captionText =
 					const button = document.createElement('button');
 					button.type = 'button';
 					button.className = 'copy-button';
-					// Its name is the label on show, so a voice user can say what they see
+					// Its name starts with the label on show, so a voice user can say what they see
 					const swap = document.createElement('span');
 					swap.className = 'icon-swap';
 					const idleLabel = document.createElement('span');
@@ -428,7 +428,12 @@ const captionText =
 						doneLabel.toggleAttribute('aria-hidden', !copied);
 					};
 					swap.append(idleLabel, doneLabel);
-					button.append(swap);
+					// Every block has a Copy, so the name says which ("Copy bash code"), still
+					// starting with the word on show (WCAG 2.5.3; Modern Web Guidance, copy-button)
+					const whichCode = document.createElement('span');
+					whichCode.className = 'sr-only';
+					whichCode.textContent = lang ? ` ${lang} code` : ' code';
+					button.append(swap, whichCode);
 					let resetTimer: ReturnType<typeof setTimeout> | undefined;
 					button.addEventListener('click', async () => {
 						if (!code) return;

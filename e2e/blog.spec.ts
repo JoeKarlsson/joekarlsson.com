@@ -294,3 +294,11 @@ test.describe('Blog search analytics', () => {
 		expect((await blogSearches(page))[1]).toEqual(['Blog Search', { results: 'none' }]);
 	});
 });
+
+test('a code block Copy names its code, starting with the word on show', async ({ page }) => {
+	await page.goto('/blog/aws-identity-center-guide/');
+	const copy = page.locator('.prose pre[data-language="bash"] .copy-button').first();
+	// "Copy bash code", not a bare "Copy" repeated on every block (WCAG 2.5.3)
+	await expect(copy).toHaveAccessibleName('Copy bash code');
+	await expect(copy).toHaveText(/^Copy/);
+});
