@@ -24,7 +24,12 @@ try {
 	await page.setContent(`<link rel="stylesheet" href="https://fonts.googleapis.com/css2?${fonts}&display=block">
 <style>:root{--font-anton:Anton,sans-serif;--font-hanken-grotesk:'Hanken Grotesk',sans-serif}
 body{margin:0;background:#0a0a0a}svg{width:528px;height:auto;display:block}</style>${readFileSync(svgPath, 'utf8')}`);
-	await page.evaluate(() => document.fonts.ready);
+	// Animated charts draw in from empty; a screenshot catches frame one. Swap in their still layer.
+	await page.evaluate(() => {
+		document.querySelectorAll('.anim-live').forEach((layer) => layer.remove());
+		document.querySelectorAll('.anim-still').forEach((layer) => layer.removeAttribute('display'));
+		return document.fonts.ready;
+	});
 	const png = join(work, 'diagram.png');
 	await page.locator('svg').first().screenshot({ path: png });
 	execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', png, '-q:v', '3', out]);
