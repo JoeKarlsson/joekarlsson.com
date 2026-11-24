@@ -53,6 +53,8 @@ const entries = [
 	// One polite live region says "Copied" for both buttons. The two labels sit stacked in
 	// .icon-swap (motion.css), so the button keeps its width; it tilts and fills when it copies,
 	// like the paper page's stamp (DECISIONS.md 2026-11-19, 7B)
+	import { announce } from '../scripts/announce';
+
 	const status = document.createElement('span');
 	status.setAttribute('role', 'status');
 	status.className = 'sr-only';
@@ -63,17 +65,16 @@ const entries = [
 		let reset: ReturnType<typeof setTimeout> | undefined;
 		button.addEventListener('click', async () => {
 			clearTimeout(reset);
-			status.textContent = '';
 			try {
 				await navigator.clipboard.writeText(button.dataset.copy ?? '');
 				button.toggleAttribute('data-copied', true);
 				button.classList.remove('copied');
 				void button.offsetWidth; // restart the pop on a second copy
 				button.classList.add('copied');
-				status.textContent = 'Copied';
+				announce(status, 'Copied');
 			} catch {
 				idleLabel.textContent = 'Failed';
-				status.textContent = 'Copy failed: select the text and copy it instead';
+				announce(status, 'Copy failed: select the text and copy it instead');
 			}
 			reset = setTimeout(() => {
 				button.removeAttribute('data-copied');

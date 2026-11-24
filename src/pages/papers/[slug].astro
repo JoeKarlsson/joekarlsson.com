@@ -190,6 +190,8 @@ const abstractText = data.abstract
 </BaseLayout>
 
 <script>
+	import { announce } from '../../scripts/announce';
+
 	// One polite live region says "Copied" for both buttons
 	const status = document.createElement('span');
 	status.setAttribute('role', 'status');
@@ -201,17 +203,16 @@ const abstractText = data.abstract
 		let reset: ReturnType<typeof setTimeout> | undefined;
 		button.addEventListener('click', async () => {
 			clearTimeout(reset);
-			status.textContent = '';
 			try {
 				await navigator.clipboard.writeText(button.dataset.copy ?? '');
 				button.toggleAttribute('data-copied', true);
 				button.classList.remove('copied');
 				void button.offsetWidth; // restart the pop on a second copy
 				button.classList.add('copied');
-				status.textContent = 'Copied';
+				announce(status, 'Copied');
 			} catch {
 				idleLabel.textContent = 'Failed';
-				status.textContent = 'Copy failed: select the text and copy it instead';
+				announce(status, 'Copy failed: select the text and copy it instead');
 			}
 			reset = setTimeout(() => {
 				button.removeAttribute('data-copied');

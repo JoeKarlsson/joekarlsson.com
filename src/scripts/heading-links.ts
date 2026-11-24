@@ -6,6 +6,8 @@
 // The keyboard gets it too (Joe, 2026-11-22): a post heading's # link is in the Tab order, and
 // a section page's heading, which has no # link, gets one around its words, so Enter on it is
 // a click on a real link and screen readers hear a link inside a heading.
+import { announce } from './announce';
+
 const HEADINGS =
 	'main :is(h2, h3, h4)[id]:not(.sr-only, summary *, button *, #keep-exploring, #post-newsletter-heading)';
 const SHOW_MS = 1400;
@@ -28,7 +30,7 @@ function flash(heading: Element, text: string) {
 	// Hidden by opacity, never display or hidden, so it stays a live region; the words go in on
 	// the next frame, once it's in place
 	requestAnimationFrame(() => {
-		tag.textContent = text;
+		announce(tag, text);
 		tag.classList.add('on');
 	});
 	clearTimeout(Number(tag.dataset.timer));

@@ -360,6 +360,7 @@ const captionText =
 				class="copy-burst z-20 size-[110px]"
 			/>
 			<script>
+				import { announce } from '../scripts/announce';
 				import { isMotionPaused } from '../scripts/pause-motion';
 
 				function copyToClipboard(text: string): Promise<void> {
@@ -432,12 +433,11 @@ const captionText =
 					button.addEventListener('click', async () => {
 						if (!code) return;
 						clearTimeout(resetTimer);
-						copyStatus.textContent = '';
 						try {
 							await copyToClipboard(code.textContent || '');
 							button.toggleAttribute('data-copied', true);
 							showLabel(true);
-							copyStatus.textContent = 'Copied';
+							announce(copyStatus, 'Copied');
 							button.classList.remove('copied');
 							void button.offsetWidth; // restart the pop on a second copy
 							button.classList.add('copied');
@@ -447,7 +447,7 @@ const captionText =
 							}
 						} catch {
 							idleLabel.textContent = 'Failed';
-							copyStatus.textContent = 'Copy failed';
+							announce(copyStatus, 'Copy failed');
 						}
 						resetTimer = setTimeout(() => {
 							button.removeAttribute('data-copied');
