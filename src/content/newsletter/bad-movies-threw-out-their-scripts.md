@@ -2,7 +2,7 @@
 title: 'Bad Movies Threw Out Their Scripts'
 date: 2026-12-22T08:00:00Z
 slug: 'bad-movies-threw-out-their-scripts'
-description: 'I wrote a diff for screenplays. Films rated under 6 on IMDb kept 30% of their scripts word for word, and films rated 8 or higher kept 50%.'
+description: 'I built a tool that checks how much of a script makes it on screen. Movies rated under 6 on IMDb kept 30%, and movies rated 8+ kept 50%.'
 recapOf: 'script-vs-screen'
 cardPhoto: '/images/newsletter/bad-movies-threw-out-their-scripts/script-meeting.webp'
 cardPhotoAlt: 'director Arthur Berthelet and writer Mary MacLane going over a film script together at Essanay Studios in 1918'
@@ -18,7 +18,7 @@ Going off script is a gamble, and most of the time it loses. The famous wins, li
 
 A film that kept under 20% of its script is about seven times as likely to be a flop (under 6 on IMDb) as one that kept 80% or more, and about a third as likely to be a classic (8 or higher). It's a real pattern with plenty of exceptions.
 
-I run [Bechdel Script Test](https://bechdel.joekarlsson.com/), which scores 3,711 movies against the Bechdel test by parsing their scripts, and the first thing anyone says about it is that the script isn't the movie. This was my way of checking: a tool that lines up each script with the released film's subtitles, the way `diff` lines up two versions of a file. And I accidentally made some discoveries about how films get made!
+I run [Bechdel Script Test](https://bechdel.joekarlsson.com/), which scores 3,711 movies against the Bechdel test by parsing their scripts, and the first thing anyone says about it is that the script isn't the movie. This was my way of checking: [a tool](https://github.com/JoeKarlsson/bechdel-test) that lines up each script with the released film's subtitles, the way `diff` lines up two versions of a file. And I accidentally made some discoveries about how films get made!
 
 [The full post](/blog/script-vs-screen/) has the interactive chart, where you can find any film. It also breaks the numbers down by script draft, genre and director, and has two clips and the full method.
 
@@ -26,7 +26,11 @@ I run [Bechdel Script Test](https://bechdel.joekarlsson.com/), which scores 3,71
 
 How much of the script survives depends a lot on what kind of movie it is.
 
+![Bar chart: median share of the script said word for word, by genre. Animation 88%, History 52%, Biography 47%, Fantasy 47%, Romance 47%, Drama 46%, Family 44%, Adventure 43%, Comedy 42%, Mystery 42%, Music 40%, Thriller 39%, Crime 39%, Sci-Fi 39%, Horror 35%, Action 33%, Sport 31%, War 31%.](/images/blog/script-vs-screen/chart-genres.svg)
+
 **Animated films keep 88% of their scripts because they're made backwards.** Ken Schretzmann, who edited _Toy Story 3_, [put it this way](https://blog.frame.io/2019/07/15/animation-editing/): "In live-action, you shoot first and edit later. In animation, you edit first and shoot later." Once a scene's dialogue is recorded, it goes to the animators, and from then on changes are expensive.
+
+![Two pipelines. Live action: script, then the shoot, then the edit, and the dialogue changes during the shoot and the edit. Animation: script, then story reels with temporary voices, where the rewriting happens; then the real voices are recorded; then the scenes are animated, and by then changing a line means animating the scene again.](/images/blog/script-vs-screen/diagram-animation.svg)
 
 **Action films keep 33% because the script often isn't finished when shooting starts.** Christopher McQuarrie, who directed _Mission: Impossible - Fallout_, [said](https://collider.com/christopher-mcquarrie-interview-mission-impossible-fallout-top-gun-2/): "I'm not going to start writing until I know where I'm shooting."
 
