@@ -72,7 +72,7 @@ What subtitles can't tell me is which way it runs: whether rewriting sinks films
 
 Bechdel Script Test already parsed the scripts, so the new parts were the screen side and the diff.
 
-The subtitles come from the English part of the OpenSubtitles corpus, filed by IMDb id. The archive is 36 GB, so the tool reads only the files it needs, with HTTP range requests. A film has a median of 17 English subtitle uploads. The tool takes up to nine, and a script word counts as said only when more than half of them have it, so one sloppy subtitler can't make a line look cut.
+The subtitles come from the English part of the OpenSubtitles corpus, filed by IMDb id. The archive is 36 GB. The tool reads only the files it needs, with HTTP range requests. A film has a median of 17 English subtitle uploads. The tool takes up to nine, and a script word counts as said only when more than half of them have it, so one sloppy subtitler can't make a line look cut.
 
 The diff normalizes both sides first (gonna becomes going to, numbers become words, ums are dropped). Then it anchors on word 4-grams that appear exactly once on each side, like patience diff, recurses into the gaps with shorter n-grams, and runs an exact longest common subsequence on small gaps. A reworded line counts as lost, so this measures exact wording, not plot.
 
