@@ -10,6 +10,7 @@ Core file (`.claude/blog-core.md`). Every significant factual claim links to a s
 - **Quotes match their source exactly**, in quotation marks as published, with `…` where you cut. Otherwise paraphrase.
 - **Verify every link resolves** before the post ships, and follow redirects to the final URL.
 - **If a claim can't be verified, cut or soften it**, never guess a number, date or source. A removed claim beats a fabricated citation.
+- **Explain the why with research.** A causal claim ("animation keeps its script because...", "action films rewrite because...") needs a named source: a filmmaker or practitioner interview, data study, paper or book, with the quote confirmed on the page. Joe (2026-11-24): "FIND RESEARCH. Back up points and explain what everything means and WHY it is that way with research. BACK UP OUR CLAIMS." Where nothing explains it, say so in the post, or mark it plainly as Joe's guess.
 - **Date-sensitive claims carry their date**: "as of <month year>" on prices, versions and "currently running" lists.
 
 ## Personal site only

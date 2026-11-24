@@ -18,6 +18,16 @@ Five lines at the top of the outline file, one sentence each:
 
 The thesis, "what it adds" and scope lines start from `blog-positioning-reviewer`'s OUTLINE-mode read (its proposed thesis, whitespace and scope check). Where the outline departs from it, say why in the angle block.
 
+## Data and research posts: argue what it means
+
+From the script-vs-screen post (2026-11-23/24), where Joe rejected four drafts that reported findings well: "you're just reporting data, but we need to give like why this is happening, why I care about this, what this means."
+
+- **A thesis, not a findings list.** The post argues one claim about what the data means and what it changes for the reader or the world. Every finding in it gets a "so what" and a "why", and the why is backed by research (`sourcing.md`, **Explain the why**). Pitch the thesis and outline to Joe before writing prose.
+- **Only Joe could have written it.** Swap his name for anyone else's byline: if the piece still holds, it isn't done. His edge comes from his own work and opinions (earlier posts and talks on the topic, his reviews, the project he built). Read those before pitching, and ask him for his opinion instead of inventing one.
+- **Joe isn't the hook.** "No one gives a fuck about me": the title and opening sell the finding, and his personal angle comes in as evidence for the argument, woven into the section it supports, never a standalone "my own X" section.
+- **Lead with what's surprising, not what's obvious.** Joe rejects hooks readers already know ("Duh... I would not click on this") and trivia that says nothing ("Bridesmaids kept 6% of its script").
+- **Meet the obvious objection where it arises.** When the chart's most famous points contradict the headline, call them out right after the chart. If the title promises something (an asterisk, a twist), pay it off visibly and early. Don't overclaim to make an exception fit: Bridesmaids is not "one of the best movies ever made".
+
 ## Hook options
 
 **What a hook is (Joe, 2026-11-19):** a question or a statement, and the rest of the piece answers that question or proves that statement. For a post that means the intro poses the reader's question (angle block line 1) or states the thesis (line 2), and every section is a step toward the answer or a piece of evidence for the claim. A section that does neither gets cut or moves to the repo docs. It's looser than in a social post: the question can be implied by the problem the intro describes instead of asked word for word, and the statement can take the whole first paragraph to land instead of one line. The ending settles it: the answer, or what the claim means now that it's proven. Examples:
