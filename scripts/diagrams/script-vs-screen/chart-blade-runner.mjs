@@ -2,7 +2,7 @@
 // film's subtitles. The draft's lines are struck out one by one; only "time to die" survives,
 // and the film's speech writes in beside it. Script text from the draft, screen text from the
 // subtitles, both verbatim.
-import { COLORS, MUTED, SANS, label, layers, n, panel } from './_chart.mjs';
+import { COLORS, MUTED, label, layers, n, panel } from './_chart.mjs';
 
 const SCRIPT = [
 	['BATTY', "It's time to die."],
@@ -99,17 +99,9 @@ function chart(f, { W, H, phone }) {
 			});
 			y2 += 6;
 		});
-		out.push(
-			el(
-				'text',
-				{ x: cols[0][0], y: H - 26, 'font-family': SANS, 'font-size': 13, fill: MUTED, 'dominant-baseline': 'central' },
-				{ opacity: (t) => (t >= 7 ? 1 : 0) },
-				'Pink: the only words of the draft said on screen.',
-			),
-		);
 		return out.join('');
 	});
 }
 
-export const desktop = { height: 380, draw: (f) => chart(f, { W: 640, H: 380, phone: false }) };
-export const phone = { height: 640, draw: (f) => chart(f, { W: 360, H: 640, phone: true }) };
+export const desktop = { height: 345, draw: (f) => chart(f, { W: 640, H: 345, phone: false }) };
+export const phone = { height: 610, draw: (f) => chart(f, { W: 360, H: 610, phone: true }) };

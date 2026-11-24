@@ -45,7 +45,7 @@ function chart(f, { W, H, phone }) {
 		anchor: 'start',
 		upper: true,
 	});
-	f.text(phone ? 20 : 16, phone ? 37 : 62, phone ? 'Each dot is a film' : 'Each dot is a film: its IMDb rating, and how much of its script was said word for word', {
+	f.text(phone ? 20 : 16, phone ? 37 : 62, 'Share of each script said word for word on screen', {
 		size: 13,
 		anchor: 'start',
 		color: MUTED,
