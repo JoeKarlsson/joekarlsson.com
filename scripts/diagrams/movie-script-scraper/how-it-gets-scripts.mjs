@@ -2,7 +2,7 @@
 // a genre in, a folder of scripts out, from src/genre, src/getScript and
 // src/helper/api.js in JoeKarlsson/movie-script-scraper
 export const alt =
-	"How Movie Script Scraper gets scripts. You run it from the command line or as an npm package with a genre, like Action, and a total, 10 by default. It loads that genre's page on IMSDB, the Internet Movie Script Database, and finds every link to a script. It fetches five scripts at a time, retrying a failed request up to three times and waiting 1, 2 and then 4 seconds. From each page it keeps the script text and skips anything under 500 characters. Each script is saved as a text file in a folder named for the genre. Bechdel.io's scripts came from it.";
+	"How Movie Script Scraper gets scripts. You run it from the command line or as an npm package with a genre, like Action, and a total, 10 by default. It loads that genre's page on IMSDB, the Internet Movie Script Database, and finds every link to a script. It fetches five scripts at a time, retrying a failed request up to three times and waiting 1, 2 and then 4 seconds. From each page it keeps the script text and skips anything under 500 characters. Each script is saved as a text file in a folder named for the genre. Bechdel Script Test's scripts came from it.";
 
 const START = {
 	label: 'A genre',
