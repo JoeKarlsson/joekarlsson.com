@@ -35,6 +35,14 @@ function chart(f, { W, H, phone }) {
 		f.text(x(v), bottom + 16, pct(v), { size: 13, color: MUTED });
 	});
 
+	// Every dot at its resting place, invisible, for the hover card (src/scripts/chart-tips.ts):
+	// the drawn dots move during the build-in and exist twice (live and still layers)
+	const rest = ROWS.flatMap((d, i) => d.films.map((film) => [film, top + i * rowH + (phone ? 22 : 10)]));
+	const tips = rest.map(([[title, year, kept, rating]]) => `${title}|${year}|${rating}|${Math.round(kept * 100)}`).join('\n');
+	f.raw(
+		`<g fill-opacity="0" data-tips="${escapeXml(tips).replace(/\n/g, '&#10;')}">${rest.map(([[, , kept], cy]) => `<circle cx="${n(x(kept))}" cy="${n(cy)}" r="6"/>`).join('')}</g>`,
+	);
+
 	layers(f, phone, (el) => {
 		const out = [];
 		ROWS.forEach((d, i) => {
@@ -42,12 +50,11 @@ function chart(f, { W, H, phone }) {
 			const at = 0.5 + i * 0.35;
 			const nameY = phone ? cy - 22 : cy;
 			out.push(label(el, phone ? L : L - 14, nameY, `${d.name} (${d.films.length})`, { size: 13, anchor: phone ? 'start' : 'end', weight: 700 }));
-			d.films.forEach(([title, year, kept], j) => {
+			d.films.forEach(([, , kept], j) => {
 				// each dot drops from above its row onto its value, a few frames apart
 				const p = (t) => easeOut(prog(t, at + j * 0.03, 0.4));
 				out.push(
-					el('circle', { cx: n(x(kept)), r: phone ? 5 : 6, fill: COLORS.chalk, 'fill-opacity': 0.8, class: 'chart-dot' }, { cy: (t) => n(cy - 16 * (1 - p(t))), opacity: (t) => (p(t) > 0 ? 1 : 0) },
-						`<title>${escapeXml(`${title} (${year}): ${pct(kept)}`)}</title>`),
+					el('circle', { cx: n(x(kept)), r: phone ? 5 : 6, fill: COLORS.chalk, 'fill-opacity': 0.8 }, { cy: (t) => n(cy - 16 * (1 - p(t))), opacity: (t) => (p(t) > 0 ? 1 : 0) }),
 				);
 			});
 			const shown = (t) => (t >= at + 0.9 ? 1 : 0);

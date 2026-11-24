@@ -115,6 +115,10 @@ const {
 	import { initMarginNotes } from '../scripts/margin-notes';
 	initMarginNotes();
 
+	// Hover cards on chart dots that carry data-tips (scripts/diagrams); a no-op elsewhere
+	import { initChartTips } from '../scripts/chart-tips';
+	initChartTips();
+
 	// The desktop reading line where CSS scroll timelines aren't supported (global.css), and
 	// the Scroll Depth and Reading Complete goals for every article type: filter on the path
 	// (/blog/, /newsletter/, /reviews/, /work/, /talks/) to split them

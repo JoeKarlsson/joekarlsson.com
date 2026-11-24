@@ -57,10 +57,12 @@ function chart(f, { W, H, phone }) {
 	[3, 4, 5, 6, 7, 8, 9].forEach((r) => f.text(x(r), bottom + 16, String(r), { size: 13, color: MUTED }));
 	f.text((L + R) / 2, bottom + 34, 'IMDb rating', { size: 13, color: MUTED });
 
-	// The dots, still, under everything that moves
+	// The dots, still, under everything that moves. data-tips feeds the hover card
+	// (src/scripts/chart-tips.ts): one "title|year|rating|kept" line per dot, in order
 	const r = phone ? 1.6 : 2;
+	const tips = DATA.films.map(([title, year, rating, kept]) => `${title}|${year}|${rating}|${Math.round(kept * 100)}`).join('\n');
 	f.raw(
-		`<g fill="${COLORS.chalk}" fill-opacity="0.42">${DATA.films.map(([, , rating, kept], i) => `<circle cx="${n(x(rating + spread(i)))}" cy="${Math.round(y(kept))}" r="${r}"/>`).join('')}</g>`,
+		`<g fill="${COLORS.chalk}" fill-opacity="0.42" data-tips="${escapeXml(tips).replace(/\n/g, '&#10;')}">${DATA.films.map(([, , rating, kept], i) => `<circle cx="${n(x(rating + spread(i)))}" cy="${Math.round(y(kept))}" r="${r}"/>`).join('')}</g>`,
 		'groups',
 	);
 
@@ -86,13 +88,12 @@ function chart(f, { W, H, phone }) {
 				label(el, (x0 + x1) / 2, y(b.kept) - 13, pct(b.kept), { size: 14, color: COLORS.pink, anims: { opacity: shown } }),
 			);
 		});
-		// Named films: a ringed dot with a hover title, and its name, after the medians
+		// Named films: a bigger dot and its name, after the medians
 		NAMED[phone ? 'phone' : 'desktop'].forEach(([title, dx, dy, anchor]) => {
-			const [, year, rating, kept] = film(title);
+			const [, , rating, kept] = film(title);
 			const shown = (t) => (t >= 3.2 ? 1 : 0);
 			out.push(
-				el('circle', { cx: n(x(rating)), cy: n(y(kept)), r: 4.5, fill: COLORS.paper, stroke: '#151515', 'stroke-width': 1.5, class: 'chart-dot' }, { opacity: shown },
-					`<title>${escapeXml(`${title} (${year}): rated ${rating}, ${pct(kept)} of the script kept`)}</title>`),
+				el('circle', { cx: n(x(rating)), cy: n(y(kept)), r: 4.5, fill: COLORS.paper, stroke: '#151515', 'stroke-width': 1.5 }, { opacity: shown }),
 				label(el, x(rating) + dx, y(kept) + dy, title, { size: 13, anchor, weight: 600, anims: { opacity: shown } }),
 			);
 		});
