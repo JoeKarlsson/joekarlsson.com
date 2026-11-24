@@ -1,7 +1,7 @@
 ---
 title: 'I compared 2,112 movie scripts with what was actually said on screen. Bad movies threw theirs out.*'
-shareTitle: 'I compared 2,112 movie scripts with what was said on screen'
-seoTitle: 'Movie scripts vs. what was said on screen'
+shareTitle: 'I compared 2,112 movie scripts with the screen. Bad movies threw theirs out'
+seoTitle: 'How much of a movie script ends up on screen?'
 date: 2026-11-24
 slug: 'script-vs-screen'
 description: 'I lined up 2,112 screenplays with what was said on screen. The further a movie strays from its script, the worse it tends to be rated. Jaws strayed anyway.'
@@ -14,11 +14,11 @@ faq:
   - question: 'Do better movies stick closer to their scripts?'
     answer: 'On average, yes. Films rated under 6 on IMDb kept a median 30% of their scripts word for word, and films rated 8 or higher kept 50% (Spearman correlation 0.26). The pattern holds within shooting scripts and within early drafts. There are famous exceptions: Jaws kept 26%, Apocalypse Now 10% and Interstellar 9%.'
   - question: 'Why do animated movies keep so much of their script?'
-    answer: 'Animated films keep a median 88% of their scripts, the most of any genre, because they are edited before they are animated. As Toy Story 3 editor Ken Schretzmann put it, "In animation, you edit first and shoot later." Dialogue is recorded and the story is reworked in storyboard reels before a scene is animated, and changing lines after that is expensive.'
+    answer: 'Because they are edited before they are animated. Animated films keep a median 88% of their scripts, the most of any genre. As Toy Story 3 editor Ken Schretzmann put it, "In animation, you edit first and shoot later." Dialogue is recorded and the story is reworked in storyboard reels before a scene is animated, and changing lines after that is expensive.'
   - question: 'Why do action movies change their scripts so much?'
-    answer: 'Action films keep a median 33% of their scripts, among the lowest of any genre. Big action productions often start shooting before the script is finished and write around stunts and locations. Christopher McQuarrie, who directed Mission: Impossible – Fallout, said, "I''m not going to start writing until I know where I''m shooting."'
+    answer: 'Because the script often is not finished when shooting starts. Action films keep a median 33% of their scripts, among the lowest of any genre. Big action productions often start shooting before the script is done and write around stunts and locations. Christopher McQuarrie, who directed Mission: Impossible - Fallout, said, "I''m not going to start writing until I know where I''m shooting."'
   - question: 'Was "You''re gonna need a bigger boat" improvised?'
-    answer: 'The line is not in the Jaws script draft by Carl Gottlieb and Peter Benchley. Gottlieb has said Roy Scheider ad-libbed it on set, though the origin is disputed. Jaws as a whole kept 26% of its script word for word, and Gottlieb rewrote scenes during the shoot, often the night before they were filmed.'
+    answer: 'Probably, though it is disputed. The line is not in the Jaws script draft by Carl Gottlieb and Peter Benchley. Gottlieb has said Roy Scheider ad-libbed it on set, though the origin is disputed. Jaws as a whole kept 26% of its script word for word, and Gottlieb rewrote scenes during the shoot, often the night before they were filmed.'
 marginNotes:
   - type: 'term'
     at: 'English subtitles'
@@ -29,7 +29,7 @@ marginNotes:
     text: "Measured as a Spearman correlation between IMDb rating and the share of the script kept, it's 0.26 on a scale from -1 to 1 (95% interval 0.22 to 0.30): real, but modest. On the 127 films I've reviewed it's 0.21 for IMDb ratings and 0.14 for mine."
   - type: 'quote'
     at: 'the losses are forgotten'
-    text: 'Survivorship bias is your tendency to focus on survivors instead of whatever you would call a non-survivor.'
+    text: '[S]urvivorship bias is your tendency to focus on survivors instead of whatever you would call a non-survivor depending on the situation.'
     by: 'David McRaney, You Are Not So Smart, 2013'
     url: 'https://youarenotsosmart.com/2013/05/23/survivorship-bias/'
   - type: 'quote'
@@ -39,19 +39,19 @@ marginNotes:
     url: 'https://www.finaldraft.com/blog/jaws-masterpiece-created-collaboration-deadline'
   - type: 'aside'
     at: 'Who came up with it is disputed'
-    text: "Gottlieb has also said the line started as a crew joke about the producers' undersized support boat, and Scheider later said he wasn't sure he was the one who said it first."
-    url: 'https://bostonmagazine.com/?p=2009170'
+    text: "Gottlieb has also said the line started as a crew joke about the producers' undersized support boat."
+    url: 'https://www.mentalfloss.com/entertainment/movies/youre-gonna-need-bigger-boat-jaws-line-origin'
   - type: 'aside'
     at: 'called the scripted speech opera talk'
     text: "Hauer told the story in Channel 4's On the Edge of Blade Runner and in his 2007 autobiography, titled All Those Moments. David Peoples, who rewrote Fancher's draft, confirms in the documentary Dangerous Days that Hauer changed the speech."
-    url: 'https://en.wikipedia.org/wiki/Tears_in_rain_monologue'
+    url: 'https://openlibrary.org/isbn/9780061133893'
   - type: 'term'
     at: 'shooting scripts'
     text: 'the version a production films from, usually with numbered scenes and colored revision pages. The final edit can still change a lot of it.'
     term: 'Shooting script'
   - type: 'aside'
     at: 'probably a transcript'
-    text: 'Studios post "For Your Consideration" scripts during awards season, and fan sites post transcripts typed from the film. Both match the screen almost perfectly, which is why the very top of every list here is suspect.'
+    text: 'Studios post "For Your Consideration" scripts during awards season, and fan sites post transcripts typed from the film. Both match the screen almost perfectly, which is why the top of every list here is suspect.'
   - type: 'quote'
     at: 'months on one scene'
     text: 'You can have two animators working for three and half months to animate a scene.'
@@ -60,7 +60,7 @@ marginNotes:
   - type: 'quote'
     at: "until I know where I'm shooting"
     text: "If we sat around and waited for the script to be finished, we'd still be developing this movie."
-    by: 'Christopher McQuarrie on Mission: Impossible – Fallout, Collider, 2018'
+    by: 'Christopher McQuarrie on Mission: Impossible - Fallout, Collider, 2018'
     url: 'https://collider.com/christopher-mcquarrie-interview-mission-impossible-fallout-top-gun-2/'
   - type: 'see'
     at: 'checks 3,711 movies against the Bechdel test'
@@ -91,13 +91,13 @@ Put the films in groups by how much of their script they kept, and the gamble sh
 | 60% to 80%                |   325 |            4% |               11% |
 | 80% or more               |   217 |            3% |               16% |
 
-So a film that strays far from its script is about seven times as likely to be a flop and about a third as likely to be a classic. The rewriting can be a symptom of a troubled production as much as a cause of one, and from the audience's side it looks the same either way.
+So a film that kept under 20% of its script is about seven times as likely to be a flop as one that kept 80% or more, and about a third as likely to be a classic. The top group is where some of the scripts online are really transcripts, but leave it out and the gap still holds: 15% flops among films that kept 20% to 40%, against 4% among films that kept 60% to 80%.
 
 ## Better movies keep more in every kind of draft
 
-You might think famous movies just have better scripts online. Studios publish polished final versions of their prestige films, and those match the screen better than an early draft would. If that were the whole story, the pattern would disappear once you compare like with like.
+Famous movies might just have better scripts online: studios publish polished final versions of their prestige films, and those match the screen better than an early draft would. So I compared like with like.
 
-It doesn't. The study has 640 shooting scripts and 131 early drafts, and better-rated films keep more of their scripts in both. It holds for films from before 1990, from 1990 to 2009, and from 2010 on, and inside every big genre, from dramas to action movies. Here's the share of the script kept word for word, as a median:
+The study has 640 shooting scripts and 131 early drafts, and better-rated films keep more of their scripts in both. It holds for films from before 1990, from 1990 to 2009, and from 2010 on, and inside every big genre, from dramas to action movies. Here's the share of the script kept word for word, as a median:
 
 | IMDb rating | Films | All scripts | Shooting scripts | Early drafts |
 | ----------- | ----: | ----------: | ---------------: | -----------: |
@@ -108,29 +108,27 @@ It doesn't. The study has 640 shooting scripts and 131 early drafts, and better-
 
 ## When rewrites sink a movie
 
-The flops at the bottom of the chart left a trail.
+The flops at the bottom of the rating chart left a trail.
 
 _Inspector Gadget_ kept 7% of its script. Rupert Everett, who played the villain, wrote in his memoir, [_Red Carpets and Other Banana Skins_](https://openlibrary.org/works/OL4281847W) (2006), [quoted by Den of Geek](https://www.denofgeek.com/movies/1999-s-inspector-gadget-and-its-hugely-underappreciated-gag/), that "a string of writers had written version after version, each adding to our scripts on a different-colored paper," for "a panel of executives, each with their own theory and agenda." After bad test screenings, the film was cut from 110 minutes to 78.
 
-_Battlefield Earth_ kept 17%, and IMDb voters rate it 2.5 out of 10. The script went through ten revisions before another writer was brought in. When the original writer, J.D. Shapiro, accepted its Razzie for Worst Picture of the Decade, he [thanked that writer](<https://en.wikipedia.org/wiki/Battlefield_Earth_(film)>) for "rewriting my script in a way I never, ever, ever — could have imagined or conceived of myself."
-
-It isn't only committees. Christopher McQuarrie writes his _Mission: Impossible_ films while he shoots them. On _Rogue Nation_ he told [Film Comment](https://www.filmcomment.com/interview-christopher-mcquarrie/), "I was constantly rewriting the script and trying to find the end of the movie," and it worked. Simon Pegg [described](https://ca.news.yahoo.com/mission-impossible-star-simon-pegg-210000097.html) the later films as "a fly by the seat of your pants way of working," and the last one, _The Final Reckoning_, didn't work for me. Some of these were rewritten by a committee and some by a director betting on the set, and in each of these cases the bet lost.
+_Battlefield Earth_ kept 17%, and IMDb voters rate it 2.5 out of 10. The script went through ten revisions before another writer was brought in. When the original writer, J.D. Shapiro, accepted its Razzie for Worst Picture of the Decade, he [thanked that writer](<https://en.wikipedia.org/wiki/Battlefield_Earth_(film)>) for rewriting his script in a way he "never, ever, ever" could have imagined.
 
 ## Why films leave the page
 
-How much of the script survives depends a lot on what kind of movie it is. You'd guess improvised comedies throw out the most dialogue. They don't. Comedies keep 42% of their scripts, right at the average. Action and war movies keep the least, and animation keeps by far the most.
+How much of the script survives depends a lot on what kind of movie it is. Comedies, for all their improvising, keep 42% of their scripts, right at the average. Action and war movies keep the least, and animation keeps by far the most.
 
 ![Bar chart: median share of the script said word for word, by genre. Animation 88%, History 52%, Biography 47%, Fantasy 47%, Romance 47%, Drama 46%, Family 44%, Adventure 43%, Comedy 42%, Mystery 42%, Music 40%, Thriller 39%, Crime 39%, Sci-Fi 39%, Horror 35%, Action 33%, Sport 31%, War 31%.](/images/blog/script-vs-screen/chart-genres.svg)
 
-**Animated films keep 88% of their scripts because they're made backwards.** Ken Schretzmann, who edited _Toy Story 3_, [put it this way](https://blog.frame.io/2019/07/15/animation-editing/): "In live-action, you shoot first and edit later. In animation, you edit first and shoot later." The rewriting happens in story reels: [Pete Docter has described](https://www.avclub.com/pete-docter-1798216800) filming the storyboards with temporary dialogue and music, and watching the story change again. Once a scene's real dialogue is recorded, it goes to the animators, and from then on changes are expensive, since two animators can spend months on one scene. Even [Robin Williams's famous improvising](https://www.yahoo.com/entertainment/aladdin-director-remembers-robin-williams-175618298.html) on _Aladdin_ happened in the recording booth, before anything was animated. Animation takes the gamble out before shooting starts.
+**Animated films keep 88% of their scripts because they're made backwards.** Ken Schretzmann, who edited _Toy Story 3_, [put it this way](https://blog.frame.io/2019/07/15/animation-editing/): "In live-action, you shoot first and edit later. In animation, you edit first and shoot later." The rewriting happens in story reels: [Pete Docter has described](https://www.avclub.com/pete-docter-1798216800) filming the storyboards with temporary dialogue and music, and watching the story change again. Once a scene's real dialogue is recorded, it goes to the animators, and from then on changes are expensive, since two animators can spend months on one scene. Even [Robin Williams's famous improvising](https://www.yahoo.com/entertainment/aladdin-director-remembers-robin-williams-175618298.html) on _Aladdin_ happened in the recording booth, before anything was animated.
 
 ![Two pipelines. Live action: script, then the shoot, then the edit, and the dialogue changes during the shoot and the edit. Animation: script, then story reels with temporary voices, where the rewriting happens; then the real voices are recorded; then the scenes are animated, and by then changing a line means animating the scene again.](/images/blog/script-vs-screen/diagram-animation.svg)
 
-**Action films keep 33% because the script often isn't finished when shooting starts.** McQuarrie [says](https://collider.com/christopher-mcquarrie-interview-mission-impossible-fallout-top-gun-2/) "Screenplays are the afterthought to the decision to make a movie," and on _Fallout_: "I'm not going to start writing until I know where I'm shooting." Kevin Feige [has said](https://cinemablend.com/news/2448060/why-reshoots-for-marvel-movies-arent-a-big-deal-according-to-kevin-feige) Marvel shoots additional material on all of its movies after the main shoot. When the stunts and locations come first, the dialogue gets written around them, late, with no finished script to fall back on.
+**Action films keep 33% because the script often isn't finished when shooting starts.** McQuarrie [says](https://collider.com/christopher-mcquarrie-interview-mission-impossible-fallout-top-gun-2/) "Screenplays are the afterthought to the decision to make a movie," and on _Fallout_: "I'm not going to start writing until I know where I'm shooting." Kevin Feige [has said](https://www.cinemablend.com/news/2448060/why-reshoots-for-marvel-movies-arent-a-big-deal-according-to-kevin-feige) Marvel shoots additional material on all of its movies after the main shoot. When the stunts and locations come first, the dialogue gets written around them, late, with no finished script to fall back on.
 
-**Comedies land in the middle because they keep the scripted take as insurance.** On Judd Apatow's productions, [the rule is](https://www.dga.org/craft/dgaq/issues/0902-summer-2009/apatow-and-friends) to shoot at least one take of a scene as scripted, then keep the cameras rolling for variations, and Adam McKay [says](https://www.pastemagazine.com/comedy/catching-up-with-adam-mckay) he makes sure "to have alts no matter what." The structure stays, and the jokes get swapped. _Bridesmaids_ kept [6% of its script](https://imsdb.com/scripts/Bridesmaids.html), which is what happens when the alternates win. Paul Feig [has said](https://cinemablend.com/new/Exclusive-Interview-Bridesmaids-Director-Paul-Feig-24650.html), "I like when they will just go off."
+**Comedies land in the middle because they keep the scripted take as insurance.** On Judd Apatow's productions, [the rule is](https://www.dga.org/craft/dgaq/issues/0902-summer-2009/apatow-and-friends) to shoot at least one take of a scene as scripted, then keep the cameras rolling for variations, and Adam McKay [says](https://www.pastemagazine.com/comedy/catching-up-with-adam-mckay) he makes sure "to have alts no matter what." The structure stays, and the jokes get swapped. _Bridesmaids_ kept [6% of its script](https://imsdb.com/scripts/Bridesmaids.html), which is what happens when the alternates win. Paul Feig [has said](https://www.cinemablend.com/new/Exclusive-Interview-Bridesmaids-Director-Paul-Feig-24650.html), "I like when they will just go off."
 
-Who's in charge matters too. When the person who wrote the script also directs it, a film keeps 49% of its script, against 37% when someone else directs. One person's vision keeps more of the page.
+Who's in charge matters too. When the person who wrote the script also directs it, a film keeps 49% of its script (974 films), against 37% when someone else directs (1,138 films).
 
 ## \*The exceptions: classics that went off script
 
@@ -147,38 +145,40 @@ Three words made it: "time to die." David Peoples rewrote Fancher's script and g
 
 https://www.youtube.com/watch?v=jvFYgELj2X0
 
-I'm as guilty of this as anyone. I've reviewed 127 of these films on this site, and my favorites are full of these exceptions: _Jaws_, _The Truman Show_, <a href="/reviews/alien/" target="_blank" rel="noopener"><em>Alien</em></a> and <a href="/reviews/interstellar/" target="_blank" rel="noopener"><em>Interstellar</em></a> all kept less than a third of their scripts. I remember the bets that paid off, like everyone else.
+I've reviewed 127 of these films on this site, and my favorites are full of these exceptions: _Jaws_, _The Truman Show_, <a href="/reviews/alien/" target="_blank" rel="noopener"><em>Alien</em></a> and <a href="/reviews/interstellar/" target="_blank" rel="noopener"><em>Interstellar</em></a> all kept less than a third of their scripts, and I gave _Jaws_ and _The Truman Show_ five stars.
 
-## Even the directors who pull it off lose the bet
+## The directors who can wrangle it
 
-When going off script works, it takes a director who can hold a sprawling, improvised, constantly changing shoot together and still come out with a movie. Even they don't manage it every time.
+When going off script works, I suspect it takes a director who can hold a sprawling, improvised, constantly changing shoot together and still come out with a movie. Even they don't manage it every time.
 
-_Jaws_ was written while it was shot. The mechanical shark kept breaking down ([American Cinematographer reported](https://theasc.com/articles/on-location-with-jaws) a week's delay during the shoot "while Bruce got a nose job"), and [Carl Gottlieb](https://www.finaldraft.com/blog/jaws-masterpiece-created-collaboration-deadline) would rewrite a scene the night before they shot it. Its most famous line isn't in [the script I have](https://imsdb.com/scripts/Jaws.html). [Gottlieb says](https://bostonmagazine.com/?p=2009170) Roy Scheider ad-libbed it on set. Who came up with it is disputed, but every version of the story has it coming from the set, not the page.
+_Jaws_ was written while it was shot. The mechanical shark kept breaking down ([American Cinematographer reported](https://theasc.com/article/on-location-with-jaws/) a week's delay during the shoot "while Bruce got a nose job"), and [Carl Gottlieb](https://www.finaldraft.com/blog/jaws-masterpiece-created-collaboration-deadline) would rewrite a scene the night before they shot it. Its most famous line isn't in [the script I have](https://imsdb.com/scripts/Jaws.html). [Gottlieb says](https://www.bostonmagazine.com/arts-entertainment/2015/08/14/9-amazing-jaws-facts/) Roy Scheider ad-libbed it on set. Who came up with it is disputed, but every version of the story has it coming from the set, not the page.
 
 ![Chief Brody backing away from the stern of the Orca, cigarette in his mouth, with the subtitle "You're gonna need a bigger boat."](/images/blog/script-vs-screen/jaws-bigger-boat.webp)
 _Jaws. Frame from Universal Pictures' official clip._
 
-On _Jaws_, Spielberg [called the shoot](https://theasc.com/articles/on-location-with-jaws) "a mathematician's dream and a filmmaker's horror," and came out with a classic. He doesn't every time. His films run from 7% of the script kept (_The Post_) to 96% (_War Horse_). Some of the ones that strayed furthest from the page are among his best, like _Saving Private Ryan_ and _Jaws_. Others, like _The BFG_ and _The Lost World: Jurassic Park_, are among his lowest rated.
+On _Jaws_, Spielberg [called the shoot](https://theasc.com/article/on-location-with-jaws/) "a mathematician's dream and a filmmaker's horror," and came out with a classic. He doesn't every time. His films run from 7% of the script kept (_The Post_) to 96% (_War Horse_). Some of the ones that strayed furthest from the page are among his best, like _Saving Private Ryan_ (8% kept) and _Jaws_. Others, like _The BFG_ and _The Lost World: Jurassic Park_, are among his lowest rated.
 
 https://www.youtube.com/watch?v=2DeOnb2DvdY
 
 ![Dot chart: share of each film's script said word for word, for six directors. Joel Coen, 19 films: median 73%. Billy Wilder, 5 films: median 81%. Christopher Nolan, 11 films: median 67%, from Interstellar at 9% to Dunkirk at 80%. Quentin Tarantino, 9 films: median 48%. Martin Scorsese, 16 films: median 48%. Steven Spielberg, 21 films: median 37%, from The Post at 7% to War Horse at 96%.](/images/blog/script-vs-screen/chart-directors.svg)
 
-The writer-directors, the Coens and Billy Wilder, keep close to the page every time. Spielberg's dots are all over the chart. That's what a gamble looks like: big wins, big misses, and no way to know in advance which one you're making.
+The Coens and Billy Wilder stay close to the page almost every time: 17 of the Coens' 19 films keep more than 60% of their scripts. Spielberg's range is the widest of the six.
 
-## What it means
+Christopher McQuarrie works the same way on the _Mission: Impossible_ films. On _Rogue Nation_ he told [Film Comment](https://www.filmcomment.com/interview-christopher-mcquarrie/), "I was constantly rewriting the script and trying to find the end of the movie," and it worked. Simon Pegg [described](https://ca.news.yahoo.com/mission-impossible-star-simon-pegg-210000097.html) the later films as "a fly by the seat of your pants way of working," and the last one, _The Final Reckoning_, didn't work for me.
 
-When you hear that a movie was "found on set" or rewritten through the shoot, the odds are against it. The stories you know are the bets that paid off. Most of the others are the movies you've never heard of.
+## Where I land
+
+When you hear that a movie was "found on set" or rewritten through the shoot, the odds are against it. What subtitles can't tell me is which way it runs: whether rewriting sinks films, or troubled productions both rewrite and turn out badly.
 
 ## How I counted
 
-I didn't set out to study script rewrites. I run [Bechdel Script Test](https://bechdel.joekarlsson.com/), which checks 3,711 movies against the Bechdel test by reading their scripts, and the first thing anyone says about it is that the script isn't the movie. This was my way of checking. The words change a lot, but the verdict mostly doesn't: it holds for about 95% of films, checked against [bechdeltest.com](https://bechdeltest.com/) readers who rated the released movies.
+I didn't set out to study script rewrites. I run [Bechdel Script Test](https://bechdel.joekarlsson.com/), which checks 3,711 movies against the Bechdel test [by reading their scripts](/blog/bechdel-test-script-parser-works/) (as of November 2026), and the first thing anyone says about it is that the script isn't the movie. This was my way of checking. The words change a lot, but the verdict mostly doesn't: it holds for about 95% of the 1,699 films checked against [bechdeltest.com](https://bechdeltest.com/) readers who rated the released movies.
 
 ![How each film is scored, on one line from Blade Runner. The script has Pris say "I have some, but I have to find out where they are staying." The subtitles have "I have some, but I have to find them." Lined up word by word, in order, 8 of the script's 13 words are said; a word counts only if most of the film's subtitle versions have it. Blade Runner's whole script scores 19%.](/images/blog/script-vs-screen/diagram-counting.svg)
 
 For each film I took the share of the script's dialogue words that turn up in the English subtitles in the same order. A reworded line counts as lost, so this measures exact wording, not plot. Subtitles shorten speech, so I listened to 100 lines my tool called cut or reworded, in the films themselves; about nine in ten really were.
 
-The limits: subtitles aren't a transcript, and "not in the script" means not in the draft I had. A single film's score depends on which version of its script is online: Judd Apatow's _Knocked Up_ kept 96% of its script and his _Funny People_ 11%, and the _Knocked Up_ script online is probably a transcript, so trust the patterns more than any one dot. Scripts online skew popular, American and recent. Ratings are IMDb's. I couldn't find a good explanation for why war and sport movies sit at the bottom with action. The method and every check are in [METHODS.md](https://github.com/JoeKarlsson/bechdel-test/blob/main/docs/page-vs-screen/METHODS.md).
+The limits: subtitles aren't a transcript, and "not in the script" means not in the draft I had. A single film's score depends on which version of its script is online: Judd Apatow's _Knocked Up_ kept 96% of its script and his _Funny People_ 11%, and the _Knocked Up_ script online is probably a transcript, so trust the patterns more than any one dot. Scripts online skew popular, American and recent. Ratings are IMDb's, as of November 2026. I couldn't find a good explanation for why war and sport movies sit at the bottom with action. The method and every check are in [METHODS.md](https://github.com/JoeKarlsson/bechdel-test/blob/main/docs/page-vs-screen/METHODS.md).
 
 ## The films in this post
 
@@ -212,15 +212,15 @@ The limits: subtitles aren't a transcript, and "not in the script" means not in 
 <details>
 <summary>Show all 13 sources</summary>
 
-- American Cinematographer, ["On Location With Jaws"](https://theasc.com/articles/on-location-with-jaws), March 1975.
-- Boston Magazine, [Carl Gottlieb interview](https://bostonmagazine.com/?p=2009170), 2015.
+- American Cinematographer, ["On Location With Jaws"](https://theasc.com/article/on-location-with-jaws/), March 1975.
+- Boston Magazine, [Carl Gottlieb interview](https://www.bostonmagazine.com/arts-entertainment/2015/08/14/9-amazing-jaws-facts/), 2015.
 - Final Draft, ["Jaws: a masterpiece created by collaboration and deadline"](https://www.finaldraft.com/blog/jaws-masterpiece-created-collaboration-deadline), 2025.
 - Harry Ransom Center, ["You talkin' to me?"](https://sites.utexas.edu/ransomcentermagazine/2016/10/13/you-talkin-to-me/), 2016.
 - Wikipedia, [Battlefield Earth](<https://en.wikipedia.org/wiki/Battlefield_Earth_(film)>) and [Tears in rain monologue](https://en.wikipedia.org/wiki/Tears_in_rain_monologue), and the sources they cite.
 - Rupert Everett, [_Red Carpets and Other Banana Skins_](https://openlibrary.org/works/OL4281847W) (Little, Brown, 2006), as quoted in Den of Geek, ["1999's Inspector Gadget"](https://www.denofgeek.com/movies/1999-s-inspector-gadget-and-its-hugely-underappreciated-gag/), 2017.
 - Frame.io Insider, ["Edit First, Shoot Later"](https://blog.frame.io/2019/07/15/animation-editing/), 2019; A.V. Club, [Pete Docter interview](https://www.avclub.com/pete-docter-1798216800), 2009; TV Tech, ["The making of The Bad Guys"](https://www.tvtechnology.com/news/the-making-of-dreamworks-animations-the-bad-guys), 2022; Variety, [Ron Clements on Robin Williams](https://www.yahoo.com/entertainment/aladdin-director-remembers-robin-williams-175618298.html), 2021.
 - Film Comment, [Christopher McQuarrie interview](https://www.filmcomment.com/interview-christopher-mcquarrie/), 2015; Variety, [Simon Pegg on the Mission: Impossible scripts](https://ca.news.yahoo.com/mission-impossible-star-simon-pegg-210000097.html), 2023.
-- DGA Quarterly, ["Apatow & Friends"](https://www.dga.org/craft/dgaq/issues/0902-summer-2009/apatow-and-friends), 2009; Paste, [Adam McKay interview](https://www.pastemagazine.com/comedy/catching-up-with-adam-mckay), 2013; CinemaBlend, [Paul Feig interview](https://cinemablend.com/new/Exclusive-Interview-Bridesmaids-Director-Paul-Feig-24650.html), 2011.
+- DGA Quarterly, ["Apatow & Friends"](https://www.dga.org/craft/dgaq/issues/0902-summer-2009/apatow-and-friends), 2009; Paste, [Adam McKay interview](https://www.pastemagazine.com/comedy/catching-up-with-adam-mckay), 2013; CinemaBlend, [Paul Feig interview](https://www.cinemablend.com/new/Exclusive-Interview-Bridesmaids-Director-Paul-Feig-24650.html), 2011.
 - David McRaney, ["Survivorship Bias"](https://youarenotsosmart.com/2013/05/23/survivorship-bias/), 2013.
 
 </details>
