@@ -28,4 +28,14 @@ describe('Caddyfile', () => {
 		);
 		expect(uncovered).toEqual([]);
 	});
+
+	// Modern Web Guidance, security: violations (and deprecation and crash reports, through the
+	// endpoint named default) go somewhere, and Caddy takes them in rather than 404ing
+	it('reports CSP violations to its own /reports endpoint', () => {
+		const csp = caddyfile.match(/Content-Security-Policy "([^"]+)"/)?.[1] ?? '';
+		expect(csp).toMatch(/(^|; )report-to default(;|$)/);
+		expect(caddyfile).toContain('Reporting-Endpoints `default="/reports"`');
+		expect(caddyfile).toMatch(/@reports \{\s*method POST\s*path \/reports\s*\}/);
+		expect(caddyfile).toMatch(/handle @reports \{[\s\S]*?respond 204/);
+	});
 });
