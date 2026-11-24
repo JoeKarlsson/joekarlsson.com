@@ -13,7 +13,9 @@
 const REACH = 12; // SVG units: how far from a dot the pointer can be and still pick it
 const TAP_MS = 600; // how long a touch on a dot keeps the lightbox from opening or closing
 
-let lastDotTap = 0;
+// -Infinity, not 0: performance.now() starts at 0 when the page loads, so 0 would read as a
+// dot tapped at load and swallow every lightbox click in the page's first 600ms
+let lastDotTap = -Infinity;
 /**
  * True right after a touch picked a chart dot. The lightbox (ImageLightbox.astro,
  * lightbox-gestures.ts) checks it so that tap shows the card instead of opening or closing

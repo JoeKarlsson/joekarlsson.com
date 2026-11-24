@@ -99,7 +99,7 @@ export function initLightboxGestures(
 		midY: number;
 	} | null = null;
 	let moved = false;
-	let lastTapAt = 0;
+	let lastTapAt = -Infinity; // not 0: performance.now() starts near 0 when the page loads
 	let tapTimer: ReturnType<typeof setTimeout> | undefined;
 
 	dialog.addEventListener('pointerdown', (event) => {
@@ -186,7 +186,7 @@ export function initLightboxGestures(
 			const now = performance.now();
 			if (now - lastTapAt < DOUBLE_TAP_MS) {
 				clearTimeout(tapTimer);
-				lastTapAt = 0;
+				lastTapAt = -Infinity;
 				if (scale > 1) scale = 1;
 				else zoomAt(DOUBLE_TAP_ZOOM, event.clientX, event.clientY);
 				settle();
