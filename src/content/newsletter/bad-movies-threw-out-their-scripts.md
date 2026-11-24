@@ -2,7 +2,7 @@
 title: 'Bad Movies Threw Out Their Scripts'
 date: 2026-12-22T08:00:00Z
 slug: 'bad-movies-threw-out-their-scripts'
-description: 'Movies rated under 6 on IMDb kept 30% of their scripts word for word, and movies rated 8 or higher kept 50%. Jaws kept 26%.'
+description: 'I wrote a diff for screenplays. Films rated under 6 on IMDb kept 30% of their scripts word for word, and films rated 8 or higher kept 50%.'
 recapOf: 'script-vs-screen'
 cardPhoto: '/images/newsletter/bad-movies-threw-out-their-scripts/script-meeting.webp'
 cardPhotoAlt: 'director Arthur Berthelet and writer Mary MacLane going over a film script together at Essanay Studios in 1918'
@@ -16,7 +16,9 @@ I lined up 2,112 movie scripts, word by word, with the English subtitles of the 
 
 Going off script is a gamble, and most of the time it loses. The famous wins, like _Jaws_ and _Blade Runner_, are why it looks like a better bet than it is.
 
-A film that kept under 20% of its script is about seven times as likely to be a flop (under 6 on IMDb) as one that kept 80% or more, and about a third as likely to be a classic (8 or higher). The top group is where some of the scripts online are transcripts of the finished film, but leave it out and the gap still holds: 15% flops among films that kept 20% to 40%, against 4% among films that kept 60% to 80%. It's a real pattern with plenty of exceptions.
+A film that kept under 20% of its script is about seven times as likely to be a flop (under 6 on IMDb) as one that kept 80% or more, and about a third as likely to be a classic (8 or higher). It's a real pattern with plenty of exceptions.
+
+I run [Bechdel Script Test](https://bechdel.joekarlsson.com/), which scores 3,711 movies against the Bechdel test by parsing their scripts, and the first thing anyone says about it is that the script isn't the movie. This was my way of checking: a tool that lines up each script with the released film's subtitles, the way `diff` lines up two versions of a file.
 
 [The full post](/blog/script-vs-screen/) has the interactive chart, where you can find any film. It also breaks the numbers down by script draft, genre and director, and has two clips and the full method.
 
@@ -24,17 +26,19 @@ A film that kept under 20% of its script is about seven times as likely to be a 
 
 How much of the script survives depends a lot on what kind of movie it is.
 
-**Animated films keep 88% of their scripts because they're made backwards.** Ken Schretzmann, who edited _Toy Story 3_, put it this way: "In live-action, you shoot first and edit later. In animation, you edit first and shoot later." Once a scene's dialogue is recorded, it goes to the animators, and from then on changes are expensive.
+**Animated films keep 88% of their scripts because they're made backwards.** Ken Schretzmann, who edited _Toy Story 3_, [put it this way](https://blog.frame.io/2019/07/15/animation-editing/): "In live-action, you shoot first and edit later. In animation, you edit first and shoot later." Once a scene's dialogue is recorded, it goes to the animators, and from then on changes are expensive.
 
-**Action films keep 33% because the script often isn't finished when shooting starts.** Christopher McQuarrie, who directed _Mission: Impossible - Fallout_, said: "I'm not going to start writing until I know where I'm shooting."
+**Action films keep 33% because the script often isn't finished when shooting starts.** Christopher McQuarrie, who directed _Mission: Impossible - Fallout_, [said](https://collider.com/christopher-mcquarrie-interview-mission-impossible-fallout-top-gun-2/): "I'm not going to start writing until I know where I'm shooting."
 
-**Comedies land in the middle, at 42%, right at the average, because they keep the scripted take as insurance.** On Judd Apatow's productions, the rule is to shoot at least one take of a scene as scripted. The structure stays, and the jokes get swapped. _Bridesmaids_ kept 6% of its script, which is what happens when the alternates win.
+**Comedies land in the middle, at 42%, because they keep the scripted take as insurance.** On Judd Apatow's productions, the rule is to shoot at least one take of a scene as scripted. The structure stays, and the jokes get swapped. _Bridesmaids_ kept 6% of its script, which is what happens when the alternates win.
 
 ## When rewrites sink a movie
 
 The flops at the bottom of the rating chart left a trail.
 
-_Inspector Gadget_ kept 7% of its script. Rupert Everett, who played the villain, wrote in his memoir that "a string of writers had written version after version, each adding to our scripts on a different-colored paper," for "a panel of executives, each with their own theory and agenda." After bad test screenings, the film was cut from 110 minutes to 78.
+_Inspector Gadget_ kept 7% of its script. Rupert Everett, who played the villain, wrote in his memoir, [as quoted by Den of Geek](https://www.denofgeek.com/movies/1999-s-inspector-gadget-and-its-hugely-underappreciated-gag/), that "a string of writers had written version after version, each adding to our scripts on a different-colored paper," for "a panel of executives, each with their own theory and agenda." After bad test screenings, the film was cut from 110 minutes to 78.
+
+_Battlefield Earth_ kept 17%, and IMDb voters rate it 2.5 out of 10. The script went through ten revisions before another writer was brought in. When the original writer, J.D. Shapiro, accepted its Razzie for Worst Picture of the Decade, he [thanked that writer](<https://en.wikipedia.org/wiki/Battlefield_Earth_(film)>) for rewriting his script in a way he "never, ever, ever" could have imagined.
 
 ## The exceptions: classics that went off script
 
@@ -58,18 +62,24 @@ _Jaws_ was written while it was shot. The mechanical shark kept breaking down, a
 
 _Jaws. Frame from Universal Pictures' official clip._
 
-On _Jaws_, Spielberg called the shoot "a mathematician's dream and a filmmaker's horror," and came out with a classic. He doesn't every time. His films run from 7% of the script kept (_The Post_) to 96% (_War Horse_). Some of the ones that strayed furthest from the page are among his best, like _Saving Private Ryan_ (8% kept) and _Jaws_. Others, like _The BFG_ and _The Lost World: Jurassic Park_, are among his lowest rated.
-
-McQuarrie works the same way on the _Mission: Impossible_ films. On _Rogue Nation_ he said, "I was constantly rewriting the script and trying to find the end of the movie," and that one worked. The last one, _The Final Reckoning_, didn't work for me.
-
-## Why I counted
-
-I didn't set out to study script rewrites. I run [Bechdel Script Test](https://bechdel.joekarlsson.com/), which checks movies against the Bechdel test by reading their scripts, and the first thing anyone says about it is that the script isn't the movie. This was my way of checking. The words change a lot, but the verdict mostly doesn't: it holds for about 95% of the 1,699 films checked against bechdeltest.com readers who rated the released movies.
-
-A reworded line counts as lost, so this measures exact wording, not plot. Subtitles shorten speech, so I listened to 100 lines my tool called cut or reworded, in the films themselves; about nine in ten were. Scripts online skew popular, American and recent, and ratings are IMDb's as of November 2026, so trust the patterns more than any one dot. The method and every check are in [METHODS.md](https://github.com/JoeKarlsson/bechdel-test/blob/main/docs/page-vs-screen/METHODS.md).
+On _Jaws_, Spielberg [called the shoot](https://theasc.com/article/on-location-with-jaws/) "a mathematician's dream and a filmmaker's horror," and came out with a classic. He doesn't every time. His films run from 7% of the script kept (_The Post_) to 96% (_War Horse_).
 
 ## Where I land
 
 What subtitles can't tell me is which way it runs: whether rewriting sinks films, or troubled productions both rewrite and turn out badly. Either way, when you hear that a movie was "found on set" or rewritten through the shoot, the odds are against it.
+
+## How I built the script diff
+
+Bechdel Script Test already parsed the scripts, so the new parts were the screen side and the diff.
+
+The subtitles come from the English part of the OpenSubtitles corpus, filed by IMDb id. The archive is 36 GB, so the tool reads only the files it needs, with HTTP range requests. A film has a median of 17 English subtitle uploads. The tool takes up to nine, and a script word counts as said only when more than half of them have it, so one sloppy subtitler can't make a line look cut.
+
+The diff normalizes both sides first (gonna becomes going to, numbers become words, ums are dropped). Then it anchors on word 4-grams that appear exactly once on each side, like patience diff, recurses into the gaps with shorter n-grams, and runs an exact longest common subsequence on small gaps. A reworded line counts as lost, so this measures exact wording, not plot.
+
+I checked it two ways. Five lines known to be improvised or rewritten, like "You're gonna need a bigger boat" and "tears in rain," have to come out as not in the script. When a famous line matched anyway (The Shining's script had "Here's Johnny!"), the script was a post-production transcript of the finished film, which is how I spotted transcripts. And I listened to 100 lines the tool called cut or reworded, in the films themselves. About nine in ten really were; the rest were subtitles shortening speech.
+
+The correlation is real but modest (Spearman 0.26). Scripts online skew popular, American and recent, and ratings are IMDb's as of November 2026, so trust the patterns more than any one dot. The method and every check are in [METHODS.md](https://github.com/JoeKarlsson/bechdel-test/blob/main/docs/page-vs-screen/METHODS.md).
+
+As for the Bechdel scores: the words change a lot, but the verdict mostly doesn't. It holds for about 95% of the 1,699 films checked against [bechdeltest.com](https://bechdeltest.com/) readers who rated the released movies.
 
 <a class="button" href="/blog/script-vs-screen/">Read the full post</a>
