@@ -1,6 +1,6 @@
 ---
-title: 'I compared 2,112 movie scripts with what was actually said on screen. Bad movies threw theirs out.*'
-shareTitle: 'I compared 2,112 movie scripts with the screen. Bad movies threw theirs out'
+title: 'I compared 2,112 movie scripts with what was actually said on screen. Bad movies threw their scripts out.*'
+shareTitle: 'I compared 2,112 movie scripts with the screen. Bad movies threw their scripts out'
 seoTitle: 'How much of a movie script ends up on screen?'
 date: 2026-11-24
 slug: 'script-vs-screen'
