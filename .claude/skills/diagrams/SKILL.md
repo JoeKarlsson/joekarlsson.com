@@ -29,6 +29,10 @@ the phone layout under 640px. Clicking a diagram opens the lightbox.
    box or the canvas, and on any arrow or callout that runs over text, runs
    through a box or ends buried inside one, naming the part. Fix layout, never the
    check.
+   Then add Joe's JK mark: `node scripts/watermark-diagrams.mjs public/images/blog/<slug>/*.svg`
+   puts it in each figure's clearest spot inside the frame (DECISIONS 2026-11-24).
+   A render rewrites the file without it, so run this after every render;
+   `tests/watermark.test.ts` fails on any diagram missing it.
 5. **Swap the post's images** for `![alt](/images/blog/<slug>/<name>.svg)`, one per
    figure, alt text written for the post. Delete the old image files in the same
    change once nothing else references them.

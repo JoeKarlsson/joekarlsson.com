@@ -1,24 +1,31 @@
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { withWatermark } from '../src/utils/watermark.mjs';
+import { jkMark } from '../src/utils/watermark.mjs';
 
-describe('withWatermark', () => {
-	it('adds a strip below the drawing and puts the JK mark in it, at 40%', () => {
-		const out = withWatermark('<svg viewBox="0 0 640 420" width="640" height="420"><rect/></svg>');
-		const [, , vbHeight] = out.match(/viewBox="0 0 (\d+) ([\d.]+)"/)!.map(Number);
-		const [, x, y, scale] = out
-			.match(/translate\(([\d.]+) ([\d.]+)\) scale\(([\d.]+)\)/)!
-			.map(Number);
-		expect(vbHeight).toBeGreaterThan(420);
-		expect(out).toContain(`height="${vbHeight}"`);
-		expect(y).toBeGreaterThanOrEqual(420); // below the drawing, never over it
-		expect(y + 106 * scale).toBeCloseTo(vbHeight, 0);
-		expect(x + 116 * scale).toBeLessThanOrEqual(640);
-		expect(out).toMatch(/<g class="jk-mark" opacity="0.4"[^>]*>.*<\/g><\/svg>$/);
-		expect(out).not.toMatch(/\bid=/);
+const svgs = (dir: string): string[] =>
+	readdirSync(dir, { withFileTypes: true }).flatMap((entry) =>
+		entry.isDirectory()
+			? svgs(join(dir, entry.name))
+			: entry.name.endsWith('.svg')
+				? [join(dir, entry.name)]
+				: [],
+	);
+
+describe('JK watermark', () => {
+	it('draws the mark at 40% with no ids, so two diagrams on a page cannot collide', () => {
+		const mark = jkMark(10, 20, 38.4);
+		expect(mark).toMatch(
+			/^<g class="jk-mark" opacity="0.4" aria-hidden="true" transform="translate\(10 20\) scale\(0.331\)">/,
+		);
+		expect(mark).not.toMatch(/\bid=/);
 	});
 
-	it('leaves an SVG without a usable viewBox alone', () => {
-		expect(withWatermark('<svg width="10"></svg>')).toBe('<svg width="10"></svg>');
-		expect(withWatermark('<svg viewBox="0 0 0 0"></svg>')).toBe('<svg viewBox="0 0 0 0"></svg>');
+	// A new diagram needs `node scripts/watermark-diagrams.mjs <file>` (DECISIONS 2026-11-24)
+	it('is in every diagram SVG, once', () => {
+		const missing = svgs('public/images').filter(
+			(file) => readFileSync(file, 'utf8').match(/class="jk-mark"/g)?.length !== 1,
+		);
+		expect(missing).toEqual([]);
 	});
 });
