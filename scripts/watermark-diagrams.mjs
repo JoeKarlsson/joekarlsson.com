@@ -1,8 +1,8 @@
 // Writes Joe's JK mark (src/utils/watermark.mjs) into every diagram SVG under
 // public/images that doesn't have one yet, inside its frame: it renders the diagram,
-// then takes the first clear spot, trying the bottom-right corner, then bottom left,
-// top right and top left, each from the edge inward. A diagram with no clear corner
-// gets the least busy spot, and is listed so a person can look at it.
+// finds its background color, and takes the first spot that's all background, nearest
+// the bottom-right corner first (then bottom left, top right, top left), shrinking the
+// mark if nothing fits. Failing that it takes the least busy spot and lists the file.
 //
 //   node scripts/watermark-diagrams.mjs [files...]   # default: all of public/images
 //   node scripts/watermark-diagrams.mjs --force ...  # move existing marks too
@@ -97,10 +97,10 @@ ${svg}`,
 				for (let x = 0; x < rw; x += 2) if (key(at(x, y)) === k) pixels.push(at(x, y));
 			return pixels;
 		};
-		const edgeKey = mode(inRing);
+		const edgePixels = pixelsOf(mode(inRing));
 		const bgPixels =
-			pixelsOf(edgeKey).length / (Math.ceil(rw / 2) * Math.ceil(rh / 2)) >= 0.25
-				? pixelsOf(edgeKey)
+			edgePixels.length / (Math.ceil(rw / 2) * Math.ceil(rh / 2)) >= 0.25
+				? edgePixels
 				: pixelsOf(mode(() => true));
 		const bg = [0, 1, 2].map((i) => bgPixels.reduce((sum, px) => sum + px[i], 0) / bgPixels.length);
 		const far = (px) => Math.hypot(px[0] - bg[0], px[1] - bg[1], px[2] - bg[2]) > 48; // paper grain stays under this
