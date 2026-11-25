@@ -297,6 +297,47 @@ ${sections}
 `;
 }
 
+// Joe's Gmail signature (DECISIONS.md 2026-11-25): a solid pink JK whose own edges boil and a
+// pink loop squiggle the signature's width, on no background so they read on light and dark
+// mail. GIF, since mail clients play no SVG or CSS animation. Shown at half these sizes.
+export function loopSquiggle(width, height, loops) {
+	const r = height * 0.36;
+	const step = (width - r * 2.4) / (loops * 2 * Math.PI);
+	const points = [];
+	for (let t = 0; t <= loops * 2 * Math.PI; t += 0.12)
+		points.push(
+			`${(r * 1.2 + step * t - r * 0.95 * Math.sin(t)).toFixed(1)},${(height / 2 + r * Math.cos(t)).toFixed(1)}`,
+		);
+	return `M${points.join(' L')}`;
+}
+
+async function writeEmailSignature() {
+	const dir = join(ROOT, 'public/email/signature');
+	mkdirSync(dir, { recursive: true });
+	const jk = MARKS.jk();
+	const wobble = (seed, frequency, scale) =>
+		`<defs><filter id="w" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="${frequency}" numOctaves="2" seed="${seed}"/><feDisplacementMap in="SourceGraphic" scale="${scale}"/></filter></defs>`;
+	const pieces = {
+		jk: {
+			width: 128,
+			svg: (seed) =>
+				`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${+(jk.width + 28).toFixed(1)} ${jk.height + 28}" width="1" height="1">${wobble(seed, 0.031, 4.5)}<path d="${jk.d}" fill="${PINK}" transform="translate(14 14)" filter="url(#w)"/></svg>`,
+		},
+		squiggle: {
+			width: 880,
+			svg: (seed) =>
+				`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 40" width="1" height="1">${wobble(seed, 0.04, 6)}<path d="${loopSquiggle(880, 40, 24)}" fill="none" stroke="${PINK}" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#w)"/></svg>`,
+		},
+	};
+	for (const [name, { width, svg }] of Object.entries(pieces)) {
+		const frames = [];
+		for (const seed of SEEDS) frames.push(await rasterize(svg(seed), width));
+		await sharp(frames, { join: { animated: true } })
+			.gif({ delay: [120, 120, 120], loop: 0 })
+			.toFile(join(dir, `${name}.gif`));
+	}
+}
+
 async function main() {
 	const browser = await chromium.launch();
 	page = await browser.newPage();
@@ -349,6 +390,7 @@ async function main() {
 	const icoPngs = [];
 	for (const size of icoSizes) icoPngs.push(await rasterize(favicon, size));
 	writeFileSync(join(ROOT, 'public/favicon.ico'), toIco(icoPngs, icoSizes));
+	await writeEmailSignature();
 	await browser.close();
 	writeFileSync(join(ROOT, 'brand/index.html'), galleryHtml());
 	console.log(`Wrote ${count} logo files to brand/logo/ and the favicons to public/`);

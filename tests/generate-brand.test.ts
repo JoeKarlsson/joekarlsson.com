@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { glyphPath, toIco } from '../scripts/generate-brand.mjs';
+import { glyphPath, loopSquiggle, toIco } from '../scripts/generate-brand.mjs';
 
 // Anton's capitals are 1760 font units tall; the brand script maps them to 100 units,
 // with y flipped so the baseline sits at 100
@@ -20,5 +20,17 @@ describe('toIco', () => {
 		expect([ico.readUInt8(6), ico.readUInt32LE(14), ico.readUInt32LE(18)]).toEqual([16, 4, 38]);
 		expect([ico.readUInt8(22), ico.readUInt32LE(30), ico.readUInt32LE(34)]).toEqual([0, 6, 42]);
 		expect(ico.subarray(38).toString()).toBe('aaaabbbbbb');
+	});
+});
+
+// The email signature's squiggle has to stay inside its image, or the loops get cut off
+describe('loopSquiggle', () => {
+	it('keeps every point inside the box it is drawn for', () => {
+		const points = loopSquiggle(880, 40, 24)
+			.slice(1)
+			.split(' L')
+			.map((p) => p.split(',').map(Number));
+		expect(points.every(([x, y]) => x >= 0 && x <= 880 && y >= 0 && y <= 40)).toBe(true);
+		expect(Math.max(...points.map(([x]) => x))).toBeGreaterThan(860);
 	});
 });
