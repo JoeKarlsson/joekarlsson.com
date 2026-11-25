@@ -8,13 +8,13 @@ const dir = mkdtempSync(join(tmpdir(), 'archival-'));
 
 /** A pillarboxed 4:3 "film": one moving shot per [source, seconds], hard cuts between them.
  * `streams: 2` writes the picture twice, as some FedFlix files carry two video streams. */
-function film(name: string, shots: [string, number][], streams = 1): string {
+function film(name: string, shots: [string, number][], streams = 1, grade = ''): string {
 	const out = join(dir, name);
 	const inputs = shots.flatMap(([src, secs]) => [
 		'-f',
 		'lavfi',
 		'-i',
-		`${src}=s=480x360:r=24:d=${secs}`,
+		`${src}=s=480x360:r=24:d=${secs}${grade ? `,${grade}` : ''}`,
 	]);
 	const concat =
 		shots.map((_, i) => `[${i}]`).join('') +
@@ -72,6 +72,35 @@ describe('archival header clip', () => {
 		const result = cut(film('two-streams.mp4', [['testsrc2', 4]], 2), 'two-streams-clip');
 		expect(result.status, result.stderr).toBe(0);
 		expect(probe(join(dir, 'two-streams-clip.mp4'), 'stream=width,height')).toBe('1440,810');
+	}, 60_000);
+
+	it('evens out brightness between a dark clip and a bright one', () => {
+		// The clip's average luma over every frame (signalstats YAVG)
+		const meanLuma = (file: string) => {
+			const out = spawnSync(
+				'ffmpeg',
+				[
+					'-i',
+					file,
+					'-vf',
+					'signalstats,metadata=print:key=lavfi.signalstats.YAVG',
+					'-f',
+					'null',
+					'-',
+				],
+				{ encoding: 'utf8' },
+			).stderr;
+			const values = [...out.matchAll(/YAVG=([\d.]+)/g)].map((m) => Number(m[1]));
+			return values.reduce((a, b) => a + b, 0) / values.length;
+		};
+		const dark = film('dark.mp4', [['testsrc2', 4]], 1, 'eq=brightness=-0.25:contrast=0.5');
+		const bright = film('bright.mp4', [['testsrc2', 4]], 1, 'eq=brightness=0.25:contrast=0.5');
+		expect(Math.abs(meanLuma(dark) - meanLuma(bright))).toBeGreaterThan(80);
+		expect(cut(dark, 'dark-clip').status).toBe(0);
+		expect(cut(bright, 'bright-clip').status).toBe(0);
+		expect(
+			Math.abs(meanLuma(join(dir, 'dark-clip.mp4')) - meanLuma(join(dir, 'bright-clip.mp4'))),
+		).toBeLessThan(15);
 	}, 60_000);
 
 	it('rejects a shot too short to loop', () => {

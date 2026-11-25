@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # A post's header clip from one archival shot (FedFlix via destockd.com, DECISIONS.md 2026-11-25):
 # the longest run with no cut, looped between its two most alike frames with a short crossfade
-# (no pop at the restart), the pillarbox cropped off to 16:9 at 1440x810, plus a webp of its
+# (no pop at the restart), the pillarbox cropped off to 16:9 at 1440x810, brightness evened out
+# (clip-levels.py), plus a webp of its
 # first frame for the masthead still (what phones show).
 #
 # Usage:
@@ -45,8 +46,10 @@ if ((cw * 9 / 16 > fh)); then h=$fh w=$((fh * 16 / 9)) x=$((cx + (cw - fh * 16 /
 else w=$cw h=$((cw * 9 / 16)) x=$cx y=$(((fh - cw * 9 / 16) / 2)); fi
 w=$((w / 2 * 2)) h=$((h / 2 * 2))
 
+# Even brightness across clips (scripts/media/clip-levels.py)
+levels=$(python3 "$here/clip-levels.py" "$in" "$s" "$len" "$w:$h:$x:$y")
 ffmpeg -v error -y -ss "$s" -t "$len" -i "$in" -filter_complex \
-	"[0]crop=$w:$h:$x:$y,scale=1440:810:flags=lanczos,fps=24,split[a][b];[a]trim=start=$fade,setpts=PTS-STARTPTS[m];[b]trim=0:$fade,setpts=PTS-STARTPTS[head];[m][head]xfade=transition=fade:duration=$fade:offset=$(calc "$len - 2 * $fade")" \
+	"[0]crop=$w:$h:$x:$y,$levels,scale=1440:810:flags=lanczos,fps=24,split[a][b];[a]trim=start=$fade,setpts=PTS-STARTPTS[m];[b]trim=0:$fade,setpts=PTS-STARTPTS[head];[m][head]xfade=transition=fade:duration=$fade:offset=$(calc "$len - 2 * $fade")" \
 	-an -c:v libx264 -preset slow -crf 30 -pix_fmt yuv420p -movflags +faststart "$out.mp4"
 jumps=$(ffmpeg -v info -i "$out.mp4" -vf "select='gt(scene,0.12)',showinfo" -f null - 2>&1 | grep -c pts_time || true)
 ffmpeg -v error -y -i "$out.mp4" -frames:v 1 "$out.png"
