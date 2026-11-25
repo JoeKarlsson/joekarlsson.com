@@ -5,8 +5,8 @@ slug: 'why-clickhouse-should-be-your-next-database'
 description: “Today, we’re jumping into databases. Another database to learn? But before you sprint for the hills, allow me to introduce you to ClickHouse.”
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/why-clickhouse-should-be-your-next-database/thumb-5be2e70d.webp'
-heroAlt: 'Ancient Greek columns at sunset'
+heroImage: '/images/blog/why-clickhouse-should-be-your-next-database/thumb-06a45ca0.webp'
+heroAlt: 'A high-speed machine stacking sheets in a blur'
 tldr: 'ClickHouse is a column-oriented database built for real-time analytics on huge datasets. It loads data 23x faster than PostgreSQL, uses 8.5x less storage, and powers real-time analytics at companies like Cloudflare and Yandex.'
 updatedDate: 2026-11-16
 corrections:
@@ -31,6 +31,8 @@ marginNotes:
     at: 'ClickHouse is your best bet'
     text: 'A year later I was running ClickHouse in production at CloudQuery. This is what the first six months taught us.'
     post: 'six-months-with-clickhouse-at-cloudquery'
+heroVideo: '/images/blog/why-clickhouse-should-be-your-next-database/archival-043d9142.mp4'
+mastheadImage: '/images/blog/why-clickhouse-should-be-your-next-database/archival-043d9142.webp'
 ---
 
 Today, we’re jumping into databases. Now, I can hear you sigh: “Another database to learn? Seriously?” But before you sprint for the hills, allow me to introduce you to [ClickHouse](https://thenewstack.io/clickhouse-rapidly-rivals-other-open-source-databases-in-active-contributors/), the Sonic the Hedgehog of the database multiverse.

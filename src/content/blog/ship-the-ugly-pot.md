@@ -4,8 +4,8 @@ date: 2026-09-11
 slug: 'ship-the-ugly-pot'
 description: 'Quantity beats quality as a learning strategy: the Art & Fear pottery story, DORA deploy data, and how to tell a kiln from a gate in your org.'
 categories: ['Career']
-heroImage: '/images/blog/ship-the-ugly-pot/hero.webp'
-heroAlt: 'Split image: left side labeled QUALITY shows one small clay pot alone; right side labeled QUANTITY shows a pile of many clay pots'
+heroImage: '/images/blog/ship-the-ugly-pot/thumb-12c8e043.webp'
+heroAlt: 'Hands shaping a clay pot as it turns'
 tldr: 'Quantity beats quality as a learning strategy because each finished piece of work gives you feedback for the next one. In DORA data, the teams that deploy most often also have the lowest change failure rates. Shipping a lot without that feedback just builds debt, and most slow review cultures are a symptom of fragile infrastructure.'
 faq:
   - question: 'Does quantity actually beat quality, or is that oversimplified?'
@@ -37,6 +37,8 @@ marginNotes:
     at: 'hardware-in-the-loop testing'
     text: 'running control software on its real hardware, wired to a simulator that fakes everything else, so a flight computer can fly a simulated plane.'
     term: 'Hardware-in-the-loop'
+heroVideo: '/images/blog/ship-the-ugly-pot/archival-4ba5f81d.mp4'
+mastheadImage: '/images/blog/ship-the-ugly-pot/archival-4ba5f81d.webp'
 ---
 
 Ship the ugly pot. Ship it before it's good and before you're proud of it, because the way to good work runs through a pile of bad work, not around it.

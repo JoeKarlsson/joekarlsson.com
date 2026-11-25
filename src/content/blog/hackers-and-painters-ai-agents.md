@@ -6,7 +6,7 @@ slug: 'hackers-and-painters-ai-agents'
 description: "I reread Paul Graham's Hackers and Painters as a painter who codes with AI agents. The sketching idea held up. Beautiful code nobody reads is what I miss."
 categories: ['AI', 'Career']
 tldr: 'In "Hackers and Painters" (2003), Paul Graham argued that programming is sketching: you figure a program out while you write it, so a language should be "a pencil, not a pen." I paint and I write code, and since AI coding agents came along, programming feels more like painting to me, not less. I can explore ideas faster and more iteratively. What I miss is beauty in code nobody reads, though I don''t think AI will kill it any more than photography killed painting.'
-heroImage: '/images/blog/hackers-and-painters-ai-agents/thumb-17c4f83f.webp'
+heroImage: '/images/blog/hackers-and-painters-ai-agents/thumb-992bd268.webp'
 interlude:
   after: 'Static types came back'
   line: "That's the part I miss."
@@ -17,7 +17,7 @@ faq:
     answer: "Not for me. Since AI coding agents came along, programming feels more like painting to me, not less, because it's easier to explore ideas quickly and iteratively. What I miss is beauty in code nobody reads: with agents, code has become more of a black box, and having beautiful code is less important than it was."
   - question: 'Will AI kill programming?'
     answer: 'I don''t think so. In a footnote to "Hackers and Painters," Paul Graham wrote that the greatest damage photography did to painting may be that "it killed the best day job," since most great painters paid their bills with portraits. Photography didn''t kill painting, and I don''t think AI is going to kill programming, or the art of making beautiful code, either.'
-heroAlt: "An X-ray of Vermeer's A Maid Asleep, showing the sleeping maid, a jug on the table, and the shapes Vermeer painted over in the doorway behind her"
+heroAlt: "An assistant painting Diego Rivera's Detroit Industry mural"
 marginNotes:
   - type: 'term'
     at: 'large color field pieces'
@@ -27,7 +27,8 @@ marginNotes:
     at: 'The painter changed their mind on the canvas'
     text: "an earlier version that shows through after a painter changed their mind and painted over it. The x-ray at the top of this post shows the ones in Vermeer's A Maid Asleep."
     term: 'Pentimento'
-mastheadImage: '/images/blog/hackers-and-painters-ai-agents/masthead-481c681f.webp'
+heroVideo: '/images/blog/hackers-and-painters-ai-agents/archival-edbb539e.mp4'
+mastheadImage: '/images/blog/hackers-and-painters-ai-agents/archival-edbb539e.webp'
 ---
 
 In 2003 Paul Graham turned a Harvard guest lecture into an essay called [Hackers and Painters](https://www.paulgraham.com/hp.html 'cite: Graham, May 2003'). He'd finished grad school in computer science and then gone to art school to study painting, and people kept acting surprised that one person would want both. His answer was that hackers and painters are both makers: "what hackers and painters are trying to do is make good things."

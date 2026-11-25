@@ -100,11 +100,10 @@
 	},
 	"proving-my-work-mattered": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Lufkin_Universal_50_ft_tape_measure.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Lufkin_Universal_50_ft_tape_measure.jpg"
+			"video": "/images/blog/proving-my-work-mattered/archival-f982fc01.mp4",
+			"at": 0.88
 		},
-		"alt": "An old wind-up tape measure",
-		"focus": 0.5,
+		"alt": "A pressure gauge needle swinging across its dial",
 		"look": "taped",
 		"tilt": 2,
 		"mark": {
@@ -641,32 +640,17 @@
 	},
 	"real-time-cloud-cmdb-ephemeral-infrastructure": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Soap_Bubbles_LACMA_M.79.251.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Soap_Bubbles_LACMA_M.79.251.jpg"
+			"video": "/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/archival-b2fb265a.mp4",
+			"at": 1.32
 		},
-		"alt": "Chardin's painting of a boy blowing a soap bubble, a chalk thought bubble over him holding a rain cloud",
-		"focus": 0.5,
+		"alt": "Warehouse workers checking stock between stacked crates",
 		"look": "taped",
 		"tilt": 3,
 		"mark": {
 			"name": "tally",
 			"at": [87, 3, 10, 17],
 			"color": "pink"
-		},
-		"doodles": [
-			{
-				"name": "thought",
-				"at": [60.5, 3, 31, 35.4],
-				"color": "chalk"
-			},
-			{
-				"name": "rainCloud",
-				"at": [75.5, 9.5, 11, 15.5],
-				"color": "chalk",
-				"width": 10
-			}
-		],
-		"motion": "boil"
+		}
 	},
 	"cloud-cmdb-vs-traditional-cmdb-2026": {
 		"picture": {
@@ -978,12 +962,11 @@
 	},
 	"how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Man_posting_an_advertisement_for_La_publicit%C3%A9_en_France_par_Emile_Mermet.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Man_posting_an_advertisement_for_La_publicit%C3%A9_en_France_par_Emile_Mermet.jpg"
+			"video": "/images/blog/how-we-handle-billion-row-clickhouse-inserts-with-uuid-range-bucketing/archival-08ba9f92.mp4",
+			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "An old poster of a bill sticker with his paste bucket",
-		"focus": 0.5,
+		"alt": "Workers packing cans that slide down sorting chutes into boxes",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -1285,12 +1268,11 @@
 	},
 	"why-clickhouse-should-be-your-next-database": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Evening_columns_Zeus_temple_Athens.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Evening_columns_Zeus_temple_Athens.jpg"
+			"video": "/images/blog/why-clickhouse-should-be-your-next-database/archival-043d9142.mp4",
+			"at": 0.9
 		},
 		"look": "flat",
-		"alt": "Ancient Greek columns at sunset",
-		"focus": 0.5,
+		"alt": "A high-speed machine stacking sheets in a blur",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
@@ -1355,12 +1337,11 @@
 	},
 	"using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse": {
 		"picture": {
-			"video": "/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/image-8.mp4",
-			"at": 2.82
+			"video": "/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/archival-c9affd70.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "Animated needle in a haystack illustration",
-		"whole": true,
+		"alt": "A man searching a wall of card-catalog drawers",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -1960,18 +1941,16 @@
 	},
 	"self-hosted-music-still-sucks-in-2026": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Digital8_%26_Compact_Cassette_hor.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Digital8_%26_Compact_Cassette_hor.jpg"
+			"video": "/images/blog/self-hosted-music-still-sucks-in-2026/archival-ca474771.mp4",
+			"at": 1.11
 		},
 		"look": "flat",
-		"alt": "Two cassette tapes side by side",
-		"focus": 0.5,
+		"alt": "A record spinning on a phonograph",
 		"mark": {
 			"name": "flower",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"homelab-gift-ideas-2026": {
 		"picture": {
@@ -2074,18 +2053,16 @@
 	},
 	"hackers-and-painters-ai-agents": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/A_Maid_Asleep_MET_SF_X-radiograph.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:A_Maid_Asleep_MET_SF_X-radiograph.jpg"
+			"video": "/images/blog/hackers-and-painters-ai-agents/archival-edbb539e.mp4",
+			"at": 1.36
 		},
 		"look": "taped",
-		"alt": "An X-ray of Vermeer's A Maid Asleep, showing the sleeping maid, a jug on the table, and the shapes Vermeer painted over in the doorway behind her",
-		"focus": 0.45,
+		"alt": "An assistant painting Diego Rivera's Detroit Industry mural",
 		"mark": {
 			"name": "tangle",
 			"at": [86, 4, 11, 19],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"sentence-length-semicolons-punctuation": {
 		"picture": {
@@ -2146,5 +2123,14 @@
 			"color": "chalk"
 		},
 		"motion": "boil"
+	},
+	"ship-the-ugly-pot": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/ship-the-ugly-pot/archival-4ba5f81d.mp4",
+			"at": 1.32
+		},
+		"alt": "Hands shaping a clay pot as it turns"
 	}
 }
