@@ -377,10 +377,10 @@
 	},
 	"detect-public-databases-across-aws-azure-gcp": {
 		"picture": {
-			"video": "/images/blog/detect-public-databases-across-aws-azure-gcp/archival-36c93be7.mp4",
-			"at": 0.86
+			"video": "/images/blog/detect-public-databases-across-aws-azure-gcp/archival-62b28ba3.mp4",
+			"at": 1.19
 		},
-		"alt": "A pile of tagged suitcases left in the open",
+		"alt": "A wrought-iron gate standing open under a stone archway, sunlit garden beyond",
 		"look": "taped",
 		"mark": {
 			"name": "tally",
@@ -405,10 +405,10 @@
 	},
 	"steampipe-vs-cloudquery": {
 		"picture": {
-			"video": "/images/blog/steampipe-vs-cloudquery/archival-928d1f0e.mp4",
-			"at": 0.86
+			"video": "/images/blog/steampipe-vs-cloudquery/archival-fcd31c33.mp4",
+			"at": 1.03
 		},
-		"alt": "A steam train crossing open country under a plume of smoke",
+		"alt": "Two construction cranes working side by side on an open desert site",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -445,10 +445,10 @@
 	},
 	"aws-google-cloud-networking-partnership": {
 		"picture": {
-			"video": "/images/blog/aws-google-cloud-networking-partnership/archival-1ba1ade4.mp4",
+			"video": "/images/blog/aws-google-cloud-networking-partnership/archival-cf3ce8fe.mp4",
 			"at": 0.86
 		},
-		"alt": "Linemen silhouetted at the top of a pole, joining wires",
+		"alt": "A long steel truss bridge spanning a river, with an old ferry moored on the bank below",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -552,10 +552,10 @@
 	},
 	"aws-lambda-nodejs-20-eol": {
 		"picture": {
-			"video": "/images/blog/aws-lambda-nodejs-20-eol/archival-4a900e52.mp4",
-			"at": 0.9
+			"video": "/images/blog/aws-lambda-nodejs-20-eol/archival-1f1a0b8a.mp4",
+			"at": 0.86
 		},
-		"alt": "A man pushing an old homemade box car down the sidewalk",
+		"alt": "Rows of rusting 1920s cars and trucks abandoned in a junkyard beside a farmhouse",
 		"look": "taped",
 		"tilt": -3,
 		"mark": {
@@ -1067,11 +1067,11 @@
 	},
 	"getting-started-with-cloud-asset-inventory": {
 		"picture": {
-			"video": "/images/blog/getting-started-with-cloud-asset-inventory/archival-c717ec25.mp4",
+			"video": "/images/blog/getting-started-with-cloud-asset-inventory/archival-eb21cc7b.mp4",
 			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "Stockroom workers lifting and checking boxes",
+		"alt": "A librarian sorting index cards at a wall of card-catalog drawers",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -2087,19 +2087,19 @@
 		"look": "taped",
 		"tilt": 2,
 		"picture": {
-			"video": "/images/blog/implementing-mikrotik-binary-api-protocol-in-python/archival-508d5b2e.mp4",
-			"at": 1.28
+			"video": "/images/blog/implementing-mikrotik-binary-api-protocol-in-python/archival-61075a27.mp4",
+			"at": 0.86
 		},
-		"alt": "Hands wiring a small electrical device on a workbench"
+		"alt": "A row of telephone switchboard operators in headsets working their boards"
 	},
 	"building-a-real-time-digital-graffiti-wall": {
 		"look": "taped",
 		"tilt": 2,
 		"picture": {
-			"video": "/images/blog/building-a-real-time-digital-graffiti-wall/archival-6b6b95fc.mp4",
-			"at": 1.03
+			"video": "/images/blog/building-a-real-time-digital-graffiti-wall/archival-cf16b5e2.mp4",
+			"at": 0.9
 		},
-		"alt": "A painter on scaffolding painting a huge mural on a wall"
+		"alt": "A woman drawing on a large sheet of graph paper pinned to a wall"
 	},
 	"my-personal-claude-code-skills-repo-accidentally-became-internal-tooling": {
 		"look": "taped",

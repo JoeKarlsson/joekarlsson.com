@@ -7,9 +7,9 @@ description: 'How to build and maintain a cloud asset inventory: set the scope, 
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Asset Inventory']
-heroImage: '/images/blog/getting-started-with-cloud-asset-inventory/thumb-e50c9d51.webp'
+heroImage: '/images/blog/getting-started-with-cloud-asset-inventory/thumb-ffc5a5d4.webp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'Stockroom workers lifting and checking boxes'
+heroAlt: 'A librarian sorting index cards at a wall of card-catalog drawers'
 marginNotes:
   - type: 'see'
     at: 'SOC 2 compliance involves performing a thorough inventory'
@@ -19,8 +19,8 @@ marginNotes:
     at: 'For a comparison, explore our guide on building multi-cloud asset inventories'
     text: 'That guide is on this site too. It syncs AWS, GCP and Azure into one PostgreSQL database.'
     post: 'how-to-build-a-multi-cloud-asset-inventory'
-heroVideo: '/images/blog/getting-started-with-cloud-asset-inventory/archival-c717ec25.mp4'
-mastheadImage: '/images/blog/getting-started-with-cloud-asset-inventory/archival-c717ec25.webp'
+heroVideo: '/images/blog/getting-started-with-cloud-asset-inventory/archival-eb21cc7b.mp4'
+mastheadImage: '/images/blog/getting-started-with-cloud-asset-inventory/archival-eb21cc7b.webp'
 ---
 
 > **Note:** It's now even easier to get started by using our [Multi-Cloud Asset Inventory Report](https://www.cloudquery.io/hub/reports/multi-cloud-asset-inventory). Want to see it in action? Try our [free online demo](https://www.cloudquery.io/contact-us) now.

@@ -9,8 +9,8 @@ writtenFor: 'CloudQuery'
 tags: ['CloudQuery', 'Cloud Infrastructure', 'Open Source']
 canonicalUrl: 'https://www.cloudquery.io/blog/steampipe-vs-cloudquery'
 tldr: 'Steampipe queries cloud APIs in real time from the terminal. CloudQuery syncs cloud configuration into a persistent inventory with policy enforcement, automations, and team collaboration. Choose Steampipe for ad hoc investigations; choose CloudQuery when you need ongoing governance across teams.'
-heroImage: '/images/blog/steampipe-vs-cloudquery/thumb-cab41269.webp'
-heroAlt: 'A steam train crossing open country under a plume of smoke'
+heroImage: '/images/blog/steampipe-vs-cloudquery/thumb-33bdbfab.webp'
+heroAlt: 'Two construction cranes working side by side on an open desert site'
 marginNotes:
   - type: 'quote'
     at: 'model means you always see the current state'
@@ -25,8 +25,8 @@ marginNotes:
     at: 'open-source under the AGPLv3 license'
     text: 'a copyleft license. If you change the code and let people use it over a network, you have to share your changes.'
     term: 'AGPLv3'
-heroVideo: '/images/blog/steampipe-vs-cloudquery/archival-928d1f0e.mp4'
-mastheadImage: '/images/blog/steampipe-vs-cloudquery/archival-928d1f0e.webp'
+heroVideo: '/images/blog/steampipe-vs-cloudquery/archival-fcd31c33.mp4'
+mastheadImage: '/images/blog/steampipe-vs-cloudquery/archival-fcd31c33.webp'
 ---
 
 ## What Is Steampipe?

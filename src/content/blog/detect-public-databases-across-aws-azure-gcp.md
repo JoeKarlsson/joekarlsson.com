@@ -8,8 +8,8 @@ description: 'Detect publicly accessible databases across AWS RDS, Azure, and GC
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'Security']
-heroImage: '/images/blog/detect-public-databases-across-aws-azure-gcp/thumb-f20422fe.webp'
-heroAlt: 'A pile of tagged suitcases left in the open'
+heroImage: '/images/blog/detect-public-databases-across-aws-azure-gcp/thumb-660d5c32.webp'
+heroAlt: 'A wrought-iron gate standing open under a stone archway, sunlit garden beyond'
 canonicalUrl: 'https://www.cloudquery.io/blog/detect-public-databases-across-aws-azure-gcp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'This tutorial walks through building a CloudQuery Policy that detects publicly accessible databases across AWS, Azure, and GCP. You will get copy-paste ClickHouse SQL covering 7 database types across 3 cloud providers, screenshots of the full setup process, and a breakdown of how violation details and related resource views work.'
@@ -31,8 +31,8 @@ marginNotes:
     at: 'multi-cloud database security policy that detects databases'
     text: 'Five more security checks written as plain SQL, covering public buckets, MFA and encryption.'
     post: 'cloud-operations-playbook-part-08-cloud-security-posture-sql'
-heroVideo: '/images/blog/detect-public-databases-across-aws-azure-gcp/archival-36c93be7.mp4'
-mastheadImage: '/images/blog/detect-public-databases-across-aws-azure-gcp/archival-36c93be7.webp'
+heroVideo: '/images/blog/detect-public-databases-across-aws-azure-gcp/archival-62b28ba3.mp4'
+mastheadImage: '/images/blog/detect-public-databases-across-aws-azure-gcp/archival-62b28ba3.webp'
 ---
 
 CloudQuery Policies let you write ClickHouse SQL queries that flag infrastructure violations across all your cloud providers. We [recently launched this feature](https://www.cloudquery.io/blog/introducing-cloudquery-platform-policies), and this post shows how to put it to work.
