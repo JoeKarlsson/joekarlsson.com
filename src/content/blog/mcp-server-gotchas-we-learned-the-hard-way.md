@@ -8,7 +8,7 @@ description: 'What we learned building an MCP server for cloud infrastructure da
 categories: ['AI']
 writtenFor: 'CloudQuery'
 tags: ['MCP', 'LLM', 'AI', 'Engineering', 'Go']
-heroImage: '/images/blog/mcp-server-gotchas-we-learned-the-hard-way/thumb-34a14809.webp'
+heroImage: '/images/blog/mcp-server-gotchas-we-learned-the-hard-way/thumb-cb10c469.webp'
 heroAlt: 'A mechanic wrestling a car body panel into place'
 canonicalUrl: 'https://www.cloudquery.io/blog/mcp-server-gotchas-we-learned-the-hard-way'
 tldr: 'We built an MCP server in Go to let Claude and Cursor query our cloud infrastructure database directly. Short, vague tool descriptions confused the model - longer, domain-specific ones fixed it. Ambiguous tool names kept tools unused - renaming them to match intent made them indispensable. Raw schemas overwhelmed the context window - we filtered them down to high-signal columns. Even at temperature=0, LLMs showed non-determinism and selective attention.'
@@ -38,8 +38,8 @@ marginNotes:
 corrections:
   - date: 2026-11-16
     note: "Four citations were wrong. Lost in the Middle is by Liu et al., not Xiong et al., and it found that models make the worst use of the middle of a long context, not that they forget earlier tokens. Toolformer is from Meta AI, not Microsoft, and reports neither the 30% nor the 40% figure I gave it, so both are gone. The MT-Bench and emergent-abilities papers aren't about tool descriptions, so I removed those citations."
-heroVideo: '/images/blog/mcp-server-gotchas-we-learned-the-hard-way/archival-2f156094.mp4'
-mastheadImage: '/images/blog/mcp-server-gotchas-we-learned-the-hard-way/archival-2f156094.webp'
+heroVideo: '/images/blog/mcp-server-gotchas-we-learned-the-hard-way/archival-cd2898c0.mp4'
+mastheadImage: '/images/blog/mcp-server-gotchas-we-learned-the-hard-way/archival-cd2898c0.webp'
 ---
 
 _Co-authored with Mariano Gappa at CloudQuery._

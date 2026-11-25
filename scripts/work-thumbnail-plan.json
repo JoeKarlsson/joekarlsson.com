@@ -100,7 +100,7 @@
 	},
 	"proving-my-work-mattered": {
 		"picture": {
-			"video": "/images/blog/proving-my-work-mattered/archival-f982fc01.mp4",
+			"video": "/images/blog/proving-my-work-mattered/archival-2b9a4157.mp4",
 			"at": 0.88
 		},
 		"alt": "A pressure gauge needle swinging across its dial",
@@ -638,7 +638,7 @@
 	},
 	"real-time-cloud-cmdb-ephemeral-infrastructure": {
 		"picture": {
-			"video": "/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/archival-b2fb265a.mp4",
+			"video": "/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/archival-079b61b7.mp4",
 			"at": 1.32
 		},
 		"alt": "Warehouse workers checking stock between stacked crates",
@@ -823,7 +823,7 @@
 	},
 	"mcp-server-gotchas-we-learned-the-hard-way": {
 		"picture": {
-			"video": "/images/blog/mcp-server-gotchas-we-learned-the-hard-way/archival-2f156094.mp4",
+			"video": "/images/blog/mcp-server-gotchas-we-learned-the-hard-way/archival-cd2898c0.mp4",
 			"at": 0.86
 		},
 		"look": "taped",
@@ -933,7 +933,7 @@
 	},
 	"why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse": {
 		"picture": {
-			"video": "/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/archival-e02494bb.mp4",
+			"video": "/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/archival-56356e3a.mp4",
 			"at": 1.28
 		},
 		"look": "taped",
@@ -946,7 +946,7 @@
 	},
 	"how-we-accidentally-invented-a-cloud-search-language": {
 		"picture": {
-			"video": "/images/blog/how-we-accidentally-invented-a-cloud-search-language/archival-e94b5d43.mp4",
+			"video": "/images/blog/how-we-accidentally-invented-a-cloud-search-language/archival-f7b627b0.mp4",
 			"at": 0.99
 		},
 		"look": "flat",
@@ -1027,7 +1027,7 @@
 	},
 	"six-months-with-clickhouse-at-cloudquery": {
 		"picture": {
-			"video": "/images/blog/six-months-with-clickhouse-at-cloudquery/archival-64b1bdfe.mp4",
+			"video": "/images/blog/six-months-with-clickhouse-at-cloudquery/archival-2cfe4984.mp4",
 			"at": 1.44
 		},
 		"look": "flat",
@@ -1040,7 +1040,7 @@
 	},
 	"what-we-learned-querying-cloud-infra-for-expired-dependencies": {
 		"picture": {
-			"video": "/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/archival-6e5dfcc8.mp4",
+			"video": "/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/archival-812c9b2e.mp4",
 			"at": 0.86
 		},
 		"look": "taped",
@@ -1264,7 +1264,7 @@
 	},
 	"why-clickhouse-should-be-your-next-database": {
 		"picture": {
-			"video": "/images/blog/why-clickhouse-should-be-your-next-database/archival-043d9142.mp4",
+			"video": "/images/blog/why-clickhouse-should-be-your-next-database/archival-4472bd38.mp4",
 			"at": 0.9
 		},
 		"look": "flat",
@@ -1290,7 +1290,7 @@
 	},
 	"how-to-build-a-real-time-fraud-detection-system": {
 		"picture": {
-			"video": "/images/blog/how-to-build-a-real-time-fraud-detection-system/archival-f352f721.mp4",
+			"video": "/images/blog/how-to-build-a-real-time-fraud-detection-system/archival-71bd918b.mp4",
 			"at": 0.9
 		},
 		"alt": "A finger pressed onto a fingerprint card",
@@ -1332,7 +1332,7 @@
 	},
 	"using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse": {
 		"picture": {
-			"video": "/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/archival-c9affd70.mp4",
+			"video": "/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/archival-af1b2765.mp4",
 			"at": 0.86
 		},
 		"look": "taped",
@@ -1345,7 +1345,7 @@
 	},
 	"what-it-takes-to-build-a-real-time-recommendation-system": {
 		"picture": {
-			"video": "/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/archival-5f93bb64.mp4",
+			"video": "/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/archival-20f5d8c6.mp4",
 			"at": 0.9
 		},
 		"look": "flat",
@@ -1608,7 +1608,7 @@
 	},
 	"how-to-pass-coding-interview": {
 		"picture": {
-			"video": "/images/blog/how-to-pass-coding-interview/archival-c4a4487a.mp4",
+			"video": "/images/blog/how-to-pass-coding-interview/archival-166802e0.mp4",
 			"at": 0.88
 		},
 		"look": "flat",
@@ -1665,7 +1665,7 @@
 	},
 	"i-ran-my-first-hackathon-and-so-can-you": {
 		"picture": {
-			"video": "/images/blog/i-ran-my-first-hackathon-and-so-can-you/archival-e9a3131e.mp4",
+			"video": "/images/blog/i-ran-my-first-hackathon-and-so-can-you/archival-bd50d9f5.mp4",
 			"at": 0.86
 		},
 		"look": "flat",
@@ -1752,7 +1752,7 @@
 	},
 	"my-top-50-records": {
 		"picture": {
-			"video": "/images/blog/my-top-50-records/archival-7e538722.mp4",
+			"video": "/images/blog/my-top-50-records/archival-9b872eb4.mp4",
 			"at": 1.49
 		},
 		"look": "taped",
@@ -1870,7 +1870,7 @@
 	},
 	"how-to-get-started-building-a-homelab-server": {
 		"picture": {
-			"video": "/images/blog/how-to-get-started-building-a-homelab-server/archival-9f0a2625.mp4",
+			"video": "/images/blog/how-to-get-started-building-a-homelab-server/archival-f6fdf53c.mp4",
 			"at": 1.32
 		},
 		"look": "taped",
@@ -1927,7 +1927,7 @@
 	},
 	"self-hosted-music-still-sucks-in-2026": {
 		"picture": {
-			"video": "/images/blog/self-hosted-music-still-sucks-in-2026/archival-ca474771.mp4",
+			"video": "/images/blog/self-hosted-music-still-sucks-in-2026/archival-bd614a55.mp4",
 			"at": 1.11
 		},
 		"look": "flat",
@@ -1964,7 +1964,7 @@
 	},
 	"recording-setup-tour": {
 		"picture": {
-			"video": "/images/blog/recording-setup-tour/archival-4b9c45ee.mp4",
+			"video": "/images/blog/recording-setup-tour/archival-a7030441.mp4",
 			"at": 0.86
 		},
 		"look": "taped",
@@ -2037,7 +2037,7 @@
 	},
 	"hackers-and-painters-ai-agents": {
 		"picture": {
-			"video": "/images/blog/hackers-and-painters-ai-agents/archival-edbb539e.mp4",
+			"video": "/images/blog/hackers-and-painters-ai-agents/archival-dbaae7d1.mp4",
 			"at": 1.36
 		},
 		"look": "taped",
@@ -2050,7 +2050,7 @@
 	},
 	"sentence-length-semicolons-punctuation": {
 		"picture": {
-			"video": "/images/blog/sentence-length-semicolons-punctuation/archival-4f2603db.mp4",
+			"video": "/images/blog/sentence-length-semicolons-punctuation/archival-b9a59d36.mp4",
 			"at": 0.9
 		},
 		"look": "flat",
@@ -2093,7 +2093,7 @@
 	},
 	"script-vs-screen": {
 		"picture": {
-			"video": "/images/blog/script-vs-screen/archival-e602e3a3.mp4",
+			"video": "/images/blog/script-vs-screen/archival-f79c57a3.mp4",
 			"at": 0.9
 		},
 		"look": "taped",
@@ -2108,7 +2108,7 @@
 		"look": "taped",
 		"tilt": 2,
 		"picture": {
-			"video": "/images/blog/ship-the-ugly-pot/archival-4ba5f81d.mp4",
+			"video": "/images/blog/ship-the-ugly-pot/archival-e4bd8131.mp4",
 			"at": 1.32
 		},
 		"alt": "Hands shaping a clay pot as it turns"
@@ -2117,7 +2117,7 @@
 		"look": "taped",
 		"tilt": 2,
 		"picture": {
-			"video": "/images/blog/screencast-director-screen-recorder/archival-9ef333c4.mp4",
+			"video": "/images/blog/screencast-director-screen-recorder/archival-9b6cd9a9.mp4",
 			"at": 0.99
 		},
 		"alt": "A film editor at work among stacked film cans"
@@ -2126,7 +2126,7 @@
 		"look": "taped",
 		"tilt": 2,
 		"picture": {
-			"video": "/images/blog/running-devrel/archival-dadad503.mp4",
+			"video": "/images/blog/running-devrel/archival-046b7846.mp4",
 			"at": 0.86
 		},
 		"alt": "A radio announcer reading into a microphone"
@@ -2135,7 +2135,7 @@
 		"look": "taped",
 		"tilt": 2,
 		"picture": {
-			"video": "/images/blog/proxmox-gpu-passthrough-multi-service/archival-0a3c3449.mp4",
+			"video": "/images/blog/proxmox-gpu-passthrough-multi-service/archival-db4de01c.mp4",
 			"at": 0.86
 		},
 		"alt": "A switchboard operator in headphones plugging in cables"
@@ -2144,7 +2144,7 @@
 		"look": "taped",
 		"tilt": 2,
 		"picture": {
-			"video": "/images/blog/opentofu-proxmox-immutable-homelab/archival-6f476fba.mp4",
+			"video": "/images/blog/opentofu-proxmox-immutable-homelab/archival-26dc5250.mp4",
 			"at": 0.99
 		},
 		"alt": "Rows of identical airplane fuselages on an assembly line"

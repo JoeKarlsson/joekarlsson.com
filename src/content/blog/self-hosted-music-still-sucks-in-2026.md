@@ -6,7 +6,7 @@ updateNote: 'Added the Lidarr alternatives that now handle single tracks: SoulSy
 slug: 'self-hosted-music-still-sucks-in-2026'
 description: 'The *arr stack perfected video automation, but self-hosted music is stuck on albums. Lidarr makes you grab a whole album when you want one track.'
 categories: ['Homelab']
-heroImage: '/images/blog/self-hosted-music-still-sucks-in-2026/thumb-3ee8aa57.webp'
+heroImage: '/images/blog/self-hosted-music-still-sucks-in-2026/thumb-99e60a78.webp'
 heroAlt: 'A record spinning on a phonograph'
 contentNotice: false
 tldr: 'The *arr ecosystem nailed video automation, but self-hosted music is still stuck in album-centric workflows that ignore how we actually listen to music. I lay out why the problem is so hard and what a track-first tool like Songarr would need to look like. Navidrome 0.60 added some nice features like Instant Mix and a plugin system, but the core problem remains unsolved.'
@@ -47,8 +47,8 @@ marginNotes:
     at: I deeply miss the full album experience
     text: My 50 favorite records, the ones I play most, from Loveless to Kind of Blue.
     post: my-top-50-records
-heroVideo: '/images/blog/self-hosted-music-still-sucks-in-2026/archival-ca474771.mp4'
-mastheadImage: '/images/blog/self-hosted-music-still-sucks-in-2026/archival-ca474771.webp'
+heroVideo: '/images/blog/self-hosted-music-still-sucks-in-2026/archival-bd614a55.mp4'
+mastheadImage: '/images/blog/self-hosted-music-still-sucks-in-2026/archival-bd614a55.webp'
 ---
 
 Look, I need to get something off my chest. After fifteen years of curating seasonal playlists and being a power Spotify user since 2011 (recently migrated to Apple Music for reasons we won’t get into here), I’m having a technical existential crisis about self-hosted music solutions. And frankly, it’s driving me insane.

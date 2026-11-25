@@ -4,7 +4,7 @@ date: 2017-01-30
 slug: 'i-ran-my-first-hackathon-and-so-can-you'
 description: 'Lessons I learned planning and running my first hackathon, the Stupid Shit and Terrible Ideas Hackathon in Honolulu, and how you can run one too.'
 categories: ['Career']
-heroImage: '/images/blog/i-ran-my-first-hackathon-and-so-can-you/thumb-f2322e6c.webp'
+heroImage: '/images/blog/i-ran-my-first-hackathon-and-so-can-you/thumb-f9311360.webp'
 heroAlt: 'A huge room of people working at rows of desks'
 contentNotice: false
 tldr: 'Everything I learned organizing my first hackathon from scratch - venue, food, sponsors, marketing, code of conduct, and all the mistakes I made along the way.'
@@ -17,8 +17,8 @@ marginNotes:
   - type: 'aside'
     at: 'for the sheer joy of creation'
     text: 'Mine was App-All-O-Gizer. Type in an email address and it sends one of 13 random apologies, from a missed anniversary to murder.'
-heroVideo: '/images/blog/i-ran-my-first-hackathon-and-so-can-you/archival-e9a3131e.mp4'
-mastheadImage: '/images/blog/i-ran-my-first-hackathon-and-so-can-you/archival-e9a3131e.webp'
+heroVideo: '/images/blog/i-ran-my-first-hackathon-and-so-can-you/archival-bd50d9f5.mp4'
+mastheadImage: '/images/blog/i-ran-my-first-hackathon-and-so-can-you/archival-bd50d9f5.webp'
 ---
 
 I Ran My First Hackathon, and So Can You! Here are the lessons I learned from planning, organizing, and executing my first hackathon. The hackathon I ran was the [Stupid Shit and Terrible Ideas Hackathon](https://stupidshitnooneinhawaiineedshackathon.github.io/) in Honolulu, Hawaii.

@@ -27,7 +27,7 @@ faq:
     answer: 'Sometimes. Using only the share of ten marks in each book, a leave-one-out nearest-match test named the right author for 229 of 645 books by 122 authors, 35.5%, where guessing gets under 1%. Darmon and colleagues reached 62-72% in 2021 with richer punctuation features.'
   - question: 'How do I analyze the punctuation in my own book?'
     answer: 'Open the read page on punc.joekarlsson.com and drop in a .txt file. It runs in your browser, nothing is uploaded, and it shows the punctuation in reading order along with counts per 1,000 words and words per sentence. Punc is also an open-source TypeScript library and command line tool.'
-heroImage: '/images/blog/sentence-length-semicolons-punctuation/thumb-b37d8fd3.webp'
+heroImage: '/images/blog/sentence-length-semicolons-punctuation/thumb-2310cff6.webp'
 heroAlt: 'Hands typing on a typewriter'
 marginNotes:
   - type: 'term'
@@ -42,8 +42,8 @@ marginNotes:
     at: 'uses the Hellinger distance between'
     text: "a measure of how far apart two distributions are, from 0 (identical) to 1 (no overlap). Here it compares two books' mixes of the ten marks."
     term: 'Hellinger distance'
-heroVideo: '/images/blog/sentence-length-semicolons-punctuation/archival-4f2603db.mp4'
-mastheadImage: '/images/blog/sentence-length-semicolons-punctuation/archival-4f2603db.webp'
+heroVideo: '/images/blog/sentence-length-semicolons-punctuation/archival-b9a59d36.mp4'
+mastheadImage: '/images/blog/sentence-length-semicolons-punctuation/archival-b9a59d36.webp'
 ---
 
 In his 1894 history of the English paragraph, Edwin Lewis wrote that "the English sentence has decreased in average length at least one-half in three hundred years." People have been repeating some version of it ever since: English sentences are getting shorter.

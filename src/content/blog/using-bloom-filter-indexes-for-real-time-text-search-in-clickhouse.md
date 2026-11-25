@@ -6,7 +6,7 @@ slug: 'using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse'
 description: 'How Bloom filter indexes speed up real-time text search in ClickHouse, covering tokenization vs n-grams, ngrambf_v1 settings and benchmark results.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/thumb-912a9b1a.webp'
+heroImage: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/thumb-6c708339.webp'
 heroAlt: 'A man searching a wall of card-catalog drawers'
 canonicalUrl: 'https://www.tinybird.co/blog/using-bloom-filter-text-indexes-in-clickhouse'
 contentNotice: "I wrote this for the [Tinybird blog](https://www.tinybird.co/blog/using-bloom-filter-text-indexes-in-clickhouse), where it ran under Paco González's name."
@@ -37,8 +37,8 @@ marginNotes:
     at: which are a probabilistic data structure
     text: Burton H. Bloom, "Space/time trade-offs in hash coding with allowable errors," Communications of the ACM 13(7), July 1970, pp. 422-426. The paper that introduced the filter.
     url: https://doi.org/10.1145/362686.362692
-heroVideo: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/archival-c9affd70.mp4'
-mastheadImage: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/archival-c9affd70.webp'
+heroVideo: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/archival-af1b2765.mp4'
+mastheadImage: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/archival-af1b2765.webp'
 ---
 
 Efficient text search is one of the hardest problems in data engineering. Text-based data presents a unique set of problems, especially when you need to check if the text is contained within some text (and you need to do this in real-time!). The contents of this blog post describe an exploration our team did that was born out of a challenging use case presented by one of our customers. They had billions of rows of log-based text data and wanted to know how they might scour through this data without having to do a full scan every time.

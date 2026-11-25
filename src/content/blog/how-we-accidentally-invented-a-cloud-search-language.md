@@ -7,7 +7,7 @@ description: 'How we turned our search bar into a domain-specific language using
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Parsing', 'DSL', 'Engineering', 'JavaScript']
-heroImage: '/images/blog/how-we-accidentally-invented-a-cloud-search-language/thumb-bd153eb2.webp'
+heroImage: '/images/blog/how-we-accidentally-invented-a-cloud-search-language/thumb-927d3b95.webp'
 heroAlt: 'Telegraph operators tapping out messages'
 canonicalUrl: 'https://www.cloudquery.io/blog/we-built-a-search-language-for-cloudquery'
 tldr: 'A "simple" search bar turned into a full domain-specific language (DSL) for cloud queries. Regex melted. Peggy rescued us. Along the way we learned more about Chomsky, compilers, and a few surprises about UX.'
@@ -29,8 +29,8 @@ marginNotes:
     at: still shapes how we think about parsing
     text: Noam Chomsky, "On certain formal properties of grammars," Information and Control 2, June 1959, pp. 137-167. The paper that sorts grammars into types 0 to 3.
     url: https://doi.org/10.1016/S0019-9958(59)90362-6
-heroVideo: '/images/blog/how-we-accidentally-invented-a-cloud-search-language/archival-e94b5d43.mp4'
-mastheadImage: '/images/blog/how-we-accidentally-invented-a-cloud-search-language/archival-e94b5d43.webp'
+heroVideo: '/images/blog/how-we-accidentally-invented-a-cloud-search-language/archival-f7b627b0.mp4'
+mastheadImage: '/images/blog/how-we-accidentally-invented-a-cloud-search-language/archival-f7b627b0.webp'
 ---
 
 _Co-authored with Christopher Duflo at CloudQuery._

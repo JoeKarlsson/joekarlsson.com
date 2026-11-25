@@ -18,7 +18,7 @@ tags:
     'OSS',
     'Claude Code',
   ]
-heroImage: '/images/blog/running-devrel/thumb-9e60359e.webp'
+heroImage: '/images/blog/running-devrel/thumb-b3053735.webp'
 heroAlt: 'A radio announcer reading into a microphone'
 tldr: 'Developers find tools through three surfaces going into 2027: other people, search crawlers, and LLM coding assistants like Claude Code and Cursor. Most DevRel programs only work the first, and the LLM surface now has a half you can ship into directly: plugins, skills, and docs MCP servers that agents install. I spend my first 30 days auditing all three (site health, LLM presence, developer UX) before shipping any content, and I track leading indicators like star velocity, issue response time, and quarterly LLM mention rank, because downloads lag the work by months.'
 faq:
@@ -72,8 +72,8 @@ marginNotes:
     at: UTM and first-touch attribution from day one
     term: UTM tags
     text: extra parameters on a link (utm_source, utm_campaign) that tell your analytics which post, email or channel sent the visit.
-heroVideo: '/images/blog/running-devrel/archival-dadad503.mp4'
-mastheadImage: '/images/blog/running-devrel/archival-dadad503.webp'
+heroVideo: '/images/blog/running-devrel/archival-046b7846.mp4'
+mastheadImage: '/images/blog/running-devrel/archival-046b7846.webp'
 ---
 
 Most DevRel plans for the first 90 days come down to community, content, and events, with "developer experience" added if the author is sharp. That plan covers one of the three places developers find your tool. The other two are search crawlers and LLMs like Claude Code and Cursor, and in my experience that's where the damage is. I spend my first month auditing all three before I ship anything, and I measure each one differently.

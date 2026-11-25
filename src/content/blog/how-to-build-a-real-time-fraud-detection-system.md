@@ -7,7 +7,7 @@ description: 'How to build a real-time fraud detection system: ingest transactio
 categories: ['Web Dev']
 lane: 'reference'
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/how-to-build-a-real-time-fraud-detection-system/thumb-0ab345bc.webp'
+heroImage: '/images/blog/how-to-build-a-real-time-fraud-detection-system/thumb-ed63e658.webp'
 heroAlt: 'A finger pressed onto a fingerprint card'
 tldr: 'I break down how to build a real-time fraud detection system that ingests transaction streams, analyzes them with SQL for suspicious patterns, and exposes the results as APIs. Includes example queries for catching things like unusual locations, high-velocity transactions, and weird spending patterns.'
 contentNotice: "I wrote this for Tinybird Classic. In 2026 Tinybird made Tinybird Forward its main product, with a new CLI and deployment workflow, and moved Free and Developer plan workspaces off Classic. The ideas still hold, but the tb commands and UI steps below are Classic's. [Tinybird's migration notes](https://www.tinybird.co/blog/tinybird-classic-deprecation) cover what changed."
@@ -36,8 +36,8 @@ marginNotes:
     at: 'store analyzed fraud data in a data warehouse'
     text: "That works for long-term trends. I wrote about why a warehouse shouldn't be what answers each transaction in real time."
     post: 'data-warehouses-are-terrible-application-backends'
-heroVideo: '/images/blog/how-to-build-a-real-time-fraud-detection-system/archival-f352f721.mp4'
-mastheadImage: '/images/blog/how-to-build-a-real-time-fraud-detection-system/archival-f352f721.webp'
+heroVideo: '/images/blog/how-to-build-a-real-time-fraud-detection-system/archival-71bd918b.mp4'
+mastheadImage: '/images/blog/how-to-build-a-real-time-fraud-detection-system/archival-71bd918b.webp'
 ---
 
 Financial fraud is a growing concern as more payments move online. According to a [report by PwC](https://www.pwc.com/fraudsurvey), almost half of the surveyed organizations experienced fraud in the past 2 years. For online payments, the situation is no different. As eCommerce continues to surge, so do attempts by cybercriminals to exploit vulnerabilities and commit fraud.

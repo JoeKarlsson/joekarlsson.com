@@ -8,7 +8,7 @@ tags:
   - Engineering
 date: 2025-10-24
 description: 'Traditional CMDBs miss ephemeral resources because containers live minutes. How cloud CMDBs use tiered sync, from 15 minutes to daily, and what it costs.'
-heroImage: '/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/thumb-9d142996.webp'
+heroImage: '/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/thumb-f89b9c44.webp'
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/real-time-cloud-cmdb-ephemeral-infrastructure
@@ -32,8 +32,8 @@ marginNotes:
     at: "One-size-fits-all sync schedules don't work"
     text: 'Tiered sync is one of six practices in my cloud CMDB guide for platform engineers.'
     post: 'cloud-cmdb-best-practices-platform-engineers'
-heroVideo: '/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/archival-b2fb265a.mp4'
-mastheadImage: '/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/archival-b2fb265a.webp'
+heroVideo: '/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/archival-079b61b7.mp4'
+mastheadImage: '/images/blog/real-time-cloud-cmdb-ephemeral-infrastructure/archival-079b61b7.webp'
 ---
 
 Your Kubernetes pods live for 3 minutes. Your Lambda functions for 300 milliseconds. Your CMDB updates weekly. See the problem?

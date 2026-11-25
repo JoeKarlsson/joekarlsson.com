@@ -6,7 +6,7 @@ slug: 'hackers-and-painters-ai-agents'
 description: "I reread Paul Graham's Hackers and Painters as a painter who codes with AI agents. The sketching idea held up. Beautiful code nobody reads is what I miss."
 categories: ['AI', 'Career']
 tldr: 'In "Hackers and Painters" (2003), Paul Graham argued that programming is sketching: you figure a program out while you write it, so a language should be "a pencil, not a pen." I paint and I write code, and since AI coding agents came along, programming feels more like painting to me, not less. I can explore ideas faster and more iteratively. What I miss is beauty in code nobody reads, though I don''t think AI will kill it any more than photography killed painting.'
-heroImage: '/images/blog/hackers-and-painters-ai-agents/thumb-992bd268.webp'
+heroImage: '/images/blog/hackers-and-painters-ai-agents/thumb-cb67fa9a.webp'
 interlude:
   after: 'Static types came back'
   line: "That's the part I miss."
@@ -27,8 +27,8 @@ marginNotes:
     at: 'The painter changed their mind on the canvas'
     text: "an earlier version that shows through after a painter changed their mind and painted over it. The x-ray at the top of this post shows the ones in Vermeer's A Maid Asleep."
     term: 'Pentimento'
-heroVideo: '/images/blog/hackers-and-painters-ai-agents/archival-edbb539e.mp4'
-mastheadImage: '/images/blog/hackers-and-painters-ai-agents/archival-edbb539e.webp'
+heroVideo: '/images/blog/hackers-and-painters-ai-agents/archival-dbaae7d1.mp4'
+mastheadImage: '/images/blog/hackers-and-painters-ai-agents/archival-dbaae7d1.webp'
 ---
 
 In 2003 Paul Graham turned a Harvard guest lecture into an essay called [Hackers and Painters](https://www.paulgraham.com/hp.html 'cite: Graham, May 2003'). He'd finished grad school in computer science and then gone to art school to study painting, and people kept acting surprised that one person would want both. His answer was that hackers and painters are both makers: "what hackers and painters are trying to do is make good things."

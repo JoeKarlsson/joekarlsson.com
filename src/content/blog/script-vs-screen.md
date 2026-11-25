@@ -66,10 +66,10 @@ marginNotes:
     at: 'checks 3,711 movies against the Bechdel test'
     text: 'how the script parser behind the site started, in 2015'
     post: 'bechdel-test-script-parser-works'
-heroImage: '/images/blog/script-vs-screen/thumb-8d46bab8.webp'
+heroImage: '/images/blog/script-vs-screen/thumb-cdb57616.webp'
 heroAlt: "A film projector's reels turning"
-heroVideo: '/images/blog/script-vs-screen/archival-e602e3a3.mp4'
-mastheadImage: '/images/blog/script-vs-screen/archival-e602e3a3.webp'
+heroVideo: '/images/blog/script-vs-screen/archival-f79c57a3.mp4'
+mastheadImage: '/images/blog/script-vs-screen/archival-f79c57a3.webp'
 ---
 
 I lined up 2,112 movie scripts, word by word, with the English subtitles of the films they became, to see how much of the plan survives. The typical movie keeps 42% of its script's dialogue word for word. And the less of its script a movie kept, the worse people tend to rate it.

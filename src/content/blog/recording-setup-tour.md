@@ -22,7 +22,7 @@ faq:
     answer: "On paper, yes. The Elgato Wave Low Profile arm is rated for 2 kg, and my Elgato Prompter (0.69 kg) plus a Sony ZV-E10 with its kit lens (about 0.45 kg) fit under that. It still sags and needs readjusting now and then, so I'd use an arm built to hold a camera next time."
   - question: 'How does Home Assistant set up the room for recording?'
     answer: 'I say "I''m recording" to my Home Assistant voice assistant. An Assist automation runs a script that turns on the recording desk''s smart plug, sets a Hue scene, pauses every media player, turns off the TVs, mutes the office voice assistant and turns on my 3D printer for its LEDs.'
-heroImage: '/images/blog/recording-setup-tour/thumb-2388e8b0.webp'
+heroImage: '/images/blog/recording-setup-tour/thumb-44f25f59.webp'
 heroAlt: 'A cameraman filming with a hand-held movie camera'
 updatedDate: 2026-11-12
 corrections:
@@ -55,8 +55,8 @@ marginNotes:
   - type: 'exhibit'
     at: 'the two costs most people could skip'
     text: 'Together the dock and desk cost $865, the same as the camera, and about a third of the $2,707 total.'
-heroVideo: '/images/blog/recording-setup-tour/archival-4b9c45ee.mp4'
-mastheadImage: '/images/blog/recording-setup-tour/archival-4b9c45ee.webp'
+heroVideo: '/images/blog/recording-setup-tour/archival-a7030441.mp4'
+mastheadImage: '/images/blog/recording-setup-tour/archival-a7030441.webp'
 ---
 
 My whole recording setup lives on one standing desk that rolls. When I'm done, I push it into the corner. Most of the gear went together without much trouble, but lighting took weeks of experimenting, and I'm still working on it.

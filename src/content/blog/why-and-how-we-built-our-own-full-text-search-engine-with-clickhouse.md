@@ -7,7 +7,7 @@ description: 'How we built a full-text search for CloudQuery using ClickHouse, a
 categories: ['Cloud', 'Web Dev']
 writtenFor: 'CloudQuery'
 tags: ['ClickHouse', 'Engineering', 'Data Engineering', 'Full-Text Search']
-heroImage: '/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/thumb-f953d430.webp'
+heroImage: '/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/thumb-d4aeb472.webp'
 heroAlt: 'A typesetting machine casting lines of metal type'
 canonicalUrl: 'https://www.cloudquery.io/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse'
 tldr: 'We built a full text search index directly in ClickHouse using ngrambf_v1 Bloom filter indices instead of adding Elasticsearch or Meilisearch. Our custom key-value flattening approach achieved sub-400ms queries across hundreds of millions of rows, with 10x faster performance on complex searches compared to naive JOIN approaches, without requiring additional infrastructure.'
@@ -29,8 +29,8 @@ marginNotes:
     text: 'lazy materialization, which delays reading column data until it’s actually needed.'
     by: 'Tom Schreiber, ClickHouse blog, April 2025'
     url: 'https://clickhouse.com/blog/clickhouse-gets-lazier-and-faster-introducing-lazy-materialization'
-heroVideo: '/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/archival-e02494bb.mp4'
-mastheadImage: '/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/archival-e02494bb.webp'
+heroVideo: '/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/archival-56356e3a.mp4'
+mastheadImage: '/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/archival-56356e3a.webp'
 ---
 
 _Co-authored with James Riley at CloudQuery._

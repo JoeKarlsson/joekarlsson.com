@@ -7,7 +7,7 @@ updatedDate: 2026-11-12
 updateNote: 'MinIO archived its repo and stopped shipping binaries, so my state backend now runs Silo, a maintained MinIO fork. The new section on the state backend covers why and how the cutover went. Logs now ship with Grafana Alloy, and the baseline is Debian 13.'
 description: 'How I moved 62 Proxmox containers to OpenTofu with a self-hosted state backend (MinIO, now its fork Silo), and whether immutable infrastructure was worth it.'
 categories: ['Homelab']
-heroImage: '/images/blog/opentofu-proxmox-immutable-homelab/thumb-6d4e5b1f.webp'
+heroImage: '/images/blog/opentofu-proxmox-immutable-homelab/thumb-329d18fa.webp'
 heroAlt: 'Rows of identical airplane fuselages on an assembly line'
 tldr: "I spent months building 86 health check scripts across 40+ Proxmox containers, discovered things were more broken than I thought, then migrated all 62 to OpenTofu in six intensive days using a wave-based approach with a self-hosted S3 state backend (MinIO at first, now Silo, a maintained MinIO fork). That's 21,135 lines of provision script code and 50 git commits. The feedback loop is slower, and for me it was worth it."
 faq:
@@ -69,8 +69,8 @@ marginNotes:
     text: 'THIS REPOSITORY IS NO LONGER MAINTAINED.'
     by: "The first line of MinIO's README. GitHub archived the repo on April 25, 2026"
     url: 'https://github.com/minio/minio'
-heroVideo: '/images/blog/opentofu-proxmox-immutable-homelab/archival-6f476fba.mp4'
-mastheadImage: '/images/blog/opentofu-proxmox-immutable-homelab/archival-6f476fba.webp'
+heroVideo: '/images/blog/opentofu-proxmox-immutable-homelab/archival-26dc5250.mp4'
+mastheadImage: '/images/blog/opentofu-proxmox-immutable-homelab/archival-26dc5250.webp'
 ---
 
 I was writing a health check script for one of my Proxmox containers - a service I'd been running for roughly two years, mostly without thinking about it. The check was simple: ping the API endpoint, verify the response, exit 0 if healthy.

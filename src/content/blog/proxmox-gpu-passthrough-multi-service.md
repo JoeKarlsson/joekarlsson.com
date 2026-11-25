@@ -7,7 +7,7 @@ slug: 'proxmox-gpu-passthrough-multi-service'
 description: 'Proxmox GPU passthrough for LXC: how I share an 8GB Quadro RTX 4000 and a 16GB RTX A4000 across seven services, with local LLM speed and accuracy tests.'
 categories: ['Homelab']
 tags: ['proxmox', 'nvidia', 'gpu', 'lxc', 'frigate', 'homelab', 'ollama', 'local-llm']
-heroImage: '/images/blog/proxmox-gpu-passthrough-multi-service/thumb-7ff9eb17.webp'
+heroImage: '/images/blog/proxmox-gpu-passthrough-multi-service/thumb-489fdf6f.webp'
 heroAlt: 'A switchboard operator in headphones plugging in cables'
 tldr: 'Two used workstation GPUs, an 8GB Quadro RTX 4000 and a 16GB RTX A4000, run my cameras, voice assistant, local LLMs, and media across Proxmox LXC containers. Compute is shared fine, but VRAM is first come, first served, so the real work is deciding what shares a card. Always-on, latency-sensitive services (Frigate, Whisper) get the small card; bursty, VRAM-hungry ones (Ollama, Plex) get the big one, and Tdarr fills in on both. In my tests the old Quadro kept up with the A4000 on a model that fit (90 vs 83 tok/s for a 3B model) and fell to 5.9 tok/s on one that did not, and every local model except the weakest made up answers about things that do not exist.'
 faq:
@@ -49,8 +49,8 @@ marginNotes:
   - type: 'exhibit'
     at: 'the monthly power cost of a 430W rack'
     text: 'The real answer from my rack: about $47 a month at $0.15/kWh.'
-heroVideo: '/images/blog/proxmox-gpu-passthrough-multi-service/archival-0a3c3449.mp4'
-mastheadImage: '/images/blog/proxmox-gpu-passthrough-multi-service/archival-0a3c3449.webp'
+heroVideo: '/images/blog/proxmox-gpu-passthrough-multi-service/archival-db4de01c.mp4'
+mastheadImage: '/images/blog/proxmox-gpu-passthrough-multi-service/archival-db4de01c.webp'
 ---
 
 **Updated October 2026:** I first published this in April. Since then Whisper moved to a bigger model, Frigate went from two cameras to four, and I benchmarked the open-source models I actually run on both cards, for speed and for whether their answers can be trusted. The original also said the RTX A4000 could encode AV1, which was wrong.

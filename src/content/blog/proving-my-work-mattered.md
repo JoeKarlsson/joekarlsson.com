@@ -7,7 +7,7 @@ description: "For most of my last job I couldn't say whether my work mattered. W
 categories: ['Cloud', 'Career']
 writtenFor: 'CData'
 tags: ['analytics', 'data', 'devrel', 'cdata']
-heroImage: '/images/blog/proving-my-work-mattered/thumb-b1ad6de3.webp'
+heroImage: '/images/blog/proving-my-work-mattered/thumb-757f8e1a.webp'
 heroAlt: 'A pressure gauge needle swinging across its dial'
 canonicalUrl: 'https://www.cdata.com/blog/what-i-learned-proving-my-work-mattered'
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/what-i-learned-proving-my-work-mattered).'
@@ -17,8 +17,8 @@ marginNotes:
     at: started working for the scorecard
     term: Goodhart's law
     text: when a measure becomes a target, it stops being a good measure. It's named for the economist Charles Goodhart.
-heroVideo: '/images/blog/proving-my-work-mattered/archival-f982fc01.mp4'
-mastheadImage: '/images/blog/proving-my-work-mattered/archival-f982fc01.webp'
+heroVideo: '/images/blog/proving-my-work-mattered/archival-2b9a4157.mp4'
+mastheadImage: '/images/blog/proving-my-work-mattered/archival-2b9a4157.webp'
 ---
 
 For most of my last job, I couldn't answer the most obvious question about my work.

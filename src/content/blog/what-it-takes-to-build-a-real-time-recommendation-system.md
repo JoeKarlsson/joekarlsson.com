@@ -7,7 +7,7 @@ description: 'What goes into a real-time recommendation system: content-based an
 categories: ['Web Dev']
 lane: 'reference'
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/thumb-38ff2878.webp'
+heroImage: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/thumb-4c3116ad.webp'
 heroAlt: 'A shop clerk laying out goods for a customer at the counter'
 tldr: 'I break down the key components of real-time recommendation systems, from content-based and collaborative filtering to data storage and ML model selection. You can start with simple SQL heuristics and scale up to machine learning later.'
 updatedDate: 2026-11-16
@@ -34,8 +34,8 @@ marginNotes:
     at: 'have become popular for their ability'
     text: 'My comparison of real-time databases, including ClickHouse, Tinybird, Pinot and Druid.'
     post: 'real-time-databases-what-developers-need-to-know'
-heroVideo: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/archival-5f93bb64.mp4'
-mastheadImage: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/archival-5f93bb64.webp'
+heroVideo: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/archival-20f5d8c6.mp4'
+mastheadImage: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/archival-20f5d8c6.webp'
 ---
 
 Real-time, personalized recommendations are all over the internet, from streaming services suggesting our next binge-worthy TV series to e-commerce platforms offering tailored product recommendations. They shape how we discover and engage with content and products.
