@@ -357,6 +357,12 @@ function validate(slug, entry) {
 
 /** The flat, still copy of a taped card, for the post's masthead (mastheadImage) */
 async function writeMasthead(page, sharp, slug, entry, scribbles, post) {
+	// A post with a header video keeps its own mastheadImage: the clip's first frame, its
+	// poster, so the still doesn't jump when the clip starts (and it's what phones show)
+	if (/^heroVideo:/m.test(readFileSync(post, 'utf8'))) {
+		console.log(`masthead: ${slug} skipped, it has a heroVideo`);
+		return;
+	}
 	const flat = { ...entry, look: 'flat', motion: undefined };
 	const [[png]] = await cardFrames(page, sharp, slug, flat, scribbles);
 	const webp = await sharp(png).webp({ quality: 72 }).toBuffer();
