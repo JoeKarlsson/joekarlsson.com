@@ -13,7 +13,7 @@ test.describe('Masthead', () => {
 				return { left, right };
 			};
 			return [
-				box(document.querySelector('.masthead img')!),
+				box(document.querySelector('.masthead :is(img, video)')!),
 				box(document.querySelector('.masthead-kicker')!),
 			];
 		});
