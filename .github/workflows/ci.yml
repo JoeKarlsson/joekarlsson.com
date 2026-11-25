@@ -287,9 +287,9 @@ jobs:
         with:
           name: dist
           path: dist/
-      # tests/media-dither.test.ts and media-flash.test.ts run the scripts in scripts/media
+      # tests/media-dither, media-flash and archival-clip run the scripts in scripts/media (cwebp: webp)
       - run: pip install pillow
-      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg webp
       - run: npx vitest run
 
   unused:

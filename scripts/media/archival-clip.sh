@@ -35,8 +35,8 @@ if python3 -c "exit(not $len < 2.9)"; then echo "REJECT: longest clean run ${len
 
 # Pillarbox only: never crop the height, never narrower than 4:3 (dark footage fools cropdetect;
 # FedFlix bars are often dark gray, not black, hence limit=40)
-fw=$(ffprobe -v error -select_streams v -show_entries stream=width -of csv=p=0 "$in")
-fh=$(ffprobe -v error -select_streams v -show_entries stream=height -of csv=p=0 "$in")
+# First line only: some FedFlix files list their picture twice (two streams, or a stream group)
+IFS=, read -r fw fh <<<"$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 "$in" | sed -n 1p)"
 crop=$(ffmpeg -v info -ss "$s" -t 1 -i "$in" -vf cropdetect=limit=40:round=2:reset=0 -f null - 2>&1 |
 	grep -o 'crop=[0-9:]*' | tail -1 | cut -d= -f2)
 IFS=: read -r cw _ cx _ <<<"${crop:-$fw:$fh:0:0}"

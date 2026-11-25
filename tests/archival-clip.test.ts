@@ -6,8 +6,9 @@ import { join } from 'path';
 
 const dir = mkdtempSync(join(tmpdir(), 'archival-'));
 
-/** A pillarboxed 4:3 "film": one moving shot per [source, seconds], hard cuts between them. */
-function film(name: string, shots: [string, number][]): string {
+/** A pillarboxed 4:3 "film": one moving shot per [source, seconds], hard cuts between them.
+ * `streams: 2` writes the picture twice, as some FedFlix files carry two video streams. */
+function film(name: string, shots: [string, number][], streams = 1): string {
 	const out = join(dir, name);
 	const inputs = shots.flatMap(([src, secs]) => [
 		'-f',
@@ -16,7 +17,9 @@ function film(name: string, shots: [string, number][]): string {
 		`${src}=s=480x360:r=24:d=${secs}`,
 	]);
 	const concat =
-		shots.map((_, i) => `[${i}]`).join('') + `concat=n=${shots.length},pad=640:360:80:0`;
+		shots.map((_, i) => `[${i}]`).join('') +
+		`concat=n=${shots.length},pad=640:360:80:0,split=${streams}` +
+		Array.from({ length: streams }, (_, i) => `[v${i}]`).join('');
 	const made = spawnSync('ffmpeg', [
 		'-v',
 		'error',
@@ -24,6 +27,7 @@ function film(name: string, shots: [string, number][]): string {
 		...inputs,
 		'-filter_complex',
 		concat,
+		...Array.from({ length: streams }, (_, i) => ['-map', `[v${i}]`]).flat(),
 		'-pix_fmt',
 		'yuv420p',
 		out,
@@ -62,6 +66,12 @@ describe('archival header clip', () => {
 			{ encoding: 'utf8' },
 		);
 		expect(scenes.stderr).not.toMatch(/pts_time/);
+	}, 60_000);
+
+	it('reads the frame size from the first of two video streams', () => {
+		const result = cut(film('two-streams.mp4', [['testsrc2', 4]], 2), 'two-streams-clip');
+		expect(result.status, result.stderr).toBe(0);
+		expect(probe(join(dir, 'two-streams-clip.mp4'), 'stream=width,height')).toBe('1440,810');
 	}, 60_000);
 
 	it('rejects a shot too short to loop', () => {
