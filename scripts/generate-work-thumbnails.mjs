@@ -434,6 +434,11 @@ async function main() {
 	} finally {
 		await browser.close();
 	}
+	// A replaced card leaves its entry in images-with-text.json, which halftone.test.ts rejects
+	const textList = join(ROOT, 'src/data/images-with-text.json');
+	const listed = JSON.parse(readFileSync(textList, 'utf8'));
+	const kept = listed.filter((src) => existsSync(join(ROOT, 'public', src)));
+	if (kept.length < listed.length) writeFileSync(textList, `${JSON.stringify(kept, null, '\t')}\n`);
 }
 
 main().catch((error) => {
