@@ -33,7 +33,9 @@ function film(name: string, shots: [string, number][]): string {
 }
 
 const cut = (input: string, out: string) =>
-	spawnSync('scripts/media/archival-clip.sh', [input, join(dir, out)], { encoding: 'utf8' });
+	spawnSync('bash', ['scripts/media/archival-clip.sh', input, join(dir, out)], {
+		encoding: 'utf8',
+	});
 
 const probe = (file: string, entries: string) =>
 	spawnSync('ffprobe', ['-v', 'error', '-show_entries', entries, '-of', 'csv=p=0', file], {
