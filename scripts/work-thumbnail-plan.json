@@ -158,13 +158,11 @@
 	},
 	"what-is-attack-surface-management": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Hakodate_-_Hakodate944.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Hakodate_-_Hakodate944.jpg"
+			"video": "/images/blog/what-is-attack-surface-management/archival-33235b6e.mp4",
+			"at": 0.9
 		},
-		"alt": "A star-shaped fort from above, built so no stretch of wall is out of sight",
-		"focus": 0.6,
+		"alt": "A barbed-wire fence running across a field",
 		"look": "taped",
-		"ring": [52, 46, 34, 40],
 		"tilt": -3,
 		"mark": {
 			"name": "check",
@@ -825,11 +823,11 @@
 	},
 	"mcp-server-gotchas-we-learned-the-hard-way": {
 		"picture": {
-			"image": "/images/blog/mcp-server-gotchas-we-learned-the-hard-way/image5.webp"
+			"video": "/images/blog/mcp-server-gotchas-we-learned-the-hard-way/archival-2f156094.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "Meme showing the 'This is fine' dog sitting calmly in a room on fire. Caption added: 'Your LLM trying to process 50,000 tokens of raw schema.' Dog says 'This is fine'.",
-		"whole": true,
+		"alt": "A mechanic wrestling a car body panel into place",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -935,11 +933,11 @@
 	},
 	"why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse": {
 		"picture": {
-			"image": "/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/image3.webp"
+			"video": "/images/blog/why-and-how-we-built-our-own-full-text-search-engine-with-clickhouse/archival-e02494bb.mp4",
+			"at": 1.28
 		},
 		"look": "taped",
-		"alt": "Drake meme with two panels. Top panel shows Drake gesturing disapprovingly at 'Dedicated full-text search engine'. Bottom panel shows Drake smiling approvingly at 'Abusing ClickHouse harder'",
-		"whole": true,
+		"alt": "A typesetting machine casting lines of metal type",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -948,12 +946,11 @@
 	},
 	"how-we-accidentally-invented-a-cloud-search-language": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Rosetta-stone-display-in-1985.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Rosetta-stone-display-in-1985.jpg"
+			"video": "/images/blog/how-we-accidentally-invented-a-cloud-search-language/archival-e94b5d43.mp4",
+			"at": 0.99
 		},
 		"look": "flat",
-		"alt": "Visitors looking at a cast of the Rosetta Stone",
-		"focus": 0.5,
+		"alt": "Telegraph operators tapping out messages",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -1030,12 +1027,11 @@
 	},
 	"six-months-with-clickhouse-at-cloudquery": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Moscow%2C_MCC_Streshnevo%2C_station_clock%2C_Oct_2026_01.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Moscow,_MCC_Streshnevo,_station_clock,_Oct_2026_01.jpg"
+			"video": "/images/blog/six-months-with-clickhouse-at-cloudquery/archival-64b1bdfe.mp4",
+			"at": 1.44
 		},
 		"look": "flat",
-		"alt": "A clock on a station wall",
-		"focus": 0.5,
+		"alt": "A calendar with the days of January crossed off",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -1044,11 +1040,11 @@
 	},
 	"what-we-learned-querying-cloud-infra-for-expired-dependencies": {
 		"picture": {
-			"image": "/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/image1.webp"
+			"video": "/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/archival-6e5dfcc8.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "Meme of a man confidently thinking the tech stack is modern (left), realizing half the dependencies are already out of support (right).",
-		"whole": true,
+		"alt": "An old wooden wagon wheel, weathered and cracked",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -1294,11 +1290,10 @@
 	},
 	"how-to-build-a-real-time-fraud-detection-system": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Class_on_Counterfeit_Money_DVIDS274449.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Class_on_Counterfeit_Money_DVIDS274449.jpg"
+			"video": "/images/blog/how-to-build-a-real-time-fraud-detection-system/archival-f352f721.mp4",
+			"at": 0.9
 		},
-		"alt": "A soldier holding a banknote up to check it",
-		"focus": 0.5,
+		"alt": "A finger pressed onto a fingerprint card",
 		"look": "flat",
 		"mark": {
 			"name": "check",
@@ -1350,12 +1345,11 @@
 	},
 	"what-it-takes-to-build-a-real-time-recommendation-system": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Museo_del_disco_d_epoca%2C_Sogliano_al_Rubicone_17_Jukebox_Wurlitzer_600A_1938.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Museo_del_disco_d_epoca,_Sogliano_al_Rubicone_17_Jukebox_Wurlitzer_600A_1938.jpg"
+			"video": "/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/archival-5f93bb64.mp4",
+			"at": 0.9
 		},
 		"look": "flat",
-		"alt": "A glowing jukebox",
-		"focus": 0.5,
+		"alt": "A shop clerk laying out goods for a customer at the counter",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -1614,18 +1608,16 @@
 	},
 	"how-to-pass-coding-interview": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Killie_Rick_and_Colin_McCabe.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Killie_Rick_and_Colin_McCabe.jpg"
+			"video": "/images/blog/how-to-pass-coding-interview/archival-c4a4487a.mp4",
+			"at": 0.88
 		},
 		"look": "flat",
-		"alt": "A student at a desk while a teacher works a math problem on the chalkboard behind her",
-		"focus": 0.4,
+		"alt": "An applicant sitting across a desk from an interviewer",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"an-introduction-to-iot-internet-of-toilets": {
 		"picture": {
@@ -1673,18 +1665,16 @@
 	},
 	"i-ran-my-first-hackathon-and-so-can-you": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/%22No_More_Sausages%22_by_Rube_Goldberg_in_Motion_Picture_News_(weekly,_July_3,_1926_to_August_28,_1926)_(page_371_crop)_(cropped).jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:%22No_More_Sausages%22_by_Rube_Goldberg_in_Motion_Picture_News_(weekly,_July_3,_1926_to_August_28,_1926)_(page_371_crop)_(cropped).jpg"
+			"video": "/images/blog/i-ran-my-first-hackathon-and-so-can-you/archival-e9a3131e.mp4",
+			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "A Rube Goldberg cartoon of a ridiculous sausage-making contraption",
-		"focus": 0.5,
+		"alt": "A huge room of people working at rows of desks",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"my-top-resources-for-learning-how-to-code": {
 		"picture": {
@@ -1762,18 +1752,16 @@
 	},
 	"my-top-50-records": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Museo_del_disco_d_epoca,_Sogliano_al_Rubicone_17_Jukebox_Wurlitzer_600A_1938.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Museo_del_disco_d_epoca,_Sogliano_al_Rubicone_17_Jukebox_Wurlitzer_600A_1938.jpg"
+			"video": "/images/blog/my-top-50-records/archival-7e538722.mp4",
+			"at": 1.49
 		},
 		"look": "taped",
-		"alt": "A 1938 Wurlitzer jukebox lit up, its stack of records behind the glass",
-		"focus": 0.5,
+		"alt": "A worker polishing metal record stampers",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
 			"color": "pink"
-		},
-		"motion": "boil"
+		}
 	},
 	"from-sql-to-nosql-a-gentle-introduction-for-devs": {
 		"picture": {
@@ -1882,18 +1870,16 @@
 	},
 	"how-to-get-started-building-a-homelab-server": {
 		"picture": {
-			"image": "/images/blog/how-to-get-started-building-a-homelab-server/is-this-a-server.webp"
+			"video": "/images/blog/how-to-get-started-building-a-homelab-server/archival-9f0a2625.mp4",
+			"at": 1.32
 		},
 		"look": "taped",
-		"alt": "Is this a server? meme: me looking at any used PC on Facebook Marketplace",
-		"focus": 0.5,
+		"alt": "Technicians at the control panels of an early computer room",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
 			"color": "pink"
-		},
-		"motion": "boil",
-		"whole": true
+		}
 	},
 	"adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole": {
 		"picture": {
@@ -1978,18 +1964,16 @@
 	},
 	"recording-setup-tour": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Roger_Fenton%27s_waggon.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Roger_Fenton%27s_waggon.jpg"
+			"video": "/images/blog/recording-setup-tour/archival-4b9c45ee.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "Roger Fenton's 1855 photographic van, a horse-drawn darkroom wagon with PHOTOGRAPHIC VAN painted on the side and his assistant sitting on the driver's seat",
-		"focus": 0.55,
+		"alt": "A cameraman filming with a hand-held movie camera",
 		"mark": {
 			"name": "rays",
 			"at": [86, 4, 11, 18],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"building-your-first-graphql-client-in-javascript": {
 		"picture": {
@@ -2066,18 +2050,16 @@
 	},
 	"sentence-length-semicolons-punctuation": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Hand_met_zethaak,_Bestanddeelnr_254-5235.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Hand_met_zethaak,_Bestanddeelnr_254-5235.jpg"
+			"video": "/images/blog/sentence-length-semicolons-punctuation/archival-4f2603db.mp4",
+			"at": 0.9
 		},
 		"look": "flat",
-		"alt": "A compositor's hand holding a composing stick with a line of metal type set in it, loose pieces of type scattered on the table below (Groningen, 1965)",
-		"focus": 0.55,
+		"alt": "Hands typing on a typewriter",
 		"mark": {
 			"name": "oval",
 			"at": [58, 40, 28, 18],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"how-i-use-ai-2026": {
 		"picture": {
@@ -2111,18 +2093,16 @@
 	},
 	"script-vs-screen": {
 		"picture": {
-			"photo": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Director_Arthur_Berthelet_reviewing_script_with_feminist_writer_Mary_MacLane%2C_1918.jpg",
-			"credit": "https://commons.wikimedia.org/wiki/File:Director_Arthur_Berthelet_reviewing_script_with_feminist_writer_Mary_MacLane,_1918.jpg"
+			"video": "/images/blog/script-vs-screen/archival-e602e3a3.mp4",
+			"at": 0.9
 		},
 		"look": "taped",
-		"alt": "Director Arthur Berthelet and writer Mary MacLane going over a film script together at Essanay Studios in 1918",
-		"focus": 0.4,
+		"alt": "A film projector's reels turning",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"ship-the-ugly-pot": {
 		"look": "taped",
@@ -2132,5 +2112,50 @@
 			"at": 1.32
 		},
 		"alt": "Hands shaping a clay pot as it turns"
+	},
+	"screencast-director-screen-recorder": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/screencast-director-screen-recorder/archival-9ef333c4.mp4",
+			"at": 0.99
+		},
+		"alt": "A film editor at work among stacked film cans"
+	},
+	"running-devrel": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/running-devrel/archival-dadad503.mp4",
+			"at": 0.86
+		},
+		"alt": "A radio announcer reading into a microphone"
+	},
+	"proxmox-gpu-passthrough-multi-service": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/proxmox-gpu-passthrough-multi-service/archival-0a3c3449.mp4",
+			"at": 0.86
+		},
+		"alt": "A switchboard operator in headphones plugging in cables"
+	},
+	"opentofu-proxmox-immutable-homelab": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/opentofu-proxmox-immutable-homelab/archival-6f476fba.mp4",
+			"at": 0.99
+		},
+		"alt": "Rows of identical airplane fuselages on an assembly line"
+	},
+	"local-voice-ai-home-assistant-gpu": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/local-voice-ai-home-assistant-gpu/archival-d204d8ef.mp4",
+			"at": 1.42
+		},
+		"alt": "A woman speaking into a WNYC radio microphone"
 	}
 }

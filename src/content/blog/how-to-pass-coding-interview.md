@@ -4,8 +4,8 @@ date: 2020-05-13
 slug: 'how-to-pass-coding-interview'
 description: 'Developers ask me how to pass a coding interview more than anything else, so I wrote down what I think it takes to walk in well prepared.'
 categories: ['Career']
-heroImage: '/images/blog/how-to-pass-coding-interview/thumb-9cdd1790.webp'
-heroAlt: 'A student at a desk while a teacher works a math problem on the chalkboard behind her'
+heroImage: '/images/blog/how-to-pass-coding-interview/thumb-23ef6924.webp'
+heroAlt: 'An applicant sitting across a desk from an interviewer'
 contentNotice: false
 tldr: 'My five-step plan for passing coding interviews: master a language, read Cracking the Coding Interview, grind LeetCode, do 30-40 mock interviews on Pramp, then validate on interviewing.io.'
 marginNotes:
@@ -17,6 +17,8 @@ marginNotes:
     at: 'do at least 30-40 mock interviews on'
     text: 'Since July 2024, new Pramp sessions run on Aced Practice. It is still free.'
     date: 'Jul 2024'
+heroVideo: '/images/blog/how-to-pass-coding-interview/archival-c4a4487a.mp4'
+mastheadImage: '/images/blog/how-to-pass-coding-interview/archival-c4a4487a.webp'
 ---
 
 The question I most frequently get from developers is how to pass a coding interview. What follows is what I think will be sufficient for a person to be well prepared.

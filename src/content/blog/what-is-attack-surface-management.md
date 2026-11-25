@@ -7,8 +7,8 @@ description: 'Attack surface management finds exposed cloud assets before attack
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Security', 'Cloud Infrastructure']
-heroImage: '/images/blog/what-is-attack-surface-management/thumb-2df6f9a3.webp'
-heroAlt: 'A star-shaped fort from above, built so no stretch of wall is out of sight'
+heroImage: '/images/blog/what-is-attack-surface-management/thumb-6b0e4d63.webp'
+heroAlt: 'A barbed-wire fence running across a field'
 canonicalUrl: https://www.cloudquery.io/blog/what-is-attack-surface-management
 contentNotice: 'This post was originally published on CloudQuery blog.'
 marginNotes:
@@ -28,7 +28,8 @@ marginNotes:
     at: 'certificate transparency logs'
     text: "public, append-only logs of the TLS certificates that certificate authorities issue. Anyone can search them for a company's hostnames."
     term: 'Certificate Transparency'
-mastheadImage: '/images/blog/what-is-attack-surface-management/masthead-e7101dbd.webp'
+heroVideo: '/images/blog/what-is-attack-surface-management/archival-33235b6e.mp4'
+mastheadImage: '/images/blog/what-is-attack-surface-management/archival-33235b6e.webp'
 ---
 
 > **Note:** Attack surface management finds what attackers can reach, including resources your security team doesn't know exist. Unlike CSPM (which audits known configurations) or vulnerability management (which scans for CVEs), ASM starts from the attacker's perspective and asks what's reachable from outside. CloudQuery gives cloud teams a continuously updated attack surface inventory across AWS, GCP, and Azure, queryable in SQL.

@@ -4,11 +4,12 @@ date: 2019-06-11
 slug: 'my-top-50-records'
 description: 'My top 50 all-time favorite records, the ones I play most or that hit me hardest, from Loveless to Kind of Blue. I redo the list every couple of years.'
 categories: ['Life']
-heroImage: '/images/blog/my-top-50-records/thumb-1c6b1a25.webp'
-heroAlt: 'A 1938 Wurlitzer jukebox lit up, its stack of records behind the glass'
+heroImage: '/images/blog/my-top-50-records/thumb-8a2d71e1.webp'
+heroAlt: 'A worker polishing metal record stampers'
 contentNotice: false
 tldr: 'My top 50 records of all time, with a Spotify playlist.'
-mastheadImage: '/images/blog/my-top-50-records/masthead-b0931b68.webp'
+heroVideo: '/images/blog/my-top-50-records/archival-7e538722.mp4'
+mastheadImage: '/images/blog/my-top-50-records/archival-7e538722.webp'
 ---
 
 ![A black cube shelf with a turntable, a salt lamp and a speaker on top and vinyl records in the cubbies, under a pegboard with tools and a Kacey Musgraves Golden Hour album sleeve.](/images/blog/my-top-50-records/my-turntable-and-records-june-2019.webp 'margin: My turntable and records, June 2019, Golden Hour on the wall.')

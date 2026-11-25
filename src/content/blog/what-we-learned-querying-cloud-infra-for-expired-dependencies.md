@@ -7,10 +7,10 @@ description: 'Learn how to easily track and fix end-of-life cloud services acros
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering', 'Product News']
-heroImage: '/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/thumb-7d1ac2cb.webp'
+heroImage: '/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/thumb-9a3ee89b.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'Meme of a man confidently thinking the tech stack is modern (left), realizing half the dependencies are already out of support (right).'
+heroAlt: 'An old wooden wagon wheel, weathered and cracked'
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
@@ -30,7 +30,8 @@ marginNotes:
     at: 'If your Lambda functions are running Python 3.8 or older'
     text: 'Python 3.9 lost its Lambda security patches in December 2025. I wrote up how to find those functions across every account.'
     post: 'python-39-lambda-deprecation'
-mastheadImage: '/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/masthead-81b904b2.webp'
+heroVideo: '/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/archival-6e5dfcc8.mp4'
+mastheadImage: '/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/archival-6e5dfcc8.webp'
 ---
 
 Every cloud engineer has, at some point, found themselves frantically searching for unsupported software lurking in their environment. Maybe it's an _EKS cluster running an ancient Kubernetes version_, or a _Lambda function still clinging to Python 3.7_ like it's 2019. Whatever it is, finding it is always a pain, especially when you have multiple cloud providers in the mix.

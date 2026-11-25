@@ -6,8 +6,8 @@ slug: 'screencast-director-screen-recorder'
 description: 'Screencast Director is an open source macOS screen recorder that drafts the edit. It cuts dead air, speeds up typing and takes edits from your AI model.'
 categories: ['Web Dev', 'Career']
 tags: ['video production', 'screen recording', 'macOS', 'Claude', 'whisper.cpp', 'open source']
-heroImage: '/images/blog/screencast-director-screen-recorder/hero.webp'
-heroAlt: 'I hate editing video. So I built a screen recorder that does it for me: the title next to the Screencast Director editor, with my face filling the preview under a Joe Karlsson, Made Screencast Director lower third, and the camera framing and color controls'
+heroImage: '/images/blog/screencast-director-screen-recorder/thumb-adfa6712.webp'
+heroAlt: 'A film editor at work among stacked film cans'
 tldr: "Editing is my least favorite part of making videos, so I built Screencast Director, a macOS screen recorder that drafts the edit for me. Talk through a demo once: while you're talking it plays in real time, typing without talking gets sped up, and silence gets cut. It zooms to your clicks, captions what you said, and drops retakes. Then you adjust it on a timeline or tell an AI model what to change, and unlike Descript, Camtasia or Screen Studio, you pick the model, the local Whisper model and the prompts. It's a native Mac app, and it's open source."
 updatedDate: 2026-11-10
 corrections:
@@ -33,6 +33,8 @@ marginNotes:
     at: 'macOS makes you click Open Anyway'
     text: 'Apple scans an app sold outside the App Store and signs off on it. Without that, macOS blocks the first launch until you allow it.'
     term: 'Notarizing'
+heroVideo: '/images/blog/screencast-director-screen-recorder/archival-9ef333c4.mp4'
+mastheadImage: '/images/blog/screencast-director-screen-recorder/archival-9ef333c4.webp'
 ---
 
 I don't mind writing a video. I don't even mind recording one. Editing is the part I hate. It means sitting there for hours after the fact, watching myself, scrubbing past every "um," every dead pause, every time I lost my cursor, and every take of a line I flubbed three times.

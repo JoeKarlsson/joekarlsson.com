@@ -7,8 +7,8 @@ updateNote: 'Refreshed for 2027 with higher hardware prices from the RAM shortag
 slug: 'how-to-get-started-building-a-homelab-server'
 description: 'What to buy for a first home server in 2027 (a used office PC or mini PC), what it costs to run, and how to set up Proxmox and your first four services.'
 categories: ['Homelab']
-heroImage: '/images/blog/how-to-get-started-building-a-homelab-server/thumb-52866fdd.webp'
-heroAlt: 'Is this a server? meme: me looking at any used PC on Facebook Marketplace'
+heroImage: '/images/blog/how-to-get-started-building-a-homelab-server/thumb-733c3633.webp'
+heroAlt: 'Technicians at the control panels of an early computer room'
 tldr: 'Buy a used office PC or a mini PC with at least 16GB of RAM, install Proxmox VE 9.2 (free), and start with four services: Pi-hole, Jellyfin, a Homepage dashboard and Uptime Kuma. Keep your files on a NAS and mount it into the containers. My first server was a $150 used Lenovo ThinkServer, though RAM prices make that hard to match now.'
 faq:
   - question: 'How much does a homelab cost to run?'
@@ -52,7 +52,8 @@ marginNotes:
     at: 'want to run a gaming VM'
     text: 'I now share two GPUs, an 8GB Quadro RTX 4000 and a 16GB RTX A4000, across seven services in LXC containers.'
     post: 'proxmox-gpu-passthrough-multi-service'
-mastheadImage: '/images/blog/how-to-get-started-building-a-homelab-server/masthead-586007f3.webp'
+heroVideo: '/images/blog/how-to-get-started-building-a-homelab-server/archival-9f0a2625.mp4'
+mastheadImage: '/images/blog/how-to-get-started-building-a-homelab-server/archival-9f0a2625.webp'
 ---
 
 Look, if you've been lurking on r/homelab or watching YouTube videos of people with full server racks in their basements, I get it. It looks intimidating and expensive, like you need an IT degree and a dedicated room in your house just to get started.
