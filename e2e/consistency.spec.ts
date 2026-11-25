@@ -110,7 +110,8 @@ test.describe('Consistency across page types', () => {
 	test("a taped card's post shows its picture flat in the masthead, the card in the feed", async ({
 		page,
 	}) => {
-		await page.goto('/blog/why-i-use-doom-to-visualize-mcp-data/');
+		// Blog posts with an archival clip show its first frame instead, so this checks a talk
+		await page.goto('/talks/mongodb-schema-design-best-practices/');
 		await expect(page.locator('.masthead img')).toHaveAttribute('src', /\/masthead-[0-9a-f]{8}\./);
 	});
 

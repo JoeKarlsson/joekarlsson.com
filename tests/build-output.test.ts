@@ -834,9 +834,16 @@ describe('link preview meta', () => {
 	});
 
 	it("a blog post's og:image:alt is its hero image alt text, not its title", () => {
-		const html = readDist('blog/local-voice-ai-home-assistant-gpu/index.html');
+		const post = 'local-voice-ai-home-assistant-gpu';
+		const html = readDist(`blog/${post}/index.html`);
+		const source = readFileSync(
+			resolve(import.meta.dirname, `../src/content/blog/${post}.md`),
+			'utf-8',
+		);
+		const heroAlt = source.match(/^heroAlt: '(.+)'$/m)?.[1];
 		const alt = metaContent(html, 'og:image:alt');
-		expect(alt).toMatch(/^Home Assistant local voice pipeline architecture/);
+		expect(heroAlt).toBeTruthy();
+		expect(alt).toBe(heroAlt);
 		expect(metaContent(html, 'twitter:image:alt')).toBe(alt);
 	});
 });
@@ -1180,7 +1187,7 @@ describe('performance guards', () => {
 	// Cards load the .400w/.800w copies, and sharp reads only an animated WebP's first
 	// frame unless told otherwise, which froze the boiling diagram thumbnail
 	it('resized copies of an animated thumbnail stay animated', () => {
-		const hero = 'images/blog/complete-guide-node-client-server-communication';
+		const hero = 'images/blog/from-sql-to-nosql-a-gentle-introduction-for-devs';
 		const animated = readdirSync(resolve(dist, hero)).filter((file) =>
 			/^thumb-[0-9a-f]{8}\.(400w|800w)\.webp$/.test(file),
 		);

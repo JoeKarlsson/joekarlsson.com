@@ -93,7 +93,7 @@ test.describe('Pink pictures', () => {
 	test('a picture is pink before any script runs', async ({ browser }) => {
 		const context = await browser.newContext({ javaScriptEnabled: false });
 		const page = await context.newPage();
-		await page.goto('/blog/doom-mcp-server/');
+		await page.goto('/blog/best-home-assistant-automations/');
 		const picture = page.locator('.masthead img[data-halftone]');
 		await expect(picture).toBeVisible();
 		expect(await picture.evaluate((img) => getComputedStyle(img).opacity)).toBe('1');
