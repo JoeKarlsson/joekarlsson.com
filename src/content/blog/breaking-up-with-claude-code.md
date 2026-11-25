@@ -18,7 +18,7 @@ tags:
     'AI coding agents',
   ]
 heroImage: '/images/blog/breaking-up-with-claude-code/thumb-9818c6ba.webp'
-heroAlt: 'Someone loading suitcases into a car trunk'
+heroAlt: 'Someone loading suitcases into the trunk of a car to leave'
 tldr: "In October 2026 I moved my default coding agent from Claude Code to OpenCode running open-weight models through OpenRouter and my own LiteLLM gateway. DeepSeek V4.1 Flash passed every run of my own two-task test at about two cents a task. But OpenCode isn't a one-to-one swap for Claude Code: I had to test models on my own work instead of trusting leaderboards, make OpenCode send DeepSeek its reasoning back, force the agent to run its code before saying done, and accept that my homelab GPUs can't run a coding agent. Claude is still my escalation path for the hardest problems."
 faq:
   - question: 'Is OpenCode with open models a drop-in replacement for Claude Code?'

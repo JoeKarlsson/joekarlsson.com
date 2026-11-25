@@ -7,10 +7,10 @@ description: 'AWS Lambda Python 3.9 security patches stopped Dec 15, 2025. Find 
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['AWS', 'Tutorials', 'Cloud Infrastructure']
-heroImage: '/images/blog/python-39-lambda-deprecation/thumb-a84835a9.webp'
+heroImage: '/images/blog/python-39-lambda-deprecation/thumb-95bef46c.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/python-39-lambda-deprecation'
 contentNotice: 'This post was originally published on CloudQuery blog. The Python 3.9 deadlines below passed in 2026, so Lambda now blocks creating and updating python3.9 functions. The same queries find the next runtime on its way out.'
-heroAlt: 'An old building collapsing in a cloud of dust'
+heroAlt: 'The sun going down over the open sea'
 marginNotes:
   - type: 'see'
     at: "And Python 3.9 isn't the only one."
@@ -29,8 +29,8 @@ marginNotes:
     at: 'a persistent detective control'
     text: 'a check that finds a problem after it exists. A preventive control blocks it up front.'
     term: 'Detective control'
-heroVideo: '/images/blog/python-39-lambda-deprecation/archival-946ba811.mp4'
-mastheadImage: '/images/blog/python-39-lambda-deprecation/archival-946ba811.webp'
+heroVideo: '/images/blog/python-39-lambda-deprecation/archival-de16b92a.mp4'
+mastheadImage: '/images/blog/python-39-lambda-deprecation/archival-de16b92a.webp'
 ---
 
 > **TL;DR**

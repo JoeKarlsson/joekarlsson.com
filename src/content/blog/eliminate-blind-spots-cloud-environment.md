@@ -7,10 +7,10 @@ description: 'Stop guessing what in your multi-cloud environment. Use CloudQuery
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/eliminate-blind-spots-cloud-environment/thumb-60ffbfb1.webp'
+heroImage: '/images/blog/eliminate-blind-spots-cloud-environment/thumb-32968137.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/eliminate-blind-spots-cloud-environment'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'Light flaring across a dark night sky'
+heroAlt: "A car's side mirror reflecting the street behind it"
 marginNotes:
   - type: 'see'
     at: 'Cloud governance teams deal with incomplete, inconsistent cloud data'
@@ -21,8 +21,8 @@ marginNotes:
     text: 'code, pipeline, and cloud risks can be correlated back to a single issue and owner.'
     by: "Wiz's 2025 cloud security predictions"
     url: 'https://www.wiz.io/blog/2025-cloud-security-predictions'
-heroVideo: '/images/blog/eliminate-blind-spots-cloud-environment/archival-6f931146.mp4'
-mastheadImage: '/images/blog/eliminate-blind-spots-cloud-environment/archival-6f931146.webp'
+heroVideo: '/images/blog/eliminate-blind-spots-cloud-environment/archival-5c6b4ed2.mp4'
+mastheadImage: '/images/blog/eliminate-blind-spots-cloud-environment/archival-5c6b4ed2.webp'
 ---
 
 > **Note:** It's now even easier to monitor your assets across multiple cloud platforms using our [Multi-Cloud Asset Inventory Report](https://www.cloudquery.io/hub/reports/multi-cloud-asset-inventory). Want to see it in action? Try our [free online demo](https://www.cloudquery.io/contact-us) now.

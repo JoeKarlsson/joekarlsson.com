@@ -7,10 +7,10 @@ description: 'AWS IAM Identity Center replaced AWS SSO in 2022. Learn how to set
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Security', 'AWS', 'Tutorials']
-heroImage: '/images/blog/aws-identity-center-guide/thumb-8f680364.webp'
+heroImage: '/images/blog/aws-identity-center-guide/thumb-d54381f3.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-identity-center-guide'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'Guards at a doorway saluting a man as he passes'
+heroAlt: 'A man signing a hotel register and taking his room key'
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
@@ -29,8 +29,8 @@ marginNotes:
     at: 'These queries form the basis of access reviews'
     text: 'My SOC 2 explainer covers the audit these access reviews feed into.'
     post: 'soc2'
-heroVideo: '/images/blog/aws-identity-center-guide/archival-08da9d17.mp4'
-mastheadImage: '/images/blog/aws-identity-center-guide/archival-08da9d17.webp'
+heroVideo: '/images/blog/aws-identity-center-guide/archival-14d2e172.mp4'
+mastheadImage: '/images/blog/aws-identity-center-guide/archival-14d2e172.webp'
 ---
 
 > **TL;DR:** AWS IAM Identity Center is the recommended way to manage human access to multiple AWS accounts without static access keys. It connects to your identity provider (Okta, Entra ID, Google Workspace), handles token refresh automatically, and has no additional AWS charge. This guide covers setup from scratch, CLI configuration, permission sets, and auditing access across all your accounts with SQL.

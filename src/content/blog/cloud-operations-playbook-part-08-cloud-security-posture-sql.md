@@ -7,8 +7,8 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Security']
-heroImage: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/thumb-5d1070f0.webp'
-heroAlt: 'A night watchman in silhouette raising his lantern'
+heroImage: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/thumb-e4a4ec94.webp'
+heroAlt: 'A doctor bending over a patient in bed to check him with an instrument'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 updatedDate: 2026-11-12
@@ -32,8 +32,8 @@ marginNotes:
     at: One vendor wants you to write Rego
     term: Rego
     text: the policy language of Open Policy Agent. Sentinel is HashiCorp's policy language, used to gate Terraform runs.
-heroVideo: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/archival-4f18b283.mp4'
-mastheadImage: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/archival-4f18b283.webp'
+heroVideo: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/archival-11bcc03f.mp4'
+mastheadImage: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/archival-11bcc03f.webp'
 ---
 
 > **Note:** Traditional CSPM tools force you to learn proprietary policy languages like Rego or vendor-specific DSLs. But if your cloud asset data lives in a database, you can write security checks in SQL instead. Your security team writes checks that engineering can actually read. Your checks live in version control next to your infrastructure code. And the same query that finds a misconfiguration can serve as compliance evidence, investigation tool, and automated policy check all at once.

@@ -7,8 +7,8 @@ description: "Building internal AI agents on enterprise data without a custom pe
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'ai-agents', 'cdata']
-heroImage: '/images/blog/ai-gateway-for-developers/thumb-8bf53167.webp'
-heroAlt: 'A crowd passing through a guarded gate'
+heroImage: '/images/blog/ai-gateway-for-developers/thumb-41162b4b.webp'
+heroAlt: 'Trucks pulling through a toll plaza gate'
 canonicalUrl: 'https://www.cdata.com/blog/ai-gateway-for-developers'
 faq:
   - question: 'What is the passthrough identity model in Connect AI?'
@@ -38,8 +38,8 @@ marginNotes:
     at: 'SCIM 2.0 lifecycle sync with Okta'
     text: 'System for Cross-domain Identity Management, a standard API an identity provider uses to create, update and remove user accounts in other apps. Offboard someone in Okta and their access goes with them.'
     term: 'SCIM'
-heroVideo: '/images/blog/ai-gateway-for-developers/archival-2996ce99.mp4'
-mastheadImage: '/images/blog/ai-gateway-for-developers/archival-2996ce99.webp'
+heroVideo: '/images/blog/ai-gateway-for-developers/archival-0d58b6f6.mp4'
+mastheadImage: '/images/blog/ai-gateway-for-developers/archival-0d58b6f6.webp'
 ---
 
 Developer teams are connecting AI agents to production data, and what gets built on top of that access is already taking shape. With the launch of Connect AI's AI gateway, that architecture has a managed home.

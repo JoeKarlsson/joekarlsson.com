@@ -7,8 +7,8 @@ description: Learn how AI-powered cloud security reduces investigation time by 5
 categories: ['AI']
 writtenFor: 'CloudQuery'
 tags: ['Security', 'AI', 'Tutorials']
-heroImage: '/images/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection/thumb-b7a763a4.webp'
-heroAlt: 'A radar antenna turning against the sky'
+heroImage: '/images/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection/thumb-5f2e887d.webp'
+heroAlt: 'A tangle of pipes and valves at a processing plant'
 canonicalUrl: https://www.cloudquery.io/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection
 contentNotice: 'This post was originally published on CloudQuery blog.'
 updatedDate: 2026-11-16
@@ -44,8 +44,8 @@ marginNotes:
     at: 'try CloudQuery today'
     text: 'CloudQuery merged with env zero in March 2026, and the combined company runs under the env zero name.'
     date: 'Mar 2026'
-heroVideo: '/images/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection/archival-48314e8e.mp4'
-mastheadImage: '/images/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection/archival-48314e8e.webp'
+heroVideo: '/images/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection/archival-f7321edc.mp4'
+mastheadImage: '/images/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection/archival-f7321edc.webp'
 ---
 
 > **Note:** I built an open source demo that shows you how to build secure AI data pipelines for cloud infrastructure security. It processes your actual cloud data, applies machine learning to detect risks, and generates actionable remediation steps. Everything is on GitHub - you can have it running in 10 minutes. In this post, you will learn about data sanitization techniques that preserve security context, GDPR-compliant AI implementation, cross-cloud attack path detection, model governance patterns, production deployment architectures with zero-trust networking, and integration strategies for existing security tools. The complete working demo is available on [GitHub](https://github.com/cloudquery/secure-ai-data-pipelines-demo).

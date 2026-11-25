@@ -7,8 +7,8 @@ description: 'Connect enterprise data to Meta Muse with CData Connect AI. Add Sa
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai-agents', 'meta-muse', 'tutorial', 'enterprise', 'cdata']
-heroImage: '/images/blog/connect-business-apps-meta-muse/thumb-e3d131e3.webp'
-heroAlt: 'Workers pouring through a funnel to connect a line'
+heroImage: '/images/blog/connect-business-apps-meta-muse/thumb-25a90a8a.webp'
+heroAlt: 'A pipe joint where two pipes connect'
 canonicalUrl: 'https://www.cdata.com/blog/muse'
 faq:
   - question: 'Can Muse connect to Salesforce?'
@@ -41,8 +41,8 @@ marginNotes:
     text: 'This document defines the "Basic" Hypertext Transfer Protocol (HTTP) authentication scheme, which transmits credentials as user-id/password pairs, encoded using Base64.'
     by: 'RFC 7617, September 2015'
     url: 'https://www.rfc-editor.org/rfc/rfc7617'
-heroVideo: '/images/blog/connect-business-apps-meta-muse/archival-14c5254f.mp4'
-mastheadImage: '/images/blog/connect-business-apps-meta-muse/archival-14c5254f.webp'
+heroVideo: '/images/blog/connect-business-apps-meta-muse/archival-df81c744.mp4'
+mastheadImage: '/images/blog/connect-business-apps-meta-muse/archival-df81c744.webp'
 ---
 
 If you've been using [Meta Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) as your personal AI agent and you want it to actually reach your work systems ([Salesforce](https://www.cdata.com/drivers/salesforce/), [NetSuite](https://www.cdata.com/drivers/netsuite/), [HubSpot](https://www.cdata.com/drivers/hubspot/), [ServiceNow](https://www.cdata.com/drivers/servicenow/)), this post is for you. By the end, you'll have Muse connected to your enterprise data so you can ask it questions about your pipeline, your customers, or your open support tickets and get answers without switching apps. It takes about 10 minutes and doesn't require any technical background.

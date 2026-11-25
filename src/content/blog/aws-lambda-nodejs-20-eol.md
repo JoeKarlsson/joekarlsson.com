@@ -7,10 +7,10 @@ description: 'AWS Lambda Node.js 20 hits end of life April 30, 2026. How to find
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['AWS', 'Tutorials', 'Cloud Infrastructure']
-heroImage: '/images/blog/aws-lambda-nodejs-20-eol/thumb-436f05ce.webp'
+heroImage: '/images/blog/aws-lambda-nodejs-20-eol/thumb-1f7af3af.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-lambda-nodejs-20-eol'
 contentNotice: 'This post was originally published on CloudQuery blog. Node.js 20 was deprecated on April 30, 2026, but AWS pushed the blocks back: Lambda stops creating nodejs20.x functions on July 29, 2027 and stops updating them on August 31, 2027. The next one is Node.js 22, deprecated on May 30, 2027, and the same queries find it.'
-heroAlt: 'Wrecked vehicles piled in a scrapyard'
+heroAlt: 'A man pushing an old homemade box car down the sidewalk'
 updatedDate: 2026-11-16
 corrections:
   - date: 2026-11-12
@@ -28,8 +28,8 @@ marginNotes:
     text: 'Starting with the Node.js 24 runtime, Lambda no longer supports the callback-based handler signature for asynchronous operations.'
     by: 'AWS Compute Blog, Node.js 24 runtime now available in AWS Lambda'
     url: 'https://aws.amazon.com/blogs/compute/node-js-24-runtime-now-available-in-aws-lambda/'
-heroVideo: '/images/blog/aws-lambda-nodejs-20-eol/archival-134ebe37.mp4'
-mastheadImage: '/images/blog/aws-lambda-nodejs-20-eol/archival-134ebe37.webp'
+heroVideo: '/images/blog/aws-lambda-nodejs-20-eol/archival-4a900e52.mp4'
+mastheadImage: '/images/blog/aws-lambda-nodejs-20-eol/archival-4a900e52.webp'
 ---
 
 > **TL;DR:** AWS Lambda Node.js 20.x reaches end-of-life on April 30, 2026, after which security patches stop and you progressively lose the ability to create or update functions on this runtime. Upgrade to Node.js 22, test for import assertion syntax changes, native module ABI mismatches, and CA certificate configuration, and use CloudQuery Platform to find every affected function across all your AWS accounts with a single SQL query.

@@ -5,8 +5,8 @@ date: 2025-10-24
 slug: 'building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation'
 description: 'Building a Claude Code blog skill - how I turned my own blog workflow, from banned words to Vale linting and PRs, into a skill our marketing team can run.'
 categories: ['AI']
-heroImage: '/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/thumb-eb45e4f7.webp'
-heroAlt: 'A craftsman at his bench checking a row of finished spoons'
+heroImage: '/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/thumb-3aeb53ad.webp'
+heroAlt: 'A busy factory floor full of workers at their machines'
 tldr: 'I built a Claude Code slash command that turns blog post creation into a repeatable, enforceable workflow with brand voice checks, Vale linting, image generation, and automatic PR submission. It unblocked our marketing team from depending on me as the content quality bottleneck.'
 marginNotes:
   - type: 'see'
@@ -27,8 +27,8 @@ marginNotes:
     at: 'producing more content than we were before'
     text: 'More content was the easy number to show. Whether any of it turned into customers took CRM data, and I wrote up what that data showed.'
     post: 'proving-my-work-mattered'
-heroVideo: '/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/archival-81462c0e.mp4'
-mastheadImage: '/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/archival-81462c0e.webp'
+heroVideo: '/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/archival-ffc06374.mp4'
+mastheadImage: '/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/archival-ffc06374.webp'
 ---
 
 I live in the terminal. Like, I mean it.

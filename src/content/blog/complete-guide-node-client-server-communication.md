@@ -6,8 +6,8 @@ slug: 'complete-guide-node-client-server-communication'
 description: "Node client-server communication based on Ilya Grigorik's High-Performance Browser Networking, with examples of XHR, SSE, WebSockets and HTTP/2."
 categories: ['Web Dev']
 lane: 'reference'
-heroImage: '/images/blog/complete-guide-node-client-server-communication/thumb-a512fc95.webp'
-heroAlt: 'A soldier placing an order at a cafeteria counter'
+heroImage: '/images/blog/complete-guide-node-client-server-communication/thumb-c1314eb0.webp'
+heroAlt: 'Cooks behind a kitchen pass handing plates to waiters'
 contentNotice: 'This post uses outdated Node.js patterns (CommonJS, `var`). Core concepts like WebSockets and SSE remain relevant, but use ES modules and the Fetch API in modern applications.'
 tldr: 'I implemented every major client-server communication method in Node.js - XHR, Server-Sent Events, WebSockets, and HTTP/2 - with working code examples and a breakdown of when to use each one.'
 updatedDate: 2026-11-12
@@ -32,8 +32,8 @@ marginNotes:
     at: 'HTTP/2 is the future of Client-Server communication'
     text: 'HTTP/3 became a standard in June 2022 (RFC 9114). It carries HTTP over QUIC, which runs on UDP instead of TCP.'
     date: 'Nov 2026'
-heroVideo: '/images/blog/complete-guide-node-client-server-communication/archival-bba8f49e.mp4'
-mastheadImage: '/images/blog/complete-guide-node-client-server-communication/archival-bba8f49e.webp'
+heroVideo: '/images/blog/complete-guide-node-client-server-communication/archival-9f4c92d9.mp4'
+mastheadImage: '/images/blog/complete-guide-node-client-server-communication/archival-9f4c92d9.webp'
 ---
 
 > **Note:** This post was written in 2016. The core concepts of client-server communication (WebSockets, SSE, XHR) are still relevant, but the code examples use outdated patterns (CommonJS `require()`, `var`). For modern Node.js, use ES modules and the Fetch API.

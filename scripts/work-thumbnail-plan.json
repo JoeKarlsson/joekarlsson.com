@@ -41,11 +41,11 @@
 	},
 	"ai-gateway-for-developers": {
 		"picture": {
-			"video": "/images/blog/ai-gateway-for-developers/archival-2996ce99.mp4",
+			"video": "/images/blog/ai-gateway-for-developers/archival-0d58b6f6.mp4",
 			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "A crowd passing through a guarded gate",
+		"alt": "Trucks pulling through a toll plaza gate",
 		"mark": {
 			"name": "tally",
 			"at": [87, 3, 10, 17],
@@ -67,10 +67,10 @@
 	},
 	"connect-business-apps-meta-muse": {
 		"picture": {
-			"video": "/images/blog/connect-business-apps-meta-muse/archival-14c5254f.mp4",
-			"at": 1.15
+			"video": "/images/blog/connect-business-apps-meta-muse/archival-df81c744.mp4",
+			"at": 0.89
 		},
-		"alt": "Workers pouring through a funnel to connect a line",
+		"alt": "A pipe joint where two pipes connect",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -120,10 +120,10 @@
 	},
 	"aws-identity-center-guide": {
 		"picture": {
-			"video": "/images/blog/aws-identity-center-guide/archival-08da9d17.mp4",
-			"at": 1.4
+			"video": "/images/blog/aws-identity-center-guide/archival-14d2e172.mp4",
+			"at": 0.94
 		},
-		"alt": "Guards at a doorway saluting a man as he passes",
+		"alt": "A man signing a hotel register and taking his room key",
 		"look": "taped",
 		"tilt": 3,
 		"mark": {
@@ -134,10 +134,10 @@
 	},
 	"cwpp-vs-cnapp": {
 		"picture": {
-			"video": "/images/blog/cwpp-vs-cnapp/archival-d3730302.mp4",
-			"at": 0.86
+			"video": "/images/blog/cwpp-vs-cnapp/archival-976b0922.mp4",
+			"at": 0.9
 		},
-		"alt": "Soldiers manning a gun emplacement behind earthworks",
+		"alt": "A woman reading a chest x-ray on a light box",
 		"look": "flat",
 		"mark": {
 			"name": "tally",
@@ -229,10 +229,10 @@
 	},
 	"cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap": {
 		"picture": {
-			"video": "/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap/archival-d06a6029.mp4",
-			"at": 0.9
+			"video": "/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap/archival-ca9cc320.mp4",
+			"at": 0.86
 		},
-		"alt": "Men in suits studying something on an office wall",
+		"alt": "A road crew paving a new street with a tractor",
 		"look": "flat",
 		"mark": {
 			"name": "arrow",
@@ -257,10 +257,10 @@
 	},
 	"cloud-operations-playbook-part-09-continuous-compliance-sql": {
 		"picture": {
-			"video": "/images/blog/cloud-operations-playbook-part-09-continuous-compliance-sql/archival-12ba5353.mp4",
-			"at": 1.03
+			"video": "/images/blog/cloud-operations-playbook-part-09-continuous-compliance-sql/archival-65d6a1f1.mp4",
+			"at": 0.86
 		},
-		"alt": "Officers checking paperwork against a stack of crates",
+		"alt": "An inspector at a lab bench sifting a sample",
 		"look": "flat",
 		"mark": {
 			"name": "burst",
@@ -270,10 +270,10 @@
 	},
 	"cloud-operations-playbook-part-08-cloud-security-posture-sql": {
 		"picture": {
-			"video": "/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/archival-4f18b283.mp4",
+			"video": "/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/archival-11bcc03f.mp4",
 			"at": 0.86
 		},
-		"alt": "A night watchman in silhouette raising his lantern",
+		"alt": "A doctor bending over a patient in bed to check him with an instrument",
 		"look": "taped",
 		"tilt": 3,
 		"mark": {
@@ -284,10 +284,10 @@
 	},
 	"cloud-operations-playbook-part-07-continuous-cloud-governance": {
 		"picture": {
-			"video": "/images/blog/cloud-operations-playbook-part-07-continuous-cloud-governance/archival-f4402a74.mp4",
+			"video": "/images/blog/cloud-operations-playbook-part-07-continuous-cloud-governance/archival-c6133bee.mp4",
 			"at": 0.86
 		},
-		"alt": "A tracking antenna mount standing watch",
+		"alt": "A woman tending a garden behind a picket fence",
 		"look": "flat",
 		"mark": {
 			"name": "check",
@@ -297,10 +297,10 @@
 	},
 	"cloud-operations-playbook-part-06-visibility-first-governance-model": {
 		"picture": {
-			"video": "/images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/archival-e86964fd.mp4",
+			"video": "/images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/archival-a95bea73.mp4",
 			"at": 0.86
 		},
-		"alt": "A searchlight blazing in the dark beside its crew",
+		"alt": "A man at a desk by a high window overlooking a city skyline",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -377,10 +377,10 @@
 	},
 	"detect-public-databases-across-aws-azure-gcp": {
 		"picture": {
-			"video": "/images/blog/detect-public-databases-across-aws-azure-gcp/archival-099a6acb.mp4",
-			"at": 1.19
+			"video": "/images/blog/detect-public-databases-across-aws-azure-gcp/archival-36c93be7.mp4",
+			"at": 0.86
 		},
-		"alt": "A man pulling open a heavy door",
+		"alt": "A pile of tagged suitcases left in the open",
 		"look": "taped",
 		"mark": {
 			"name": "tally",
@@ -391,10 +391,10 @@
 	},
 	"python-39-lambda-deprecation": {
 		"picture": {
-			"video": "/images/blog/python-39-lambda-deprecation/archival-946ba811.mp4",
-			"at": 0.86
+			"video": "/images/blog/python-39-lambda-deprecation/archival-de16b92a.mp4",
+			"at": 0.99
 		},
-		"alt": "An old building collapsing in a cloud of dust",
+		"alt": "The sun going down over the open sea",
 		"look": "taped",
 		"tilt": -3,
 		"mark": {
@@ -405,10 +405,10 @@
 	},
 	"steampipe-vs-cloudquery": {
 		"picture": {
-			"video": "/images/blog/steampipe-vs-cloudquery/archival-00c36212.mp4",
-			"at": 1.07
+			"video": "/images/blog/steampipe-vs-cloudquery/archival-928d1f0e.mp4",
+			"at": 0.86
 		},
-		"alt": "A steam locomotive pouring out smoke",
+		"alt": "A steam train crossing open country under a plume of smoke",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -431,10 +431,10 @@
 	},
 	"codebreach-vulnerability-detection": {
 		"picture": {
-			"video": "/images/blog/codebreach-vulnerability-detection/archival-b033dcc0.mp4",
+			"video": "/images/blog/codebreach-vulnerability-detection/archival-34da28a7.mp4",
 			"at": 0.86
 		},
-		"alt": "A hand working the dial and lock of a heavy mechanism",
+		"alt": "Water spilling over the lip of a dam",
 		"look": "taped",
 		"tilt": 3,
 		"mark": {
@@ -445,10 +445,10 @@
 	},
 	"aws-google-cloud-networking-partnership": {
 		"picture": {
-			"video": "/images/blog/aws-google-cloud-networking-partnership/archival-828a2ef0.mp4",
+			"video": "/images/blog/aws-google-cloud-networking-partnership/archival-1ba1ade4.mp4",
 			"at": 0.86
 		},
-		"alt": "Two trains side by side at a station platform",
+		"alt": "Linemen silhouetted at the top of a pole, joining wires",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -552,10 +552,10 @@
 	},
 	"aws-lambda-nodejs-20-eol": {
 		"picture": {
-			"video": "/images/blog/aws-lambda-nodejs-20-eol/archival-134ebe37.mp4",
-			"at": 1.07
+			"video": "/images/blog/aws-lambda-nodejs-20-eol/archival-4a900e52.mp4",
+			"at": 0.9
 		},
-		"alt": "Wrecked vehicles piled in a scrapyard",
+		"alt": "A man pushing an old homemade box car down the sidewalk",
 		"look": "taped",
 		"tilt": -3,
 		"mark": {
@@ -632,10 +632,10 @@
 	},
 	"how-to-design-cloud-asset-inventory-aws": {
 		"picture": {
-			"video": "/images/blog/how-to-design-cloud-asset-inventory-aws/archival-f96232a7.mp4",
-			"at": 0.85
+			"video": "/images/blog/how-to-design-cloud-asset-inventory-aws/archival-3ff1ded1.mp4",
+			"at": 0.86
 		},
-		"alt": "Hands tracing over plans spread on a table",
+		"alt": "A shop stall packed with jars, cans and boxes of goods",
 		"look": "taped",
 		"tilt": -2,
 		"mark": {
@@ -672,10 +672,10 @@
 	},
 	"building-secure-ai-powered-cloud-security-data-pipeline-risk-detection": {
 		"picture": {
-			"video": "/images/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection/archival-48314e8e.mp4",
-			"at": 0.94
+			"video": "/images/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection/archival-f7321edc.mp4",
+			"at": 0.9
 		},
-		"alt": "A radar antenna turning against the sky",
+		"alt": "A tangle of pipes and valves at a processing plant",
 		"look": "taped",
 		"tilt": 2,
 		"mark": {
@@ -686,10 +686,10 @@
 	},
 	"cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints": {
 		"picture": {
-			"video": "/images/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints/archival-eb0a1c6b.mp4",
-			"at": 0.86
+			"video": "/images/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints/archival-466780a0.mp4",
+			"at": 1.32
 		},
-		"alt": "Soapbox racers speeding down a track past a crowd",
+		"alt": "Cars jammed bumper to bumper, inching toward a single exit",
 		"look": "flat",
 		"mark": {
 			"name": "burst",
@@ -818,10 +818,10 @@
 	},
 	"cloud-centers-of-excellence-part-2-governance-security-compliance": {
 		"picture": {
-			"video": "/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/archival-d6a62a05.mp4",
-			"at": 0.86
+			"video": "/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/archival-47780382.mp4",
+			"at": 1.07
 		},
-		"alt": "An inspector checking a man's papers at a works gate",
+		"alt": "A foreman overseeing work on a construction site",
 		"look": "taped",
 		"tilt": 3,
 		"mark": {
@@ -858,10 +858,10 @@
 	},
 	"cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started": {
 		"picture": {
-			"video": "/images/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/archival-77b6e790.mp4",
-			"at": 0.86
+			"video": "/images/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/archival-2fff7762.mp4",
+			"at": 0.94
 		},
-		"alt": "Rolling hills stretching to the horizon",
+		"alt": "People hoeing and planting a field together",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -910,10 +910,10 @@
 	},
 	"integrate-abuseipdb-with-cloudquery": {
 		"picture": {
-			"video": "/images/blog/integrate-abuseipdb-with-cloudquery/archival-22bcf17b.mp4",
-			"at": 1.07
+			"video": "/images/blog/integrate-abuseipdb-with-cloudquery/archival-fd2cba6a.mp4",
+			"at": 0.86
 		},
-		"alt": "A police sketch artist drawing a suspect from a witness's description",
+		"alt": "A man in a bowler hat standing in a lineup",
 		"look": "flat",
 		"mark": {
 			"name": "rays",
@@ -1027,11 +1027,11 @@
 	},
 	"eliminate-blind-spots-cloud-environment": {
 		"picture": {
-			"video": "/images/blog/eliminate-blind-spots-cloud-environment/archival-6f931146.mp4",
+			"video": "/images/blog/eliminate-blind-spots-cloud-environment/archival-5c6b4ed2.mp4",
 			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "Light flaring across a dark night sky",
+		"alt": "A car's side mirror reflecting the street behind it",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -1067,11 +1067,11 @@
 	},
 	"getting-started-with-cloud-asset-inventory": {
 		"picture": {
-			"video": "/images/blog/getting-started-with-cloud-asset-inventory/archival-b8866428.mp4",
+			"video": "/images/blog/getting-started-with-cloud-asset-inventory/archival-c717ec25.mp4",
 			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "A man writing entries in a ledger",
+		"alt": "Stockroom workers lifting and checking boxes",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -1239,10 +1239,10 @@
 	},
 	"real-time-databases-what-developers-need-to-know": {
 		"picture": {
-			"video": "/images/blog/real-time-databases-what-developers-need-to-know/archival-9ee65c9d.mp4",
-			"at": 0.92
+			"video": "/images/blog/real-time-databases-what-developers-need-to-know/archival-0c895822.mp4",
+			"at": 0.86
 		},
-		"alt": "A roll of newsprint racing through a printing press",
+		"alt": "A control room full of people watching rows of live monitor screens",
 		"look": "taped",
 		"tilt": 2,
 		"mark": {
@@ -1371,11 +1371,11 @@
 	},
 	"how-to-manage-mongodb-data-at-scale": {
 		"picture": {
-			"video": "/images/blog/how-to-manage-mongodb-data-at-scale/archival-f6298744.mp4",
-			"at": 0.86
+			"video": "/images/blog/how-to-manage-mongodb-data-at-scale/archival-8753a8c1.mp4",
+			"at": 0.92
 		},
 		"look": "taped",
-		"alt": "A huge metal bin turning",
+		"alt": "A huge library reading room lined with tables and lamps",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -1787,11 +1787,11 @@
 	},
 	"building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation": {
 		"picture": {
-			"video": "/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/archival-81462c0e.mp4",
-			"at": 1.24
+			"video": "/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/archival-ffc06374.mp4",
+			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "A craftsman at his bench checking a row of finished spoons",
+		"alt": "A busy factory floor full of workers at their machines",
 		"mark": {
 			"name": "bolt",
 			"at": [87, 3, 10, 17],
@@ -1868,11 +1868,11 @@
 	},
 	"why-i-use-doom-to-visualize-mcp-data": {
 		"picture": {
-			"video": "/images/blog/why-i-use-doom-to-visualize-mcp-data/archival-ab109b8e.mp4",
+			"video": "/images/blog/why-i-use-doom-to-visualize-mcp-data/archival-7ac4aa6b.mp4",
 			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "Two men walking into a dark room",
+		"alt": "A man leaning over a pinball game table, playing",
 		"mark": {
 			"name": "check",
 			"at": [86, 4, 11, 19],
@@ -2018,16 +2018,16 @@
 			"video": "/images/blog/breaking-up-with-claude-code/archival-d971b9c3.mp4",
 			"at": 0.94
 		},
-		"alt": "Someone loading suitcases into a car trunk"
+		"alt": "Someone loading suitcases into the trunk of a car to leave"
 	},
 	"complete-guide-node-client-server-communication": {
 		"look": "taped",
 		"tilt": 2,
 		"picture": {
-			"video": "/images/blog/complete-guide-node-client-server-communication/archival-bba8f49e.mp4",
-			"at": 0.86
+			"video": "/images/blog/complete-guide-node-client-server-communication/archival-9f4c92d9.mp4",
+			"at": 0.9
 		},
-		"alt": "A soldier placing an order at a cafeteria counter"
+		"alt": "Cooks behind a kitchen pass handing plates to waiters"
 	},
 	"reversing-seo-traffic-decline-ai-overviews": {
 		"look": "taped",
@@ -2087,19 +2087,19 @@
 		"look": "taped",
 		"tilt": 2,
 		"picture": {
-			"video": "/images/blog/implementing-mikrotik-binary-api-protocol-in-python/archival-deee53a0.mp4",
-			"at": 0.86
+			"video": "/images/blog/implementing-mikrotik-binary-api-protocol-in-python/archival-508d5b2e.mp4",
+			"at": 1.28
 		},
-		"alt": "A radio operator in headphones turning dials"
+		"alt": "Hands wiring a small electrical device on a workbench"
 	},
 	"building-a-real-time-digital-graffiti-wall": {
 		"look": "taped",
 		"tilt": 2,
 		"picture": {
-			"video": "/images/blog/building-a-real-time-digital-graffiti-wall/archival-06bccda4.mp4",
-			"at": 1.15
+			"video": "/images/blog/building-a-real-time-digital-graffiti-wall/archival-6b6b95fc.mp4",
+			"at": 1.03
 		},
-		"alt": "Children drawing on a wall in chalk"
+		"alt": "A painter on scaffolding painting a huge mural on a wall"
 	},
 	"my-personal-claude-code-skills-repo-accidentally-became-internal-tooling": {
 		"look": "taped",
