@@ -8,7 +8,8 @@
 # Usage:
 #   scripts/media/archival-clip.sh <shot.mp4> <out-basename>   # writes <out>.mp4 and <out>.webp
 #
-# Exits 2 when the shot has no clean run of 2.9s or more (a loop under ~2.5s once the fade is cut).
+# Exits 2 when the shot has no clean run of 2.9s or more (a loop under ~2.5s once the fade is cut),
+# 3 when a jump is left inside the loop (no files are kept).
 set -euo pipefail
 if [ $# -lt 2 ]; then sed -n '2,9p' "$0"; exit 1; fi
 in=$1 out=$2 fade=0.4
@@ -48,12 +49,16 @@ w=$((w / 2 * 2)) h=$((h / 2 * 2))
 
 # Even brightness across clips (scripts/media/clip-levels.py)
 levels=$(python3 "$here/clip-levels.py" "$in" "$s" "$len" "$w:$h:$x:$y")
+# A header clip stays under ~450 KB: busy grainy footage gets a lower quality, step by step
+for crf in 30 32 34 36; do
 ffmpeg -v error -y -ss "$s" -t "$len" -i "$in" -filter_complex \
 	"[0]crop=$w:$h:$x:$y,$levels,scale=1440:810:flags=lanczos,fps=24,split[a][b];[a]trim=start=$fade,setpts=PTS-STARTPTS[m];[b]trim=0:$fade,setpts=PTS-STARTPTS[head];[m][head]xfade=transition=fade:duration=$fade:offset=$(calc "$len - 2 * $fade")" \
-	-an -c:v libx264 -preset slow -crf 30 -pix_fmt yuv420p -movflags +faststart "$out.mp4"
+	-an -c:v libx264 -preset slow -crf "$crf" -pix_fmt yuv420p -movflags +faststart "$out.mp4"
+	(($(wc -c <"$out.mp4") <= 450 * 1024)) && break
+done
 jumps=$(ffmpeg -v info -i "$out.mp4" -vf "select='gt(scene,0.12)',showinfo" -f null - 2>&1 | grep -c pts_time || true)
 ffmpeg -v error -y -i "$out.mp4" -frames:v 1 "$out.png"
 cwebp -quiet -q 75 "$out.png" -o "$out.webp"
 rm "$out.png"
-echo "ok: $s-${e}s of ${dur}s, $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$out.mp4")s loop, $(($(wc -c <"$out.mp4") / 1024)) KB, crop ${w}x$h, jumps left $jumps"
-if ((jumps > 0)); then echo "check the frames: a jump is left inside the loop" >&2; exit 3; fi
+echo "ok: $s-${e}s of ${dur}s, crf $crf, $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$out.mp4")s loop, $(($(wc -c <"$out.mp4") / 1024)) KB, crop ${w}x$h, jumps left $jumps"
+if ((jumps > 0)); then rm "$out.mp4" "$out.webp"; echo "REJECT: a jump is left inside the loop" >&2; exit 3; fi
