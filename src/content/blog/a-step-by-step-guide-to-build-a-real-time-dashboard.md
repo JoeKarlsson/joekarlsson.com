@@ -6,8 +6,8 @@ slug: 'a-step-by-step-guide-to-build-a-real-time-dashboard'
 description: 'A step-by-step guide to build a real-time dashboard with Tinybird, Tremor and Next.js, from a mock data stream to SQL metrics published as APIs.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/thumb-fd07c45c.webp'
-heroAlt: 'Hide the Pain Harold meme about looking at a real-time dashboard instead of a spreadsheet'
+heroImage: '/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/thumb-df632e77.webp'
+heroAlt: 'Operators in a control room watching a wall of dials'
 canonicalUrl: 'https://www.tinybird.co/blog/real-time-dashboard-step-by-step'
 tldr: 'I walk through building a real-time dashboard from scratch using Tinybird for the data backend and Next.js for the frontend. You will learn how to ingest streaming data, write SQL queries, publish them as APIs, and wire it all up to live charts.'
 contentNotice: "I wrote this for Tinybird Classic. In 2026 Tinybird made Tinybird Forward its main product, with a new CLI and deployment workflow, and moved Free and Developer plan workspaces off Classic. The ideas still hold, but the tb commands and UI steps below are Classic's. [Tinybird's migration notes](https://www.tinybird.co/blog/tinybird-classic-deprecation) cover what changed."
@@ -32,7 +32,8 @@ marginNotes:
     at: 'fine-tuned indexes, Materialized Views'
     text: 'a table that stores the result of a query and updates as new rows arrive, so the dashboard reads numbers already computed instead of scanning raw events.'
     term: 'Materialized view'
-mastheadImage: '/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/masthead-1949591c.webp'
+heroVideo: '/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/archival-ade11fbb.mp4'
+mastheadImage: '/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/archival-ade11fbb.webp'
 ---
 
 Can you imagine shipping a new user-facing dashboard only to have your users met with a visualization that takes several seconds or even _minutes_ to load? No way, right? Your users would get frustrated by the opportunities missed, efficiencies destroyed, and decisions delayed based on outdated information and a horrible user experience.

@@ -5,8 +5,8 @@ date: 2015-05-16
 slug: 'how-to-pixelate-images-with-html5-and-javascript'
 description: 'How to pixelate images with HTML5 canvas and JavaScript, step by step through the code I wrote for Pixelate.js, a spin-off of my Instagram mosaic app.'
 categories: ['Web Dev']
-heroImage: '/images/blog/how-to-pixelate-images-with-html5-and-javascript/thumb-0a074be5.webp'
-heroAlt: 'A Roman floor mosaic of gladiators built from tiny tiles'
+heroImage: '/images/blog/how-to-pixelate-images-with-html5-and-javascript/thumb-1b2d73b2.webp'
+heroAlt: 'A flickering television screen up close'
 contentNotice: 'This post uses outdated JavaScript patterns (var, window.onload, browser-prefixed APIs). The pixelation technique still works, but refer to modern JavaScript documentation for current best practices.'
 tldr: 'I walk through how I built Pixelate.js, a small web app that turns images into dynamic pixel art using HTML5 canvas and a clever trick with image smoothing.'
 updatedDate: 2026-11-12
@@ -23,7 +23,8 @@ marginNotes:
     text: 'This property is useful for games and other apps that use pixel art.'
     by: 'MDN, on imageSmoothingEnabled'
     url: 'https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled'
-mastheadImage: '/images/blog/how-to-pixelate-images-with-html5-and-javascript/masthead-73355dec.webp'
+heroVideo: '/images/blog/how-to-pixelate-images-with-html5-and-javascript/archival-cb329e1b.mp4'
+mastheadImage: '/images/blog/how-to-pixelate-images-with-html5-and-javascript/archival-cb329e1b.webp'
 ---
 
 > **Note:** This post was written in 2015. The code uses patterns like `var`, `window.onload`, and browser-prefixed APIs (`mozImageSmoothingEnabled`) that are outdated. The pixelation technique still works, but modern JavaScript would use `let`/`const` and `imageSmoothingEnabled` is now standard without prefixes.

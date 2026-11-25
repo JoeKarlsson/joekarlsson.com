@@ -1778,7 +1778,7 @@ export const projects: Project[] = curlEveryString(
 			title: 'Guide to Client-Server Communication',
 			description:
 				'Every way a client and server communicate - HTTP, WebSockets, SSE, GraphQL and gRPC, each with examples.',
-			image: '/images/blog/complete-guide-node-client-server-communication/thumb-1d6d8b03.webp',
+			image: '/images/projects/client-server-communication/thumb-1d6d8b03.webp',
 			imageAlt:
 				'Three browser transports side by side, XHR polling, server-sent events and WebSocket, each a client and a server with hand-drawn arrows between them',
 			date: '2016-07',

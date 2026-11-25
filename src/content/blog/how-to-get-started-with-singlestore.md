@@ -5,8 +5,8 @@ slug: 'how-to-get-started-with-singlestore'
 description: 'Are you looking for the fastest possible way to get a new SingleStore Cluster up and running while testing out sample datasets to experiment with and use?'
 categories: ['Web Dev']
 writtenFor: 'SingleStore'
-heroImage: '/images/blog/how-to-get-started-with-singlestore/thumb-79144cf9.webp'
-heroAlt: 'Runners at the start of an old race'
+heroImage: '/images/blog/how-to-get-started-with-singlestore/thumb-b221e0ec.webp'
+heroAlt: 'A mechanic working on a big engine'
 tldr: 'A 5-minute quickstart for SingleStore: spin up a cluster, import 20 million rows of eCommerce data from S3 via a pipeline, and run analytics queries that return in seconds.'
 updatedDate: 2026-11-12
 corrections:
@@ -25,6 +25,8 @@ marginNotes:
     at: The SingleStore Managed Service is the easy way
     text: SingleStore sells its managed service as SingleStore Helios, and the trial link opens the Helios cloud portal.
     date: Nov 2026
+heroVideo: '/images/blog/how-to-get-started-with-singlestore/archival-02504f0a.mp4'
+mastheadImage: '/images/blog/how-to-get-started-with-singlestore/archival-02504f0a.webp'
 ---
 
 Are you looking for the fastest possible way to get a new SingleStore Cluster up and running while testing out sample datasets to experiment with and use?

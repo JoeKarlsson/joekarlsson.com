@@ -7,8 +7,8 @@ description: 'What developers need to know about real-time databases, with pros 
 categories: ['Web Dev']
 lane: 'reference'
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/real-time-databases-what-developers-need-to-know/thumb-a5419d93.webp'
-heroAlt: 'An old Puck cartoon of a Wall Street bull blowing bubbles'
+heroImage: '/images/blog/real-time-databases-what-developers-need-to-know/thumb-0bb5f43c.webp'
+heroAlt: 'A roll of newsprint racing through a printing press'
 tldr: 'I compare MongoDB, PostgreSQL, Tinybird, ClickHouse, Pinot, Druid, and Snowflake for real-time analytics workloads. Spoiler: your favorite OLTP database probably is not the right pick for real-time.'
 marginNotes:
   - type: quote
@@ -37,7 +37,8 @@ marginNotes:
     at: and query processing
     term: Columnar storage
     text: the database keeps each column's values together on disk instead of each row's, so a query that sums one column reads only that column.
-mastheadImage: '/images/blog/real-time-databases-what-developers-need-to-know/masthead-b0a6dcc5.webp'
+heroVideo: '/images/blog/real-time-databases-what-developers-need-to-know/archival-9ee65c9d.mp4'
+mastheadImage: '/images/blog/real-time-databases-what-developers-need-to-know/archival-9ee65c9d.webp'
 ---
 
 Selecting the right application database can be a challenge for developers, especially so when you need a [database for building real-time applications](https://www.tinybird.co/blog-posts/best-database-for-real-time-analytics). Real-time data has become an essential component in building user-facing experiences or creating automated decision systems, and developers need a database to match their needs.

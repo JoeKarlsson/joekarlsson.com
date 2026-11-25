@@ -7,8 +7,8 @@ description: 'Find every package.json using React across all repositories. Query
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/track-react-dependencies-across-repos-with-sql/thumb-5d3eab07.webp'
-heroAlt: 'A tangle of cables on the back of an equipment rack'
+heroImage: '/images/blog/track-react-dependencies-across-repos-with-sql/thumb-3e379c6c.webp'
+heroAlt: 'Tree branches spreading out from a fork'
 canonicalUrl: 'https://www.cloudquery.io/blog/track-react-dependencies-across-repos-with-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'The Git Source Integration syncs package.json files into your database. Parse JSON with SQL to find React versions, track dependencies vs devDependencies, and identify repos needing upgrades.'
@@ -24,7 +24,8 @@ marginNotes:
     text: 'This allows them to reference columns provided by preceding FROM items.'
     by: 'The PostgreSQL docs on LATERAL'
     url: 'https://www.postgresql.org/docs/current/queries-table-expressions.html'
-mastheadImage: '/images/blog/track-react-dependencies-across-repos-with-sql/masthead-109723ef.webp'
+heroVideo: '/images/blog/track-react-dependencies-across-repos-with-sql/archival-2731c4c3.mp4'
+mastheadImage: '/images/blog/track-react-dependencies-across-repos-with-sql/archival-2731c4c3.webp'
 ---
 
 You need to upgrade React across 50 repositories. Which repos use React? Which versions? Are they using React 16, 17, or 18? What about `devDependencies` vs `dependencies`? The manual approach: clone repos, grep package.json files, parse JSON, compile spreadsheets, track progress. And that spreadsheet is outdated the moment someone merges a dependency update.

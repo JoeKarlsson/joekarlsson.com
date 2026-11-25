@@ -7,10 +7,10 @@ description: 'AWS Pinpoint reaches end of support October 2026. Query your Pinpo
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'AWS']
-heroImage: '/images/blog/aws-pinpoint-deprecation-assessment/thumb-91d0c6f0.webp'
+heroImage: '/images/blog/aws-pinpoint-deprecation-assessment/thumb-89aebe0f.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-pinpoint-deprecation-assessment'
 contentNotice: 'This post was originally published on CloudQuery blog. Amazon Pinpoint reached end of support on October 30, 2026, after this was written, so read the dates as history. The steps for finding what used Pinpoint still apply.'
-heroAlt: 'A tower block collapsing in a controlled demolition'
+heroAlt: 'The shell of an old building half torn down'
 updatedDate: 2026-11-16
 corrections:
   - date: 2026-11-12
@@ -36,6 +36,8 @@ marginNotes:
     at: 'Some teams adopted Pinpoint years ago'
     text: 'Same approach for another AWS deadline: finding every Lambda function still on Node.js 20 across all your accounts.'
     post: 'aws-lambda-nodejs-20-eol'
+heroVideo: '/images/blog/aws-pinpoint-deprecation-assessment/archival-71fd7083.mp4'
+mastheadImage: '/images/blog/aws-pinpoint-deprecation-assessment/archival-71fd7083.webp'
 ---
 
 AWS announced that [Amazon Pinpoint is reaching end of support on October 30, 2026](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html). New customers have been locked out since May 2025, and existing customers lose console access after the cutoff. What trips people up is that not everything is going away.

@@ -8,10 +8,10 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: '/images/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/thumb-8ec9c8ae.webp'
+heroImage: '/images/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/thumb-b09d0d0c.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started
 contentNotice: "This post was originally published on CloudQuery's blog."
-heroAlt: "A souvenir postcard from the 1939 World's Fair"
+heroAlt: 'Rolling hills stretching to the horizon'
 updatedDate: 2026-11-16
 corrections:
   - date: 2026-11-16
@@ -29,6 +29,8 @@ marginNotes:
     at: embracing FinOps
     text: Part 3 of this series covers FinOps and cost management, with case studies.
     post: cloud-centers-of-excellence-part-3-finops-cost-management-case-studies
+heroVideo: '/images/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/archival-77b6e790.mp4'
+mastheadImage: '/images/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/archival-77b6e790.webp'
 ---
 
 **About This Series:** This is Part 5 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:

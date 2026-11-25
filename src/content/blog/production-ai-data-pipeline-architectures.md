@@ -5,12 +5,12 @@ tags:
   - Tutorials
 date: 2025-09-01
 description: 'AI data pipeline architectures with CloudQuery, moving data from 50+ sources into vector databases and training pipelines on your own infrastructure.'
-heroImage: '/images/blog/production-ai-data-pipeline-architectures/thumb-205e1953.webp'
+heroImage: '/images/blog/production-ai-data-pipeline-architectures/thumb-8378c706.webp'
 categories: ['AI']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/production-ai-data-pipeline-architectures
 contentNotice: "This post was originally published on CloudQuery's blog."
-heroAlt: 'A pipeline running past a danger sign'
+heroAlt: 'A worker at the valves of big industrial pipes'
 marginNotes:
   - type: 'term'
     at: 'RAG pipelines and AI agents need near real-time data'
@@ -29,7 +29,8 @@ marginNotes:
     text: 'More developers actively distrust the accuracy of AI tools (46%) than trust it (33%), and only a fraction (3%) report "highly trusting" the output.'
     by: 'Stack Overflow Developer Survey, 2025'
     url: 'https://survey.stackoverflow.co/2025/ai'
-mastheadImage: '/images/blog/production-ai-data-pipeline-architectures/masthead-7b721f50.webp'
+heroVideo: '/images/blog/production-ai-data-pipeline-architectures/archival-e456acf0.mp4'
+mastheadImage: '/images/blog/production-ai-data-pipeline-architectures/archival-e456acf0.webp'
 ---
 
 > **Note:** **TL;DR:**

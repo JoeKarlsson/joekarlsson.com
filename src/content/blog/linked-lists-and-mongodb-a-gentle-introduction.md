@@ -6,8 +6,8 @@ slug: 'linked-lists-and-mongodb-a-gentle-introduction'
 description: 'New to data structures? Learn how linked lists work, how they differ from arrays and when to use one, with a MongoDB twist in Node.js.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
-heroImage: '/images/blog/linked-lists-and-mongodb-a-gentle-introduction/thumb-e14d7f1a.webp'
-heroAlt: 'Heavy rusted chain links'
+heroImage: '/images/blog/linked-lists-and-mongodb-a-gentle-introduction/thumb-b915ffc4.webp'
+heroAlt: 'Sparks flying in a forge'
 contentNotice: 'I wrote this tutorial in 2020 for MongoDB Node.js driver v3.x. I have since updated the code for the current driver (v7).'
 tldr: 'I implement a linked list from scratch using Node.js and MongoDB, covering add, find, insert, and delete operations. It is a good way to learn both data structures and MongoDB CRUD basics at the same time.'
 updatedDate: 2026-11-12
@@ -28,6 +28,8 @@ marginNotes:
     text: 'If an inserted document omits the _id field, the MongoDB driver automatically generates an ObjectId for the _id field.'
     by: "MongoDB's docs on ObjectId"
     url: 'https://www.mongodb.com/docs/manual/reference/bson-types/#objectid'
+heroVideo: '/images/blog/linked-lists-and-mongodb-a-gentle-introduction/archival-68e21cc7.mp4'
+mastheadImage: '/images/blog/linked-lists-and-mongodb-a-gentle-introduction/archival-68e21cc7.webp'
 ---
 
 > **Note:** I wrote this tutorial in 2020 using MongoDB Node.js driver v3.x. The code below now runs on the current driver (v7), which rejects the old `useNewUrlParser` and `useUnifiedTopology` options and returns `result.insertedId` instead of `result.ops[0]`. The linked list concepts are still accurate.

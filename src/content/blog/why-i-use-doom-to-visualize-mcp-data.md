@@ -6,8 +6,8 @@ slug: 'why-i-use-doom-to-visualize-mcp-data'
 description: 'An MCP server inside DOOM: an AI agent pulls live records over MCP and each becomes a monster. The first level built from MCP data, shown at MCPCon 2026.'
 categories: ['AI', 'Career']
 tags: ['MCP', 'Doom', 'CData Connect AI', 'Claude', 'developer marketing', 'demos']
-heroImage: '/images/blog/why-i-use-doom-to-visualize-mcp-data/thumb-7ce5ed20.webp'
-heroAlt: 'A wartime operations room with a large map plotting table covered in markers, and the tote board on the wall behind it'
+heroImage: '/images/blog/why-i-use-doom-to-visualize-mcp-data/thumb-bdb42f23.webp'
+heroAlt: 'Two men walking into a dark room'
 tldr: "I put an MCP server inside Doom. Connect AI × DOOM is, as far as I can find, the first Doom level built out of MCP data. You ask Claude a business question, it pulls the answer out of your apps through the CData Connect AI MCP server, and the answer becomes a Doom level where every monster is a live record. KubeDOOM turned pods into monsters and doom-mcp lets an agent play regular Doom. I built the first version in one night, and in October 2026 I ran it at the CData booth at AGNTCon + MCPCon North America in San Jose, where hundreds of people stopped by and a lot of them played it. It's open source, and you can play it in your browser."
 faq:
   - question: 'What is Connect AI × DOOM?'
@@ -47,7 +47,8 @@ marginNotes:
     text: "The side panel: one room per app, the red door, and Claude's feed of every tool call."
     image: '/images/blog/why-i-use-doom-to-visualize-mcp-data/game-and-panel.webp'
     alt: "Doom on the left and the side panel on the right, listing each app's room and every tool call Claude made"
-mastheadImage: '/images/blog/why-i-use-doom-to-visualize-mcp-data/masthead-55290368.webp'
+heroVideo: '/images/blog/why-i-use-doom-to-visualize-mcp-data/archival-ab109b8e.mp4'
+mastheadImage: '/images/blog/why-i-use-doom-to-visualize-mcp-data/archival-ab109b8e.webp'
 ---
 
 I've been a database developer advocate for years, and the hard part of the job has never been explaining databases. It's making them look like anything. Data is rows and columns (like a boring Excel spreadsheet), and MCP servers, which is what I work with now, hand back JSON. Put a chat window on a projector at a conference booth and let an AI agent query five apps, and to everyone walking past, it looks like someone reading their email.

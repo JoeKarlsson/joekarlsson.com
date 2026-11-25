@@ -7,10 +7,10 @@ description: 'How to keep your cloud inventory up to date across AWS, GCP, Azure
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/best-way-keep-cloud-inventory-up-to-date/thumb-e6d6d806.webp'
+heroImage: '/images/blog/best-way-keep-cloud-inventory-up-to-date/thumb-cfc395f3.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/best-way-keep-cloud-inventory-up-to-date'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'Meme of the I Have No Idea What I Am Doing Dog, with text that says, "Parsing AWS, GCP, and Azure logs like... Yep, looks good to me!"'
+heroAlt: 'A man updating figures on a chalkboard'
 marginNotes:
   - type: 'see'
     at: 'or hitting rate limits'
@@ -20,7 +20,8 @@ marginNotes:
     at: 'Our team can walk you through a tailored demo'
     text: 'CloudQuery merged with env zero in March 2026, and the combined company runs under the env zero name.'
     date: 'Mar 2026'
-mastheadImage: '/images/blog/best-way-keep-cloud-inventory-up-to-date/masthead-ed6ee28f.webp'
+heroVideo: '/images/blog/best-way-keep-cloud-inventory-up-to-date/archival-bc16d86f.mp4'
+mastheadImage: '/images/blog/best-way-keep-cloud-inventory-up-to-date/archival-bc16d86f.webp'
 ---
 
 Cloud environments change constantly. New resources spin up, policies shift, and security risks emerge. Keeping cloud asset data accurate and up to date is a challenge, especially when working across multiple providers. For years, keeping cloud asset data up to date has meant:

@@ -7,8 +7,8 @@ description: 'LiteLLM vs enterprise AI gateway, 2026 comparison: MCP governance,
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'litellm', 'cdata']
-heroImage: '/images/blog/litellm-vs-cdata-connect-ai/thumb-5d2da1df.webp'
-heroAlt: 'A doorman outside an old theater'
+heroImage: '/images/blog/litellm-vs-cdata-connect-ai/thumb-2b7c94b3.webp'
+heroAlt: 'Cars passing through highway toll booths'
 canonicalUrl: 'https://www.cdata.com/blog/litellm-vs-cdata-connect-ai'
 faq:
   - question: 'Is LiteLLM free?'
@@ -43,6 +43,8 @@ marginNotes:
     at: 'Row-level security, field-level permissions'
     text: 'a database rule that filters which rows each user can read, so two people running the same query get different results.'
     term: 'Row-level security'
+heroVideo: '/images/blog/litellm-vs-cdata-connect-ai/archival-bc95d50c.mp4'
+mastheadImage: '/images/blog/litellm-vs-cdata-connect-ai/archival-bc95d50c.webp'
 ---
 
 Building enterprise AI infrastructure usually starts the same way: LiteLLM goes on the shortlist. It's open source, MIT-licensed, routes to 100+ model providers behind one OpenAI-compatible endpoint and deploys to Docker or Kubernetes in an afternoon. It has real enterprise deployments at Netflix, NASA, Ramp, and Okta and one of the most active contributor bases in open-source LLM tooling.

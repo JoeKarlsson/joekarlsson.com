@@ -7,16 +7,18 @@ description: 'Five ways to get more value from a cloud asset inventory: tie it t
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Infrastructure', 'Best Practices']
-heroImage: '/images/blog/five-tips-maximum-value-cloud-asset-inventory/thumb-8649c138.webp'
+heroImage: '/images/blog/five-tips-maximum-value-cloud-asset-inventory/thumb-b9ca8bc2.webp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: "Building a cloud asset inventory isn't just about collecting data - it's about creating a business capability that drives measurable outcomes. Learn the five core principles that separate successful cloud asset inventory programs from failed implementations: focusing on business outcomes over technical features, engaging stakeholders across teams, prioritizing high-impact use cases, providing actionable intelligence, and planning for continuous improvement at scale."
-heroAlt: 'Pliers hanging on a workshop tool wall'
+heroAlt: 'A shopper and clerk at well-stocked grocery shelves'
 marginNotes:
   - type: 'quote'
     at: 'Include FinOps teams, security teams, compliance teams'
     text: 'FinOps is an operational framework and cultural practice which maximizes the business value of technology … through collaboration between engineering, finance, and business teams.'
     by: 'The FinOps Foundation'
     url: 'https://www.finops.org/introduction/what-is-finops/'
+heroVideo: '/images/blog/five-tips-maximum-value-cloud-asset-inventory/archival-41fa1fef.mp4'
+mastheadImage: '/images/blog/five-tips-maximum-value-cloud-asset-inventory/archival-41fa1fef.webp'
 ---
 
 Most organizations treat cloud asset inventories as technical projects. They invest in powerful tools, sync every possible resource, and build dashboards. Then they wonder why adoption stays low and business value remains elusive.

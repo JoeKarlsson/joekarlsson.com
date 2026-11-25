@@ -7,10 +7,10 @@ description: 'CloudQuery SQL Console lets you query your cloud like a database. 
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/query-cloud-like-database-stop-wasting-time/thumb-a08c1118.webp'
+heroImage: '/images/blog/query-cloud-like-database-stop-wasting-time/thumb-5efa74b0.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/query-cloud-like-database-stop-wasting-time'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'A meme featuring scenes of Pablo Escobar, from the TV show Narcos, looking bored and contemplative. It reads, "Me, waiting for Excel to respond after applying a filter on a million-row dataset."'
+heroAlt: 'A woman pulling open file drawers'
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
@@ -28,7 +28,8 @@ marginNotes:
     at: 'check which certificates are about to expire'
     text: 'In April 2025 the CA/Browser Forum voted to cut the maximum life of a public TLS certificate from 398 days to 47, in steps from March 2026 to March 2029. Expiry checks matter more every year.'
     date: 'Apr 2025'
-mastheadImage: '/images/blog/query-cloud-like-database-stop-wasting-time/masthead-7e7ca836.webp'
+heroVideo: '/images/blog/query-cloud-like-database-stop-wasting-time/archival-7690adc6.mp4'
+mastheadImage: '/images/blog/query-cloud-like-database-stop-wasting-time/archival-7690adc6.webp'
 ---
 
 Managing cloud infrastructure shouldn't feel like looking for a lost sock in the laundry - except the laundry is on fire, and the sock is in another house. Yet, that's exactly how it feels when you're trying to track down misconfigured resources, security risks, or compliance violations across cloud providers like, AWS, GCP, Azure, and Kubernetes.

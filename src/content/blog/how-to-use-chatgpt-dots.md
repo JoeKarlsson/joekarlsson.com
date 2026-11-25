@@ -8,8 +8,8 @@ description: 'How to use ChatGPT dots with Salesforce, Jira, QuickBooks, and mor
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['chatgpt', 'ai-agents', 'mcp', 'tutorial', 'enterprise', 'cdata']
-heroImage: '/images/blog/how-to-use-chatgpt-dots/thumb-c53fabf0.webp'
-heroAlt: 'A brass Morse code key'
+heroImage: '/images/blog/how-to-use-chatgpt-dots/thumb-fa7aaf99.webp'
+heroAlt: 'Operators on the phone at a control switchboard'
 canonicalUrl: 'https://www.cdata.com/blog/how-to-use-chatgpt-dots'
 faq:
   - question: 'What are ChatGPT dots?'
@@ -43,6 +43,8 @@ marginNotes:
     text: 'Your dot is an always-on agent that keeps work moving across your tools and projects.'
     by: "OpenAI's dots overview"
     url: 'https://learn.chatgpt.com/docs/dots'
+heroVideo: '/images/blog/how-to-use-chatgpt-dots/archival-b1ada9dd.mp4'
+mastheadImage: '/images/blog/how-to-use-chatgpt-dots/archival-b1ada9dd.webp'
 ---
 
 OpenAI launched [ChatGPT dots](https://chatgpt.com/features/dots/) on September 29, 2026, and [the setup flow](https://learn.chatgpt.com/docs/dots/getting-started) suggests connecting email, calendar, and files first. The systems a sales manager, marketer, or operations lead works in every day live somewhere else: [Salesforce](https://www.cdata.com/ai/connect/salesforce/), [Jira](https://www.cdata.com/ai/connect/jira/), [Google Analytics](https://www.cdata.com/ai/connect/ganalytics/), [NetSuite](https://www.cdata.com/ai/connect/netsuite/), and older line-of-business apps that may never get a ChatGPT plugin of their own. To use ChatGPT dots with all your work apps, you connect them to [CData Connect AI](https://www.cdata.com/ai/) and install one plugin. You don't need a Connect AI account yet to follow along.

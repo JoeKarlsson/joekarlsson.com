@@ -8,8 +8,8 @@ description: 'Query Dockerfiles, CODEOWNERS and package.json across all your rep
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/introducing-the-git-source-plugin/thumb-48c60901.webp'
-heroAlt: 'A magnifying glass over a postage stamp'
+heroImage: '/images/blog/introducing-the-git-source-plugin/thumb-563ba7f3.webp'
+heroAlt: 'Bottles moving down a production line past inspectors'
 canonicalUrl: 'https://www.cloudquery.io/blog/introducing-the-git-source-plugin'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'The Git Source Plugin syncs file content from your repositories into any database. Query Dockerfiles for EOL base images, find repos missing LICENSE files, track React dependencies across your org, or audit CODEOWNERS against your identity provider - all with SQL, no repo cloning required.'
@@ -39,6 +39,8 @@ marginNotes:
     at: 'track code changes by employment status'
     text: 'How to match commit authors against your identity provider to find work by people who left.'
     post: 'find-commits-by-departed-employees-with-sql'
+heroVideo: '/images/blog/introducing-the-git-source-plugin/archival-5c06b00a.mp4'
+mastheadImage: '/images/blog/introducing-the-git-source-plugin/archival-5c06b00a.webp'
 ---
 
 You need to find which Dockerfiles still use Node 18 (now EOL). Or which repos are missing a LICENSE file. Or maybe you need to audit CODEOWNERS against your actual employee roster. The typical approach is to clone hundreds of repos, write bash scripts to parse files, export to spreadsheets, and maintain the script as repos change. It's 2025, and we're still doing this.

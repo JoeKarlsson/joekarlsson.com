@@ -4,8 +4,8 @@ date: 2026-08-31
 slug: 'cognitive-case-for-play-in-technical-work'
 description: 'What research on creativity, flow and psychological safety says about the conditions behind your best iterative technical work, and how to build them.'
 categories: ['Career']
-heroImage: '/images/blog/cognitive-case-for-play-in-technical-work/hero.webp'
-heroAlt: 'Abstract 3D render of cartoon hands gripping a cylindrical object, with organic blob shapes floating on a dark blue background'
+heroImage: '/images/blog/cognitive-case-for-play-in-technical-work/thumb-a0af142d.webp'
+heroAlt: 'Children playing with toys in a shop'
 tldr: "The conditions that produce your best iterative work look a lot like play: autonomy to experiment, cheap errors, and uninterrupted time to hold the system in your head. Research on creativity, flow states, and psychological safety all converge on the same conditions. Here's what that means in practice."
 marginNotes:
   - type: 'quote'
@@ -16,6 +16,8 @@ marginNotes:
 interlude:
   after: 'The planning trap'
   line: 'Only one had room to play.'
+heroVideo: '/images/blog/cognitive-case-for-play-in-technical-work/archival-0f532831.mp4'
+mastheadImage: '/images/blog/cognitive-case-for-play-in-technical-work/archival-0f532831.webp'
 ---
 
 The best work I've ever done felt like play.

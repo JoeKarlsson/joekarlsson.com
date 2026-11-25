@@ -5,8 +5,8 @@ slug: 'how-to-use-singlestore-as-a-key-value-store'
 description: 'How to use SingleStore as a key-value store with plain SQL, so you get fast key-value lookups without running a separate database just for that.'
 categories: ['Web Dev']
 writtenFor: 'SingleStore'
-heroImage: '/images/blog/how-to-use-singlestore-as-a-key-value-store/thumb-9ac85f8a.webp'
-heroAlt: 'An open safe deposit box'
+heroImage: '/images/blog/how-to-use-singlestore-as-a-key-value-store/thumb-e8178146.webp'
+heroAlt: 'A clerk pulling a file from a wall of labeled drawers'
 canonicalUrl: 'https://www.singlestore.com/blog/how-to-use-singlestore-as-a-key-value-store/'
 tldr: 'You can skip spinning up a separate key-value database by using SingleStore as one instead. I show you how to create a rowstore table with a hash index and wire it up with Node.js for fast key-value reads and writes using plain SQL.'
 updatedDate: 2026-11-12
@@ -30,6 +30,8 @@ marginNotes:
   - type: term
     at: SingleStore is MySQL wire-compatible
     text: It speaks MySQL's network protocol, so MySQL clients and drivers connect to it without changes.
+heroVideo: '/images/blog/how-to-use-singlestore-as-a-key-value-store/archival-5a18d1ed.mp4'
+mastheadImage: '/images/blog/how-to-use-singlestore-as-a-key-value-store/archival-5a18d1ed.webp'
 ---
 
 Key-value stores are perhaps one of the most popular databases on the market today - and with good reason! They are fast, scalable and super easy to use. But did you know you can get all the advantages of a key-value store, without needing to spin up a separate database dedicated to just that singular purpose? In this post, I will show you how you can create a key-value store in SingleStore, using just SQL.

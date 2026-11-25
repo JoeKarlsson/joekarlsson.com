@@ -8,10 +8,10 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Security']
-heroImage: '/images/blog/cloud-operations-playbook-part-03-hidden-security-tax/thumb-33263d04.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-03-hidden-security-tax/thumb-019b184f.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-03-hidden-security-tax
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'A red fire alarm box on a brick wall'
+heroAlt: 'Firemen running a hose down a street beside their truck'
 marginNotes:
   - type: 'term'
     at: 'The CSPM market alone grew 45%'
@@ -29,6 +29,8 @@ marginNotes:
     at: 'Your SIEM still aggregates'
     text: 'security information and event management: the system that collects logs and security events from across the company and alerts on them.'
     term: 'SIEM'
+heroVideo: '/images/blog/cloud-operations-playbook-part-03-hidden-security-tax/archival-ebaac2d4.mp4'
+mastheadImage: '/images/blog/cloud-operations-playbook-part-03-hidden-security-tax/archival-ebaac2d4.webp'
 ---
 
 > **Note:** **TL;DR:** Your security team spends more time gathering context than fixing problems. A single misconfiguration alert triggers a 45-minute investigation across five tools and four teams, and that's before anyone decides whether it's actually a problem. misconfigurations are the leading cause of cloud security incidents, organizations are spending billions on CSPM tooling, yet the bottleneck is investigation. The fix is a unified data layer that gives your team the full picture in minutes instead of hours.

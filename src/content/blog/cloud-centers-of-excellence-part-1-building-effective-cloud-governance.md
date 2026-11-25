@@ -9,10 +9,10 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: '/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/thumb-ca2ff9e9.webp'
+heroImage: '/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/thumb-1d74a9c8.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance
 contentNotice: "This post was originally published on CloudQuery's blog."
-heroAlt: 'A tiny carved wooden orchestra on a plate'
+heroAlt: 'A committee in session around a long table'
 marginNotes:
   - type: 'see'
     at: 'One of the core mandates of a Cloud Center of Excellence'
@@ -30,6 +30,8 @@ marginNotes:
     at: 'By embedding compliance checks into CI/CD pipelines'
     text: 'One way to do it: map SOC 2 and CIS controls to SQL queries that run every day. The playbook has the queries.'
     post: 'cloud-operations-playbook-part-09-continuous-compliance-sql'
+heroVideo: '/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/archival-b2bdd124.mp4'
+mastheadImage: '/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/archival-b2bdd124.webp'
 ---
 
 **About This Series:** This is Part 1 of our full 5-part series on Cloud Centers of Excellence (CCOEs). Over the next few weeks, we'll cover how to build and run cloud governance through a CCOE. Here's what's coming:

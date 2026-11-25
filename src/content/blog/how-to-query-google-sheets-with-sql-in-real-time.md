@@ -6,8 +6,8 @@ slug: 'how-to-query-google-sheets-with-sql-in-real-time'
 description: 'How to query even large Google Sheets with SQL in real time using Tinybird, then publish the metrics as secure APIs. The demo code is on GitHub.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/how-to-query-google-sheets-with-sql-in-real-time/thumb-5d70746e.webp'
-heroAlt: 'Mac Force Quit dialog meme about Google Sheets loading too many rows'
+heroImage: '/images/blog/how-to-query-google-sheets-with-sql-in-real-time/thumb-00686cc7.webp'
+heroAlt: 'A hand working an adding machine'
 tldr: 'Google Sheets chokes on anything past a few thousand rows. I show you how to sync your spreadsheet data to Tinybird with an Apps Script, query it with SQL, and publish the results as an API.'
 contentNotice: "I wrote this for Tinybird Classic. In 2026 Tinybird made Tinybird Forward its main product, with a new CLI and deployment workflow, and moved Free and Developer plan workspaces off Classic. The ideas still hold, but the tb commands and UI steps below are Classic's. [Tinybird's migration notes](https://www.tinybird.co/blog/tinybird-classic-deprecation) cover what changed."
 updatedDate: 2026-11-12
@@ -19,7 +19,8 @@ marginNotes:
     at: 'Google Sheets has built-in capabilities for charts'
     text: 'My step-by-step build of a real-time dashboard with Tinybird, Tremor and Next.js.'
     post: 'a-step-by-step-guide-to-build-a-real-time-dashboard'
-mastheadImage: '/images/blog/how-to-query-google-sheets-with-sql-in-real-time/masthead-3b2f756d.webp'
+heroVideo: '/images/blog/how-to-query-google-sheets-with-sql-in-real-time/archival-300c353a.mp4'
+mastheadImage: '/images/blog/how-to-query-google-sheets-with-sql-in-real-time/archival-300c353a.webp'
 ---
 
 Sick of manually wrestling with Google Sheets like it’s an Excel spreadsheet from 2005? Feel like force-quitting Chrome every time you attempt to sift through just 10,000 rows of data? 

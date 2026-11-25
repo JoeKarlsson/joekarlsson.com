@@ -6,8 +6,8 @@ slug: 'my-personal-claude-code-skills-repo-accidentally-became-internal-tooling'
 description: 'I built Claude Code skills to stop copy-pasting the same prompts. Then coworkers started asking about them, and my repo became team infrastructure.'
 categories: ['AI', 'Career']
 tags: ['Claude Code', 'AI', 'devrel', 'automation', 'internal tooling', 'marketing']
-heroImage: '/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/claude-code-skills-repo-internal-tooling.webp'
-heroAlt: 'Three monitors showing code in a dark office overlooking the New York City skyline with a purple tint'
+heroImage: '/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/thumb-2e7812cf.webp'
+heroAlt: 'A crowd of people waiting in line'
 tldr: 'Skills are just markdown files you can share via git. CLAUDE.md is the part nobody explains properly and it matters more than the skills themselves. Onboarding non-technical people is harder than building the thing. Start for yourself, share when a coworker asks.'
 marginNotes:
   - type: 'update'
@@ -39,6 +39,8 @@ marginNotes:
     text: 'Rules can be scoped to specific files using YAML frontmatter with the `paths` field.'
     by: "It's documented now: Anthropic's Claude Code memory docs"
     url: 'https://code.claude.com/docs/en/memory#path-specific-rules'
+heroVideo: '/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/archival-727cc34d.mp4'
+mastheadImage: '/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/archival-727cc34d.webp'
 ---
 
 I'm a developer on the marketing team at CloudQuery - a cloud asset management platform - where I also lead DevRel. That's a slightly unusual combination - technical enough to be dangerous, embedded in a non-technical team that has real content needs every week. Which is probably why I ended up here.

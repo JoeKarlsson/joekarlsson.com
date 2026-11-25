@@ -5,8 +5,8 @@ date: 2018-11-14
 slug: 'an-engineers-guide-to-knowing-if-you-are-done-with-a-project'
 description: "An engineer's checklist for knowing when a project is done - the list I give my team, from working code and tests to QA, accessibility and performance."
 categories: ['Career']
-heroImage: '/images/blog/an-engineers-guide-to-knowing-if-you-are-done-with-a-project/thumb-18eb625c.webp'
-heroAlt: 'A pilot in the cockpit working through a checklist before takeoff'
+heroImage: '/images/blog/an-engineers-guide-to-knowing-if-you-are-done-with-a-project/thumb-ca97a414.webp'
+heroAlt: 'A worker putting the finishing touches on a window frame'
 contentNotice: false
 tldr: 'A checklist I give my engineering team covering everything from test coverage to accessibility audits to help answer the question "when is this project actually done?"'
 marginNotes:
@@ -24,6 +24,8 @@ marginNotes:
     text: DORA's research has repeatedly demonstrated that speed and stability are not tradeoffs.
     by: DORA's guide to the four keys
     url: https://dora.dev/guides/dora-metrics-four-keys/
+heroVideo: '/images/blog/an-engineers-guide-to-knowing-if-you-are-done-with-a-project/archival-274d00fa.mp4'
+mastheadImage: '/images/blog/an-engineers-guide-to-knowing-if-you-are-done-with-a-project/archival-274d00fa.webp'
 ---
 
 Have you ever started a project and thought to yourself, “When can I call this done?” Then this listicle is for you! This guide is intended to be a general list of things your personal or professional project should include in order for you to be “finished.” It’s something I distribute to my team of professional engineers to help them know when they are done. You or your team might have different standards of what it means to be complete, and that’s totally fine with me. One of the new engineers on my team actually asked me for this list and I started looking around online for something like this, and I found nothing, so here is my attempt to rectify that.

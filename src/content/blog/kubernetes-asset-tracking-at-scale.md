@@ -8,10 +8,10 @@ description: 'Track Kubernetes assets across clouds with a central configuration
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering', 'Governance']
-heroImage: '/images/blog/kubernetes-asset-tracking-at-scale/thumb-52054d43.webp'
+heroImage: '/images/blog/kubernetes-asset-tracking-at-scale/thumb-eadb1bc0.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/kubernetes-asset-tracking-at-scale'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'Ralph Wiggum from The Simpsons saying, "I''m in Danger," with the caption, "When you realize your Kubernetes asset tracking is a mess".'
+heroAlt: 'Dockworkers loading cargo from trucks onto a ship'
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
@@ -36,7 +36,8 @@ marginNotes:
     at: 'Identifying workloads stuck in CrashLoopBackOff'
     text: 'a pod whose container keeps crashing. Kubernetes keeps restarting it and waits longer between each try.'
     term: 'CrashLoopBackOff'
-mastheadImage: '/images/blog/kubernetes-asset-tracking-at-scale/masthead-35791b08.webp'
+heroVideo: '/images/blog/kubernetes-asset-tracking-at-scale/archival-dc9c1cbe.mp4'
+mastheadImage: '/images/blog/kubernetes-asset-tracking-at-scale/archival-dc9c1cbe.webp'
 ---
 
 > **TL;DR:**

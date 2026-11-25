@@ -5,8 +5,8 @@ date: 2025-06-18
 slug: 'i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private'
 description: 'I swapped every Alexa in my house for Home Assistant Voice Preview Edition: what works, where it hears worse than Alexa, and how my family took it.'
 categories: ['Homelab']
-heroImage: '/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/thumb-fc607044.webp'
-heroAlt: 'A hand holding the Home Assistant Voice Preview Edition'
+heroImage: '/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/thumb-6682a9b6.webp'
+heroAlt: 'A family together in their living room'
 contentNotice: false
 tldr: 'I replaced all my Alexa devices with Home Assistant Voice Preview Edition for privacy. It works great for smart home control once you invest weeks rebuilding every automation, but voice recognition is way worse than Alexa and family adoption has been rough.'
 updatedDate: 2026-11-12
@@ -43,7 +43,8 @@ marginNotes:
     at: 'handles my personal music collection beautifully'
     text: 'Why I still find music on Apple Music and file the keepers into Navidrome by hand.'
     post: 'self-hosted-music-still-sucks-in-2026'
-mastheadImage: '/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/masthead-0f21aace.webp'
+heroVideo: '/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/archival-d86efc35.mp4'
+mastheadImage: '/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/archival-d86efc35.webp'
 ---
 
 After five years of building automations in [Home Assistant](https://www.home-assistant.io/) (I wrote about [how I first got started with Home Assistant](/blog/how-to-get-started-with-home-assistant/) a while back), I finally pulled the trigger on something I’d been contemplating for months: completely replacing my Amazon Alexa ecosystem with Home Assistant’s Voice Preview Edition. Recent privacy changes from Amazon were the final straw, but what I discovered during this migration was both more challenging and more technically satisfying than I anticipated.

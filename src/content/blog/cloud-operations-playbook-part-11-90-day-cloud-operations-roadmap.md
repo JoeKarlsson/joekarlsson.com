@@ -7,8 +7,8 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Platform Engineering', 'Governance']
-heroImage: '/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap/thumb-9360b156.webp'
-heroAlt: 'A cloverleaf highway interchange from above'
+heroImage: '/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap/thumb-07cfda49.webp'
+heroAlt: 'Men in suits studying something on an office wall'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 marginNotes:
@@ -20,6 +20,8 @@ marginNotes:
     at: 'Rank by risk and blast radius'
     text: 'how much breaks or gets exposed if this one resource fails or is compromised.'
     term: 'Blast radius'
+heroVideo: '/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap/archival-d06a6029.mp4'
+mastheadImage: '/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap/archival-d06a6029.webp'
 ---
 
 > **Note:** You don't need a year-long initiative to fix cloud operations. This post lays out a 90-day roadmap in three phases: Foundation (see everything), Governance (set the rules), and Optimization (make it better). Each phase has weekly milestones, concrete deliverables, and a key metric to prove progress. By day 90, you should be able to answer any infrastructure question in seconds, generate compliance evidence in under an hour, and show measurable toil reduction to leadership.

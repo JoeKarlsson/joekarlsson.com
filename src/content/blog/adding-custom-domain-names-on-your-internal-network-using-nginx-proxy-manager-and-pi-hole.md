@@ -6,8 +6,8 @@ date: 2024-01-17
 slug: 'adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole'
 description: 'How I set up custom domain names on my internal network with Pi-Hole for DNS and Nginx Proxy Manager, plus what works for SSL on local-only domains.'
 categories: ['Homelab']
-heroImage: '/images/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/thumb-0cabecaf.webp'
-heroAlt: 'Postal workers sorting a cart of mail sacks'
+heroImage: '/images/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/thumb-f4cdadd9.webp'
+heroAlt: "A man hanging a shop's name sign over a doorway"
 tldr: "I got tired of typing IP addresses, so I set up Pi-hole for local DNS and Nginx Proxy Manager for routing. Let's Encrypt won't sign a made-up name like magic.mirror, so for HTTPS use a DNS-01 wildcard cert on a domain you own, or mkcert if you don't. DNS and routing take about 15 minutes."
 updatedDate: 2026-09-22
 corrections:
@@ -32,6 +32,8 @@ marginNotes:
     at: MagicMirror defaults to 8080
     text: I built a MagicMirror of my own and wrote a Spotify player for it in another post.
     post: how-to-build-a-spotify-player-with-react-in-15-minutes
+heroVideo: '/images/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/archival-ef428064.mp4'
+mastheadImage: '/images/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/archival-ef428064.webp'
 ---
 
 **Update (September 2026):** A reader pointed out that my original SSL steps couldn't work, and they're right. I've rewritten Step 3; Steps 1 and 2 are unchanged.

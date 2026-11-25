@@ -7,10 +7,10 @@ description: 'CloudQuery Reports delivers actionable insights for multi-cloud se
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/visualize-govern-cloud-stack-cloudquery-reports/thumb-67eb002a.webp'
+heroImage: '/images/blog/visualize-govern-cloud-stack-cloudquery-reports/thumb-4bd0e41a.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/visualize-govern-cloud-stack-cloudquery-reports'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'The dashboard of an old car'
+heroAlt: 'A man at a control panel full of gauges'
 marginNotes:
   - type: 'see'
     at: 'Get a complete inventory of assets'
@@ -24,6 +24,8 @@ marginNotes:
     at: 'Strengthen your attack surface management for Azure'
     text: 'What attack surface management covers, and how it differs from CSPM and vulnerability management.'
     post: 'what-is-attack-surface-management'
+heroVideo: '/images/blog/visualize-govern-cloud-stack-cloudquery-reports/archival-b573b94e.mp4'
+mastheadImage: '/images/blog/visualize-govern-cloud-stack-cloudquery-reports/archival-b573b94e.webp'
 ---
 
 > **TL;DR:**

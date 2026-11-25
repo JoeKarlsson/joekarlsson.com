@@ -6,8 +6,8 @@ slug: 'how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb'
 description: 'Have you ever needed to set a machine learning model on your data before?'
 categories: ['Web Dev']
 writtenFor: 'SingleStore'
-heroImage: '/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/thumb-1761fe39.webp'
-heroAlt: 'Mind-reading prediction GIF'
+heroImage: '/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/thumb-b1009fc4.webp'
+heroAlt: 'A man pointing at diagrams on a blackboard'
 contentNotice: 'MindsDB Studio and its Predictors > Train New screen are gone. MindsDB now trains models in SQL with CREATE MODEL, so follow the [MindsDB docs](https://docs.mindsdb.com/) for that part.'
 tldr: 'I connect SingleStore to MindsDB to run machine learning predictions on health insurance data using just SQL. No separate ML pipeline needed - MindsDB trains the model directly on your existing tables.'
 updatedDate: 2026-11-16
@@ -23,7 +23,8 @@ marginNotes:
     at: 'saved in an AI Table'
     text: "MindsDB's name for a trained model you query like a table: SELECT from it with the inputs in WHERE, and the prediction comes back as a column."
     term: 'AI Table'
-mastheadImage: '/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/masthead-fafa4564.webp'
+heroVideo: '/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/archival-9d6b365c.mp4'
+mastheadImage: '/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/archival-9d6b365c.webp'
 ---
 
 Personally, I know this used to be massively complicated. It usually involved needing to write application code to connect a third-party machine learning system, and then connecting the output of the model back into your application. This is how I usually feel when setting up a new machine learning project. But now, with SingleStore and [MindsDB](https://mindsdb.com/), setting up a modern machine learning model has never been easier.

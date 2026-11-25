@@ -6,10 +6,10 @@ description: 'A step-by-step guide to a multi-cloud asset inventory for AWS, GCP
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Tutorials', 'AWS', 'GCP', 'Azure', 'Cloud Asset Inventory']
-heroImage: '/images/blog/how-to-build-a-multi-cloud-asset-inventory/thumb-78463135.webp'
+heroImage: '/images/blog/how-to-build-a-multi-cloud-asset-inventory/thumb-745b293b.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-build-a-multi-cloud-asset-inventory'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'Colored pins stuck in a map'
+heroAlt: 'A huge balloon rising over a hillside'
 updatedDate: 2026-11-16
 corrections:
   - date: 2026-11-16
@@ -25,7 +25,8 @@ marginNotes:
     at: 'uniform bucket-level access turned on'
     text: 'a Cloud Storage setting that turns off per-object ACLs, so IAM alone decides who can read what in a bucket.'
     term: 'Uniform bucket-level access'
-mastheadImage: '/images/blog/how-to-build-a-multi-cloud-asset-inventory/masthead-59448314.webp'
+heroVideo: '/images/blog/how-to-build-a-multi-cloud-asset-inventory/archival-6d6581af.mp4'
+mastheadImage: '/images/blog/how-to-build-a-multi-cloud-asset-inventory/archival-6d6581af.webp'
 ---
 
 Managing multi-cloud environments can overwhelm even experienced cloud architects. Each cloud provider has its own set of tools, APIs, and management practices, leading to fragmented visibility and control. Without a unified view, identifying and managing cloud assets across AWS, Azure, GCP, and other providers becomes daunting.

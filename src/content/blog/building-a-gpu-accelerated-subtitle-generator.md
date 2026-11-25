@@ -5,8 +5,8 @@ date: 2026-02-05
 slug: 'building-a-gpu-accelerated-subtitle-generator'
 description: 'How I built a GPU-accelerated subtitle generator for my video library with faster-whisper on my homelab, with parallel workers and a hallucination filter.'
 categories: ['Homelab', 'AI']
-heroImage: '/images/blog/building-a-gpu-accelerated-subtitle-generator/thumb-08106819.webp'
-heroAlt: "A playhead runs along a film's audio waveform as Whisper writes each line of speech into an SRT file"
+heroImage: '/images/blog/building-a-gpu-accelerated-subtitle-generator/thumb-0efe568c.webp'
+heroAlt: 'An interpreter in headphones translating in a booth'
 tldr: 'I built a multi-worker subtitle generation system using faster-whisper on NVIDIA GPUs. It runs parallel workers with atomic folder locks, waits for free VRAM instead of fighting other GPU workloads, translates to English, and filters hallucinations in several layers. The whole thing runs on my Proxmox homelab alongside Plex and other GPU-hungry services.'
 howToSteps:
   - name: 'Install Prerequisites'
@@ -50,6 +50,8 @@ marginNotes:
     at: 'Whisper hallucinations are predictable'
     text: 'Later I benchmarked five Whisper models on a Mac for FollowSpot, my voice-following teleprompter.'
     post: 'followspot-local-whisper-teleprompter'
+heroVideo: '/images/blog/building-a-gpu-accelerated-subtitle-generator/archival-a602881f.mp4'
+mastheadImage: '/images/blog/building-a-gpu-accelerated-subtitle-generator/archival-a602881f.webp'
 ---
 
 I have a large video library. Thousands of files across dozens of languages, and most of them don't have subtitles. Buying subtitle files isn't an option at this scale, and the cloud transcription services that exist are either expensive or painfully slow. So I did what any reasonable person with two NVIDIA GPUs in their homelab would do: I built my own.

@@ -12,9 +12,10 @@ updatedDate: 2026-11-22
 corrections:
   - date: 2026-11-22
     note: "The copy trigger was meant to take the last 60 seconds of documents, as the text says, but its `$match` used `60 * 60 * 1000` (an hour). It is `60 * 1000` now, which is what MongoDB's own version of this tutorial uses. The sample IAM policy lacked `s3:PutObject` and `s3:DeleteObject`, which read and write access needs, and named a role ARN where S3 needs the bucket's ARNs. The steps for creating Triggers now follow today's Atlas sidebar."
-heroImage: '/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/thumb-3e678a1d.webp'
-heroAlt: 'An ice-cutting crew with a horse working along a channel cut in a frozen lake'
-mastheadImage: '/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/masthead-480c0da5.webp'
+heroImage: '/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/thumb-670b2140.webp'
+heroAlt: 'Boxes moving along a conveyor line'
+heroVideo: '/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/archival-50a63a1a.mp4'
+mastheadImage: '/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/archival-50a63a1a.webp'
 ---
 
 Modern always-on applications rely on automatic failover and real-time data access. [MongoDB Atlas already supports automatic backups](https://www.mongodb.com/docs/atlas/backup-restore-cluster/) out of the box, but you might still want to copy your data into another location to run advanced analytics on it or to isolate your operational workload. That's why it can be useful to set up automatic, continuous replication of your data.

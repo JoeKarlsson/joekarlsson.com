@@ -7,14 +7,16 @@ updatedDate: 2026-11-07
 slug: 'from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack'
 description: 'I bought a wire postcard rack secondhand and designed 3D-printed pots that hang in its pockets and drain into each other. Here it is three-plus years later.'
 categories: ['Homelab']
-heroImage: '/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/thumb-af923799.webp'
-heroAlt: 'The postcard rack planter, its pockets full of 3D-printed pots and plants'
+heroImage: '/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/thumb-9b47e957.webp'
+heroAlt: 'Rows of potted plants on greenhouse tables'
 tldr: 'I filled a secondhand wire postcard rack with 3D-printed pots I designed in Tinkercad. Each pot drains into the one below, so I water the top and the whole tower gets it. Three-plus years in, the ABS is holding up and the succulents gave way to spider plants. The STL is free on Thingiverse.'
 marginNotes:
   - type: 'term'
     at: 'I printed them in black ABS'
     text: 'a tough plastic, the same one LEGO bricks are made of. It takes heat and moisture better than PLA, the usual hobby filament.'
     term: 'ABS'
+heroVideo: '/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/archival-5ff9a2f7.mp4'
+mastheadImage: '/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/archival-5ff9a2f7.webp'
 ---
 
 ![An empty gold wire postcard rack on a black pole, with two black 3D-printed pots hanging in its upper pockets.](/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/the-bare-postcard-rack-with-two.webp 'margin: The bare postcard rack with two test pots.')

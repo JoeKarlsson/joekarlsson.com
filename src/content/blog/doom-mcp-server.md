@@ -17,8 +17,8 @@ tags:
     'cdata-connect-ai',
     'cdata',
   ]
-heroImage: '/images/blog/doom-mcp-server/hero-2.webp'
-heroAlt: 'Gig-flyer cover in hot pink and black: Claude plays Doom in cut-paper letters over a Doom frame of the PII vault sign blocked by Connect AI, with a taped photo of Joe demoing it to a crowd at the CData booth'
+heroImage: '/images/blog/doom-mcp-server/thumb-38a5e0d9.webp'
+heroAlt: 'Children on an amusement ride while a man works the controls'
 canonicalUrl: 'https://www.cdata.com/blog/doom-mcp-server'
 tldr: "Doom runs as an MCP server here, with three tools (look, go_to and attack) in about 30 lines of Python and no SDK, so Claude can play it. The level comes from a second MCP server, CData Connect AI: every app Claude pulls from becomes a room and every record a monster. I ran Claude Sonnet, Claude Haiku and Gemini Flash through the same level 32 times, scored from the game's state, and in three of its eight runs Gemini tried to get around the locked PII door. The server blocked every attempt."
 faq:
@@ -62,6 +62,8 @@ marginNotes:
     at: 'is stateless and drops it'
     text: 'I went through the 2026-07-28 release change by change, including what going stateless means for servers like this one.'
     post: 'mcp-2026-07-28-release-explained'
+heroVideo: '/images/blog/doom-mcp-server/archival-aad0ab67.mp4'
+mastheadImage: '/images/blog/doom-mcp-server/archival-aad0ab67.webp'
 ---
 
 I wired Doom to two Model Context Protocol (MCP) servers. One is a Doom MCP server inside the game, so Claude can play it. The other is an MCP data source: when Claude connects to your apps to answer a question, the game builds the level out of what it finds. Each app from the MCP server becomes a room and each record becomes a monster, so asking what you worked on yesterday would get you a level full of Jira tickets, pull requests, and Slack threads. As far as I can find, it's the first Doom level built out of MCP data. I've been calling it DooMCP.

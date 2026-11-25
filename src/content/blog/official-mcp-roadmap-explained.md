@@ -7,8 +7,8 @@ description: "The official MCP roadmap (Aug 22, 2026) maps five priorities. Here
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'protocol', 'cdata']
-heroImage: '/images/blog/official-mcp-roadmap-explained/thumb-1d111fe6.webp'
-heroAlt: 'A close-up of an old road map'
+heroImage: '/images/blog/official-mcp-roadmap-explained/thumb-3154bdd3.webp'
+heroAlt: 'People leaning over a map spread on a table'
 canonicalUrl: 'https://www.cdata.com/blog/official-mcp-roadmap-explained'
 faq:
   - question: 'What does the official MCP roadmap commit to?'
@@ -44,6 +44,8 @@ marginNotes:
   - type: term
     at: DPoP adoption and Workload Identity Federation
     text: A workload proves who it is with a short-lived token from the platform it runs on, such as a cloud or Kubernetes identity, instead of a stored secret key.
+heroVideo: '/images/blog/official-mcp-roadmap-explained/archival-a1a2d39c.mp4'
+mastheadImage: '/images/blog/official-mcp-roadmap-explained/archival-a1a2d39c.webp'
 ---
 
 The model context protocol (MCP) core maintainers published their updated roadmap on Aug. 22, 2026 ([The New MCP Roadmap](https://blog.modelcontextprotocol.io/posts/mcp-roadmap/)). If you're an engineering or AI lead managing MCP servers for a large team or enterprise deployment, this covers what you need to know: what each of the five priorities means in practice, which ones require migration work and which you can safely watch from a distance, and where the gaps stay even after all five ship. The point that shapes every planning call in this post is that the agent identity work solves which workload is calling your MCP server, using standards for proving a workload's identity without storing long-lived credentials. It doesn't touch what that server hands to Salesforce, SQL Server, or your data warehouse to open the connection behind it. Those are two different auth problems, and the roadmap takes on only the first.

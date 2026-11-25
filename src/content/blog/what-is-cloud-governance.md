@@ -7,8 +7,8 @@ description: 'Cloud governance is the policies and controls that keep cloud infr
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Governance', 'Cloud Infrastructure']
-heroImage: '/images/blog/what-is-cloud-governance/thumb-8752bdee.webp'
-heroAlt: 'Apollo-era Mission Control, everyone watching the same screens'
+heroImage: '/images/blog/what-is-cloud-governance/thumb-a700bba5.webp'
+heroAlt: 'Police motorcycles escorting traffic past a building'
 canonicalUrl: https://www.cloudquery.io/blog/what-is-cloud-governance
 contentNotice: 'This post was originally published on CloudQuery blog.'
 updatedDate: 2026-11-12
@@ -33,6 +33,8 @@ marginNotes:
     at: 'Detective controls catch what preventive controls miss'
     text: 'More on why deploy-time checks miss console changes and drift, and what continuous checks catch.'
     post: 'cloud-operations-playbook-part-07-continuous-cloud-governance'
+heroVideo: '/images/blog/what-is-cloud-governance/archival-da5d54ce.mp4'
+mastheadImage: '/images/blog/what-is-cloud-governance/archival-da5d54ce.webp'
 ---
 
 > **Note:** Cloud governance is the framework of policies, processes, and controls that keeps cloud environments from accumulating technical debt at scale. Without it, untagged resources, orphaned databases, and misconfigured services pile up until the cleanup cost exceeds the original problem. This guide covers the six pillars, essential framework components, and how to enforce policies continuously using SQL.

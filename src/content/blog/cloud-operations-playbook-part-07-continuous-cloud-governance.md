@@ -8,8 +8,8 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Governance']
-heroImage: '/images/blog/cloud-operations-playbook-part-07-continuous-cloud-governance/thumb-d84fc409.webp'
-heroAlt: 'A lifeguard tower watching the beach'
+heroImage: '/images/blog/cloud-operations-playbook-part-07-continuous-cloud-governance/thumb-2528b8f4.webp'
+heroAlt: 'A tracking antenna mount standing watch'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-07-continuous-cloud-governance'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 updatedDate: 2026-11-12
@@ -30,6 +30,8 @@ marginNotes:
     text: 'Starting January 5, 2023, all new object uploads to Amazon S3 are automatically encrypted at no additional cost and with no impact on performance.'
     by: "Amazon S3's docs, on a default AWS changed for every bucket at once"
     url: 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html'
+heroVideo: '/images/blog/cloud-operations-playbook-part-07-continuous-cloud-governance/archival-f4402a74.mp4'
+mastheadImage: '/images/blog/cloud-operations-playbook-part-07-continuous-cloud-governance/archival-f4402a74.webp'
 ---
 
 > **Note:** CI/CD policy checks only catch violations at deploy time. But infrastructure changes through console clicks, configuration drift, and cloud provider updates without ever touching a pipeline. Continuous governance runs the same SQL-based policies at deploy time, on a schedule, and historically so nothing slips through. If your governance only runs when code ships, you're blind to most of the changes that actually cause incidents.

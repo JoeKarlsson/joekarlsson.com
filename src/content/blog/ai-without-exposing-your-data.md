@@ -11,8 +11,8 @@ categories: ['AI']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/ai-without-exposing-your-data
 contentNotice: "This post was originally published on CloudQuery's blog."
-heroImage: '/images/blog/ai-without-exposing-your-data/thumb-0e096ae2.webp'
-heroAlt: 'A letter closed with a red wax seal'
+heroImage: '/images/blog/ai-without-exposing-your-data/thumb-cffe2afd.webp'
+heroAlt: 'A hand turning the handle of a vault door'
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
@@ -31,6 +31,8 @@ marginNotes:
     at: 'TensorFlow Serving or TorchServe'
     text: "TorchServe's GitHub repo is now archived. Its README says the project is no longer actively maintained and gets no bug fixes or security patches."
     date: 'Nov 2026'
+heroVideo: '/images/blog/ai-without-exposing-your-data/archival-6a50c7f2.mp4'
+mastheadImage: '/images/blog/ai-without-exposing-your-data/archival-6a50c7f2.webp'
 ---
 
 > **Note:** **TL;DR:**

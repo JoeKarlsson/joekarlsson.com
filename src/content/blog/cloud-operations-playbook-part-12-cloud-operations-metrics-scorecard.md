@@ -8,8 +8,8 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Platform Engineering']
-heroImage: '/images/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard/thumb-c6ff6398.webp'
-heroAlt: 'A crowded stock exchange trading floor'
+heroImage: '/images/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard/thumb-ba2a6cab.webp'
+heroAlt: 'A man filling in a grid chart on a blackboard'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 marginNotes:
@@ -23,7 +23,8 @@ marginNotes:
     text: 'Our SRE organization has an advertised goal of keeping operational work (i.e., toil) below 50% of each SRE’s time.'
     by: "Google's Site Reliability Engineering book"
     url: 'https://sre.google/sre-book/eliminating-toil/'
-mastheadImage: '/images/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard/masthead-afdce31d.webp'
+heroVideo: '/images/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard/archival-50c9fbe3.mp4'
+mastheadImage: '/images/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard/archival-50c9fbe3.webp'
 ---
 
 > **Note:** You've built the visibility layer, set governance rules, and started automating. Now you need to prove it's working. This post covers the five metric categories that matter for cloud operations, a one-page leadership scorecard you can present to your VP or CxO, and how to re-take the maturity self-assessment from Part 2 to measure real progress.

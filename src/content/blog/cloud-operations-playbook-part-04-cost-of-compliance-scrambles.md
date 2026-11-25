@@ -8,10 +8,10 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Governance']
-heroImage: '/images/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles/thumb-bce1f4ad.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles/thumb-7cd0754a.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'Two women working through a desk of paperwork'
+heroAlt: 'Office workers hurrying past towering stacks of paper'
 marginNotes:
   - type: 'see'
     at: 'The compliance team starts gathering evidence'
@@ -25,6 +25,8 @@ marginNotes:
     at: 'at a fully-loaded cost of $200K each'
     text: 'salary plus benefits, payroll taxes, equipment and office overhead.'
     term: 'Fully loaded cost'
+heroVideo: '/images/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles/archival-d84a6e6b.mp4'
+mastheadImage: '/images/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles/archival-d84a6e6b.webp'
 ---
 
 > **Note:** **TL;DR:** Audit prep shouldn't take weeks, but for most teams it does. The compliance scramble is a recurring tax on engineering productivity: frantically gathering evidence from scattered systems, pulling engineers off real work, and compiling CSVs that prove compliance for a single point in time. The [Fortinet 2024 Cloud Security Report](https://www.fortinet.com/resources/reports/cloud-security) found 96% of companies are worried about cloud security, yet that worry rarely translates into action. The fix is a queryable data layer that makes compliance evidence a byproduct of daily operations, not a quarterly fire drill.

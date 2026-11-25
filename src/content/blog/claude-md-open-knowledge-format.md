@@ -16,8 +16,8 @@ tags:
     'AI coding agents',
     'Claude Code memory',
   ]
-heroImage: '/images/blog/claude-md-open-knowledge-format/thumb-1f0b822d.webp'
-heroAlt: "A printer's type cabinet with one shallow drawer pulled out, its small compartments full of metal type"
+heroImage: '/images/blog/claude-md-open-knowledge-format/thumb-3f673f8c.webp'
+heroAlt: 'A woman working at a long row of filing cabinets'
 tldr: "I converted the ~200 markdown files Claude Code reads for my homelab to Google's Open Knowledge Format and tested three versions on 44 questions. OKF metadata alone changed nothing. OKF's structure, one concept per file behind an index, halved startup context and cut cost per question by about 30% without losing accuracy."
 faq:
   - question: 'What is Open Knowledge Format (OKF)?'
@@ -56,7 +56,8 @@ marginNotes:
     at: The idea is progressive disclosure
     term: Progressive disclosure
     text: an interface design idea where the basics show first and the rarely used details sit one step away. Jakob Nielsen wrote it up for software screens in 2006; OKF applies it to an agent's reading.
-mastheadImage: '/images/blog/claude-md-open-knowledge-format/masthead-2178734a.webp'
+heroVideo: '/images/blog/claude-md-open-knowledge-format/archival-8872da3c.mp4'
+mastheadImage: '/images/blog/claude-md-open-knowledge-format/archival-8872da3c.webp'
 ---
 
 I'd been hearing about Google's [Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) (OKF) and wanted to try it on my Claude Code second brain. That's the pile of CLAUDE.md files, rules and auto-memory that teaches Claude how my homelab works. Would converting it to OKF make Claude more accurate, or cheaper to run, or neither?

@@ -8,10 +8,10 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Governance', 'Cloud Infrastructure']
-heroImage: '/images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/thumb-024fb3e1.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/thumb-fe6fa668.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-06-visibility-first-governance-model
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'Soldiers aiming a searchlight into the night'
+heroAlt: 'A searchlight blazing in the dark beside its crew'
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
@@ -30,6 +30,8 @@ marginNotes:
     at: 'Automatically restrict to the VPN CIDR range'
     text: 'an IP range written as a base address and a prefix length. 10.8.0.0/16 covers every address from 10.8.0.0 to 10.8.255.255.'
     term: 'CIDR range'
+heroVideo: '/images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/archival-e86964fd.mp4'
+mastheadImage: '/images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/archival-e86964fd.webp'
 ---
 
 > **Note:** **TL;DR:** Traditional governance starts with policies and tries to enforce them. This fails because you can't enforce rules about infrastructure you can't see. The Visibility-First Governance Model inverts the process: build a unified inventory first, write policies in SQL against that inventory, monitor continuously, then automate responses. The result is governance that actually works across multi-cloud environments because it's grounded in real infrastructure data, not assumptions about what should exist.

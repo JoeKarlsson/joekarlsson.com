@@ -7,9 +7,9 @@ description: 'We benchmarked our ETL tool and synced 1 million rows in 2 seconds
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering']
-heroImage: '/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/thumb-55cc4666.webp'
+heroImage: '/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/thumb-a608e0d0.webp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'Early race cars tearing around a banked track'
+heroAlt: 'A production line machine moving goods at speed'
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-06
@@ -45,6 +45,8 @@ marginNotes:
     at: enabling SIMD vectorization
     term: Single instruction, multiple data
     text: one CPU instruction does the same operation on several values at once, such as adding eight numbers in one step.
+heroVideo: '/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/archival-ad258324.mp4'
+mastheadImage: '/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/archival-ad258324.webp'
 ---
 
 > **TL;DR:**

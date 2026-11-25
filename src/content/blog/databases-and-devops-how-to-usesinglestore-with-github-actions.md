@@ -5,8 +5,8 @@ date: 2022-06-22
 slug: 'databases-and-devops-how-to-usesinglestore-with-github-actions'
 description: 'How to bring databases into DevOps: schema in source control, production-like testing, monitoring, and a demo running SingleStore in GitHub Actions.'
 categories: ['Web Dev']
-heroImage: '/images/blog/databases-and-devops-how-to-usesinglestore-with-github-actions/thumb-95a3b33f.webp'
-heroAlt: 'Workers along an early Ford assembly line'
+heroImage: '/images/blog/databases-and-devops-how-to-usesinglestore-with-github-actions/thumb-21216102.webp'
+heroAlt: 'An overhead conveyor carrying parts through a factory'
 tldr: 'Most teams skip the database in their CI/CD pipeline, and that is a mistake. I walk through best practices for database DevOps and show you how to set up SingleStore with GitHub Actions so your database deployments are automated on every push.'
 marginNotes:
   - type: 'term'
@@ -17,7 +17,8 @@ marginNotes:
     at: 'This license allows you to run up to 4 nodes up to 32 gigs'
     text: 'The SingleStore Dev Image now runs without a license on a machine with up to 8 cores and 64 GB of RAM.'
     date: 'Nov 2026'
-mastheadImage: '/images/blog/databases-and-devops-how-to-usesinglestore-with-github-actions/masthead-ded922e8.webp'
+heroVideo: '/images/blog/databases-and-devops-how-to-usesinglestore-with-github-actions/archival-e89840a0.mp4'
+mastheadImage: '/images/blog/databases-and-devops-how-to-usesinglestore-with-github-actions/archival-e89840a0.webp'
 ---
 
 Databases are frequently not included when transforming an application and engineering culture toward a DevOps, or continuous deployment engineering organization. And, you could be forgiven for this because setting up repeatable, fast, and up-to-date database environments for an application is hard!

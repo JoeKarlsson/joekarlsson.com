@@ -6,8 +6,8 @@ slug: 'reversing-seo-traffic-decline-ai-overviews'
 description: 'How I reversed an SEO traffic decline caused partly by AI Overviews: two failure modes, a weekly Claude Code audit, and real numbers from four weeks.'
 categories: ['Career']
 tags: ['SEO', 'Claude Code', 'AI Overviews', 'GEO', 'developer advocacy', 'content strategy']
-heroImage: '/images/blog/reversing-seo-traffic-decline-ai-overviews/hero.webp'
-heroAlt: 'Pink magnifying glass over a search bar, representing SEO and search visibility'
+heroImage: '/images/blog/reversing-seo-traffic-decline-ai-overviews/thumb-642cbbfb.webp'
+heroAlt: 'A deserted street under streetlamps'
 tldr: 'Our traffic was declining - impressions down, clicks down. Diagnosing it turned up two different failure modes happening at the same time on different pages, and most SEO recovery advice only addresses one of them. When an AI Overview appears, organic CTR drops by about 61%, per Seer Interactive. A weekly multi-source audit combining GSC, Ahrefs, Plausible, and HubSpot gives you the signal to tell them apart and prioritize fixes. Four weeks in: +57% organic traffic, +316% impressions, +440% docs traffic, average position up 5.2 places. With Claude Code doing the fixes, diagnosis is the hard part.'
 faq:
   - question: 'Why are my impressions going up but clicks staying flat?'
@@ -53,6 +53,8 @@ marginNotes:
     at: 'sort by URL Rating'
     text: "Ahrefs' 0 to 100 score for how strong a single page's backlink profile is."
     term: 'URL Rating'
+heroVideo: '/images/blog/reversing-seo-traffic-decline-ai-overviews/archival-fe027357.mp4'
+mastheadImage: '/images/blog/reversing-seo-traffic-decline-ai-overviews/archival-fe027357.webp'
 ---
 
 _A traffic decline usually has two failure modes that need different fixes. Once Claude Code made the fixes cheap, telling them apart became the hard part._

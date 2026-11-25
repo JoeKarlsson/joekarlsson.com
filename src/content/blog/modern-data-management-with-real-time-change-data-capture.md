@@ -6,8 +6,8 @@ slug: 'modern-data-management-with-real-time-change-data-capture'
 description: 'Real-time Change Data Capture (CDC) tracks database changes as they happen and sends them downstream. Why it matters for event-driven data architectures.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/modern-data-management-with-real-time-change-data-capture/thumb-d32c7948.webp'
-heroAlt: 'An old seismograph'
+heroImage: '/images/blog/modern-data-management-with-real-time-change-data-capture/thumb-65ff919c.webp'
+heroAlt: 'A teletype machine printing as messages arrive'
 tldr: 'Change Data Capture (CDC) watches your database transaction log and streams every insert, update, and delete to downstream systems in real time. I cover how it works, when to use it over batch ETL, and what to watch out for.'
 marginNotes:
   - type: 'quote'
@@ -23,6 +23,8 @@ marginNotes:
     at: 'applying a graveyard flag to deleted rows'
     text: 'a column that marks a row as deleted instead of removing it. Queries filter those rows out, and the target keeps the history.'
     term: 'Soft delete'
+heroVideo: '/images/blog/modern-data-management-with-real-time-change-data-capture/archival-5fba59f3.mp4'
+mastheadImage: '/images/blog/modern-data-management-with-real-time-change-data-capture/archival-5fba59f3.webp'
 ---
 
 Data engineers are grappling with surging data volumes while stakeholders increasingly demand real-time decision-making and user-facing features powered by data. This raises a fundamental question: How do you efficiently and quickly track and manage changes in your databases during periods of intense growth? One answer can be found in Change Data Capture (CDC), a technique that captures and routes changes made to a database in real time and sends them to a downstream system.

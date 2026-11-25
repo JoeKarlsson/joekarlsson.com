@@ -9,10 +9,10 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: '/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/thumb-e27b3d17.webp'
+heroImage: '/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/thumb-658652a2.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-2-governance-security-compliance
 contentNotice: "This post was originally published on CloudQuery's blog."
-heroAlt: 'A crossing guard holding up a stop sign'
+heroAlt: "An inspector checking a man's papers at a works gate"
 marginNotes:
   - type: 'quote'
     at: 'a poorly implemented CCOE can become a bottleneck'
@@ -23,7 +23,8 @@ marginNotes:
     at: 'If every cloud change requires CCOE approval'
     text: 'I wrote about telling a kiln, review that makes the work better, from a gate that only adds time.'
     post: 'ship-the-ugly-pot'
-mastheadImage: '/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/masthead-66578f00.webp'
+heroVideo: '/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/archival-d6a62a05.mp4'
+mastheadImage: '/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/archival-d6a62a05.webp'
 ---
 
 **About This Series:** This is Part 2 of our 5-part series on Cloud Centers of Excellence (CCOEs). If you missed it, start with **Part 1: Introduction and Organizational Structure** to understand the foundational concepts.

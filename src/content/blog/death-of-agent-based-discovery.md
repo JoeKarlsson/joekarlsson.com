@@ -7,12 +7,12 @@ tags:
   - Best Practices
 date: 2025-10-24
 description: 'Agent-based CMDB discovery breaks down with containers, serverless and managed services. API-driven discovery costs 90% less and works everywhere.'
-heroImage: '/images/blog/death-of-agent-based-discovery/thumb-e42ce48e.webp'
+heroImage: '/images/blog/death-of-agent-based-discovery/thumb-4c5e3431.webp'
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/death-of-agent-based-discovery
 contentNotice: "This post was originally published on CloudQuery's blog."
-heroAlt: 'A dinosaur fossil in a museum case'
+heroAlt: 'A woman answering her front door to a caller'
 updatedDate: 2026-11-12
 corrections:
   - date: 2026-11-12
@@ -40,6 +40,8 @@ marginNotes:
     at: 'provides live API queries without data synchronization'
     text: 'I compared the two approaches, live queries against a synced inventory, and when each one fits.'
     post: 'steampipe-vs-cloudquery'
+heroVideo: '/images/blog/death-of-agent-based-discovery/archival-3c752d71.mp4'
+mastheadImage: '/images/blog/death-of-agent-based-discovery/archival-3c752d71.webp'
 ---
 
 We spent 20 years deploying agents on servers. Then AWS gave us APIs. Why are we still installing agents?

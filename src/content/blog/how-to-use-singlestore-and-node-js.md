@@ -5,8 +5,8 @@ slug: 'how-to-use-singlestore-and-node-js'
 description: 'Do you need to get a basic SingleStore application setup quickly using Node.js?'
 categories: ['Web Dev']
 writtenFor: 'SingleStore'
-heroImage: '/images/blog/how-to-use-singlestore-and-node-js/thumb-04b12b10.webp'
-heroAlt: 'Waiting impatiently GIF while cluster deploys'
+heroImage: '/images/blog/how-to-use-singlestore-and-node-js/thumb-157c2fb7.webp'
+heroAlt: 'A machine tool cutting a metal part'
 tldr: 'A step-by-step guide to connecting a Node.js app to SingleStore using the mysql2 package (since SingleStore is MySQL wire-compatible) and running basic CRUD operations.'
 updatedDate: 2026-11-12
 corrections:
@@ -21,7 +21,8 @@ marginNotes:
     at: This is the easy way to try SingleStore
     text: SingleStore's managed cloud service is now called SingleStore Helios.
     date: Nov 2026
-mastheadImage: '/images/blog/how-to-use-singlestore-and-node-js/masthead-9aae4b9b.webp'
+heroVideo: '/images/blog/how-to-use-singlestore-and-node-js/archival-4fe4bce4.mp4'
+mastheadImage: '/images/blog/how-to-use-singlestore-and-node-js/archival-4fe4bce4.webp'
 ---
 
 Do you need to get a basic SingleStore application setup quickly using Node.js? Well, this guide’s got you covered. We will be covering how to use SingleStore and Node.js by setting up a database, connecting to that database using Node.js, and then performing CRUD (create, read, update, delete) operations on that database using Node.js.

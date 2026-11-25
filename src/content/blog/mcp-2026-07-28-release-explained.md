@@ -7,8 +7,8 @@ description: 'The MCP 2026-07-28 release makes the protocol stateless, adds an e
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'protocol', 'cdata']
-heroImage: '/images/blog/mcp-2026-07-28-release-explained/thumb-1aa53249.webp'
-heroAlt: 'A ship sliding down the slipway at its launch'
+heroImage: '/images/blog/mcp-2026-07-28-release-explained/thumb-f082c181.webp'
+heroAlt: 'A new ship sliding down the slipway into the water'
 canonicalUrl: 'https://www.cdata.com/blog/mcp-2026-07-28-release'
 contentNotice: 'Originally published on the [CData blog](https://www.cdata.com/blog/mcp-2026-07-28-release).'
 tldr: 'Stateless protocol, formal extensions (MCP Apps + Tasks), stricter auth validation, full JSON Schema 2020-12. The big one is stateless - it finally makes MCP servers deployable like normal web services. Roots, Sampling, and Logging start deprecation with a ~12-month runway.'
@@ -24,6 +24,8 @@ marginNotes:
   - type: term
     at: the Server-Sent Events limitations
     text: A web standard where the server holds one HTTP connection open and pushes messages down it. The open connection ties a client to one server instance.
+heroVideo: '/images/blog/mcp-2026-07-28-release-explained/archival-4601d300.mp4'
+mastheadImage: '/images/blog/mcp-2026-07-28-release-explained/archival-4601d300.webp'
 ---
 
 The Model Context Protocol just shipped its largest revision since launch.

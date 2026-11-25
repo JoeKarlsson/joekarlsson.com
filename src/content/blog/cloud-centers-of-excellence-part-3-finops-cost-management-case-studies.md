@@ -9,10 +9,10 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: '/images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/thumb-57952697.webp'
+heroImage: '/images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/thumb-3261dace.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies
 contentNotice: "This post was originally published on CloudQuery's blog."
-heroAlt: 'Meme image of a determined-looking toddler clenching his fist in success (known as "Success Kid"). The background is a blue and purple radial burst. Text at the top reads: "PUBLISHED QUARTERLY COE METRICS". Text at the bottom reads: "MANAGEMENT LOVED IT."'
+heroAlt: 'Fingers stacking coins into a pile'
 updatedDate: 2026-11-16
 corrections:
   - date: 2026-11-16
@@ -38,7 +38,8 @@ marginNotes:
     at: 'A capable CCOE/FinOps effort targets that waste'
     text: 'Idle resources are one kind of waste. Engineering time lost to scattered cloud data is another, and I built a calculator to measure it.'
     post: 'cloud-operations-playbook-part-05-cloud-waste-calculator'
-mastheadImage: '/images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/masthead-20fab423.webp'
+heroVideo: '/images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/archival-1fa6158d.mp4'
+mastheadImage: '/images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/archival-1fa6158d.webp'
 ---
 
 **About This Series:** This is Part 3 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:

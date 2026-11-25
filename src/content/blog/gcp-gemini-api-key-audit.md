@@ -7,8 +7,8 @@ description: Google API keys safe to embed publicly now authenticate to Gemini. 
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Security', 'GCP', 'API Security', 'Google Cloud']
-heroImage: '/images/blog/gcp-gemini-api-key-audit/thumb-58017f5e.webp'
-heroAlt: 'An old key left sitting in an ornate gilded lock'
+heroImage: '/images/blog/gcp-gemini-api-key-audit/thumb-bb86e176.webp'
+heroAlt: 'A hand turning a key in a lock on a chain-link gate'
 canonicalUrl: https://www.cloudquery.io/blog/gcp-gemini-api-key-audit
 contentNotice: 'This post was originally published on CloudQuery blog.'
 updatedDate: 2026-11-12
@@ -29,7 +29,8 @@ marginNotes:
     at: and found 2,863 live Google API keys
     text: The "millions of websites" came from the November 2025 Common Crawl, a public archive of scraped web pages about 700 TiB in size.
     url: https://trufflesecurity.com/blog/google-api-keys-werent-secrets-but-then-gemini-changed-the-rules
-mastheadImage: '/images/blog/gcp-gemini-api-key-audit/masthead-93bff7ac.webp'
+heroVideo: '/images/blog/gcp-gemini-api-key-audit/archival-4642b8e1.mp4'
+mastheadImage: '/images/blog/gcp-gemini-api-key-audit/archival-4642b8e1.webp'
 ---
 
 Google spent years telling developers that API keys aren't secrets - you could embed them in client-side JavaScript, ship them in mobile apps, commit them to public repos. That was the design. Keys for services like Google Maps have always been intended for public environments, scoped only by referrer restrictions or usage quotas.

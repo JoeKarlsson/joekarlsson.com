@@ -7,10 +7,10 @@ description: 'An internal developer portal is only as useful as its asset invent
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering', 'Cloud Asset Inventory']
-heroImage: '/images/blog/how-to-make-your-internal-developer-portal-actually-useful/thumb-1b60eacd.webp'
+heroImage: '/images/blog/how-to-make-your-internal-developer-portal-actually-useful/thumb-91dfcea7.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-to-make-your-internal-developer-portal-actually-useful'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'A busy railway station hall with its departure board'
+heroAlt: 'A woman at a registration desk helping a visitor'
 marginNotes:
   - type: 'quote'
     at: 'particularly those built on frameworks like'
@@ -34,6 +34,8 @@ marginNotes:
     at: 'while maintaining 5-10x query performance advantages'
     text: 'What six months of ClickHouse as CloudQuery’s default backend taught us about JOINs, sorting keys and benchmarks.'
     post: 'six-months-with-clickhouse-at-cloudquery'
+heroVideo: '/images/blog/how-to-make-your-internal-developer-portal-actually-useful/archival-af299d90.mp4'
+mastheadImage: '/images/blog/how-to-make-your-internal-developer-portal-actually-useful/archival-af299d90.webp'
 ---
 
 > **TL;DR:**

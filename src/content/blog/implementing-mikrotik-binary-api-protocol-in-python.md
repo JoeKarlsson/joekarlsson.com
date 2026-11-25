@@ -5,8 +5,8 @@ date: 2026-03-05
 slug: 'implementing-mikrotik-binary-api-protocol-in-python'
 description: "How I implemented MikroTik's RouterOS binary API protocol in Python from scratch, with variable-length encoding and sentence-based messages, in 137 lines."
 categories: ['Homelab']
-heroImage: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/thumb-6cc55f0c.webp'
-heroAlt: 'A MikroTik API login sentence written to the wire one word at a time, each with its length byte, until RouterOS answers !done'
+heroImage: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/thumb-842fd6d0.webp'
+heroAlt: 'A radio operator in headphones turning dials'
 tldr: "I implemented MikroTik's proprietary binary API protocol from scratch in Python to programmatically manage my network infrastructure. The protocol uses variable-length encoding (similar to UTF-8), sentence-based messaging over raw TCP, and plain-text authentication. In ~137 lines of Python, you get full control over bonding, DHCP, firewall rules, and anything else exposed by the RouterOS API."
 updatedDate: 2026-11-12
 corrections:
@@ -33,6 +33,8 @@ marginNotes:
     text: 'Now the client sends a username and password in the first message. Password is sent in plain text.'
     by: "MikroTik's API docs, on the login method after RouterOS 6.43"
     url: 'https://help.mikrotik.com/docs/spaces/ROS/pages/47579160/API'
+heroVideo: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/archival-deee53a0.mp4'
+mastheadImage: '/images/blog/implementing-mikrotik-binary-api-protocol-in-python/archival-deee53a0.webp'
 ---
 
 My [homelab](/blog/how-to-get-started-building-a-homelab-server/) runs a MikroTik CRS317 as the 10G backbone switch, handling LACP bonds to two Proxmox hosts and a failover bond to a UniFi switch. When I started managing bonding configurations, I wanted to do it programmatically - not by SSHing in and typing commands interactively.

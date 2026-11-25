@@ -7,8 +7,8 @@ description: 'How we built a Go-based MCP server to make AI Assistants data-awar
 categories: ['AI']
 writtenFor: 'CloudQuery'
 tags: ['MCP', 'LLM', 'AI', 'Engineering', 'Go']
-heroImage: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/thumb-f2844a9f.webp'
-heroAlt: "Epic Handshake meme. Left arm labeled 'Your Code,' right arm labeled 'Your Data,' and the handshake labeled 'MCP Server.'"
+heroImage: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/thumb-2e15a962.webp'
+heroAlt: 'An engineer working at a drafting table'
 canonicalUrl: 'https://www.cloudquery.io/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server'
 tldr: 'We built a Go-based MCP server that bridges the gap between AI code assistants and our cloud infrastructure data. By exposing database schemas, queries, and insights directly to Claude, Cursor (or any client that supports MCP), our AI assistant now understands both our code and data. This eliminated context-switching, sped up workflows (from hours to minutes), and unlocked new ways to audit, analyze, and troubleshoot infrastructure.'
 updatedDate: 2026-11-12
@@ -29,7 +29,8 @@ marginNotes:
     at: 'the technical gotchas nobody talks about'
     text: 'The gotchas got their own post: tool descriptions, naming, context limits and how we fixed each one.'
     post: 'mcp-server-gotchas-we-learned-the-hard-way'
-mastheadImage: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/masthead-d1c021ee.webp'
+heroVideo: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/archival-db8b1559.mp4'
+mastheadImage: '/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/archival-db8b1559.webp'
 ---
 
 _Co-authored with Mariano Gappa at CloudQuery._

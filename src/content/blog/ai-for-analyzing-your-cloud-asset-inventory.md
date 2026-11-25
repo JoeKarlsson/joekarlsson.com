@@ -6,12 +6,12 @@ tags:
   - AI
 date: 2025-07-01
 description: CloudQuery's MCP server lets AI agents query your cloud asset inventory in plain English, with dashboards and reports built from AWS, GCP and Azure data.
-heroImage: '/images/blog/ai-for-analyzing-your-cloud-asset-inventory/thumb-aa2927c0.webp'
+heroImage: '/images/blog/ai-for-analyzing-your-cloud-asset-inventory/thumb-fa336e22.webp'
 categories: ['AI']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/ai-for-analyzing-your-cloud-asset-inventory
 contentNotice: "This post was originally published on CloudQuery's blog."
-heroAlt: "Caravaggio's painting of a fortune teller reading a young man's palm"
+heroAlt: 'A librarian helping a boy find a book'
 marginNotes:
   - type: 'quote'
     at: 'Model Context Protocol (MCP) server to fix this gap'
@@ -26,6 +26,8 @@ marginNotes:
     at: 'Since we released the MCP server'
     text: 'Four weeks later I wrote up what we got wrong building it: tool descriptions, naming and context limits, and the fix for each.'
     post: 'mcp-server-gotchas-we-learned-the-hard-way'
+heroVideo: '/images/blog/ai-for-analyzing-your-cloud-asset-inventory/archival-e750b316.mp4'
+mastheadImage: '/images/blog/ai-for-analyzing-your-cloud-asset-inventory/archival-e750b316.webp'
 ---
 
 > **Note:** **TL;DR:**

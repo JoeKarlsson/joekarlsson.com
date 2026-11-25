@@ -6,8 +6,8 @@ slug: 'data-warehouses-are-terrible-application-backends'
 description: "Data warehouses can't handle the freshness, latency and concurrency user-facing apps need. Why real-time data platforms make better application backends."
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/data-warehouses-are-terrible-application-backends/thumb-fc87ba02.webp'
-heroAlt: 'A long, plain old warehouse'
+heroImage: '/images/blog/data-warehouses-are-terrible-application-backends/thumb-422d008a.webp'
+heroAlt: 'Workers stacking crates in a huge warehouse'
 tldr: 'Data warehouses like Snowflake and BigQuery are great for BI dashboards but terrible for user-facing apps. Job pool queuing creates unpredictable latency, concurrency is expensive to scale, and cache layers sacrifice data freshness. Use a real-time data platform instead.'
 marginNotes:
   - type: 'quote'
@@ -27,7 +27,8 @@ marginNotes:
     at: 'For building user-facing applications, you should turn to'
     text: 'Tinybird is built on ClickHouse. I wrote up why ClickHouse is fast at this the same week.'
     post: 'why-clickhouse-should-be-your-next-database'
-mastheadImage: '/images/blog/data-warehouses-are-terrible-application-backends/masthead-bcc64d76.webp'
+heroVideo: '/images/blog/data-warehouses-are-terrible-application-backends/archival-e793b7fe.mp4'
+mastheadImage: '/images/blog/data-warehouses-are-terrible-application-backends/archival-e793b7fe.webp'
 ---
 
 Developers have more data to work with than ever. According to [an IDC report for Seagate](https://www.seagate.com/www-content/our-story/trends/files/Seagate-WP-DataAge2025-March-2017.pdf 'cite: Reinsel, Gantz and Rydning (IDC), November 2018'), worldwide data will grow from 33 zettabytes in 2018 to 175 zettabytes by 2025. More data should mean deeper insights and better user experiences, but it also leads to problems.

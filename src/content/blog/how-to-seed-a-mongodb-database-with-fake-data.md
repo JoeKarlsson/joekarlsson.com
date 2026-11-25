@@ -5,8 +5,8 @@ slug: 'how-to-seed-a-mongodb-database-with-fake-data'
 description: 'How to seed a MongoDB database with fake data using a Node.js seed script and faker.js, for demos, lookup values and proofs of concept.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
-heroImage: '/images/blog/how-to-seed-a-mongodb-database-with-fake-data/thumb-c3adc5f4.webp'
-heroAlt: 'Mannequins standing in a shop window'
+heroImage: '/images/blog/how-to-seed-a-mongodb-database-with-fake-data/thumb-e0cd05bf.webp'
+heroAlt: 'A horse plowing a field'
 updatedDate: 2026-11-09
 updateNote: 'The script now uses @faker-js/faker (the original faker package was deleted in 2022) and the current MongoDB driver, and it waits for the insert to finish before closing the connection.'
 tldr: 'A quick Node.js script using faker.js to generate thousands of fake documents and insert them into a MongoDB Atlas database. Copy it, tweak the document shape, and you have seed data in seconds.'
@@ -23,6 +23,8 @@ marginNotes:
     text: 'We’re a group of engineers who were using Faker in prod when the main package was deleted.'
     by: 'The Faker team, January 14, 2022'
     url: 'https://fakerjs.dev/about/announcements/2022-01-14.html'
+heroVideo: '/images/blog/how-to-seed-a-mongodb-database-with-fake-data/archival-26fdd91a.mp4'
+mastheadImage: '/images/blog/how-to-seed-a-mongodb-database-with-fake-data/archival-26fdd91a.webp'
 ---
 
 Have you ever worked on a MongoDB project and needed to seed your database with fake data in order to provide initial values for lookups, demo purposes, proof of concepts, etc.? I’m biased, but I’ve had to seed a MongoDB database countless times.

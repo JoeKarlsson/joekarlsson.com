@@ -8,10 +8,10 @@ description: 'AWS and Google Cloud partnered on multicloud networking, with conn
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Infrastructure', 'AWS', 'GCP']
-heroImage: '/images/blog/aws-google-cloud-networking-partnership/thumb-4fb25f68.webp'
+heroImage: '/images/blog/aws-google-cloud-networking-partnership/thumb-935fc953.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-google-cloud-networking-partnership'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'Telephone switchboard operators patching calls'
+heroAlt: 'Two trains side by side at a station platform'
 marginNotes:
   - type: 'update'
     at: 'During preview, you get 1 Gbps connections'
@@ -25,6 +25,8 @@ marginNotes:
     at: 'is a unified view of resources across cloud providers'
     text: 'My longer guide builds one for AWS and GCP, synced into PostgreSQL and queried with SQL.'
     post: 'complete-guide-building-multi-cloud-asset-inventory'
+heroVideo: '/images/blog/aws-google-cloud-networking-partnership/archival-828a2ef0.mp4'
+mastheadImage: '/images/blog/aws-google-cloud-networking-partnership/archival-828a2ef0.webp'
 ---
 
 In November 2025, AWS and Google Cloud [announced](https://cloud.google.com/blog/products/networking/aws-and-google-cloud-collaborate-on-multicloud-networking) something that would have seemed impossible a few years ago: a jointly-engineered multicloud networking partnership. AWS Interconnect - multicloud and Google Cross-Cloud Interconnect now let you provision private, high-speed connections between clouds in minutes instead of weeks.

@@ -8,10 +8,10 @@ description: 'CloudQuery performance benchmark - 581 GB/hour on consumer hardwar
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering']
-heroImage: '/images/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints/thumb-49a9bbdf.webp'
+heroImage: '/images/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints/thumb-5302d73f.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints'
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'Cars launching down a drag strip at dusk'
+heroAlt: 'Soapbox racers speeding down a track past a crowd'
 marginNotes:
   - type: 'see'
     at: 'Testing was conducted on Apple M4 Pro systems'
@@ -36,6 +36,8 @@ marginNotes:
     at: 'Performance optimization in production environments focuses primarily'
     text: 'When a real sync runs slower than these numbers, my troubleshooting guide covers the usual causes, starting with expensive tables.'
     post: 'cloudquery-sync-performance-guide'
+heroVideo: '/images/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints/archival-eb0a1c6b.mp4'
+mastheadImage: '/images/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints/archival-eb0a1c6b.webp'
 ---
 
 > **Executive Summary:**

@@ -5,8 +5,8 @@ date: 2026-02-05
 slug: 'building-a-real-time-digital-graffiti-wall'
 description: 'How I built a real-time digital graffiti wall - a shared drawing canvas that shows up live on an RGB LED grid, synced with MongoDB Realm.'
 categories: ['Homelab', 'Web Dev']
-heroImage: '/images/blog/building-a-real-time-digital-graffiti-wall/thumb-b8387025.webp'
-heroAlt: 'A 32 by 32 LED wall lighting up pixel by pixel as people draw a heart, a smiley face and the word HI'
+heroImage: '/images/blog/building-a-real-time-digital-graffiti-wall/thumb-c17344bb.webp'
+heroAlt: 'Children drawing on a wall in chalk'
 tldr: 'The Digital Graffiti Wall is an interactive art installation where audiences draw on a shared 32x32 pixel canvas in their browsers, and their artwork appears in real-time on a physical RGB LED grid. MongoDB Realm stored the pixels, with anonymous auth and atomic updates, and every client polled the grid every 5 seconds.'
 contentNotice: 'MongoDB ended support for the Realm Web SDK (later Atlas Device SDK) on September 30, 2025, so the sync code here shows how the wall worked, not code you can run today.'
 updatedDate: 2026-11-17
@@ -23,6 +23,8 @@ marginNotes:
     text: 'Change streams allow applications to access real-time data changes without the prior complexity and risk of manually tailing the oplog.'
     by: "MongoDB's manual"
     url: 'https://www.mongodb.com/docs/manual/changeStreams/'
+heroVideo: '/images/blog/building-a-real-time-digital-graffiti-wall/archival-06bccda4.mp4'
+mastheadImage: '/images/blog/building-a-real-time-digital-graffiti-wall/archival-06bccda4.webp'
 ---
 
 <!-- vale JoeKarlsson.BannedWords = NO -->

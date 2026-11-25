@@ -8,8 +8,8 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Governance']
-heroImage: '/images/blog/cloud-operations-playbook-part-09-continuous-compliance-sql/thumb-a009eef5.webp'
-heroAlt: 'The back of an equipment rack, every cable in place'
+heroImage: '/images/blog/cloud-operations-playbook-part-09-continuous-compliance-sql/thumb-4de7422e.webp'
+heroAlt: 'Officers checking paperwork against a stack of crates'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-09-continuous-compliance-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 updatedDate: 2026-11-16
@@ -32,6 +32,8 @@ marginNotes:
     at: 'DORA requires financial services firms'
     text: 'A year after DORA took effect, I looked at what worked for the ICT asset register it requires.'
     post: 'dora-ict-asset-register'
+heroVideo: '/images/blog/cloud-operations-playbook-part-09-continuous-compliance-sql/archival-12ba5353.mp4'
+mastheadImage: '/images/blog/cloud-operations-playbook-part-09-continuous-compliance-sql/archival-12ba5353.webp'
 ---
 
 > **Note:** Compliance frameworks like SOC 2 and CIS Benchmarks map directly to SQL queries against your cloud infrastructure data. Instead of scrambling before audits to prove compliance at one point in time, you can run those queries daily and generate evidence continuously. This post shows how to map specific compliance controls to build a continuous compliance loop, and shift from audit panic to always-on proof.

@@ -9,8 +9,8 @@ writtenFor: 'CloudQuery'
 tags: ['CloudQuery', 'Cloud Infrastructure', 'Case Study', 'AWS']
 canonicalUrl: 'https://www.cloudquery.io/blog/unicorne-cloudquery-case-study'
 tldr: 'Unicorne cut WAFR engagement time from 50 hours to 20 by automating data collection with CloudQuery, then used the same infrastructure to build Stable, a FinOps SaaS product - without building a data layer from scratch.'
-heroImage: '/images/blog/unicorne-cloudquery-case-study/thumb-d8a25d3c.webp'
-heroAlt: 'A painted carousel horse'
+heroImage: '/images/blog/unicorne-cloudquery-case-study/thumb-4df4f0f3.webp'
+heroAlt: 'Men in coats reviewing a large set of plans'
 marginNotes:
   - type: 'term'
     at: 'extracting Cost Usage Reports'
@@ -20,6 +20,8 @@ marginNotes:
     at: 'CIS Benchmark coverage'
     text: "security configuration baselines published by the Center for Internet Security. There's one written for AWS accounts."
     term: 'CIS Benchmarks'
+heroVideo: '/images/blog/unicorne-cloudquery-case-study/archival-0d8eee92.mp4'
+mastheadImage: '/images/blog/unicorne-cloudquery-case-study/archival-0d8eee92.webp'
 ---
 
 Unicorne, a Quebec-based AWS Advanced Tier Services Partner, used CloudQuery to change how it delivers Well-Architected Framework Reviews (WAFR) and built its FinOps SaaS product Stable on top of the same infrastructure. The company won "2025 AWS Canada Rising Star Consulting Partner of the Year" at AWS re:2025.

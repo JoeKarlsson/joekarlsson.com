@@ -6,8 +6,8 @@ slug: 'the-engineers-guide-to-enriching-streams-and-dimensions'
 description: 'How to enrich real-time Kafka streams with Snowflake dimension tables, with use cases for fraud detection, e-commerce personalization and log analytics.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/thumb-4993c4e3.webp'
-heroAlt: 'A painting of a rocky mountain stream'
+heroImage: '/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/thumb-5a88336b.webp'
+heroAlt: 'A river rushing over rapids'
 tldr: 'Joining real-time event streams from Kafka with dimension tables in a data warehouse unlocks powerful use cases like fraud detection, e-commerce personalization, and log analytics. I walk through three concrete examples with SQL showing how to enrich streaming data with historical context.'
 updatedDate: 2026-11-12
 corrections:
@@ -22,6 +22,8 @@ marginNotes:
     at: 'flag potentially fraudulent transactions'
     text: 'I built the whole fraud detection system, from stream to API, in a separate post.'
     post: 'how-to-build-a-real-time-fraud-detection-system'
+heroVideo: '/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/archival-b114bdb9.mp4'
+mastheadImage: '/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/archival-b114bdb9.webp'
 ---
 
 Data - it’s the new oil, the new gold, the new …  you get the idea. There’s a whole lot of it, and it’s valuable. But unless you’re into data hoarding, the point isn’t just to collect it; you want to use it. You want to massage it, query it, build with it, and glean insights from it in real-time, right? Well, brace yourself, because you’re in for a treat.

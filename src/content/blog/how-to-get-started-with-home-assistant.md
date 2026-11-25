@@ -8,8 +8,8 @@ slug: 'how-to-get-started-with-home-assistant'
 description: 'How I got started with Home Assistant, what changed for 2027 (the Marketplace, Apps, new triggers), what to install it on, and the first automations to try.'
 categories: ['Homelab']
 tags: ['Home Assistant', 'Smart Home']
-heroImage: '/images/blog/how-to-get-started-with-home-assistant/thumb-85b24e1e.webp'
-heroAlt: 'Two men marking up a player piano roll by hand'
+heroImage: '/images/blog/how-to-get-started-with-home-assistant/thumb-5ac9bd8b.webp'
+heroAlt: 'Pots and kettles on a modern kitchen stove'
 contentNotice: false
 tldr: 'I started with Alexa and Google Home but eventually landed on Home Assistant for the customization and local control. Here is how I got started and a bunch of automation ideas to try, from simple motion-triggered lights to full security setups. Updated for 2027: the Marketplace replaced HACS, add-ons are now called Apps, and the sentence-style triggers are the default.'
 marginNotes:
@@ -30,7 +30,8 @@ marginNotes:
     at: "Add Assist, Home Assistant's own voice assistant"
     text: 'I run Assist on a GPU in my rack, with faster-whisper, Piper and Ollama.'
     post: 'local-voice-ai-home-assistant-gpu'
-mastheadImage: '/images/blog/how-to-get-started-with-home-assistant/masthead-d3a07677.webp'
+heroVideo: '/images/blog/how-to-get-started-with-home-assistant/archival-6999d664.mp4'
+mastheadImage: '/images/blog/how-to-get-started-with-home-assistant/archival-6999d664.webp'
 ---
 
 I started on Alexa and ended up on [Home Assistant](https://www.home-assistant.io/). This is what I'd tell someone starting now.

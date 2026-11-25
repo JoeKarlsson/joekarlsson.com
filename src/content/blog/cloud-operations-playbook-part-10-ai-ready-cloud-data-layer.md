@@ -7,8 +7,8 @@ description: >-
 categories: ['AI']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'AI', 'Cloud Infrastructure']
-heroImage: '/images/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer/thumb-73ca9f7e.webp'
-heroAlt: 'Rows of wooden library card catalog drawers'
+heroImage: '/images/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer/thumb-1306405c.webp'
+heroAlt: 'Shelves of bound volumes in a library'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 marginNotes:
@@ -25,7 +25,8 @@ marginNotes:
     text: 'In 2026, GenAI surged to the third most widely used public cloud service, rising to 58% from 50%.'
     by: "Flexera's 2026 State of the Cloud Report, March 2026"
     url: 'https://www.flexera.com/blog/finops/cloud-computing-trends-flexera-2024-state-of-the-cloud-report/'
-mastheadImage: '/images/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer/masthead-841dbd94.webp'
+heroVideo: '/images/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer/archival-20dd7407.mp4'
+mastheadImage: '/images/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer/archival-20dd7407.webp'
 ---
 
 > **Note:** Every vendor is pitching AI for cloud operations: AI-powered security, AI cost optimization, AIOps. But AI is only as good as the data you feed it. Most organizations' cloud data is fragmented across a dozen tools, which means no AI system can see the full picture. The unified data layer we've been building throughout this series is good for governance, and it's also the foundation that makes AI-powered cloud operations work.

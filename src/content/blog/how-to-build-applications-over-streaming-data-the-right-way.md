@@ -6,8 +6,8 @@ slug: 'how-to-build-applications-over-streaming-data-the-right-way'
 description: 'In modern data ecosystems, streaming data flows like traffic on a busy highway. Each packet of data has a specific destination,...'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/how-to-build-applications-over-streaming-data-the-right-way/thumb-0fe2366c.webp'
-heroAlt: 'River rapids rushing over rocks'
+heroImage: '/images/blog/how-to-build-applications-over-streaming-data-the-right-way/thumb-3e4ca712.webp'
+heroAlt: 'Cars streaming along a divided highway'
 tldr: 'Building apps on streaming data the traditional way (Kafka + Flink + ClickHouse + custom backend) is painful to set up and maintain. A real-time data platform can collapse that stack into something way simpler, and I walk through a tutorial using Kafka and Tinybird.'
 updatedDate: 2026-11-12
 corrections:
@@ -35,6 +35,8 @@ marginNotes:
     at: 'connect to a Kafka topic with a simple command'
     text: 'This command is from what Tinybird now calls Tinybird Classic. Tinybird Forward, with a new CLI, became the default in March 2025, and Free and Developer workspaces had to move to it by September 15, 2026.'
     date: 'Jul 2026'
+heroVideo: '/images/blog/how-to-build-applications-over-streaming-data-the-right-way/archival-96532e80.mp4'
+mastheadImage: '/images/blog/how-to-build-applications-over-streaming-data-the-right-way/archival-96532e80.webp'
 ---
 
 In modern data ecosystems, streaming data flows like traffic on a busy highway. Each packet of data has a specific destination. Some are on a leisurely ride to a data lake for historical analysis, while others are zipping toward [real-time analytics](https://www.tinybird.co/blog-posts/real-time-analytics-a-definitive-guide?utm_source=the-new-stack&utm_medium=paid-publisher&utm_campaign=q3-2023-the-new-stack&utm_term=apps-over-streaming-data) engines, where they will be used to power automation, user-facing features and real-time operational intelligence. This post shows how to build applications over streaming data the right way.

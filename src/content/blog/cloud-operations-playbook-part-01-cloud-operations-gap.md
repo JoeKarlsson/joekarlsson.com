@@ -8,10 +8,10 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Platform Engineering', 'Security']
-heroImage: '/images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/thumb-e3f29c07.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/thumb-e81c490f.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-01-cloud-operations-gap
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroAlt: 'The Manhattan Bridge under construction, its middle span still missing'
+heroAlt: 'A long bridge under construction over a river'
 marginNotes:
   - type: 'update'
     at: 'Security findings are in Wiz, Prisma Cloud, or AWS Security Hub'
@@ -25,7 +25,8 @@ marginNotes:
     at: 'Configuration drift is silent and constant'
     text: "a resource's live settings no longer match its code or baseline, usually after a manual fix that never made it back into the code."
     term: 'Configuration drift'
-mastheadImage: '/images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/masthead-e176e937.webp'
+heroVideo: '/images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/archival-7b49fe63.mp4'
+mastheadImage: '/images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/archival-7b49fe63.webp'
 ---
 
 > **Note:** **TL;DR:** The "Cloud Operations Gap" is the distance between what leadership thinks they know about cloud infrastructure and what's actually running. 89% of organizations now operate across multiple clouds, yet only 8% qualify as highly cloud-mature. Fragmented tooling traps critical context in silos, making basic questions like "how many S3 buckets do we have?" surprisingly hard to answer. This post explains why the gap exists, why it's getting worse, and how to start measuring it.

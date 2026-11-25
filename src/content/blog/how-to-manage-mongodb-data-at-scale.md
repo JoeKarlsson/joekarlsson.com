@@ -5,8 +5,8 @@ slug: 'how-to-manage-mongodb-data-at-scale'
 description: 'How to manage MongoDB data at scale with Atlas Online Archive, moving aging data like IoT readings to cheaper storage while you can still query it.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
-heroImage: '/images/blog/how-to-manage-mongodb-data-at-scale/thumb-7d525130.webp'
-heroAlt: 'Workers on a frozen lake in 1914 feed blocks of ice onto a conveyor that carries them up into a huge icehouse for cold storage'
+heroImage: '/images/blog/how-to-manage-mongodb-data-at-scale/thumb-911cb0fd.webp'
+heroAlt: 'A huge metal bin turning'
 contentNotice: false
 tldr: 'I show how to use MongoDB Atlas Online Archive to automatically move old, infrequently accessed data to cheap cloud storage while still querying everything through a single endpoint. Saves money without losing access to your data.'
 marginNotes:
@@ -18,7 +18,8 @@ marginNotes:
     at: 'archive the older readings to an S3 bucket with Atlas Data Lake'
     text: 'In June 2022 MongoDB renamed the Atlas Data Lake query engine to Atlas Data Federation.'
     date: 'Jun 2022'
-mastheadImage: '/images/blog/how-to-manage-mongodb-data-at-scale/masthead-e85c286f.webp'
+heroVideo: '/images/blog/how-to-manage-mongodb-data-at-scale/archival-f6298744.mp4'
+mastheadImage: '/images/blog/how-to-manage-mongodb-data-at-scale/archival-f6298744.webp'
 ---
 
 This post grew out of my talk Save the World (and Money) with MongoDB Data Lakes, which I gave at Conf42 Cloud Native 2021. Data centers are expensive, and they're not very good for the environment.

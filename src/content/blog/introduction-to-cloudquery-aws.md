@@ -6,11 +6,11 @@ description: 'An introduction to CloudQuery for AWS. How it syncs your AWS resou
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['AWS', 'Cloud Infrastructure']
-heroImage: '/images/blog/introduction-to-cloudquery-aws/thumb-34100820.webp'
+heroImage: '/images/blog/introduction-to-cloudquery-aws/thumb-98912c0d.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/introduction-to-cloudquery-aws'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 tldr: 'CloudQuery transforms cloud visibility from fragmented dashboards and siloed tools into unified, queryable infrastructure intelligence. Connect AWS accounts with read-only IAM roles, sync data from 240+ services plus external SaaS platforms, normalize everything into consistent schemas, and query across your entire technology stack. No agents, no infrastructure changes - just full visibility that drives security, cost optimization, and operational excellence.'
-heroAlt: 'An ornate green front door'
+heroAlt: 'A survey crew raising a pole beside a dirt road'
 marginNotes:
   - type: 'see'
     at: 'as a cloud asset inventory for AWS'
@@ -20,6 +20,8 @@ marginNotes:
     at: 'FinOps teams discover cost optimization opportunities'
     text: 'the practice of making engineering, finance and product teams share responsibility for cloud spend.'
     term: 'FinOps'
+heroVideo: '/images/blog/introduction-to-cloudquery-aws/archival-604f8058.mp4'
+mastheadImage: '/images/blog/introduction-to-cloudquery-aws/archival-604f8058.webp'
 ---
 
 Quick questions: How many cloud resources in your AWS environment are publicly accessible? How many are currently unencrypted? Which ones cost the most?

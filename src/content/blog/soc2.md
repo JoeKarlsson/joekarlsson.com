@@ -9,8 +9,8 @@ writtenFor: 'CloudQuery'
 tags: ['Engineering']
 canonicalUrl: https://www.cloudquery.io/blog/soc2
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroImage: '/images/blog/soc2/thumb-b5b9090a.webp'
-heroAlt: 'A hand ticking boxes on a clipboard checklist'
+heroImage: '/images/blog/soc2/thumb-89d280bc.webp'
+heroAlt: 'Men reviewing records in a file room'
 updatedDate: 2026-11-16
 corrections:
   - date: 2026-11-16
@@ -29,6 +29,8 @@ marginNotes:
     at: Monitor and test the effectiveness of the controls
     text: 'Mapping SOC 2 and CIS Controls to SQL: how I turned SOC 2 controls into SQL checks that run every day.'
     post: cloud-operations-playbook-part-09-continuous-compliance-sql
+heroVideo: '/images/blog/soc2/archival-e5032ae1.mp4'
+mastheadImage: '/images/blog/soc2/archival-e5032ae1.webp'
 ---
 
 SOC2 (System and Organization Controls 2) compliance is a set of auditing standards that measures how well a company manages and protects its customers' data. The SOC2 compliance framework was developed by the AICPA to provide a standardized way to assess and report on a company's data security practices.

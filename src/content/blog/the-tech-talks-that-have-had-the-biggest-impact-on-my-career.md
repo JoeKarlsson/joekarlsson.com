@@ -6,8 +6,8 @@ slug: 'the-tech-talks-that-have-had-the-biggest-impact-on-my-career'
 description: 'The tech talks that changed how I think about programming, most of them language-agnostic, starting with The Myth of the Genius Programmer.'
 categories: ['Career']
 tags: ['tech talks']
-heroImage: '/images/blog/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/thumb-6819118c.webp'
-heroAlt: 'A speaker standing before a packed auditorium'
+heroImage: '/images/blog/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/thumb-9b681cf9.webp'
+heroAlt: 'A packed audience listening to a speaker'
 contentNotice: false
 tldr: 'My personal list of the tech talks that changed how I think about programming, teamwork, and career growth, with links to every one of them.'
 marginNotes:
@@ -25,6 +25,8 @@ marginNotes:
     text: "If you do not work on an important problem, it's unlikely you'll do important work."
     by: 'Richard Hamming, first given at Bellcore on March 7, 1986'
     url: 'https://www.cs.virginia.edu/~robins/YouAndYourResearch.html'
+heroVideo: '/images/blog/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/archival-b61a4278.mp4'
+mastheadImage: '/images/blog/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/archival-b61a4278.webp'
 ---
 
 It’s not that often that I go to a conference or watch a talk on YouTube that truly changes the way I think about programming or software development. Even though I’m someone who does frontend development for a living, most of the talks that were most illuminating for me are talks that are either language-agnostic or unrelated to my daily work. These are the tech talks that have had the biggest impact on my career and my life.

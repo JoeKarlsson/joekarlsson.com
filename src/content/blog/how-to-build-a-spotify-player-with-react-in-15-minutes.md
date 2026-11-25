@@ -5,8 +5,8 @@ date: 2019-04-02
 slug: 'how-to-build-a-spotify-player-with-react-in-15-minutes'
 description: "Build a Spotify player in React in 15 minutes. Register an app, authenticate a user, and show the track they're playing with the Spotify Web API."
 categories: ['Web Dev']
-heroImage: '/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/thumb-c05b4e3a.webp'
-heroAlt: 'My MagicMirror showing the song playing on Spotify'
+heroImage: '/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/thumb-2cf0693e.webp'
+heroAlt: 'Teenagers picking songs at a jukebox'
 contentNotice: 'I updated this tutorial in November 2026. Spotify removed the implicit grant flow it first used, so the login now uses Authorization Code with PKCE, and the setup uses Vite instead of Create React App.'
 tldr: 'Step-by-step tutorial for building a "now playing" Spotify web player in React using the Spotify API and the Authorization Code with PKCE flow.'
 howToSteps:
@@ -43,6 +43,8 @@ marginNotes:
     text: 'The authorization code flow with PKCE is the recommended authorization flow if you’re implementing authorization in a mobile app, single page web apps, or any other type of application where the client secret can’t be safely stored.'
     by: "Spotify's PKCE tutorial"
     url: 'https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow'
+heroVideo: '/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/archival-a2a08083.mp4'
+mastheadImage: '/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/archival-a2a08083.webp'
 ---
 
 ![The back of a framed mirror: a stripped monitor held in with duct tape, a Raspberry Pi in a white case at the top corner, and a wooden board screwed along one side.](/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/the-back-of-my-magicmirror-april.webp 'margin: The back of my MagicMirror, April 2019.')

@@ -6,8 +6,8 @@ slug: 'mongodb-aggregation-pipeline-queries-vs-sql-queries'
 description: 'MongoDB aggregation pipeline queries vs SQL queries, side by side. I came to MongoDB from SQL, so I map pipeline stages to SQL clauses you already know.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
-heroImage: '/images/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/thumb-c960efaa.webp'
-heroAlt: 'A plumbing diagram of pipes running between fixtures'
+heroImage: '/images/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/thumb-9b6d1e39.webp'
+heroAlt: 'Water rushing down a long pipe channel'
 contentNotice: false
 tldr: 'A side-by-side cheat sheet translating common SQL queries (GROUP BY, SUM, JOIN, etc.) into MongoDB Aggregation Pipeline stages. If you know SQL and are learning MongoDB, this is the Rosetta Stone you need.'
 updatedDate: 2026-11-12
@@ -28,7 +28,8 @@ marginNotes:
     at: I would personally include myself in this subset
     text: 'From SQL to NoSQL: my talk on how SQL terms map to MongoDB documents, and the habits SQL developers have to unlearn.'
     post: talks/from-sql-to-nosql-a-gentle-introduction-for-devs
-mastheadImage: '/images/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/masthead-290590bd.webp'
+heroVideo: '/images/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/archival-2349a749.mp4'
+mastheadImage: '/images/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/archival-2349a749.webp'
 ---
 
 Many devs coming to MongoDB are joining the community with a strong background in SQL. I would personally include myself in this subset of MongoDB devs. I think it’s useful to map terms and concepts you might be familiar with in SQL to help “[translate](https://docs.mongodb.com/manual/reference/sql-comparison/)” your work into MongoDB Query Language (MQL). More specifically, in this post, I will be walking through translating the MongoDB Aggregation Pipeline Queries vs SQL Queries.

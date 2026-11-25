@@ -17,8 +17,8 @@ tags:
     'git worktrees',
     'developer tools',
   ]
-heroImage: '/images/blog/my-development-setup-2026/hero.webp'
-heroAlt: 'A 3D illustration of an orange desk with two monitors, a laptop, a keyboard, a key light, and a microphone on a boom arm'
+heroImage: '/images/blog/my-development-setup-2026/thumb-8617a2ef.webp'
+heroAlt: 'Hands working at a polished workbench'
 tldr: 'My 2026 setup leans hard into running AI agents concurrently. I moved from iTerm2 and Oh My Zsh to Ghostty, plain zsh, and Starship, and cut shell startup by more than half. I talk to Claude Code through Handy, an open-source, local speech-to-text app. Several agents run at once in Ghostty splits and git worktrees, guided by version-controlled rules, hooks, and verification workflows that chezmoi deploys to every machine.'
 faq:
   - question: 'What is in your development setup in 2026?'
@@ -61,6 +61,8 @@ marginNotes:
     at: 'edits that passed validation and then vanished'
     text: 'The hook meant to enforce this never blocked anything. I found out while building Claude Code mods.'
     date: 'Oct 2026'
+heroVideo: '/images/blog/my-development-setup-2026/archival-29bed5cc.mp4'
+mastheadImage: '/images/blog/my-development-setup-2026/archival-29bed5cc.webp'
 ---
 
 The biggest change to my development setup in 2026 is **concurrency.** I rarely have only one agent working anymore. I usually have three to six Claude Code sessions going at once, on different tasks, until [my brain starts to melt from the context switching](/newsletter/context-switching-ai-coding-agents/). Agents make whatever environment you give them go faster, including the mess, so most of what's below exists to make running several at once fast and safe.

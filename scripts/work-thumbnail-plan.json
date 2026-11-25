@@ -1,12 +1,11 @@
 {
 	"best-mcp-servers-chatgpt-meta-muse": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/WAAF_telephone_operators_at_work_at_No._11_Group_HQ_at_Uxbridge_in_Middlesex%2C_1942._CH7705.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:WAAF_telephone_operators_at_work_at_No._11_Group_HQ_at_Uxbridge_in_Middlesex,_1942._CH7705.jpg"
+			"video": "/images/blog/best-mcp-servers-chatgpt-meta-muse/archival-9351383f.mp4",
+			"at": 1.49
 		},
 		"look": "flat",
-		"alt": "Switchboard operators plugging in calls",
-		"focus": 0.5,
+		"alt": "A hand plugging a cord into a telephone switchboard",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -15,12 +14,11 @@
 	},
 	"how-to-use-chatgpt-dots": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Telegraph_key%2C_unidentified_-_National_Electronics_Museum_-_DSC00223.JPG?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Telegraph_key,_unidentified_-_National_Electronics_Museum_-_DSC00223.JPG"
+			"video": "/images/blog/how-to-use-chatgpt-dots/archival-b1ada9dd.mp4",
+			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "A brass Morse code key",
-		"focus": 0.5,
+		"alt": "Operators on the phone at a control switchboard",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -29,12 +27,11 @@
 	},
 	"ai-gateway-data-access-layer": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/America%27s_Highways_1776%E2%80%931976_-_page_116b.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:America%27s_Highways_1776%E2%80%931976_-_page_116b.jpg"
+			"video": "/images/blog/ai-gateway-data-access-layer/archival-e15ac964.mp4",
+			"at": 0.9
 		},
 		"look": "taped",
-		"alt": "An old toll gate on a country road",
-		"focus": 0.5,
+		"alt": "Cars driving off a steel truss bridge past a checkpoint",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -44,12 +41,11 @@
 	},
 	"ai-gateway-for-developers": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Air_traffic_control_binoculars.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Air_traffic_control_binoculars.jpg"
+			"video": "/images/blog/ai-gateway-for-developers/archival-2996ce99.mp4",
+			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "A lookout with binoculars in a control tower",
-		"focus": 0.5,
+		"alt": "A crowd passing through a guarded gate",
 		"mark": {
 			"name": "tally",
 			"at": [87, 3, 10, 17],
@@ -58,12 +54,11 @@
 	},
 	"litellm-vs-cdata-connect-ai": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Dream_Theater%2C_Chehalis_01.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Dream_Theater,_Chehalis_01.jpg"
+			"video": "/images/blog/litellm-vs-cdata-connect-ai/archival-bc95d50c.mp4",
+			"at": 0.85
 		},
 		"look": "flat",
-		"alt": "A doorman outside an old theater",
-		"focus": 0.5,
+		"alt": "Cars passing through highway toll booths",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
@@ -72,11 +67,10 @@
 	},
 	"connect-business-apps-meta-muse": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Red_jigsaw_puzzle_pieces_2.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Red_jigsaw_puzzle_pieces_2.jpg"
+			"video": "/images/blog/connect-business-apps-meta-muse/archival-14c5254f.mp4",
+			"at": 1.15
 		},
-		"alt": "Jigsaw puzzle pieces scattered on a table",
-		"focus": 0.5,
+		"alt": "Workers pouring through a funnel to connect a line",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -86,12 +80,11 @@
 	},
 	"official-mcp-roadmap-explained": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Old_Bridgeport_Road_map.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Old_Bridgeport_Road_map.jpg"
+			"video": "/images/blog/official-mcp-roadmap-explained/archival-a1a2d39c.mp4",
+			"at": 0.94
 		},
 		"look": "flat",
-		"alt": "A close-up of an old road map",
-		"focus": 0.5,
+		"alt": "People leaning over a map spread on a table",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -114,12 +107,11 @@
 	},
 	"mcp-2026-07-28-release-explained": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Brazilian_battleship_Minas_Geraes_being_launched_1.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Brazilian_battleship_Minas_Geraes_being_launched_1.jpg"
+			"video": "/images/blog/mcp-2026-07-28-release-explained/archival-4601d300.mp4",
+			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "A ship sliding down the slipway at its launch",
-		"focus": 0.5,
+		"alt": "A new ship sliding down the slipway into the water",
 		"mark": {
 			"name": "tally",
 			"at": [87, 3, 10, 17],
@@ -128,13 +120,11 @@
 	},
 	"aws-identity-center-guide": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Bowery_Savings_Bank_Architecture_and_Building_1923_p_331_%28vault_door%29.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Bowery_Savings_Bank_Architecture_and_Building_1923_p_331_(vault_door).jpg"
+			"video": "/images/blog/aws-identity-center-guide/archival-08da9d17.mp4",
+			"at": 1.4
 		},
-		"alt": "A round bank vault door, the one way in",
-		"focus": 0.5,
+		"alt": "Guards at a doorway saluting a man as he passes",
 		"look": "taped",
-		"ring": [52, 22, 36, 46],
 		"tilt": 3,
 		"mark": {
 			"name": "burst",
@@ -144,11 +134,10 @@
 	},
 	"cwpp-vs-cnapp": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Paulino_Uzcudun_v._Tom_Heeney_boxing_match_%28Apr_1%2C_1927_at_Madison_Square_Garden%29.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Paulino_Uzcudun_v._Tom_Heeney_boxing_match_(Apr_1,_1927_at_Madison_Square_Garden).jpg"
+			"video": "/images/blog/cwpp-vs-cnapp/archival-d3730302.mp4",
+			"at": 0.86
 		},
-		"alt": "Two boxers mid-swing in an old newspaper photo",
-		"focus": 0.55,
+		"alt": "Soldiers manning a gun emplacement behind earthworks",
 		"look": "flat",
 		"mark": {
 			"name": "tally",
@@ -172,11 +161,10 @@
 	},
 	"what-is-cloud-governance": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Mission_Operations_Control_Room_during_Apollo_9.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Mission_Operations_Control_Room_during_Apollo_9.jpg"
+			"video": "/images/blog/what-is-cloud-governance/archival-da5d54ce.mp4",
+			"at": 0.86
 		},
-		"alt": "Apollo-era Mission Control, everyone watching the same screens",
-		"focus": 0.5,
+		"alt": "Police motorcycles escorting traffic past a building",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -186,11 +174,10 @@
 	},
 	"aws-pinpoint-deprecation-assessment": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Pruitt-Igoe-collapses.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Pruitt-Igoe-collapses.jpg"
+			"video": "/images/blog/aws-pinpoint-deprecation-assessment/archival-71fd7083.mp4",
+			"at": 1.15
 		},
-		"alt": "A tower block collapsing in a controlled demolition",
-		"focus": 0.5,
+		"alt": "The shell of an old building half torn down",
 		"look": "flat",
 		"mark": {
 			"name": "cross",
@@ -201,11 +188,10 @@
 	},
 	"cloudquery-sync-performance-guide": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Traffic_jam_as_workers_of_the_first_shift8d16182v.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Traffic_jam_as_workers_of_the_first_shift8d16182v.jpg"
+			"video": "/images/blog/cloudquery-sync-performance-guide/archival-c32143a8.mp4",
+			"at": 0.94
 		},
-		"alt": "A 1940s traffic jam at an intersection",
-		"focus": 0.6,
+		"alt": "A traffic jam of trucks packed bumper to bumper",
 		"look": "flat",
 		"mark": {
 			"name": "burst",
@@ -215,13 +201,11 @@
 	},
 	"gcp-gemini-api-key-audit": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Door_lock_and_key_MET_DP109203.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Door_lock_and_key_MET_DP109203.jpg"
+			"video": "/images/blog/gcp-gemini-api-key-audit/archival-4642b8e1.mp4",
+			"at": 1.11
 		},
-		"alt": "An old key left sitting in an ornate gilded lock",
-		"focus": 0.5,
+		"alt": "A hand turning a key in a lock on a chain-link gate",
 		"look": "taped",
-		"ring": [10, 62, 40, 34],
 		"tilt": -2,
 		"mark": {
 			"name": "rays",
@@ -231,11 +215,10 @@
 	},
 	"cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Floor_of_Toronto_Stock_Exchange_1956.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Floor_of_Toronto_Stock_Exchange_1956.jpg"
+			"video": "/images/blog/cloud-operations-playbook-part-12-cloud-operations-metrics-scorecard/archival-50c9fbe3.mp4",
+			"at": 0.94
 		},
-		"alt": "A crowded stock exchange trading floor",
-		"focus": 0.5,
+		"alt": "A man filling in a grid chart on a blackboard",
 		"look": "taped",
 		"tilt": 2,
 		"mark": {
@@ -246,11 +229,10 @@
 	},
 	"cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Highway_401_and_Highway_62_Interchange_in_Belleville%2C_ON.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Highway_401_and_Highway_62_Interchange_in_Belleville,_ON.jpg"
+			"video": "/images/blog/cloud-operations-playbook-part-11-90-day-cloud-operations-roadmap/archival-d06a6029.mp4",
+			"at": 0.9
 		},
-		"alt": "A cloverleaf highway interchange from above",
-		"focus": 0.5,
+		"alt": "Men in suits studying something on an office wall",
 		"look": "flat",
 		"mark": {
 			"name": "arrow",
@@ -261,13 +243,11 @@
 	},
 	"cloud-operations-playbook-part-10-ai-ready-cloud-data-layer": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Wooden_Card_Catalog_Furniture.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Wooden_Card_Catalog_Furniture.jpg"
+			"video": "/images/blog/cloud-operations-playbook-part-10-ai-ready-cloud-data-layer/archival-20dd7407.mp4",
+			"at": 1.07
 		},
-		"alt": "Rows of wooden library card catalog drawers",
-		"focus": 0.5,
+		"alt": "Shelves of bound volumes in a library",
 		"look": "taped",
-		"ring": [36, 32, 30, 36],
 		"tilt": -3,
 		"mark": {
 			"name": "rays",
@@ -277,11 +257,10 @@
 	},
 	"cloud-operations-playbook-part-09-continuous-compliance-sql": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/ELECTRONIC_WIRING_IN_EQUIPMENT_CABINETS_-_NARA_-_17446437.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:ELECTRONIC_WIRING_IN_EQUIPMENT_CABINETS_-_NARA_-_17446437.jpg"
+			"video": "/images/blog/cloud-operations-playbook-part-09-continuous-compliance-sql/archival-12ba5353.mp4",
+			"at": 1.03
 		},
-		"alt": "The back of an equipment rack, every cable in place",
-		"focus": 0.5,
+		"alt": "Officers checking paperwork against a stack of crates",
 		"look": "flat",
 		"mark": {
 			"name": "burst",
@@ -291,13 +270,11 @@
 	},
 	"cloud-operations-playbook-part-08-cloud-security-posture-sql": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Porta_caveau_banca_-_Bank_vault_door_-_1967.png?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Porta_caveau_banca_-_Bank_vault_door_-_1967.png"
+			"video": "/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/archival-4f18b283.mp4",
+			"at": 0.86
 		},
-		"alt": "A woman checking papers in an open bank vault",
-		"focus": 0.55,
+		"alt": "A night watchman in silhouette raising his lantern",
 		"look": "taped",
-		"ring": [58, 46, 30, 50],
 		"tilt": 3,
 		"mark": {
 			"name": "tally",
@@ -307,11 +284,10 @@
 	},
 	"cloud-operations-playbook-part-07-continuous-cloud-governance": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Lifeguard_tower_18_in_Venice_Beach_County_Park_%28July_2022%29.JPG?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Lifeguard_tower_18_in_Venice_Beach_County_Park_(July_2022).JPG"
+			"video": "/images/blog/cloud-operations-playbook-part-07-continuous-cloud-governance/archival-f4402a74.mp4",
+			"at": 0.86
 		},
-		"alt": "A lifeguard tower watching the beach",
-		"focus": 0.5,
+		"alt": "A tracking antenna mount standing watch",
 		"look": "flat",
 		"mark": {
 			"name": "check",
@@ -321,11 +297,10 @@
 	},
 	"cloud-operations-playbook-part-06-visibility-first-governance-model": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Auxiliary_Territorial_Service_in_the_United_Kingdom_1939_-_1945_H36315.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:The_Auxiliary_Territorial_Service_in_the_United_Kingdom_1939_-_1945_H36315.jpg"
+			"video": "/images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/archival-e86964fd.mp4",
+			"at": 0.86
 		},
-		"alt": "Soldiers aiming a searchlight into the night",
-		"focus": 0.5,
+		"alt": "A searchlight blazing in the dark beside its crew",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -335,11 +310,10 @@
 	},
 	"cloud-operations-playbook-part-05-cloud-waste-calculator": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Ford_assembly_line_-_1913.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Ford_assembly_line_-_1913.jpg"
+			"video": "/images/blog/cloud-operations-playbook-part-05-cloud-waste-calculator/archival-2c44eeee.mp4",
+			"at": 1.4
 		},
-		"alt": "Workers bent over a factory assembly line",
-		"focus": 0.5,
+		"alt": "A woman working through columns of figures",
 		"look": "taped",
 		"tilt": -2,
 		"mark": {
@@ -350,11 +324,10 @@
 	},
 	"cloud-operations-playbook-part-04-cost-of-compliance-scrambles": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/HFCA_1607_NPS_Employees%2C_Women_354.jpg_%284a5e3e3f0c9743e29603a60f8cd4d049%29.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:HFCA_1607_NPS_Employees,_Women_354.jpg_(4a5e3e3f0c9743e29603a60f8cd4d049).jpg"
+			"video": "/images/blog/cloud-operations-playbook-part-04-cost-of-compliance-scrambles/archival-d84a6e6b.mp4",
+			"at": 0.86
 		},
-		"alt": "Two women working through a desk of paperwork",
-		"focus": 0.5,
+		"alt": "Office workers hurrying past towering stacks of paper",
 		"look": "flat",
 		"mark": {
 			"name": "rays",
@@ -364,11 +337,10 @@
 	},
 	"cloud-operations-playbook-part-03-hidden-security-tax": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/GAMEWELL_Fire_Alarm_Call_Box.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:GAMEWELL_Fire_Alarm_Call_Box.jpg"
+			"video": "/images/blog/cloud-operations-playbook-part-03-hidden-security-tax/archival-ebaac2d4.mp4",
+			"at": 0.9
 		},
-		"alt": "A red fire alarm box on a brick wall",
-		"focus": 0.5,
+		"alt": "Firemen running a hose down a street beside their truck",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -378,11 +350,10 @@
 	},
 	"cloud-operations-playbook-part-01-cloud-operations-gap": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Manhattan_Bridge_Construction_1909.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Manhattan_Bridge_Construction_1909.jpg"
+			"video": "/images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/archival-7b49fe63.mp4",
+			"at": 0.86
 		},
-		"alt": "The Manhattan Bridge under construction, its middle span still missing",
-		"focus": 0.4,
+		"alt": "A long bridge under construction over a river",
 		"look": "taped",
 		"tilt": 2,
 		"mark": {
@@ -393,11 +364,10 @@
 	},
 	"cloud-operations-playbook-part-02-cloud-operations-maturity-model": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Fort_Rucker_Health_Fair_teaches_good_habits_to_children%2C_parents_%285618933975%29.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Fort_Rucker_Health_Fair_teaches_good_habits_to_children,_parents_(5618933975).jpg"
+			"video": "/images/blog/cloud-operations-playbook-part-02-cloud-operations-maturity-model/archival-3855f143.mp4",
+			"at": 1.15
 		},
-		"alt": "A man measuring a boy's height against a wall",
-		"focus": 0.5,
+		"alt": "A nurse and a young girl at a wall of growth charts",
 		"look": "flat",
 		"mark": {
 			"name": "burst",
@@ -407,11 +377,10 @@
 	},
 	"detect-public-databases-across-aws-azure-gcp": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Restaurant_Amigos_de_Acapulco_%28window%29%2C_Chico.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Restaurant_Amigos_de_Acapulco_(window),_Chico.jpg"
+			"video": "/images/blog/detect-public-databases-across-aws-azure-gcp/archival-099a6acb.mp4",
+			"at": 1.19
 		},
-		"alt": "A window left open in a bright yellow wall",
-		"focus": 0.5,
+		"alt": "A man pulling open a heavy door",
 		"look": "taped",
 		"mark": {
 			"name": "tally",
@@ -422,11 +391,10 @@
 	},
 	"python-39-lambda-deprecation": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Reticulated_python_MP1.JPG?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Reticulated_python_MP1.JPG"
+			"video": "/images/blog/python-39-lambda-deprecation/archival-946ba811.mp4",
+			"at": 0.86
 		},
-		"alt": "A python curled up asleep",
-		"focus": 0.5,
+		"alt": "An old building collapsing in a cloud of dust",
 		"look": "taped",
 		"tilt": -3,
 		"mark": {
@@ -437,11 +405,10 @@
 	},
 	"steampipe-vs-cloudquery": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/JA1271_crossing_the_Otaki_River.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:JA1271_crossing_the_Otaki_River.jpg"
+			"video": "/images/blog/steampipe-vs-cloudquery/archival-00c36212.mp4",
+			"at": 1.07
 		},
-		"alt": "A steam locomotive pulling red cars across a bridge",
-		"focus": 0.5,
+		"alt": "A steam locomotive pouring out smoke",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -451,11 +418,10 @@
 	},
 	"dora-ict-asset-register": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Metrical_book_of_Krasnaya_Sloboda_State_Archive_of_Sumy_Oblast_microfilm_0042.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Metrical_book_of_Krasnaya_Sloboda_State_Archive_of_Sumy_Oblast_microfilm_0042.jpg"
+			"video": "/images/blog/dora-ict-asset-register/archival-cdd91adc.mp4",
+			"at": 0.86
 		},
-		"alt": "An old handwritten register book",
-		"focus": 0.5,
+		"alt": "A clerk filing papers into a cabinet",
 		"look": "flat",
 		"mark": {
 			"name": "burst",
@@ -465,11 +431,10 @@
 	},
 	"codebreach-vulnerability-detection": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Padlock_Valimokatu_Oulu_20250307_02.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_02.jpg"
+			"video": "/images/blog/codebreach-vulnerability-detection/archival-b033dcc0.mp4",
+			"at": 0.86
 		},
-		"alt": "A rusty padlock hanging on a barn door",
-		"focus": 0.5,
+		"alt": "A hand working the dial and lock of a heavy mechanism",
 		"look": "taped",
 		"tilt": 3,
 		"mark": {
@@ -480,11 +445,10 @@
 	},
 	"aws-google-cloud-networking-partnership": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/JBER_telephone_operators_connect_calls%2C_people_120124-A-ZY202-001.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:JBER_telephone_operators_connect_calls,_people_120124-A-ZY202-001.jpg"
+			"video": "/images/blog/aws-google-cloud-networking-partnership/archival-828a2ef0.mp4",
+			"at": 0.86
 		},
-		"alt": "Telephone switchboard operators patching calls",
-		"focus": 0.5,
+		"alt": "Two trains side by side at a station platform",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -494,11 +458,10 @@
 	},
 	"audit-codeowners-against-okta-with-sql": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Odum_Village_Mailboxes_UNCCH_20140912.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Odum_Village_Mailboxes_UNCCH_20140912.jpg"
+			"video": "/images/blog/audit-codeowners-against-okta-with-sql/archival-13520ed1.mp4",
+			"at": 0.9
 		},
-		"alt": "A wall of apartment mailboxes",
-		"focus": 0.5,
+		"alt": "An empty office with a vacant desk by the windows",
 		"look": "flat",
 		"mark": {
 			"name": "rays",
@@ -508,11 +471,10 @@
 	},
 	"find-commits-by-departed-employees-with-sql": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Empty_apartment_in_Berlin_with_white_desk%2C_chair_and_ladder_01.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Empty_apartment_in_Berlin_with_white_desk,_chair_and_ladder_01.jpg"
+			"video": "/images/blog/find-commits-by-departed-employees-with-sql/archival-f3c39ee8.mp4",
+			"at": 1.03
 		},
-		"alt": "An empty desk and chair in a bare office",
-		"focus": 0.5,
+		"alt": "Workers at a factory time clock beside a rack of punch cards",
 		"look": "taped",
 		"tilt": -2,
 		"mark": {
@@ -523,11 +485,10 @@
 	},
 	"find-repos-missing-license-files-with-sql": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Floral_Swags_Framing_an_Empty_Oval_MET_DP812024.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Floral_Swags_Framing_an_Empty_Oval_MET_DP812024.jpg"
+			"video": "/images/blog/find-repos-missing-license-files-with-sql/archival-a015ed80.mp4",
+			"at": 1.19
 		},
-		"alt": "An ornate frame with nothing inside it",
-		"focus": 0.5,
+		"alt": "An official signing papers at a desk",
 		"look": "flat",
 		"mark": {
 			"name": "tally",
@@ -537,11 +498,10 @@
 	},
 	"introducing-the-git-source-plugin": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Magnifying_glass2.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Magnifying_glass2.jpg"
+			"video": "/images/blog/introducing-the-git-source-plugin/archival-5c06b00a.mp4",
+			"at": 0.85
 		},
-		"alt": "A magnifying glass over a postage stamp",
-		"focus": 0.5,
+		"alt": "Bottles moving down a production line past inspectors",
 		"look": "flat",
 		"mark": {
 			"name": "check",
@@ -551,11 +511,10 @@
 	},
 	"query-dockerfiles-for-eol-base-images-with-sql": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Shipping_containers_in_a_port_%28Unsplash%29.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Shipping_containers_in_a_port_(Unsplash).jpg"
+			"video": "/images/blog/query-dockerfiles-for-eol-base-images-with-sql/archival-94e154d3.mp4",
+			"at": 0.9
 		},
-		"alt": "Stacks of shipping containers at a port",
-		"focus": 0.5,
+		"alt": "A crane loading cargo at the docks",
 		"look": "taped",
 		"tilt": 2,
 		"mark": {
@@ -566,11 +525,10 @@
 	},
 	"track-react-dependencies-across-repos-with-sql": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/ELECTRONIC_WIRING_IN_EQUIPMENT_CABINETS_-_NARA_-_17446440.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:ELECTRONIC_WIRING_IN_EQUIPMENT_CABINETS_-_NARA_-_17446440.jpg"
+			"video": "/images/blog/track-react-dependencies-across-repos-with-sql/archival-2731c4c3.mp4",
+			"at": 0.94
 		},
-		"alt": "A tangle of cables on the back of an equipment rack",
-		"focus": 0.5,
+		"alt": "Tree branches spreading out from a fork",
 		"look": "taped",
 		"mark": {
 			"name": "burst",
@@ -581,11 +539,10 @@
 	},
 	"unicorne-cloudquery-case-study": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Henry_Tomaszewski%2C_Carousel_Horse%2C_c._1939%2C_NGA_28505.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Henry_Tomaszewski,_Carousel_Horse,_c._1939,_NGA_28505.jpg"
+			"video": "/images/blog/unicorne-cloudquery-case-study/archival-0d8eee92.mp4",
+			"at": 1.34
 		},
-		"alt": "A painted carousel horse",
-		"focus": 0.5,
+		"alt": "Men in coats reviewing a large set of plans",
 		"look": "flat",
 		"mark": {
 			"name": "rays",
@@ -595,11 +552,10 @@
 	},
 	"aws-lambda-nodejs-20-eol": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Old_car_in_junkyard.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Old_car_in_junkyard.jpg"
+			"video": "/images/blog/aws-lambda-nodejs-20-eol/archival-134ebe37.mp4",
+			"at": 1.07
 		},
-		"alt": "A rusted old car left in the woods",
-		"focus": 0.5,
+		"alt": "Wrecked vehicles piled in a scrapyard",
 		"look": "taped",
 		"tilt": -3,
 		"mark": {
@@ -610,11 +566,10 @@
 	},
 	"cloud-cmdb-best-practices-platform-engineers": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/UIUC_Library_Main_Stacks.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:UIUC_Library_Main_Stacks.jpg"
+			"video": "/images/blog/cloud-cmdb-best-practices-platform-engineers/archival-bcba3ce1.mp4",
+			"at": 0.86
 		},
-		"alt": "A long aisle of library stacks",
-		"focus": 0.5,
+		"alt": "A woman sorting cards at a wall of card-file drawers",
 		"look": "flat",
 		"mark": {
 			"name": "rays",
@@ -624,11 +579,10 @@
 	},
 	"death-of-agent-based-discovery": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Dinosaur_Egg_Museum%2C_Xixia_Dinosaur_Park-_Psittacosaurus_Skeleton_01.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Dinosaur_Egg_Museum,_Xixia_Dinosaur_Park-_Psittacosaurus_Skeleton_01.jpg"
+			"video": "/images/blog/death-of-agent-based-discovery/archival-3c752d71.mp4",
+			"at": 0.9
 		},
-		"alt": "A dinosaur fossil in a museum case",
-		"focus": 0.5,
+		"alt": "A woman answering her front door to a caller",
 		"look": "flat",
 		"mark": {
 			"name": "burst",
@@ -652,11 +606,10 @@
 	},
 	"cloud-cmdb-vs-traditional-cmdb-2026": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Emilie_Haspels_index_card_file_WP_20170131_037.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Emilie_Haspels_index_card_file_WP_20170131_037.jpg"
+			"video": "/images/blog/cloud-cmdb-vs-traditional-cmdb-2026/archival-9cc62617.mp4",
+			"at": 0.86
 		},
-		"alt": "A wooden box of handwritten index cards",
-		"focus": 0.5,
+		"alt": "A woman loading cards into a tabulating machine",
 		"look": "flat",
 		"mark": {
 			"name": "check",
@@ -666,11 +619,10 @@
 	},
 	"five-tips-maximum-value-cloud-asset-inventory": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Old_tools_on_personal_workshop_wall_3.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Old_tools_on_personal_workshop_wall_3.jpg"
+			"video": "/images/blog/five-tips-maximum-value-cloud-asset-inventory/archival-41fa1fef.mp4",
+			"at": 0.86
 		},
-		"alt": "Pliers hanging on a workshop tool wall",
-		"focus": 0.5,
+		"alt": "A shopper and clerk at well-stocked grocery shelves",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -680,11 +632,10 @@
 	},
 	"how-to-design-cloud-asset-inventory-aws": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Architects_at_their_drafting_tables_at_the_Treasury_Department_Building_-_NARA_-_532294.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Architects_at_their_drafting_tables_at_the_Treasury_Department_Building_-_NARA_-_532294.jpg"
+			"video": "/images/blog/how-to-design-cloud-asset-inventory-aws/archival-f96232a7.mp4",
+			"at": 0.85
 		},
-		"alt": "An old drafting room full of desks",
-		"focus": 0.5,
+		"alt": "Hands tracing over plans spread on a table",
 		"look": "taped",
 		"tilt": -2,
 		"mark": {
@@ -695,11 +646,10 @@
 	},
 	"introduction-to-cloudquery-aws": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Front_Door%2C_South_Side%2C_Pittsburgh%2C_2019-10-12%2C_06.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Front_Door,_South_Side,_Pittsburgh,_2019-10-12,_06.jpg"
+			"video": "/images/blog/introduction-to-cloudquery-aws/archival-604f8058.mp4",
+			"at": 0.99
 		},
-		"alt": "An ornate green front door",
-		"focus": 0.5,
+		"alt": "A survey crew raising a pole beside a dirt road",
 		"look": "flat",
 		"mark": {
 			"name": "rays",
@@ -709,11 +659,10 @@
 	},
 	"what-is-cloud-asset-inventory": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Enumeration%2C_Alaska_Too_Saw_the_Census_Enumerator_Arrive_in_His_Dog_Sled.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Enumeration,_Alaska_Too_Saw_the_Census_Enumerator_Arrive_in_His_Dog_Sled.jpg"
+			"video": "/images/blog/what-is-cloud-asset-inventory/archival-9d3bee67.mp4",
+			"at": 0.99
 		},
-		"alt": "A census taker traveling by dog sled",
-		"focus": 0.5,
+		"alt": "A huge flock of sheep grazing below a mountain",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -723,11 +672,10 @@
 	},
 	"building-secure-ai-powered-cloud-security-data-pipeline-risk-detection": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Radar_operators_monitor_radar_scopes_at_a_Falcon_radar_site._The_operators_are_from_the_604th_Direct_Air_Support_Squadron%2C_involved_in_Exercise_Team_Spirit_%2781_-_DPLA_-_bcc9e8051a482187eabfd1002898f8b4.jpeg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Radar_operators_monitor_radar_scopes_at_a_Falcon_radar_site._The_operators_are_from_the_604th_Direct_Air_Support_Squadron,_involved_in_Exercise_Team_Spirit_%2781_-_DPLA_-_bcc9e8051a482187eabfd1002898f8b4.jpeg"
+			"video": "/images/blog/building-secure-ai-powered-cloud-security-data-pipeline-risk-detection/archival-48314e8e.mp4",
+			"at": 0.94
 		},
-		"alt": "A radar operator watching his scope",
-		"focus": 0.5,
+		"alt": "A radar antenna turning against the sky",
 		"look": "taped",
 		"tilt": 2,
 		"mark": {
@@ -738,11 +686,10 @@
 	},
 	"cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Friday_Night_Drag_Racing_at_Cayuga.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Friday_Night_Drag_Racing_at_Cayuga.jpg"
+			"video": "/images/blog/cloudquery-performance-benchmark-analysis-581gb-throughput-reality-cloud-api-constraints/archival-eb0a1c6b.mp4",
+			"at": 0.86
 		},
-		"alt": "Cars launching down a drag strip at dusk",
-		"focus": 0.5,
+		"alt": "Soapbox racers speeding down a track past a crowd",
 		"look": "flat",
 		"mark": {
 			"name": "burst",
@@ -752,11 +699,10 @@
 	},
 	"introducing-cloudquery-insights": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Observatory_Telescope_at_the_University_of_Saskatchewan.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Observatory_Telescope_at_the_University_of_Saskatchewan.jpg"
+			"video": "/images/blog/introducing-cloudquery-insights/archival-7215e322.mp4",
+			"at": 0.86
 		},
-		"alt": "An observatory telescope pointed at the sky",
-		"focus": 0.5,
+		"alt": "Two men studying notes pinned to a board",
 		"look": "flat",
 		"mark": {
 			"name": "tally",
@@ -766,12 +712,11 @@
 	},
 	"production-ai-data-pipeline-architectures": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/OIL_PIPELINE_ON_THE_BEACH_-_NARA_-_546402.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:OIL_PIPELINE_ON_THE_BEACH_-_NARA_-_546402.jpg"
+			"video": "/images/blog/production-ai-data-pipeline-architectures/archival-e456acf0.mp4",
+			"at": 0.9
 		},
 		"look": "taped",
-		"alt": "A pipeline running past a danger sign",
-		"focus": 0.5,
+		"alt": "A worker at the valves of big industrial pipes",
 		"mark": {
 			"name": "tally",
 			"at": [87, 3, 10, 17],
@@ -781,12 +726,11 @@
 	},
 	"etl-benchmark-1-million-rows-2-seconds-macbook": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Whit-Monday_Meeting_of_the_B.A.R.C.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Whit-Monday_Meeting_of_the_B.A.R.C.jpg"
+			"video": "/images/blog/etl-benchmark-1-million-rows-2-seconds-macbook/archival-ad258324.mp4",
+			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "Early race cars tearing around a banked track",
-		"focus": 0.5,
+		"alt": "A production line machine moving goods at speed",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
@@ -795,11 +739,10 @@
 	},
 	"what-is-an-aws-cloud-asset-inventory": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Forklifts_load_crates_onto_trailer_trucks_at_the_warehouse_operated_by_the_1st_Logistical_Command_at_Cam_Ranh_Bay.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Forklifts_load_crates_onto_trailer_trucks_at_the_warehouse_operated_by_the_1st_Logistical_Command_at_Cam_Ranh_Bay.jpg"
+			"video": "/images/blog/what-is-an-aws-cloud-asset-inventory/archival-b866826d.mp4",
+			"at": 0.86
 		},
-		"alt": "A forklift loading crates onto a truck",
-		"focus": 0.5,
+		"alt": "A clerk's machine typing entries onto an inventory form",
 		"look": "taped",
 		"tilt": -3,
 		"mark": {
@@ -810,11 +753,11 @@
 	},
 	"how-we-made-our-ides-data-aware-with-a-go-mcp-server": {
 		"picture": {
-			"image": "/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/image6.webp"
+			"video": "/images/blog/how-we-made-our-ides-data-aware-with-a-go-mcp-server/archival-db8b1559.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "Epic Handshake meme. Left arm labeled 'Your Code,' right arm labeled 'Your Data,' and the handshake labeled 'MCP Server.'",
-		"whole": true,
+		"alt": "An engineer working at a drafting table",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -836,12 +779,11 @@
 	},
 	"ai-for-analyzing-your-cloud-asset-inventory": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Fortune_Teller_by_Michelangelo_Merisi_da_Caravaggio_%281571-1610%29%2C_oil_on_canvas%2C_1595.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:The_Fortune_Teller_by_Michelangelo_Merisi_da_Caravaggio_(1571-1610),_oil_on_canvas,_1595.jpg"
+			"video": "/images/blog/ai-for-analyzing-your-cloud-asset-inventory/archival-e750b316.mp4",
+			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "Caravaggio's painting of a fortune teller reading a young man's palm",
-		"focus": 0.4,
+		"alt": "A librarian helping a boy find a book",
 		"mark": {
 			"name": "tally",
 			"at": [87, 3, 10, 17],
@@ -850,11 +792,10 @@
 	},
 	"how-to-make-your-internal-developer-portal-actually-useful": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Train_departure_board_in_the_concourse_of_Brighton_railway_station_2026-05-16.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Train_departure_board_in_the_concourse_of_Brighton_railway_station_2026-05-16.jpg"
+			"video": "/images/blog/how-to-make-your-internal-developer-portal-actually-useful/archival-af299d90.mp4",
+			"at": 0.86
 		},
-		"alt": "A busy railway station hall with its departure board",
-		"focus": 0.5,
+		"alt": "A woman at a registration desk helping a visitor",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -864,11 +805,10 @@
 	},
 	"cloud-centers-of-excellence-part-1-building-effective-cloud-governance": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Angels%27_orchestra%2C_Ehrenbach%2C_conductor_right.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Angels%27_orchestra,_Ehrenbach,_conductor_right.jpg"
+			"video": "/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/archival-b2bdd124.mp4",
+			"at": 0.9
 		},
-		"alt": "A tiny carved wooden orchestra on a plate",
-		"focus": 0.5,
+		"alt": "A committee in session around a long table",
 		"look": "flat",
 		"mark": {
 			"name": "burst",
@@ -878,11 +818,10 @@
 	},
 	"cloud-centers-of-excellence-part-2-governance-security-compliance": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Walk_%26_Roll_to_School_Day_-_54841803483.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Walk_%26_Roll_to_School_Day_-_54841803483.jpg"
+			"video": "/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/archival-d6a62a05.mp4",
+			"at": 0.86
 		},
-		"alt": "A crossing guard holding up a stop sign",
-		"focus": 0.5,
+		"alt": "An inspector checking a man's papers at a works gate",
 		"look": "taped",
 		"tilt": 3,
 		"mark": {
@@ -893,11 +832,11 @@
 	},
 	"cloud-centers-of-excellence-part-3-finops-cost-management-case-studies": {
 		"picture": {
-			"image": "/images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/image3.webp"
+			"video": "/images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/archival-1fa6158d.mp4",
+			"at": 0.99
 		},
 		"look": "taped",
-		"alt": "Meme image of a determined-looking toddler clenching his fist in success (known as \"Success Kid\"). The background is a blue and purple radial burst. Text at the top reads: \"PUBLISHED QUARTERLY COE METRICS\". Text at the bottom reads: \"MANAGEMENT LOVED IT.\"",
-		"whole": true,
+		"alt": "Fingers stacking coins into a pile",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
@@ -906,11 +845,11 @@
 	},
 	"cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls": {
 		"picture": {
-			"image": "/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/image1.webp"
+			"video": "/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/archival-5ed8a38d.mp4",
+			"at": 1.21
 		},
 		"look": "taped",
-		"alt": "Meme image of a man tapping his temple and smiling knowingly (known as the \"Roll Safe\" meme). The overlaid text reads: \"CAN'T ARGUE THE COE ISN'T VALUABLE... IF YOU MEASURE EVERYTHING.\"",
-		"whole": true,
+		"alt": "A worker laying rows of bricks out to dry",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -919,11 +858,10 @@
 	},
 	"cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Greetings_from_Puerto_Rico%2C_U.S.A._-_World%27s_Fair_01.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Greetings_from_Puerto_Rico,_U.S.A._-_World%27s_Fair_01.jpg"
+			"video": "/images/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/archival-77b6e790.mp4",
+			"at": 0.86
 		},
-		"alt": "A souvenir postcard from the 1939 World's Fair",
-		"focus": 0.5,
+		"alt": "Rolling hills stretching to the horizon",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -972,11 +910,10 @@
 	},
 	"integrate-abuseipdb-with-cloudquery": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Police_Department_%E2%80%93_Car_Lineup_%287537515370%29.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Police_Department_%E2%80%93_Car_Lineup_(7537515370).jpg"
+			"video": "/images/blog/integrate-abuseipdb-with-cloudquery/archival-22bcf17b.mp4",
+			"at": 1.07
 		},
-		"alt": "A row of old police cars outside the station",
-		"focus": 0.5,
+		"alt": "A police sketch artist drawing a suspect from a witness's description",
 		"look": "flat",
 		"mark": {
 			"name": "rays",
@@ -986,11 +923,11 @@
 	},
 	"kubernetes-asset-tracking-at-scale": {
 		"picture": {
-			"image": "/images/blog/kubernetes-asset-tracking-at-scale/image1.webp"
+			"video": "/images/blog/kubernetes-asset-tracking-at-scale/archival-dc9c1cbe.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "Ralph Wiggum from The Simpsons saying, \"I'm in Danger,\" with the caption, \"When you realize your Kubernetes asset tracking is a mess\".",
-		"whole": true,
+		"alt": "Dockworkers loading cargo from trucks onto a ship",
 		"mark": {
 			"name": "asterisk",
 			"at": [86, 4, 10, 18],
@@ -999,11 +936,10 @@
 	},
 	"query-ipinfo-with-cloudquery": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/N._Y._Post_Office_-_assorting_%28i.e.%2C_sorting%29_mail_LCCN2014697413.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:N._Y._Post_Office_-_assorting_(i.e.,_sorting)_mail_LCCN2014697413.jpg"
+			"video": "/images/blog/query-ipinfo-with-cloudquery/archival-63279c72.mp4",
+			"at": 0.9
 		},
-		"alt": "Postal clerks sorting a cart of mail",
-		"focus": 0.5,
+		"alt": "A man pointing at a large wall map",
 		"look": "flat",
 		"mark": {
 			"name": "burst",
@@ -1013,11 +949,10 @@
 	},
 	"visualize-govern-cloud-stack-cloudquery-reports": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Vintage_car_dashboard_%28Unsplash%29.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Vintage_car_dashboard_(Unsplash).jpg"
+			"video": "/images/blog/visualize-govern-cloud-stack-cloudquery-reports/archival-b573b94e.mp4",
+			"at": 0.86
 		},
-		"alt": "The dashboard of an old car",
-		"focus": 0.5,
+		"alt": "A man at a control panel full of gauges",
 		"look": "flat",
 		"mark": {
 			"name": "tally",
@@ -1053,11 +988,11 @@
 	},
 	"best-way-keep-cloud-inventory-up-to-date": {
 		"picture": {
-			"image": "/images/blog/best-way-keep-cloud-inventory-up-to-date/image3.webp"
+			"video": "/images/blog/best-way-keep-cloud-inventory-up-to-date/archival-bc16d86f.mp4",
+			"at": 1.11
 		},
 		"look": "taped",
-		"alt": "Meme of the I Have No Idea What I Am Doing Dog, with text that says, \"Parsing AWS, GCP, and Azure logs like... Yep, looks good to me!\"",
-		"whole": true,
+		"alt": "A man updating figures on a chalkboard",
 		"mark": {
 			"name": "tally",
 			"at": [87, 3, 10, 17],
@@ -1066,11 +1001,10 @@
 	},
 	"building-cloud-asset-inventory-with-aws": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Workers_drive_Forklifts_laden_with_USAID_goods_inside_a_large_warehouse_-_20110826-FS-LSC-0222_-_Flickr_-_USDAgov.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Workers_drive_Forklifts_laden_with_USAID_goods_inside_a_large_warehouse_-_20110826-FS-LSC-0222_-_Flickr_-_USDAgov.jpg"
+			"video": "/images/blog/building-cloud-asset-inventory-with-aws/archival-232e8e13.mp4",
+			"at": 0.94
 		},
-		"alt": "A forklift moving pallets in a warehouse",
-		"focus": 0.5,
+		"alt": "Neatly stacked crates of stock in a storeroom",
 		"look": "flat",
 		"mark": {
 			"name": "check",
@@ -1080,11 +1014,11 @@
 	},
 	"query-cloud-like-database-stop-wasting-time": {
 		"picture": {
-			"image": "/images/blog/query-cloud-like-database-stop-wasting-time/image1.webp"
+			"video": "/images/blog/query-cloud-like-database-stop-wasting-time/archival-7690adc6.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "A meme featuring scenes of Pablo Escobar, from the TV show Narcos, looking bored and contemplative. It reads, \"Me, waiting for Excel to respond after applying a filter on a million-row dataset.\"",
-		"whole": true,
+		"alt": "A woman pulling open file drawers",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
@@ -1093,11 +1027,11 @@
 	},
 	"eliminate-blind-spots-cloud-environment": {
 		"picture": {
-			"image": "/images/blog/eliminate-blind-spots-cloud-environment/image2.webp"
+			"video": "/images/blog/eliminate-blind-spots-cloud-environment/archival-6f931146.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "A meme showing cowboys on horseback attempting to herd a massive clowder of cats. The text reads, \"HOW IT FEELS TO KEEP YOUR CLOUD ASSETS UNDER CONTROL.\"",
-		"whole": true,
+		"alt": "Light flaring across a dark night sky",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -1106,11 +1040,10 @@
 	},
 	"ai-without-exposing-your-data": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/UK_envelopes_with_cut-outs.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:UK_envelopes_with_cut-outs.jpg"
+			"video": "/images/blog/ai-without-exposing-your-data/archival-6a50c7f2.mp4",
+			"at": 1.49
 		},
-		"alt": "A letter closed with a red wax seal",
-		"focus": 0.5,
+		"alt": "A hand turning the handle of a vault door",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -1120,11 +1053,10 @@
 	},
 	"how-to-build-a-cloud-asset-inventory-for-azure": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Grocery_Store_display--02.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Grocery_Store_display--02.jpg"
+			"video": "/images/blog/how-to-build-a-cloud-asset-inventory-for-azure/archival-2dac2fbe.mp4",
+			"at": 0.86
 		},
-		"alt": "A 1950s grocery store aisle",
-		"focus": 0.5,
+		"alt": "A gloved hand sweeping across a heap of coins",
 		"look": "taped",
 		"tilt": -2,
 		"mark": {
@@ -1135,12 +1067,11 @@
 	},
 	"getting-started-with-cloud-asset-inventory": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/General_store_interior_Alabama_Walker_Evans.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:General_store_interior_Alabama_Walker_Evans.jpg"
+			"video": "/images/blog/getting-started-with-cloud-asset-inventory/archival-b8866428.mp4",
+			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "An old general store with every shelf stocked",
-		"focus": 0.5,
+		"alt": "A man writing entries in a ledger",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -1149,11 +1080,10 @@
 	},
 	"soc2": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Sharpening_the_Focus-_Buckley_Implements_Standards_and_Readiness_Reviews_%288947405%29.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Sharpening_the_Focus-_Buckley_Implements_Standards_and_Readiness_Reviews_(8947405).jpg"
+			"video": "/images/blog/soc2/archival-e5032ae1.mp4",
+			"at": 0.88
 		},
-		"alt": "A hand ticking boxes on a clipboard checklist",
-		"focus": 0.5,
+		"alt": "Men reviewing records in a file room",
 		"look": "flat",
 		"mark": {
 			"name": "rays",
@@ -1163,11 +1093,10 @@
 	},
 	"tempus-multi-cloud-asset-inventory": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Beehive_in_mountain.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Beehive_in_mountain.jpg"
+			"video": "/images/blog/tempus-multi-cloud-asset-inventory/archival-1791e2fa.mp4",
+			"at": 0.99
 		},
-		"alt": "A trailer stacked with blue beehives",
-		"focus": 0.5,
+		"alt": "Controllers watching the airfield from a control tower",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -1177,11 +1106,10 @@
 	},
 	"complete-guide-building-multi-cloud-asset-inventory": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Potomac_Yard_-_aerial_1980s.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Potomac_Yard_-_aerial_1980s.jpg"
+			"video": "/images/blog/complete-guide-building-multi-cloud-asset-inventory/archival-bbf48ba2.mp4",
+			"at": 0.86
 		},
-		"alt": "A rail yard full of tracks seen from above",
-		"focus": 0.5,
+		"alt": "An aerial view of ships docked around a harbor",
 		"look": "taped",
 		"tilt": 2,
 		"mark": {
@@ -1192,11 +1120,10 @@
 	},
 	"how-to-build-a-multi-cloud-asset-inventory": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Map_with_colorful_pins_%28Unsplash%29.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Map_with_colorful_pins_(Unsplash).jpg"
+			"video": "/images/blog/how-to-build-a-multi-cloud-asset-inventory/archival-6d6581af.mp4",
+			"at": 0.86
 		},
-		"alt": "Colored pins stuck in a map",
-		"focus": 0.5,
+		"alt": "A huge balloon rising over a hillside",
 		"look": "taped",
 		"tilt": 2,
 		"mark": {
@@ -1207,11 +1134,10 @@
 	},
 	"building-cloud-asset-inventory-with-gcp": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepidoptera_collections_drawers_and_specimen_preparation_area_in_the_Florida_Museum_of_Natural_History%2C_Gainesville%2C_Florida%2C_US%2C_13_March_2024_%2801%29.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Lepidoptera_collections_drawers_and_specimen_preparation_area_in_the_Florida_Museum_of_Natural_History,_Gainesville,_Florida,_US,_13_March_2024_(01).jpg"
+			"video": "/images/blog/building-cloud-asset-inventory-with-gcp/archival-99b0d485.mp4",
+			"at": 0.86
 		},
-		"alt": "Museum storage cabinets full of specimen drawers",
-		"focus": 0.5,
+		"alt": "A worker unloading stacked crates from a truck",
 		"look": "flat",
 		"mark": {
 			"name": "tally",
@@ -1221,12 +1147,11 @@
 	},
 	"data-warehouses-are-terrible-application-backends": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Warehouse_in_Hokkaido.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Warehouse_in_Hokkaido.jpg"
+			"video": "/images/blog/data-warehouses-are-terrible-application-backends/archival-e793b7fe.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "A long, plain old warehouse",
-		"focus": 0.5,
+		"alt": "Workers stacking crates in a huge warehouse",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -1236,12 +1161,11 @@
 	},
 	"how-to-build-applications-over-streaming-data-the-right-way": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%9F%D0%BE%D1%80%D0%BE%D0%B3_%D0%9A%D0%BE%D1%80%D0%BD%D0%B5%D0%B9_%D0%BD%D0%B0_%D1%80%D0%B5%D0%BA%D0%B5_%D0%9F%D0%BE%D0%BD%D1%8C%D0%B3%D0%BE%D0%BC%D0%B0.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%BE%D1%80%D0%BE%D0%B3_%D0%9A%D0%BE%D1%80%D0%BD%D0%B5%D0%B9_%D0%BD%D0%B0_%D1%80%D0%B5%D0%BA%D0%B5_%D0%9F%D0%BE%D0%BD%D1%8C%D0%B3%D0%BE%D0%BC%D0%B0.jpg"
+			"video": "/images/blog/how-to-build-applications-over-streaming-data-the-right-way/archival-96532e80.mp4",
+			"at": 0.85
 		},
 		"look": "flat",
-		"alt": "River rapids rushing over rocks",
-		"focus": 0.5,
+		"alt": "Cars streaming along a divided highway",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -1250,12 +1174,11 @@
 	},
 	"the-engineers-guide-to-enriching-streams-and-dimensions": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Mountain_Stream_MET_DT1544.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Mountain_Stream_MET_DT1544.jpg"
+			"video": "/images/blog/the-engineers-guide-to-enriching-streams-and-dimensions/archival-b114bdb9.mp4",
+			"at": 0.83
 		},
 		"look": "flat",
-		"alt": "A painting of a rocky mountain stream",
-		"focus": 0.5,
+		"alt": "A river rushing over rapids",
 		"mark": {
 			"name": "tally",
 			"at": [87, 3, 10, 17],
@@ -1277,11 +1200,11 @@
 	},
 	"a-step-by-step-guide-to-build-a-real-time-dashboard": {
 		"picture": {
-			"image": "/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/image-16.webp"
+			"video": "/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/archival-ade11fbb.mp4",
+			"at": 0.99
 		},
 		"look": "taped",
-		"alt": "Hide the Pain Harold meme about looking at a real-time dashboard instead of a spreadsheet",
-		"whole": true,
+		"alt": "Operators in a control room watching a wall of dials",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
@@ -1303,12 +1226,11 @@
 	},
 	"modern-data-management-with-real-time-change-data-capture": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Seismometer_%28vertical%29%2C_made_for_the_World_Wide_Standard_Seismological_Network_by_Spregnether_Instrument_Company%2C_St._Louis%2C_MO%2C_1961-1962_-_National_Museum_of_American_History_-_DSC00023.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Seismometer_(vertical),_made_for_the_World_Wide_Standard_Seismological_Network_by_Spregnether_Instrument_Company,_St._Louis,_MO,_1961-1962_-_National_Museum_of_American_History_-_DSC00023.jpg"
+			"video": "/images/blog/modern-data-management-with-real-time-change-data-capture/archival-5fba59f3.mp4",
+			"at": 0.85
 		},
 		"look": "flat",
-		"alt": "An old seismograph",
-		"focus": 0.5,
+		"alt": "A teletype machine printing as messages arrive",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -1317,11 +1239,10 @@
 	},
 	"real-time-databases-what-developers-need-to-know": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Wall_Street_bubbles_-_Always_the_same_-_Keppler_1901.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Wall_Street_bubbles_-_Always_the_same_-_Keppler_1901.jpg"
+			"video": "/images/blog/real-time-databases-what-developers-need-to-know/archival-9ee65c9d.mp4",
+			"at": 0.92
 		},
-		"alt": "An old Puck cartoon of a Wall Street bull blowing bubbles",
-		"focus": 0.5,
+		"alt": "A roll of newsprint racing through a printing press",
 		"look": "taped",
 		"tilt": 2,
 		"mark": {
@@ -1358,12 +1279,11 @@
 	},
 	"event-sourcing-with-kafka-a-practical-example": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Chimpanzee_seated_at_typewriter.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Chimpanzee_seated_at_typewriter.jpg"
+			"video": "/images/blog/event-sourcing-with-kafka-a-practical-example/archival-3dca74b2.mp4",
+			"at": 0.9
 		},
 		"look": "flat",
-		"alt": "A chimpanzee typing at an old typewriter",
-		"focus": 0.4,
+		"alt": "Paper feeding through a printing machine",
 		"mark": {
 			"name": "rays",
 			"at": [87, 3, 10, 17],
@@ -1372,11 +1292,11 @@
 	},
 	"how-to-query-google-sheets-with-sql-in-real-time": {
 		"picture": {
-			"image": "/images/blog/how-to-query-google-sheets-with-sql-in-real-time/D-WZo_Nh7oEuIoOwgCG_itm9UH7-5nJkQtmd2J1K8JkuDTXGCbPq58XQlutZ.webp"
+			"video": "/images/blog/how-to-query-google-sheets-with-sql-in-real-time/archival-300c353a.mp4",
+			"at": 0.94
 		},
 		"look": "taped",
-		"alt": "Mac Force Quit dialog meme about Google Sheets loading too many rows",
-		"whole": true,
+		"alt": "A hand working an adding machine",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
@@ -1385,11 +1305,10 @@
 	},
 	"how-to-use-singlestore-as-a-key-value-store": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Safe_deposit_box_in_Japan_2025-01-15.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Safe_deposit_box_in_Japan_2025-01-15.jpg"
+			"video": "/images/blog/how-to-use-singlestore-as-a-key-value-store/archival-5a18d1ed.mp4",
+			"at": 1.44
 		},
-		"alt": "An open safe deposit box",
-		"focus": 0.5,
+		"alt": "A clerk pulling a file from a wall of labeled drawers",
 		"look": "flat",
 		"mark": {
 			"name": "burst",
@@ -1413,12 +1332,11 @@
 	},
 	"how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb": {
 		"picture": {
-			"video": "/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/psychic-woman.mp4",
-			"at": 0.18
+			"video": "/images/blog/how-to-add-machine-learning-predictions-with-singlestore-and-mindsdb/archival-9d6b365c.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "Mind-reading prediction GIF",
-		"whole": true,
+		"alt": "A man pointing at diagrams on a blackboard",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -1427,11 +1345,10 @@
 	},
 	"how-to-get-started-with-singlestore": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Runners_forming_at_the_start_line_of_the_1904_Olympics_Marathon_Race.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Runners_forming_at_the_start_line_of_the_1904_Olympics_Marathon_Race.jpg"
+			"video": "/images/blog/how-to-get-started-with-singlestore/archival-02504f0a.mp4",
+			"at": 0.86
 		},
-		"alt": "Runners at the start of an old race",
-		"focus": 0.5,
+		"alt": "A mechanic working on a big engine",
 		"look": "flat",
 		"mark": {
 			"name": "rays",
@@ -1441,12 +1358,11 @@
 	},
 	"how-to-use-singlestore-and-node-js": {
 		"picture": {
-			"video": "/images/blog/how-to-use-singlestore-and-node-js/moira-schitts-creek-im-busy.mp4",
-			"at": 0.55
+			"video": "/images/blog/how-to-use-singlestore-and-node-js/archival-4fe4bce4.mp4",
+			"at": 1.15
 		},
 		"look": "taped",
-		"alt": "Waiting impatiently GIF while cluster deploys",
-		"whole": true,
+		"alt": "A machine tool cutting a metal part",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
@@ -1455,26 +1371,24 @@
 	},
 	"how-to-manage-mongodb-data-at-scale": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/NSRW_Ice_Harvesting_-_ice_elevator.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:NSRW_Ice_Harvesting_-_ice_elevator.jpg"
+			"video": "/images/blog/how-to-manage-mongodb-data-at-scale/archival-f6298744.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "Workers on a frozen lake in 1914 feed blocks of ice onto a conveyor that carries them up into a huge icehouse for cold storage",
-		"focus": 0.5,
+		"alt": "A huge metal bin turning",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"how-to-query-from-multiple-mongodb-databases": {
 		"picture": {
-			"image": "/images/blog/how-to-query-from-multiple-mongodb-databases/atlas_data_lake_d52555700e-1-1024x682.webp"
+			"video": "/images/blog/how-to-query-from-multiple-mongodb-databases/archival-a7fbc2ac.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "MongoDB Atlas Data Lake design graphic showing a lake with JSON brackets for waves and a sample data overlay.",
-		"whole": true,
+		"alt": "Fishermen hauling a net through the water",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
@@ -1483,11 +1397,10 @@
 	},
 	"how-to-seed-a-mongodb-database-with-fake-data": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Mannequins_on_Display_in_Short_North_-_DPLA_-_0ffeb7f2e8075b85474b4df6564b0242.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Mannequins_on_Display_in_Short_North_-_DPLA_-_0ffeb7f2e8075b85474b4df6564b0242.jpg"
+			"video": "/images/blog/how-to-seed-a-mongodb-database-with-fake-data/archival-26fdd91a.mp4",
+			"at": 1.49
 		},
-		"alt": "Mannequins standing in a shop window",
-		"focus": 0.5,
+		"alt": "A horse plowing a field",
 		"look": "flat",
 		"mark": {
 			"name": "asterisk",
@@ -1497,11 +1410,10 @@
 	},
 	"how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Collection_of_piano_rolls_in_their_original_boxes_in_Collections_of_the_Deutsches_Museum.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Collection_of_piano_rolls_in_their_original_boxes_in_Collections_of_the_Deutsches_Museum.jpg"
+			"video": "/images/blog/how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive/archival-c2a0ed54.mp4",
+			"at": 0.9
 		},
-		"alt": "Shelves of labeled archive boxes",
-		"focus": 0.5,
+		"alt": "Rows of filed records in an archive",
 		"look": "flat",
 		"mark": {
 			"name": "rays",
@@ -1511,33 +1423,23 @@
 	},
 	"how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Machine_enigma_du_collectioneur_Edmond_Kern.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Machine_enigma_du_collectioneur_Edmond_Kern.jpg"
+			"video": "/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/archival-f911f59b.mp4",
+			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "A man studying an Enigma cipher machine",
-		"focus": 0.5,
+		"alt": "A machine punching coded paper tape",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
 			"color": "pink"
-		},
-		"doodles": [
-			{
-				"name": "spark",
-				"at": [45, 62.2, 16.7, 20.7],
-				"color": "chalk"
-			}
-		],
-		"motion": "boil"
+		}
 	},
 	"mongodb-aggregation-pipeline-queries-vs-sql-queries": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/PSM_V33_D307_Proper_arrangement_of_waste_water_pipes_19th_century.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:PSM_V33_D307_Proper_arrangement_of_waste_water_pipes_19th_century.jpg"
+			"video": "/images/blog/mongodb-aggregation-pipeline-queries-vs-sql-queries/archival-2349a749.mp4",
+			"at": 0.86
 		},
-		"alt": "A plumbing diagram of pipes running between fixtures",
-		"focus": 0.5,
+		"alt": "Water rushing down a long pipe channel",
 		"look": "taped",
 		"tilt": -2,
 		"mark": {
@@ -1548,12 +1450,11 @@
 	},
 	"linked-lists-and-mongodb-a-gentle-introduction": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Very_rusty_chain_in_rain_4.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Very_rusty_chain_in_rain_4.jpg"
+			"video": "/images/blog/linked-lists-and-mongodb-a-gentle-introduction/archival-68e21cc7.mp4",
+			"at": 1.03
 		},
 		"look": "flat",
-		"alt": "Heavy rusted chain links",
-		"focus": 0.5,
+		"alt": "Sparks flying in a forge",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
@@ -1562,18 +1463,16 @@
 	},
 	"how-to-automate-continuous-data-copying-from-mongodb-to-s3": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Ice_cutting_crew_at_work_-_NARA_-_285733.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Ice_cutting_crew_at_work_-_NARA_-_285733.jpg"
+			"video": "/images/blog/how-to-automate-continuous-data-copying-from-mongodb-to-s3/archival-50a63a1a.mp4",
+			"at": 0.99
 		},
 		"look": "taped",
-		"alt": "An ice-cutting crew with a horse working along a channel cut in a frozen lake",
-		"focus": 0.6,
+		"alt": "Boxes moving along a conveyor line",
 		"mark": {
 			"name": "asterisk",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"mongodb-schema-design-best-practices": {
 		"picture": {
@@ -1592,19 +1491,16 @@
 	},
 	"how-to-get-started-with-home-assistant": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Percy_Grainger_with_another_man_at_player_piano_LCCN2002709431.tif?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Percy_Grainger_with_another_man_at_player_piano_LCCN2002709431.tif"
+			"video": "/images/blog/how-to-get-started-with-home-assistant/archival-6999d664.mp4",
+			"at": 1.32
 		},
 		"look": "taped",
-		"alt": "Two men marking up a player piano roll by hand",
-		"focus": 0.3,
+		"alt": "Pots and kettles on a modern kitchen stove",
 		"mark": {
 			"name": "star",
 			"at": [87, 3, 10, 17],
 			"color": "pink"
-		},
-		"motion": "boil",
-		"inset": 4
+		}
 	},
 	"how-to-pass-coding-interview": {
 		"picture": {
@@ -1635,33 +1531,29 @@
 	},
 	"how-to-pixelate-images-with-html5-and-javascript": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Gladiators_from_the_Zliten_mosaic_4.JPG?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Gladiators_from_the_Zliten_mosaic_4.JPG"
+			"video": "/images/blog/how-to-pixelate-images-with-html5-and-javascript/archival-cb329e1b.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "A Roman floor mosaic of gladiators built from tiny tiles",
-		"focus": 0.5,
+		"alt": "A flickering television screen up close",
 		"mark": {
 			"name": "star",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"bechdel-test-script-parser-works": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Home_theater_projection_and_film_editing_room,_Los_Angeles_California_-_house_in_probate_2026_04.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Home_theater_projection_and_film_editing_room,_Los_Angeles_California_-_house_in_probate_2026_04.jpg"
+			"video": "/images/blog/bechdel-test-script-parser-works/archival-c459b202.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "A film editing room with reels, splicers and shelves of cans",
-		"focus": 0.5,
+		"alt": "Women talking and playing cards around a table",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
 			"color": "pink"
-		},
-		"motion": "boil"
+		}
 	},
 	"i-ran-my-first-hackathon-and-so-can-you": {
 		"picture": {
@@ -1678,33 +1570,29 @@
 	},
 	"my-top-resources-for-learning-how-to-code": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Two_women_operating_ENIAC_(full_resolution).jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Two_women_operating_ENIAC_(full_resolution).jpg"
+			"video": "/images/blog/my-top-resources-for-learning-how-to-code/archival-65789f03.mp4",
+			"at": 1.05
 		},
 		"look": "taped",
-		"alt": "Programmers setting up the ENIAC at its control panels",
-		"focus": 0.5,
+		"alt": "Children reading and writing at classroom desks",
 		"mark": {
 			"name": "burst",
 			"at": [87, 3, 10, 17],
 			"color": "pink"
-		},
-		"motion": "boil"
+		}
 	},
 	"an-engineers-guide-to-knowing-if-you-are-done-with-a-project": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/US_Navy_090910-N-6651N-051_Chief_Warrant_Officer_Kevin_Holland_goes_over_the_pre-flight_checklist_while_sitting_in_the_SH-60B_Sea_Hawk_helicopter.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:US_Navy_090910-N-6651N-051_Chief_Warrant_Officer_Kevin_Holland_goes_over_the_pre-flight_checklist_while_sitting_in_the_SH-60B_Sea_Hawk_helicopter.jpg"
+			"video": "/images/blog/an-engineers-guide-to-knowing-if-you-are-done-with-a-project/archival-274d00fa.mp4",
+			"at": 0.88
 		},
 		"look": "flat",
-		"alt": "A pilot in the cockpit working through a checklist before takeoff",
-		"focus": 0.5,
+		"alt": "A worker putting the finishing touches on a window frame",
 		"mark": {
 			"name": "star",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"building-high-performance-react-applications": {
 		"picture": {
@@ -1723,32 +1611,29 @@
 	},
 	"the-tech-talks-that-have-had-the-biggest-impact-on-my-career": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Booker_T._Washington_at_Carnegie_Hall_in_1906.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Booker_T._Washington_at_Carnegie_Hall_in_1906.jpg"
+			"video": "/images/blog/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/archival-b61a4278.mp4",
+			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "A speaker standing before a packed auditorium",
-		"focus": 0.5,
+		"alt": "A packed audience listening to a speaker",
 		"mark": {
 			"name": "bolt",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"how-to-build-a-spotify-player-with-react-in-15-minutes": {
 		"picture": {
-			"image": "/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/magic-mirror-spotify.webp"
+			"video": "/images/blog/how-to-build-a-spotify-player-with-react-in-15-minutes/archival-a2a08083.mp4",
+			"at": 0.89
 		},
 		"look": "flat",
-		"alt": "My MagicMirror showing the song playing on Spotify",
-		"focus": 0.5,
+		"alt": "Teenagers picking songs at a jukebox",
 		"mark": {
 			"name": "bolt",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"my-top-50-records": {
 		"picture": {
@@ -1811,62 +1696,55 @@
 	},
 	"how-to-use-the-mongodb-visual-studio-code-plugin": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Workbench_and_tools_(Unsplash).jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Workbench_and_tools_(Unsplash).jpg"
+			"video": "/images/blog/how-to-use-the-mongodb-visual-studio-code-plugin/archival-abbcb20e.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "A workbench with a compass, leather and tools laid out within reach",
-		"focus": 0.5,
+		"alt": "A machinist working at a lathe",
 		"mark": {
 			"name": "bolt",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"four-questions-you-need-to-ask-when-choosing-a-database": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Wooden_Card_Catalog_Furniture.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Wooden_Card_Catalog_Furniture.jpg"
+			"video": "/images/blog/four-questions-you-need-to-ask-when-choosing-a-database/archival-420675af.mp4",
+			"at": 1.07
 		},
 		"look": "taped",
-		"alt": "Rows of wooden library card catalog drawers",
-		"focus": 0.5,
+		"alt": "Shoppers sorting through cans on a counter",
 		"mark": {
 			"name": "flower",
 			"at": [87, 3, 10, 17],
 			"color": "pink"
-		},
-		"motion": "boil"
+		}
 	},
 	"databases-and-devops-how-to-usesinglestore-with-github-actions": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Ford_assembly_line_-_1913.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Ford_assembly_line_-_1913.jpg"
+			"video": "/images/blog/databases-and-devops-how-to-usesinglestore-with-github-actions/archival-e89840a0.mp4",
+			"at": 1.07
 		},
 		"look": "taped",
-		"alt": "Workers along an early Ford assembly line",
-		"focus": 0.5,
+		"alt": "An overhead conveyor carrying parts through a factory",
 		"mark": {
 			"name": "star",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack": {
 		"picture": {
-			"image": "/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/IMG_2833-Medium.webp"
+			"video": "/images/blog/from-digital-design-to-real-world-object-creating-a-3d-printed-postcard-planter-rack/archival-5ff9a2f7.mp4",
+			"at": 1.07
 		},
 		"look": "flat",
-		"alt": "The postcard rack planter, its pockets full of 3D-printed pots and plants",
-		"focus": 0.5,
+		"alt": "Rows of potted plants on greenhouse tables",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"how-to-get-started-building-a-homelab-server": {
 		"picture": {
@@ -1883,47 +1761,42 @@
 	},
 	"adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/N._Y._Post_Office_-_assorting_(i.e.,_sorting)_mail_LCCN2014697413.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:N._Y._Post_Office_-_assorting_(i.e.,_sorting)_mail_LCCN2014697413.jpg"
+			"video": "/images/blog/adding-custom-domain-names-on-your-internal-network-using-nginx-proxy-manager-and-pi-hole/archival-ef428064.mp4",
+			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "Postal workers sorting a cart of mail sacks",
-		"focus": 0.5,
+		"alt": "A man hanging a shop's name sign over a doorway",
 		"mark": {
 			"name": "star",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private": {
 		"picture": {
-			"image": "/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/IMG_2349-1024x576.webp"
+			"video": "/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/archival-d86efc35.mp4",
+			"at": 0.9
 		},
 		"look": "taped",
-		"alt": "A hand holding the Home Assistant Voice Preview Edition",
-		"focus": 0.5,
+		"alt": "A family together in their living room",
 		"mark": {
 			"name": "spiral",
 			"at": [87, 3, 10, 17],
 			"color": "pink"
-		},
-		"motion": "boil"
+		}
 	},
 	"building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Case_department_at_SvD.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Case_department_at_SvD.jpg"
+			"video": "/images/blog/building-a-claude-code-blog-skill-what-i-learned-systematizing-content-creation/archival-81462c0e.mp4",
+			"at": 1.24
 		},
 		"look": "flat",
-		"alt": "Compositors setting type at wooden type cases",
-		"focus": 0.5,
+		"alt": "A craftsman at his bench checking a row of finished spoons",
 		"mark": {
 			"name": "bolt",
 			"at": [87, 3, 10, 17],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"self-hosted-music-still-sucks-in-2026": {
 		"picture": {
@@ -1940,27 +1813,17 @@
 	},
 	"homelab-gift-ideas-2026": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Boy_looking_at_Xmas_toys_in_shop_window_LCCN2014684428.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Boy_looking_at_Xmas_toys_in_shop_window_LCCN2014684428.jpg"
+			"video": "/images/blog/homelab-gift-ideas-2026/archival-591a69c9.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "A boy in a cap and overcoat studying the Christmas toys in a shop window, a drum and a toy wagon behind the glass, chalk hearts rising from him",
-		"focus": 0.45,
+		"alt": "Children crowding around to open a box of presents",
 		"mark": {
 			"name": "bow",
 			"at": [85, 1, 13, 46],
 			"width": 5,
 			"color": "chalk"
-		},
-		"doodles": [
-			{
-				"name": "hearts",
-				"at": [43.5, 4, 24, 41],
-				"color": "chalk"
-			}
-		],
-		"motion": "boil",
-		"inset": 4
+		}
 	},
 	"recording-setup-tour": {
 		"picture": {
@@ -1992,48 +1855,42 @@
 	},
 	"claude-md-open-knowledge-format": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Type_cases%2C_Hamilton_-_American_Bookbinders_Museum_-_San_Francisco%2C_CA_-_DSC08192.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Type_cases,_Hamilton_-_American_Bookbinders_Museum_-_San_Francisco,_CA_-_DSC08192.jpg"
+			"video": "/images/blog/claude-md-open-knowledge-format/archival-8872da3c.mp4",
+			"at": 1.44
 		},
 		"look": "taped",
-		"alt": "A printer's type cabinet with one shallow drawer pulled out, its small compartments full of metal type",
-		"focus": 0.6,
+		"alt": "A woman working at a long row of filing cabinets",
 		"mark": {
 			"name": "spiral",
 			"at": [86, 4, 11, 19],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"why-i-use-doom-to-visualize-mcp-data": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Plotting_Table.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Plotting_Table.jpg"
+			"video": "/images/blog/why-i-use-doom-to-visualize-mcp-data/archival-ab109b8e.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "A wartime operations room with a large map plotting table covered in markers, and the tote board on the wall behind it",
-		"focus": 0.55,
+		"alt": "Two men walking into a dark room",
 		"mark": {
 			"name": "check",
 			"at": [86, 4, 11, 19],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"claude-code-mods-first-impressions": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Ford_Model-T_with_snowmobile_attachment.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Ford_Model-T_with_snowmobile_attachment.jpg"
+			"video": "/images/blog/claude-code-mods-first-impressions/archival-a1c3f302.mp4",
+			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "A 1921 Ford Model T converted to run on snow, its front wheels swapped for skis and its rear wheels fitted with tracks",
-		"focus": 0.55,
+		"alt": "A woman mechanic working on an engine",
 		"mark": {
 			"name": "burst",
 			"at": [86, 4, 11, 19],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"hackers-and-painters-ai-agents": {
 		"picture": {
@@ -2063,33 +1920,29 @@
 	},
 	"how-i-use-ai-2026": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Erie_Canal,_Lockport_New_York,_c.1855.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Erie_Canal,_Lockport_New_York,_c.1855.jpg"
+			"video": "/images/blog/how-i-use-ai-2026/archival-eebdda3c.mp4",
+			"at": 0.86
 		},
 		"look": "taped",
-		"alt": "A c. 1855 lithograph of the Erie Canal locks at Lockport, men leaning on a lock gate with the flight of locks stepping down behind them",
-		"focus": 0.55,
+		"alt": "Toy robots stacking boxes",
 		"mark": {
 			"name": "tally",
 			"at": [84, 3, 13, 22],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"the-artists-way-review": {
 		"picture": {
-			"photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Figure_in_Hammock,_Florida_MET_DT232129.jpg?width=1600",
-			"credit": "https://commons.wikimedia.org/wiki/File:Figure_in_Hammock,_Florida_MET_DT232129.jpg"
+			"video": "/images/blog/the-artists-way-review/archival-3c33e556.mp4",
+			"at": 0.86
 		},
 		"look": "flat",
-		"alt": "John Singer Sargent watercolor of a man lying in a hammock under palm trees by the water in Florida, 1917",
-		"focus": 0.5,
+		"alt": "An artist painting a canvas",
 		"mark": {
 			"name": "flower",
 			"at": [82, 4, 14, 18],
 			"color": "chalk"
-		},
-		"motion": "boil"
+		}
 	},
 	"script-vs-screen": {
 		"picture": {
@@ -2157,5 +2010,104 @@
 			"at": 1.42
 		},
 		"alt": "A woman speaking into a WNYC radio microphone"
+	},
+	"breaking-up-with-claude-code": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/breaking-up-with-claude-code/archival-d971b9c3.mp4",
+			"at": 0.94
+		},
+		"alt": "Someone loading suitcases into a car trunk"
+	},
+	"complete-guide-node-client-server-communication": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/complete-guide-node-client-server-communication/archival-bba8f49e.mp4",
+			"at": 0.86
+		},
+		"alt": "A soldier placing an order at a cafeteria counter"
+	},
+	"reversing-seo-traffic-decline-ai-overviews": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/reversing-seo-traffic-decline-ai-overviews/archival-fe027357.mp4",
+			"at": 0.96
+		},
+		"alt": "A deserted street under streetlamps"
+	},
+	"doom-mcp-server": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/doom-mcp-server/archival-aad0ab67.mp4",
+			"at": 0.86
+		},
+		"alt": "Children on an amusement ride while a man works the controls"
+	},
+	"building-a-gpu-accelerated-subtitle-generator": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/building-a-gpu-accelerated-subtitle-generator/archival-a602881f.mp4",
+			"at": 1.07
+		},
+		"alt": "An interpreter in headphones translating in a booth"
+	},
+	"homelab-two-years-later": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/homelab-two-years-later/archival-ea921b10.mp4",
+			"at": 0.86
+		},
+		"alt": "A man working on electronics in an equipment rack"
+	},
+	"my-development-setup-2026": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/my-development-setup-2026/archival-29bed5cc.mp4",
+			"at": 0.86
+		},
+		"alt": "Hands working at a polished workbench"
+	},
+	"cognitive-case-for-play-in-technical-work": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/cognitive-case-for-play-in-technical-work/archival-0f532831.mp4",
+			"at": 0.86
+		},
+		"alt": "Children playing with toys in a shop"
+	},
+	"implementing-mikrotik-binary-api-protocol-in-python": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/implementing-mikrotik-binary-api-protocol-in-python/archival-deee53a0.mp4",
+			"at": 0.86
+		},
+		"alt": "A radio operator in headphones turning dials"
+	},
+	"building-a-real-time-digital-graffiti-wall": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/building-a-real-time-digital-graffiti-wall/archival-06bccda4.mp4",
+			"at": 1.15
+		},
+		"alt": "Children drawing on a wall in chalk"
+	},
+	"my-personal-claude-code-skills-repo-accidentally-became-internal-tooling": {
+		"look": "taped",
+		"tilt": 2,
+		"picture": {
+			"video": "/images/blog/my-personal-claude-code-skills-repo-accidentally-became-internal-tooling/archival-727cc34d.mp4",
+			"at": 0.9
+		},
+		"alt": "A crowd of people waiting in line"
 	}
 }

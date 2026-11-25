@@ -9,10 +9,10 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: '/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/thumb-101f743f.webp'
+heroImage: '/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/thumb-4e0a16a6.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls
 contentNotice: "This post was originally published on CloudQuery's blog."
-heroAlt: 'Meme image of a man tapping his temple and smiling knowingly (known as the "Roll Safe" meme). The overlaid text reads: "CAN''T ARGUE THE COE ISN''T VALUABLE... IF YOU MEASURE EVERYTHING."'
+heroAlt: 'A worker laying rows of bricks out to dry'
 marginNotes:
   - type: 'see'
     at: 'This means developing concrete policies and technical controls'
@@ -35,7 +35,8 @@ marginNotes:
     at: 'Run game days or simulations'
     text: 'a scheduled drill where a team breaks something on purpose, like failing over a database, to practice recovering before a real outage.'
     term: 'Game day'
-mastheadImage: '/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/masthead-65834b5e.webp'
+heroVideo: '/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/archival-5ed8a38d.mp4'
+mastheadImage: '/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/archival-5ed8a38d.webp'
 ---
 
 **About This Series:** This is Part 4 of our 5-part series on Cloud Centers of Excellence (CCOEs). Catch up on previous parts:

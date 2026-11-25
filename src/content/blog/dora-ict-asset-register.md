@@ -7,8 +7,8 @@ description: 'One year into DORA, 46% of institutions still struggle with ICT as
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Security', 'Cloud Asset Inventory', 'Governance']
-heroImage: '/images/blog/dora-ict-asset-register/thumb-6ea2acde.webp'
-heroAlt: 'An old handwritten register book'
+heroImage: '/images/blog/dora-ict-asset-register/thumb-4e20bdb7.webp'
+heroAlt: 'A clerk filing papers into a cabinet'
 canonicalUrl: https://www.cloudquery.io/blog/dora-ict-asset-register
 contentNotice: 'This post was originally published on CloudQuery blog in early 2026, so its look ahead at what regulators would do in 2026 is now history.'
 updatedDate: 2026-11-12
@@ -34,6 +34,8 @@ marginNotes:
     at: 'Those relying on spreadsheets needed weeks of consolidation'
     text: 'Why audit prep still takes weeks at most companies, and what it looks like when the answers are already queryable.'
     post: 'cloud-operations-playbook-part-04-cost-of-compliance-scrambles'
+heroVideo: '/images/blog/dora-ict-asset-register/archival-cdd91adc.mp4'
+mastheadImage: '/images/blog/dora-ict-asset-register/archival-cdd91adc.webp'
 ---
 
 > **Note:** One year into DORA enforcement, the April 2025 Register of Information submission revealed a clear divide: organizations with automated, queryable asset inventories submitted in hours, while those relying on spreadsheets scrambled for weeks. With BaFin signaling stricter enforcement for 2026, the playbook is clear: treat cloud infrastructure as queryable data, not documentation to maintain.

@@ -6,8 +6,8 @@ updatedDate: 2026-11-12
 slug: 'homelab-two-years-later'
 description: 'Two years after a $200 ThinkServer: two Dell R730s, 73 containers, metered power data, and whether a homelab pays for itself.'
 categories: ['Homelab']
-heroImage: '/images/blog/homelab-two-years-later/hero.webp'
-heroAlt: 'Server rack with two Dell R730 servers, 10G networking, and cable management'
+heroImage: '/images/blog/homelab-two-years-later/thumb-2d1459bb.webp'
+heroAlt: 'A man working on electronics in an equipment rack'
 tldr: 'Two years after my first homelab post, I went from a $200 ThinkServer with 15 containers to a server rack with two Dell R730s (80 cores, 256GB RAM), two NVIDIA GPUs, 10G networking, VLANs, and 73 containers managed in OpenTofu. Hardware cost about $7,400. The rack averages about 430W, roughly $47/month at $0.15/kWh. On paper it pays for itself in about 4.6 years, but that leans on one $80/month line item - take it out and break-even is over a decade. I also bought a lot more than I use.'
 corrections:
   - date: 2026-03-10
@@ -56,6 +56,8 @@ marginNotes:
     text: 'The two CyberPower units on the living room rug the day they arrived.'
     image: '/images/blog/homelab-gift-ideas-2026/ups-unboxed.webp'
     alt: 'My two CyberPower OR1500PFCRT2U rack UPSes stacked on the living room rug, just out of the box'
+heroVideo: '/images/blog/homelab-two-years-later/archival-ea921b10.mp4'
+mastheadImage: '/images/blog/homelab-two-years-later/archival-ea921b10.webp'
 ---
 
 Two years ago I bought a $200 ThinkServer off Facebook Marketplace, put Proxmox on it, ran about 15 containers, and wrote an [original homelab post](/blog/how-to-get-started-building-a-homelab-server/) telling everyone that was all a homelab needed.
