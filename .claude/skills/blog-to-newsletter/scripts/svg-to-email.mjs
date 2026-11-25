@@ -10,6 +10,7 @@ import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { chromium } from 'playwright';
+import { withWatermark } from '../../../../src/utils/watermark.mjs';
 
 const [svgPath, out] = process.argv.slice(2);
 if (!svgPath?.endsWith('.svg') || !out?.endsWith('.jpg')) {
@@ -23,7 +24,7 @@ try {
 	const page = await browser.newPage({ viewport: { width: 528, height: 600 }, deviceScaleFactor: 2 });
 	await page.setContent(`<link rel="stylesheet" href="https://fonts.googleapis.com/css2?${fonts}&display=block">
 <style>:root{--font-anton:Anton,sans-serif;--font-hanken-grotesk:'Hanken Grotesk',sans-serif}
-body{margin:0;background:#0a0a0a}svg{width:528px;height:auto;display:block}</style>${readFileSync(svgPath, 'utf8')}`);
+body{margin:0;background:#0a0a0a}svg{width:528px;height:auto;display:block}</style>${withWatermark(readFileSync(svgPath, 'utf8'))}`);
 	// Animated charts draw in from empty; a screenshot catches frame one. Swap in their still layer.
 	await page.evaluate(() => {
 		document.querySelectorAll('.anim-live').forEach((layer) => layer.remove());

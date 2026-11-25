@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { visit } from 'unist-util-visit';
+import { withWatermark } from '../utils/watermark.mjs';
 
 /**
  * Inline a post's diagrams. Markdown references the desktop file like any image,
@@ -47,7 +48,7 @@ export function inlineDiagram(src, alt, publicDir = 'public') {
 	// Only files under public/: an `..` in the src must not inline any SVG on disk
 	if (!desktopPath.startsWith(root + path.sep) || !fs.existsSync(desktopPath)) return null;
 	const phonePath = desktopPath.replace(/\.svg$/, '.phone.svg');
-	const svg = (file) => withLabel(fs.readFileSync(file, 'utf8'), alt);
+	const svg = (file) => withWatermark(withLabel(fs.readFileSync(file, 'utf8'), alt));
 	const versions = [{ className: 'diagram-wide', file: desktopPath }];
 	if (fs.existsSync(phonePath)) versions.push({ className: 'diagram-phone', file: phonePath });
 	return {
