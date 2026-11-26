@@ -1544,11 +1544,10 @@
 	},
 	"bechdel-test-script-parser-works": {
 		"picture": {
-			"video": "/images/blog/bechdel-test-script-parser-works/archival-c459b202.mp4",
-			"at": 0.86
+			"image": "/images/blog/bechdel-test-script-parser-works/alien-ripley-lambert.webp"
 		},
 		"look": "taped",
-		"alt": "Women talking and playing cards around a table",
+		"alt": "Ripley and Lambert side by side in Alien (1979)",
 		"mark": {
 			"name": "check",
 			"at": [87, 3, 10, 17],

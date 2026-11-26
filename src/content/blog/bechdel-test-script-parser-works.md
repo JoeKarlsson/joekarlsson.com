@@ -5,8 +5,8 @@ updatedDate: 2026-11-16
 slug: 'bechdel-test-script-parser-works'
 description: 'How the Bechdel Test Script Parser works - the digital humanities tool my sister Laurel and I built to check whether film scripts pass the Bechdel Test.'
 categories: ['Web Dev']
-heroImage: '/images/blog/bechdel-test-script-parser-works/thumb-77751e8b.webp'
-heroAlt: 'Women talking and playing cards around a table'
+heroImage: '/images/blog/bechdel-test-script-parser-works/thumb-64976f22.webp'
+heroAlt: 'Ripley and Lambert side by side in Alien (1979)'
 contentNotice: false
 tldr: "My sister and I built a tool that parses movie screenplays and tests them against the Bechdel Test using JavaScript and Node.js. Here's how the script parsing actually works under the hood."
 marginNotes:
@@ -22,8 +22,7 @@ marginNotes:
 corrections:
   - date: 2026-11-16
     note: "I credited a 2011 paper by Murtagh, Ganz and Reddington for lines that came from Hoyt, Ponto and Roy's 2014 ScripThreads paper, and I'd copied several of their sentences nearly word for word. The credit now goes to them, and those sentences are in my own words."
-heroVideo: '/images/blog/bechdel-test-script-parser-works/archival-c459b202.mp4'
-mastheadImage: '/images/blog/bechdel-test-script-parser-works/archival-c459b202.webp'
+mastheadImage: '/images/blog/bechdel-test-script-parser-works/masthead-9e6f52c4.webp'
 ---
 
 [The Bechdel Test Script Parser](https://bechdel.joekarlsson.com/) was a collaborative digital humanities project between myself and my sister, Laurel Karlsson. It is the product of a shared passion for film, feminism, and the creative potential of technology. By combining the talents and interests of myself, a software engineer, and my sister, an English Scholar, we’ve been able to create an innovative data mining tool for a film analysis that we hope to continue to work on and improve. You can check out the project on our website, and the open-source code can be viewed [here](https://github.com/JoeKarlsson/bechdel-test). I also gave a [talk about how we used JavaScript to help make film more inclusive](/talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/) with this project. In 2026 I [started it over as a static site](/blog/hackers-and-painters-ai-agents/).
