@@ -66,6 +66,15 @@ describe('collage compositor', () => {
 		expect([at(5).x, at(5).y, at(5).rotation]).toEqual([500, 400, 0]);
 	});
 
+	it('fails a label that leaves the screen before it can be read', () => {
+		// 13 characters: 13 / 15 + 1.5 = 2.37 s, counted from when the label is opaque (+0.125 s)
+		const label = { text: 'ONLY ONE BREAKS', enter_at: 3 };
+		expect(Collage.labelReadIssue({ ...scene, duration: 5, label })).toMatch(/needs 2\.37 s/);
+		expect(Collage.labelReadIssue({ ...scene, duration: 5.5, label })).toBeNull();
+		expect(Collage.labelReadIssue({ ...scene, duration: 5 })).toBeNull();
+		expect(Collage.readingTime('OK')).toBeCloseTo(1.633, 3);
+	});
+
 	it('gives the same jitter for the same seed, so renders repeat', () => {
 		const a = Collage.seeded(42);
 		const b = Collage.seeded(42);

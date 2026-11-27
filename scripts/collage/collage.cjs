@@ -254,7 +254,36 @@
 
 	const frameCount = (scene) => Math.round(scene.duration * (scene.canvas.fps ?? 24));
 
+	// Reading time, adapted from Lemo-Opuscar core/render/readcheck.mjs (MIT): text the viewer
+	// must read stays fully on screen for its non-space characters at 15 a second plus 1.5 s,
+	// and never less than 1.5 s.
+	const READ_CHARS_PER_SECOND = 15;
+	const READ_PAD_SECONDS = 1.5;
+	const readingTime = (text) =>
+		Math.max(
+			READ_PAD_SECONDS,
+			String(text).replace(/\s/g, '').length / READ_CHARS_PER_SECOND + READ_PAD_SECONDS,
+		);
+	/** Seconds after label.enter_at until framePose draws the label fully opaque. */
+	const LABEL_OPAQUE_AFTER = 0.125;
+
+	/**
+	 * The label is the scene's only real text. It's fully on screen from the moment framePose
+	 * draws it opaque to the end of the scene: the post's SVG loops straight back to the empty
+	 * frame and the MP4 ends there. Returns a problem for render.mjs to fail on, or nothing.
+	 */
+	function labelReadIssue(scene) {
+		const text = scene.label?.text;
+		if (!text) return null;
+		const shown = scene.duration - ((scene.label.enter_at ?? 0) + LABEL_OPAQUE_AFTER);
+		const needed = readingTime(text);
+		if (shown + 1e-9 >= needed) return null;
+		return `label "${text}" is fully on screen for ${shown.toFixed(2)} s; it needs ${needed.toFixed(2)} s to read. Make duration at least ${(scene.duration + needed - shown).toFixed(2)} or bring the label in earlier.`;
+	}
+
 	const api = {
+		readingTime,
+		labelReadIssue,
 		easeOutBack,
 		bezier,
 		seeded,

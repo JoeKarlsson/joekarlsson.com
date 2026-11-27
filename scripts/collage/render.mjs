@@ -12,6 +12,7 @@
 // family name (label.font_family), the same families the site uses.
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import { createRequire } from 'node:module';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -39,6 +40,12 @@ if (!scenePath || !(values.out || values.still || values.preview || values.post)
 }
 const scene = JSON.parse(fs.readFileSync(scenePath, 'utf8'));
 const engine = fs.readFileSync(new URL('./collage.cjs', import.meta.url), 'utf8');
+const { labelReadIssue } = createRequire(import.meta.url)('./collage.cjs');
+const readIssue = labelReadIssue(scene);
+if (readIssue) {
+	console.error(`${path.relative(process.cwd(), scenePath)}: ${readIssue}`);
+	process.exit(1);
+}
 const fps = scene.canvas.fps ?? 24;
 
 const family = scene.label?.font_family?.split(',')[0].replace(/['"]/g, '').trim();

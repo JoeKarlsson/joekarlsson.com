@@ -83,8 +83,10 @@ last, the label after everything, and the finished frame held at least 1.2 s.
 6. **Two to four things move at once, at most.** "If everything moves, the scene loses the
    approved composition" (`Paper-Cut: references/image-led-production.md`).
 7. **Words hold still once landed**: "a landed title is dead still" (`hyperframes:
-   references/motion.md`). A label stays up at least "`max(0.7 s, 0.3 s per word)`"
-   (`anidoodle: references/craft-bar.md`).
+   references/motion.md`). A label stays fully on screen for its non-space characters at 15 a
+   second plus 1.5 s, never under 1.5 s (`lemo-opuscar: core/render/readcheck.mjs`), counted
+   from when it's opaque to the end of the scene, since the post's SVG loops straight back to
+   the empty frame. `render.mjs` fails a scene that doesn't (`labelReadIssue` in collage.cjs).
 8. **Animate data by its own logic**: "bars grow from baseline, lines draw left to right"
    (`lottie: references/motion-taste.md`).
 
