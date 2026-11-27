@@ -110,6 +110,8 @@ I have motion lighting in 10 rooms. My first attempts had a habit of turning the
 
 **A human always beats the sensor.** When someone turns the lights off, motion waits 3 minutes before it's allowed to turn them back on (30 minutes in the bedroom overnight). And motion only picks a scene when the lights are off, so if you dim the kitchen by hand, it stays dimmed. Before a room turns off on its own, the lights drop to 40% for 45 seconds as a warning, and any movement brings them back.
 
+![A Hue dimmer paired to the bridge and a motion sensor that waits 3 minutes both point at the kitchen lights, which get coloured in pink. A handwritten note points at the dimmer: the switch always wins.](/images/blog/best-home-assistant-automations/switch-wins.svg)
+
 If you're starting today, Home Assistant 2026.7 made [purpose-specific triggers](https://www.home-assistant.io/blog/2026/07/01/release-20267/) the default in the visual editor, so you can pick an area-based motion trigger instead of a specific sensor, and it handles unavailable sensors for you. Use them for new automations. Since 2026.11 you can also exclude things from a target, so "every light in the living room except the nightlight" is one trigger instead of a list you have to keep up to date. I draft in the visual editor, then keep the YAML in git so I can see what changed.
 
 If you run long off-timers, one gotcha took me way too long to find. If a `for: minutes: 30` timer is counting down and Home Assistant restarts, the timer is gone and the lights stay on until someone notices. My fix is a template trigger that asks "are the lights on, is nobody moving, and has nothing changed in 30 minutes?" That question has the same answer before and after a restart.
@@ -141,6 +143,8 @@ triggers:
 ### Closet lights on a door sensor
 
 This is the easiest automation in my house. A contact sensor on the bedroom and office closet doors turns the closet light on with Hue's Natural light scene when the door opens and off when it closes. If the door gets left open, the light turns itself off after 10 minutes anyway.
+
+![When the closet door opens, the closet light gets coloured in pink with the Natural light scene. A handwritten note under it: off after 10 min, door or no door.](/images/blog/best-home-assistant-automations/closet-light.svg)
 
 ### Arriving and leaving
 
