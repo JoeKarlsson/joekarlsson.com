@@ -1,10 +1,11 @@
 ---
 title: 'Self-Hosted Music Still Sucks in 2026'
+seoTitle: 'Self-Hosted Music Still Sucks: Lidarr & *arr'
 date: 2026-03-22
 updatedDate: 2026-11-12
 updateNote: 'Added the Lidarr alternatives that now handle single tracks: SoulSync, which I run with Deezer and Soulseek, DroppedNeedle (formerly MusicSeerr), Aurral and Soularr.'
 slug: 'self-hosted-music-still-sucks-in-2026'
-description: 'The *arr stack perfected video automation, but self-hosted music is stuck on albums. Lidarr makes you grab a whole album when you want one track.'
+description: "There's no Sonarr for music. The *arr stack perfected video, but Lidarr makes you grab a whole album for one track. Why, and the alternatives."
 categories: ['Homelab']
 heroImage: '/images/blog/self-hosted-music-still-sucks-in-2026/thumb-99e60a78.webp'
 heroAlt: 'A record spinning on a phonograph'

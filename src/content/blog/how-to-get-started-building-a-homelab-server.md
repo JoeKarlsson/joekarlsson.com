@@ -1,11 +1,11 @@
 ---
 title: 'How to get started building a Homelab server in 2027'
-seoTitle: 'Homelab Server Build: A 2027 Beginner Guide'
+seoTitle: 'Homelab for Beginners: 2027 Home Server Guide'
 date: 2023-09-27
 updatedDate: 2026-11-12
 updateNote: 'Refreshed for 2027 with higher hardware prices from the RAM shortage, Proxmox VE 9.2, current Unraid and Plex pricing, TrueNAS Community Edition, LazyLibrarian in place of the retired Readarr, and power costs at $0.15/kWh.'
 slug: 'how-to-get-started-building-a-homelab-server'
-description: 'What to buy for a first home server in 2027 (a used office PC or mini PC), what it costs to run, and how to set up Proxmox and your first four services.'
+description: 'What to buy for a first homelab server in 2027 (a used office PC or mini PC), what it costs to run, and how to set up Proxmox and your first four services.'
 categories: ['Homelab']
 heroImage: '/images/blog/how-to-get-started-building-a-homelab-server/thumb-31c4d8ba.webp'
 heroAlt: 'Technicians at the control panels of an early computer room'
@@ -95,7 +95,9 @@ My advice hasn't changed, but following it costs more. Buy used, buy barebones i
 
 ![Is this a server? - me looking at any used PC on Facebook Marketplace](/images/blog/how-to-get-started-building-a-homelab-server/is-this-a-server.webp)
 
-## Picking hardware for a homelab on a budget
+## The best server for a first homelab
+
+Short answer: a used office PC (Dell OptiPlex, HP EliteDesk or Lenovo ThinkCentre) with an i5 and 16-32GB of RAM. If it has to be silent, get a mini PC instead. The longer answer depends on where you live and how deep you want to go.
 
 Not everyone needs the same thing, and your living situation matters more than you'd think. A rack server in an apartment is going to make your partner hate you (ask me how I know). Here's how I'd think about hardware tiers for beginners:
 
