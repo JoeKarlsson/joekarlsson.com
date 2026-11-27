@@ -156,6 +156,8 @@ Launch two sub-agents in parallel to handle research:
 
 **Agent: `blog-competitor-analyst`** (tell it the lane) - finds the top-ranking competing pages, outlines them, and returns an explicit gap analysis (sections/angles the field covers that this post should address or differentiate from).
 
+While they run, use the `research-sources` skill yourself: `reach.py hn search "<topic>"` and `reddit read` on the top threads show what practitioners argue about and which questions go unanswered; `yt transcript --grep` gets a talk or interview the post cites, with timestamps; `commons search` finds credited photos. Forum posts shape the angle. They aren't sources for facts.
+
 Wait for both reports before proceeding to outline. Incorporate their findings into Phase 2.
 
 **Check for restricted content:** If the source notes/plan mention topics marked "DO NOT INCLUDE" or "SENSITIVE", respect those restrictions throughout all phases. Never include restricted topics in the outline or draft.
