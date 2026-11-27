@@ -357,9 +357,7 @@ describe('SEO meta tags', () => {
 		const posts = readdirSync(blogDir, { withFileTypes: true })
 			.filter((e) => e.isDirectory() && e.name !== 'category')
 			.map((e) => e.name)
-			// Redirect stubs for retired slugs (astro.config.mjs redirects) aren't posts
-			.filter((post) => existsSync(resolve(blogDir, post, 'index.html')))
-			.filter((post) => !readDist(`blog/${post}/index.html`).includes('<title>Redirecting to:'));
+			.filter((post) => existsSync(resolve(blogDir, post, 'index.html')));
 		// Spot-check first 5 blog posts
 		for (const post of posts.slice(0, 5)) {
 			const postHtml = readDist(`blog/${post}/index.html`);
@@ -472,11 +470,20 @@ describe('build output structure', () => {
 		expect(entries.length).toBeGreaterThan(10);
 	});
 
-	it('redirect directories exist', () => {
-		// WordPress redirects should generate redirect pages
-		expect(existsSync(resolve(dist, 'feed'))).toBe(true);
-		expect(existsSync(resolve(dist, 'speaking'))).toBe(true);
-		expect(existsSync(resolve(dist, 'portfolio'))).toBe(true);
+	// Search Console listed these as "Excluded by noindex" instead of following them
+	// (2026-11-27); moved pages are Caddy 301s
+	it('builds no meta-refresh redirect pages', () => {
+		const stubs = builtPages.filter((file) => readDist(file).includes('http-equiv="refresh"'));
+		expect(stubs).toEqual([]);
+	});
+
+	it('301s every moved page in the Caddyfile to a page that exists', () => {
+		const caddyfile = readFileSync(resolve(import.meta.dirname, '..', 'Caddyfile'), 'utf-8');
+		const targets = [...caddyfile.matchAll(/^\t\t~\^\S+ (\/\S*)$/gm)].map((m) => m[1]);
+		expect(targets.length).toBeGreaterThan(20);
+		for (const target of targets) {
+			expect(existsSync(resolve(dist, target.slice(1), 'index.html')), target).toBe(true);
+		}
 	});
 });
 
@@ -499,9 +506,10 @@ describe('talk pages', () => {
 		expect(talkPages.sort()).toEqual([...MOVED, ...NEW].sort());
 	});
 
-	it('redirects each old /blog/ URL to its /talks/ page', () => {
+	it('301s each old /blog/ URL to its /talks/ page', () => {
+		const caddyfile = readFileSync(resolve(import.meta.dirname, '..', 'Caddyfile'), 'utf-8');
 		for (const slug of MOVED) {
-			expect(readDist(`blog/${slug}/index.html`)).toContain(`url=/talks/${slug}/`);
+			expect(caddyfile).toContain(`~^/blog/${slug}/?$ /talks/${slug}/`);
 		}
 	});
 
@@ -948,10 +956,7 @@ describe('security.txt', () => {
 // one at a time (a Markdown "# " heading adds a second h1, imported posts bring
 // 200-character descriptions, Markdown images arrive without sizes).
 describe('every page', () => {
-	const pages = builtPages
-		.map((file) => ({ file, html: readDist(file) }))
-		// Redirect stubs carry their own minimal head
-		.filter(({ html }) => !html.slice(0, 400).includes('http-equiv="refresh"'));
+	const pages = builtPages.map((file) => ({ file, html: readDist(file) }));
 	const isNoindex = (html: string) => /<meta name="robots" content="noindex/.test(html);
 	const indexable = pages.filter(({ html }) => !isNoindex(html));
 	// A recap whose canonical points at another page shares that page's title and stays out of the sitemap

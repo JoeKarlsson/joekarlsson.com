@@ -19,6 +19,47 @@
 	# Tools that guess /sitemap.xml get the index Astro builds (robots.txt names it)
 	redir /sitemap.xml /sitemap-index.xml 301
 
+	# Moved and retired pages, one 301 each. Astro's own `redirects` can't do this in a
+	# static build: it writes a 200 page with a meta refresh and noindex, which Search
+	# Console reported as "Excluded by noindex" (2026-11-27). Keep every move here.
+	map {path} {moved_to} {
+		~^/newsletter/its-been-a-while/?$ /newsletter/taste-matters-more-with-ai/
+		~^/blog/why-i-joined-singlestore/?$ /about/
+		~^/blog/why-i-joined-viam /about/
+		~^/blog/how-i-work/?$ /uses/
+		# The same CData article imported twice under two slugs (2026-11-05)
+		~^/blog/connect-enterprise-data-meta-muse/?$ /blog/connect-business-apps-meta-muse/
+		# Thin, off-topic or dead-product posts cut in the 2027 content audit (2026-11-09)
+		~^/blog/(overwhelmed-by-the-web|my-relationship-with-the-internet|how-to-explain-to-your-dad-why-snapchat-is-so-awesome|one-week-in-oahu-a-tourists-travel-itinerary|a-brief-cuba-travel-guide)/?$ /blog/category/life/
+		~^/blog/(10-things-i-learned-at-startup-weekend|how-to-find-a-technical-co-founder)/?$ /blog/category/career/
+		~^/blog/(psa-activate-2-step-verification-on-your-email-account|a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes)/?$ /blog/
+		~^/blog/save-the-world-and-money-with-mongodb-atlas-data-lake/?$ /blog/how-to-manage-mongodb-data-at-scale/
+		~^/blog/(getting-started-with-graphql-and-atlas|a-gentle-introduction-to-building-serverless-apps)/?$ /talks/
+		~^/blog/iot-and-js-a-gentle-introduction-to-the-internet-of-things/?$ /talks/an-introduction-to-iot-internet-of-toilets/
+		~^/blog/i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon/?$ /blog/i-ran-my-first-hackathon-and-so-can-you/
+		~^/blog/(devrel-as-dev-zero|developer-advocacy-in-2023|treat-content-development-for-your-open-source-project-like-your-open-source-project)/?$ /blog/running-devrel/
+		# Talk write-ups moved out of the blog to their own pages (2026-11-09)
+		~^/blog/mongodb-schema-design-best-practices/?$ /talks/mongodb-schema-design-best-practices/
+		~^/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/?$ /talks/from-sql-to-nosql-a-gentle-introduction-for-devs/
+		~^/blog/the-art-of-computer-science/?$ /talks/the-art-of-computer-science/
+		~^/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/?$ /talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/
+		~^/blog/building-high-performance-react-applications/?$ /talks/building-high-performance-react-applications/
+		~^/blog/an-introduction-to-iot-internet-of-toilets/?$ /talks/an-introduction-to-iot-internet-of-toilets/
+		# Old blog categories, folded into the six current ones (2026-11-05); Work was a
+		# catch-all for employer posts, now shown by /blog/written-for/
+		~^/blog/category/work/?$ /blog/
+		~^/blog/category/(dev-tools|databases|javascript)/?$ /blog/category/web-dev/
+		~^/blog/category/(smart-home|iot|networking)/?$ /blog/category/homelab/
+		~^/blog/category/devrel/?$ /blog/category/career/
+		~^/blog/category/(personal|film|travel)/?$ /blog/category/life/
+		# WordPress pages
+		~^/talk-archive/?$ /talks/
+		~^/portfolio/?$ /work/
+		default ""
+	}
+	@moved not vars {moved_to} ""
+	redir @moved {moved_to} 301
+
 	# 301 redirects: WordPress date-based blog URLs → /blog/slug
 	# Matches /YYYY/MM/slug/ or /YYYY/MM/slug
 	# Old WordPress per-post feeds (/YYYY/MM/slug/feed/) → RSS
