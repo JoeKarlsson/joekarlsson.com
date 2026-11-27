@@ -377,7 +377,7 @@ const milestones = [
 			</div>
 		</div>
 
-		<section class={SECTION}>
+		<section class={`${SECTION} stats-section`}>
 			<h2 class={H2}>{ranked}</h2>
 			<p class={SUB}>
 				My {s.top.length === 10 ? 'ten' : s.top.length} highest-rated films
@@ -410,7 +410,7 @@ const milestones = [
 		</section>
 
 		{year && (
-			<section class={SECTION}>
+			<section class={`${SECTION} stats-section`}>
 				<h2 class={H2}>Milestones</h2>
 				<p class={SUB}>
 					{year} in {['', 'one', 'two', 'three', 'four'][milestones.filter(([, r]) => r).length]}{' '}
@@ -454,7 +454,7 @@ const milestones = [
 		)}
 
 		{s.higher.length + s.lower.length > 0 && (
-			<section class={SECTION}>
+			<section class={`${SECTION} stats-section`}>
 				<h2 class={H2}>Where I part ways with Letterboxd</h2>
 				<p class={SUB}>My stars next to everyone's average, biggest gaps first</p>
 				<div class="grid gap-8 md:grid-cols-2 md:gap-5">
@@ -507,7 +507,7 @@ const milestones = [
 			</section>
 		)}
 
-		<section class={SECTION}>
+		<section class={`${SECTION} stats-section`}>
 			<h2 class={H2}>Every review, by rating</h2>
 			<p class={SUB}>Each row is one star rating, each tile one review</p>
 			{/* An overview: every film here is also on /reviews/, so the tiles stay out of
@@ -549,7 +549,7 @@ const milestones = [
 			</div>
 		</section>
 
-		<section class={SECTION}>
+		<section class={`${SECTION} stats-section`}>
 			<h2 class={H2}>Release years</h2>
 			<p class={SUB}>
 				Films by the year they came out, then each decade with my favorite and my average
@@ -613,7 +613,7 @@ const milestones = [
 		</div>
 
 		{directorViews.length > 0 && (
-			<section class={SECTION} data-ranked>
+			<section class={`${SECTION} stats-section`} data-ranked>
 				<h2 class={H2}>Directors I keep coming back to</h2>
 				<p class={SUB}>Every film counted once</p>
 				<StatsToggle labels={directorViews.map((v) => v.label)} />
@@ -673,7 +673,7 @@ const milestones = [
 		</div>
 
 		{s.fiveStars.length > 0 && (
-			<section class={SECTION}>
+			<section class={`${SECTION} stats-section`}>
 				<h2 class={H2}>Five stars</h2>
 				<p class={SUB}>All {s.fiveStars.length} films, newest first</p>
 				<div class="grid grid-cols-5 gap-1.5 md:grid-cols-10">
@@ -961,6 +961,25 @@ const milestones = [
 			100% {
 				opacity: 0;
 			}
+		}
+	}
+
+	/* Every section starts below the fold, and laying out the whole page at once (554 wall
+	   tiles, 30 five-star scribbles) was one ~400 ms task on a throttled phone, which
+	   Lighthouse counts as blocking time. Skipped sections get laid out as they near the
+	   screen. That clips each section's paint to its box, and Safari ignores
+	   overflow-clip-margin, so a padding pulled back out by a negative margin gives the
+	   five-star stars, rank badges and swelling tiles room past the edge. */
+	.stats-section {
+		content-visibility: auto;
+		contain-intrinsic-size: auto 600px;
+		padding-inline: 0.75rem;
+		margin-inline: -0.75rem;
+	}
+	@media (width >= 48rem) {
+		.stats-section {
+			padding-inline: 1.5rem;
+			margin-inline: -1.5rem;
 		}
 	}
 
