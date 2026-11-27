@@ -59,14 +59,12 @@ export const desktop = {
 			stack: true,
 		});
 		// What the boxes can't show: what the gateway enforces on every request
-		f.text(268, 360, 'The rep’s access level is enforced', {
-			font: 'serif',
+		f.handwrite(268, 360, 'The rep’s access level is enforced', { size: 17 });
+		f.handwrite(268, 384, 'and every access is logged.', { size: 17 });
+		f.handwrite(268, 408, 'The agent never sees raw schema.', {
 			size: 17,
-			anchor: 'start',
+			arrow: [[360, 340], [362, 276], 16],
 		});
-		f.text(268, 384, 'and every access is logged.', { font: 'serif', size: 17, anchor: 'start' });
-		f.note(268, 410, 'The agent never sees raw schema.');
-		f.crayonArrow([360, 340], [362, 276], 16);
 	},
 };
 
@@ -118,13 +116,11 @@ export const phone = {
 		);
 		f.note(192, 422, 'query', { size: 14 });
 		f.box({ x: 80, y: 446, w: 200, h: 58, label: 'Salesforce', logo: 'salesforce' });
-		f.text(16, 580, 'The rep’s access level is enforced', {
-			font: 'serif',
+		f.handwrite(16, 580, 'The rep’s access level is enforced', { size: 17 });
+		f.handwrite(16, 604, 'and every access is logged.', { size: 17 });
+		f.handwrite(16, 628, 'The agent never sees raw schema.', {
 			size: 17,
-			anchor: 'start',
+			arrow: [[40, 562], [56, 360], -30],
 		});
-		f.text(16, 604, 'and every access is logged.', { font: 'serif', size: 17, anchor: 'start' });
-		f.note(16, 630, 'The agent never sees raw schema.', { size: 14 });
-		f.crayonArrow([40, 562], [56, 360], -30);
 	},
 };

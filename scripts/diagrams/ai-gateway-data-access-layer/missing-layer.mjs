@@ -56,13 +56,11 @@ export const desktop = {
 		f.group({ x: 16, y: 312, w: 608, h: 120, label: 'Your business data' });
 		[76, 198, 320, 442, 564].forEach((cx, i) => source(f, SOURCES[i], cx, 350));
 		// The point of the figure, which the gaps alone don't say
-		f.text(40, 222, 'The gateway stops at the model.', {
-			font: 'serif',
-			size: 18,
-			anchor: 'start',
+		f.handwrite(40, 222, 'The gateway stops at the model.', { size: 17 });
+		f.handwrite(40, 246, 'Nothing connects it to the data below.', {
+			size: 17,
+			arrow: [[330, 210], [452, 230], -14],
 		});
-		f.note(40, 248, 'Nothing connects it to the data below.');
-		f.crayonArrow([330, 210], [452, 230], -14);
 	},
 };
 
@@ -104,15 +102,13 @@ export const phone = {
 		);
 		f.note(192, 310, 'needs data');
 		f.box({ x: 100, y: 342, w: 160, h: 64, kind: 'dashed', label: '???', icon: 'circle-help' });
-		f.text(16, 448, 'The gateway stops at the model.', {
-			font: 'serif',
+		f.handwrite(16, 448, 'The gateway stops at the model.', { size: 17 });
+		f.handwrite(16, 472, 'Nothing connects it to the data below.', {
 			size: 17,
-			anchor: 'start',
+			arrow: [[290, 440], [262, 396], 10],
 		});
-		f.note(16, 472, 'Nothing connects it to the data below.', { size: 14 });
 		f.group({ x: 8, y: 520, w: 344, h: 164, label: 'Your business data' });
 		[66, 180, 294].forEach((cx, i) => source(f, SOURCES[i], cx, 552));
 		[123, 237].forEach((cx, i) => source(f, SOURCES[i + 3], cx, 624));
-		f.crayonArrow([290, 440], [262, 396], 10);
 	},
 };

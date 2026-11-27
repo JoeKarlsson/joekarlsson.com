@@ -42,14 +42,12 @@ export const desktop = {
 			}),
 		);
 		SOURCES.forEach((s, i) => f.box({ x: 20, y: sourceY[i], w: 186, h: 52, size: 15, ...s }));
-		f.text(330, 470, 'Each line is a custom integration:', {
-			font: 'serif',
+		f.handwrite(330, 470, 'Each line is a custom integration:', { size: 17 });
+		f.handwrite(330, 494, 'hand-built, and it breaks when', { size: 17 });
+		f.handwrite(330, 518, 'the source’s API changes', {
 			size: 17,
-			anchor: 'start',
+			arrow: [[450, 452], along([550, 122], [208, 456], 0.45), 24],
 		});
-		f.note(330, 494, 'hand-built, and it breaks when');
-		f.note(330, 514, 'the source’s API changes');
-		f.crayonArrow([450, 452], along([550, 122], [208, 456], 0.45), 24);
 	},
 };
 
@@ -83,13 +81,11 @@ export const phone = {
 				stack: true,
 			}),
 		);
-		f.text(16, 410, 'Each line is a custom integration:', {
-			font: 'serif',
+		f.handwrite(16, 410, 'Each line is a custom integration:', { size: 17 });
+		f.handwrite(16, 434, 'hand-built, and it breaks when the', { size: 17 });
+		f.handwrite(16, 458, 'source’s API changes', {
 			size: 17,
-			anchor: 'start',
+			arrow: [[200, 394], along([242, 286], [168, 301], 0.5), -16],
 		});
-		f.note(16, 434, 'hand-built, and it breaks when the');
-		f.note(16, 454, 'source’s API changes');
-		f.crayonArrow([200, 394], along([242, 286], [168, 301], 0.5), -16);
 	},
 };

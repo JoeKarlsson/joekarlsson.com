@@ -44,12 +44,8 @@ export const desktop = {
 			f.code({ x: 16, y: 50, w: 296, lines: RAW, size: 13 }),
 			semantic(f, 336, 50, 288),
 		);
-		f.note(16, h + 80, 'The model has to guess what fields mean.');
-		f.text(336, h + 80, 'The model answers accurately.', {
-			size: 15,
-			anchor: 'start',
-			weight: 700,
-		});
+		f.handwrite(16, h + 80, 'The model has to guess what fields mean.', { size: 15 });
+		f.handwrite(336, h + 80, 'The model answers accurately.', { size: 15 });
 	},
 };
 
@@ -58,14 +54,10 @@ export const phone = {
 	draw(f) {
 		f.heading(16, 24, 'Raw schema', { size: 24 });
 		const h = f.code({ x: 16, y: 46, w: 328, lines: RAW, size: 14 });
-		f.note(16, h + 70, 'The model has to guess what fields mean.', { size: 14 });
+		f.handwrite(16, h + 70, 'The model has to guess what fields mean.', { size: 17 });
 		const top = h + 118;
 		f.heading(16, top, 'Semantic context', { size: 24 });
 		const h2 = semantic(f, 16, top + 22, 328);
-		f.text(16, top + h2 + 46, 'The model answers accurately.', {
-			size: 15,
-			anchor: 'start',
-			weight: 700,
-		});
+		f.handwrite(16, top + h2 + 46, 'The model answers accurately.', { size: 17 });
 	},
 };
