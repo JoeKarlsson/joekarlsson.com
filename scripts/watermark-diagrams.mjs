@@ -104,11 +104,14 @@ ${svg}`,
 				: pixelsOf(mode(() => true));
 		const bg = [0, 1, 2].map((i) => bgPixels.reduce((sum, px) => sum + px[i], 0) / bgPixels.length);
 		const far = (px) => Math.hypot(px[0] - bg[0], px[1] - bg[1], px[2] - bg[2]) > 48; // paper grain stays under this
-		// A spot's share of pixels that aren't background, with a margin around it
+		// A spot's share of pixels that aren't background, and whether anything at all sits in the
+		// margin around it: a line of text ending beside the mark is a sliver of the area, so a share
+		// alone let the mark sit right after a sentence
 		const measure = (x0, y0, w, h) => {
-			const pad = h * 0.35;
+			const pad = h * 0.6;
 			let off = 0,
-				total = 0;
+				total = 0,
+				near = 0;
 			for (
 				let y = Math.max(0, Math.floor(y0 - pad));
 				y < Math.min(rh, Math.ceil(y0 + h + pad));
@@ -120,9 +123,11 @@ ${svg}`,
 					x++
 				) {
 					total++;
-					if (far(at(x, y))) off++;
+					if (!far(at(x, y))) continue;
+					off++;
+					if (x < x0 || x >= x0 + w || y < y0 || y >= y0 + h) near++;
 				}
-			return { busy: off / total };
+			return { busy: off / total, near };
 		};
 
 		const scaleX = info.width / width;
@@ -162,7 +167,13 @@ ${svg}`,
 		// Full size, then smaller marks, then the least busy spot (listed for a look)
 		let pick;
 		for (const share of [MARK_SHARE, 0.045, 0.035])
-			pick ??= measured(spots(width * share)).find((s) => s.busy < 0.01);
+			pick ??= measured(spots(width * share)).find((s) => s.busy < 0.01 && s.near === 0);
+		// A crowded figure with no empty margin anywhere: the old bar, nearly clear under the mark
+		if (!pick) {
+			for (const share of [MARK_SHARE, 0.045, 0.035])
+				pick ??= measured(spots(width * share)).find((s) => s.busy < 0.01);
+			if (pick) busy.push(`${file} (no empty margin; the mark may sit close to something)`);
+		}
 		if (!pick) {
 			pick = measured(spots(width * MARK_SHARE)).sort((a, b) => a.busy - b.busy)[0];
 			busy.push(`${file} (busy ${pick.busy.toFixed(2)})`);
