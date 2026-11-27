@@ -26,7 +26,7 @@ describe('reading-time check for animated SVGs', () => {
 		);
 		const { results } = await readcheck(file);
 		const got = Object.fromEntries(
-			results.map((r: { text: string; got: number }) => [r.text, r.got]),
+			(results ?? []).map((r: { text: string; got: number }) => [r.text, r.got]),
 		);
 		expect(got.BLINK).toBeCloseTo(0.6, 1);
 		expect(got['HELD THE WHOLE TIME']).toBe(Infinity);
