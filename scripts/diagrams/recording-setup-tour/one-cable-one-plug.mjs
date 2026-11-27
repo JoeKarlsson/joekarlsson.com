@@ -72,12 +72,8 @@ export const desktop = {
 			label: 'Smart plug',
 			logo: 'homeassistant',
 		});
-		f.text(222, 548, 'Home Assistant flips it with recording mode.', {
-			font: 'serif',
-			size: 17,
-			anchor: 'start',
-		});
-		f.note(222, 572, 'Everything on it together peaks around 112W.');
+		f.handwrite(222, 548, 'Home Assistant flips it with recording mode.', { size: 17 });
+		f.handwrite(222, 572, 'Everything on it together peaks around 112W.', { size: 17 });
 	},
 };
 
@@ -145,7 +141,7 @@ export const phone = {
 			label: 'Smart plug',
 			logo: 'homeassistant',
 		});
-		f.note(180, 786, 'Flipped by recording mode;', { anchor: 'middle' });
-		f.note(180, 806, 'peaks around 112W.', { anchor: 'middle' });
+		f.handwrite(180, 786, 'Flipped by recording mode;', { anchor: 'middle', size: 17 });
+		f.handwrite(180, 808, 'peaks around 112W.', { anchor: 'middle', size: 17 });
 	},
 };

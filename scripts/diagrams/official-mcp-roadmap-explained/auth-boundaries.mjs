@@ -77,12 +77,8 @@ export const desktop = {
 		});
 		f.group({ x: 462, y: 70, w: 162, h: 310, label: 'Data sources' });
 		SOURCES.forEach((s, i) => f.box({ x: 474, y: 88 + i * 72, w: 138, h: 60, size: 13, ...s }));
-		f.text(16, 428, 'The roadmap closes the agent-to-server gap.', {
-			font: 'serif',
-			size: 17,
-			anchor: 'start',
-		});
-		f.note(16, 450, 'Credentials to each data source stay per connector.');
+		f.handwrite(16, 424, 'The roadmap closes the agent-to-server gap.', { size: 17 });
+		f.handwrite(16, 446, 'Credentials to each data source stay per connector.', { size: 17 });
 	},
 };
 
@@ -137,16 +133,8 @@ export const phone = {
 			[20, 652],
 			[184, 652],
 		].forEach(([x, y], i) => f.box({ x, y, w: 156, h: 100, size: 14, stack: true, ...SOURCES[i] }));
-		f.text(16, 806, 'The roadmap closes the agent-to-server', {
-			font: 'serif',
-			size: 17,
-			anchor: 'start',
-		});
-		f.text(16, 828, 'gap. Credentials to each data source', {
-			font: 'serif',
-			size: 17,
-			anchor: 'start',
-		});
-		f.text(16, 850, 'stay per connector.', { font: 'serif', size: 17, anchor: 'start' });
+		f.handwrite(16, 806, 'The roadmap closes the agent-to-server', { size: 17 });
+		f.handwrite(16, 830, 'gap. Credentials to each data source', { size: 17 });
+		f.handwrite(16, 854, 'stay per connector.', { size: 17 });
 	},
 };

@@ -44,10 +44,10 @@ export const desktop = {
 		nest(f, RECTS.desktop);
 		f.box({ x: 88, y: 200, w: 146, h: 48, kind: 'chalk', label: 'regex', font: 'mono', size: 15 });
 		f.box({ x: 262, y: 200, w: 100, h: 48, kind: 'pink', label: 'PEG.js', font: 'mono', size: 15 });
-		f.text(440, 150, 'From regex to PEG.js:', { font: 'serif', size: 17, anchor: 'start' });
-		f.note(440, 176, 'one level up, so queries', { size: 14 });
-		f.note(440, 196, 'can nest parentheses', { size: 14 });
-		f.note(440, 216, 'and respect precedence.', { size: 14 });
+		f.handwrite(440, 150, 'From regex to PEG.js:', { size: 17 });
+		f.handwrite(440, 174, 'one level up, so queries', { size: 17 });
+		f.handwrite(440, 198, 'can nest parentheses', { size: 17 });
+		f.handwrite(440, 222, 'and respect precedence.', { size: 17 });
 	},
 };
 
@@ -57,12 +57,8 @@ export const phone = {
 		nest(f, RECTS.phone);
 		f.box({ x: 66, y: 200, w: 120, h: 44, kind: 'chalk', label: 'regex', font: 'mono', size: 14 });
 		f.box({ x: 208, y: 200, w: 100, h: 44, kind: 'pink', label: 'PEG.js', font: 'mono', size: 14 });
-		f.text(8, 378, 'From regex to PEG.js: one level up,', {
-			font: 'serif',
-			size: 16,
-			anchor: 'start',
-		});
-		f.note(8, 402, 'so queries can nest parentheses', { size: 13 });
-		f.note(8, 420, 'and respect operator precedence.', { size: 13 });
+		f.handwrite(8, 378, 'From regex to PEG.js: one level up,', { size: 16 });
+		f.handwrite(8, 400, 'so queries can nest parentheses', { size: 16 });
+		f.handwrite(8, 422, 'and respect operator precedence.', { size: 16 });
 	},
 };

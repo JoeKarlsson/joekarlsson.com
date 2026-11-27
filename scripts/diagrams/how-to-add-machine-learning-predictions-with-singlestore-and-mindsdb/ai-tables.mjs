@@ -69,11 +69,7 @@ export const desktop = {
 			stack: true,
 		});
 		f.note(548, 196, 'predictions', { anchor: 'middle', size: 13 });
-		f.text(16, 316, 'Predictions are queried like any other table.', {
-			font: 'serif',
-			size: 16,
-			anchor: 'start',
-		});
+		f.handwrite(16, 316, 'Predictions are queried like any other table.', { size: 17 });
 	},
 };
 
@@ -136,7 +132,7 @@ export const phone = {
 			logo: 'mindsdb',
 			size: 15,
 		});
-		f.text(16, 560, 'Predictions are queried like', { font: 'serif', size: 16, anchor: 'start' });
-		f.text(16, 582, 'any other table.', { font: 'serif', size: 16, anchor: 'start' });
+		f.handwrite(16, 560, 'Predictions are queried like', { size: 17 });
+		f.handwrite(16, 584, 'any other table.', { size: 17 });
 	},
 };
