@@ -79,10 +79,13 @@ export function doc(f, { x, y, w, rows, s }) {
 	return out;
 }
 
-/** A callout: lines of serif text starting at x, y, one under another. */
-export function callout(f, x, y, lines, size = 18) {
+/** A handwritten callout: lines starting at x, y, one under another, the arrow on the last. */
+export function callout(f, x, y, lines, { size = 19, arrow } = {}) {
 	lines.forEach((line, i) =>
-		f.text(x, y + i * (size + 6), line, { font: 'serif', size, anchor: 'start' }),
+		f.handwrite(x, y + i * (size + 5), line, {
+			size,
+			arrow: i === lines.length - 1 ? arrow : undefined,
+		}),
 	);
 }
 

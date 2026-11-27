@@ -60,8 +60,9 @@ export const desktop = {
 			[chips[1].edge, chips[1].y],
 			[host.x - 2, chips[1].y],
 		]);
-		callout(f, 380, 70, ['No array on the host:', 'it would never stop growing']);
-		f.crayonArrow([520, 106], [500, host.y - 26], -14);
+		callout(f, 380, 70, ['No array on the host:', 'it would never stop growing'], {
+			arrow: [[520, 106], [500, host.y - 26], -14],
+		});
 	},
 };
 
@@ -96,7 +97,8 @@ export const phone = {
 			[348, into],
 			[host.right + 2, into],
 		]);
-		callout(f, 16, host.bottom + 44, ['No array on the host:', 'it would never stop growing'], 17);
-		f.crayonArrow([250, host.bottom + 34], [220, host.bottom + 6], 14);
+		callout(f, 16, host.bottom + 44, ['No array on the host:', 'it would never stop growing'], {
+			arrow: [[250, host.bottom + 34], [220, host.bottom + 6], 14],
+		});
 	},
 };

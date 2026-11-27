@@ -48,8 +48,9 @@ export const desktop = {
 					: [[chip.edge, chip.y], [lanes[i], chip.y], [lanes[i], to[1]], to],
 			);
 		});
-		callout(f, 26, 336, ['An array of ids,', 'not the parts themselves']);
-		f.crayonArrow([200, 322], [170, product.bottom + 6], -16);
+		callout(f, 26, 336, ['An array of ids,', 'not the parts themselves'], {
+			arrow: [[200, 322], [170, product.bottom + 6], -16],
+		});
 	},
 };
 
@@ -59,8 +60,9 @@ export const phone = {
 		const s = PHONE;
 		f.group({ x: 16, y: 40, w: 328, h: docHeight(PRODUCT, s) + 20, label: 'products' });
 		const product = doc(f, { x: 26, y: 50, w: 308, rows: PRODUCT, s });
-		callout(f, 16, product.bottom + 34, ['An array of ids, not the parts'], 16);
-		f.crayonArrow([250, product.bottom + 24], [200, product.bottom + 6], 12);
+		callout(f, 16, product.bottom + 34, ['An array of ids, not the parts'], {
+			arrow: [[250, product.bottom + 24], [200, product.bottom + 6], 12],
+		});
 		const parts = partsCollection(f, { x: 16, y: product.bottom + 104, w: 288, s });
 		// On a phone the ids share one line down the right edge, branching to each part
 		product.chips.forEach((chip, i) =>

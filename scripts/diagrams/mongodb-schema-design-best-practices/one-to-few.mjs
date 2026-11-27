@@ -19,8 +19,9 @@ export const desktop = {
 		const h = docHeight(ROWS, DESKTOP);
 		f.group({ x: 40, y: 40, w: 320, h: h + 20, label: 'users' });
 		const user = doc(f, { x: 50, y: 50, w: 300, rows: ROWS, s: DESKTOP });
-		callout(f, 412, 76, ['The addresses live', 'inside the user:', 'one read gets them']);
-		f.crayonArrow([440, 140], [user.right + 6, 190], 20);
+		callout(f, 412, 76, ['The addresses live', 'inside the user:', 'one read gets them'], {
+			arrow: [[440, 140], [user.right + 6, 190], 20],
+		});
 	},
 };
 
@@ -30,7 +31,8 @@ export const phone = {
 		const h = docHeight(ROWS, PHONE);
 		f.group({ x: 16, y: 112, w: 328, h: h + 20, label: 'users' });
 		const user = doc(f, { x: 26, y: 122, w: 308, rows: ROWS, s: PHONE });
-		callout(f, 16, 22, ['The addresses live inside', 'the user: one read gets them'], 17);
-		f.crayonArrow([262, 40], [user.right + 6, 236], -90);
+		callout(f, 16, 22, ['The addresses live inside', 'the user: one read gets them'], {
+			arrow: [[274, 44], [user.right + 6, 236], -90],
+		});
 	},
 };
