@@ -22,9 +22,8 @@ export const desktop = {
 		OLD.forEach(([cx, cy]) => f.box({ x: cx - 16, y: cy - 16, w: 32, h: 32, kind: 'chalk' }));
 		f.note(470, 76, 'new memory', { anchor: 'middle', weight: 700 });
 		f.box({ x: 454, y: 154, w: 32, h: 32, kind: 'pink' });
-		f.text(340, 260, 'One new item, one new node.', { font: 'serif', size: 17, anchor: 'start' });
-		f.note(340, 284, 'Nothing gets copied.');
-		f.crayonArrow([460, 244], [468, 194], -10);
+		f.handwrite(340, 260, 'One new item, one new node.');
+		f.handwrite(340, 284, 'Nothing gets copied.', { arrow: [[460, 244], [468, 194], -10] });
 	},
 };
 
@@ -36,8 +35,7 @@ export const phone = {
 		OLD.forEach(([cx, cy]) => f.box({ x: cx - 30, y: cy - 16, w: 28, h: 28, kind: 'chalk' }));
 		f.note(286, 76, 'new memory', { anchor: 'middle', weight: 700 });
 		f.box({ x: 272, y: 160, w: 28, h: 28, kind: 'pink' });
-		f.text(16, 384, 'One new item, one new node.', { font: 'serif', size: 17, anchor: 'start' });
-		f.note(16, 408, 'Nothing gets copied.');
-		f.crayonArrow([250, 376], [284, 196], -20);
+		f.handwrite(16, 384, 'One new item, one new node.');
+		f.handwrite(16, 408, 'Nothing gets copied.', { arrow: [[276, 372], [284, 196], -20] });
 	},
 };

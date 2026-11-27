@@ -24,9 +24,8 @@ export const desktop = {
 			[532, 222],
 			[532, bird2.top - 2],
 		]);
-		f.text(16, 372, 'Nothing points to "Dog" now,', { font: 'serif', size: 17, anchor: 'start' });
-		f.text(16, 396, 'so it’s gone from the list.', { font: 'serif', size: 17, anchor: 'start' });
-		f.crayonArrow([270, 372], [300, 324], -14);
+		f.handwrite(16, 372, 'Nothing points to "Dog" now,');
+		f.handwrite(16, 396, 'so it’s gone from the list.', { arrow: [[276, 368], [300, 324], -14] });
 	},
 };
 
@@ -59,8 +58,7 @@ export const phone = {
 			[348, bird2.mid],
 			[bird2.right + 2, bird2.mid],
 		]);
-		f.text(16, 420, 'Nothing points to "Dog" now,', { font: 'serif', size: 17, anchor: 'start' });
-		f.text(16, 444, 'so it’s gone from the list.', { font: 'serif', size: 17, anchor: 'start' });
-		f.crayonArrow([178, 402], [192, 206], -8);
+		f.handwrite(16, 420, 'Nothing points to "Dog" now,');
+		f.handwrite(16, 444, 'so it’s gone from the list.', { arrow: [[178, 402], [192, 206], -8] });
 	},
 };

@@ -19,7 +19,7 @@ export const desktop = {
 		const bird2 = node(f, { x: 464, y: 210, value: 'Bird' });
 		pointRight(f, cat2, dog2.left);
 		pointRight(f, dog2, bird2.left);
-		f.note(320, 316, 'Two pointers change. Nothing else moves.', { anchor: 'middle' });
+		f.handwrite(320, 316, 'Two pointers change. Nothing else moves.', { anchor: 'middle' });
 	},
 };
 
@@ -51,7 +51,7 @@ export const phone = {
 			[262, 250],
 			[262, bird2.top - 2],
 		]);
-		f.note(180, 410, 'Two pointers change.', { anchor: 'middle' });
-		f.note(180, 432, 'Nothing else moves.', { anchor: 'middle' });
+		f.handwrite(180, 410, 'Two pointers change.', { anchor: 'middle' });
+		f.handwrite(180, 434, 'Nothing else moves.', { anchor: 'middle' });
 	},
 };
