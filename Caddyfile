@@ -16,6 +16,9 @@
 	header @empty_ua Cache-Control "no-store"
 	respond @empty_ua 403
 
+	# Tools that guess /sitemap.xml get the index Astro builds (robots.txt names it)
+	redir /sitemap.xml /sitemap-index.xml 301
+
 	# 301 redirects: WordPress date-based blog URLs → /blog/slug
 	# Matches /YYYY/MM/slug/ or /YYYY/MM/slug
 	# Old WordPress per-post feeds (/YYYY/MM/slug/feed/) → RSS

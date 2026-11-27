@@ -27,20 +27,20 @@ I Ran My First Hackathon, and So Can You! Here are the lessons I learned from pl
 
 Okay, so first of all, what exactly is a hackathon? I find that when I tell people about hackathons, they assume I am hacking into some mainframe with my hack friends, like some scene out of Hackers.
 
-### I define “**hackathon**” very broadly:
+## I define “**hackathon**” very broadly:
 
 - Hacking is creative problem-solving. (It does not have to be about technology.)
 - A hackathon is any event of any duration where people come together to solve problems or build something.
 
 The idea for the Stupid Shit Hackathon was born out of the idea that tech - specifically corporate tech - can solve any problem with a weekend of hacking. Climate Change - give me four hackers and 48 hours and I can solve that for you. Homelessness - No problem, we’ll start a hackathon and solve that in a jiffy. The Stupid Hackathon was intended to be a meta-hackathon. Self-aware of corporate tech, male-dominated self-seriousness I found at most hackathons.
 
-### The bottom line
+## The bottom line
 
 The bottom line is that everyone at the event came in order to build stuff for the sheer joy of creation, not for profit or for glory. Okay, enough by my event, let’s talk about yours!
 
 Over the years as my career as a Software Engineer, I had attended dozens of hackathons, but until now, I had not organized one on my own. I learned a ton through trial and error, research (see resources below), friends (Ray Farias, Jon and Kelli Borgonia, Jason Sewell, Russel Cheng, and Vic Lee). I am by no means an expert, but here are the lessons I learned from organizing my first hackathon ever. I hope it helps and encourages other new hackathon organizers to run an amazing event.
 
-### **What I'll cover:**
+## **What I'll cover:**
 
 - How to get prepared for your hackathon
 - How to market your hackathon
@@ -50,7 +50,7 @@ Over the years as my career as a Software Engineer, I had attended dozens of hac
 - How to run the final presentations and award ceremony
 - What to do after your hackathon
 
-### A couple of notes before we dig in:
+## A couple of notes before we dig in:
 
 - The event I organized had about 60 people in attendance, if you are planning an event with 100 people or more, you are probably on a whole other level and you will need to do a lot more prep work. I would recommend checking out the [Hackathon Guide](https://hackathon.guide/ 'cite: Tauberer, Hackathon Guide, 2014–2017') for details on how to run an event with lots of people in attendance.
 - This was a Stupid Shit and Terrible Ideas hackathon, which by its very nature is a very nonstandard hackathon. We wanted to create more of a collaborative and warm vibe so that all of our entrants have fun, but hopefully you can bring the positive and welcoming vibes to your hackathon.
