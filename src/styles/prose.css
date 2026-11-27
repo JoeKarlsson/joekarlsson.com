@@ -198,9 +198,13 @@
 .prose .newsletter-middle {
 	@apply my-10 border-t-4 border-b border-pink pt-4 pb-5 font-sans;
 }
-/* A chapter opener draws its own rule right below */
+/* Before a chapter, the strip's thin pink rule stands in for the chapter's grey one, so the
+   strip keeps its bottom edge instead of floating in a 64px gap above a grey rule (design review 2026-11-27) */
 .prose .newsletter-middle:has(+ .chapter) {
-	@apply border-b-0;
+	@apply mb-0;
+}
+.prose .newsletter-middle + .chapter {
+	@apply mt-0 border-t-0;
 }
 .prose .newsletter-middle-row {
 	@apply mt-0 mb-3 flex flex-wrap items-baseline gap-x-4 gap-y-1;
