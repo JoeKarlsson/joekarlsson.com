@@ -290,6 +290,8 @@ jobs:
       # tests/media-dither, media-flash and archival-clip run the scripts in scripts/media (cwebp: webp)
       - run: pip install pillow
       - run: sudo apt-get update && sudo apt-get install -y ffmpeg webp
+      # tests/animated-svg-readcheck steps an SVG's animations in headless Chromium
+      - run: npx playwright install --with-deps --only-shell chromium
       - run: npx vitest run
 
   unused:
