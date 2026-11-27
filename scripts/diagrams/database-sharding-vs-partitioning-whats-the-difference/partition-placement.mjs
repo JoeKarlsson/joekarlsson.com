@@ -52,7 +52,10 @@ export const desktop = {
 				[284, n.replicas + 6],
 			]);
 		});
-		f.note(320, 486, 'masters copy to the partner node’s replicas', { anchor: 'middle', size: 14 });
+		f.handwrite(320, 490, 'masters copy to the partner node’s replicas', {
+			anchor: 'middle',
+			size: 17,
+		});
 	},
 };
 
@@ -80,6 +83,6 @@ export const phone = {
 				[160, n.replicas + 5],
 			]);
 		});
-		f.note(180, 538, 'masters copy to the partner’s replicas', { anchor: 'middle', size: 14 });
+		f.handwrite(180, 538, 'masters copy to the partner’s replicas', { anchor: 'middle', size: 17 });
 	},
 };
