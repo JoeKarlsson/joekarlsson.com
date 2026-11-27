@@ -48,12 +48,9 @@ export const desktop = {
 				{ heads: 'both' },
 			),
 		);
-		f.text(16, 316, 'Fast, but only as fresh as the last ETL run.', {
-			font: 'serif',
-			size: 16,
-			anchor: 'start',
+		f.handwrite(16, 316, 'Fast, but only as fresh as the last ETL run.', {
+			arrow: [[300, 302], [282, 206], 24],
 		});
-		f.crayonArrow([300, 302], [282, 206], 24);
 	},
 };
 
@@ -94,8 +91,7 @@ export const phone = {
 				{ heads: 'both' },
 			),
 		);
-		f.text(16, 590, 'Fast, but only as fresh as', { font: 'serif', size: 16, anchor: 'start' });
-		f.text(16, 612, 'the last ETL run.', { font: 'serif', size: 16, anchor: 'start' });
-		f.crayonArrow([200, 586], [196, 538], 6);
+		f.handwrite(16, 590, 'Fast, but only as fresh as');
+		f.handwrite(16, 614, 'the last ETL run.', { arrow: [[200, 576], [196, 538], 6] });
 	},
 };

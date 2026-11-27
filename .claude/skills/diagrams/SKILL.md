@@ -38,7 +38,7 @@ The whole look (colors, type, motion, what Joe has turned down) is on one page: 
 5. **Swap the post's images** for `![alt](/images/blog/<slug>/<name>.svg)`, one per
    figure, alt text written for the post. Delete the old image files in the same
    change once nothing else references them.
-6. **Check the built page**: `rm -rf .astro` (the plugin reads public/
+6. **Check the built page**: `rm -rf .astro node_modules/.astro` (the plugin reads public/
    from disk, which Astro's cache doesn't track), `npx astro build`, serve `dist/`
    on a free port, and look at the figure at 1280px, at 390px and in the lightbox.
 
@@ -81,7 +81,10 @@ unless he says otherwise for a specific figure.
    looks like a flow line.
 7. **Crayon callouts only when they add something** the boxes don't say: what
    travels over a link and how often, a refusal, a surprise. Every callout is a
-   note plus a crayon arrow pointing at exactly what it explains. No decorative
+   note plus a crayon arrow pointing at exactly what it explains. Write the note with
+   `f.handwrite(x, y, text, { arrow: [from, to, bend] })`: pink Kalam that writes itself
+   in, then its arrow draws on (Joe picked it 2026-11-27, DECISIONS). One call per line;
+   give the arrow to the last line. No decorative
    rings, underlines or scribbles. Route the crayon arrow so it crosses no text or box;
    the render check can't see that, so look at the preview. Draw callouts last,
    so nothing covers them.
@@ -149,6 +152,9 @@ Copy `scripts/diagrams/doom-mcp-server/go-to-walk.mjs`, the first one Joe approv
 - `f.logo(name, x, cy, height, surface)` draws a logo or icon and returns its
   width; `f.logoWidth(name, h)`.
 - `f.crayonArrow(from, to, bend)`: the pink callout arrow.
+- `f.handwrite(x, y, text, { size = 19, anchor = 'start', arrow })`: a callout line in pink
+  handwriting (`scripts/diagrams/handwriting.mjs`, glyphs from `handwriting-glyphs.mjs`), written
+  in call order, looping with the finished frame held long enough to read.
 - `f.legend(items)`: `['pink', 'label']` or `['logo:cdata', 'label']`.
 - `f.raw(markup)`: SVG markup on top of everything, for an animated figure's moving
   pieces (`doom-mcp-server/go-to-walk.mjs`: SMIL stepped at 12 fps, with the

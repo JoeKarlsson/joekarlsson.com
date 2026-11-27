@@ -11,6 +11,8 @@
 
 import { existsSync, readFileSync } from 'node:fs';
 
+import { handwritingLayers, handwritingWidth } from './handwriting.mjs';
+
 /**
  * Real logos, transparent, from scripts/diagrams/logos (sources in its README).
  * Simple Icons files are one black path: they take their brand colour, or white
@@ -658,6 +660,37 @@ export function createFigure({ id, width, height }) {
 			3.5,
 		);
 		target.push('</g>');
+		return { d: `M${n(x1)},${n(y1)} Q${n(mx)},${n(my)} ${n(x2)},${n(y2)}`, tip: [x2, y2] };
+	}
+
+	/**
+	 * A callout in pink handwriting that writes itself in, then its crayon arrow draws on
+	 * (DECISIONS 2026-11-27). x, y like text(): y is the line's middle. arrow is the
+	 * crayonArrow's [from, to, bend]. Written in call order when the figure is drawn out.
+	 */
+	const handwritten = [];
+	function handwrite(x, y, content, { size = 19, anchor = 'start', arrow } = {}) {
+		const w = handwritingWidth(content, size);
+		const left = anchor === 'start' ? x : anchor === 'end' ? x - w : x - w / 2;
+		textBoxes.push({
+			label: content,
+			x0: left,
+			x1: left + w,
+			y0: y - size * 0.45,
+			y1: y + size * 0.45,
+		});
+		if (left < 0 || left + w > width || y - size / 2 < 0 || y + size / 2 > height)
+			issues.push(`"${content}" runs off the ${width}x${height} canvas`);
+		const callout = { x: left, y: y + size * 0.3, content, size, color: COLORS.pink };
+		if (arrow) {
+			const markup = [];
+			const previous = target;
+			target = markup;
+			callout.arrow = { ...drawCrayonArrow(...arrow), markup: '' };
+			target = previous;
+			callout.arrow.markup = markup.join('');
+		}
+		handwritten.push(callout);
 	}
 
 	/**
@@ -1061,6 +1094,9 @@ export function createFigure({ id, width, height }) {
 			...layers.boxes,
 			...layers.lines,
 			...layers.callouts,
+			...(handwritten.length
+				? Object.values(handwritingLayers(handwritten, { id, width, height }))
+				: []),
 			'</svg>',
 			'',
 		].join('\n');
@@ -1082,6 +1118,7 @@ export function createFigure({ id, width, height }) {
 		logo,
 		logoWidth,
 		crayonArrow,
+		handwrite,
 		group,
 		box,
 		pill,

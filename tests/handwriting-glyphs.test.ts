@@ -33,3 +33,25 @@ describe('handwriting glyph strokes', () => {
 		expect(walk(img, w, h)).toHaveLength(1);
 	});
 });
+
+describe('handwritten callouts', () => {
+	it('moves the pen from rest to rest: none before it starts, all of it by the end', async () => {
+		const { moveDistance, moveTime } = await import('../scripts/diagrams/handwriting.mjs');
+		const T = moveTime(100, 300, 12000);
+		expect(moveDistance(100, 300, 12000, -1)).toBe(0);
+		expect(moveDistance(100, 300, 12000, T / 2)).toBeCloseTo(50, 5);
+		expect(moveDistance(100, 300, 12000, T + 1)).toBe(100);
+	});
+
+	it('gives reduced motion the finished note with no animation', async () => {
+		const { handwritingLayers } = await import('../scripts/diagrams/handwriting.mjs');
+		const { live, still } = handwritingLayers(
+			[{ x: 10, y: 40, content: 'Hi there.', size: 19, color: '#ff4fd8' }],
+			{ id: 't', width: 200, height: 80 },
+		);
+		expect(live).toContain('<animate');
+		expect(still).toContain('class="anim-still"');
+		expect(still).not.toContain('<animate');
+		expect(still.match(/<path /g)).toHaveLength(8); // one outline per letter of "Hithere."
+	});
+});
