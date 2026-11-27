@@ -100,9 +100,8 @@ export const desktop = {
 			size: 15,
 			icon: 'message-square',
 		});
-		f.note(404, 402, 'One demo: 3:36 recorded,', { anchor: 'start' });
-		f.note(404, 422, '2:56 in the draft');
-		f.crayonArrow([398, 418], [342, 458], 14);
+		f.handwrite(404, 400, 'One demo: 3:36 recorded,');
+		f.handwrite(404, 424, '2:56 in the draft', { arrow: [[398, 418], [342, 458], 14] });
 	},
 };
 
@@ -200,6 +199,9 @@ export const phone = {
 			size: 14,
 			icon: 'message-square',
 		});
-		f.note(180, 720, 'One demo: 3:36 recorded, 2:56 in the draft', { anchor: 'middle', size: 14 });
+		f.handwrite(180, 718, 'One demo: 3:36 recorded, 2:56 in the draft', {
+			anchor: 'middle',
+			size: 16,
+		});
 	},
 };
