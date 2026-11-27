@@ -103,10 +103,9 @@ export const desktop = {
 				...view,
 			}),
 		);
-		f.note(24, 340, 'Alice:');
-		f.note(24, 360, '26,777 words gone,');
-		f.note(24, 380, '8,076 marks kept');
-		f.crayonArrow([70, 394], [166, 404], -20);
+		f.handwrite(16, 336, 'Alice:', { size: 17 });
+		f.handwrite(16, 357, '26,777 words gone,', { size: 17 });
+		f.handwrite(16, 378, '8,076 marks kept', { size: 17, arrow: [[70, 394], [166, 404], -20] });
 	},
 };
 
@@ -175,7 +174,7 @@ export const phone = {
 			sub: [MARKS, 'each one with its place'],
 			...COUNT,
 		});
-		f.note(20, 512, 'Alice: 26,777 words gone, 8,076 marks kept');
+		f.handwrite(16, 512, 'Alice: 26,777 words gone, 8,076 marks kept', { size: 17 });
 		f.arrow([
 			[180, 524],
 			[180, 560],
