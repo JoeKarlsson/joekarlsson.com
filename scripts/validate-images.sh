@@ -165,7 +165,7 @@ if [ -d dist ]; then
 		echo "ERROR: $DANGLING_COUNT built reference(s) point at files missing from dist:"
 		echo -e "$DANGLING" || true
 		echo "  If images were just converted, the Astro cache is stale:"
-		echo "  rm -rf .astro && npm run build"
+		echo "  rm -rf .astro node_modules/.astro && npm run build"
 		ERRORS=$((ERRORS + 1))
 	else
 		echo "OK: every built <img>/<video> reference resolves in dist"
