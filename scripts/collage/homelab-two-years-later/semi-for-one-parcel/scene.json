@@ -12,7 +12,7 @@
 		"jitter_deg": 0.4,
 		"seed": 23
 	},
-	"duration": 5.2,
+	"duration": 5.4,
 	"elements": [
 		{
 			"image": "elements/trailer-shell.png",

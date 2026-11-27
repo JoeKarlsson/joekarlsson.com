@@ -12,7 +12,7 @@
 		"jitter_deg": 0.4,
 		"seed": 11
 	},
-	"duration": 7.3,
+	"duration": 8.0,
 	"elements": [
 		{
 			"image": "elements/quadro.png",

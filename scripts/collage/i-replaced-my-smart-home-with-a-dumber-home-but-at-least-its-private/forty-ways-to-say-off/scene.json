@@ -12,7 +12,7 @@
 		"jitter_deg": 0.4,
 		"seed": 31
 	},
-	"duration": 6.6,
+	"duration": 7.2,
 	"elements": [
 		{
 			"image": "elements/switch.png",

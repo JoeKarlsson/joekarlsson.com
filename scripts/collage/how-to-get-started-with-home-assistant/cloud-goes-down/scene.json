@@ -12,7 +12,7 @@
 		"jitter_deg": 0.4,
 		"seed": 23
 	},
-	"duration": 7.0,
+	"duration": 7.1,
 	"elements": [
 		{
 			"image": "elements/server.png",

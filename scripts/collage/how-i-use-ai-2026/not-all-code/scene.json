@@ -7,7 +7,7 @@
 		"grain": 0.05
 	},
 	"cadence": { "hold_frames": 2, "jitter_px": 1.5, "jitter_deg": 0.4, "seed": 11 },
-	"duration": 6.4,
+	"duration": 7.2,
 	"elements": [
 		{
 			"image": "elements/house.png",

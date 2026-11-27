@@ -8,7 +8,7 @@ export const alt =
 	'Animation: an agent sends the same wrong action at my repo three times. The first time, a chat bubble says "no, not like that" and the action gets through anyway. The second time, the rule is a line in CLAUDE.md and it still gets through. The third time, the rule is a hook: a pink gate drops across the path and the action stops at it.';
 
 const FPS = 12;
-const ROUND = 2.2; // seconds per attempt
+const ROUND = 4.2; // seconds per attempt: "the mistake ships" stays up 2.5 s, long enough to read
 const SHOW = 0.15; // when that attempt's rule appears
 const GO = 0.6; // when the action leaves the agent
 const TRAVEL = 1.1;
@@ -45,7 +45,7 @@ function stepped(values, dur, { attr, type }) {
 	const tag = type
 		? `animateTransform attributeName="transform" type="${type}"`
 		: `animate attributeName="${attr}"`;
-	return `<${tag} calcMode="discrete" values="${vals}" keyTimes="${times}" dur="${n(dur)}s" repeatCount="indefinite"/>`;
+	return `<${tag} calcMode="discrete" values="${vals}" keyTimes="${times}" dur="${+dur.toFixed(4)}s" repeatCount="indefinite"/>`;
 }
 
 const sans = "var(--font-hanken-grotesk, 'Hanken Grotesk'), Arial, sans-serif";
