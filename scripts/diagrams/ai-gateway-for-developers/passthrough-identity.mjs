@@ -69,13 +69,11 @@ export const desktop = {
 		f.note(336, 413, 'each employee’s own credentials');
 		f.box({ x: 210, y: 442, w: 220, h: 60, label: 'Salesforce', logo: 'salesforce' });
 		// The point of the figure: the source's own rules do the scoping
-		f.text(20, 552, 'Salesforce decides what comes back:', {
-			font: 'serif',
+		f.handwrite(20, 552, 'Salesforce decides what comes back:', { size: 17 });
+		f.handwrite(20, 576, 'its sharing rules return only what each person may see.', {
 			size: 17,
-			anchor: 'start',
+			arrow: [[150, 534], [206, 482], -14],
 		});
-		f.note(20, 578, 'its sharing rules return only what each person may see.');
-		f.crayonArrow([150, 534], [206, 482], -14);
 	},
 };
 
@@ -151,10 +149,12 @@ export const phone = {
 		f.note(194, 398, 'each employee’s', { size: 14 });
 		f.note(194, 416, 'own credentials', { size: 14 });
 		f.box({ x: 80, y: 438, w: 200, h: 58, label: 'Salesforce', logo: 'salesforce' });
-		f.text(16, 548, 'Salesforce decides what', { font: 'serif', size: 17, anchor: 'start' });
-		f.text(16, 570, 'comes back:', { font: 'serif', size: 17, anchor: 'start' });
-		f.note(16, 596, 'its sharing rules return only');
-		f.note(16, 616, 'what each person may see.');
-		f.crayonArrow([40, 530], [76, 474], -12);
+		f.handwrite(16, 548, 'Salesforce decides what', { size: 17 });
+		f.handwrite(16, 572, 'comes back:', { size: 17 });
+		f.handwrite(16, 596, 'its sharing rules return only', { size: 17 });
+		f.handwrite(16, 620, 'what each person may see.', {
+			size: 17,
+			arrow: [[40, 530], [76, 474], -12],
+		});
 	},
 };

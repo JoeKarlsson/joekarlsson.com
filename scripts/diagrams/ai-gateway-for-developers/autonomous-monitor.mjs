@@ -71,10 +71,9 @@ export const desktop = {
 			icon: 'user-check',
 		});
 		// What the boxes can't show: the audit trail
-		f.text(446, 304, 'Every request is logged:', { font: 'serif', size: 16, anchor: 'start' });
-		f.note(446, 328, 'what the agent saw', { size: 14 });
-		f.note(446, 348, 'and what it did', { size: 14 });
-		f.crayonArrow([436, 296], [418, 150], -14);
+		f.handwrite(446, 304, 'Every request is logged:', { size: 17 });
+		f.handwrite(446, 328, 'what the agent saw', { size: 17 });
+		f.handwrite(446, 352, 'and what it did', { size: 17, arrow: [[436, 296], [418, 150], -14] });
 	},
 };
 
@@ -112,11 +111,10 @@ export const phone = {
 			{ heads: 'both' },
 		);
 		f.box({ x: 36, y: 368, w: 156, h: 54, label: 'BigQuery', logo: 'googlebigquery' });
-		f.text(204, 372, 'Every request', { font: 'serif', size: 15, anchor: 'start' });
-		f.text(204, 392, 'is logged:', { font: 'serif', size: 15, anchor: 'start' });
-		f.note(204, 414, 'what the agent saw', { size: 14 });
-		f.note(204, 432, 'and what it did', { size: 14 });
-		f.crayonArrow([262, 360], [262, 326], 8);
+		f.handwrite(204, 372, 'Every request', { size: 16 });
+		f.handwrite(204, 394, 'is logged:', { size: 16 });
+		f.handwrite(204, 416, 'what the agent saw', { size: 16 });
+		f.handwrite(204, 438, 'and what it did', { size: 16, arrow: [[262, 360], [262, 326], 8] });
 		f.arrow([
 			[110, 136],
 			[20, 136],
