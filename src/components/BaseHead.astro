@@ -631,8 +631,12 @@ page's own scripts run. */}
 		// Report the first uncaught error on a page as a "JS Error" event, so breakage on
 		// the live site shows up in Plausible. One per page keeps a looping error from flooding it.
 		let reported = false;
+		// Google Translate's proxy (www-joekarlsson-com.translate.goog) serves the page from its
+		// own origin and injects its own inline scripts (gtElInit, _DumpExc), which the page's
+		// hash list blocks. Nothing that breaks there is the site's own.
+		const translateProxy = location.hostname.endsWith('.translate.goog');
 		const report = (message, source) => {
-			if (reported || typeof window.plausible !== 'function') return;
+			if (reported || translateProxy || typeof window.plausible !== 'function') return;
 			reported = true;
 			window.plausible('JS Error', {
 				props: { message: String(message).slice(0, 200), source, path: location.pathname },
@@ -649,12 +653,21 @@ page's own scripts run. */}
 		const trustedTypes = /Trusted(HTML|Script|ScriptURL)\b/;
 		addEventListener('error', (e) => {
 			if (!ownCode(e.filename)) return;
+			// The browser's note that a resize callback ran on to the next frame; nothing broke
+			if (String(e.message).includes('ResizeObserver loop')) return;
 			if (trustedTypes.test(e.message) && !ownScriptFile(e.filename)) return;
 			report(e.message, `${e.filename}:${e.lineno}`);
 		});
+		// A view transition the browser dropped: skipped on purpose (AbortError), or aborted
+		// because the window resized, the snapshot failed or the page was already shown
+		// (InvalidStateError). The page still changes, only without the animation.
+		const droppedTransition = (reason) =>
+			reason?.name === 'AbortError' ||
+			/^(AbortError|InvalidStateError): (Skipping view transition|Transition was)/.test(
+				String(reason?.name ? `${reason.name}: ${reason.message}` : reason),
+			);
 		addEventListener('unhandledrejection', (e) => {
-			// A deliberate cancel, like skipTransition() on a view transition, not a bug
-			if (e.reason?.name === 'AbortError') return;
+			if (droppedTransition(e.reason)) return;
 			report(e.reason, 'promise');
 		});
 		// The script policy (src/integrations/script-csp.mjs) blocks quietly; this says what
@@ -664,9 +677,12 @@ page's own scripts run. */}
 			if (e.violatedDirective === 'trusted-types' && e.sample !== 'plausible') return;
 			if (e.violatedDirective === 'require-trusted-types-for' && !ownScriptFile(e.sourceFile))
 				return;
-			// Google Translate's proxy (www-joekarlsson-com.translate.goog) serves the page from
-			// its own origin and adds this inline script, which the page's hash list blocks
-			if (e.sample.startsWith('function gtElInit')) return;
+			// The site loads fonts only from itself (font-src 'self' data:) and no Google
+			// Translate files, so a blocked font from elsewhere or a Translate stylesheet or
+			// script is something an extension or Chrome's page translator added
+			const blocked = String(e.blockedURI);
+			if (e.violatedDirective.startsWith('font-src') && !ownCode(blocked)) return;
+			if (blocked.startsWith('https://www.gstatic.com/_/translate_http/')) return;
 			report(
 				`${e.violatedDirective} ${e.blockedURI} ${e.sample}`,
 				`csp ${e.sourceFile}:${e.lineNumber}`,

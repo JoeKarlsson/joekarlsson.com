@@ -15,7 +15,12 @@ function load(page = PAGE) {
 	runInNewContext(script, {
 		window,
 		navigator: { webdriver: false, userAgent: 'Mozilla/5.0', languages: ['en'] },
-		location: { origin: new URL(page).origin, href: page, pathname: new URL(page).pathname },
+		location: {
+			origin: new URL(page).origin,
+			hostname: new URL(page).hostname,
+			href: page,
+			pathname: new URL(page).pathname,
+		},
 		document: { createElement: () => ({ dataset: {} }), head: { appendChild: () => {} } },
 		addEventListener: (type: string, fn: (event: unknown) => void) => (listeners[type] = fn),
 	});
@@ -61,6 +66,70 @@ describe('JS Error reporting', () => {
 			csp('script-src-elem', 'function gtElInit() {var lib = new googl', proxied),
 		);
 		expect(sent).toEqual([]);
+	});
+
+	it('ignores the noise live visitors sent in November 2026', () => {
+		const { fire, sent } = load();
+		// Chrome's page translator and font-injecting extensions
+		fire('securitypolicyviolation', {
+			...csp('style-src-elem', ''),
+			blockedURI:
+				'https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.QqIH6p_rMO8.L.W1.O/am=AAAAMA/d=0',
+		});
+		fire('securitypolicyviolation', {
+			...csp('script-src-elem', ''),
+			blockedURI: 'https://www.gstatic.com/_/translate_http/_/js/k=translate_http.tr.es_419',
+		});
+		fire('securitypolicyviolation', {
+			...csp('font-src', ''),
+			blockedURI:
+				'https://fonts.gstatic.com/s/roboto/v51/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPN.woff2',
+		});
+		// A resize callback that ran on to the next frame
+		fire('error', {
+			message: 'ResizeObserver loop completed with undelivered notifications.',
+			filename: PAGE,
+			lineno: 0,
+		});
+		// View transitions the browser dropped
+		for (const message of [
+			'Transition was aborted because of invalid state. Viewport size changed',
+			'Transition was aborted because of invalid state. Snapshot capture failed',
+			'Transition was aborted because of invalid state',
+		])
+			fire('unhandledrejection', { reason: { name: 'InvalidStateError', message } });
+		fire('unhandledrejection', { reason: 'AbortError: Transition was skipped' });
+		expect(sent).toEqual([]);
+	});
+
+	it('ignores everything on Google Translate’s proxy, like its injected _DumpExc script', () => {
+		const proxied =
+			'https://www-joekarlsson-com.translate.goog/blog/how-to-get-started-building-a-homelab-server/';
+		const { fire, sent } = load(proxied);
+		fire(
+			'securitypolicyviolation',
+			csp('script-src-elem', "(function() {\n      if(!window['_DumpExc", proxied),
+		);
+		fire('error', { message: 'TypeError: x is undefined', filename: proxied, lineno: 9 });
+		expect(sent).toEqual([]);
+	});
+
+	it('still reports a blocked font or script of the site’s own, and other InvalidStateErrors', () => {
+		for (const fire_ of [
+			(f: ReturnType<typeof load>['fire']) =>
+				f('securitypolicyviolation', {
+					...csp('font-src', ''),
+					blockedURI: 'https://www.joekarlsson.com/fonts/anton.woff2',
+				}),
+			(f: ReturnType<typeof load>['fire']) =>
+				f('unhandledrejection', {
+					reason: { name: 'InvalidStateError', message: 'The object is in an invalid state.' },
+				}),
+		]) {
+			const { fire, sent } = load();
+			fire_(fire);
+			expect(sent).toHaveLength(1);
+		}
 	});
 
 	it('reports the first error from the site itself, and only the first', () => {
