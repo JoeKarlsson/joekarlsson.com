@@ -44,8 +44,8 @@ const RANK = {
 export const desktop = {
 	height: 470,
 	draw(f) {
-		const xs = [40, 250, 460];
-		const W = 160;
+		const xs = [20, 230, 440];
+		const W = 180;
 		const H = 104;
 		const box = (x, y, spec) =>
 			f.box({ x, y, w: W, h: H, size: 16, subSize: 13, stack: true, ...spec });
@@ -61,8 +61,8 @@ export const desktop = {
 		]);
 		box(xs[2], 16, LINK);
 		f.arrow([
-			[580, 122],
-			[580, 198],
+			[560, 122],
+			[560, 198],
 		]);
 		box(xs[2], 200, VOTE);
 		f.arrow([
@@ -71,21 +71,20 @@ export const desktop = {
 		]);
 		box(xs[1], 200, SEND);
 		f.arrow([
-			[330, 198],
-			[330, 160],
-			[500, 160],
-			[500, 122],
+			[310, 198],
+			[310, 160],
+			[480, 160],
+			[480, 122],
 		]);
-		f.note(338, 152, 'next friend');
+		f.note(318, 152, 'next friend');
 		f.arrow([
-			[540, 306],
-			[540, 348],
+			[520, 306],
+			[520, 348],
 		]);
 		box(xs[2], 350, RANK);
-		f.note(40, 380, 'Two friends vote on the same old link?');
-		f.note(40, 402, 'A phone that opens both keeps the');
-		f.note(40, 424, 'higher count for each bar.');
-		f.crayonArrow([200, 362], [270, 308], -20);
+		f.handwrite(20, 380, 'Two friends vote on the same old link?');
+		f.handwrite(20, 404, 'A phone that opens both keeps the');
+		f.handwrite(20, 428, 'higher count for each bar.', { arrow: [[180, 362], [270, 308], -20] });
 	},
 };
 
@@ -118,8 +117,8 @@ export const phone = {
 			[X + W + 12, ys[5] + H / 2],
 			[X + W + 2, ys[5] + H / 2],
 		]);
-		f.note(X, 724, 'Two friends vote on the same old link?');
-		f.note(X, 746, 'A phone that opens both keeps');
-		f.note(X, 768, 'the higher count for each bar.');
+		f.handwrite(X, 724, 'Two friends vote on the same old link?', { size: 16 });
+		f.handwrite(X, 746, 'A phone that opens both keeps', { size: 16 });
+		f.handwrite(X, 768, 'the higher count for each bar.', { size: 16 });
 	},
 };
