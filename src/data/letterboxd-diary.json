@@ -1,11 +1,27 @@
 [
 	{
+		"title": "Madden",
+		"year": 2026,
+		"watched": "2026-11-27",
+		"logged": "2026-11-27",
+		"rating": 1.5,
+		"rewatch": false
+	},
+	{
 		"title": "Fjord",
 		"year": 2026,
 		"watched": "2026-11-23",
 		"logged": "2026-11-25",
 		"rating": 2.5,
 		"rewatch": false
+	},
+	{
+		"title": "Jingle All the Way",
+		"year": 1996,
+		"watched": "2026-11-22",
+		"logged": "2026-11-26",
+		"rating": null,
+		"rewatch": true
 	},
 	{
 		"title": "Sicario",
