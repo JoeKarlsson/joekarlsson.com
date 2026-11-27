@@ -69,9 +69,10 @@ export const desktop = {
 			[fed.x + fed.w + 2, 254],
 			[s3.x - 2, 254],
 		]);
-		f.text(430, 350, 'Same name every run:', { font: 'serif', size: 18, anchor: 'start' });
-		f.text(430, 374, '$out replaces the file', { font: 'serif', size: 18, anchor: 'start' });
-		f.crayonArrow([590, 340], [570, s3.y + s3.h + 6], 14);
+		f.handwrite(430, 350, 'Same name every run:');
+		f.handwrite(430, 374, '$out replaces the file', {
+			arrow: [[590, 340], [570, s3.y + s3.h + 6], 14],
+		});
 	},
 };
 
@@ -102,9 +103,8 @@ export const phone = {
 			[279, fed.y + fed.h + 2],
 			[279, s3.y - 2],
 		]);
-		['Same name every', 'run: $out replaces', 'the file'].forEach((line, i) =>
-			f.text(16, 392 + i * 22, line, { font: 'serif', size: 16, anchor: 'start' }),
-		);
-		f.crayonArrow([96, 452], [186, 446], 16);
+		f.handwrite(16, 388, 'Same name every');
+		f.handwrite(16, 412, 'run: $out replaces');
+		f.handwrite(16, 436, 'the file', { arrow: [[96, 448], [186, 446], 16] });
 	},
 };
