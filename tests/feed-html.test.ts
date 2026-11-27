@@ -38,4 +38,10 @@ describe('withoutPageOnlyParts', () => {
 				'<p class="md:hidden">On a phone, <a href="https://g/">open it</a>.</p> ',
 		);
 	});
+
+	it('drops the mid-post newsletter ask, a form a feed reader can’t post', () => {
+		const html =
+			'<p>Before.</p><aside class="newsletter-middle" aria-label="Newsletter"><p class="newsletter-middle-row"><span>Works on My Machine</span></p><form method="post"><input type="email" name="email"><button type="submit">Subscribe</button></form><p class="newsletter-middle-fine">Free.</p></aside><h2>After</h2>';
+		expect(withoutPageOnlyParts(html)).toBe('<p>Before.</p><h2>After</h2>');
+	});
 });

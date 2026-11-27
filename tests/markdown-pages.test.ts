@@ -28,6 +28,19 @@ describe('pageToMarkdown phone copies', () => {
 	});
 });
 
+describe('pageToMarkdown newsletter ask', () => {
+	it('drops the mid-post ask, whose words only lead into its form', () => {
+		const md = pageToMarkdown(
+			page(
+				'<p>Before.</p><aside class="newsletter-middle" aria-label="Newsletter"><p><span>Works on My Machine</span> <span>Get the next post by email.</span></p></aside><p>After.</p>',
+			),
+			'https://joekarlsson.com/t/',
+		);
+		expect(md).not.toContain('Get the next post');
+		expect(md).toContain('After.');
+	});
+});
+
 describe('pageToMarkdown metadata lines', () => {
 	it('puts a bar between the pieces the page separates with CSS', () => {
 		const md = pageToMarkdown(

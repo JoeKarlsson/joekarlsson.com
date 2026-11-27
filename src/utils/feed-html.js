@@ -38,6 +38,8 @@ const PAGE_ONLY = [
 	/<a class="heading-anchor"[^>]*>[\s\S]*?<\/a>/g,
 	/<span class="chapter-num"[^>]*>[^<]*<\/span>/g,
 	/<p class="interlude"[^>]*>[^<]*<\/p>/g,
+	// The mid-post newsletter ask: a form a feed reader can't post (rehype-newsletter-middle.mjs)
+	/<aside class="newsletter-middle"[^>]*>[\s\S]*?<\/aside>/g,
 	/<span class="quote-mark"[^>]*>[^<]*<\/span>/g,
 	/<span class="faq-sign[^"]*"[^>]*>(?:<span[^>]*>[^<]*<\/span>)*<\/span>/g,
 	/<sup class="cite-num mn-num mn-phone">[\s\S]*?<\/sup>/g,

@@ -21,6 +21,7 @@ import rehypeGifVideo from './src/plugins/rehype-gif-video.mjs';
 import rehypeImageDimensions from './src/plugins/rehype-image-dimensions.mjs';
 import rehypeInlineDiagrams from './src/plugins/rehype-inline-diagrams.mjs';
 import rehypeMarginNotes from './src/plugins/rehype-margin-notes.mjs';
+import rehypeNewsletterMiddle from './src/plugins/rehype-newsletter-middle.mjs';
 import rehypeNoWidows from './src/plugins/rehype-no-widows.mjs';
 import rehypePaperCitations, { rehypePaperRaw } from './src/plugins/rehype-paper-citations.mjs';
 import rehypeLazyImages from './src/plugins/rehype-lazy-images.mjs';
@@ -223,6 +224,8 @@ export default defineConfig({
 				rehypeQuoteMarks,
 				// After the permalinks: these find each h2 inside its .heading-group
 				rehypeInterlude,
+				// After the interlude, which it keeps clear of; before chapters, which hide each h2
+				rehypeNewsletterMiddle,
 				rehypeChapters,
 				rehypePaperCitations,
 				rehypeMarginNotes,

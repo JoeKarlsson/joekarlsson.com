@@ -29,6 +29,8 @@ const REMOVED = [
 	'[data-share-links]',
 	// A short phone version of text the page also has in full
 	'[data-phone-copy]',
+	// The mid-post newsletter ask: its words only lead into the form (rehype-newsletter-middle.mjs)
+	'.newsletter-middle',
 	'input',
 	'label',
 	'select',

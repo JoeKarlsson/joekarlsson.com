@@ -193,6 +193,27 @@
 	font-size: max(2.25rem, min(clamp(3rem, 1rem + 5vw, 7rem), 12.5vw, 12svh));
 	line-height: 1.02;
 }
+/* A short newsletter ask halfway down a long post (rehype-newsletter-middle.mjs; newsletter
+   round 1, option B, DECISIONS.md 2026-11-27): a thick pink rule above, a thin one below */
+.prose .newsletter-middle {
+	@apply my-10 border-t-4 border-b border-pink pt-4 pb-5 font-sans;
+}
+/* A chapter opener draws its own rule right below */
+.prose .newsletter-middle:has(+ .chapter) {
+	@apply border-b-0;
+}
+.prose .newsletter-middle-row {
+	@apply mt-0 mb-3 flex flex-wrap items-baseline gap-x-4 gap-y-1;
+}
+.prose .newsletter-middle-name {
+	@apply font-display text-2xl uppercase text-pink;
+}
+.prose .newsletter-middle-say {
+	@apply font-serif text-lg italic text-paper;
+}
+.prose .newsletter-middle-fine {
+	@apply mt-2 mb-0 text-sm text-muted;
+}
 /* A sideways phone: the sticky header takes a fifth of the height, so the pause shrinks more */
 @media (height < 30rem) {
 	.prose .interlude {

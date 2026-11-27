@@ -13,7 +13,7 @@ import { isPaper } from './rehype-paper-citations.mjs';
 
 const LONG_POST_WORDS = 3000;
 const MIN_CHAPTERS = 4;
-const NOT_CHAPTERS =
+export const NOT_CHAPTERS =
 	/^(references|sources|footnotes|further reading|faqs?|frequently asked questions)$/i;
 
 const el = (tagName, properties, children) => ({ type: 'element', tagName, properties, children });
