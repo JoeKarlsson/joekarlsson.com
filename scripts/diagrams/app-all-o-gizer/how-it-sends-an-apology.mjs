@@ -58,9 +58,8 @@ export const desktop = {
 			[282, 330],
 		]);
 		f.box({ x: 20, y: 292, w: 260, h: 76, size: 17, subSize: 14, ...INBOX });
-		f.note(24, 252, 'never built:');
-		f.note(24, 272, 'I ran out of day');
-		f.crayonArrow([140, 262], [200, 236], -20);
+		f.handwrite(24, 250, 'never built:', { size: 17 });
+		f.handwrite(24, 274, 'I ran out of day', { size: 17, arrow: [[152, 260], [200, 236], -20] });
 	},
 };
 
@@ -91,6 +90,6 @@ export const phone = {
 			],
 			{ dashed: true },
 		);
-		f.note(X, 724, 'never built: I ran out of day');
+		f.handwrite(X, 724, 'never built: I ran out of day', { size: 17 });
 	},
 };
