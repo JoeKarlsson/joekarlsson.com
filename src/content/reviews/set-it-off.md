@@ -22,6 +22,7 @@ letterboxdAverage: 3.76
 slug: 'set-it-off'
 description: 'A heist movie that understands the real crime is what society did to these women before they ever picked up a gun.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/set-it-off/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/set-it-off-1996/'
 poster: '/images/reviews/set-it-off/poster.webp'
 heroImage: '/images/reviews/set-it-off/backdrop.webp'
 heroAlt: 'Four women laughing as they lean over a pile of cash bundles spread across the hood of a car at night.'

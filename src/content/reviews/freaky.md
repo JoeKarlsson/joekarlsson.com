@@ -22,6 +22,7 @@ letterboxdAverage: 3.09
 slug: 'freaky'
 description: "I love Vince Vaughn's later-career pivot to embracing how massive his body is and how physically intimidating he can be. Brawl in Cell Block 99 is a great…"
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/freaky/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/freaky-2020/'
 poster: '/images/reviews/freaky/poster.webp'
 heroImage: '/images/reviews/freaky/backdrop.webp'
 heroAlt: 'Kathryn Newton in a red leather jacket walking down a crowded school hallway with three friends.'

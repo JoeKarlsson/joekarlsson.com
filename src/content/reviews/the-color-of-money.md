@@ -22,6 +22,7 @@ letterboxdAverage: 3.74
 slug: 'the-color-of-money'
 description: 'Answers the question, what if John Wick and Marty Supreme had a baby?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-color-of-money/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-color-of-money-1986/'
 poster: '/images/reviews/the-color-of-money/poster.webp'
 heroImage: '/images/reviews/the-color-of-money/backdrop.webp'
 heroAlt: 'Tom Cruise holding a pool cue and Paul Newman in a grey suit sitting side by side in a dim pool hall.'

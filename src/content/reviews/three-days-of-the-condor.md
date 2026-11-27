@@ -22,6 +22,7 @@ letterboxdAverage: 3.74
 slug: 'three-days-of-the-condor'
 description: 'Robert Redford is so handsome. He got a little creepy when he started making out with Faye Dunaway. And I have to admit, I got a little confused at the end.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/three-days-of-the-condor/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/three-days-of-the-condor-1975/'
 poster: '/images/reviews/three-days-of-the-condor/poster.webp'
 heroImage: '/images/reviews/three-days-of-the-condor/backdrop.webp'
 heroAlt: 'Robert Redford in glasses holding a pistol on an older man in a dim study.'

@@ -22,6 +22,7 @@ letterboxdAverage: 3.62
 slug: 'the-drama'
 description: 'I forgave Zendaya instantly. Sorry. Also - Robert Pattinson is on an absolute heater of playing socially inept morons who cannot read their partner to save…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-drama/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-drama-2026/'
 poster: '/images/reviews/the-drama/poster.webp'
 heroImage: '/images/reviews/the-drama/backdrop.webp'
 heroAlt: 'Robert Pattinson and Zendaya pressed close together on the edge of a bed in a book-lined room.'

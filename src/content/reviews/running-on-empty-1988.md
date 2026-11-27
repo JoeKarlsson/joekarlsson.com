@@ -15,6 +15,7 @@ letterboxdAverage: 4.03
 slug: 'running-on-empty-1988'
 description: 'Running on Empty is a surprisingly gentle film given its radical setup. I watched this shortly after One Battle After Another and honestly expected something…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/running-on-empty-1988/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/running-on-empty-1988/'
 poster: '/images/reviews/running-on-empty-1988/poster.webp'
 heroImage: '/images/reviews/running-on-empty-1988/backdrop.webp'
 heroAlt: 'River Phoenix looking down while a man rests a hand on his shoulder.'

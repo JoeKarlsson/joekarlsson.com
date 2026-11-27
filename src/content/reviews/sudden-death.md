@@ -28,6 +28,7 @@ letterboxdAverage: 3.08
 slug: 'sudden-death'
 description: 'Jean-Claude Van Damme saves the Stanley Cup Finals from terrorists in the emptiest arena in sports history.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/sudden-death/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/sudden-death-1995/'
 poster: '/images/reviews/sudden-death/poster.webp'
 heroImage: '/images/reviews/sudden-death/backdrop.webp'
 heroAlt: 'Jean-Claude Van Damme in a blue work shirt, his face cut and bloodied, glaring in close-up.'

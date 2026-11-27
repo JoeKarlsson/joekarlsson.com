@@ -15,6 +15,7 @@ letterboxdAverage: 3.81
 slug: 'in-the-mouth-of-madness'
 description: 'This is the best adaptation of Lovecraftian horror ever committed to film?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/in-the-mouth-of-madness/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/in-the-mouth-of-madness-1995/'
 poster: '/images/reviews/in-the-mouth-of-madness/poster.webp'
 heroImage: '/images/reviews/in-the-mouth-of-madness/backdrop.webp'
 heroAlt: 'Sam Neill with wild hair, in a hospital gown, held by two orderlies in white.'

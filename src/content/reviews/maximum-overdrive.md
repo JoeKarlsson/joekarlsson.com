@@ -22,6 +22,7 @@ letterboxdAverage: 2.53
 slug: 'maximum-overdrive'
 description: 'Cocaine-era Stephen King fans, this is our Super Bowl.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/maximum-overdrive/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/maximum-overdrive-1986/'
 poster: '/images/reviews/maximum-overdrive/poster.webp'
 heroImage: '/images/reviews/maximum-overdrive/backdrop.webp'
 heroAlt: 'Poster art of a semi truck with a giant green goblin face on its grille, plowing through a burning truck stop.'

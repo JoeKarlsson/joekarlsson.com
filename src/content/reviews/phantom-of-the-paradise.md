@@ -22,6 +22,7 @@ letterboxdAverage: 4.16
 slug: 'phantom-of-the-paradise'
 description: 'My expectations for this movie were rock bottom. But it was way more fun and inventive and creative than I ever could’ve expected. I should’ve known better…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/phantom-of-the-paradise/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/phantom-of-the-paradise-1974/'
 poster: '/images/reviews/phantom-of-the-paradise/poster.webp'
 heroImage: '/images/reviews/phantom-of-the-paradise/backdrop.webp'
 heroAlt: 'A figure in a silver bird-like helmet with one bulging eye and metal teeth, in a dark recording studio.'

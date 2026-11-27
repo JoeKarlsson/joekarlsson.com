@@ -22,6 +22,7 @@ letterboxdAverage: 3.8
 slug: 'desert-hearts'
 description: 'A gorgeous movie about repression and finding yourself at any age or point in your life. And one of the few queer movies from this era where the it’s not a…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/desert-hearts/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/desert-hearts-1986/'
 poster: '/images/reviews/desert-hearts/poster.webp'
 heroImage: '/images/reviews/desert-hearts/backdrop.webp'
 heroAlt: 'Helen Shaver touching her face as Patricia Charbonneau, with short dark hair, leans close to her in a bedroom.'

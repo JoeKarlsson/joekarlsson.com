@@ -15,6 +15,7 @@ letterboxdAverage: 4.34
 slug: 'all-that-jazz'
 description: "All That Jazz is an autobiography where the author clearly can't stand the main character."
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/all-that-jazz/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/all-that-jazz-1979/'
 poster: '/images/reviews/all-that-jazz/poster.webp'
 heroImage: '/images/reviews/all-that-jazz/backdrop.webp'
 heroAlt: 'Roy Scheider in a sequined shirt, singing into a microphone with one arm thrown wide against blurred stage lights.'

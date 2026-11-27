@@ -22,6 +22,7 @@ letterboxdAverage: 3.16
 slug: 'the-running-man'
 description: 'Running Man is just a worse version of RoboCop in nearly every single way.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-running-man/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-running-man-1987/'
 poster: '/images/reviews/the-running-man/poster.webp'
 heroImage: '/images/reviews/the-running-man/backdrop.webp'
 heroAlt: 'Arnold Schwarzenegger in a yellow jumpsuit strapped into the seat of a red sled-like vehicle.'

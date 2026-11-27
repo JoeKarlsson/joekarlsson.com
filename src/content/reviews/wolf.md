@@ -22,6 +22,7 @@ letterboxdAverage: 2.99
 slug: 'wolf'
 description: 'James Spader and Jack Nicholson fight under a full moon in slow motion while Ennio Morricone plays saxophone. Such a wildly unintentionally funny movie.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wolf/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/wolf-1994/'
 poster: '/images/reviews/wolf/poster.webp'
 heroImage: '/images/reviews/wolf/backdrop.webp'
 heroAlt: 'Jack Nicholson snarling as he grips the bars of a cell.'

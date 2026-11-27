@@ -22,6 +22,7 @@ letterboxdAverage: 3.98
 slug: 'nowhere'
 description: 'A bisexual fever dream on acid, and I finally get why queer kids worship it.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/nowhere/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/nowhere-1997/'
 poster: '/images/reviews/nowhere/poster.webp'
 heroImage: '/images/reviews/nowhere/backdrop.webp'
 heroAlt: 'Three young women in red, blue and pink tops with heart sunglasses pushed up in their hair, looking alarmed.'

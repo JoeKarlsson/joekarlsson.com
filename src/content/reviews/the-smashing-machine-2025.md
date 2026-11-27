@@ -15,6 +15,7 @@ letterboxdAverage: 3.21
 slug: 'the-smashing-machine-2025'
 description: 'I love that Captain Capitalism finally ate shit when he tried to make an earnest play at being a legit drama actor. Schadenfreude tastes sweet. The Rock…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-smashing-machine-2025/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-smashing-machine-2025/'
 poster: '/images/reviews/the-smashing-machine-2025/poster.webp'
 heroImage: '/images/reviews/the-smashing-machine-2025/backdrop.webp'
 heroAlt: "Dwayne Johnson sitting in a fighter's corner of a ring while his cornermen tend to him."

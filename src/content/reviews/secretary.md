@@ -23,6 +23,7 @@ letterboxdAverage: 3.58
 slug: 'secretary'
 description: 'I’d let James Spader spank me….'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/secretary/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/secretary-2002/'
 poster: '/images/reviews/secretary/poster.webp'
 heroImage: '/images/reviews/secretary/backdrop.webp'
 heroAlt: 'Maggie Gyllenhaal crawling on all fours across a carpet with a letter held in her mouth.'

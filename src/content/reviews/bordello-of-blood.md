@@ -22,6 +22,7 @@ letterboxdAverage: 2.79
 slug: 'bordello-of-blood'
 description: 'Why does Dennis Miller look like he would rather be anywhere else than on the set of this film?'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/bordello-of-blood/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/bordello-of-blood-1996/'
 poster: '/images/reviews/bordello-of-blood/poster.webp'
 heroImage: '/images/reviews/bordello-of-blood/backdrop.webp'
 heroAlt: 'A red-haired woman pressing close behind a sweaty, bearded man in a dark room.'

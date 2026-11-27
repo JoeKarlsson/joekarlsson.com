@@ -22,6 +22,7 @@ letterboxdAverage: 3.47
 slug: 'pillion-2025'
 description: 'A dom/rom/com about how beautiful non-traditional relationships can be. Horny & Heartwarming.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/pillion-2025/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/pillion-2026/'
 poster: '/images/reviews/pillion-2025/poster.webp'
 heroImage: '/images/reviews/pillion-2025/backdrop.webp'
 heroAlt: 'Harry Melling and Alexander Skarsgård in a motorcycle jacket walking down a street at night under string lights.'

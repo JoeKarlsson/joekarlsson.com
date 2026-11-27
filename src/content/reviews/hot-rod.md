@@ -15,6 +15,7 @@ letterboxdAverage: 3.55
 slug: 'hot-rod'
 description: 'This movie altered my brain at a formative age. Cool beans???'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/hot-rod/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/hot-rod-2007/'
 poster: '/images/reviews/hot-rod/poster.webp'
 heroImage: '/images/reviews/hot-rod/backdrop.webp'
 heroAlt: 'Isla Fisher in a red jersey and Andy Samberg in a denim work shirt with a flag patch, sitting together outside.'

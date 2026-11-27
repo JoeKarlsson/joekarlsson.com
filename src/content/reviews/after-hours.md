@@ -22,6 +22,7 @@ letterboxdAverage: 4.13
 slug: 'after-hours'
 description: 'The horniest movie Scorsese ever made is also the one where nobody gets to have sex.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/after-hours/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/after-hours-1985/'
 poster: '/images/reviews/after-hours/poster.webp'
 heroImage: '/images/reviews/after-hours/backdrop.webp'
 heroAlt: 'Griffin Dunne and Rosanna Arquette side by side in a dim room, both glancing off to the side.'

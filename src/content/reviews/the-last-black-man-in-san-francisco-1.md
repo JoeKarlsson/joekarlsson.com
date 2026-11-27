@@ -16,6 +16,7 @@ letterboxdAverage: 4.06
 slug: 'the-last-black-man-in-san-francisco-1'
 description: 'Really helped me to better understand gentrification. Loved the themes of finding a home. Great male friendship'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-last-black-man-in-san-francisco/1/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-last-black-man-in-san-francisco-2019/'
 poster: '/images/reviews/the-last-black-man-in-san-francisco-1/poster.webp'
 heroImage: '/images/reviews/the-last-black-man-in-san-francisco-1/backdrop.webp'
 heroAlt: 'Jimmie Fails in a black beanie and red flannel beside Jonathan Majors in a tweed coat, standing in a field of wildflowers.'

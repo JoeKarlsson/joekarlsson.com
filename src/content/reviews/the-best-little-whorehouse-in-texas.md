@@ -15,6 +15,7 @@ letterboxdAverage: 3.6
 slug: 'the-best-little-whorehouse-in-texas'
 description: '"It''s business doing pleasure with ya!"'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/the-best-little-whorehouse-in-texas/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/the-best-little-whorehouse-in-texas-1982/'
 poster: '/images/reviews/the-best-little-whorehouse-in-texas/poster.webp'
 heroImage: '/images/reviews/the-best-little-whorehouse-in-texas/backdrop.webp'
 heroAlt: "Burt Reynolds in a sheriff's uniform with Dolly Parton beside him, her hand resting on his chest."

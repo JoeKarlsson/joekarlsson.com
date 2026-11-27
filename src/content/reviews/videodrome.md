@@ -15,6 +15,7 @@ letterboxdAverage: 3.86
 slug: 'videodrome'
 description: 'Long live the flesh or whatever'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/videodrome/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/videodrome-1983/'
 poster: '/images/reviews/videodrome/poster.webp'
 heroImage: '/images/reviews/videodrome/backdrop.webp'
 heroAlt: 'James Woods kneeling beside a television showing a pair of lips in a dark apartment.'

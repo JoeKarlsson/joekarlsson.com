@@ -22,6 +22,7 @@ letterboxdAverage: 3.4
 slug: 'grumpy-old-men'
 description: 'Wabasha representation. Saint Paul representation. Sauna representation.'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/grumpy-old-men/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/grumpy-old-men-1993/'
 poster: '/images/reviews/grumpy-old-men/poster.webp'
 heroImage: '/images/reviews/grumpy-old-men/backdrop.webp'
 heroAlt: 'Jack Lemmon in a knit cap and Walter Matthau in a plaid hunting cap standing outside in the snow.'

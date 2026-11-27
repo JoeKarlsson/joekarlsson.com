@@ -22,6 +22,7 @@ letterboxdAverage: 3.44
 slug: 'tales-from-the-crypt-demon-knight'
 description: 'Never in a million years would I have guessed the blood of Christ and the literal crucifixion would be such a core part of this movie. Tales from the Crypt…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/tales-from-the-crypt-demon-knight/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/tales-from-the-crypt-demon-knight-1995/'
 poster: '/images/reviews/tales-from-the-crypt-demon-knight/poster.webp'
 heroImage: '/images/reviews/tales-from-the-crypt-demon-knight/backdrop.webp'
 heroAlt: 'Poster art of a man in a long coat bursting out of the pages of a giant book held open by clawed hands.'

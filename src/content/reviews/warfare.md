@@ -22,6 +22,7 @@ letterboxdAverage: 3.53
 slug: 'warfare'
 description: 'I went into Warfare knowing nothing about the context, which left me with one nagging question through the entire runtime: why the hell did Alex Garland - a…'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/warfare/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/warfare-2025/'
 poster: '/images/reviews/warfare/poster.webp'
 heroImage: '/images/reviews/warfare/backdrop.webp'
 heroAlt: 'A squad of soldiers in combat gear with rifles standing in a dusty courtyard.'

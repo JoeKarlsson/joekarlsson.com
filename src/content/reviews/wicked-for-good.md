@@ -22,6 +22,7 @@ letterboxdAverage: 3.39
 slug: 'wicked-for-good'
 description: 'Glinda and Elpheba friends? Friends of Dorothy maybe'
 letterboxdUrl: 'https://letterboxd.com/joekarlsson/film/wicked-for-good/'
+bechdelUrl: 'https://bechdel.joekarlsson.com/films/wicked-for-good-2025/'
 poster: '/images/reviews/wicked-for-good/poster.webp'
 heroImage: '/images/reviews/wicked-for-good/backdrop.webp'
 heroAlt: 'Cynthia Erivo as a green-skinned witch, Ariana Grande in a pale blue gown and others posed in an emerald city.'
