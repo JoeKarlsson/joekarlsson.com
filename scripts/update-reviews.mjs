@@ -15,6 +15,7 @@ import sharp from 'sharp';
 import { truncateAtWord } from './now-feed-parsing.mjs';
 import { parseReviewUrl } from '../src/utils/letterboxd-url.mjs';
 import { syncDiaryFromRss } from './letterboxd-diary.mjs';
+import { linkBechdel } from './link-bechdel.mjs';
 
 const USER = 'joekarlsson';
 const CONTENT = 'src/content/reviews';
@@ -299,4 +300,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 	console.log(`${added} new reviews, ${reviews.length} checked`);
 	// The stats page counts every logged film, not only reviews (scripts/letterboxd-diary.mjs)
 	if (rss) console.log(`${await syncDiaryFromRss(rss)} new diary entries`);
+	// New reviews, and older ones whose film joined Bechdel Script Test since, get its link
+	console.log(`${await linkBechdel()} reviews linked to Bechdel Script Test`);
 }

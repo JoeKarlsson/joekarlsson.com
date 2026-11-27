@@ -8,6 +8,7 @@
 //
 // Safe to re-run: reviews that already have a bechdelUrl are skipped, so new reviews and
 // films added to Bechdel Script Test later get linked by running it again.
+// `npm run update:reviews` runs it after every import.
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { parse } from 'yaml';
 
@@ -41,8 +42,8 @@ export function addBechdelUrl(markdown, url) {
 	return markdown.replace(/^(letterboxdUrl: .*)$/m, `$1\nbechdelUrl: '${url}'`);
 }
 
-async function main() {
-	const dry = process.argv.includes('--dry');
+/** Adds `bechdelUrl` to every review that lacks one and whose film is on the shelf; returns the count */
+export async function linkBechdel({ dry = false } = {}) {
 	const res = await fetch(`${SITE}/shelf.json`);
 	if (!res.ok) throw new Error(`${res.status} for ${SITE}/shelf.json`);
 	const shelf = await res.json();
@@ -59,7 +60,10 @@ async function main() {
 		linked++;
 		if (!dry) writeFileSync(path, addBechdelUrl(markdown, url));
 	}
-	console.log(`${dry ? 'Would link' : 'Linked'} ${linked} reviews`);
+	return linked;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) await main();
+if (import.meta.url === `file://${process.argv[1]}`) {
+	const dry = process.argv.includes('--dry');
+	console.log(`${dry ? 'Would link' : 'Linked'} ${await linkBechdel({ dry })} reviews`);
+}
