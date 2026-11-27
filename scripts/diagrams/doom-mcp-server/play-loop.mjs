@@ -131,11 +131,11 @@ export const desktop = {
 			[250, 994],
 		]);
 		f.pill({ x: 190, y: 996, w: 120, h: 40, label: 'summary' });
-		f.note(
+		f.handwrite(
 			320,
 			1072,
 			'Every look, go_to and attack costs 1 of 100 moves. Connect AI calls cost none.',
-			{ anchor: 'middle' },
+			{ anchor: 'middle', size: 17 },
 		);
 	},
 };
@@ -262,7 +262,10 @@ export const phone = {
 			[195, 1058],
 		]);
 		f.pill({ x: 135, y: 1060, w: 120, h: 38, label: 'summary' });
-		f.note(180, 1124, 'Every look, go_to and attack costs', { anchor: 'middle' });
-		f.note(180, 1146, '1 of 100 moves. Connect AI calls cost none.', { anchor: 'middle' });
+		f.handwrite(180, 1124, 'Every look, go_to and attack costs', { anchor: 'middle', size: 17 });
+		f.handwrite(180, 1148, '1 of 100 moves. Connect AI calls cost none.', {
+			anchor: 'middle',
+			size: 17,
+		});
 	},
 };

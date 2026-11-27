@@ -98,13 +98,11 @@ export const desktop = {
 			sub: 'MCP server',
 		});
 		// What travels over that link, and how often: the one thing the boxes can't say
-		f.text(40, 646, 'Every 15 s the bridge asks Connect AI again:', {
-			font: 'serif',
-			size: 18,
-			anchor: 'start',
+		f.handwrite(40, 646, 'Every 15 s the bridge asks Connect AI again:', { size: 17 });
+		f.handwrite(40, 670, 're-runs each room’s query, re-reads kills, re-asks at the red door', {
+			size: 17,
+			arrow: [[300, 626], [368, 562], 24],
 		});
-		f.note(40, 672, 're-runs each room’s query, re-reads kills, re-asks at the red door');
-		f.crayonArrow([300, 626], [368, 562], 24);
 	},
 };
 
@@ -183,12 +181,13 @@ export const phone = {
 			{ heads: 'both' },
 		);
 		f.note(72, 584, 'MCP', { weight: 700 });
-		f.text(130, 600, 'Every 15 s the bridge', { font: 'serif', size: 17, anchor: 'start' });
-		f.text(130, 622, 'asks Connect AI again:', { font: 'serif', size: 17, anchor: 'start' });
-		f.note(130, 648, 're-runs each room’s query,', { size: 14 });
-		f.note(130, 668, 're-reads kills, re-asks at', { size: 14 });
-		f.note(130, 688, 'the red door', { size: 14 });
-		f.crayonArrow([122, 636], [74, 636], 10);
+		f.handwrite(130, 606, 'Every 15 s the bridge asks', { size: 16 });
+		f.handwrite(130, 630, 'Connect AI again: re-runs', { size: 16 });
+		f.handwrite(130, 654, 'each room’s query, re-reads', { size: 16 });
+		f.handwrite(130, 678, 'kills, re-asks at the red door', {
+			size: 16,
+			arrow: [[122, 642], [74, 642], 10],
+		});
 		f.box({
 			x: 16,
 			y: 704,
