@@ -103,9 +103,11 @@ export const desktop = {
 		f.note(598, 272, 'next');
 		f.note(598, 292, 'week');
 
-		f.note(24, 458, 'How I know one title + meta', { size: 15 });
-		f.note(24, 478, 'batch got +397 clicks', { size: 15 });
-		f.crayonArrow([190, 484], [256, 508], -16);
+		f.handwrite(24, 456, 'How I know one title + meta', { size: 16 });
+		f.handwrite(24, 478, 'batch got +397 clicks', {
+			size: 16,
+			arrow: [[192, 484], [256, 508], -16],
+		});
 	},
 };
 
@@ -159,8 +161,10 @@ export const phone = {
 			[48, 264],
 		]);
 		f.note(34, 766, 'next week');
-		f.note(10, 814, 'How I know one title + meta', { size: 15 });
-		f.note(10, 836, 'batch got +397 clicks', { size: 15 });
-		f.crayonArrow([214, 818], [318, 722], -20);
+		f.handwrite(10, 814, 'How I know one title + meta', { size: 17 });
+		f.handwrite(10, 836, 'batch got +397 clicks', {
+			size: 17,
+			arrow: [[238, 810], [318, 722], -20],
+		});
 	},
 };

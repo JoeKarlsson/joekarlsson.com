@@ -50,9 +50,8 @@ export const desktop = {
 		fix(f, 344, 322, 272, 'Quality + authority work', FIX_2);
 
 		// Callout: what most advice covers
-		f.note(330, 478, 'Most recovery advice', { size: 15 });
-		f.note(330, 498, 'only covers this one.', { size: 15 });
-		f.crayonArrow([500, 480], [540, 442], 14);
+		f.handwrite(330, 478, 'Most recovery advice');
+		f.handwrite(330, 502, 'only covers this one.', { arrow: [[512, 476], [540, 442], 14] });
 	},
 };
 
@@ -94,8 +93,7 @@ export const phone = {
 			[180, 598],
 		]);
 		fix(f, x, 602, w, 'Quality + authority work', FIX_2);
-		f.note(20, 740, 'Most recovery advice only', { size: 15 });
-		f.note(20, 762, 'covers this one.', { size: 15 });
-		f.crayonArrow([214, 744], [262, 718], -20);
+		f.handwrite(20, 740, 'Most recovery advice');
+		f.handwrite(20, 764, 'only covers this one.', { arrow: [[214, 744], [262, 718], -20] });
 	},
 };
