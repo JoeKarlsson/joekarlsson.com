@@ -43,7 +43,7 @@ export const desktop = {
 				{ heads: 'both' },
 			),
 		);
-		f.note(320, 308, 'No glue code: no ETL into a cache, no ORM.', { anchor: 'middle', size: 14 });
+		f.handwrite(320, 308, 'No glue code: no ETL into a cache, no ORM.', { anchor: 'middle' });
 	},
 };
 
@@ -87,6 +87,6 @@ export const phone = {
 				{ heads: 'both' },
 			),
 		);
-		f.note(180, 572, 'No glue code: no ETL, no ORM.', { anchor: 'middle', size: 14 });
+		f.handwrite(180, 572, 'No glue code: no ETL, no ORM.', { anchor: 'middle' });
 	},
 };

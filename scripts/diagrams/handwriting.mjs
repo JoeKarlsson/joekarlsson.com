@@ -11,11 +11,14 @@ const GLYPHS = JSON.parse(
 ).glyphs;
 
 export const FPS = 12;
-const START = 0.4; // an empty beat before the pen lands
-const LIFT = 0.006; // pen up between strokes
-const ARROW_GAP = 0.25;
-const ARROW = 0.5;
-const NEXT = 0.3; // between one callout and the next
+// Quick enough to finish while a reader scrolls past (Joe, 2026-11-27: the first cut, about
+// 4 s a note, was "way too slow if you're scrolling through it")
+const START = 0.15; // a beat before the pen lands
+const ARROW_GAP = 0.1;
+const ARROW = 0.3;
+const NEXT = 0.15; // between one callout and the next
+/** Seconds to write a note: about 45 letters a second, 0.5 s to 1.2 s a note. */
+export const writeTime = (chars) => Math.min(1.2, Math.max(0.5, chars * 0.022));
 
 const n = (v) => Math.round(v * 100) / 100;
 
@@ -93,17 +96,20 @@ export function handwritingLayers(callouts, { id, width, height }) {
 		const { letters, strokes } = layout(c.content, c.x, c.y, c.size);
 		const chars = c.content.replace(/\s/g, '').length;
 		// About a word a third of a second, never under a second for the whole note
-		const write = Math.min(3, Math.max(1, chars * 0.06));
+		const write = writeTime(chars);
 		const ink = strokes.reduce((sum, s) => sum + s.len, 0);
-		const v = (ink / Math.max(0.2, write - strokes.length * LIFT)) * 1.15;
-		const a = v * 40;
+		// Each stroke gets its share of the time by length, and speeds up and brakes within it
 		for (const s of strokes) {
+			const T = (write * s.len) / ink;
+			const ramp = T * 0.2;
 			s.t0 = t;
-			t += moveTime(s.len, v, a) + LIFT;
+			s.v = s.len / (T - ramp);
+			s.a = s.v / ramp;
+			t += T;
 		}
 		const arrowAt = t + ARROW_GAP;
 		t = arrowAt + ARROW + NEXT;
-		return { ...c, letters, strokes, v, a, arrowAt, chars };
+		return { ...c, letters, strokes, arrowAt, chars };
 	});
 	const readAll = timed.reduce((sum, c) => sum + c.chars / 15, 0) + 1.5;
 	const frames = Math.ceil((t + Math.max(4, readAll)) * FPS);
@@ -115,15 +121,15 @@ export function handwritingLayers(callouts, { id, width, height }) {
 		const reveal = c.strokes
 			.map((s) => {
 				const d = 'M' + s.pts.map((p) => `${n(p[0])},${n(p[1])}`).join(' L');
-				const offset = over((time) => n(1 - moveDistance(s.len, c.v, c.a, time - s.t0) / s.len));
+				const offset = over((time) => n(1 - moveDistance(s.len, s.v, s.a, time - s.t0) / s.len));
 				const shown = over((time) => (time >= s.t0 ? 'visible' : 'hidden'));
 				return `<path d="${d}" pathLength="1" stroke-dasharray="1 2" stroke-dashoffset="1" visibility="hidden" fill="none" stroke="#fff" stroke-width="${n(s.half * 3.4 + 1)}" stroke-linecap="round" stroke-linejoin="round">${stepped(offset, dur, 'stroke-dashoffset')}${stepped(shown, dur, 'visibility')}</path>`;
 			})
 			.join('');
-		const arrowOffset = over((time) => n(1 - moveDistance(1, 2.6, 18, time - c.arrowAt)));
-		const arrowHead = over((time) =>
-			time >= c.arrowAt + moveTime(1, 2.6, 18) ? 'visible' : 'hidden',
+		const arrowOffset = over((time) =>
+			n(1 - moveDistance(1, 1 / (ARROW * 0.8), 1 / (ARROW * 0.8 * ARROW * 0.2), time - c.arrowAt)),
 		);
+		const arrowHead = over((time) => (time >= c.arrowAt + ARROW ? 'visible' : 'hidden'));
 		const box = `maskUnits="userSpaceOnUse" x="0" y="0" width="${width}" height="${height}"`;
 		return [
 			`<mask id="${id}-write-${k}" ${box}>${reveal}</mask>`,

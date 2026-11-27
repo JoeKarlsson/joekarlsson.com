@@ -51,12 +51,9 @@ export const desktop = {
 				{ heads: 'both' },
 			),
 		);
-		f.text(16, 316, 'Fresh only as of the last sync.', {
-			font: 'serif',
-			size: 16,
-			anchor: 'start',
+		f.handwrite(16, 316, 'Fresh only as of the last sync.', {
+			arrow: [[270, 302], [380, 202], 30],
 		});
-		f.crayonArrow([270, 302], [380, 202], 30);
 	},
 };
 
@@ -106,8 +103,7 @@ export const phone = {
 				{ heads: 'both' },
 			),
 		);
-		f.text(196, 342, 'Fresh only as of', { font: 'serif', size: 16, anchor: 'start' });
-		f.text(196, 364, 'the last sync.', { font: 'serif', size: 16, anchor: 'start' });
-		f.crayonArrow([290, 330], [272, 300], 12);
+		f.handwrite(196, 342, 'Fresh only as of');
+		f.handwrite(196, 366, 'the last sync.', { arrow: [[290, 330], [272, 300], 12] });
 	},
 };

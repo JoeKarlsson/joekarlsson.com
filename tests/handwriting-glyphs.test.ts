@@ -54,4 +54,10 @@ describe('handwritten callouts', () => {
 		expect(still).not.toContain('<animate');
 		expect(still.match(/<path /g)).toHaveLength(8); // one outline per letter of "Hithere."
 	});
+
+	it('writes a full line in about a second, so it lands while the reader scrolls past', async () => {
+		const { writeTime } = await import('../scripts/diagrams/handwriting.mjs');
+		expect(writeTime('Fast,butonlyasfreshasthelastETLrun.'.length)).toBeLessThanOrEqual(1.2);
+		expect(writeTime(3)).toBe(0.5);
+	});
 });
