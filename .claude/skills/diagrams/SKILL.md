@@ -11,6 +11,8 @@ small JS file that draws a desktop and a phone layout with the kit in
 `src/plugins/rehype-inline-diagrams.mjs` inlines them into the post, switching to
 the phone layout under 640px. Clicking a diagram opens the lightbox.
 
+The whole look (colors, type, motion, what Joe has turned down) is on one page: `brand/PINK-SCRIBBLE.md`.
+
 ## Workflow
 
 1. **Read the post and the old figure.** Know what each figure is there to say.

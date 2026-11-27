@@ -16,6 +16,8 @@ Everything is code and free: no image or video model. The rules come from 15 aud
 vendored in `vendor/` (licenses and commits in `vendor/SOURCES.md`); `references/craft.md` is
 the merged rulebook. Read it before the first scene of a session.
 
+The site's whole look (colors, type, motion, what Joe has turned down) is on one page: `brand/PINK-SCRIBBLE.md`.
+
 ## The tools
 
 | Step | Command |
