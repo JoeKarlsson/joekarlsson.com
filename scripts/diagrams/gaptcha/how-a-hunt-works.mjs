@@ -70,7 +70,7 @@ export const desktop = {
 			[xs[0] + W + 2, 222],
 			[xs[1] - 2, 222],
 		]);
-		box(xs[1], 170, BEARING);
+		box(xs[1], 170, { ...BEARING, sub: ['direction from you', 'to the checkpoint'] });
 		f.arrow([
 			[xs[2] - 2, 222],
 			[xs[1] + W + 2, 222],
@@ -80,7 +80,7 @@ export const desktop = {
 			[330, 276],
 			[330, 318],
 		]);
-		box(xs[1], 320, ARROW);
+		box(xs[1], 320, { ...ARROW, size: 15, sub: ['on the marker,', 'turned that way'] });
 		f.arrow([
 			[xs[1] + W + 2, 372],
 			[xs[2] - 2, 372],
@@ -95,11 +95,13 @@ export const desktop = {
 			],
 			{ dashed: true },
 		);
-		f.note(30, 452, 'No distance, just a direction:');
-		f.note(30, 474, 'scan a few, walk to where they cross');
-		f.crayonArrow([150, 440], [244, 412], -20);
-		f.note(460, 452, 'within 20 m: you win');
-		f.note(460, 474, 'farther: scan another');
+		f.handwrite(30, 452, 'No distance, just a direction:', { size: 17 });
+		f.handwrite(30, 476, 'scan a few, walk to where they cross', {
+			size: 17,
+			arrow: [[150, 440], [244, 412], -20],
+		});
+		f.handwrite(460, 452, 'within 20 m: you win', { size: 17 });
+		f.handwrite(460, 476, 'farther: scan another', { size: 17 });
 	},
 };
 
@@ -112,7 +114,7 @@ export const phone = {
 		const rows = [
 			MARKER,
 			SCAN,
-			{ ...BEARING, sub: ['from your GPS to the checkpoint:', 'the 2017 spot or 100-300 m away'] },
+			{ ...BEARING, sub: ['from your GPS to the checkpoint', 'the 2017 spot or 100-300 m away'] },
 			ARROW,
 			WIN,
 		];
@@ -134,11 +136,11 @@ export const phone = {
 			],
 			{ dashed: true },
 		);
-		f.note(X, 664, 'No distance, just a direction:');
-		f.note(X, 686, 'scan a few markers and walk');
-		f.note(X, 708, 'to where the arrows cross.');
-		f.note(X, 750, 'Within 20 m: you win, and it shows');
-		f.note(X, 772, 'how many tries everyone took.');
-		f.note(X, 814, 'Farther: scan another marker.');
+		f.handwrite(X, 664, 'No distance, just a direction:', { size: 17 });
+		f.handwrite(X, 688, 'scan a few markers and walk', { size: 17 });
+		f.handwrite(X, 712, 'to where the arrows cross.', { size: 17 });
+		f.handwrite(X, 752, 'Within 20 m: you win, and it shows', { size: 17 });
+		f.handwrite(X, 776, 'how many tries everyone took.', { size: 17 });
+		f.handwrite(X, 816, 'Farther: scan another marker.', { size: 17 });
 	},
 };
