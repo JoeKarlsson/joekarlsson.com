@@ -99,7 +99,8 @@ export async function readcheck(file, step = STEP) {
 	}
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+// Run as a command, not when another script imports it (argv[1] is then that script, or unset)
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
 	const args = process.argv.slice(2);
 	const stepAt = args.indexOf('--step');
 	const step = stepAt >= 0 ? Number(args.splice(stepAt, 2)[1]) : STEP;
