@@ -85,4 +85,21 @@ test.describe("Joe's margin doodles", () => {
 		await page.setViewportSize({ width: 1920, height: 1080 });
 		await expect(layer).toBeVisible();
 	});
+
+	test('a page opened before a deploy skips the doodles when their old chunk is gone', async ({
+		page,
+	}) => {
+		// Live visitors hit "Failed to fetch dynamically imported module margin-doodles.*.js"
+		const errors: string[] = [];
+		page.on('pageerror', (error) => errors.push(error.message));
+		await page.route(/margin-doodles/, (route) =>
+			route.request().resourceType() === 'script'
+				? route.fulfill({ status: 404 })
+				: route.continue(),
+		);
+		await page.setViewportSize({ width: 1920, height: 1080 });
+		await page.goto('/contact/');
+		await page.waitForTimeout(1000);
+		expect(errors).toEqual([]);
+	});
 });

@@ -2,7 +2,9 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import {
 	mostlyInView,
+	pauseSvg,
 	syncFilterAnimations,
+	unpauseSvg,
 	visibleDiagrams,
 } from '../src/scripts/filter-animations';
 import { PAUSED_CLASS } from '../src/scripts/pause-motion';
@@ -72,5 +74,38 @@ describe('syncFilterAnimations', () => {
 		expect(
 			mostlyInView({ intersectionRatio: 0.4, intersectionRect: box(500), rootBounds: screen }),
 		).toBe(true);
+	});
+});
+
+describe('pauseSvg and unpauseSvg', () => {
+	it('skip an svg whose browser has no animation clock instead of throwing', () => {
+		// jsdom's svg has no pauseAnimations, like the live visitors' browsers that threw
+		// "e.pauseAnimations is not a function" when the lightbox closed
+		const bare = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+		expect(() => pauseSvg(bare)).not.toThrow();
+		expect(() => unpauseSvg(bare)).not.toThrow();
+		expect(() => pauseSvg(null)).not.toThrow();
+	});
+
+	it('still pause and run an svg that has one', () => {
+		const pause = vi.fn();
+		const unpause = vi.fn();
+		pauseSvg({ pauseAnimations: pause });
+		unpauseSvg({ unpauseAnimations: unpause });
+		expect(pause).toHaveBeenCalledOnce();
+		expect(unpause).toHaveBeenCalledOnce();
+	});
+
+	it('leave motion filters and diagrams without a clock alone when motion syncs', () => {
+		const filters = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+		filters.setAttribute('data-motion-filters', '');
+		const figure = document.createElement('figure');
+		figure.className = 'diagram';
+		figure.append(document.createElementNS('http://www.w3.org/2000/svg', 'svg'));
+		document.body.append(filters, figure);
+		expect(() => syncFilterAnimations(true)).not.toThrow();
+		expect(() => syncFilterAnimations(false)).not.toThrow();
+		filters.remove();
+		figure.remove();
 	});
 });

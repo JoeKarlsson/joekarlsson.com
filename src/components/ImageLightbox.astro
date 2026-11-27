@@ -24,6 +24,7 @@ lightbox doesn't scroll the page behind (Safari: the wheel listener in lightbox-
 
 <script>
 	import { tappedChartDot } from '../scripts/chart-tips';
+	import { pauseSvg } from '../scripts/filter-animations';
 	import { initLightboxGestures } from '../scripts/lightbox-gestures';
 
 	// Opening, the picture or diagram itself grows out of the post into the screen (a View
@@ -133,7 +134,7 @@ lightbox doesn't scroll the page behind (Safari: the wheel listener in lightbox-
 			}
 			// The enlarged copy stays in the DOM after closing: stop its animations ticking
 			closing.then(() => {
-				if (!dialog.open) enlargedDiagram.querySelector('svg')?.pauseAnimations();
+				if (!dialog.open) pauseSvg(enlargedDiagram.querySelector('svg'));
 			});
 		};
 		const gestures = initLightboxGestures(dialog, () => shown, close);
@@ -195,7 +196,7 @@ lightbox doesn't scroll the page behind (Safari: the wheel listener in lightbox-
 				});
 				enlargedDiagram.replaceChildren(copy);
 				// A new SVG root starts at 0: pick up the frame the post copy is on
-				copy.setCurrentTime(visible.getCurrentTime());
+				copy.setCurrentTime?.(visible.getCurrentTime?.() ?? 0);
 				enlargedDiagram.classList.remove('hidden');
 				enlarged.removeAttribute('src');
 				enlarged.hidden = true;

@@ -16,6 +16,16 @@ export const mostlyInView = (
 	entry.intersectionRatio >= 0.6 ||
 	(entry.rootBounds !== null && entry.intersectionRect.height >= 0.6 * entry.rootBounds.height);
 
+// Some browsers don't offer SVG's animation clock on every svg element; live visitors hit
+// "e.pauseAnimations is not a function" closing the lightbox. Without it there's nothing to hold.
+type SvgClock = Partial<Pick<SVGSVGElement, 'pauseAnimations' | 'unpauseAnimations'>>;
+export const pauseSvg = (svg: SvgClock | null | undefined): void => {
+	if (typeof svg?.pauseAnimations === 'function') svg.pauseAnimations();
+};
+export const unpauseSvg = (svg: SvgClock | null | undefined): void => {
+	if (typeof svg?.unpauseAnimations === 'function') svg.unpauseAnimations();
+};
+
 export const motionStill = (): boolean =>
 	matchMedia('(prefers-reduced-motion: reduce)').matches ||
 	document.documentElement.classList.contains(PAUSED_CLASS);
@@ -23,12 +33,12 @@ export const motionStill = (): boolean =>
 export function syncFilterAnimations(reducedMotion: boolean): void {
 	const still = reducedMotion || document.documentElement.classList.contains(PAUSED_CLASS);
 	document.querySelectorAll<SVGSVGElement>('svg[data-motion-filters]').forEach((svg) => {
-		if (still) svg.pauseAnimations();
-		else svg.unpauseAnimations();
+		if (still) pauseSvg(svg);
+		else unpauseSvg(svg);
 	});
 	document.querySelectorAll<SVGSVGElement>('.diagram svg').forEach((svg) => {
-		if (still || !visibleDiagrams.has(svg)) svg.pauseAnimations?.();
-		else svg.unpauseAnimations?.();
+		if (still || !visibleDiagrams.has(svg)) pauseSvg(svg);
+		else unpauseSvg(svg);
 	});
 }
 

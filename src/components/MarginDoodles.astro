@@ -26,5 +26,17 @@ const { column = '72rem', from = 1600, thread = false } = Astro.props;
 	// Its own chunk, fetched only where the doodles draw: phones and laptops never use it
 	const layer = document.querySelector<HTMLElement>('.margin-doodles');
 	if (layer && matchMedia(`(min-width: ${layer.dataset.from}px)`).matches)
-		import('../scripts/margin-doodles');
+		import('../scripts/margin-doodles').catch((error: unknown) => {
+			// A page opened before a deploy asks for the old hashed chunk, which that deploy
+			// removed: a TypeError ("Failed to fetch dynamically imported module" in Chrome,
+			// "error loading dynamically imported module" in Firefox, "Importing a module script
+			// failed" in Safari). The doodles
+			// are decoration, so leave them off on this page instead of reloading it under the
+			// reader. Anything else is a real bug in the doodle script and still surfaces.
+			if (!(
+				error instanceof TypeError &&
+				/dynamically imported module|importing a module script failed/i.test(error.message)
+			))
+				throw error;
+		});
 </script>

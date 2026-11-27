@@ -5,7 +5,13 @@
 // rather than in CSS, which sits at its size budget (tests/bundle-size.test.ts);
 // the pause-motion button's !important rule still wins over it. CSS doesn't reach a
 // diagram's own SVG animations (charts, collages), so those are paused directly.
-import { mostlyInView, motionStill, visibleDiagrams } from './filter-animations';
+import {
+	mostlyInView,
+	motionStill,
+	pauseSvg,
+	unpauseSvg,
+	visibleDiagrams,
+} from './filter-animations';
 
 const scribbles = document.querySelectorAll<SVGElement>(
 	'svg.redraw, svg.redraw-strokes, .diagram svg',
@@ -34,7 +40,7 @@ const figures = [...document.querySelectorAll<SVGSVGElement>('.diagram svg')].fi
 if (figures.length) {
 	const play = (svg: SVGSVGElement) => {
 		visibleDiagrams.add(svg);
-		if (!motionStill()) svg.unpauseAnimations();
+		if (!motionStill()) unpauseSvg(svg);
 	};
 	const observer = new IntersectionObserver(
 		(entries) => {
@@ -43,7 +49,7 @@ if (figures.length) {
 				clearTimeout(timers.get(svg));
 				if (!entry.isIntersecting) {
 					visibleDiagrams.delete(svg);
-					svg.pauseAnimations();
+					pauseSvg(svg);
 				} else if (started.has(svg)) {
 					play(svg);
 				} else if (mostlyInView(entry)) {
@@ -51,7 +57,7 @@ if (figures.length) {
 						svg,
 						window.setTimeout(() => {
 							started.add(svg);
-							svg.setCurrentTime(0);
+							svg.setCurrentTime?.(0);
 							play(svg);
 						}, START_DELAY_MS),
 					);
@@ -61,7 +67,7 @@ if (figures.length) {
 		{ threshold: [0, 0.3, 0.6, 1] },
 	);
 	figures.forEach((svg) => {
-		svg.pauseAnimations();
+		pauseSvg(svg);
 		observer.observe(svg);
 	});
 }
