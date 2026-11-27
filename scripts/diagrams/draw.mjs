@@ -871,7 +871,7 @@ export function createFigure({ id, width, height }) {
 	function revealed(markup, begin, dur) {
 		const token = buildToken('stroke-dashoffset', (t) => {
 			const p = Math.min(1, Math.max(0, (t - begin) / dur));
-			return n(1 - (1 - (1 - p) ** 3));
+			return n((1 - p) ** 3);
 		});
 		return markup.replace(
 			/<path ([^>]*?)\/>/g,
