@@ -90,7 +90,7 @@ function stepped(values, dur, attr) {
  * arrow.d is the curve the arrow follows and arrow.markup the crayon arrow itself.
  * The loop holds the finished frame long enough to read every callout, then clears.
  */
-export function handwritingLayers(callouts, { id, width, height }) {
+export function handwritingLayers(callouts, { id, width, height, start = 0 }) {
 	// A note is its lines up to the one with the arrow (or the last): the whole note shares one
 	// writeTime, so a three-line note is as quick as a one-line one
 	const chars = (c) => c.content.replace(/\s/g, '').length;
@@ -104,7 +104,8 @@ export function handwritingLayers(callouts, { id, width, height }) {
 			run = [];
 		}
 	});
-	let t = START;
+	// After any boxes that draw on or colour in: outline, then colour, then words
+	let t = Math.max(START, start);
 	const timed = callouts.map((c, i) => {
 		const { letters, strokes } = layout(c.content, c.x, c.y, c.size);
 		const write = (writeTime(noteChars[i]) * chars(c)) / noteChars[i];
@@ -160,5 +161,6 @@ export function handwritingLayers(callouts, { id, width, height }) {
 	return {
 		live: `<g class="anim-live">${live.join('')}</g>`,
 		still: `<g class="anim-still" display="none">${still.join('')}</g>`,
+		dur,
 	};
 }

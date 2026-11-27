@@ -394,7 +394,12 @@ export function createFigure({ id, width, height }) {
 	 * logo: a product's logo before the label; icon: a Lucide icon there instead,
 	 * for anything without a logo; stack: put that mark above the label instead of
 	 * before it, for small boxes; wordmark: a logo that replaces the label.
-	 * @param {{ x: number, y: number, w: number, h: number, kind?: string, label?: string | string[], sub?: string | string[], font?: string, size?: number, subFont?: string, subSize?: number, logo?: string, icon?: string, stack?: boolean, wordmark?: string }} spec
+	 * colourIn: seconds into the figure when an outline box gets scribbled in pink crayon,
+	 * its words turning black, for a part that turns on, fails or gets picked. draw: seconds
+	 * when its outline draws on; its words come after the outline and any colouring in.
+	 * (Lemo-Opuscar's "colouring is an action" and "the page writes itself", DECISIONS
+	 * 2026-11-27.)
+	 * @param {{ x: number, y: number, w: number, h: number, kind?: string, label?: string | string[], sub?: string | string[], font?: string, size?: number, subFont?: string, subSize?: number, logo?: string, icon?: string, stack?: boolean, wordmark?: string, colourIn?: number, draw?: number }} spec
 	 */
 	function box({
 		x,
@@ -412,8 +417,16 @@ export function createFigure({ id, width, height }) {
 		icon: iconName,
 		stack = false,
 		wordmark,
+		colourIn,
+		draw,
 	}) {
-		boxRects.push({ label: [label ?? wordmark ?? kind].flat().join(' '), x, y, w, h });
+		const name = [label ?? wordmark ?? kind].flat().join(' ');
+		boxRects.push({ label: name, x, y, w, h });
+		const builds = colourIn !== undefined || draw !== undefined;
+		if (builds && kind !== 'outline')
+			issues.push(`"${name}" is a ${kind} box; only outline boxes colour in or draw on`);
+		if (builds && (logoName || iconName || wordmark))
+			issues.push(`"${name}" colours in or draws on, so it takes no logo, icon or wordmark`);
 		target.push(
 			`<g transform="rotate(${n(jitter(kind === 'ink' ? 1.5 : 1.2))} ${n(x + w / 2)} ${n(y + h / 2)})">`,
 		);
@@ -424,6 +437,7 @@ export function createFigure({ id, width, height }) {
 			outline: COLORS.ink,
 			dashed: COLORS.ink,
 		};
+		const paperAt = target.length;
 		scrap(
 			x,
 			y,
@@ -433,6 +447,26 @@ export function createFigure({ id, width, height }) {
 			kind === 'outline' ? COLORS.paper : kind === 'dashed' ? COLORS.chalk : null,
 			kind === 'dashed',
 		);
+		const drawn = draw === undefined ? 0 : draw + DRAW_ON;
+		const coloured = colourIn === undefined ? 0 : colourIn + COLOUR_IN;
+		const wordsAt = draw === undefined ? coloured : Math.max(drawn, coloured);
+		buildEnd = Math.max(buildEnd, wordsAt);
+		if (draw !== undefined) {
+			const [paper] = target.splice(paperAt);
+			liveOrStill(revealed(paper, draw, DRAW_ON), paper);
+		}
+		if (colourIn !== undefined) {
+			// Zig-zag rows of crayon that run a little past the paper's edge
+			const rows = [];
+			for (let i = 0, rowY = y - 3; rowY <= y + h + 3; i++, rowY += 5)
+				rows.push([(i % 2 ? x + w + 6 : x - 6) + jitter(2), rowY]);
+			const at = target.length;
+			target.push('<g class="d-paper">');
+			stroke('M' + rows.map(([px, py]) => `${n(px)},${n(py)}`).join(' L'), COLORS.pink, 11);
+			target.push('</g>');
+			const scribble = target.splice(at).join('');
+			liveOrStill(revealed(scribble, colourIn, COLOUR_IN), scribble);
+		}
 		const labelLength = [label].flat().join(' ').length;
 		if (font === 'sans' && kind !== 'ink' && labelLength <= 24) {
 			font = 'display';
@@ -487,6 +521,7 @@ export function createFigure({ id, width, height }) {
 		if (total > areaH - 6)
 			issues.push(`"${rows.map((r) => r.t).join(' / ')}" is taller than its ${h}px box`);
 		let rowTop = areaTop + areaH / 2 - total / 2;
+		const wordsFrom = target.length;
 		rows.forEach((r) => {
 			const upper = r.font === 'display';
 			const rowWidth = measure(r.t, r.size, r.font, r.font === 'sans' ? 600 : 400);
@@ -503,6 +538,25 @@ export function createFigure({ id, width, height }) {
 			});
 			rowTop += r.size * 1.3;
 		});
+		if (builds) {
+			const words = target.splice(wordsFrom).join('');
+			const done =
+				colourIn === undefined
+					? words
+					: words.replaceAll(`fill="${color}"`, `fill="${COLORS.ink}"`);
+			// Drawn on: the words wait for the drawing. Only coloured in: they show, then turn black
+			const live =
+				draw === undefined
+					? words.replaceAll(
+							'</text>',
+							`${buildToken('fill', (t) => (t < wordsAt ? color : COLORS.ink))}</text>`,
+						)
+					: done.replaceAll(
+							'</text>',
+							`${buildToken('visibility', (t) => (t < wordsAt ? 'hidden' : 'visible'))}</text>`,
+						);
+			liveOrStill(live, done);
+		}
 		target.push('</g>');
 	}
 
@@ -563,8 +617,10 @@ export function createFigure({ id, width, height }) {
 		onLayer('lines', () => drawArrow(points, options));
 	}
 
-	function drawArrow(points, { heads = 'end', dashed = false } = {}) {
+	/** draw: seconds into the figure when the arrow draws on, like a box's draw. */
+	function drawArrow(points, { heads = 'end', dashed = false, draw } = {}) {
 		lines.push({ points, kind: 'arrow' });
+		const arrowAt = target.length;
 		// Wrapped so CSS can boil a whole arrow without replacing its crayon filter
 		target.push('<g class="d-flow">');
 		const d = [];
@@ -577,6 +633,14 @@ export function createFigure({ id, width, height }) {
 			head(...points[last], angleOf(points[last - 1], points[last]), COLORS.chalk);
 		if (heads === 'both') head(...points[0], angleOf(points[1], points[0]), COLORS.chalk);
 		target.push('</g>');
+		if (draw === undefined) return;
+		buildEnd = Math.max(buildEnd, draw + DRAW_ON);
+		const markup = target.splice(arrowAt).join('');
+		// A dashed line's dashes can't also draw it on, so it appears once it would have been drawn
+		const live = dashed
+			? `<g visibility="hidden">${buildToken('visibility', (t) => (t < draw + DRAW_ON ? 'hidden' : 'visible'))}${markup}</g>`
+			: revealed(markup, draw, DRAW_ON);
+		liveOrStill(live, markup);
 	}
 
 	/** A short label beside a line: gray, smaller. */
@@ -793,6 +857,58 @@ export function createFigure({ id, width, height }) {
 	const BUILD_FPS = 12;
 	const animates = width !== PHONE_WIDTH;
 	let wipeCount = 0;
+	// Boxes that colour in or draw on: their steps are sampled in toString, once the figure
+	// knows whether they loop with its handwriting or play once and hold like a chart
+	const DRAW_ON = 0.6;
+	const COLOUR_IN = 0.8;
+	let buildEnd = 0;
+	const boxBuilds = [];
+	function buildToken(attr, valueAt) {
+		boxBuilds.push({ attr, valueAt });
+		return `{{build:${boxBuilds.length - 1}}}`;
+	}
+	/** A stroke or path that draws itself on from begin over dur, eased out. */
+	function revealed(markup, begin, dur) {
+		const token = buildToken('stroke-dashoffset', (t) => {
+			const p = Math.min(1, Math.max(0, (t - begin) / dur));
+			return n(1 - (1 - (1 - p) ** 3));
+		});
+		return markup.replace(
+			/<path ([^>]*?)\/>/g,
+			`<path $1 pathLength="1" stroke-dasharray="1 2" stroke-dashoffset="1">${token}</path>`,
+		);
+	}
+	/** Desktop gets the live markup plus the finished still motion.css swaps in; a phone the still. */
+	function liveOrStill(live, still) {
+		target.push(
+			animates
+				? `<g class="anim-live">${live}</g><g class="anim-still" display="none">${still}</g>`
+				: still,
+		);
+	}
+	/** Each build step as a discrete animation at 12 fps over loop seconds, or once and held. */
+	function resolveBuilds(markup, loop) {
+		const dur = loop ?? Math.ceil(buildEnd * BUILD_FPS + 1) / BUILD_FPS;
+		const frames = Math.round(dur * BUILD_FPS);
+		return markup.replace(/\{\{build:(\d+)\}\}/g, (_, i) => {
+			const { attr, valueAt } = boxBuilds[i];
+			const values = [];
+			const times = [];
+			for (let k = 0; k < frames; k++) {
+				const v = String(valueAt(k / BUILD_FPS));
+				if (v !== values.at(-1)) {
+					values.push(v);
+					times.push((k / frames).toFixed(4));
+				}
+			}
+			if (!loop && values.at(-1) !== String(valueAt(dur))) {
+				values.push(String(valueAt(dur)));
+				times.push('1');
+			}
+			const repeat = loop ? 'repeatCount="indefinite"' : 'fill="freeze"';
+			return `<animate attributeName="${attr}" calcMode="discrete" values="${values.join(';')}" keyTimes="${times.join(';')}" dur="${Math.round(dur * 100) / 100}s" ${repeat}/>`;
+		});
+	}
 	/** SMIL values stepped at 12 fps from 0 to 1, eased out, for value(p). */
 	function buildSteps(dur, value) {
 		const frames = Math.max(2, Math.round(dur * BUILD_FPS));
@@ -1086,7 +1202,10 @@ export function createFigure({ id, width, height }) {
 
 	function toString(label) {
 		checkLines();
-		return [
+		const writing = handwritten.length
+			? handwritingLayers(handwritten, { id, width, height, start: buildEnd ? buildEnd + 0.15 : 0 })
+			: null;
+		const svg = [
 			`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="${escapeXml(label)}">`,
 			`<defs>${crayonFilters.join('')}</defs>`,
 			`<rect width="${width}" height="${height}" fill="${COLORS.ink}"/>`,
@@ -1094,12 +1213,11 @@ export function createFigure({ id, width, height }) {
 			...layers.boxes,
 			...layers.lines,
 			...layers.callouts,
-			...(handwritten.length
-				? Object.values(handwritingLayers(handwritten, { id, width, height }))
-				: []),
+			...(writing ? [writing.live, writing.still] : []),
 			'</svg>',
 			'',
 		].join('\n');
+		return resolveBuilds(svg, writing && animates ? writing.dur : null);
 	}
 
 	return {

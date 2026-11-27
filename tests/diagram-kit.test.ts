@@ -183,3 +183,77 @@ describe('animated Hackers and Painters sketches', () => {
 		expect(svg).not.toMatch(/<animate|anim-live/);
 	});
 });
+
+describe('boxes that colour in and draw on', () => {
+	const draw = (width: number, write = false) => {
+		const f = createFigure({ id: `build-box-${width}`, width, height: 200 });
+		f.box({ x: 10, y: 20, w: 160, h: 60, label: 'Closet light', colourIn: 0.5 });
+		f.box({ x: 180, y: 20, w: 140, h: 60, label: 'Switch', draw: 0.2, colourIn: 0.8 });
+		f.arrow(
+			[
+				[170, 50],
+				[180, 50],
+			],
+			{ draw: 0.4 },
+		);
+		f.arrow(
+			[
+				[170, 70],
+				[180, 70],
+			],
+			{ dashed: true, draw: 0.4 },
+		);
+		if (write) f.handwrite(20, 150, 'always wins');
+		return { f, svg: f.toString('boxes') };
+	};
+
+	it('scribbles the box in pink, then its words turn black, and holds like a chart', () => {
+		const { f, svg } = draw(640);
+		expect(f.issues).toEqual([]);
+		expect(svg).not.toContain('{{build');
+		const offsets = [
+			...svg.matchAll(/attributeName="stroke-dashoffset"[^>]*values="([^"]*)"[^>]*fill="freeze"/g),
+		];
+		// The Switch outline, the solid arrow and its head, then both scribbles
+		expect(offsets).toHaveLength(5);
+		// The dashed arrow keeps its dashes and appears once drawn
+		expect(svg).toMatch(
+			/<g visibility="hidden"><animate attributeName="visibility"[^>]*fill="freeze"\/><g class="d-flow">/,
+		);
+		for (const [, values] of offsets) expect(values.split(';').at(-1)).toBe('0');
+		expect(svg).toMatch(
+			/attributeName="fill"[^>]*values="#[0-9A-Fa-f]{6};#0A0A0A"|attributeName="fill"[^>]*values="[^";]*;[^"]*"/,
+		);
+		// The drawn-on box keeps its words hidden until after its outline and colouring
+		expect(svg).toMatch(
+			/<text[^>]*>SWITCH<animate attributeName="visibility"[^>]*values="hidden;visible"/,
+		);
+	});
+
+	it('gives a phone the finished boxes and no motion', () => {
+		const { svg } = draw(360);
+		expect(svg).not.toContain('anim-live');
+		expect(svg).not.toContain('<animate');
+		expect(svg).toContain('stroke-width="11"');
+	});
+
+	it('writes the words after the boxes, all on one loop', () => {
+		const { svg } = draw(640, true);
+		const loops = new Set(
+			[...svg.matchAll(/dur="([\d.]+)s" repeatCount="indefinite"/g)].map((m) => m[1]),
+		);
+		expect(loops.size).toBe(1);
+		expect(svg).not.toContain('fill="freeze"');
+		// The pen's first stroke shows only after the Switch is coloured in (0.8 + 0.8 s)
+		const pen = svg.match(
+			/-write-0"[^]*?attributeName="visibility"[^>]*keyTimes="[\d.]+;([\d.]+)" dur="([\d.]+)s"/,
+		)!;
+		expect(Number(pen[1]) * Number(pen[2])).toBeGreaterThanOrEqual(1.6);
+	});
+
+	it('only colours in outline boxes', () => {
+		const f = createFigure({ id: 'build-box-kind', width: 640, height: 200 });
+		f.box({ x: 20, y: 20, w: 140, h: 60, kind: 'pink', label: 'Picked', colourIn: 0.5 });
+		expect(f.issues).toEqual(['"Picked" is a pink box; only outline boxes colour in or draw on']);
+	});
+});

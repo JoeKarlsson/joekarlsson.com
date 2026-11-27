@@ -155,6 +155,12 @@ Copy `scripts/diagrams/doom-mcp-server/go-to-walk.mjs`, the first one Joe approv
 - `f.handwrite(x, y, text, { size = 19, anchor = 'start', arrow })`: a callout line in pink
   handwriting (`scripts/diagrams/handwriting.mjs`, glyphs from `handwriting-glyphs.mjs`), written
   in call order, looping with the finished frame held long enough to read.
+- `f.box({ ..., colourIn: seconds })`: an outline box scribbled in pink crayon at that time,
+  its words turning black, for a part that turns on, fails or gets picked.
+  `f.box({ ..., draw: seconds })` and `f.arrow(points, { draw: seconds })` draw on instead of
+  being there from the start. Keep the order outline, then colour, then words (DECISIONS
+  2026-11-27): handwritten callouts wait for the last box or arrow on their own. With
+  handwriting the builds loop with it; without, they play once and hold like a chart.
 - `f.legend(items)`: `['pink', 'label']` or `['logo:cdata', 'label']`.
 - `f.raw(markup)`: SVG markup on top of everything, for an animated figure's moving
   pieces (`doom-mcp-server/go-to-walk.mjs`: SMIL stepped at 12 fps, with the
