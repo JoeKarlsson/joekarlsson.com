@@ -51,6 +51,8 @@
 		"diagrams": "node scripts/diagrams/render.mjs",
 		"collage": "node scripts/collage/render.mjs",
 		"collage:cutout": "node scripts/collage/cutout.mjs",
+		"readcheck": "node scripts/animated-svg/readcheck.mjs",
+		"contact-sheet": "node scripts/animated-svg/contact-sheet.mjs",
 		"test": "npm run test:workflows && npm run format:check && npm run lint && npm run check && npm run build && npm run test:images && npm run test:spelling && npm run test:markdown && npm run test:voice && npm run test:unit",
 		"test:prepush": "npm run test:workflows && npm run format:check && npm run lint && npm run check && npm run test:images && npm run test:spelling && npm run test:markdown && npm run test:voice && vitest run --exclude tests/build-output.test.ts --exclude tests/bundle-size.test.ts --exclude tests/feed-content.test.ts",
 		"prepare": "husky",

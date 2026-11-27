@@ -129,7 +129,11 @@ Write `scene.json` (pasteup's choreography defaults: one piece at a time 0.35-0.
 each slides in from its nearest edge and snaps with about 8% overshoot, on twos, the label
 last, then at least 1.2 s of the finished frame still breathing). Render `--still` and
 `--preview` and a contact sheet of the build (first frame, every landing, last frame), check
-it against `craft.md`'s QA list, and open them for Joe.
+it against `craft.md`'s QA list, and open them for Joe. For the sheet, `--post` the scene to the
+scratchpad and run `npm run contact-sheet -- <name>.svg <sheet>.png --every 0.25`, then
+`npm run readcheck -- <name>.svg`: the label has to stay up for its reading time (characters
+/ 15 a second + 1.5 s), so a long label needs more than the 1.2 s hold. Fix a failure in the
+scene's timing, never in the check.
 
 ### 4. Build and ship
 

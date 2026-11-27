@@ -128,8 +128,11 @@ than the other diagrams we have." Asked to record it: "this is how I prefer it t
   motion and the pause button.
 - **A clean loop.** End on the empty starting frame, on the 12 fps grid, so the restart never
   jumps (`tests/diagram-kit.test.ts` checks the go_to walk).
-- **Check it playing**: frames through `svg.setCurrentTime(t)` in Chromium, plus the built
-  post in WebKit at 390px and with reduced motion on.
+- **Check it playing**: `npm run contact-sheet -- public/images/blog/<slug>/<name>.svg <scratchpad>/<name>-sheet.png`
+  tiles a frame every 0.5 s (`--every`) for Joe's review; `npm run readcheck -- <file.svg>`
+  fails any text that leaves before it can be read (characters / 15 a second + 1.5 s; text
+  still up when a one-shot build freezes passes). Fix the timing, never the check. Then the
+  built post in WebKit at 390px and with reduced motion on.
 
 Copy `scripts/diagrams/doom-mcp-server/go-to-walk.mjs`, the first one Joe approved.
 
