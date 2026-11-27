@@ -62,13 +62,11 @@ export const desktop = {
 				font: 'sans',
 			}),
 		);
-		f.text(100, 392, 'Hooks could already stop Claude.', {
-			font: 'serif',
+		f.handwrite(100, 392, 'Hooks could already stop Claude.', { size: 17 });
+		f.handwrite(100, 416, 'They couldn’t show me anything.', {
 			size: 17,
-			anchor: 'start',
+			arrow: [[360, 384], [420, 340], -18],
 		});
-		f.note(100, 416, 'They couldn’t show me anything.');
-		f.crayonArrow([360, 384], [420, 340], -18);
 	},
 };
 
@@ -114,12 +112,10 @@ export const phone = {
 				font: 'sans',
 			}),
 		);
-		f.text(14, 670, 'Hooks could already stop Claude.', {
-			font: 'serif',
-			size: 16,
-			anchor: 'start',
+		f.handwrite(14, 670, 'Hooks could already stop Claude.', { size: 17 });
+		f.handwrite(14, 694, 'They couldn’t show me anything.', {
+			size: 17,
+			arrow: [[278, 664], [300, 622], -14],
 		});
-		f.note(14, 694, 'They couldn’t show me anything.', { size: 14 });
-		f.crayonArrow([250, 660], [300, 622], -14);
 	},
 };
