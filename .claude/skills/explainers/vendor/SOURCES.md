@@ -19,3 +19,5 @@ Files copied unchanged from these repos at the commits below, each under its own
 | [MegaTroll222/VOX-COLLAGE-BROLL](https://github.com/MegaTroll222/VOX-COLLAGE-BROLL/tree/2e9b8a93a2834e4d670700ab9e4827a8baf3b668) | `2e9b8a93a2` | NOASSERTION | `vendor/MegaTroll222__VOX-COLLAGE-BROLL/` |
 | [Alisa0808/vox-director](https://github.com/Alisa0808/vox-director/tree/6a85a7c341610442a6a5b1885e6e0217ab82a11f) | `6a85a7c341` | MIT | `vendor/Alisa0808__vox-director/` |
 | [pyang5166/gbro-collage-broll](https://github.com/pyang5166/gbro-collage-broll/tree/a1a4ee2e2abf7d44e460026b706d0c72c2cf8a91) | `a1a4ee2e2a` | MIT | `vendor/pyang5166__gbro-collage-broll/` |
+
+**Lemo-Opuscar relicensed its docs on 2026-11-12 (v2.0.0).** The copy above is from 2026-11-10, when the whole repo was MIT, so it stays as it is. Since then only its code (`core/`, `tools/`, each demo's JS and Python) is MIT; every `.md` (the `STYLE.md` prompts, `DIRECTOR.md`, `TECHNIQUE.md`) is CC BY-NC 4.0, and Clawd is Anthropic's, licensed to no one. A refresh copies code only; newer docs are read for ideas, never copied here. The styles worth trying are in `../references/opuscar-styles.md`.
