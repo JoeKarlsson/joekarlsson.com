@@ -132,7 +132,7 @@ function noDomain(f, x, y, w) {
 }
 
 export const desktop = {
-	height: 540,
+	height: 580, // room under the note for the watermark
 	draw(f) {
 		ownDomain(f, 10, 34, 300);
 		noDomain(f, 330, 34, 300);

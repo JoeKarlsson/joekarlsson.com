@@ -27,7 +27,7 @@ function node(f, { x, y, w, name, cell, gap, labelAbove }) {
 }
 
 export const desktop = {
-	height: 500,
+	height: 540, // room under the note for the watermark
 	draw(f) {
 		f.group({ x: 16, y: 34, w: 280, h: 446, label: 'Availability group 1' });
 		f.group({ x: 344, y: 34, w: 280, h: 446, label: 'Availability group 2' });
