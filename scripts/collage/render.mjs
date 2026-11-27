@@ -44,7 +44,8 @@ const { labelReadIssue } = createRequire(import.meta.url)('./collage.cjs');
 const readIssue = labelReadIssue(scene);
 if (readIssue) {
 	console.error(`${path.relative(process.cwd(), scenePath)}: ${readIssue}`);
-	process.exit(1);
+	// Previews and stills are how a short scene gets fixed; only the copies that ship stop
+	if (values.out || values.post) process.exit(1);
 }
 const fps = scene.canvas.fps ?? 24;
 

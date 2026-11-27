@@ -9,6 +9,8 @@
 // CommonJS for the tests.
 (function (root) {
 	const clamp01 = (x) => Math.max(0, Math.min(1, x));
+	/** The label rises into place over this long and is opaque halfway through. */
+	const LABEL_FADE_SECONDS = 0.25;
 
 	/** Snap into place with ~8-10 percent overshoot, then settle. */
 	function easeOutBack(t, overshoot = 1.70158) {
@@ -197,7 +199,7 @@
 		const label = scene.label;
 		let labelPose = null;
 		if (label && t >= (label.enter_at ?? 0)) {
-			const p = clamp01((t - (label.enter_at ?? 0)) / 0.25);
+			const p = clamp01((t - (label.enter_at ?? 0)) / LABEL_FADE_SECONDS);
 			labelPose = {
 				alpha: Math.min(1, p * 2),
 				top: (label.y ?? H - 200) + (1 - easeOutBack(p)) * 24,
@@ -264,8 +266,6 @@
 			READ_PAD_SECONDS,
 			String(text).replace(/\s/g, '').length / READ_CHARS_PER_SECOND + READ_PAD_SECONDS,
 		);
-	/** Seconds after label.enter_at until framePose draws the label fully opaque. */
-	const LABEL_OPAQUE_AFTER = 0.125;
 
 	/**
 	 * The label is the scene's only real text. It's fully on screen from the moment framePose
@@ -275,7 +275,7 @@
 	function labelReadIssue(scene) {
 		const text = scene.label?.text;
 		if (!text) return null;
-		const shown = scene.duration - ((scene.label.enter_at ?? 0) + LABEL_OPAQUE_AFTER);
+		const shown = scene.duration - ((scene.label.enter_at ?? 0) + LABEL_FADE_SECONDS / 2);
 		const needed = readingTime(text);
 		if (shown + 1e-9 >= needed) return null;
 		return `label "${text}" is fully on screen for ${shown.toFixed(2)} s; it needs ${needed.toFixed(2)} s to read. Make duration at least ${(scene.duration + needed - shown).toFixed(2)} or bring the label in earlier.`;

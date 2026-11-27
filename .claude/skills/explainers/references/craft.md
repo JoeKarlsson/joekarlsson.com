@@ -86,7 +86,7 @@ last, the label after everything, and the finished frame held at least 1.2 s.
    references/motion.md`). A label stays fully on screen for its non-space characters at 15 a
    second plus 1.5 s, never under 1.5 s (`lemo-opuscar: core/render/readcheck.mjs`), counted
    from when it's opaque to the end of the scene, since the post's SVG loops straight back to
-   the empty frame. `render.mjs` fails a scene that doesn't (`labelReadIssue` in collage.cjs).
+   the empty frame. `render.mjs` refuses `--out` and `--post` for a scene that doesn't and warns on a preview or still (`labelReadIssue` in collage.cjs).
 8. **Animate data by its own logic**: "bars grow from baseline, lines draw left to right"
    (`lottie: references/motion-taste.md`).
 
