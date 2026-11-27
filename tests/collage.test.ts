@@ -67,10 +67,12 @@ describe('collage compositor', () => {
 	});
 
 	it('fails a label that leaves the screen before it can be read', () => {
-		// 13 characters: 13 / 15 + 1.5 = 2.37 s, counted from when the label is opaque (+0.125 s)
+		// 13 characters: 13 / 15 + 1.5 = 2.37 s, counted from the first drawing that shows the
+		// label at half opacity: a quarter into its 0.25 s fade (3.0625 s), on twos (3.083 s)
 		const label = { text: 'ONLY ONE BREAKS', enter_at: 3 };
 		expect(Collage.labelReadIssue({ ...scene, duration: 5, label })).toMatch(/needs 2\.37 s/);
-		expect(Collage.labelReadIssue({ ...scene, duration: 5.5, label })).toBeNull();
+		expect(Collage.labelReadIssue({ ...scene, duration: 5.42, label })).toMatch(/for 2\.33 s/);
+		expect(Collage.labelReadIssue({ ...scene, duration: 5.46, label })).toBeNull();
 		expect(Collage.labelReadIssue({ ...scene, duration: 5 })).toBeNull();
 		expect(Collage.readingTime('OK')).toBeCloseTo(1.633, 3);
 	});

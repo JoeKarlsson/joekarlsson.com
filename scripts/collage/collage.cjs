@@ -275,7 +275,18 @@
 	function labelReadIssue(scene) {
 		const text = scene.label?.text;
 		if (!text) return null;
-		const shown = scene.duration - ((scene.label.enter_at ?? 0) + LABEL_FADE_SECONDS / 2);
+		// Count the drawings that actually show it at half opacity or more, posed on twos as
+		// framePose poses them (the same bar as scripts/animated-svg/readcheck.mjs)
+		const fps = scene.canvas?.fps ?? 24;
+		const frames = frameCount(scene);
+		const enter = scene.label.enter_at ?? 0;
+		let first = 0;
+		while (first < frames) {
+			const t = poseTime(first, scene);
+			if (t >= enter && Math.min(1, ((t - enter) / LABEL_FADE_SECONDS) * 2) >= 0.5) break;
+			first++;
+		}
+		const shown = (frames - first) / fps;
 		const needed = readingTime(text);
 		if (shown + 1e-9 >= needed) return null;
 		return `label "${text}" is fully on screen for ${shown.toFixed(2)} s; it needs ${needed.toFixed(2)} s to read. Make duration at least ${(scene.duration + needed - shown).toFixed(2)} or bring the label in earlier.`;
