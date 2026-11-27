@@ -41,9 +41,8 @@ export const desktop = {
 			[338, 256],
 			[287, 256],
 		]);
-		f.note(345, 348, 'holes in each pot drip');
-		f.note(345, 370, 'into the one below');
-		f.crayonArrow([338, 352], [212, 352], 0);
+		f.handwrite(345, 348, 'holes in each pot drip');
+		f.handwrite(345, 372, 'into the one below', { arrow: [[338, 352], [212, 352], 0] });
 	},
 };
 
@@ -65,7 +64,7 @@ export const phone = {
 					[180, ys[i + 1] - 2],
 				]);
 		});
-		f.note(20, 478, 'Holes in each pot drip into the one below.');
+		f.handwrite(20, 478, 'Holes in each pot drip into the one below.', { size: 17 });
 		f.box({ x: 30, y: 504, w: 300, h: 60, size: 15, ...DRAW });
 		f.arrow([
 			[180, 566],
