@@ -60,4 +60,31 @@ describe('handwritten callouts', () => {
 		expect(writeTime('Fast,butonlyasfreshasthelastETLrun.'.length)).toBeLessThanOrEqual(1.2);
 		expect(writeTime(3)).toBe(0.5);
 	});
+
+	it('writes a three-line note in about a second, like a one-line note', async () => {
+		const { handwritingLayers } = await import('../scripts/diagrams/handwriting.mjs');
+		const line = (y: number, arrow?: object) => ({
+			x: 10,
+			y,
+			content: 'Two friends vote on it.',
+			size: 19,
+			color: '#ff4fd8',
+			arrow,
+		});
+		const arrow = { d: 'M10,90 Q20,80 30,70', tip: [30, 70], markup: '<path d="M10,90"/>' };
+		const { live } = handwritingLayers([line(20), line(44), line(68, arrow)], {
+			id: 'b',
+			width: 300,
+			height: 100,
+		});
+		// When each pen stroke first shows: the last one must start within the note's 1.2 s budget
+		const starts = [
+			...live
+				.slice(0, live.indexOf('id="b-arrow-'))
+				.matchAll(/values="hidden;visible[^"]*" keyTimes="0\.0000;([\d.]+)[^"]*" dur="([\d.]+)s"/g),
+		].map(([, key, dur]) => Number(key) * Number(dur));
+		expect(starts.length).toBeGreaterThan(20);
+		// One drawing of slack: a stroke shows on the next 12 fps drawing after it starts
+		expect(Math.max(...starts)).toBeLessThan(0.15 + 1.2 + 1 / 12);
+	});
 });

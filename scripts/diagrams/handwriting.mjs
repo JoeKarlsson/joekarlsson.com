@@ -91,12 +91,23 @@ function stepped(values, dur, attr) {
  * The loop holds the finished frame long enough to read every callout, then clears.
  */
 export function handwritingLayers(callouts, { id, width, height }) {
+	// A note is its lines up to the one with the arrow (or the last): the whole note shares one
+	// writeTime, so a three-line note is as quick as a one-line one
+	const chars = (c) => c.content.replace(/\s/g, '').length;
+	const noteChars = [];
+	let run = [];
+	callouts.forEach((c, i) => {
+		run.push(i);
+		if (c.arrow || i === callouts.length - 1) {
+			const total = run.reduce((sum, k) => sum + chars(callouts[k]), 0);
+			for (const k of run) noteChars[k] = total;
+			run = [];
+		}
+	});
 	let t = START;
-	const timed = callouts.map((c) => {
+	const timed = callouts.map((c, i) => {
 		const { letters, strokes } = layout(c.content, c.x, c.y, c.size);
-		const chars = c.content.replace(/\s/g, '').length;
-		// About a word a third of a second, never under a second for the whole note
-		const write = writeTime(chars);
+		const write = (writeTime(noteChars[i]) * chars(c)) / noteChars[i];
 		const ink = strokes.reduce((sum, s) => sum + s.len, 0);
 		// Each stroke gets its share of the time by length, and speeds up and brakes within it
 		for (const s of strokes) {
@@ -108,8 +119,10 @@ export function handwritingLayers(callouts, { id, width, height }) {
 			t += T;
 		}
 		const arrowAt = t + ARROW_GAP;
-		t = arrowAt + ARROW + NEXT;
-		return { ...c, letters, strokes, arrowAt, chars };
+		// The next line of the same note follows at once; a new note waits for this one's arrow
+		const endsNote = c.arrow || i === callouts.length - 1;
+		if (endsNote) t = arrowAt + (c.arrow ? ARROW : 0) + NEXT;
+		return { ...c, letters, strokes, arrowAt, chars: chars(c) };
 	});
 	const readAll = timed.reduce((sum, c) => sum + c.chars / 15, 0) + 1.5;
 	const frames = Math.ceil((t + Math.max(4, readAll)) * FPS);
