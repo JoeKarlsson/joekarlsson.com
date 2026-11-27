@@ -136,13 +136,11 @@ export const desktop = {
 	draw(f) {
 		ownDomain(f, 10, 34, 300);
 		noDomain(f, 330, 34, 300);
-		f.text(330, 496, 'Let’s Encrypt won’t sign magic.mirror:', {
-			font: 'serif',
-			size: 15,
-			anchor: 'start',
+		f.handwrite(330, 494, 'Let’s Encrypt won’t sign magic.mirror:', { size: 17 });
+		f.handwrite(330, 518, '.mirror isn’t a public suffix', {
+			size: 17,
+			arrow: [[324, 490], [298, 302], -24],
 		});
-		f.note(330, 518, '.mirror isn’t a public suffix', { size: 14 });
-		f.crayonArrow([324, 490], [298, 302], -24);
 	},
 };
 
@@ -150,13 +148,11 @@ export const phone = {
 	height: 1036,
 	draw(f) {
 		ownDomain(f, 10, 34, 340);
-		f.text(10, 500, 'Let’s Encrypt won’t sign magic.mirror:', {
-			font: 'serif',
-			size: 15,
-			anchor: 'start',
+		f.handwrite(10, 500, 'Let’s Encrypt won’t sign magic.mirror:', { size: 17 });
+		f.handwrite(10, 524, '.mirror isn’t a public suffix', {
+			size: 17,
+			arrow: [[344, 494], [341, 302], 2],
 		});
-		f.note(10, 522, '.mirror isn’t a public suffix', { size: 14 });
-		f.crayonArrow([344, 494], [341, 302], 2);
 		noDomain(f, 10, 580, 340);
 	},
 };
