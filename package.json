@@ -47,7 +47,7 @@
 		"lint:fix": "eslint . --fix",
 		"brand": "node scripts/generate-brand.mjs",
 		"format": "prettier --write .",
-		"format:check": "prettier --check . --cache",
+		"format:check": "git ls-files -z | xargs -0 prettier --check --ignore-unknown --cache",
 		"diagrams": "node scripts/diagrams/render.mjs",
 		"collage": "node scripts/collage/render.mjs",
 		"collage:cutout": "node scripts/collage/cutout.mjs",
