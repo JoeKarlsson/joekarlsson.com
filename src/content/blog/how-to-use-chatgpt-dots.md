@@ -8,7 +8,7 @@ description: 'How to use ChatGPT dots with Salesforce, Jira, QuickBooks, and mor
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['chatgpt', 'ai-agents', 'mcp', 'tutorial', 'enterprise', 'cdata']
-heroImage: '/images/blog/how-to-use-chatgpt-dots/thumb-fa7aaf99.webp'
+heroImage: '/images/blog/how-to-use-chatgpt-dots/thumb-d0e113a0.webp'
 heroAlt: 'Operators on the phone at a control switchboard'
 canonicalUrl: 'https://www.cdata.com/blog/how-to-use-chatgpt-dots'
 faq:

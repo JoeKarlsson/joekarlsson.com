@@ -7,7 +7,7 @@ description: 'CloudQuery SQL Console lets you query your cloud like a database. 
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/query-cloud-like-database-stop-wasting-time/thumb-5efa74b0.webp'
+heroImage: '/images/blog/query-cloud-like-database-stop-wasting-time/thumb-723a6d70.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/query-cloud-like-database-stop-wasting-time'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A woman pulling open file drawers'

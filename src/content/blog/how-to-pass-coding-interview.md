@@ -4,7 +4,7 @@ date: 2020-05-13
 slug: 'how-to-pass-coding-interview'
 description: 'Developers ask me how to pass a coding interview more than anything else, so I wrote down what I think it takes to walk in well prepared.'
 categories: ['Career']
-heroImage: '/images/blog/how-to-pass-coding-interview/thumb-653e4685.webp'
+heroImage: '/images/blog/how-to-pass-coding-interview/thumb-4744592d.webp'
 heroAlt: 'An applicant sitting across a desk from an interviewer'
 contentNotice: false
 tldr: 'My five-step plan for passing coding interviews: master a language, read Cracking the Coding Interview, grind LeetCode, do 30-40 mock interviews on Pramp, then validate on interviewing.io.'

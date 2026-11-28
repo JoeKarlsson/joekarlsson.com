@@ -9,7 +9,7 @@ writtenFor: 'CloudQuery'
 tags: ['CloudQuery', 'Security', 'SQL', 'Cloud Infrastructure']
 canonicalUrl: 'https://www.cloudquery.io/blog/integrate-abuseipdb-with-cloudquery'
 tldr: 'AbuseIPDB scores IPs for abuse history. By joining it with CloudQuery cloud inventory data, you can find which of your public cloud resources have flagged IPs - before attackers or blocklists do.'
-heroImage: '/images/blog/integrate-abuseipdb-with-cloudquery/thumb-14c0106f.webp'
+heroImage: '/images/blog/integrate-abuseipdb-with-cloudquery/thumb-db143ead.webp'
 heroAlt: 'A man in a bowler hat standing in a lineup'
 marginNotes:
   - type: 'quote'

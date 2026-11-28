@@ -7,7 +7,7 @@ description: 'What developers need to know about real-time databases, with pros 
 categories: ['Web Dev']
 lane: 'reference'
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/real-time-databases-what-developers-need-to-know/thumb-91d1ad3a.webp'
+heroImage: '/images/blog/real-time-databases-what-developers-need-to-know/thumb-9790ae40.webp'
 heroAlt: 'A control room full of people watching rows of live monitor screens'
 tldr: 'I compare MongoDB, PostgreSQL, Tinybird, ClickHouse, Pinot, Druid, and Snowflake for real-time analytics workloads. Spoiler: your favorite OLTP database probably is not the right pick for real-time.'
 marginNotes:

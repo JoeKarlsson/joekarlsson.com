@@ -10,7 +10,7 @@ writtenFor: 'CloudQuery'
 tags: ['CloudQuery', 'Cloud Infrastructure', 'Case Study', 'GCP', 'AWS']
 canonicalUrl: 'https://www.cloudquery.io/blog/tempus-multi-cloud-asset-inventory?category=case-studies'
 tldr: 'Tempus runs CloudQuery in production on GCP using Terraform IaC, fetching resources nightly from 80+ AWS accounts and 1000+ GCP projects to support compliance monitoring, security posture management, and data governance.'
-heroImage: '/images/blog/tempus-multi-cloud-asset-inventory/thumb-f8ba1281.webp'
+heroImage: '/images/blog/tempus-multi-cloud-asset-inventory/thumb-c1ec3cc2.webp'
 heroAlt: 'Controllers watching the airfield from a control tower'
 heroVideo: '/images/blog/tempus-multi-cloud-asset-inventory/archival-1791e2fa.mp4'
 mastheadImage: '/images/blog/tempus-multi-cloud-asset-inventory/archival-1791e2fa.webp'

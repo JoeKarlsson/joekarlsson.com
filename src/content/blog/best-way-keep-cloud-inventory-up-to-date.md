@@ -7,7 +7,7 @@ description: 'How to keep your cloud inventory up to date across AWS, GCP, Azure
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/best-way-keep-cloud-inventory-up-to-date/thumb-cfc395f3.webp'
+heroImage: '/images/blog/best-way-keep-cloud-inventory-up-to-date/thumb-388095ee.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/best-way-keep-cloud-inventory-up-to-date'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A man updating figures on a chalkboard'

@@ -8,7 +8,7 @@ slug: 'how-to-get-started-with-home-assistant'
 description: 'How I got started with Home Assistant, what changed for 2027 (the Marketplace, Apps, new triggers), what to install it on, and the first automations to try.'
 categories: ['Homelab']
 tags: ['Home Assistant', 'Smart Home']
-heroImage: '/images/blog/how-to-get-started-with-home-assistant/thumb-5ac9bd8b.webp'
+heroImage: '/images/blog/how-to-get-started-with-home-assistant/thumb-037ea26c.webp'
 heroAlt: 'Pots and kettles on a modern kitchen stove'
 contentNotice: false
 tldr: 'I started with Alexa and Google Home but eventually landed on Home Assistant for the customization and local control. Here is how I got started and a bunch of automation ideas to try, from simple motion-triggered lights to full security setups. Updated for 2027: the Marketplace replaced HACS, add-ons are now called Apps, and the sentence-style triggers are the default.'

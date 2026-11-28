@@ -6,7 +6,7 @@ description: 'I built a tool that checks how much of a script makes it on screen
 recapOf: 'script-vs-screen'
 cardPhoto: '/images/newsletter/bad-movies-threw-out-their-scripts/script-meeting.webp'
 cardPhotoAlt: 'director Arthur Berthelet and writer Mary MacLane going over a film script together at Essanay Studios in 1918'
-heroImage: '/images/newsletter/bad-movies-threw-out-their-scripts/card-8d02af7f.webp'
+heroImage: '/images/newsletter/bad-movies-threw-out-their-scripts/card-b7560052.webp'
 heroAlt: 'Works on My Machine card for Bad Movies Threw Out Their Scripts, with director Arthur Berthelet and writer Mary MacLane going over a film script together at Essanay Studios in 1918 framed in a pink crayon box'
 ---
 

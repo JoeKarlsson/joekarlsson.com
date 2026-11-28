@@ -17,7 +17,7 @@ faq:
     answer: "When breaking it once would cost something you can't undo, or when you have typed the same correction about three times. A rule in CLAUDE.md is a suggestion the agent usually follows; a hook runs on the event you attach it to (a tool call, the end of a turn, a compaction) and can block it."
   - question: 'How do you let an AI agent manage a homelab safely?'
     answer: 'Start read-only. My health check investigates freely, reports every finding, proposes a fix and waits for my go-ahead. Anything irreversible, like writing inside an immutable container or restoring a Home Assistant backup, is blocked by a hook no matter what the agent thinks.'
-heroImage: '/images/blog/how-i-use-ai-2026/thumb-28a9f4a3.webp'
+heroImage: '/images/blog/how-i-use-ai-2026/thumb-02488f68.webp'
 heroAlt: 'Toy robots stacking boxes'
 heroVideo: '/images/blog/how-i-use-ai-2026/archival-eebdda3c.mp4'
 mastheadImage: '/images/blog/how-i-use-ai-2026/archival-eebdda3c.webp'

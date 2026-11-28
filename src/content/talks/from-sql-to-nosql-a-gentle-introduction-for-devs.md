@@ -5,7 +5,7 @@ date: 2020-02-27
 slug: 'from-sql-to-nosql-a-gentle-introduction-for-devs'
 description: 'My talk on moving from SQL to NoSQL with MongoDB: how SQL terms map to documents, and three habits SQL developers need to unlearn.'
 categories: ['Web Dev']
-heroImage: '/images/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/thumb-b05809df.webp'
+heroImage: '/images/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/thumb-77b8a495.webp'
 heroAlt: 'A clerk in a room lined floor to ceiling with filing drawers'
 contentNotice: false
 tldr: 'Most SQL concepts have a MongoDB twin with a different name. Documents let you program faster, pivot easier, query faster and scale cheaper, but only once you stop splitting your data into tables out of habit.'
@@ -25,7 +25,7 @@ videos:
       - { at: '13:09', name: 'Query faster' }
       - { at: '14:01', name: 'Scale cheaper' }
       - { at: '15:30', name: "What's next for you" }
-mastheadImage: '/images/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/masthead-8b46d51c.webp'
+mastheadImage: '/images/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/masthead-bb408992.webp'
 ---
 
 When you need to model data, is your first instinct to start breaking it down into rows and columns? Mine used to be too. This is my gentle introduction to NoSQL for developers who already know some SQL, using MongoDB as the example, recorded at ConFoo Montreal in February 2020.

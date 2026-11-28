@@ -9,7 +9,7 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: '/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/thumb-4e0a16a6.webp'
+heroImage: '/images/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls/thumb-83b4a53f.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-4-implementation-best-practices-pitfalls
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'A worker laying rows of bricks out to dry'

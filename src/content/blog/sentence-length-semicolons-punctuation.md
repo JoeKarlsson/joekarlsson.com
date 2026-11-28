@@ -27,7 +27,7 @@ faq:
     answer: 'Sometimes. Using only the share of ten marks in each book, a leave-one-out nearest-match test named the right author for 229 of 645 books by 122 authors, 35.5%, where guessing gets under 1%. Darmon and colleagues reached 62-72% in 2021 with richer punctuation features.'
   - question: 'How do I analyze the punctuation in my own book?'
     answer: 'Open the read page on punc.joekarlsson.com and drop in a .txt file. It runs in your browser, nothing is uploaded, and it shows the punctuation in reading order along with counts per 1,000 words and words per sentence. Punc is also an open-source TypeScript library and command line tool.'
-heroImage: '/images/blog/sentence-length-semicolons-punctuation/thumb-2310cff6.webp'
+heroImage: '/images/blog/sentence-length-semicolons-punctuation/thumb-4e506dfd.webp'
 heroAlt: 'Hands typing on a typewriter'
 marginNotes:
   - type: 'term'

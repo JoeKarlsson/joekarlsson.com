@@ -4,14 +4,14 @@ date: 2018-11-14
 slug: 'building-high-performance-react-applications'
 description: 'My talk on high performance React: find the bottlenecks, then fix them with keys, PureComponent, immutable data and production builds. Every event and deck.'
 categories: ['Web Dev']
-heroImage: '/images/blog/building-high-performance-react-applications/thumb-b9e788fc.webp'
+heroImage: '/images/blog/building-high-performance-react-applications/thumb-8c6d37b4.webp'
 heroAlt: 'Sonic says: Do not abuse the key!'
 tldr: 'A talk I gave 12 times in 2018 and 2019 on speeding up React apps, from using keys correctly to PureComponent to production builds, with before-and-after numbers for each fix. This page has the talk, every event, both decks and the full write-up.'
 videos:
   - id: 'JNs1ZvRzOYM'
   - id: 'xJYOipHkwNM'
   - id: '6z4g27TSO5I'
-mastheadImage: '/images/blog/building-high-performance-react-applications/masthead-e37f91c9.webp'
+mastheadImage: '/images/blog/building-high-performance-react-applications/masthead-8976cc61.webp'
 ---
 
 > **Note:** I wrote this in 2018 for React 16 class components. Modern React uses function components with hooks (`React.memo`, `useMemo`, `useCallback`) for performance optimization. The concepts here are still useful background, but check the [current React docs](https://react.dev/reference/react/memo) for up-to-date guidance.

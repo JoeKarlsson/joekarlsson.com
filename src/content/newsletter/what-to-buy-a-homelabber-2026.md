@@ -6,8 +6,8 @@ description: 'A preview of my 2026 homelab gift guide: six picks I own, and the 
 recapOf: 'homelab-gift-ideas-2026'
 cardPhoto: '/images/blog/homelab-gift-ideas-2026/mug-warmer.webp'
 cardPhotoAlt: "Joe's mug warmer on the corner of his desk, a round black plate holding a red Le Creuset mug"
-heroImage: '/images/newsletter/what-to-buy-a-homelabber-2026/card-80464216.webp'
-heroAlt: "Works on My Machine card for What to Buy a Homelabber in 2026, with Joe's mug warmer on the corner of his desk, a round black plate holding a red Le Creuset mug, framed in a pink crayon box"
+heroImage: '/images/newsletter/what-to-buy-a-homelabber-2026/card-34bab2d3.webp'
+heroAlt: "Works on My Machine card for What to Buy a Homelabber in 2026, with Joe's mug warmer on the corner of his desk, a round black plate holding a red Le Creuset mug framed in a pink crayon box"
 marginNotes:
   - type: term
     at: tool-free cage nut replacements

@@ -5,7 +5,7 @@ date: 2022-06-22
 slug: 'databases-and-devops-how-to-usesinglestore-with-github-actions'
 description: 'How to bring databases into DevOps: schema in source control, production-like testing, monitoring, and a demo running SingleStore in GitHub Actions.'
 categories: ['Web Dev']
-heroImage: '/images/blog/databases-and-devops-how-to-usesinglestore-with-github-actions/thumb-21216102.webp'
+heroImage: '/images/blog/databases-and-devops-how-to-usesinglestore-with-github-actions/thumb-eb22bb5b.webp'
 heroAlt: 'An overhead conveyor carrying parts through a factory'
 tldr: 'Most teams skip the database in their CI/CD pipeline, and that is a mistake. I walk through best practices for database DevOps and show you how to set up SingleStore with GitHub Actions so your database deployments are automated on every push.'
 marginNotes:

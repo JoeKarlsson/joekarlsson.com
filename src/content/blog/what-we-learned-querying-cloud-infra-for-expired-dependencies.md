@@ -7,7 +7,7 @@ description: 'Learn how to easily track and fix end-of-life cloud services acros
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering', 'Product News']
-heroImage: '/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/thumb-7512268f.webp'
+heroImage: '/images/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies/thumb-cce4bc83.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/what-we-learned-querying-cloud-infra-for-expired-dependencies'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'An old wooden wagon wheel, weathered and cracked'

@@ -8,7 +8,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Security']
-heroImage: '/images/blog/cloud-operations-playbook-part-03-hidden-security-tax/thumb-019b184f.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-03-hidden-security-tax/thumb-438dbe8a.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-03-hidden-security-tax
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Firemen running a hose down a street beside their truck'

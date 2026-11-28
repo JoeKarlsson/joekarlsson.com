@@ -7,7 +7,7 @@ description: 'Why CloudQuery syncs slow down after a plugin upgrade, how to spot
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['AWS', 'Tutorials', 'Best Practices']
-heroImage: '/images/blog/cloudquery-sync-performance-guide/thumb-dc66a785.webp'
+heroImage: '/images/blog/cloudquery-sync-performance-guide/thumb-7ea9a2cb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloudquery-sync-performance-guide'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A traffic jam of trucks packed bumper to bumper'

@@ -7,7 +7,7 @@ updateNote: 'Refreshed for 2027 with higher hardware prices from the RAM shortag
 slug: 'how-to-get-started-building-a-homelab-server'
 description: 'What to buy for a first homelab server in 2027 (a used office PC or mini PC), what it costs to run, and how to set up Proxmox and your first four services.'
 categories: ['Homelab']
-heroImage: '/images/blog/how-to-get-started-building-a-homelab-server/thumb-31c4d8ba.webp'
+heroImage: '/images/blog/how-to-get-started-building-a-homelab-server/thumb-4abbc53a.webp'
 heroAlt: 'Technicians at the control panels of an early computer room'
 tldr: 'Buy a used office PC or a mini PC with at least 16GB of RAM, install Proxmox VE 9.2 (free), and start with four services: Pi-hole, Jellyfin, a Homepage dashboard and Uptime Kuma. Keep your files on a NAS and mount it into the containers. My first server was a $150 used Lenovo ThinkServer, though RAM prices make that hard to match now.'
 faq:

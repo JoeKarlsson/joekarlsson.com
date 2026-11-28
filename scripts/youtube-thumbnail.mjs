@@ -23,7 +23,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import sharp from 'sharp';
-import { MARKS, CHALK } from '../src/data/scribbles.ts';
+import { MARKS, CHALK, CRAYON_FILTER } from '../src/data/scribbles.ts';
 
 const W = 1280;
 const H = 720;
@@ -190,7 +190,7 @@ body { width: ${W}px; height: ${H}px; overflow: hidden; position: relative; font
 .mk { position: absolute; overflow: visible; z-index: 5; }
 .mk path { fill: none; stroke-linecap: round; stroke-linejoin: round; filter: url(#crayon); }
 </style></head><body>
-<svg width="0" height="0" style="position:absolute"><filter id="crayon" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter></svg>
+<svg width="0" height="0" style="position:absolute"><filter id="crayon" x="-10%" y="-10%" width="120%" height="120%">${CRAYON_FILTER}</filter></svg>
 <div class="stage">${card.stage.replace('@@MARKS@@', stageMarks)}</div>
 <img class="person" src="${p.uri}">
 ${card.chip ? `<div class="chip">${card.chip}</div>` : ''}

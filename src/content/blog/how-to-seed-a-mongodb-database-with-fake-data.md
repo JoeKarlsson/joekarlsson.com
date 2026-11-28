@@ -5,7 +5,7 @@ slug: 'how-to-seed-a-mongodb-database-with-fake-data'
 description: 'How to seed a MongoDB database with fake data using a Node.js seed script and faker.js, for demos, lookup values and proofs of concept.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
-heroImage: '/images/blog/how-to-seed-a-mongodb-database-with-fake-data/thumb-e0cd05bf.webp'
+heroImage: '/images/blog/how-to-seed-a-mongodb-database-with-fake-data/thumb-137c6ea3.webp'
 heroAlt: 'A horse plowing a field'
 updatedDate: 2026-11-09
 updateNote: 'The script now uses @faker-js/faker (the original faker package was deleted in 2022) and the current MongoDB driver, and it waits for the insert to finish before closing the connection.'

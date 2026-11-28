@@ -7,7 +7,7 @@ tags:
   - Best Practices
 date: 2025-10-24
 description: 'Agent-based CMDB discovery breaks down with containers, serverless and managed services. API-driven discovery costs 90% less and works everywhere.'
-heroImage: '/images/blog/death-of-agent-based-discovery/thumb-4c5e3431.webp'
+heroImage: '/images/blog/death-of-agent-based-discovery/thumb-15f586fb.webp'
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 canonicalUrl: https://www.cloudquery.io/blog/death-of-agent-based-discovery

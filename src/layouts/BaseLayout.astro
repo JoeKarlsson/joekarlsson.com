@@ -3,7 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import MarginDoodles from '../components/MarginDoodles.astro';
-import { BOXES, CHALK, RINGS } from '../data/scribbles';
+import { BOXES, CHALK, CRAYON_FILTER, RINGS } from '../data/scribbles';
 import { compactPath } from '../utils/compact-path';
 import { spineFor } from '../utils/spine';
 
@@ -152,45 +152,7 @@ const spine = spineFor(Astro.url.pathname);
 				</feTurbulence>
 				<feDisplacementMap in="SourceGraphic" in2="w" scale="5"></feDisplacementMap>
 			</filter>
-			<filter id="crayon" x="-5%" y="-5%" width="110%" height="110%">
-				<feTurbulence
-					type="fractalNoise"
-					baseFrequency="1.2"
-					numOctaves="2"
-					seed="3"
-					result="n"
-				></feTurbulence>
-				<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"></feDisplacementMap>
-				{/* Wax on paper grain, the same as diagram strokes (crayonFilter() in
-				scripts/diagrams/draw.mjs, DECISIONS 2026-11-27): a fixed paper tooth plus the
-				stroke's blurred coverage, thresholded, so the core stays solid and the edges break up */}
-				<feTurbulence
-					type="fractalNoise"
-					baseFrequency="1.5 0.75"
-					numOctaves="3"
-					seed="8"
-					result="g"
-				></feTurbulence>
-				<feColorMatrix
-					in="g"
-					type="matrix"
-					values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 0"
-					result="tooth"
-				></feColorMatrix>
-				<feGaussianBlur in="d" stdDeviation="1.2" result="p"></feGaussianBlur>
-				<feComposite
-					in="tooth"
-					in2="p"
-					operator="arithmetic"
-					k2="0.5"
-					k3="0.55"
-					result="sum"
-				></feComposite>
-				<feComponentTransfer in="sum" result="wax">
-					<feFuncA type="linear" slope="7" intercept="-3.6"></feFuncA>
-				</feComponentTransfer>
-				<feComposite in="d" in2="wax" operator="in"></feComposite>
-			</filter>
+			<filter id="crayon" x="-5%" y="-5%" width="110%" height="110%" set:html={CRAYON_FILTER} />
 			{/* The boxes cards draw on hover (src/components/HoverBox.astro), each defined
 			once here and drawn with <use>: a copy per card was half of /blog/'s HTML */}
 			{BOXES.map((path, i) => (

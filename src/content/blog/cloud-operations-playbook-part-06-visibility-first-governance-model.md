@@ -8,7 +8,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Governance', 'Cloud Infrastructure']
-heroImage: '/images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/thumb-684daade.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-06-visibility-first-governance-model/thumb-c8c75724.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-06-visibility-first-governance-model
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A man at a desk by a high window overlooking a city skyline'

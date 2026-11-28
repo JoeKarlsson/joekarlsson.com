@@ -7,7 +7,7 @@ description: 'What goes into a real-time recommendation system: content-based an
 categories: ['Web Dev']
 lane: 'reference'
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/thumb-4c3116ad.webp'
+heroImage: '/images/blog/what-it-takes-to-build-a-real-time-recommendation-system/thumb-d3afa586.webp'
 heroAlt: 'A shop clerk laying out goods for a customer at the counter'
 tldr: 'I break down the key components of real-time recommendation systems, from content-based and collaborative filtering to data storage and ML model selection. You can start with simple SQL heuristics and scale up to machine learning later.'
 updatedDate: 2026-11-16

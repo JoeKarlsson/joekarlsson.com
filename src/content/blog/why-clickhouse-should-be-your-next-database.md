@@ -5,7 +5,7 @@ slug: 'why-clickhouse-should-be-your-next-database'
 description: “Today, we’re jumping into databases. Another database to learn? But before you sprint for the hills, allow me to introduce you to ClickHouse.”
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/why-clickhouse-should-be-your-next-database/thumb-521d32a4.webp'
+heroImage: '/images/blog/why-clickhouse-should-be-your-next-database/thumb-267748de.webp'
 heroAlt: 'A high-speed machine stacking sheets in a blur'
 tldr: 'ClickHouse is a column-oriented database built for real-time analytics on huge datasets. It loads data 23x faster than PostgreSQL, uses 8.5x less storage, and powers real-time analytics at companies like Cloudflare and Yandex.'
 updatedDate: 2026-11-16

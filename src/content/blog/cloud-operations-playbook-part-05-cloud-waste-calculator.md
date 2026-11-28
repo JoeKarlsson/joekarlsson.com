@@ -8,7 +8,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'FinOps']
-heroImage: '/images/blog/cloud-operations-playbook-part-05-cloud-waste-calculator/thumb-5471c2e8.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-05-cloud-waste-calculator/thumb-2412624e.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-05-cloud-waste-calculator
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A woman working through columns of figures'

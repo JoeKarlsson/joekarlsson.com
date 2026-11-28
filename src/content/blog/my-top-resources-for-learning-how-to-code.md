@@ -5,7 +5,7 @@ date: 2018-01-26
 slug: 'my-top-resources-for-learning-how-to-code'
 description: 'Want to learn how to code? These are my favorite programming books, talks, podcasts, newsletters and websites, plus general tips for getting started.'
 categories: ['Career']
-heroImage: '/images/blog/my-top-resources-for-learning-how-to-code/thumb-97fef621.webp'
+heroImage: '/images/blog/my-top-resources-for-learning-how-to-code/thumb-4cd2561b.webp'
 heroAlt: 'Children reading and writing at classroom desks'
 tldr: 'My big list of favorite books, podcasts, courses, YouTube channels, and conferences for learning to code, plus advice on picking a programming language and getting started.'
 marginNotes:

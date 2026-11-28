@@ -7,7 +7,7 @@ description: 'AWS IAM Identity Center replaced AWS SSO in 2022. Learn how to set
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Security', 'AWS', 'Tutorials']
-heroImage: '/images/blog/aws-identity-center-guide/thumb-d54381f3.webp'
+heroImage: '/images/blog/aws-identity-center-guide/thumb-d1f6d25e.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-identity-center-guide'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A man signing a hotel register and taking his room key'

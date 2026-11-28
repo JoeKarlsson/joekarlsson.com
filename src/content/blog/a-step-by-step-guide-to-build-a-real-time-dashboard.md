@@ -6,7 +6,7 @@ slug: 'a-step-by-step-guide-to-build-a-real-time-dashboard'
 description: 'A step-by-step guide to build a real-time dashboard with Tinybird, Tremor and Next.js, from a mock data stream to SQL metrics published as APIs.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/thumb-df632e77.webp'
+heroImage: '/images/blog/a-step-by-step-guide-to-build-a-real-time-dashboard/thumb-f483d3c9.webp'
 heroAlt: 'Operators in a control room watching a wall of dials'
 canonicalUrl: 'https://www.tinybird.co/blog/real-time-dashboard-step-by-step'
 tldr: 'I walk through building a real-time dashboard from scratch using Tinybird for the data backend and Next.js for the frontend. You will learn how to ingest streaming data, write SQL queries, publish them as APIs, and wire it all up to live charts.'

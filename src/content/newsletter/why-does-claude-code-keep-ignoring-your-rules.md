@@ -16,7 +16,7 @@ marginNotes:
     at: Blocking hooks fail by blocking too much
     text: What hooks and mods can and can't catch, from October.
     post: claude-code-mods-first-impressions
-heroImage: '/images/newsletter/why-does-claude-code-keep-ignoring-your-rules/card-7e4915c2.webp'
+heroImage: '/images/newsletter/why-does-claude-code-keep-ignoring-your-rules/card-d41ba711.webp'
 heroAlt: 'Works on My Machine card for Why Does Claude Code Keep Ignoring Your Rules?, with a c. 1855 lithograph of the Erie Canal locks at Lockport, men leaning on a lock gate with the flight of locks stepping down behind them framed in a pink crayon box'
 ---
 

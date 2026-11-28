@@ -7,7 +7,7 @@ description: 'Nolan Lawson told programmers to stop looking for art in coding. A
 recapOf: 'hackers-and-painters-ai-agents'
 cardPhoto: '/images/blog/hackers-and-painters-ai-agents/van-eycks-unfinished-saint-barbara-1437.webp'
 cardPhotoAlt: "Jan van Eyck's unfinished Saint Barbara, 1437: a finely drawn woman reading in front of a Gothic tower under construction, still mostly underdrawing"
-heroImage: '/images/newsletter/ai-agents-made-coding-feel-more-like-painting/card-f189e3f4.webp'
+heroImage: '/images/newsletter/ai-agents-made-coding-feel-more-like-painting/card-40756bed.webp'
 heroAlt: "Works on My Machine card for AI Agents Made Coding Feel More Like Painting, with Jan van Eyck's unfinished Saint Barbara, 1437: a finely drawn woman reading in front of a Gothic tower under construction, still mostly underdrawing framed in a pink crayon box"
 ---
 

@@ -7,7 +7,7 @@ description: 'AWS Lambda Node.js 20 hits end of life April 30, 2026. How to find
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['AWS', 'Tutorials', 'Cloud Infrastructure']
-heroImage: '/images/blog/aws-lambda-nodejs-20-eol/thumb-975ef1b5.webp'
+heroImage: '/images/blog/aws-lambda-nodejs-20-eol/thumb-f8def17e.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-lambda-nodejs-20-eol'
 contentNotice: 'This post was originally published on CloudQuery blog. Node.js 20 was deprecated on April 30, 2026, but AWS pushed the blocks back: Lambda stops creating nodejs20.x functions on July 29, 2027 and stops updating them on August 31, 2027. The next one is Node.js 22, deprecated on May 30, 2027, and the same queries find it.'
 heroAlt: 'Rows of rusting 1920s cars and trucks abandoned in a junkyard beside a farmhouse'

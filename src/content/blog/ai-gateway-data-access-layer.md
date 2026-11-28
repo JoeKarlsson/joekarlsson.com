@@ -7,7 +7,7 @@ description: "Enterprise data access for AI agents is the part of the AI gateway
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'ai-agents', 'cdata']
-heroImage: '/images/blog/ai-gateway-data-access-layer/thumb-b92ee9ea.webp'
+heroImage: '/images/blog/ai-gateway-data-access-layer/thumb-aab3247a.webp'
 heroAlt: 'Cars driving off a steel truss bridge past a checkpoint'
 canonicalUrl: 'https://www.cdata.com/blog/ai-gateway-data-access-layer'
 faq:

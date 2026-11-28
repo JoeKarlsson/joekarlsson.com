@@ -7,7 +7,7 @@ description: 'CWPP protects cloud workloads at runtime. CNAPP unifies CWPP, CSPM
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Security', 'Cloud Infrastructure']
-heroImage: '/images/blog/cwpp-vs-cnapp/thumb-666cd633.webp'
+heroImage: '/images/blog/cwpp-vs-cnapp/thumb-86b58563.webp'
 heroAlt: 'A woman reading a chest x-ray on a light box'
 canonicalUrl: https://www.cloudquery.io/blog/cwpp-vs-cnapp
 contentNotice: 'This post was originally published on CloudQuery blog.'

@@ -7,7 +7,7 @@ description: 'Stop guessing what in your multi-cloud environment. Use CloudQuery
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/eliminate-blind-spots-cloud-environment/thumb-32968137.webp'
+heroImage: '/images/blog/eliminate-blind-spots-cloud-environment/thumb-95cbafea.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/eliminate-blind-spots-cloud-environment'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: "A car's side mirror reflecting the street behind it"

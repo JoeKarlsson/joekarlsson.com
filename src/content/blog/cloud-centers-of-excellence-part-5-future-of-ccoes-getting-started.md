@@ -8,7 +8,7 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: '/images/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/thumb-90b2be01.webp'
+heroImage: '/images/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started/thumb-25e92720.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-5-future-of-ccoes-getting-started
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'People hoeing and planting a field together'

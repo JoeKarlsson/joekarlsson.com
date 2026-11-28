@@ -11,6 +11,7 @@
 
 import { existsSync, readFileSync } from 'node:fs';
 
+import { CRAYON_FILTER } from '../../src/data/scribbles.ts';
 import { handwritingLayers, handwritingWidth } from './handwriting.mjs';
 
 /**
@@ -227,23 +228,11 @@ export function measure(content, size, font = 'sans', weight = 400) {
  * filter is looked up by id), so render.mjs passes slug-name-layout.
  * `issues` collects text that overflows its box or the canvas; render.mjs fails on any.
  */
-/**
- * The crayon look for one stroke, over the given region: wobbled edges, then wax on paper
- * grain (DECISIONS 2026-11-27, after Lemo-Opuscar). A fixed paper tooth is added to the
- * stroke's blurred coverage as pressure and thresholded, so the core stays solid and only
- * the edges break up where the tooth is low.
- */
+/** The site's crayon look (CRAYON_FILTER) for one stroke, over the given region */
 function crayonFilter(filterId, { x, y, width, height }) {
 	return [
 		`<filter id="${filterId}" filterUnits="userSpaceOnUse" x="${n(x)}" y="${n(y)}" width="${n(width)}" height="${n(height)}">`,
-		'<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/>',
-		'<feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d"/>',
-		'<feTurbulence type="fractalNoise" baseFrequency="1.5 0.75" numOctaves="3" seed="8" result="g"/>',
-		'<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 0" result="tooth"/>',
-		'<feGaussianBlur in="d" stdDeviation="1.2" result="p"/>',
-		'<feComposite in="tooth" in2="p" operator="arithmetic" k2="0.5" k3="0.55" result="sum"/>',
-		'<feComponentTransfer in="sum" result="wax"><feFuncA type="linear" slope="7" intercept="-3.6"/></feComponentTransfer>',
-		'<feComposite in="d" in2="wax" operator="in"/>',
+		CRAYON_FILTER,
 		'</filter>',
 	].join('');
 }

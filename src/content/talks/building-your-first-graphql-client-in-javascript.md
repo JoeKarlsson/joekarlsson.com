@@ -27,9 +27,9 @@ videos:
       - { at: '35:28', name: 'How to learn GraphQL' }
   - id: 'XsD2ZKqMbgo'
   - id: '7HczsHW7JA0'
-heroImage: '/images/blog/building-your-first-graphql-client-in-javascript/thumb-4f9d922e.webp'
+heroImage: '/images/blog/building-your-first-graphql-client-in-javascript/thumb-fccbf6dd.webp'
 heroAlt: 'A long row of order bins in the old Sears mail-order plant in Chicago'
-mastheadImage: '/images/blog/building-your-first-graphql-client-in-javascript/masthead-920c0171.webp'
+mastheadImage: '/images/blog/building-your-first-graphql-client-in-javascript/masthead-9ad992e1.webp'
 ---
 
 Say you're building the front end of an online store and your API returns a user's recent orders as a list of SKUs. Then the product manager wants the order date, name, price and shipping date on the page too. Now you need a new endpoint, or a query parameter, or a header, and there's no standard way to pick. This talk is about how GraphQL fixes that, and how to build your first client for it in JavaScript and React.

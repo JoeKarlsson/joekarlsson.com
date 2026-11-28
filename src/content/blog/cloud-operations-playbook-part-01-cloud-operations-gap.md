@@ -8,7 +8,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Platform Engineering', 'Security']
-heroImage: '/images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/thumb-e81c490f.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-01-cloud-operations-gap/thumb-77ca86c8.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-01-cloud-operations-gap
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A long bridge under construction over a river'

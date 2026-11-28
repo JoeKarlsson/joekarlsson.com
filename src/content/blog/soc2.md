@@ -9,7 +9,7 @@ writtenFor: 'CloudQuery'
 tags: ['Engineering']
 canonicalUrl: https://www.cloudquery.io/blog/soc2
 contentNotice: 'This post was originally published on CloudQuery blog.'
-heroImage: '/images/blog/soc2/thumb-89d280bc.webp'
+heroImage: '/images/blog/soc2/thumb-35e32ed0.webp'
 heroAlt: 'Men reviewing records in a file room'
 updatedDate: 2026-11-16
 corrections:

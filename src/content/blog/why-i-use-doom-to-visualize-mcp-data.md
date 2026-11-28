@@ -6,7 +6,7 @@ slug: 'why-i-use-doom-to-visualize-mcp-data'
 description: 'An MCP server inside DOOM: an AI agent pulls live records over MCP and each becomes a monster. The first level built from MCP data, shown at MCPCon 2026.'
 categories: ['AI', 'Career']
 tags: ['MCP', 'Doom', 'CData Connect AI', 'Claude', 'developer marketing', 'demos']
-heroImage: '/images/blog/why-i-use-doom-to-visualize-mcp-data/thumb-de81eb74.webp'
+heroImage: '/images/blog/why-i-use-doom-to-visualize-mcp-data/thumb-b47a965a.webp'
 heroAlt: 'A man leaning over a pinball game table, playing'
 tldr: "I put an MCP server inside Doom. Connect AI × DOOM is, as far as I can find, the first Doom level built out of MCP data. You ask Claude a business question, it pulls the answer out of your apps through the CData Connect AI MCP server, and the answer becomes a Doom level where every monster is a live record. KubeDOOM turned pods into monsters and doom-mcp lets an agent play regular Doom. I built the first version in one night, and in October 2026 I ran it at the CData booth at AGNTCon + MCPCon North America in San Jose, where hundreds of people stopped by and a lot of them played it. It's open source, and you can play it in your browser."
 faq:

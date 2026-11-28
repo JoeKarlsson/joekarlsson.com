@@ -7,7 +7,7 @@ description: 'Attack surface management finds exposed cloud assets before attack
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Security', 'Cloud Infrastructure']
-heroImage: '/images/blog/what-is-attack-surface-management/thumb-6b0e4d63.webp'
+heroImage: '/images/blog/what-is-attack-surface-management/thumb-80417a68.webp'
 heroAlt: 'A barbed-wire fence running across a field'
 canonicalUrl: https://www.cloudquery.io/blog/what-is-attack-surface-management
 contentNotice: 'This post was originally published on CloudQuery blog.'

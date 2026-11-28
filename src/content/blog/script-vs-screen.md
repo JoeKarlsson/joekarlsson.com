@@ -66,7 +66,7 @@ marginNotes:
     at: 'checks 3,711 movies against the Bechdel test'
     text: 'how the script parser behind the site started, in 2015'
     post: 'bechdel-test-script-parser-works'
-heroImage: '/images/blog/script-vs-screen/thumb-cdb57616.webp'
+heroImage: '/images/blog/script-vs-screen/thumb-5167b29f.webp'
 heroAlt: "A film projector's reels turning"
 heroVideo: '/images/blog/script-vs-screen/archival-f79c57a3.mp4'
 mastheadImage: '/images/blog/script-vs-screen/archival-f79c57a3.webp'

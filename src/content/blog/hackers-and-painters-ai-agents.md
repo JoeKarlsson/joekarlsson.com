@@ -6,7 +6,7 @@ slug: 'hackers-and-painters-ai-agents'
 description: "I reread Paul Graham's Hackers and Painters as a painter who codes with AI agents. The sketching idea held up. Beautiful code nobody reads is what I miss."
 categories: ['AI', 'Career']
 tldr: 'In "Hackers and Painters" (2003), Paul Graham argued that programming is sketching: you figure a program out while you write it, so a language should be "a pencil, not a pen." I paint and I write code, and since AI coding agents came along, programming feels more like painting to me, not less. I can explore ideas faster and more iteratively. What I miss is beauty in code nobody reads, though I don''t think AI will kill it any more than photography killed painting.'
-heroImage: '/images/blog/hackers-and-painters-ai-agents/thumb-cb67fa9a.webp'
+heroImage: '/images/blog/hackers-and-painters-ai-agents/thumb-979020b8.webp'
 interlude:
   after: 'Static types came back'
   line: "That's the part I miss."

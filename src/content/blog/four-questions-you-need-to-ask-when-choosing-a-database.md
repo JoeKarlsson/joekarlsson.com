@@ -6,7 +6,7 @@ slug: 'four-questions-you-need-to-ask-when-choosing-a-database'
 description: 'Four questions to ask when choosing a database: does it solve your problem, does it fit your tech stack, is it easy to learn, and what will it cost?'
 writtenFor: 'SingleStore'
 categories: ['Web Dev']
-heroImage: '/images/blog/four-questions-you-need-to-ask-when-choosing-a-database/thumb-0a5b8075.webp'
+heroImage: '/images/blog/four-questions-you-need-to-ask-when-choosing-a-database/thumb-c9463c3b.webp'
 heroAlt: 'Shoppers sorting through cans on a counter'
 contentNotice: false
 tldr: 'Before picking a database, ask yourself four things: does it solve my actual problem, does it fit my tech stack, can my team learn it, and what will it cost as we scale? I give you the specific sub-questions for each.'

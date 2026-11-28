@@ -7,7 +7,7 @@ slug: 'how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online
 description: 'How to set up custom archival rules on MongoDB Atlas Online Archive and partition your archived data to speed up queries against it.'
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
-heroImage: '/images/blog/how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive/thumb-dfe9426f.webp'
+heroImage: '/images/blog/how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive/thumb-e24495d0.webp'
 heroAlt: 'Rows of filed records in an archive'
 contentNotice: false
 tldr: 'Goes beyond basic date-based archiving to show how to set up custom query-based archival rules in MongoDB Atlas Online Archive (like archiving inactive users) and how to partition your archived data for faster queries.'

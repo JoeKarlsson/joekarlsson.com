@@ -7,7 +7,7 @@ description: 'The difference between database sharding and partitioning, when to
 categories: ['Web Dev']
 lane: 'reference'
 writtenFor: 'SingleStore'
-heroImage: '/images/blog/database-sharding-vs-partitioning-whats-the-difference/thumb-c923f94f.webp'
+heroImage: '/images/blog/database-sharding-vs-partitioning-whats-the-difference/thumb-a6673408.webp'
 heroAlt: 'Slices of bread on a plate'
 contentNotice: false
 canonicalUrl: 'https://www.singlestore.com/blog/database-sharding-vs-partitioning-whats-the-difference/'

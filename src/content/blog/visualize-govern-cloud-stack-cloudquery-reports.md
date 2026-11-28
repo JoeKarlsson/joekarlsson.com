@@ -7,7 +7,7 @@ description: 'CloudQuery Reports delivers actionable insights for multi-cloud se
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Product News']
-heroImage: '/images/blog/visualize-govern-cloud-stack-cloudquery-reports/thumb-4bd0e41a.webp'
+heroImage: '/images/blog/visualize-govern-cloud-stack-cloudquery-reports/thumb-06a65bbb.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/visualize-govern-cloud-stack-cloudquery-reports'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A man at a control panel full of gauges'

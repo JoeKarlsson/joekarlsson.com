@@ -9,7 +9,7 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: '/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/thumb-0bcad598.webp'
+heroImage: '/images/blog/cloud-centers-of-excellence-part-2-governance-security-compliance/thumb-9c5f0edb.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-2-governance-security-compliance
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'A foreman overseeing work on a construction site'

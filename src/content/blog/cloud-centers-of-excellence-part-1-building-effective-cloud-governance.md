@@ -9,7 +9,7 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: '/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/thumb-1d74a9c8.webp'
+heroImage: '/images/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance/thumb-bd759181.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-1-building-effective-cloud-governance
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'A committee in session around a long table'

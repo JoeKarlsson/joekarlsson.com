@@ -8,7 +8,7 @@ description: 'Track Kubernetes assets across clouds with a central configuration
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Engineering', 'Governance']
-heroImage: '/images/blog/kubernetes-asset-tracking-at-scale/thumb-eadb1bc0.webp'
+heroImage: '/images/blog/kubernetes-asset-tracking-at-scale/thumb-0f5e20e7.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/kubernetes-asset-tracking-at-scale'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'Dockworkers loading cargo from trucks onto a ship'

@@ -7,7 +7,7 @@ description: 'How to build and maintain a cloud asset inventory: set the scope, 
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Asset Inventory']
-heroImage: '/images/blog/getting-started-with-cloud-asset-inventory/thumb-ffc5a5d4.webp'
+heroImage: '/images/blog/getting-started-with-cloud-asset-inventory/thumb-2c15505d.webp'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A librarian sorting index cards at a wall of card-catalog drawers'
 marginNotes:

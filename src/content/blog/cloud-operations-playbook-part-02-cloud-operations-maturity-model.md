@@ -8,7 +8,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Platform Engineering', 'Governance']
-heroImage: '/images/blog/cloud-operations-playbook-part-02-cloud-operations-maturity-model/thumb-9cb905c0.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-02-cloud-operations-maturity-model/thumb-40237757.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-operations-playbook-part-02-cloud-operations-maturity-model
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A nurse and a young girl at a wall of growth charts'

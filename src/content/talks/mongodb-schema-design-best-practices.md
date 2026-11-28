@@ -6,7 +6,7 @@ description: 'My talk and article on MongoDB schema design: embedding vs. refere
 categories: ['Web Dev']
 writtenFor: 'MongoDB'
 originallyPublished: { outlet: 'MongoDB Developer Center', date: 2020-12-04 }
-heroImage: '/images/blog/mongodb-schema-design-best-practices/thumb-b1a8ce46.webp'
+heroImage: '/images/blog/mongodb-schema-design-best-practices/thumb-9bade697.webp'
 heroAlt: 'An old architectural blueprint'
 contentNotice: 'I wrote this article for the MongoDB Developer Center in December 2020, after giving the talk. MongoDB has since taken that copy down, so the whole article lives here now, with its links pointed at the current MongoDB docs.'
 tldr: 'MongoDB has no rules, no process and no algorithm for splitting up your data: you design around how your app uses it. Favor embedding unless there is a compelling reason not to, and never let an array grow without bound.'
@@ -32,7 +32,7 @@ videos:
       - { at: '24:06', name: 'Many-to-many' }
       - { at: '26:23', name: 'Recap' }
       - { at: '33:11', name: "Questions and what's next" }
-mastheadImage: '/images/blog/mongodb-schema-design-best-practices/masthead-205ab989.webp'
+mastheadImage: '/images/blog/mongodb-schema-design-best-practices/masthead-fd8c5a81.webp'
 faq:
   - question: 'What is MongoDB schema design?'
     answer: "MongoDB schema design means shaping your documents around how your application reads and writes its data. There's no formal process: you choose, for each relationship, whether to embed the data or reference it."

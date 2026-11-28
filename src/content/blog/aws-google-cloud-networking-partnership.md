@@ -8,7 +8,7 @@ description: 'AWS and Google Cloud partnered on multicloud networking, with conn
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Infrastructure', 'AWS', 'GCP']
-heroImage: '/images/blog/aws-google-cloud-networking-partnership/thumb-08f3a80b.webp'
+heroImage: '/images/blog/aws-google-cloud-networking-partnership/thumb-3835da6a.webp'
 canonicalUrl: 'https://www.cloudquery.io/blog/aws-google-cloud-networking-partnership'
 contentNotice: 'This post was originally published on CloudQuery blog.'
 heroAlt: 'A long steel truss bridge spanning a river, with an old ferry moored on the bank below'

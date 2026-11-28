@@ -6,7 +6,7 @@ slug: 'using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse'
 description: 'How Bloom filter indexes speed up real-time text search in ClickHouse, covering tokenization vs n-grams, ngrambf_v1 settings and benchmark results.'
 categories: ['Web Dev']
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/thumb-6c708339.webp'
+heroImage: '/images/blog/using-bloom-filter-indexes-for-real-time-text-search-in-clickhouse/thumb-335892ab.webp'
 heroAlt: 'A man searching a wall of card-catalog drawers'
 canonicalUrl: 'https://www.tinybird.co/blog/using-bloom-filter-text-indexes-in-clickhouse'
 contentNotice: "I wrote this for the [Tinybird blog](https://www.tinybird.co/blog/using-bloom-filter-text-indexes-in-clickhouse), where it ran under Paco González's name."

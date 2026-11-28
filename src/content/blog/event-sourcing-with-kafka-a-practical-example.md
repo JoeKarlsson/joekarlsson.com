@@ -7,7 +7,7 @@ description: "Event sourcing with Kafka through a banking example: calculate eac
 categories: ['Web Dev']
 lane: 'reference'
 writtenFor: 'Tinybird'
-heroImage: '/images/blog/event-sourcing-with-kafka-a-practical-example/thumb-26920aee.webp'
+heroImage: '/images/blog/event-sourcing-with-kafka-a-practical-example/thumb-9470ab17.webp'
 heroAlt: 'Paper feeding through a printing machine'
 tldr: 'I walk through event sourcing with Kafka using a banking app example, where you reconstruct account balances from a log of deposit and withdrawal events instead of storing state directly. Includes a practical tutorial with Kafka and Tinybird for snapshotting and serving state as an API.'
 contentNotice: "I wrote this for Tinybird Classic. In 2026 Tinybird made Tinybird Forward its main product, with a new CLI and deployment workflow, and moved Free and Developer plan workspaces off Classic. The ideas still hold, but the tb commands and UI steps below are Classic's. [Tinybird's migration notes](https://www.tinybird.co/blog/tinybird-classic-deprecation) cover what changed."

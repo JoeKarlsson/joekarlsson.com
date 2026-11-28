@@ -4,7 +4,7 @@ date: 2019-06-11
 slug: 'my-top-50-records'
 description: 'My top 50 all-time favorite records, the ones I play most or that hit me hardest, from Loveless to Kind of Blue. I redo the list every couple of years.'
 categories: ['Life']
-heroImage: '/images/blog/my-top-50-records/thumb-866badd0.webp'
+heroImage: '/images/blog/my-top-50-records/thumb-8a0bda67.webp'
 heroAlt: 'A worker polishing metal record stampers'
 contentNotice: false
 tldr: 'My top 50 records of all time, with a Spotify playlist.'

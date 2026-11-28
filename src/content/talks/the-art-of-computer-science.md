@@ -4,7 +4,7 @@ date: 2020-09-10
 slug: 'the-art-of-computer-science'
 description: 'My TEDx talk about finding my place in tech, and falling in love with programming through art, stupid side projects and friends.'
 categories: ['Career']
-heroImage: '/images/blog/the-art-of-computer-science/thumb-89672fd2.webp'
+heroImage: '/images/blog/the-art-of-computer-science/thumb-6274399c.webp'
 heroAlt: "Signac's pointillist painting of a woman at her easel"
 contentNotice: false
 tldr: 'I switched to computer science because I was afraid of not finding a job, and it took me six or seven more years to fall in love with programming. Art, stupid projects and a community of friends got me there. Find your community, find your joy, and build stuff for fun.'

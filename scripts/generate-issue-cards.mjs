@@ -36,6 +36,7 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { cardAlt, cardContent, setFrontmatterFields, splitIssue } from './issue-card-content.mjs';
 import { FPS, cardPose, frameCount } from './issue-card-motion.mjs';
+import { CRAYON_FILTER } from '../src/data/scribbles.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const ISSUES_DIR = join(ROOT, 'src/content/newsletter');
@@ -164,7 +165,7 @@ body { width: 1200px; height: 630px; background: #000; overflow: hidden; }
 .logo { margin-left: auto; height: 62px; }
 .logo svg { height: 100%; width: auto; display: block; }
 </style></head><body>
-<svg width="0" height="0" style="position:absolute"><filter id="crayon" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter></svg>
+<svg width="0" height="0" style="position:absolute"><filter id="crayon" x="-10%" y="-10%" width="120%" height="120%">${CRAYON_FILTER}</filter></svg>
 <div class="card">
 	<div class="left">
 		<div class="tbox"><div class="twrap">${markSvg(MARKS, 'rays', '', 6).replace('class="m"', 'class="m rays"')}${content.kicker ? `<span class="kick">${esc(content.kicker)}</span>` : ''}<div class="t" data-fit="120,48">${esc(content.title)}${content.also ? `<span class="also">${esc(content.also)}</span>` : ''}</div></div></div>

@@ -313,7 +313,7 @@ function ringSvg(RINGS, ring) {
 	return `<svg class="m" viewBox="0 0 900 300" preserveAspectRatio="none" style="left:${left}%;top:${top}%;width:${width}%;height:${height}%"><path d="${RINGS[0]}" stroke="${COLORS.chalk}" stroke-width="16"/></svg>`;
 }
 
-function cardHtml(entry, picture, { MARKS, RINGS }, seed) {
+function cardHtml(entry, picture, { MARKS, RINGS, CRAYON_FILTER }, seed) {
 	const boil = entry.motion ? ' boil' : '';
 	let body;
 	if (entry.look === 'taped') {
@@ -341,7 +341,7 @@ body { width: ${WIDTH}px; height: ${HEIGHT}px; background: #000; overflow: hidde
 .t2 { right: -50px; bottom: -8px; }
 .boil { filter: url(#boil); }
 </style></head><body>
-<svg width="0" height="0" style="position:absolute"><filter id="crayon" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter><filter id="boil" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="1" seed="${seed}" result="w"/><feDisplacementMap in="SourceGraphic" in2="w" scale="${entry.doodles ? INK_BOIL.scale : 5}"/></filter></svg>
+<svg width="0" height="0" style="position:absolute"><filter id="crayon" x="-10%" y="-10%" width="120%" height="120%">${CRAYON_FILTER}</filter><filter id="boil" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="1" seed="${seed}" result="w"/><feDisplacementMap in="SourceGraphic" in2="w" scale="${entry.doodles ? INK_BOIL.scale : 5}"/></filter></svg>
 <div class="card">${body}${entry.mark ? markSvg(MARKS, entry.mark, boil) : ''}</div>
 </body></html>`;
 }

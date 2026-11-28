@@ -9,7 +9,7 @@ tags:
   - Governance
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
-heroImage: '/images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/thumb-3261dace.webp'
+heroImage: '/images/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies/thumb-47ed59bc.webp'
 canonicalUrl: https://www.cloudquery.io/blog/cloud-centers-of-excellence-part-3-finops-cost-management-case-studies
 contentNotice: "This post was originally published on CloudQuery's blog."
 heroAlt: 'Fingers stacking coins into a pile'

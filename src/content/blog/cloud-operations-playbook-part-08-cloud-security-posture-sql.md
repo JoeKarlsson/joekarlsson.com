@@ -7,7 +7,7 @@ description: >-
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Operations', 'Security']
-heroImage: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/thumb-e4a4ec94.webp'
+heroImage: '/images/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql/thumb-37e3edde.webp'
 heroAlt: 'A doctor bending over a patient in bed to check him with an instrument'
 canonicalUrl: 'https://www.cloudquery.io/blog/cloud-operations-playbook-part-08-cloud-security-posture-sql'
 contentNotice: 'This post was originally published on CloudQuery blog.'

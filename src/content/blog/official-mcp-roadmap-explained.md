@@ -7,7 +7,7 @@ description: "The official MCP roadmap (Aug 22, 2026) maps five priorities. Here
 categories: ['AI']
 writtenFor: 'CData'
 tags: ['mcp', 'ai', 'enterprise', 'protocol', 'cdata']
-heroImage: '/images/blog/official-mcp-roadmap-explained/thumb-3154bdd3.webp'
+heroImage: '/images/blog/official-mcp-roadmap-explained/thumb-7956a950.webp'
 heroAlt: 'People leaning over a map spread on a table'
 canonicalUrl: 'https://www.cdata.com/blog/official-mcp-roadmap-explained'
 faq:

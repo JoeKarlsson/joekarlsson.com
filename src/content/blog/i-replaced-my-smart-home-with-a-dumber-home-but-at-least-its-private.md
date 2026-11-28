@@ -5,7 +5,7 @@ date: 2025-06-18
 slug: 'i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private'
 description: 'I swapped every Alexa in my house for Home Assistant Voice Preview Edition: what works, where it hears worse than Alexa, and how my family took it.'
 categories: ['Homelab']
-heroImage: '/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/thumb-6682a9b6.webp'
+heroImage: '/images/blog/i-replaced-my-smart-home-with-a-dumber-home-but-at-least-its-private/thumb-c35da1a2.webp'
 heroAlt: 'A family together in their living room'
 contentNotice: false
 tldr: 'I replaced all my Alexa devices with Home Assistant Voice Preview Edition for privacy. It works great for smart home control once you invest weeks rebuilding every automation, but voice recognition is way worse than Alexa and family adoption has been rough.'

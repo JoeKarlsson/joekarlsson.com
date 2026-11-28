@@ -6,7 +6,7 @@ seoTitle: 'Context switching with AI coding agents'
 description: "Coding agents made my context switching worse. What's helped is talking to one orchestrator agent that runs the rest."
 cardPhoto: '/images/newsletter/context-switching-ai-coding-agents/card-photo-plates.webp'
 cardPhotoAlt: 'circus performers spinning plates on tall sticks under a spotlight, seen from above'
-heroImage: '/images/newsletter/context-switching-ai-coding-agents/card-abcf2372.webp'
+heroImage: '/images/newsletter/context-switching-ai-coding-agents/card-61b4e5d7.webp'
 heroAlt: 'Works on My Machine card for I run eight Claude Code panes at once, and my brain is melting, with circus performers spinning plates on tall sticks under a spotlight, seen from above framed in a pink crayon box'
 interlude:
   after: 'One pane instead of eight'

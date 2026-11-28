@@ -7,7 +7,7 @@ description: 'Cloud governance is the policies and controls that keep cloud infr
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Governance', 'Cloud Infrastructure']
-heroImage: '/images/blog/what-is-cloud-governance/thumb-a700bba5.webp'
+heroImage: '/images/blog/what-is-cloud-governance/thumb-bae42bdd.webp'
 heroAlt: 'Police motorcycles escorting traffic past a building'
 canonicalUrl: https://www.cloudquery.io/blog/what-is-cloud-governance
 contentNotice: 'This post was originally published on CloudQuery blog.'

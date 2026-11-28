@@ -5,7 +5,7 @@ date: 2018-11-14
 slug: 'an-engineers-guide-to-knowing-if-you-are-done-with-a-project'
 description: "An engineer's checklist for knowing when a project is done - the list I give my team, from working code and tests to QA, accessibility and performance."
 categories: ['Career']
-heroImage: '/images/blog/an-engineers-guide-to-knowing-if-you-are-done-with-a-project/thumb-ca97a414.webp'
+heroImage: '/images/blog/an-engineers-guide-to-knowing-if-you-are-done-with-a-project/thumb-f58e37f7.webp'
 heroAlt: 'A worker putting the finishing touches on a window frame'
 contentNotice: false
 tldr: 'A checklist I give my engineering team covering everything from test coverage to accessibility audits to help answer the question "when is this project actually done?"'

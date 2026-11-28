@@ -7,7 +7,7 @@ description: Google API keys safe to embed publicly now authenticate to Gemini. 
 categories: ['Cloud']
 writtenFor: 'CloudQuery'
 tags: ['Cloud Security', 'GCP', 'API Security', 'Google Cloud']
-heroImage: '/images/blog/gcp-gemini-api-key-audit/thumb-bb86e176.webp'
+heroImage: '/images/blog/gcp-gemini-api-key-audit/thumb-08c89b9f.webp'
 heroAlt: 'A hand turning a key in a lock on a chain-link gate'
 canonicalUrl: https://www.cloudquery.io/blog/gcp-gemini-api-key-audit
 contentNotice: 'This post was originally published on CloudQuery blog.'
