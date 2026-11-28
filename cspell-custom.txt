@@ -16,6 +16,7 @@ Ahrefs
 Alarmo
 Alertmanager
 Alexa
+Alexey
 Andreas
 anlyze
 Anmation
@@ -237,6 +238,7 @@ Kyndryl
 Kyndryl's
 LACP
 Laie
+Laurenellen
 Leanpub
 leetcode
 Leiserson
@@ -727,6 +729,7 @@ Movieclips
 Niccol
 Niro
 Pegg
+McCann
 McQuarrie
 McRaney
 Razzie
@@ -734,6 +737,3 @@ Scheider
 Schretzmann
 Shawshank
 talkin
-Alexey
-Laurenellen
-McCann
