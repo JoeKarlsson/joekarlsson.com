@@ -1,5 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
+import pastelHandFont from '../assets/fonts/joe-pastel-hand.woff2?url';
+import '../styles/joe-pastel.css';
 import { formatDate } from '../utils/ui';
 import DrawingBoard from '../components/DrawingBoard.astro';
 import MarginDoodles from '../components/MarginDoodles.astro';
@@ -290,7 +292,10 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 						/>
 					</h1>
 				</div>
-				<p class="font-serif text-[clamp(1.625rem,min(2.6vw,4.2vh),3.75rem)] leading-[1.15] font-medium text-balance text-paper italic">
+				{/* In Joe's own oil pastel hand (DECISIONS 2026-11-27); preloaded so it's usually in
+				time for font-display: optional */}
+				<link rel="preload" as="font" type="font/woff2" crossorigin href={pastelHandFont} />
+				<p class="pastel-hand pastel-boil text-[clamp(1.875rem,min(3vw,4.8vh),4.25rem)] leading-[1.12] text-balance text-paper">
 					Technology is better when it's weird and it's yours. Everything I write about runs in
 					my&nbsp;house.
 				</p>
@@ -872,6 +877,11 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 		<DrawingBoard />
 	</div>
 </BaseLayout>
+
+<script>
+	import { initPastelBoil } from '../scripts/pastel-boil';
+	initPastelBoil([...document.querySelectorAll<HTMLElement>('.pastel-boil')]);
+</script>
 
 <script>
 	import { initHomepageClicks } from '../scripts/homepage-clicks';

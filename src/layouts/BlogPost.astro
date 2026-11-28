@@ -1,4 +1,5 @@
 ---
+import '../styles/joe-pastel.css';
 import { getCollection, getEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
@@ -325,9 +326,7 @@ const captionText =
 			)}
 			{tldr && (
 				<p class="mb-10 border-l-4 border-pink pl-5 text-lg leading-relaxed text-paper">
-					<strong class="font-display text-xl font-normal tracking-[0.04em] text-pink uppercase">
-						TL;DR
-					</strong>{' '}
+					<strong class="pastel-label text-2xl font-normal text-pink">TL;DR</strong>{' '}
 					{joinLastWord(tldr)}
 				</p>
 			)}

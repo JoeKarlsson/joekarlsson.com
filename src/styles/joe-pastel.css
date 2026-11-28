@@ -1,0 +1,44 @@
+/* Joe Pastel: Joe's own oil pastel hand, only where he picked it (DECISIONS 2026-11-27): the
+   homepage tagline, the 404 line and the TL;DR label. Diagram callouts use it too, but as
+   outlines baked into the SVG (scripts/diagrams/handwriting.mjs), not this font.
+
+   The files are subsets of ~/Documents/dev/joe/pastel-font's dist/web fonts holding only the
+   letters these lines use, so changing a line's words means regenerating its subset:
+     pyftsubset dist/web/JoePastel.woff2 --text="<the tagline and the 404 line>" \
+       --layout-features='ss01,ss02,kern' --flavor=woff2 --output-file=src/assets/fonts/joe-pastel-hand.woff2
+     pyftsubset dist/web/JoePastelText.woff2 --text="TL;DR" \
+       --layout-features='kern' --flavor=woff2 --output-file=src/assets/fonts/joe-pastel-tldr.woff2
+   tests/joe-pastel.test.ts fails when a line uses a letter its subset lacks.
+
+   font-display: optional, so a slow first visit keeps the fallback for the whole page
+   instead of the line jumping when the font lands. */
+@font-face {
+	font-family: 'Joe Pastel';
+	src: url('../assets/fonts/joe-pastel-hand.woff2') format('woff2');
+	font-display: optional;
+}
+@font-face {
+	font-family: 'Joe Pastel Text';
+	src: url('../assets/fonts/joe-pastel-tldr.woff2') format('woff2');
+	font-display: optional;
+}
+
+/* Big lines in the rough cut */
+.pastel-hand {
+	font-family: 'Joe Pastel', var(--font-fraunces), serif;
+	font-style: normal;
+}
+/* Small labels in the smooth Text cut, which reads at small sizes */
+.pastel-label {
+	font-family: 'Joe Pastel Text', var(--font-anton), sans-serif;
+	font-style: normal;
+}
+
+/* The boil: three frames of the same drawing with its pastel edge re-grained, stepped by
+   scripts/pastel-boil.ts (big text only, never paragraphs) */
+.pastel-boil[data-frame='1'] {
+	font-feature-settings: 'ss01';
+}
+.pastel-boil[data-frame='2'] {
+	font-feature-settings: 'ss02';
+}

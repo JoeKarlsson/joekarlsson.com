@@ -15,6 +15,8 @@ import IndexRow from '../components/IndexRow.astro';
 import PosterHero from '../components/PosterHero.astro';
 import Scribble from '../components/Scribble.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import pastelHandFont from '../assets/fonts/joe-pastel-hand.woff2?url';
+import '../styles/joe-pastel.css';
 import { CHALK, MARKS } from '../data/scribbles';
 import { getCategoryCounts } from '../utils/categories';
 import { getCollection } from 'astro:content';
@@ -61,6 +63,11 @@ import SectionRule from '../components/SectionRule.astro';
 	</script>
 	<script type="application/json" id="post-links" set:html={jsonForScript(postLinks)} />
 	<script>
+		import { initPastelBoil } from '../scripts/pastel-boil';
+		initPastelBoil([...document.querySelectorAll<HTMLElement>('.pastel-boil')]);
+	</script>
+
+	<script>
 		import { findClosestPost, type PostLink } from '../scripts/closest-post';
 		const posts: PostLink[] = JSON.parse(
 			document.getElementById('post-links')?.textContent ?? '[]',
@@ -90,6 +97,10 @@ import SectionRule from '../components/SectionRule.astro';
 			}}
 		>
 			<DrawingBoard slot="media" title="Doodle while lost" class="z-10 md:min-h-[420px]" />
+			<link rel="preload" as="font" type="font/woff2" crossorigin href={pastelHandFont} />
+			<p class="pastel-hand pastel-boil mb-4 text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.05] text-pink">
+				It works on my machine.
+			</p>
 			<p class={HERO_LEAD}>
 				Nothing’s at this address. When I rename a post, old links break, so what you wanted is
 				probably still here under a new name.
