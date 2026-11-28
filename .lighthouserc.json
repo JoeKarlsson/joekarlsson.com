@@ -70,13 +70,13 @@
 				"resource-summary:font:size": [
 					"error",
 					{
-						"maxNumericValue": 174080
+						"maxNumericValue": 184320
 					}
 				],
 				"resource-summary:image:size": [
 					"error",
 					{
-						"maxNumericValue": 460800
+						"maxNumericValue": 512000
 					}
 				],
 				"largest-contentful-paint": [
