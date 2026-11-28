@@ -130,6 +130,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 ## Reviews
 
+- 2026-11-27: Comparisons are stacked, never side by side (mockup .mockups/comparisons, option B over A stacked at text width and C flip-between): "They look way too small... especially with like a widescreen video, it looks way too tiny to tell what's going on." Two or three frames or loops in one paragraph stack one above the other, each running across the text and the margin like the old pairs (kept to the text beside the credits), labelled under the frame. Never stitch frames into one picture or one video; the 16 stitched ones were split into separate frames. Overrides the 2026-11-15 side-by-side pairs.
 - 2026-11-15: The newsletter ask under a review speaks to a film reader (option B): "If you read this far for a movie review, you might like the rest of what I write: homelab builds, AI tools and open source, by email when I have something to say." Posts keep their own line.
 - 2026-11-15: A review keeps the film's stock backdrop as its hero, not one of Joe's frames (mockup ~/mockups/joekarlsson-review-hero, option A over B): "I think I just like the generic fun posters."
 - 2026-11-15: Exception to one-picture-per-film: Mutiny's review gets a six-tile grid of Statham's other jobs (beekeeper, courier, hitman, armored-truck guard, foreman, shark diver) from their trailers, because the résumé joke is the point. Joe picked it from the enrichment list knowing it broke the rule. Other reviews keep the rule.

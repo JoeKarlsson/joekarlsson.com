@@ -44,7 +44,9 @@ I usually bristle at movies that frame a kink as scar tissue from trauma. That i
 
 The color is the best thing here. Valkeapää and DP Pietari Peltola split the palette: Juha's ordinary life drains to a cold blue-grey, memory glows green, the dungeon burns red, and pink-and-cyan neon flares between scenes. He's colorless everywhere except the two places he can still feel his wife, the green past and the red room where Mona takes his breath. He only has color when he's dying a little. Those recurring points of light read to me like the phosphenes of asphyxiation, the sparks you see blacking out, the threshold where he meets her. The sound design carries as much of the story as the camera does.
 
-![Three frames: Juha in his cold grey kitchen, his wife in the green lake where she drowned, and Mona in the red dungeon.](/images/reviews/dogs-dont-wear-pants/grey-green-red.webp)
+![Juha in his cold grey kitchen.](/images/reviews/dogs-dont-wear-pants/juha-grey-kitchen.webp)
+![His wife in the green lake where she drowned.](/images/reviews/dogs-dont-wear-pants/wife-green-lake.webp)
+![Mona in the red dungeon.](/images/reviews/dogs-dont-wear-pants/mona-red-dungeon.webp)
 
 _Home, memory, the dungeon._
 

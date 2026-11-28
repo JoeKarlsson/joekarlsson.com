@@ -64,7 +64,9 @@ They're the one thing he can't put down.
 
 He stares deeper and deeper into the grain, and the closer he gets, the less there is.
 
-![Three frames: Thomas's photo of a couple embracing under the trees in an empty park, a grainy blow-up of the bushes with a pale shape lying in the grass, and a blow-up enlarged so far it is only black and white blotches.](/images/reviews/blow-up/park-photo-to-grain.webp)
+![Thomas's photo of a couple embracing under the trees in an empty park.](/images/reviews/blow-up/park-photo.webp)
+![A grainy blow-up of the bushes, with a pale shape lying in the grass.](/images/reviews/blow-up/park-blow-up.webp)
+![The blow-up enlarged so far it is only black and white blotches.](/images/reviews/blow-up/park-grain.webp)
 
 His heart ultimately finds nothing. This is [The Conversation](https://letterboxd.com/film/the-conversation/) for pictures instead of sound, with a way less gratifying conclusion. Gene Hackman at least gets a twist.
 

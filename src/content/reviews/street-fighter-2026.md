@@ -31,7 +31,8 @@ I recently rewatched the [1995 Mortal Kombat](/reviews/mortal-kombat/), and it m
 
 Mortal Kombat at least gives its fighters some character development, so you care who's fighting. When Liu Kang fights and Orbital's "[Halcyon + On + On](<https://en.wikipedia.org/wiki/Halcyon_(Orbital_song)>)" kicks in, I want to run around the house and scream.
 
-![Two frames: Robin Shou as Liu Kang, shirtless and mid-fight in a dark, smoky temple, then Ken in his red gi trading blows with Dhalsim in a sunlit arena packed with fans.](/images/reviews/street-fighter-2026/mortal-kombat-vs-street-fighter.webp)
+![Robin Shou as Liu Kang, shirtless and mid-fight in a dark, smoky temple.](/images/reviews/street-fighter-2026/liu-kang-mortal-kombat.webp 'Mortal Kombat · 1995')
+![Ken in his red gi trading blows with Dhalsim in a sunlit arena packed with fans.](/images/reviews/street-fighter-2026/ken-vs-dhalsim.webp 'Street Fighter · 2026')
 _Liu Kang in the 1995 Mortal Kombat (from a YouTube upload), then Ken and Dhalsim in Street Fighter's tournament ring._
 
 Street Fighter swaps that out for fan service and celebrity cameos, down to the Philippou brothers playing themselves, and I came out bored and feeling dumb. Andrew Koji's Ryu is a monk-like fighter who barely emotes, which doesn't give you much to work with, and Noah Centineo's Ken arc did nothing for me either. The 1994 Street Fighter movie had the same problem. It's crazy we haven't learned that lesson yet.
@@ -50,7 +51,8 @@ Half the cast looks like they were filmed on a blue screen in another room.
 
 The crowd shots look like individually filmed actors transposed in, exactly like the final basketball game in Space Jam: A New Legacy, and I don't mean that as a compliment.
 
-![Two frames: a wide shot of Street Fighter's arena, a dark sea of fans around the lit ring, then Space Jam: A New Legacy's stands packed with costumed Warner Bros. characters, flying monkeys, Pennywise and Don Cheadle in a red sweater.](/images/reviews/street-fighter-2026/crowd-vs-space-jam.webp)
+![A wide shot of Street Fighter's arena, a dark sea of fans around the lit ring.](/images/reviews/street-fighter-2026/street-fighter-crowd.webp 'Street Fighter · 2026')
+![Space Jam: A New Legacy's stands packed with costumed Warner Bros. characters, flying monkeys, Pennywise and Don Cheadle in a red sweater.](/images/reviews/street-fighter-2026/space-jam-crowd.webp 'Space Jam: A New Legacy · 2021')
 _Street Fighter's tournament crowd, then the stands at Space Jam: A New Legacy's final game (from a YouTube clip)._
 
 If I were directing this, I'd at least focus on the fight choreo. I'm not a big fan of the [new Mortal Kombat movies](/reviews/mortal-kombat-ii/) either, but their fight choreo is fine. Here it felt uninspired. I went in with low expectations and still didn't love it.

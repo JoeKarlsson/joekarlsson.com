@@ -68,7 +68,9 @@ _Griffin Dunne in Park Circus's 4K restoration trailer for After Hours, and Cage
 
 Frank works three night shifts, and they blur into one long, repetitive one. Same seat, same windshield, a different partner each night.
 
-![Three frames of Frank in the ambulance cab at night: with John Goodman, with Ving Rhames, then with Tom Sizemore.](/images/reviews/bringing-out-the-dead/three-nights-three-partners.webp)
+![Frank in the ambulance cab at night with John Goodman.](/images/reviews/bringing-out-the-dead/frank-and-goodman.webp)
+![Frank in the ambulance cab at night with Ving Rhames.](/images/reviews/bringing-out-the-dead/frank-and-rhames.webp)
+![Frank in the ambulance cab at night with Tom Sizemore.](/images/reviews/bringing-out-the-dead/frank-and-sizemore.webp)
 
 I was confused about the tone the whole way through. Scorsese is clearly showing a horrible night with horrible people, and he lays a rip-roaring Scorsese rock and roll soundtrack over it, plus a weird bit of jazz that sounded like New Orleans to me, in a movie set in New York. I kept asking myself whether a scene was supposed to be funny. Is this a joke? It just didn't work for me. John Goodman and Ving Rhames, as two of Frank's partners, are the only times I knew for sure, and they're the standouts. They bring some levity to it.
 
@@ -90,7 +92,9 @@ Stray thoughts:
 
 - Judy Reyes, Carla from Scrubs, plays an ICU nurse here in 1999, and she's playing Carla again in the 2026 Scrubs revival. It's crazy how long she's been typecast as a nurse: Wikipedia lists three different nurses across 27 years.
 
-![Three frames of Judy Reyes in scrubs: a close-up as the ICU nurse in Bringing Out the Dead, Carla pushing a gurney in Scrubs, and Carla in floral scrubs beside a patient in the revival.](/images/reviews/bringing-out-the-dead/judy-reyes-nurse-1999-2001-2026.webp)
+![Judy Reyes in scrubs, in close-up as the ICU nurse in Bringing Out the Dead.](/images/reviews/bringing-out-the-dead/judy-reyes-icu-nurse-1999.webp 'Bringing Out the Dead · 1999')
+![Judy Reyes as Carla, pushing a gurney in Scrubs.](/images/reviews/bringing-out-the-dead/judy-reyes-carla-2001.webp 'Scrubs · 2001')
+![Judy Reyes as Carla in floral scrubs beside a patient in the Scrubs revival.](/images/reviews/bringing-out-the-dead/judy-reyes-carla-2026.webp 'Scrubs · 2026')
 
 _Judy Reyes as the ICU nurse here (1999), as Carla in NBC's 2001 Scrubs promo, and as Carla in ABC's 2026 Scrubs trailer._
 

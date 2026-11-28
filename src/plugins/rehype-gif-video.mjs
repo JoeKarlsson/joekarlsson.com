@@ -69,6 +69,8 @@ export default function rehypeGifVideo() {
 					// on a <video>, and it never stopped axe asking for a manual
 					// captions review either (these clips have no sound).
 					'aria-label': alt,
+					// A loop in a frame pair keeps its label (rehype-frames.mjs takes it off)
+					...(node.properties.title ? { title: node.properties.title } : {}),
 					className: ['gif-video'],
 				},
 				children: [{ type: 'text', value: alt }],

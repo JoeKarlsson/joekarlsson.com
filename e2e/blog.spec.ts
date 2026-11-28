@@ -261,6 +261,17 @@ test.describe('Film review frame pairs', () => {
 			expect(overlaps).toBe(false);
 		}
 	});
+
+	test('frames in a comparison stack, never side by side (Joe, 2026-11-27)', async ({ page }) => {
+		await page.goto('/reviews/street-fighter-2026/');
+		const cells = page.locator('figure.frame-pair').first().locator('.frame-pair-cell');
+		const [first, second] = [
+			(await cells.nth(0).boundingBox())!,
+			(await cells.nth(1).boundingBox())!,
+		];
+		expect(second.y).toBeGreaterThanOrEqual(first.y + first.height);
+		expect(second.width).toBeGreaterThan(640);
+	});
 });
 
 test.describe('Blog search analytics', () => {

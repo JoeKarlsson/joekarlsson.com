@@ -58,7 +58,8 @@ Robert Graysmith (Jake Gyllenhaal) is a Chronicle cartoonist who gets hooked on 
 ![Jake Gyllenhaal on a couch at night, papers around him and two children asleep at the other end.](/images/reviews/zodiac/graysmith-up-late-with-the-case.webp 'spoiler')
 _Graysmith, up late with the case, kids asleep._
 
-![Jake Gyllenhaal as Graysmith at his Chronicle desk reading a Zodiac letter, next to the real 340 cipher card, rows of symbols above a crosshair.](/images/reviews/zodiac/the-340-cipher.webp)
+![Jake Gyllenhaal as Graysmith at his Chronicle desk reading a Zodiac letter.](/images/reviews/zodiac/graysmith-at-the-chronicle.webp 'Zodiac · 2007')
+![The real 340 cipher card, rows of symbols above a crosshair.](/images/reviews/zodiac/the-340-cipher-card.webp 'The 340 cipher · 1969')
 
 _Graysmith at the Chronicle in 1969, and the real 340 cipher the Zodiac mailed the paper that November. It went unsolved for 51 years._
 

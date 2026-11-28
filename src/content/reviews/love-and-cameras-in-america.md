@@ -31,7 +31,8 @@ A couple of people in this documentary have spent 17 years thanking God it never
 
 [Nobody would distribute it](https://en.wikipedia.org/wiki/Love_and_Cameras_in_America), so it sat on a shelf until WildBrain [put the whole thing up on YouTube](https://rollingstonephilippines.com/?p=90661) this fall. I'm a turbo Nathan Fielder fan, and it was so wonderful seeing his blueprint for [You Can See Everything](/reviews/you-can-see-everything/).
 
-![Two frames: a 24-year-old Nathan Fielder in an olive polo outside a parking garage in 2008, then Nathan with gray in his hair and headphones around his neck on a beach-house couch in You Can See Everything.](/images/reviews/love-and-cameras-in-america/then-and-now.webp)
+![A 24-year-old Nathan Fielder in an olive polo outside a parking garage in 2008.](/images/reviews/love-and-cameras-in-america/nathan-2008.webp 'Love and Cameras in America · 2008')
+![Nathan with gray in his hair and headphones around his neck on a beach-house couch in You Can See Everything.](/images/reviews/love-and-cameras-in-america/nathan-you-can-see-everything.webp 'You Can See Everything')
 
 _Nathan in 2008, and 17 years later in You Can See Everything._
 
@@ -39,7 +40,8 @@ It was also a throwback. In 2008 I was a college freshman, it was the first elec
 
 Nathan's subject has always been how people behave with a camera pointed at them, and it starts here. He sets out to make a serious documentary about the election, gets more uneasy with every street interview, gives up on politics, and ends up thinking he's falling in love with a beautiful aspiring actor named Ashley.
 
-![Two frames from a car ride: Nathan in the back seat reading a script, then Ashley at the wheel, laughing.](/images/reviews/love-and-cameras-in-america/car-rehearsal.webp)
+![Nathan in the back seat of a car, reading a script.](/images/reviews/love-and-cameras-in-america/car-rehearsal-nathan.webp)
+![Ashley at the wheel, laughing.](/images/reviews/love-and-cameras-in-america/car-rehearsal-ashley.webp)
 
 _Nathan running Ashley's lines with her on the way to the zoo._
 

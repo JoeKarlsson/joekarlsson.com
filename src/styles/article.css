@@ -88,9 +88,14 @@
 	/* Stacked, more room between frames than under a label, so a label reads as its frame's */
 	@apply grid gap-x-2 gap-y-5;
 }
-.prose .frame-pair img {
+/* Every frame fills the pair's width; a portrait one (a document, a poster) keeps to the
+   screen's height and sits centered in that box instead of running off the screen */
+.prose .frame-pair :is(img, video) {
+	display: block;
 	width: 100%;
-	max-height: none;
+	height: auto;
+	max-height: 85vh;
+	object-fit: contain;
 }
 .prose .frame-label {
 	@apply mt-1.5 block font-display text-sm leading-none tracking-[0.04em] text-paper uppercase;
@@ -98,12 +103,9 @@
 .prose .frame-pair-cell:last-child .frame-label {
 	@apply text-pink;
 }
-/* From tablets up a pair sits side by side, wider than the text: the frames are the
-   comparison, and half the text column made each one a thumbnail */
+/* From tablets up a pair runs wider than the text, still stacked: the frames are the
+   comparison, and side by side each one was a thumbnail (Joe, 2026-11-27) */
 @media (width >= 48rem) {
-	.prose .frame-pair-grid {
-		grid-template-columns: var(--pair-columns, 1fr 1fr);
-	}
 	.prose.wide-media > figure.frame-pair {
 		width: min(100cqw, 856px);
 		max-width: none;

@@ -38,7 +38,8 @@ marginNotes:
 
 If you love [The Love Witch](https://letterboxd.com/film/the-love-witch/), go find this immediately.
 
-![Two frames: Celeste Yarnall as Diane in a red dress with a white ruffled collar, then Samantha Robinson as Elaine in a red dress at the wheel of a red convertible.](/images/reviews/the-velvet-vampire/diane-in-red-then-elaine-in-the-love-witch.webp)
+![Celeste Yarnall as Diane in a red dress with a white ruffled collar.](/images/reviews/the-velvet-vampire/diane-in-red.webp 'The Velvet Vampire · 1971')
+![Samantha Robinson as Elaine in a red dress at the wheel of a red convertible.](/images/reviews/the-velvet-vampire/elaine-in-red.webp 'The Love Witch · 2016')
 
 _Celeste Yarnall as Diane, and Samantha Robinson as Elaine in The Love Witch._
 

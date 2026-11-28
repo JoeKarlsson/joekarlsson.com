@@ -75,6 +75,7 @@ Kieślowski's synchronicity is how I'd explain my double feature. My girlfriend 
 
 When Julie finally lets the grief in, she finishes the music with Olivier (Benoît Régent), and only then does Kieślowski play the full concerto all the way through, over a slow drift across the faces of everyone her loss has touched. It reminded me of the end of Donnie Darko, the faces going by to "Mad World," and it does the same thing: one person's grief opens out into everyone else's lives.
 
-![Side by side, faces from two closing montages: Blue on the left (Julie and Olivier, Antoine, Julie's mother, Lucille, an ultrasound, Julie in tears), Donnie Darko's "Mad World" ending on the right.](/images/reviews/three-colours-blue/blue-and-donnie-darko-montages.webp)
+![Faces from Blue's closing montage: Julie and Olivier, Antoine, Julie's mother, Lucille, an ultrasound, Julie in tears.](/images/reviews/three-colours-blue/blue-closing-montage.webp 'Three Colours: Blue · 1993')
+![Faces from Donnie Darko's "Mad World" ending.](/images/reviews/three-colours-blue/donnie-darko-mad-world-montage.webp 'Donnie Darko · 2001')
 
 I was so impressed. I'm sure I'm missing a ton on a first go, and I can't wait to dig into the rest of Kieślowski.

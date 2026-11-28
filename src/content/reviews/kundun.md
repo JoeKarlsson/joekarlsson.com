@@ -85,7 +85,8 @@ Which means it isn't for ours either. Scorsese keeps putting a telescope in his 
 
 We get glimpses in dreams and on the news, filtered through a man who is held at a distance, so I was held at a distance too. By the time he flees across the border into India, I was open to it, and it didn't hit super hard.
 
-![Two pictures: Tsarong in a wool cap and scarf among his armed escort in the film, then a black-and-white photo of the real escape party sitting on a hillside with rifles.](/images/reviews/kundun/escape-film-and-1959.webp)
+![Tsarong in a wool cap and scarf among his armed escort in the film.](/images/reviews/kundun/escape-in-the-film.webp 'Kundun · 1997')
+![A black-and-white photo of the real escape party sitting on a hillside with rifles.](/images/reviews/kundun/escape-party-1959.webp 'March 1959')
 
 _The escape in Kundun, and the real Dalai Lama with the party that got him out of Tibet, March 1959. Photo: unknown author, [public domain](https://commons.wikimedia.org/wiki/File:Dalai_Lama_fleeing_Tibet,_March_1959.jpg)._
 

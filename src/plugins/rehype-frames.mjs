@@ -1,7 +1,8 @@
 /**
  * Pictures in a post become figures (DECISIONS.md, 2026-11-15 review page round):
- * - A paragraph of two pictures is a .frame-pair: stacked on phones, side by side and wider than
- *   the text from tablets up (article.css). A picture's title labels it under the frame,
+ * - A paragraph of two or three pictures (or loops) is a .frame-pair: stacked one above the other
+ *   at every width, wider than the text from tablets up (article.css; Joe, 2026-11-27: side by
+ *   side each frame was too small to see). A picture's title labels it under the frame,
  *   `![alt](/a.webp "The Devils · 1971")`.
  * - One or two pictures with an all-italic line after them, in the next paragraph or on the
  *   next line of the same one, take that line as their figcaption.
@@ -11,7 +12,11 @@
 export const PAIR_SIZES = '(min-width: 80rem) 464px, (min-width: 48rem) 50vw, 100vw';
 
 const isBlank = (node) => node.type === 'text' && !node.value.trim();
-const isImage = (node) => node.type === 'element' && node.tagName === 'img';
+// A loop from rehype-gif-video counts as a picture, so two clips can be compared too
+const isImage = (node) =>
+	node.type === 'element' &&
+	(node.tagName === 'img' ||
+		(node.tagName === 'video' && node.properties?.className?.includes('gif-video')));
 const isEm = (node) => node?.type === 'element' && node.tagName === 'em';
 const isSrOnly = (node) =>
 	node.type === 'element' &&
@@ -30,7 +35,7 @@ const pictures = (node) => {
 	const inlineCaption = children.length > 1 && isEm(children.at(-1)) ? children.at(-1) : undefined;
 	const rest = inlineCaption ? children.slice(0, -1) : children;
 	const images = rest.filter(isImage);
-	return images.length >= 1 && images.length <= 2 && rest.every((c) => isImage(c) || isSrOnly(c))
+	return images.length >= 1 && images.length <= 3 && rest.every((c) => isImage(c) || isSrOnly(c))
 		? { images, inlineCaption }
 		: { images: [] };
 };
@@ -46,14 +51,6 @@ const element = (tagName, className, children) => ({
 	properties: { className: [className] },
 	children,
 });
-
-// Side by side, each column is as wide as its frame's shape, so the two frames share a height
-const columns = (images) =>
-	images
-		.map(({ properties: { width, height } }) =>
-			width && height ? `${(Number(width) / Number(height)).toFixed(3)}fr` : '1fr',
-		)
-		.join(' ');
 
 function pairGrid(images) {
 	const grid = element(
@@ -71,7 +68,6 @@ function pairGrid(images) {
 			]);
 		}),
 	);
-	grid.properties.style = `--pair-columns: ${columns(images)}`;
 	return grid;
 }
 
@@ -88,7 +84,7 @@ export default function rehypeFrames() {
 			if (images.length === 1 && !caption) continue;
 
 			const paragraph = kids[i];
-			const isPair = images.length === 2;
+			const isPair = images.length > 1;
 			let pictured = isPair ? pairGrid(images) : images[0];
 			if (paragraph.properties?.className?.includes('spoiler-frame')) {
 				const wrapper = isPair ? pictured : element('div', 'spoiler-frame', [pictured]);

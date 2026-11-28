@@ -13,12 +13,12 @@ const render = async (markdown: string) =>
 	(await processor.render(markdown)).code.replace(/>\s+</g, '><');
 
 describe('rehype-frames', () => {
-	it('turns two pictures into a labeled pair, columns sized to share a height, and takes the italic line as its caption', async () => {
+	it('turns two pictures into a labeled pair and takes the italic line as its caption', async () => {
 		const html = await render(
 			'![A](/a.webp "The Devils · 1971") ![B](/b.webp)\n\n_Two convents._\n\nNext.',
 		);
 		expect(html).toBe(
-			`<figure class="frame-pair"><div class="frame-pair-grid" style="--pair-columns: 1fr 1fr"><div class="frame-pair-cell"><img src="/a.webp" alt="A" sizes="${PAIR_SIZES}"><span class="frame-label">The Devils · 1971</span></div><div class="frame-pair-cell"><img src="/b.webp" alt="B" sizes="${PAIR_SIZES}"></div></div><figcaption class="frame-caption">Two convents.</figcaption></figure><p>Next.</p>`,
+			`<figure class="frame-pair"><div class="frame-pair-grid"><div class="frame-pair-cell"><img src="/a.webp" alt="A" sizes="${PAIR_SIZES}"><span class="frame-label">The Devils · 1971</span></div><div class="frame-pair-cell"><img src="/b.webp" alt="B" sizes="${PAIR_SIZES}"></div></div><figcaption class="frame-caption">Two convents.</figcaption></figure><p>Next.</p>`,
 		);
 	});
 
@@ -58,6 +58,55 @@ describe('rehype-frames', () => {
 		expect(await render('![A](/a.webp "spoiler")\n\n_Cap_')).toBe(
 			'<figure class="frame"><div class="spoiler-frame"><span class="sr-only">Spoiler picture: </span><img src="/a.webp" alt="A"><button type="button" class="spoiler-show"><span>Show spoiler</span></button></div><figcaption class="frame-caption">Cap</figcaption></figure>',
 		);
+	});
+
+	it('stacks three pictures as one comparison (Joe, 2026-11-27: never stitched side by side)', async () => {
+		const html = await render('![A](/a.webp)\n![B](/b.webp)\n![C](/c.webp)\n\n_Three films._');
+		expect(html.match(/class="frame-pair-cell"/g)).toHaveLength(3);
+		expect(html).toMatch(
+			/^<figure class="frame-pair">.*<figcaption class="frame-caption">Three films.<\/figcaption><\/figure>$/,
+		);
+	});
+
+	it('pairs two loops like two pictures, each keeping its label', async () => {
+		const loop = (src: string, title: string) => ({
+			type: 'element',
+			tagName: 'video',
+			properties: { src, title, className: ['gif-video'] },
+			children: [],
+		});
+		const tree = {
+			type: 'root',
+			children: [
+				{
+					type: 'element',
+					tagName: 'p',
+					properties: {},
+					children: [loop('/a.mp4', 'Blue · 1993'), loop('/b.mp4', 'Donnie Darko · 2001')],
+				},
+			],
+		};
+		rehypeFrames()(tree as never);
+		const figure = tree.children[0] as unknown as {
+			properties: { className: string[] };
+			children: {
+				children: {
+					children: {
+						tagName?: string;
+						properties?: { title?: string };
+						children?: { value: string }[];
+					}[];
+				}[];
+			}[];
+		};
+		expect(figure.properties.className).toEqual(['frame-pair']);
+		const cells = figure.children[0].children;
+		expect(cells.map((c) => c.children[0].tagName)).toEqual(['video', 'video']);
+		expect(cells.map((c) => c.children[1].children![0].value)).toEqual([
+			'Blue · 1993',
+			'Donnie Darko · 2001',
+		]);
+		expect(cells.every((c) => c.children[0].properties!.title === undefined)).toBe(true);
 	});
 
 	it('leaves pictures mixed with text in their paragraph', async () => {
