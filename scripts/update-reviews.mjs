@@ -142,7 +142,9 @@ export function gradePink(image) {
 async function saveImage(url, path, width, { pink = false } = {}) {
 	const buffer = Buffer.from(await (await get(url)).arrayBuffer());
 	const image = sharp(buffer).resize({ width, withoutEnlargement: true });
-	await (pink ? gradePink(image) : image).webp({ quality: 72 }).toFile(path);
+	// A pink-and-black poster hides quality 60's artifacts and comes out about 11% smaller,
+	// which keeps the poster wall inside its Lighthouse image budget (2026-11-28)
+	await (pink ? gradePink(image) : image).webp({ quality: pink ? 60 : 72 }).toFile(path);
 }
 
 /** Letters and digits only, so Prettier's reformatting doesn't hide an identical text */
