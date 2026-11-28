@@ -221,12 +221,15 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 	}
 	const font = create(readFileSync(fontPath));
 	const glyphs = {};
+	const missing = [];
 	for (const char of CHARS) {
 		const [glyph] = font.glyphsForString(char);
-		if (!glyph || (glyph.id === 0 && char !== ' '))
-			throw new Error(`${fontPath} has no glyph for "${char}"`);
-		glyphs[char] = await traceGlyph(font, glyph);
+		// A hand still being drawn (Joe Pastel has no digits yet) leaves gaps; handwriting.mjs
+		// writes a post's callouts in another hand when they need one
+		if (!glyph || (glyph.id === 0 && char !== ' ')) missing.push(char);
+		else glyphs[char] = await traceGlyph(font, glyph);
 	}
+	if (missing.length) console.warn(`${fontPath} has no glyph for: ${missing.join(' ')}`);
 	writeFileSync(
 		outPath,
 		JSON.stringify({

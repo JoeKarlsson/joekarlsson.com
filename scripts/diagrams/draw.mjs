@@ -237,7 +237,7 @@ function crayonFilter(filterId, { x, y, width, height }) {
 	].join('');
 }
 
-export function createFigure({ id, width, height }) {
+export function createFigure({ id, width, height, hand = 'joe' }) {
 	let seed = [...id].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
 	const random = () => {
 		seed = (seed * 1664525 + 1013904223) >>> 0;
@@ -731,7 +731,7 @@ export function createFigure({ id, width, height }) {
 	 */
 	const handwritten = [];
 	function handwrite(x, y, content, { size = 19, anchor = 'start', arrow } = {}) {
-		const w = handwritingWidth(content, size);
+		const w = handwritingWidth(content, size, hand);
 		const left = anchor === 'start' ? x : anchor === 'end' ? x - w : x - w / 2;
 		textBoxes.push({
 			label: content,
@@ -1200,7 +1200,13 @@ export function createFigure({ id, width, height }) {
 	function toString(label) {
 		checkLines();
 		const writing = handwritten.length
-			? handwritingLayers(handwritten, { id, width, height, start: buildEnd ? buildEnd + 0.15 : 0 })
+			? handwritingLayers(handwritten, {
+					id,
+					width,
+					height,
+					start: buildEnd ? buildEnd + 0.15 : 0,
+					hand,
+				})
 			: null;
 		const svg = [
 			`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="${escapeXml(label)}">`,

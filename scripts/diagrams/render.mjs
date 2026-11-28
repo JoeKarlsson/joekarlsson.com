@@ -13,6 +13,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { createFigure, DESKTOP_WIDTH, PHONE_WIDTH } from './draw.mjs';
+import { MissingGlyph } from './handwriting.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../..');
@@ -35,45 +36,60 @@ const LAYOUTS = [
 	['phone', PHONE_WIDTH, '.phone'],
 ];
 
-let problems = 0;
-const rendered = [];
-for (const name of names) {
-	const figure = await import(pathToFileURL(path.join(figureDir, `${name}.mjs`)).href);
-	for (const key of ['alt', 'desktop', 'phone']) {
-		if (!figure[key]) throw new Error(`${slug}/${name}.mjs exports no ${key}`);
-	}
-	const svgs = {};
-	for (const [layout, width, suffix] of LAYOUTS) {
-		const f = createFigure({
-			id: `${slug}-${name}-${layout}`,
-			width,
-			height: figure[layout].height,
-		});
-		figure[layout].draw(f);
-		// Build the SVG first: the arrow and callout checks run as it's assembled
-		svgs[layout] = f.toString(figure.alt);
-		for (const issue of f.issues) {
-			console.error(`${slug}/${name} ${layout}: ${issue}`);
-			problems++;
+/** Every figure of the post in one hand: { rendered, problems } (problems not printed yet). */
+async function renderAll(hand) {
+	const problems = [];
+	const rendered = [];
+	for (const name of names) {
+		const figure = await import(pathToFileURL(path.join(figureDir, `${name}.mjs`)).href);
+		for (const key of ['alt', 'desktop', 'phone']) {
+			if (!figure[key]) throw new Error(`${slug}/${name}.mjs exports no ${key}`);
 		}
-		if (!flag) {
-			// Newsletter issues keep their images under /images/newsletter, posts and talks
-			// under /images/blog, and a slug with none of those is a project page's (/images/projects)
-			const isPost = (dir) =>
-				['md', 'mdx'].some((ext) =>
-					existsSync(path.join(root, 'src/content', dir, `${slug}.${ext}`)),
-				);
-			const collection = isPost('newsletter')
-				? 'newsletter'
-				: isPost('blog') || isPost('talks')
-					? 'blog'
-					: 'projects';
-			const out = path.join(root, 'public/images', collection, slug, `${name}${suffix}.svg`);
+		const svgs = {};
+		for (const [layout, width] of LAYOUTS) {
+			const f = createFigure({
+				id: `${slug}-${name}-${layout}`,
+				width,
+				height: figure[layout].height,
+				hand,
+			});
+			figure[layout].draw(f);
+			svgs[layout] = f.toString(figure.alt);
+			for (const issue of f.issues) problems.push(`${slug}/${name} ${layout}: ${issue}`);
+		}
+		rendered.push({ name, alt: figure.alt, ...svgs });
+	}
+	return { rendered, problems };
+}
+
+// Joe's hand, unless a callout needs a letter he hasn't drawn yet: then the whole post is
+// written in Kalam, since a post's callouts all share one hand (DECISIONS 2026-11-27)
+let result;
+try {
+	result = await renderAll('joe');
+} catch (error) {
+	if (!(error instanceof MissingGlyph)) throw error;
+	console.log(`${error.message}, so ${slug}'s callouts are in Kalam until Joe draws it`);
+	result = await renderAll('kalam');
+}
+const { rendered, problems } = result;
+for (const problem of problems) console.error(problem);
+
+if (!flag) {
+	const isPost = (dir) =>
+		['md', 'mdx'].some((ext) => existsSync(path.join(root, 'src/content', dir, `${slug}.${ext}`)));
+	const collection = isPost('newsletter')
+		? 'newsletter'
+		: isPost('blog') || isPost('talks')
+			? 'blog'
+			: 'projects';
+	for (const fig of rendered) {
+		for (const [layout, , suffix] of LAYOUTS) {
+			const out = path.join(root, 'public/images', collection, slug, `${fig.name}${suffix}.svg`);
 			mkdirSync(path.dirname(out), { recursive: true });
-			writeFileSync(out, svgs[layout]);
+			writeFileSync(out, fig[layout]);
 		}
 	}
-	rendered.push({ name, alt: figure.alt, ...svgs });
 }
 
 if (flag) {
@@ -88,8 +104,8 @@ if (flag) {
 		rmSync(path.join(root, cache), { recursive: true, force: true });
 	console.log('Cleared .astro and node_modules/.astro so the next build inlines the new figures.');
 }
-if (problems) {
-	console.error(`${problems} layout problem(s): move or resize the parts named above.`);
+if (problems.length) {
+	console.error(`${problems.length} layout problem(s): move or resize the parts named above.`);
 	process.exit(1);
 }
 

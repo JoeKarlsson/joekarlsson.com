@@ -1,14 +1,22 @@
-// Handwritten callouts: pink Kalam that writes itself in stroke by stroke, then its crayon
-// arrow draws on (DECISIONS 2026-11-27). The letters are the font's own outlines, revealed
-// by a fat mask stroke along each glyph's centre line (handwriting/kalam-bold.json, from
-// handwriting-glyphs.mjs), so no font loads in the page. Each pen move speeds up and brakes
+// Handwritten callouts: pink handwriting that writes itself in stroke by stroke, then its crayon
+// arrow draws on (DECISIONS 2026-11-27). The hand is Joe's own (Joe Pastel Text, from his oil
+// pastel alphabet); a post whose callouts need a letter he hasn't drawn yet (digits, $) is
+// written in Kalam instead. The letters are the font's own outlines, revealed by a fat mask
+// stroke along each glyph's centre line (handwriting/*.json, from handwriting-glyphs.mjs), so
+// no font loads in the page. Each pen move speeds up and brakes
 // like a plotter's (Lemo-Opuscar, styles/pen-plotter/demo/plot.js, MIT). On twos, like the
 // site's other animated figures; .anim-live and .anim-still swap under reduced motion.
 import { readFileSync } from 'node:fs';
 
-const GLYPHS = JSON.parse(
-	readFileSync(new URL('./handwriting/kalam-bold.json', import.meta.url), 'utf8'),
-).glyphs;
+const hand = (file) =>
+	JSON.parse(readFileSync(new URL(`./handwriting/${file}`, import.meta.url), 'utf8')).glyphs;
+export const HANDS = { joe: hand('joe-pastel-text.json'), kalam: hand('kalam-bold.json') };
+// Joe's lowercase is short for its capitals (x-height 0.41 em to Kalam's 0.52): a little bigger
+// reads like Kalam did, while a line stays within a few percent of its old width
+const SCALE = { joe: 1.15, kalam: 1 };
+
+/** A callout needs a letter this hand doesn't have (render.mjs then writes the post in Kalam). */
+export class MissingGlyph extends Error {}
 
 export const FPS = 12;
 // Quick enough to finish while a reader scrolls past (Joe, 2026-11-27: the first cut, about
@@ -38,22 +46,23 @@ export function moveDistance(L, v, a, tau) {
 }
 
 /** Width of a line of handwriting at this size. */
-export function handwritingWidth(content, size) {
-	return [...content].reduce((w, ch) => w + glyph(ch).advance * size, 0);
+export function handwritingWidth(content, size, hand = 'joe') {
+	return [...content].reduce((w, ch) => w + glyph(ch, hand).advance * size * SCALE[hand], 0);
 }
 
-function glyph(ch) {
-	const g = GLYPHS[ch];
-	if (!g) throw new Error(`handwriting has no glyph for "${ch}"`);
+function glyph(ch, hand) {
+	const g = HANDS[hand][ch];
+	if (!g) throw new MissingGlyph(`the ${hand} hand has no glyph for "${ch}"`);
 	return g;
 }
 
 /** The letters and pen strokes of one line, its left end on the baseline at (x, y). */
-function layout(content, x, y, size) {
+function layout(content, x, y, em, hand) {
+	const size = em * SCALE[hand];
 	const letters = [];
 	const strokes = [];
 	for (const ch of content) {
-		const g = glyph(ch);
+		const g = glyph(ch, hand);
 		if (ch !== ' ') {
 			letters.push(
 				`<path d="${g.outline}" transform="translate(${n(x)} ${n(y)}) scale(${size})"/>`,
@@ -90,7 +99,7 @@ function stepped(values, dur, attr) {
  * arrow.d is the curve the arrow follows and arrow.markup the crayon arrow itself.
  * The loop holds the finished frame long enough to read every callout, then clears.
  */
-export function handwritingLayers(callouts, { id, width, height, start = 0 }) {
+export function handwritingLayers(callouts, { id, width, height, start = 0, hand = 'joe' }) {
 	// A note is its lines up to the one with the arrow (or the last): the whole note shares one
 	// writeTime, so a three-line note is as quick as a one-line one
 	const chars = (c) => c.content.replace(/\s/g, '').length;
@@ -107,7 +116,7 @@ export function handwritingLayers(callouts, { id, width, height, start = 0 }) {
 	// After any boxes that draw on or colour in: outline, then colour, then words
 	let t = Math.max(START, start);
 	const timed = callouts.map((c, i) => {
-		const { letters, strokes } = layout(c.content, c.x, c.y, c.size);
+		const { letters, strokes } = layout(c.content, c.x, c.y, c.size, hand);
 		const write = (writeTime(noteChars[i]) * chars(c)) / noteChars[i];
 		const ink = strokes.reduce((sum, s) => sum + s.len, 0);
 		// Each stroke gets its share of the time by length, and speeds up and brakes within it

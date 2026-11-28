@@ -71,9 +71,9 @@ export const desktop = {
 			icon: 'user-check',
 		});
 		// What the boxes can't show: the audit trail
-		f.handwrite(446, 304, 'Every request is logged:', { size: 17 });
-		f.handwrite(446, 328, 'what the agent saw', { size: 17 });
-		f.handwrite(446, 352, 'and what it did', { size: 17, arrow: [[436, 296], [418, 150], -14] });
+		f.handwrite(434, 304, 'Every request is logged:', { size: 17 });
+		f.handwrite(434, 328, 'what the agent saw', { size: 17 });
+		f.handwrite(434, 352, 'and what it did', { size: 17, arrow: [[424, 296], [412, 150], -14] });
 	},
 };
 
