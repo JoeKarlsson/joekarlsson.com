@@ -44,10 +44,10 @@ export const desktop = {
 		nest(f, RECTS.desktop);
 		f.box({ x: 88, y: 200, w: 146, h: 48, kind: 'chalk', label: 'regex', font: 'mono', size: 15 });
 		f.box({ x: 262, y: 200, w: 100, h: 48, kind: 'pink', label: 'PEG.js', font: 'mono', size: 15 });
-		f.handwrite(440, 150, 'From regex to PEG.js:', { size: 17 });
-		f.handwrite(440, 174, 'one level up, so queries', { size: 17 });
-		f.handwrite(440, 198, 'can nest parentheses', { size: 17 });
-		f.handwrite(440, 222, 'and respect precedence.', { size: 17 });
+		f.handwrite(418, 150, 'From regex to PEG.js:', { size: 17 });
+		f.handwrite(418, 174, 'one level up, so queries', { size: 17 });
+		f.handwrite(418, 198, 'can nest parentheses', { size: 17 });
+		f.handwrite(418, 222, 'and respect precedence.', { size: 17 });
 	},
 };
 

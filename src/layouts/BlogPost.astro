@@ -1,5 +1,6 @@
 ---
 import '../styles/joe-pastel.css';
+import pastelTldrFont from '../assets/fonts/joe-pastel-tldr.woff2?inline';
 import { getCollection, getEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
@@ -323,6 +324,18 @@ const captionText =
 				<p class="mb-6 text-sm text-muted" role="note">
 					{AMAZON_DISCLOSURE}
 				</p>
+			)}
+			{tldr && (
+				<>
+					{/* 2 KB, inlined and preloaded like Anton in BaseHead: Chromium decodes an
+					inlined @font-face only after first layout, and with font-display: optional a
+					missed first layout would leave the label in Anton for the whole visit */}
+					<link rel="preload" as="font" type="font/woff2" crossorigin href={pastelTldrFont} />
+					<style
+						is:inline
+						set:html={`@font-face{font-family:'Joe Pastel Text';src:url(${pastelTldrFont}) format('woff2');font-display:optional}`}
+					/>
+				</>
 			)}
 			{tldr && (
 				<p class="mb-10 border-l-4 border-pink pl-5 text-lg leading-relaxed text-paper">

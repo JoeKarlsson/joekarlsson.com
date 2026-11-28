@@ -730,7 +730,9 @@ export function createFigure({ id, width, height, hand = 'joe' }) {
 	 * crayonArrow's [from, to, bend]. Written in call order when the figure is drawn out.
 	 */
 	const handwritten = [];
-	function handwrite(x, y, content, { size = 19, anchor = 'start', arrow } = {}) {
+	function handwrite(x, y, content, { size: asked = 19, anchor = 'start', arrow } = {}) {
+		// Joe's hand reads small next to a desktop figure's labels; phone figures are fine as drawn
+		const size = hand === 'joe' && width > PHONE_WIDTH ? asked * 1.08 : asked;
 		const w = handwritingWidth(content, size, hand);
 		const left = anchor === 'start' ? x : anchor === 'end' ? x - w : x - w / 2;
 		textBoxes.push({

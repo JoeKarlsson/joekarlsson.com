@@ -17,11 +17,7 @@
 	src: url('../assets/fonts/joe-pastel-hand.woff2') format('woff2');
 	font-display: optional;
 }
-@font-face {
-	font-family: 'Joe Pastel Text';
-	src: url('../assets/fonts/joe-pastel-tldr.woff2') format('woff2');
-	font-display: optional;
-}
+/* 'Joe Pastel Text' (the TL;DR label) is declared inline in BlogPost.astro, preloaded */
 
 /* Big lines in the rough cut */
 .pastel-hand {

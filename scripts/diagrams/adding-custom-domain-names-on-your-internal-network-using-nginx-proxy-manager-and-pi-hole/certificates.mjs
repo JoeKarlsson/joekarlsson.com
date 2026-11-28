@@ -136,8 +136,8 @@ export const desktop = {
 	draw(f) {
 		ownDomain(f, 10, 34, 300);
 		noDomain(f, 330, 34, 300);
-		f.handwrite(330, 494, 'Let’s Encrypt won’t sign magic.mirror:', { size: 17 });
-		f.handwrite(330, 518, '.mirror isn’t a public suffix', {
+		f.handwrite(300, 494, 'Let’s Encrypt won’t sign magic.mirror:', { size: 17 });
+		f.handwrite(300, 518, '.mirror isn’t a public suffix', {
 			size: 17,
 			arrow: [[324, 490], [298, 302], -24],
 		});

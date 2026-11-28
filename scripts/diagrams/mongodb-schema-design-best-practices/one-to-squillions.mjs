@@ -60,7 +60,7 @@ export const desktop = {
 			[chips[1].edge, chips[1].y],
 			[host.x - 2, chips[1].y],
 		]);
-		callout(f, 380, 70, ['No array on the host:', 'it would never stop growing'], {
+		callout(f, 362, 70, ['No array on the host:', 'it would never stop growing'], {
 			arrow: [[520, 106], [500, host.y - 26], -14],
 		});
 	},
