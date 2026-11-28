@@ -8,20 +8,19 @@ test.describe("Joe's margin doodles", () => {
 		await expect(layer).toBeVisible();
 		// The doodle script is its own chunk, fetched once the page sees a wide screen
 		await expect.poll(() => layer.evaluate((l) => l.children.length)).toBeGreaterThan(0);
-		// The hidden ones must stay hidden (a hidden doodle measures 0, which once flipped them back on)
-		await page.waitForTimeout(500);
-		const { shown, total, overflowing } = await layer.evaluate((l: HTMLElement) => {
-			const doodles = [...l.children] as HTMLElement[];
-			const visible = doodles.filter((d) => !d.hidden);
-			return {
-				shown: visible.length,
-				total: doodles.length,
-				overflowing: visible.filter((d) => d.offsetTop + d.offsetHeight > l.clientHeight).length,
-			};
-		});
-		expect(shown).toBeGreaterThan(0);
-		expect(shown).toBeLessThan(total);
-		expect(overflowing).toBe(0);
+		// The hidden ones must stay hidden (a hidden doodle measures 0, which once flipped them back on).
+		// Polled, not read after a fixed wait: fit() runs again on every layer resize as images load
+		const fitted = () =>
+			layer.evaluate((l: HTMLElement) => {
+				const doodles = [...l.children] as HTMLElement[];
+				const visible = doodles.filter((d) => !d.hidden);
+				const overflowing = visible.filter((d) => d.offsetTop + d.offsetHeight > l.clientHeight);
+				return visible.length > 0 && visible.length < doodles.length && overflowing.length === 0;
+			});
+		await expect.poll(fitted).toBe(true);
+		// and stays that way once the page settles
+		await page.waitForLoadState('networkidle');
+		expect(await fitted()).toBe(true);
 	});
 
 	test('stays off below 1600px, and on the homepage below 2020px', async ({ page }) => {
