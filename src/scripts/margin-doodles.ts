@@ -17,12 +17,12 @@ import {
 	face,
 	flower,
 	flowerBig,
+	hearts,
 	paperPlane,
 	sparkle,
 	spiral,
 	star,
 	tally,
-	tangle,
 	waveHand,
 } from '../data/scribbles';
 import { compactPath } from '../utils/compact-path';
@@ -43,7 +43,7 @@ const DOODLES = [
 	{ mark: flowerBig },
 	{ mark: daisy },
 	{ mark: sparkle },
-	{ mark: tangle },
+	{ mark: hearts },
 	// Line figures (DECISIONS.md 2026-11-19): never drawn small, so they read as drawings
 	// rather than icons
 	{ mark: waveHand, figure: true },
