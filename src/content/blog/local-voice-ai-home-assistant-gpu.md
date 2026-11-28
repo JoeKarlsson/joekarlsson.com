@@ -1,11 +1,11 @@
 ---
 title: 'I Built a Fully Local Voice Assistant for Home Assistant (With GPU, No Cloud Required)'
-seoTitle: 'Local Voice Assistant for Home Assistant'
+seoTitle: 'Best Local LLM for Home Assistant Voice'
 shareTitle: 'I Built a Fully Local Voice Assistant for Home Assistant (GPU, No Cloud)'
 date: 2026-04-13T10:51:02Z
 slug: 'local-voice-ai-home-assistant-gpu'
 updatedDate: 2026-11-12
-description: 'My local voice assistant for Home Assistant: faster-whisper on a GPU, Piper, and qwen3:8b in Ollama as the LLM, plus the VRAM it takes and what failed first.'
+description: 'The local LLM that works for Home Assistant voice: qwen3:8b on Ollama, right on every request with 171 tools loaded. Plus faster-whisper, Piper and VRAM per GPU'
 categories: ['Homelab']
 heroImage: '/images/blog/local-voice-ai-home-assistant-gpu/thumb-fba7a247.webp'
 heroAlt: 'A woman speaking into a WNYC radio microphone'
