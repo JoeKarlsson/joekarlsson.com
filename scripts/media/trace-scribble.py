@@ -27,6 +27,14 @@ originals and the crop of every mark in use are listed in media-sources/README.m
 --min-spur  line ends shorter than this (photo pixels, default 25) are noise and get cut;
             lower it for marks made of short strokes, like a row of small X's
 --offset    shift the result, to set two traces side by side in one viewBox
+--outline   one closed line round the mark's outer edge instead of its centerline, for a
+            marker shape whose thick strokes run together (a spiky star drawn as an outline:
+            its centerline forks and tangles in the narrow points)
+--hole      with --outline, also a line round its biggest enclosed space, drawn first (the
+            daisy's middle before its petals)
+--chain     join the traced pieces into as few pen strokes as possible: from each stroke's
+            end, carry on into the nearest piece (either way round) that starts within this
+            many photo pixels, else lift the pen. For a line drawing traced in many pieces
 --preview   PNG of the result, shaded red to blue in drawing order
 """
 
@@ -36,6 +44,7 @@ import math
 import numpy as np
 from PIL import Image, ImageDraw, ImageOps
 from scipy import ndimage as ndi
+from skimage.measure import find_contours
 from skimage.morphology import closing, disk, remove_small_objects, skeletonize
 
 # Ink is anything darker than this fraction of the page around it
@@ -231,6 +240,56 @@ class CenterlineGraph:
         return [s for s in strokes if chain_length(s) > self.min_spur * 2]
 
 
+def outline_strokes(ink, hole=False):
+    """The mark's outer edge as one closed (row, col) loop, clockwise from its top; with hole,
+    a loop round its biggest enclosed space first."""
+    solid = closing(ink, disk(4))
+    filled = ndi.binary_fill_holes(solid)
+    labels, count = ndi.label(filled)
+    filled = labels == 1 + int(np.argmax(ndi.sum(filled, labels, range(1, count + 1))))
+    regions = [filled]
+    if hole:
+        holes = filled & ~solid
+        hole_labels, hole_count = ndi.label(holes)
+        if hole_count:
+            biggest = 1 + int(np.argmax(ndi.sum(holes, hole_labels, range(1, hole_count + 1))))
+            regions.insert(0, hole_labels == biggest)
+    loops = []
+    for region in regions:
+        pts = [tuple(p) for p in max(find_contours(region.astype(float), 0.5), key=len)]
+        top = min(range(len(pts)), key=lambda i: pts[i][0])
+        pts = pts[top:] + pts[1 : top + 1]
+        # Shoelace in (col, row): positive is clockwise on screen
+        area = sum(pts[i][1] * pts[i - 1][0] - pts[i - 1][1] * pts[i][0] for i in range(len(pts)))
+        loops.append(pts if area < 0 else [pts[0]] + pts[1:][::-1])
+    return loops
+
+
+def chain_strokes(strokes, gap):
+    """Pieces joined into pen strokes: start at the leftmost free end (a pen works left to right),
+    then keep carrying on into the nearest unused piece (turned to face forward) while it starts
+    within gap pixels."""
+    left = list(range(len(strokes)))
+    joined = []
+    while left:
+        i = min(left, key=lambda k: min(strokes[k][0][1], strokes[k][-1][1]))
+        first = strokes[i] if strokes[i][0][1] <= strokes[i][-1][1] else strokes[i][::-1]
+        current = list(first)
+        left.remove(i)
+        while left:
+            end = current[-1]
+            k, flip, dist = min(
+                ((k, flip, math.dist(end, strokes[k][-1] if flip else strokes[k][0])) for k in left for flip in (False, True)),
+                key=lambda c: c[2],
+            )
+            if dist > gap:
+                break
+            current += strokes[k][::-1] if flip else strokes[k]
+            left.remove(k)
+        joined.append(current)
+    return joined
+
+
 def smooth(chain, window=7):
     if len(chain) < window * 2:
         return chain
@@ -315,6 +374,9 @@ def main():
     ap.add_argument("--min-spur", type=float, default=MIN_SPUR)
     ap.add_argument("--offset", nargs=2, type=float, default=(0, 0), metavar=("DX", "DY"))
     ap.add_argument("--erase", nargs=4, type=int, action="append", default=[], metavar=("X0", "Y0", "X1", "Y1"))
+    ap.add_argument("--outline", action="store_true")
+    ap.add_argument("--hole", action="store_true")
+    ap.add_argument("--chain", type=float, metavar="GAP")
     ap.add_argument("--preview")
     args = ap.parse_args()
 
@@ -332,7 +394,12 @@ def main():
             f"Ink touches the {', '.join(clipped)} edge of the crop (after --rotate): the mark is cut off "
             "or a neighbour is caught. Widen --crop, or --erase the neighbour."
         )
-    strokes = CenterlineGraph(ink, args.min_spur).walk(args.retrace)
+    if args.outline:
+        strokes = outline_strokes(ink, args.hole)
+    else:
+        strokes = CenterlineGraph(ink, args.min_spur).walk(args.retrace)
+        if args.chain:
+            strokes = chain_strokes(strokes, args.chain)
     if not strokes:
         raise SystemExit("No mark found in that crop")
     strokes = [simplify(smooth(s), SIMPLIFY_TOLERANCE) for s in strokes]
