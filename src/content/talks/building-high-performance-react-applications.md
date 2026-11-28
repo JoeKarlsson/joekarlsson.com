@@ -12,6 +12,12 @@ videos:
   - id: 'xJYOipHkwNM'
   - id: '6z4g27TSO5I'
 mastheadImage: '/images/blog/building-high-performance-react-applications/masthead-8976cc61.webp'
+marginNotes:
+  - type: 'see'
+    at: 'when I was a tech lead at Best Buy'
+    text: "That year I also built a Chrome extension on the Best Buy API that tells you if what you're browsing on Amazon is at a Best Buy near you."
+    post: 'work/best-buy-product-locator'
+    title: 'Best Buy Product Locator'
 ---
 
 > **Note:** I wrote this in 2018 for React 16 class components. Modern React uses function components with hooks (`React.memo`, `useMemo`, `useCallback`) for performance optimization. The concepts here are still useful background, but check the [current React docs](https://react.dev/reference/react/memo) for up-to-date guidance.

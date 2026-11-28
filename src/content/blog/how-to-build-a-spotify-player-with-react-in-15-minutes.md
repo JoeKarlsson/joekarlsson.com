@@ -29,6 +29,11 @@ corrections:
   - date: 2026-11-12
     note: 'The authorize URL was missing its `?`, `hash` was declared twice, the JSX was cut off, and the progress bar read `this.progress_ms` instead of `this.state.progress_ms`, so it never moved.'
 marginNotes:
+  - type: 'see'
+    at: 'creating a Spotify Web player'
+    text: 'The finished player I built for this post, with a demo and the source.'
+    post: 'work/react-spotify-player'
+    title: 'React Spotify Player'
   - type: 'update'
     at: 'start by creating a Spotify user account'
     text: 'Since February 2026, an app in Development Mode needs its developer to have Spotify Premium, and each Client ID gets up to five authorized users.'

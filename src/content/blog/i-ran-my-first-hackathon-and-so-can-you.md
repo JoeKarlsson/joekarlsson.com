@@ -14,14 +14,16 @@ marginNotes:
     text: "The event's site. After it ended I filled in every entry, winner and builder, so it's also the record of the day."
     image: '/images/projects/stupid-hackathon-poster.webp'
     alt: "The event's title card: Stupid Shit No One in Hawaii Needs and Terrible Ideas Hackathon in red brush letters on lime green"
-  - type: 'aside'
+  - type: 'see'
     at: 'for the sheer joy of creation'
     text: 'Mine was App-All-O-Gizer. Type in an email address and it sends one of 13 random apologies, from a missed anniversary to murder.'
+    post: 'work/app-all-o-gizer'
+    title: 'App-All-O-Gizer'
 heroVideo: '/images/blog/i-ran-my-first-hackathon-and-so-can-you/archival-bd50d9f5.mp4'
 mastheadImage: '/images/blog/i-ran-my-first-hackathon-and-so-can-you/archival-bd50d9f5.webp'
 ---
 
-I Ran My First Hackathon, and So Can You! Here are the lessons I learned from planning, organizing, and executing my first hackathon. The hackathon I ran was the [Stupid Shit and Terrible Ideas Hackathon](https://stupidshitnooneinhawaiineedshackathon.github.io/) in Honolulu, Hawaii.
+I Ran My First Hackathon, and So Can You! Here are the lessons I learned from planning, organizing, and executing my first hackathon. The hackathon I ran was the [Stupid Shit and Terrible Ideas Hackathon](https://stupidshitnooneinhawaiineedshackathon.github.io/) in Honolulu, Hawaii. Everything people built that day is on [the Stupid Hackathon Hawaii project page](/work/stupid-hackathon-hawaii/).
 
 ![Close-up of a young man's face in a dark room, his sunglasses reflecting two hands typing on a keyboard.](/images/blog/i-ran-my-first-hackathon-and-so-can-you/hackers-1995-dade-typing-reflected-in.webp 'margin: Hackers (1995): Dade typing, reflected in his sunglasses.')
 

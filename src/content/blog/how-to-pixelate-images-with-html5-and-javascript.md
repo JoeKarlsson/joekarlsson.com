@@ -35,7 +35,7 @@ A couple of months ago, I was interested in learning some new HTML5 elements. Th
 
 I started building out an application that builds a photo mosaic based on color hashtags from Instagram, and I spun off a chunk of that code to build out a smaller (but still cool) web application that takes an image hosted on the web and converts the image into a dynamic pixelated image. I'll write about my Instamosaic project at a later time.
 
-This blog post will break down step by step how I wrote my code for Pixelate.js.
+This blog post will break down step by step how I wrote my code for [Pixelate.js](/work/pixelate/).
 
 From a high level, the Pixelate.js function works because we turn off browser image smoothing, which typically helps upscaled images look less terrible, then shrink an image, and blow up the shrunken image to its the original size.
 

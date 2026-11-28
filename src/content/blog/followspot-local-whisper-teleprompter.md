@@ -11,6 +11,11 @@ heroVideo: '/images/blog/followspot-local-whisper-teleprompter/demo.mp4'
 heroAlt: 'FollowSpot reading a bread recipe script: words already read are dimmed, the current word is highlighted in yellow, and the page scrolls to keep it on the reading line while a small panel shows Whisper latency'
 tldr: "I can't memorize lines, so I built FollowSpot, a browser teleprompter that follows my voice using a Whisper model running locally through whisper.cpp. It lets me pick the model and set up the screen exactly how I want, including a narrow column centered over the camera lens. I benchmarked five Whisper models on my M5 Max MacBook Pro with my own voice: every one kept up, tiny.en mangled tech jargon, base.en missed one more term than the bigger models, and small.en and up got 14 of 16 right."
 marginNotes:
+  - type: 'see'
+    at: 'tight monologues where every sentence has a job'
+    text: "FollowSpot's project page: what it does and how it's made."
+    post: 'work/followspot'
+    title: 'FollowSpot'
   - type: 'term'
     at: 'The speech recognition is a'
     text: "a C/C++ port of OpenAI's Whisper speech-to-text model. It runs on a laptop's CPU or Apple GPU, with no Python and no server."
