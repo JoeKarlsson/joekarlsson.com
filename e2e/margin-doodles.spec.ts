@@ -41,10 +41,12 @@ test.describe("Joe's margin doodles", () => {
 		const layer = page.locator('.margin-doodles');
 		const thread = layer.locator('.margin-thread path');
 		await expect(thread.first()).toBeAttached();
-		// Drawn by scroll; a minified shorthand once dropped the animation without a trace
-		expect(await thread.first().evaluate((p) => getComputedStyle(p).animationName)).toBe(
-			'thread-draw',
-		);
+		// Drawn by scroll; a minified shorthand once dropped the animation without a trace.
+		// Polled: fit() redraws the line on every layer resize (images settling the page height),
+		// and a replaced, detached path reports an empty animationName
+		await expect
+			.poll(() => thread.first().evaluate((p) => getComputedStyle(p).animationName))
+			.toBe('thread-draw');
 		const sides = await layer.evaluate((l) =>
 			[...l.children]
 				.filter((d) => d instanceof HTMLElement && d.style.top)
