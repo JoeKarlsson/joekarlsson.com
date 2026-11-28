@@ -20,7 +20,7 @@ marginNotes:
   - type: see
     at: in which new data is added into the newest partition
     text: MongoDB Atlas Online Archive does this for old documents. I walked through its archival rules and how it partitions the archive.
-    post: how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive
+    post: how-to-manage-mongodb-data-at-scale
   - type: aside
     at: Sharding is actually a type of database partitioning
     text: The word may come from games. Ultima Online ran several full copies of its world and explained them in the story as shards of a broken crystal. Raph Koster, who worked on the game, isn't sure the database term traces back to it.

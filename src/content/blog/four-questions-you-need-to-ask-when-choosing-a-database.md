@@ -22,7 +22,7 @@ marginNotes:
   - type: 'see'
     at: 'Do you need to archive it?'
     text: 'Archiving by a rule instead of a date, like moving inactive users, with Atlas Online Archive.'
-    post: 'how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive'
+    post: 'how-to-manage-mongodb-data-at-scale'
   - type: 'see'
     at: 'HIPAA, GDPR, CCPA'
     text: 'One answer: encrypt fields like SSNs and medical records before they leave the app.'

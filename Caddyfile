@@ -36,6 +36,7 @@
 		~^/(?:blog|\d{4}(?:/\d{2})?)/(10-things-i-learned-at-startup-weekend|how-to-find-a-technical-co-founder)/?$ /blog/category/career/
 		~^/(?:blog|\d{4}(?:/\d{2})?)/(psa-activate-2-step-verification-on-your-email-account|a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes)/?$ /blog/
 		~^/(?:blog|\d{4}(?:/\d{2})?)/save-the-world-and-money-with-mongodb-atlas-data-lake/?$ /blog/how-to-manage-mongodb-data-at-scale/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive/?$ /blog/how-to-manage-mongodb-data-at-scale/
 		~^/(?:blog|\d{4}(?:/\d{2})?)/(getting-started-with-graphql-and-atlas|a-gentle-introduction-to-building-serverless-apps)/?$ /talks/
 		~^/(?:blog|\d{4}(?:/\d{2})?)/iot-and-js-a-gentle-introduction-to-the-internet-of-things/?$ /talks/an-introduction-to-iot-internet-of-toilets/
 		~^/(?:blog|\d{4}(?:/\d{2})?)/i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon/?$ /blog/i-ran-my-first-hackathon-and-so-can-you/

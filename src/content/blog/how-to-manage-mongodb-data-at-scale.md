@@ -8,8 +8,18 @@ writtenFor: 'MongoDB'
 heroImage: '/images/blog/how-to-manage-mongodb-data-at-scale/thumb-c7c355dd.webp'
 heroAlt: 'A huge library reading room lined with tables and lamps'
 contentNotice: false
+updatedDate: 2026-11-27
 tldr: 'I show how to use MongoDB Atlas Online Archive to automatically move old, infrequently accessed data to cheap cloud storage while still querying everything through a single endpoint. Saves money without losing access to your data.'
 marginNotes:
+  - type: 'quote'
+    at: 'custom rules for archiving your cold data'
+    text: 'Online Archive helps by relocating cold data to a cheaper cloud object storage while keeping it accessible through queries.'
+    by: "MongoDB's Online Archive docs"
+    url: 'https://www.mongodb.com/docs/atlas/online-archive/overview/'
+  - type: 'see'
+    at: 'create partitions in your online archive'
+    text: 'Partitioning splits one dataset into smaller pieces. I compared it with sharding, which spreads those pieces across servers, the same year.'
+    post: 'database-sharding-vs-partitioning-whats-the-difference'
   - type: 'see'
     at: 'fill a cluster with fake IoT data'
     text: 'The seed script I use for fake IoT data like this, in Node.js with faker.'
@@ -106,17 +116,69 @@ After navigating to the `sample_mflix.comments` collection, we can see that we h
 
 ![MongoDB Compass showing sample_mflix.comments collection with 50303 documents](/images/blog/how-to-manage-mongodb-data-at-scale/49c82ef8426d2c44a93bcd26bf71c5be6a16dbe9.webp)
 
+## Custom Archival Rules and Partitioning
+
+A date rule covers a lot of archiving: documents over X years old, or last updated Y months ago. Sometimes you want more control over what gets archived, though. Some data that might be ready for the archive:
+
+- Data an administrator has flagged for archival.
+- Discontinued products on your eCommerce site.
+- User data from users who have closed their accounts on your platform (unless they are European citizens).
+- Employee data from people who no longer work at your company.
+
+There are lots of reasons to set up custom rules for archiving your cold data, and Online Archive's custom query rule handles them. As an example, here's how to archive every user in the `sample_analytics.customers` collection (from the [Atlas sample data](https://docs.atlas.mongodb.com/sample-data/)) whose `active` field is `false`.
+
+### How to Create Custom Archival Rules for MongoDB
+
+Start the same way as above: open the **Online Archive** tab for your cluster, click **Add Archive**, and set the collection namespace, this time `sample_analytics.customers`. Instead of a date match, pick the custom query, which you write in JSON the same way as any MongoDB filter. This one matches every document whose `active` field is `false` or missing:
+
+```json
+{ "$or": [{ "active": false }, { "active": null }] }
+```
+
+Finish the setup, and Atlas archives those customers from then on.
+
+> **Note**: Run your custom query in the [mongo shell](https://docs.mongodb.com/mongodb-shell/install/) first, so you know you're archiving the documents you meant to.
+
+### Why Partitioning?
+
+One of the reasons we archive data instead of deleting it is so we can still query it. You might even query it often! That's why it's useful to partition your archived data and speed those queries up. Online Archive lets you name the two most frequently queried fields in your collection to create partitions in your online archive. Those are the optional fields on the configuration page I skipped above.
+
+### Partitioning Best Practices
+
+Fields with a moderate to high cardinality (the number of distinct values in the field) make good partitions. Queries that don't use these fields need a full scan of every archived document, which takes longer and costs more. It's a balancing act, though:
+
+- **Low cardinality** fields won't partition the data well, so they won't speed up queries much. They're fine for range queries or collection scans, and archiving stays fast.
+- **Mid to high cardinality** fields partition the data better, for better query performance overall, with slightly slower archiving.
+- **Extremely high cardinality** fields like `_id` make every query slow except ones on `_id` itself, and make archiving terrible, since Atlas writes so many partitions.
+
+> **Note**: Online Archive is powered by Atlas Data Federation (called Atlas Data Lake when I wrote this). To learn more about how partitions improve query performance, see [Data Structure in S3](https://docs.mongodb.com/datalake/admin/optimize-query-performance#data-structure-in-s3).
+
+Partitions work like folders, and the order of the fields matters the same way it does in [compound indexes](https://docs.mongodb.com/manual/core/index-compound/). Data is partitioned first by the value of the first field, then by the value of the second, so put the field you query most first. For the `customers` archive above, if you query most by `username` and then by `email`, your partition looks like this:
+
+```text
+/username/email
+```
+
+Atlas then uses the partitions for queries on:
+
+- the `username` field
+- the `username` field and the `email` field
+
+> **Note**: A partition field's value can be up to 700 characters. Documents with longer values aren't archived.
+
+![How Online Archive uses its partitions. The customers collection is archived with the partition fields /username/email, so archived documents are stored in folders by username and then by email. A query on username and email goes straight to the matching folder, /TestUsername/test@mongodb.com, instead of scanning the whole archive.](/images/blog/how-to-manage-mongodb-data-at-scale/partitions.svg)
+
+For more on partitioning your Online Archive, see [the documentation](https://docs.atlas.mongodb.com/online-archive/configure-online-archive/).
+
 ## Wrap-Up
 
-There you have it! In this post, we explored how to manage your MongoDB data at scale using MongoDB Atlas Online Archive. We set up an Online Archive so that Atlas automatically archived comments from the `sample_mflix.comments` dataset that were older than 10 years. We then connected to our dataset and made a query in order to be sure that we were still able to access and query all of our data from a unified endpoint, regardless of whether it was archived or not. This technique of archiving stale data can be a powerful feature for dealing with datasets that are massive and/or growing quickly in order to save you time, money, and development costs as your data demands grow.
+There you have it! In this post, we explored how to manage your MongoDB data at scale using MongoDB Atlas Online Archive. We set up an Online Archive so that Atlas automatically archived comments from the `sample_mflix.comments` dataset that were older than 10 years. We then connected to our dataset and made a query in order to be sure that we were still able to access and query all of our data from a unified endpoint, regardless of whether it was archived or not. Then we wrote a custom archival rule for inactive customers and partitioned the archive by the fields we query most. This technique of archiving stale data can be a powerful feature for dealing with datasets that are massive and/or growing quickly in order to save you time, money, and development costs as your data demands grow.
 
 > If you have questions, please head to our [developer community website](https://community.mongodb.com/) where the MongoDB engineers and the MongoDB community will help you build your next big idea with MongoDB.
 
 ## Additional resources:
 
 - [Archive Cluster Data](https://web.archive.org/web/20220116194200/https://docs.atlas.mongodb.com/online-archive/manage-online-archive/)
-
-Part two covers [custom archival rules and partitioning for Online Archive](/blog/how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive/).
 
 ## Want to check out more of my technical posts?
 
