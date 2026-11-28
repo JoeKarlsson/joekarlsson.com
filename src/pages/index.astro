@@ -292,10 +292,10 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 						/>
 					</h1>
 				</div>
-				{/* In Joe's own oil pastel hand (DECISIONS 2026-11-27); preloaded so it's usually in
-				time for font-display: optional */}
+				{/* In Joe's own oil pastel hand, held still: it's four lines people read (DECISIONS
+				2026-11-27); preloaded so it's usually in time for font-display: optional */}
 				<link rel="preload" as="font" type="font/woff2" crossorigin href={pastelHandFont} />
-				<p class="pastel-hand pastel-boil text-[clamp(1.875rem,min(3vw,4.8vh),4.25rem)] leading-[1.12] text-balance text-paper">
+				<p class="pastel-hand text-[clamp(1.875rem,min(3vw,4.8vh),4.25rem)] leading-[1.12] text-balance text-paper">
 					Technology is better when it's weird and it's yours. Everything I write about runs in
 					my&nbsp;house.
 				</p>
@@ -877,11 +877,6 @@ const SECTION = 'relative mx-auto max-w-[90rem] px-4 pt-12 sm:px-7 md:pt-32';
 		<DrawingBoard />
 	</div>
 </BaseLayout>
-
-<script>
-	import { initPastelBoil } from '../scripts/pastel-boil';
-	initPastelBoil([...document.querySelectorAll<HTMLElement>('.pastel-boil')]);
-</script>
 
 <script>
 	import { initHomepageClicks } from '../scripts/homepage-clicks';
