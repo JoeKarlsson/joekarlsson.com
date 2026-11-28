@@ -1408,19 +1408,6 @@
 			"color": "chalk"
 		}
 	},
-	"how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive": {
-		"picture": {
-			"video": "/images/blog/how-to-use-custom-archival-rules-and-partitioning-on-mongodb-atlas-online-archive/archival-c2a0ed54.mp4",
-			"at": 0.9
-		},
-		"alt": "Rows of filed records in an archive",
-		"look": "flat",
-		"mark": {
-			"name": "rays",
-			"at": [87, 3, 10, 17],
-			"color": "pink"
-		}
-	},
 	"how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js": {
 		"picture": {
 			"video": "/images/blog/how-to-use-mongodb-client-side-field-level-encryption-csfle-with-node-js/archival-f911f59b.mp4",
