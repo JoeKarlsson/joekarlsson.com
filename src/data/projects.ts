@@ -475,13 +475,13 @@ export const projects: Project[] = curlEveryString(
 					},
 					{
 						type: 'update',
-						at: 'it logs in with Spotify’s Implicit Grant flow',
-						text: '“On 27 November 2025, Spotify will remove support for the implicit grant flow.” Spotify’s reminder post, October 2025. The tutorial’s login no longer works as written.',
-						date: 'Nov 2025',
+						at: 'It logs in with the Authorization Code flow with PKCE',
+						text: '“On 27 November 2025, Spotify will remove support for the implicit grant flow.” Spotify’s reminder post, October 2025. The player and the tutorial switched to PKCE a year later.',
+						date: 'Nov 2026',
 					},
 					{
 						type: 'quote',
-						at: 'Authorization Code flow with PKCE',
+						at: 'which Spotify recommends for single-page apps',
 						text: 'The authorization code flow with PKCE is the recommended authorization flow if you’re implementing authorization in a mobile app, single page web apps, or any other type of application where the client secret can’t be safely stored.',
 						by: "Spotify's Web API docs",
 						url: 'https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow',
@@ -491,10 +491,10 @@ export const projects: Project[] = curlEveryString(
 				intro: [
 					"React Spotify Player shows what you're listening to on Spotify: the album art, the track and artist, and a progress bar that moves along with the song. I built it in 2019 for a tutorial on building a Spotify player with React in 15 minutes, and it's still one of my most-starred open source projects.",
 					"I'd been using the Spotify API for my MagicMirror, and I wanted the shortest path from nothing to a working player for front-end developers: log in with Spotify, call one endpoint, show the result. It's still small on purpose. The current version is just React and Vite, and the whole app fits in a handful of files.",
-					"If you're following the tutorial today, one warning: it logs in with Spotify's Implicit Grant flow, which Spotify deprecated in February 2025 and removed in November 2025. New apps should use the Authorization Code flow with PKCE instead.",
+					'It logs in with the Authorization Code flow with PKCE, which Spotify recommends for single-page apps. The 2019 version used the Implicit Grant flow, which Spotify removed in November 2025, so I moved the player and the tutorial over in November 2026.',
 				],
 				install:
-					'git clone https://github.com/JoeKarlsson/react-spotify-player.git\ncd react-spotify-player\n# add http://localhost:3001 as a Redirect URI on your Spotify app,\n# and put its Client ID in src/config/spotify.js\nnpm install\nnpm run dev',
+					'git clone https://github.com/JoeKarlsson/react-spotify-player.git\ncd react-spotify-player\n# add http://127.0.0.1:3001 as a Redirect URI on your Spotify app\n# (Spotify rejects localhost), and put its Client ID in src/config/spotify.js\nnpm install\nnpm run dev',
 				made: {
 					text: [
 						"The login link sends you to Spotify, and Spotify sends you back with an access token in the URL, which the app keeps in your browser. Every 5 seconds it asks the Web API's `/me/player` endpoint what's playing, and when the token expires it asks you to log in again.",
