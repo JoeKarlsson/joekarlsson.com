@@ -4,6 +4,7 @@ Joe's standing verdicts for this site, one per line, dated. Read before any visu
 
 ## Look
 
+- 2026-11-27: Crayon is consistent across the site: Joe wants "the scribbles and crayon to be consistent across my site", so the site's own #crayon filter (every Scribble, hover box, margin doodle, cursor trail and drawing-board stroke) uses the same wax-on-paper-grain look as the diagrams.
 - 2026-11-27: Crayon and boil round 1 (.mockups/opuscar-callouts, what-a-mod-does figure): Joe picked C, diagram crayon strokes as wax on paper grain (a solid core, edges that catch a fixed paper tooth, from Lemo-Opuscar), over Now (today's even crayon with waxy holes) and D (boil strength by layer at 12 fps).
 - 2026-11-27: Newsletter strip before a chapter opener (.mockups/newsletter-strip-spacing): Joe kept the fix ("they look good"): the strip keeps its own thin pink bottom rule and the chapter starts right under it with no grey rule, instead of a 64px gap above the chapter's grey rule, so it looks the same whatever follows it.
 - 2026-11-27: Handwritten callouts write fast: the first cut took about 4 s a note, "way too slow if you're scrolling through it"; now about 1 s a note (45 letters a second, 1.2 s at most) and 0.3 s for the arrow. A post is consistent within itself: when one figure's callout is handwritten, every callout sentence in that post's figures is (link labels like ETL or "native connector" stay plain). Same day, Joe said yes to every post: all diagram callouts on the site are handwritten.
