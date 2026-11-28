@@ -37,6 +37,12 @@ export default defineConfig({
 				'typography.spec.ts',
 			],
 		},
+		// Safari drew scribbles differently from Chromium (a calc() it drops): their motion runs here too
+		{
+			name: 'webkit',
+			use: { ...devices['Desktop Safari'] },
+			testMatch: ['scribbles.spec.ts'],
+		},
 	],
 	webServer: {
 		// --ignore-lock keeps it in the foreground: Astro 7 backgrounds `astro dev` when it

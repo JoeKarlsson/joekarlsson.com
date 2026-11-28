@@ -26,7 +26,6 @@ import {
 	waveHand,
 } from '../data/scribbles';
 import { compactPath } from '../utils/compact-path';
-import { strokeSlices } from '../utils/stroke-slices';
 
 const PINK = '#ff4fd8';
 const SVG = 'http://www.w3.org/2000/svg';
@@ -97,6 +96,7 @@ function drawDoodle(
 		.split(/(?=M)/)
 		.map((stroke) => stroke.trim())
 		.filter(Boolean);
+	svg.style.setProperty('--n', String(strokes.length));
 	const group = document.createElementNS(SVG, 'g');
 	for (const [name, value] of Object.entries({
 		fill: 'none',
@@ -107,13 +107,11 @@ function drawDoodle(
 		filter: 'url(#crayon)',
 	}))
 		group.setAttribute(name, value);
-	const slices = strokeSlices(strokes);
 	strokes.forEach((stroke, i) => {
 		const path = document.createElementNS(SVG, 'path');
 		path.setAttribute('pathLength', '1');
 		path.setAttribute('d', compactPath(stroke));
-		path.style.setProperty('--at', String(slices[i].at));
-		path.style.setProperty('--share', String(slices[i].share));
+		path.style.setProperty('--i', String(i));
 		group.append(path);
 	});
 	svg.append(group);
