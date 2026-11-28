@@ -509,7 +509,7 @@ describe('talk pages', () => {
 	it('301s each old /blog/ URL to its /talks/ page', () => {
 		const caddyfile = readFileSync(resolve(import.meta.dirname, '..', 'Caddyfile'), 'utf-8');
 		for (const slug of MOVED) {
-			expect(caddyfile).toContain(`~^/blog/${slug}/?$ /talks/${slug}/`);
+			expect(caddyfile).toContain(`/${slug}/?$ /talks/${slug}/`);
 		}
 	});
 

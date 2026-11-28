@@ -22,29 +22,39 @@
 	# Moved and retired pages, one 301 each. Astro's own `redirects` can't do this in a
 	# static build: it writes a 200 page with a meta refresh and noindex, which Search
 	# Console reported as "Excluded by noindex" (2026-11-27). Keep every move here.
+	# A moved post's key also takes its WordPress /YYYY/MM/ and Astro /YYYY/ URLs, so
+	# those reach the new page in one hop instead of going through /blog/<old slug>/.
 	map {path} {moved_to} {
 		~^/newsletter/its-been-a-while/?$ /newsletter/taste-matters-more-with-ai/
-		~^/blog/why-i-joined-singlestore/?$ /about/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/why-i-joined-singlestore/?$ /about/
 		~^/blog/why-i-joined-viam /about/
-		~^/blog/how-i-work/?$ /uses/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/how-i-work/?$ /uses/
 		# The same CData article imported twice under two slugs (2026-11-05)
-		~^/blog/connect-enterprise-data-meta-muse/?$ /blog/connect-business-apps-meta-muse/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/connect-enterprise-data-meta-muse/?$ /blog/connect-business-apps-meta-muse/
 		# Thin, off-topic or dead-product posts cut in the 2027 content audit (2026-11-09)
-		~^/blog/(overwhelmed-by-the-web|my-relationship-with-the-internet|how-to-explain-to-your-dad-why-snapchat-is-so-awesome|one-week-in-oahu-a-tourists-travel-itinerary|a-brief-cuba-travel-guide)/?$ /blog/category/life/
-		~^/blog/(10-things-i-learned-at-startup-weekend|how-to-find-a-technical-co-founder)/?$ /blog/category/career/
-		~^/blog/(psa-activate-2-step-verification-on-your-email-account|a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes)/?$ /blog/
-		~^/blog/save-the-world-and-money-with-mongodb-atlas-data-lake/?$ /blog/how-to-manage-mongodb-data-at-scale/
-		~^/blog/(getting-started-with-graphql-and-atlas|a-gentle-introduction-to-building-serverless-apps)/?$ /talks/
-		~^/blog/iot-and-js-a-gentle-introduction-to-the-internet-of-things/?$ /talks/an-introduction-to-iot-internet-of-toilets/
-		~^/blog/i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon/?$ /blog/i-ran-my-first-hackathon-and-so-can-you/
-		~^/blog/(devrel-as-dev-zero|developer-advocacy-in-2023|treat-content-development-for-your-open-source-project-like-your-open-source-project)/?$ /blog/running-devrel/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/(overwhelmed-by-the-web|my-relationship-with-the-internet|how-to-explain-to-your-dad-why-snapchat-is-so-awesome|one-week-in-oahu-a-tourists-travel-itinerary|a-brief-cuba-travel-guide)/?$ /blog/category/life/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/(10-things-i-learned-at-startup-weekend|how-to-find-a-technical-co-founder)/?$ /blog/category/career/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/(psa-activate-2-step-verification-on-your-email-account|a-gentle-introduction-to-setting-up-a-react-and-mongodb-stitch-app-from-scratch-in-10-minutes)/?$ /blog/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/save-the-world-and-money-with-mongodb-atlas-data-lake/?$ /blog/how-to-manage-mongodb-data-at-scale/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/(getting-started-with-graphql-and-atlas|a-gentle-introduction-to-building-serverless-apps)/?$ /talks/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/iot-and-js-a-gentle-introduction-to-the-internet-of-things/?$ /talks/an-introduction-to-iot-internet-of-toilets/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/i-was-on-hawaii-public-radio-to-talk-about-the-stupid-shit-hackathon/?$ /blog/i-ran-my-first-hackathon-and-so-can-you/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/(devrel-as-dev-zero|developer-advocacy-in-2023|treat-content-development-for-your-open-source-project-like-your-open-source-project)/?$ /blog/running-devrel/
 		# Talk write-ups moved out of the blog to their own pages (2026-11-09)
-		~^/blog/mongodb-schema-design-best-practices/?$ /talks/mongodb-schema-design-best-practices/
-		~^/blog/from-sql-to-nosql-a-gentle-introduction-for-devs/?$ /talks/from-sql-to-nosql-a-gentle-introduction-for-devs/
-		~^/blog/the-art-of-computer-science/?$ /talks/the-art-of-computer-science/
-		~^/blog/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/?$ /talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/
-		~^/blog/building-high-performance-react-applications/?$ /talks/building-high-performance-react-applications/
-		~^/blog/an-introduction-to-iot-internet-of-toilets/?$ /talks/an-introduction-to-iot-internet-of-toilets/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/mongodb-schema-design-best-practices/?$ /talks/mongodb-schema-design-best-practices/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/from-sql-to-nosql-a-gentle-introduction-for-devs/?$ /talks/from-sql-to-nosql-a-gentle-introduction-for-devs/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/the-art-of-computer-science/?$ /talks/the-art-of-computer-science/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/?$ /talks/bechdel-io-how-we-used-javascript-to-help-make-film-more-inclusive/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/building-high-performance-react-applications/?$ /talks/building-high-performance-react-applications/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/an-introduction-to-iot-internet-of-toilets/?$ /talks/an-introduction-to-iot-internet-of-toilets/
+		# Evergreen guides lost the year in their URL (2026-11-09); the homelab post's
+		# -in-2024 slug was its top Google landing page when it moved
+		~^/(?:blog|\d{4}(?:/\d{2})?)/how-to-get-started-with-home-assistant-in-20\d\d/?$ /blog/how-to-get-started-with-home-assistant/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/running-devrel-2026/?$ /blog/running-devrel/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/self-hosted-music-still-sucks-in-2025/?$ /blog/self-hosted-music-still-sucks-in-2026/
+		~^/(?:blog|\d{4}(?:/\d{2})?)/how-to-get-started-building-a-(not-expensive-homelab-server|homelab-server-in-20\d\d) /blog/how-to-get-started-building-a-homelab-server/
+		# Outdated MongoDB post
+		~^/(?:blog|\d{4}(?:/\d{2})?)/how-to-activate-your-mongodb-atlas-credits/?$ /blog/
 		# Old blog categories, folded into the six current ones (2026-11-05); Work was a
 		# catch-all for employer posts, now shown by /blog/written-for/
 		~^/blog/category/work/?$ /blog/
@@ -144,27 +154,6 @@
 
 	@all-work path /all-work /all-work/
 	redir @all-work /work/ 301
-
-	# Blog post renames - year updates
-	# Evergreen guides lost the year in their URL (2026-11-09). Caddy answers every old
-	# slug with one real 301; Astro's own redirect for them is a 200 meta-refresh page.
-	@ha-old path_regexp ^/blog/how-to-get-started-with-home-assistant-in-20\d\d/?$
-	redir @ha-old /blog/how-to-get-started-with-home-assistant/ 301
-
-	@devrel-2026 path /blog/running-devrel-2026 /blog/running-devrel-2026/
-	redir @devrel-2026 /blog/running-devrel/ 301
-
-	@music-2025 path /blog/self-hosted-music-still-sucks-in-2025 /blog/self-hosted-music-still-sucks-in-2025/
-	redir @music-2025 /blog/self-hosted-music-still-sucks-in-2026/ 301
-
-	# The homelab server post's original slug and every yearly one (-in-2024 was its
-	# top Google landing page when it moved)
-	@homelab-old path_regexp ^/blog/how-to-get-started-building-a-(not-expensive-homelab-server|homelab-server-in-20\d\d).*$
-	redir @homelab-old /blog/how-to-get-started-building-a-homelab-server/ 301
-
-	# Outdated MongoDB post - redirect to blog
-	@mongodb-credits path /blog/how-to-activate-your-mongodb-atlas-credits /blog/how-to-activate-your-mongodb-atlas-credits/
-	redir @mongodb-credits /blog/ 301
 
 	# WordPress feed → RSS
 	@feed path /feed /feed/
