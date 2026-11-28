@@ -55,10 +55,11 @@ const DOODLES = [
 const SLOTS = 60;
 const FIRST_TOP = 180;
 // A doodle's longest side in px, by size: small, medium, big (big is capped to its margin)
+// Joe 2026-11-27: the old small band (80-110px) read as specks, "way too small"
 const SIZES = [
-	[80, 110],
-	[140, 190],
-	[240, 320],
+	[150, 190],
+	[200, 250],
+	[260, 330],
 ];
 const FIGURE_MIN = 130;
 // Smallest gap in px between a doodle and the window edge or the text column
