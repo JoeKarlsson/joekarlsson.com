@@ -27,3 +27,12 @@ export function connectionHints(): Pick<BoilConditions, 'saveData' | 'effectiveT
 	).connection;
 	return { saveData: connection?.saveData, effectiveType: connection?.effectiveType };
 }
+
+const BOIL_FRAME_MS = 500 / 3; // three frames every 0.5 s, like the #boil filter
+const BOIL_FRAMES = 3;
+
+/** Which boil frame shows at `ms` on the #boil filter's clock, and how long until the next. */
+export function boilFrameAt(ms: number): { frame: number; untilNext: number } {
+	const step = Math.floor(ms / BOIL_FRAME_MS);
+	return { frame: step % BOIL_FRAMES, untilNext: (step + 1) * BOIL_FRAME_MS - ms };
+}

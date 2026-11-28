@@ -44,3 +44,14 @@ describe("Joe's hand in diagram callouts", () => {
 		expect(handwritingWidth('8,076 marks kept', 19, 'kalam')).toBeGreaterThan(0);
 	});
 });
+
+describe('the Joe Pastel boil clock', () => {
+	it('steps three frames every half second, in step with the #boil filter', async () => {
+		const { boilFrameAt } = await import('../src/utils/paper-hero-motion');
+		expect(boilFrameAt(0)).toEqual({ frame: 0, untilNext: 500 / 3 });
+		expect(boilFrameAt(200).frame).toBe(1);
+		expect(boilFrameAt(400).frame).toBe(2);
+		expect(boilFrameAt(510).frame).toBe(0);
+		expect(boilFrameAt(200).untilNext).toBeCloseTo((500 / 3) * 2 - 200);
+	});
+});
