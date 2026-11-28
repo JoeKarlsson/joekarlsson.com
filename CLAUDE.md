@@ -12,6 +12,7 @@ Astro v7 static site. Served by Caddy on an immutable homelab container (its ID 
 
 ```bash
 npm run build      # Build static site to ./dist/ (local dev/preview only)
+npm run dev:url    # URL of a dev server serving THIS checkout (starts one; refuses another checkout's)
 npm run deploy     # Build + deploy via OpenTofu (tofu apply) + purge Cloudflare cache
 ./deploy.sh        # Same as npm run deploy (called directly)
 ```

@@ -6,6 +6,7 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"deploy": "bash deploy.sh",
+		"dev:url": "bash scripts/dev-url.sh",
 		"preview": "astro preview",
 		"update:popular": "node scripts/update-popular-posts.mjs",
 		"analytics:agents": "node scripts/agent-markdown-traffic.mjs",
