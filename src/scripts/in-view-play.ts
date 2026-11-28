@@ -5,7 +5,9 @@
 // users get a still clip. A clip the viewer paused from its controls stays paused,
 // and nothing starts while the pause-motion button is on; when it's turned off,
 // the clips on screen start. Inside a post's text, only one clip plays at a time: the
-// one most in view, once it's mostly on screen, like the post's animated figures.
+// one most in view, once it's mostly on screen, like the post's animated figures. The
+// clips of one comparison (a .frame-pair) count as one: they start, pause and loop
+// together, in step, since watching them side by side is the point (Joe, 2026-11-28).
 import { mostlyInView } from './filter-animations';
 import { DESKTOP_EMBED_QUERY } from './load-desktop-embeds';
 import { MOTION_RESUMED_EVENT, isMotionPaused } from './pause-motion';
@@ -47,6 +49,19 @@ if (lazyPosters.length) {
 }
 if (videos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 	const pausedByViewer = new WeakSet<HTMLVideoElement>();
+	// A comparison's clips, or just this one
+	const pairOf = (video: HTMLVideoElement): HTMLVideoElement[] => {
+		const pair = video.closest('figure.frame-pair');
+		return pair
+			? [...pair.querySelectorAll<HTMLVideoElement>('video[data-autoplay-in-view]')]
+			: [video];
+	};
+	// More than a few frames apart: snap the others to the first clip's time
+	const alignTo = (lead: HTMLVideoElement, clips: HTMLVideoElement[]) => {
+		for (const clip of clips)
+			if (clip !== lead && Math.abs(clip.currentTime - lead.currentTime) > 0.15)
+				clip.currentTime = lead.currentTime;
+	};
 	const onScreen = new Set<HTMLVideoElement>();
 	const play = (video: HTMLVideoElement) => {
 		if (!pausedByViewer.has(video) && !isMotionPaused() && mayAutoplay(video))
@@ -85,15 +100,21 @@ if (videos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matc
 	};
 	const pickLeader = () => {
 		const [leader] = [...mostlyVisible].sort((a, b) => rank(b) - rank(a));
+		const leaders = leader ? pairOf(leader) : [];
 		onScreen.forEach((video) => {
-			if (video.closest('.prose') && video !== leader) {
+			if (video.closest('.prose') && !leaders.includes(video)) {
 				onScreen.delete(video);
 				autoPause(video);
 			}
 		});
-		if (leader && !onScreen.has(leader)) {
-			onScreen.add(leader);
-			play(leader);
+		const starting = leaders.filter((video) => !onScreen.has(video));
+		if (starting.length) {
+			// Started together from the same point, so a comparison's clips stay in step
+			if (leaders.length > 1) alignTo(leaders[0], leaders);
+			starting.forEach((video) => {
+				onScreen.add(video);
+				play(video);
+			});
 		}
 	};
 	const postObserver = new IntersectionObserver(
@@ -130,14 +151,36 @@ if (videos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matc
 		);
 	}
 	videos.forEach((video) => {
+		const pair = pairOf(video);
 		video.addEventListener('pause', () => {
 			if (video.dataset.autoPausing) delete video.dataset.autoPausing;
 			// Only a clip with controls, on a visible page, can be paused by the viewer.
 			// Any other pause is the browser's (hidden tab, display asleep), and counting
-			// it as the viewer's froze the homepage montage for good.
-			else if (video.controls && document.visibilityState === 'visible') pausedByViewer.add(video);
+			// it as the viewer's froze the homepage montage for good. Pausing one clip of a
+			// comparison pauses the others with it.
+			else if (video.controls && document.visibilityState === 'visible')
+				pair.forEach((clip) => {
+					pausedByViewer.add(clip);
+					autoPause(clip);
+				});
 		});
-		video.addEventListener('play', () => pausedByViewer.delete(video));
+		video.addEventListener('play', () => {
+			const resumedByViewer = pausedByViewer.has(video);
+			pair.forEach((clip) => pausedByViewer.delete(clip));
+			if (resumedByViewer && pair.length > 1) {
+				alignTo(video, pair);
+				pair.forEach((clip) => clip !== video && play(clip));
+			}
+		});
+		// Loops drift a little each time round; the first clip of a comparison keeps the time
+		if (pair.length > 1 && video === pair[0])
+			video.addEventListener('timeupdate', () => {
+				if (!video.paused)
+					alignTo(
+						video,
+						pair.filter((clip) => !clip.paused),
+					);
+			});
 		if (video.closest('.prose')) postObserver.observe(video);
 		else observer.observe(video);
 	});

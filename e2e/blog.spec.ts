@@ -262,6 +262,25 @@ test.describe('Film review frame pairs', () => {
 		}
 	});
 
+	test("a comparison's clips play together, in step (Joe, 2026-11-28)", async ({ page }) => {
+		await page.goto('/reviews/three-colours-blue/');
+		const clips = page.locator('figure.frame-pair video');
+		await expect(clips).toHaveCount(2);
+		await clips.first().evaluate((video) => video.scrollIntoView({ block: 'center' }));
+		const state = () =>
+			clips.evaluateAll((videos: HTMLVideoElement[]) => ({
+				playing: videos.filter((v) => !v.paused).length,
+				apart: Math.abs(videos[0].currentTime - videos[1].currentTime),
+				started: videos[0].currentTime > 1,
+			}));
+		await expect.poll(async () => (await state()).playing).toBe(2);
+		await expect.poll(async () => (await state()).started).toBe(true);
+		expect((await state()).apart).toBeLessThan(0.3);
+		// Pausing one from its controls pauses both
+		await clips.first().evaluate((v: HTMLVideoElement) => v.pause());
+		await expect.poll(async () => (await state()).playing).toBe(0);
+	});
+
 	test('frames in a comparison stack, never side by side (Joe, 2026-11-27)', async ({ page }) => {
 		await page.goto('/reviews/street-fighter-2026/');
 		const cells = page.locator('figure.frame-pair').first().locator('.frame-pair-cell');
