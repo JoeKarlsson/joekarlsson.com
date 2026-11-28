@@ -7,6 +7,7 @@ package-lock.json
 .claude/
 .vale/styles/.vale-config/
 brand/index.html
+brand/email-signature.html
 brand/explorations/
 
 # Local design mockups (ignored by the global gitignore, which Prettier does not read)

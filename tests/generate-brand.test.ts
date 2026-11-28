@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { glyphPath, loopSquiggle, toIco } from '../scripts/generate-brand.mjs';
+import { glyphPath, loopSquiggle, signatureLayout, toIco } from '../scripts/generate-brand.mjs';
 
 // Anton's capitals are 1760 font units tall; the brand script maps them to 100 units,
 // with y flipped so the baseline sits at 100
@@ -32,5 +32,17 @@ describe('loopSquiggle', () => {
 			.map((p) => p.split(',').map(Number));
 		expect(points.every(([x, y]) => x >= 0 && x <= 880 && y >= 0 && y <= 40)).toBe(true);
 		expect(Math.max(...points.map(([x]) => x))).toBeGreaterThan(860);
+	});
+});
+
+// The signature's name, tagline and links must fit inside the JK's ink (y 6 to 54)
+describe('signatureLayout', () => {
+	it('starts the name on the JK top and ends the links on its bottom', () => {
+		const { paddingTop, gap } = signatureLayout(18);
+		expect(paddingTop).toBe(6);
+		expect(paddingTop + 18 + gap + 2 * 14).toBe(54);
+	});
+	it('refuses a name too tall to fit inside the JK', () => {
+		expect(() => signatureLayout(21)).toThrow(/no room/);
 	});
 });

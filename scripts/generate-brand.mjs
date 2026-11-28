@@ -336,6 +336,109 @@ async function writeEmailSignature() {
 			.gif({ delay: [120, 120, 120], loop: 0 })
 			.toFile(join(dir, `${name}.gif`));
 	}
+	const name = await writeSignatureName(dir);
+	writeFileSync(join(ROOT, 'brand/email-signature.html'), signatureHtml(name));
+}
+
+// The JK GIF shows at 64x60 and its ink runs from y=6 to y=54 (DECISIONS.md 2026-11-27: nothing
+// in the signature goes past the JK's top or bottom). The name's ink starts on the JK's top, and
+// the tagline and links, two 14px lines, end on its bottom.
+const JK_INK = { top: 6, bottom: 54 };
+const SIGNATURE_LINE = 14;
+export function signatureLayout(nameHeight) {
+	const gap = JK_INK.bottom - JK_INK.top - nameHeight - 2 * SIGNATURE_LINE;
+	if (gap < 0) throw new Error(`The ${nameHeight}px name leaves no room inside the JK's height`);
+	return { paddingTop: JK_INK.top, gap };
+}
+
+// Joe's name in his oil pastel hand (DECISIONS.md 2026-11-27): it writes on left to right in about
+// a second, on twos like the diagram callouts, then boils on the JK's three 120ms frames for 10 s (30 s made a 240 KB GIF)
+// and rests. A GIF can only loop whole, so looping would rewrite the name every time; it plays once.
+async function writeSignatureName(dir) {
+	const font = readFileSync(join(ROOT, 'brand/source/joe-pastel-signature.woff2')).toString(
+		'base64',
+	);
+	const render = async (features, reveal) => {
+		await page.setViewportSize({ width: 400, height: 100 });
+		await page.setContent(
+			`<style>@font-face{font-family:P;src:url(data:font/woff2;base64,${font})}body{margin:0}#n{display:inline-block;padding:12px;font:48px/1 P;color:${PINK};white-space:nowrap;font-feature-settings:${features};clip-path:inset(0 ${100 - reveal}% 0 0)}</style><div id="n">Joe Karlsson</div>`,
+		);
+		await page.evaluate(() => document.fonts.ready);
+		return page.locator('#n').screenshot({ omitBackground: true });
+	};
+	const boil = ['normal', '"ss01"', '"ss02"'];
+	const writeSteps = 13;
+	const frames = [await render(boil[0], 0)];
+	const delay = [400];
+	for (let step = 1; step <= writeSteps; step++) {
+		frames.push(await render(boil[0], (100 * step) / writeSteps));
+		delay.push(85);
+	}
+	const boilFrames = [];
+	for (const features of boil) boilFrames.push(await render(features, 100));
+	for (let cycle = 0; cycle < 28; cycle++)
+		for (const frame of boilFrames) {
+			frames.push(frame);
+			delay.push(120);
+		}
+	// Crop every frame to the ink all three boil frames cover, so the image is the name and nothing else
+	let box;
+	for (const frame of boilFrames) {
+		const { data, info } = await sharp(frame)
+			.ensureAlpha()
+			.raw()
+			.toBuffer({ resolveWithObject: true });
+		for (let y = 0; y < info.height; y++)
+			for (let x = 0; x < info.width; x++) {
+				if (data[(y * info.width + x) * 4 + 3] < 16) continue;
+				box ??= { left: x, top: y, right: x, bottom: y };
+				box = {
+					left: Math.min(box.left, x),
+					top: Math.min(box.top, y),
+					right: Math.max(box.right, x),
+					bottom: Math.max(box.bottom, y),
+				};
+			}
+	}
+	if (!box) throw new Error('The signature name rendered no ink: did the font load?');
+	// Even pixel sizes, so the GIF shows at exactly half
+	const width = Math.ceil((box.right - box.left + 1) / 2) * 2;
+	const height = Math.ceil((box.bottom - box.top + 1) / 2) * 2;
+	const cropped = await Promise.all(
+		frames.map((frame) =>
+			sharp(frame).extract({ left: box.left, top: box.top, width, height }).png().toBuffer(),
+		),
+	);
+	await sharp(cropped, { join: { animated: true } })
+		.gif({ delay, loop: 1 })
+		.toFile(join(dir, 'name.gif'));
+	return { width: width / 2, height: height / 2 };
+}
+
+// The signature Joe pastes into Gmail: open brand/email-signature.html, select all, copy, paste
+function signatureHtml(name) {
+	const { paddingTop, gap } = signatureLayout(name.height);
+	const base = 'https://www.joekarlsson.com/email/signature';
+	const link = (href, text, bold) =>
+		`<a href="${href}" style="color:#111111;text-decoration:none${bold ? ';font-weight:bold' : ''}">${text}</a>`;
+	const bar = '<span style="color:#bbbbbb">|</span>';
+	const line = `font-size:12px;line-height:${SIGNATURE_LINE}px;mso-line-height-rule:exactly;white-space:nowrap`;
+	return `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Gmail signature</title></head>
+<body style="margin:24px;font-family:Arial,Helvetica,sans-serif">
+<p style="color:#888;font-size:13px">Select all, copy, and paste into Gmail: Settings, General, Signature. Written by npm run brand.</p>
+<table cellpadding="0" cellspacing="0" border="0" width="440" style="width:440px;font-family:Arial,Helvetica,sans-serif"><tr><td>
+<table cellpadding="0" cellspacing="0" border="0"><tr>
+<td style="padding-right:12px;vertical-align:top;height:60px"><img src="${base}/jk.gif" width="64" height="60" alt="JK" style="display:block"></td>
+<td style="vertical-align:top;padding-top:${paddingTop}px">
+<img src="${base}/name.gif" width="${name.width}" height="${name.height}" alt="Joe Karlsson" style="display:block">
+<div style="${line};margin-top:${gap}px;color:#555555">Technology is better when it's weird and it's yours.</div>
+<div style="${line}">${link('https://www.joekarlsson.com/', 'joekarlsson.com', true)} ${bar} ${link('https://www.joekarlsson.com/newsletter/', 'Newsletter')} ${bar} ${link('https://bsky.app/profile/joekarlsson.com', 'Bluesky')} ${bar} ${link('https://www.linkedin.com/in/joekarlsson/', 'LinkedIn')} ${bar} ${link('https://www.youtube.com/joekarlsson', 'YouTube')}</div>
+</td></tr></table>
+</td></tr>
+<tr><td style="padding-top:8px"><img src="${base}/squiggle.gif" width="440" height="20" alt="" style="display:block"></td></tr></table>
+</body></html>
+`;
 }
 
 async function main() {
