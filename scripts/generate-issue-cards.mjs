@@ -36,7 +36,6 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { cardAlt, cardContent, setFrontmatterFields, splitIssue } from './issue-card-content.mjs';
 import { FPS, cardPose, frameCount } from './issue-card-motion.mjs';
-import { CRAYON_FILTER } from '../src/data/scribbles.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const ISSUES_DIR = join(ROOT, 'src/content/newsletter');
@@ -128,7 +127,7 @@ function photoDataUri(photo) {
 	return `data:image/${type};base64,${readFileSync(file).toString('base64')}`;
 }
 
-function cardHtml(content, MARKS) {
+function cardHtml(content, MARKS, CRAYON_FILTER) {
 	let right;
 	if (content.photo) {
 		right = `<div class="photo"><img src="${photoDataUri(content.photo)}" alt=""></div>${markSvg(MARKS, 'box', 'right:50px;top:9px;width:410px;height:612px', 6, true)}`;
@@ -294,7 +293,9 @@ async function main() {
 		throw new Error('ffmpeg is needed for the animated cards (brew install ffmpeg)');
 	}
 
-	const [{ chromium }, { default: sharp }, { MARKS }] = await Promise.all([
+	// scribbles.ts loads only when a card is drawn, so another session's half-edited marks
+	// can't break every commit's pre-commit hook
+	const [{ chromium }, { default: sharp }, { MARKS, CRAYON_FILTER }] = await Promise.all([
 		import('playwright'),
 		import('sharp'),
 		import('../src/data/scribbles.ts'),
@@ -308,7 +309,7 @@ async function main() {
 			const { slug } = issue.data;
 			const content = cardContent(issue);
 			const alt = cardAlt(content, issue.data);
-			await page.setContent(cardHtml(content, MARKS), { waitUntil: 'networkidle' });
+			await page.setContent(cardHtml(content, MARKS, CRAYON_FILTER), { waitUntil: 'networkidle' });
 			// A face only downloads once something asks for it, so ask for each one the card uses
 			const fontsLoaded = await page.evaluate(async () => {
 				const faces = ['40px Anton', '600 20px "Hanken Grotesk"', '700 22px "Hanken Grotesk"'];
