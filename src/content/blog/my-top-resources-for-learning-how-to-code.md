@@ -2,6 +2,7 @@
 title: 'So, You Want To Learn How To Code? Here’s What You Need To Know.'
 seoTitle: 'So, You Want to Learn How to Code?'
 date: 2018-01-26
+updatedDate: 2026-11-27
 slug: 'my-top-resources-for-learning-how-to-code'
 description: 'Want to learn how to code? These are my favorite programming books, talks, podcasts, newsletters and websites, plus general tips for getting started.'
 categories: ['Career']
@@ -35,7 +36,7 @@ If you are learning to code because you are looking to make a career change, the
 
 Okay, so now you know WHY you want to get into coding, but now you need to pick a programming language to learn. Which one is right for you? If you were to Google, “Best programming language,” you will likely stumble into a StackOverflow or Reddit flame war with people shouting very loud and confidently that their programming language is the best and everyone else’s sucks.
 
-Here’s my take on this. The top three most used programming languages in the world are:
+Here’s my take on this. These are the three I’d pick between:
 
 - **Java** is typically used at bigger or more “enterprise” type companies and projects. It’s going to be server and back-end heavy. It’s a safe pick, as Java has been around forever and it remains very stable.
 
@@ -55,45 +56,44 @@ If you don’t mind practicing solo, check out [The Odin Project](https://www.th
 
 Other great options:
 
-- [udemy.com](https://www.udemy.com/), [pluralsight.com](https://www.pluralsight.com/), [lynda.com](https://www.lynda.com/) to do free and paid online code courses.
+- [udemy.com](https://www.udemy.com/) and [pluralsight.com](https://www.pluralsight.com/) for free and paid online code courses.
 
 - [egghead.io](https://egghead.io/) to learn the best JavaScript tools and frameworks from industry pros.
 
-- [alligator.io](https://alligator.io/) to quickly understand seemingly-difficult frontend code concepts.
-
-- [leanpub.com](https://leanpub.com) to easily write, publish and sell in-progress and completed eBooks and online courses.
+- [Frontend Masters](https://frontendmasters.com) for in-depth front-end and JavaScript courses.
 
 ## Just start building something
 
 My personal favorite way to learn something is to jump in and try to build something. Start with something like a new personal blog or a Twitter clone and start Googling until you figure it out. This has been my way of learning to code, but it’s not for everyone. I just struggle to stay awake while reading books or watching YouTube videos and I find that I haven’t fully grokked a subject till I’ve actually done something for myself.
 
+## Learning to code with AI agents
+
+AI coding agents like Claude Code, Cursor and GitHub Copilot can build a working app from a one-sentence prompt now. That's great when you already know what good code looks like. When you're learning, it's a trap: you end up with a project you can't debug, extend or explain in an interview.
+
+So use the agent as a tutor, not a ghostwriter:
+
+- **Write it yourself first.** When you get stuck, ask the agent to explain what's wrong instead of letting it fix it for you.
+- **Ask why.** When it hands you code, have it walk you through each line until you could explain it to someone else.
+- **Read every change it makes.** Treat its code like a pull request from a confident stranger. It's right a lot, and when it's wrong it still looks right.
+- **Build something without it.** Every so often, make a small project with the AI turned off, so you know what you can actually do on your own.
+
+I wrote more about how I build with agents in [Rereading Hackers and Painters as a painter who codes with AI agents](/blog/hackers-and-painters-ai-agents/).
+
 ## Other ideas
 
-- Try one of those kids toys that help kids learn to code - they look awesome! Something like:
+- Try one of those toys that help kids learn to code, like [Piper](https://www.playpiper.com/products). They look awesome!
 
-- https://www.playpiper.com/products
+- Build a Slack or Alexa bot.
 
-- Build a Slack or Alexa bot
-
-Feel free to check out my projects and blog, if you need some inspiration:
-
-> [Work](https://www.joekarlsson.com/work/)
-
-## Communities
-
-- [Smashing Magazine](https://www.smashingmagazine.com/) - Useful front-end & UX tips, delivered once a week.
-
-- [Frontend Masters](https://frontendmasters.com) - Advance Your Skills with In-Depth, Modern Front-End Engineering Courses
-
-- [css-tricks](https://css-tricks.com) - Learn everything about CSS . Period.
-
-- [javascript.com](https://www.javascript.com) - Start learning about JavaScript .
+If you need some inspiration, [my projects](/work/) are all on the site, with the code for most of them.
 
 ## Websites
 
 Listed below are some of my favorite ways to stay up to date. I hope that you can use them as you start your journey into the world of programming. Best of luck!
 
 - [Mozilla Developer Network](https://developer.mozilla.org/en-US/) for frontend (Html, CSS, Js, etc.) code reference and learning. This will be your code holy book and you should follow it religiously!
+
+- [Smashing Magazine](https://www.smashingmagazine.com/) for useful front-end and UX tips.
 
 - [web.dev](https://web.dev) to learn about web fundamentals from Google Developers.
 
@@ -103,23 +103,9 @@ Listed below are some of my favorite ways to stay up to date. I hope that you ca
 
 - [javascript.com](https://www.javascript.com) to start learning about Javascript.
 
-- [freecodecamp.org](https://www.freecodecamp.org) to build frontend projects and collaborate with the community.
-
-- [codecademy.com](https://www.codecademy.com), [udemy.com](https://www.udemy.com/), [pluralsight.com](https://www.pluralsight.com/), [lynda.com](https://www.lynda.com/) to do free and paid online code courses.
-
-- [egghead.io](https://egghead.io/) to learn the best JavaScript tools and frameworks from industry pros.
-
-- [alligator.io](https://alligator.io/) to quickly understand seemingly-difficult frontend code concepts.
-
-- [leanpub.com](https://leanpub.com) to easily write, publish and sell in-progress and completed ebooks and online courses.
-
 - [frontendfront.com](https://frontendfront.com) to stay updated with the latest web news, trends and conferences happening all over the world.
 
-- [medium.com](https://medium.com) to discover, read and write related articles.
-
 - [twitter.com](https://twitter.com), [instagram.com](https://www.instagram.com) to follow people you like, discover what they do and share your work.
-
-- [producthunt.com](https://www.producthunt.com) to discover and submit new products.
 
 - [codepen.io](https://codepen.io/) to build, test and discover frontend code.
 
@@ -131,7 +117,7 @@ Listed below are some of my favorite ways to stay up to date. I hope that you ca
 
 ## Newsletters
 
-- Changelog - [Weekly]
+- [Changelog News](https://changelog.com/news) - [Weekly]
 
 - [FullStack Bulletin](https://fullstackbulletin.com/) - [Weekly]
 
@@ -149,39 +135,31 @@ Listed below are some of my favorite ways to stay up to date. I hope that you ca
 
 - [Node Weekly](https://nodeweekly.com/) - [Weekly]
 
-- Pony Foo - [Weekly]
-
 - [CSS Weekly](http://css-weekly.com/) - [Weekly]
 
-- [Codepen Spark](https://codepen.io/spark/) - [Weekly]
+- [Codepen Spark](https://codepen.io/spark/) - [Weekly]
 
-- [CSS Tricks](https://css-tricks.com/) - [Weekly]
+- [Codrops](https://tympanus.net/codrops/) - [Weekly]
 
-- [Codrops](https://tympanus.net/codrops/) - [Weekly]
-
-- [Web Tools Weekly](https://webtoolsweekly.com/) - [Weekly]
+- [Web Tools Weekly](https://webtoolsweekly.com/) - [Weekly]
 
 - [O’Reilly Newsletters](http://www.oreilly.com/emails/newsletters/index.html) - [Weekly]
 
-- [Javascript weekly](http://javascriptweekly.com/) - [Weekly]
+- [React Status](https://react.statuscode.com/) - [Weekly]
 
-- [React Status](https://react.statuscode.com/) - [Weekly]
+- [WDRL Newsletter](https://wdrl.info/) - [Weekly]
 
-- [WDRL Newsletter](https://wdrl.info/) - [Weekly]
+- [Frontend Focus](https://frontendfoc.us/) - [Weekly]
 
-- [Responsive Design Weekly](http://responsivedesignweekly.com/) - [Weekly]
-
-- [Frontend Focus](https://frontendfoc.us/) - [Weekly]
-
-- [Smashing Mag newsletter](https://www.smashingmagazine.com/) - [Weekly]
+- [Smashing Magazine newsletter](https://www.smashingmagazine.com/) - [Weekly]
 
 ## Podcasts
 
-- [The Changelog](https://web.archive.org/web/20150323080652/http://thechangelog.com:80/podcast/) - [Twice a Month] - Interview
+- [The Changelog](https://changelog.com/podcast) - [Twice a Month] - Interview
 
-- [Syntax ](https://syntax.fm/)- [Weekly] - Interview
+- [Syntax](https://syntax.fm/) - [Weekly] - Interview
 
-- [Hanselminutes ](https://hanselminutes.com/)- [Weekly] - Interview - Fresh Tech Talk from Fresh Faces
+- [Hanselminutes](https://hanselminutes.com/) - [Weekly] - Interview - Fresh Tech Talk from Fresh Faces
 
 - [Code Newbie](http://www.codenewbie.org/podcast) - [Weekly] - Interview, Beginner
 
@@ -189,176 +167,170 @@ Listed below are some of my favorite ways to stay up to date. I hope that you ca
 
 - [IoT Podcast](https://iotpodcast.com/) - Internet of Things
 
-- [Software Engineering Daily](https://www.feedspot.com/infiniterss.php?_src=feed_title&followfeedid=5015752&q=site:https%3A%2F%2Fsoftwareengineeringdaily.com%2Ffeed%2Fpodcast) - [5 episodes / week] 
+- [Software Engineering Daily](https://softwareengineeringdaily.com/) - [Several a week]
 
-- [Soft Skills Engineering Podcast](https://www.feedspot.com/infiniterss.php?_src=feed_title&followfeedid=4954279&q=site:https%3A%2F%2Fsoftskills.audio%2Ffeed.xml) - [Weekly]
+- [Soft Skills Engineering Podcast](https://softskills.audio/) - [Weekly]
 
-- [Front End Happy Hour](https://www.feedspot.com/infiniterss.php?_src=feed_title&followfeedid=4622344&q=site:http%3A%2F%2Ffeeds.soundcloud.com%2Fusers%2Fsoundcloud%3Ausers%3A206137365%2Fsounds.rss) - [Twice a Month]
+- [Front End Happy Hour](https://www.frontendhappyhour.com/) - [Twice a Month]
 
-- [Full Stack Radio](https://www.feedspot.com/infiniterss.php?_src=feed_title&followfeedid=4954070&q=site:https%3A%2F%2Frss.simplecast.com%2Fpodcasts%2F279%2Frss) - [Twice quarterly] - Interview
+- [Full Stack Radio](https://fullstackradio.com/) - [Twice quarterly] - Interview
 
-- The freeCodeCamp Podcast - [Weekly] - Interview
+- The freeCodeCamp Podcast - [Weekly] - Interview
 
-- [The Stack Overflow ](https://stackoverflow.blog/podcast/)- [Weekly] - Interview
+- [The Stack Overflow Podcast](https://stackoverflow.blog/podcast/) - [Weekly] - Interview
 
 ## Twitch
 
-- [Handmade_hero](https://www.twitch.tv/handmade_hero) - 34.9K followers
+- [Handmade_hero](https://www.twitch.tv/handmade_hero)
 
-- [Noopkat ](https://www.twitch.tv/noopkat)- 28.5K followers
+- [Noopkat](https://www.twitch.tv/noopkat)
 
 - [Awesome Developer Streams Awesome](https://github.com/bnb/awesome-developer-streams)
 
 ## YouTube
 
-- [Computerphile](https://www.youtube.com/channel/UC9-y-6csu5WGm29I7JiwpnA) - 1.88M subscribers
+- [Computerphile](https://www.youtube.com/channel/UC9-y-6csu5WGm29I7JiwpnA)
 
-- [Anna Lytical](https://www.youtube.com/channel/UCK-XsdHry-tJ2IsNOHTGdcA) - 6.79K subscribers
+- [Anna Lytical](https://www.youtube.com/channel/UCK-XsdHry-tJ2IsNOHTGdcA)
 
-- [Scott Hanselman](https://www.youtube.com/channel/UCL-fHOdarou-CR2XUmK48Og) - 121K subscribers
+- [Scott Hanselman](https://www.youtube.com/channel/UCL-fHOdarou-CR2XUmK48Og)
 
-- [Fun Fun Function](https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q) - 251K subscribers
+- [Fun Fun Function](https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q)
 
-- [Microsoft Developer](https://www.youtube.com/channel/UCsMica-v34Irf9KVTh6xx-g) - 286K subscribers
+- [Microsoft Developer](https://www.youtube.com/channel/UCsMica-v34Irf9KVTh6xx-g)
 
-- [Michael Reeves](https://www.youtube.com/channel/UCtHaxi4GTYDpJgMSGy7AeSw) - 5.92M subscribers
+- [Michael Reeves](https://www.youtube.com/channel/UCtHaxi4GTYDpJgMSGy7AeSw)
 
 ## Conferences
 
 - [Open Source North](https://opensourcenorth.com/) - Minneapolis, MN
 
-- [HalfStack ](https://halfstackconf.com/)- London, United Kingdom
+- [HalfStack](https://halfstackconf.com/) - London, United Kingdom
 
-- [JSConf ](https://jsconf.com/)- Multiple
-
-- [JSFoo ](https://jsfoo.in/)- Bangalore, India
+- [JSConf](https://jsconf.com/) - Multiple
 
 - [VueConf US](https://web.archive.org/web/20260722063701/http://vueconf.us/) - Austin, USA
 
-- [OpenJS World](https://openjsf.org/blog/2020/01/28/introducing-openjs-world/) - Austin, TX
-
 - [React Week](https://web.archive.org/web/20230112204608/https://www.reactweek.nyc/) - New York, New York
 
-- [CityJS ](https://cityjsconf.org/)- London, U.K.
+- [CityJS](https://cityjsconf.org/) - London, U.K.
 
-- [JSNation ](https://jsnation.com/)- Amsterdam, Netherlands
+- [JSNation](https://jsnation.com/) - Amsterdam, Netherlands
 
-- [DinosaurJS ](https://dinosaurjs.org/)- Denver, CO
-
-- [ConFoo ](https://confoo.ca/en)-  Montreal, CA
+- [ConFoo](https://confoo.ca/en) - Montreal, CA
 
 ## Books
 
 If you want to hear more about my thoughts on CS fundamentals and finding your place in tech, check out my talk [The Art of Computer Science](/talks/the-art-of-computer-science/).
 
-- [Introduction to Algorithms](http://mitpress.mit.edu/books/introduction-algorithms) by Cormen, Leiserson, Rivest & Stein
+- [Introduction to Algorithms](http://mitpress.mit.edu/books/introduction-algorithms) by Cormen, Leiserson, Rivest & Stein
 
-- [Design Patterns](http://c2.com/cgi/wiki?DesignPatternsBook) by the Gang of Four
+- [Design Patterns](https://wiki.c2.com/?DesignPatternsBook) by the Gang of Four
 
-- [The Art of Computer Programming](https://www-cs-faculty.stanford.edu/~knuth/taocp.html) by Donald Knuth
+- [The Art of Computer Programming](https://www-cs-faculty.stanford.edu/~knuth/taocp.html) by Donald Knuth
 
-- [Gödel, Escher, Bach](http://www.amazon.com/G%C3%B6del-Escher-Bach-Eternal-Golden/dp/0465026567) by Douglas Hofstadter
+- [Gödel, Escher, Bach](http://www.amazon.com/G%C3%B6del-Escher-Bach-Eternal-Golden/dp/0465026567) by Douglas Hofstadter
 
-- [Hackers: Heroes of the Computer Revolution](https://www.gutenberg.org/ebooks/729) by Steven Levy (free ebook)
+- [Hackers: Heroes of the Computer Revolution](https://www.gutenberg.org/ebooks/729) by Steven Levy (free ebook)
 
-- [JavaScript - The Good Parts](http://javascript.crockford.com/) by Douglas Crockford
+- [JavaScript - The Good Parts](https://www.crockford.com/javascript/) by Douglas Crockford
 
-- [Zen and the Art of Motorcycle Maintenance](http://www.amazon.com/Zen-Art-Motorcycle-Maintenance-Inquiry/dp/0060589469) by Robert M. Pirsig
+- [Zen and the Art of Motorcycle Maintenance](http://www.amazon.com/Zen-Art-Motorcycle-Maintenance-Inquiry/dp/0060589469) by Robert M. Pirsig
 
-- [The Tao of Programming](http://www.canonical.org/~kragen/tao-of-programming.html) by Geoffrey James (free ebook)
+- [The Tao of Programming](http://www.canonical.org/~kragen/tao-of-programming.html) by Geoffrey James (free ebook)
 
-- [The Productive Programmer](http://nealford.com/books/productiveprogrammer) by Neil Ford
+- [The Productive Programmer](http://nealford.com/books/productiveprogrammer) by Neil Ford
 
-- [Introduction to Functional Programming](http://www.cs.ox.ac.uk/publications/publication2613-abstract.html) by Richard Bird
+- [Introduction to Functional Programming](http://www.cs.ox.ac.uk/publications/publication2613-abstract.html) by Richard Bird
 
-- [Express.js Guide](https://web.archive.org/web/20140621124403/https://leanpub.com/express/read) - Azat Mardanov _(Leanpub)_
+- [Express.js Guide](https://web.archive.org/web/20140621124403/https://leanpub.com/express/read) - Azat Mardanov _(Leanpub)_
 
-- [High Performance Browser Networking](http://chimera.labs.oreilly.com/books/1230000000545/index.html) - Ilya Grigorik
+- [High Performance Browser Networking](https://hpbn.co/) - Ilya Grigorik
 
 ## Talks
 
-(There is another great list of talks about JS to be found [here](https://github.com/bolshchikov/js-must-watch))
+(There is another great list of talks about JS to be found [here](https://github.com/bolshchikov/js-must-watch))
 
 You can check out my Top Tech Talks of all time here:
 
 > [The Tech Talks That Have Had The Biggest Impact On My Career](/blog/the-tech-talks-that-have-had-the-biggest-impact-on-my-career/)
 
-- [Node.js in 20 Minutes](https://www.youtube.com/watch?v=mq6uCM4ynpc) [00:23:08] by **Edmond Meinfelder**
+- [Node.js in 20 Minutes](https://www.youtube.com/watch?v=mq6uCM4ynpc) [00:23:08] by **Edmond Meinfelder**
 
-- [Crockford on JavaScript](https://www.youtube.com/playlist?list=PL7664379246A246CB) by **Douglas Crockford** (it’s 10 hours long!)
+- [Crockford on JavaScript](https://www.youtube.com/playlist?list=PL7664379246A246CB) by **Douglas Crockford** (it’s 10 hours long!)
 
 <!-- vale JoeKarlsson.FillerWords = NO -->
 
-- [Really. JavaScript.](https://www.youtube.com/watch?v=lTWGoL1N-Kc) [00:46:10] by **Douglas Crockford**
+- [Really. JavaScript.](https://www.youtube.com/watch?v=lTWGoL1N-Kc) [00:46:10] by **Douglas Crockford**
 
 <!-- vale JoeKarlsson.FillerWords = YES -->
 
-- [Monads and Gonads](https://www.youtube.com/watch?v=b0EF0VTs9Dc) [00:49:48] by **Douglas Crockford**
+- [Monads and Gonads](https://www.youtube.com/watch?v=b0EF0VTs9Dc) [00:49:48] by **Douglas Crockford**
 
-- [Introduction to Node.js](https://web.archive.org/web/20170630043547/https://yuiblog.com/blog/2010/05/20/video-dahl/) [00:58:18] by **Ryan Dahl**
+- [Introduction to Node.js](https://web.archive.org/web/20170630043547/https://yuiblog.com/blog/2010/05/20/video-dahl/) [00:58:18] by **Ryan Dahl**
 
-- [Is Node.js Better](https://www.youtube.com/watch?v=C5fa1LZYodQ) [00:41:43] by **Brian Ford**
+- [Is Node.js Better](https://www.youtube.com/watch?v=C5fa1LZYodQ) [00:41:43] by **Brian Ford**
 
-- [Creating A Scalable JavaScript Application Architecture](https://www.youtube.com/watch?v=b5pFv9NB9fs) [00:41:54] by **Nicholas Zakas**
+- [Creating A Scalable JavaScript Application Architecture](https://www.youtube.com/watch?v=b5pFv9NB9fs) [00:41:54] by **Nicholas Zakas**
 
-- [Large Scale JavaScript Application Architecture](https://www.youtube.com/watch?v=kNrnRG1YgAQ) [00:50:40] by **Dan Lynch**
+- [Large Scale JavaScript Application Architecture](https://www.youtube.com/watch?v=kNrnRG1YgAQ) [00:50:40] by **Dan Lynch**
 
-- Dissecting WebGL [01:11:04] by **Justin Windle** (you might want to take a look at [the slides](https://github.com/hugeinc/doctype-meetup/tree/master/dissecting-webgl), you cannot see them well)
+- Dissecting WebGL [01:11:04] by **Justin Windle** (you might want to take a look at [the slides](https://github.com/hugeinc/doctype-meetup/tree/master/dissecting-webgl), you cannot see them well)
 
-- [What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ) [00:26:53] by **Philip Roberts**
+- [What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ) [00:26:53] by **Philip Roberts**
 
-- [Functional programming patterns for the non-mathematician](https://www.youtube.com/watch?v=AvgwKjTPMmM) [00:29:58] by **Brian Lonsdorf** (beware; the pace is somewhat high)
+- [Functional programming patterns for the non-mathematician](https://www.youtube.com/watch?v=AvgwKjTPMmM) [00:29:58] by **Brian Lonsdorf** (beware; the pace is somewhat high)
 
 <!-- vale JoeKarlsson.BannedWords = NO -->
 
-- [Hey Underscore, You’re Doing It Wrong!](https://www.youtube.com/watch?v=m3svKOdZijA) [00:36:31] by **Brian Lonsdorf**
+- [Hey Underscore, You’re Doing It Wrong!](https://www.youtube.com/watch?v=m3svKOdZijA) [00:36:31] by **Brian Lonsdorf**
 
 <!-- vale JoeKarlsson.BannedWords = YES -->
 
-- [Immutability, interactivity & JavaScript](https://www.youtube.com/watch?v=mS264h8KGwk) [00:26:20] by **David Nolen**
+- [Immutability, interactivity & JavaScript](https://www.youtube.com/watch?v=mS264h8KGwk) [00:26:20] by **David Nolen**
 
-- [Classical Inheritance is Obsolete - How to Think in Prototypal OO](https://vimeo.com/69255635) [00:43:18] by **Eric Elliott**
+- [Classical Inheritance is Obsolete - How to Think in Prototypal OO](https://vimeo.com/69255635) [00:43:18] by **Eric Elliott**
 
-- [j2me.js - a multi-threaded Java VM in JavaScript](https://www.youtube.com/watch?v=I7hZ8I9G5KA) [00:44:10] by **Andreas Gal**
+- [j2me.js - a multi-threaded Java VM in JavaScript](https://www.youtube.com/watch?v=I7hZ8I9G5KA) [00:44:10] by **Andreas Gal**
 
-- [If you wish to learn ES6/2015 from scratch, you must first invent the universe](https://www.youtube.com/watch?v=DN4yLZB1vUQ) [00:25:49] by **Ashley Williams**
+- [If you wish to learn ES6/2015 from scratch, you must first invent the universe](https://www.youtube.com/watch?v=DN4yLZB1vUQ) [00:25:49] by **Ashley Williams**
 
-- [Constraint programming in the browser](https://www.youtube.com/watch?v=72sWgwaAoyk) [00:28:15] by **Adam Solove**
+- [Constraint programming in the browser](https://www.youtube.com/watch?v=72sWgwaAoyk) [00:28:15] by **Adam Solove**
 
-- [Benchmarking JavaScript](https://www.youtube.com/watch?v=g0ek4vV7nEA) [00:40:54] by **Vyacheslav Egorov**
+- [Benchmarking JavaScript](https://www.youtube.com/watch?v=g0ek4vV7nEA) [00:40:54] by **Vyacheslav Egorov**
 
-- [ECMAScript 6 & Web Components](https://www.youtube.com/watch?v=2w4sRkTnhPM) [00:36:11] by **Brian LeRoux**
+- [ECMAScript 6 & Web Components](https://www.youtube.com/watch?v=2w4sRkTnhPM) [00:36:11] by **Brian LeRoux**
 
-- [Improving Your Workflow With Code Transformation](https://www.youtube.com/watch?v=OFuDvqZmUrE) [00:30:18] by **Sebastian McKenzie**
+- [Improving Your Workflow With Code Transformation](https://www.youtube.com/watch?v=OFuDvqZmUrE) [00:30:18] by **Sebastian McKenzie**
 
-- [Go To There and Back Again](http://vimeo.com/78893726) [00:49:06] by **Douglas Crockford**
+- [Go To There and Back Again](http://vimeo.com/78893726) [00:49:06] by **Douglas Crockford**
 
-- [The Birth & Death of JavaScript](https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript) [00:28:44] by **Gary Bernhardt**
+- [The Birth & Death of JavaScript](https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript) [00:28:44] by **Gary Bernhardt**
 
-- [Community.js](https://www.youtube.com/watch?v=23Yxji-tEfc) [00:21:40] by **Chris Williams**
+- [Community.js](https://www.youtube.com/watch?v=23Yxji-tEfc) [00:21:40] by **Chris Williams**
 
-- [An End to Negativity](https://www.youtube.com/watch?v=17rkSdkc5TI) [00:27:26] by **Chris Williams**
+- [An End to Negativity](https://www.youtube.com/watch?v=17rkSdkc5TI) [00:27:26] by **Chris Williams**
 
-- [Life is Terrible: Let’s Talk About the Web](http://vimeo.com/111122950) [00:32:07] by **James Mickens**
+- [Life is Terrible: Let’s Talk About the Web](http://vimeo.com/111122950) [00:32:07] by **James Mickens**
 
-- [Virtual Machines, JavaScript and Assembler](https://www.youtube.com/watch?v=UzyoT4DziQ4) [00:25:57] by **Scott Hanselmann**
+- [Virtual Machines, JavaScript and Assembler](https://www.youtube.com/watch?v=UzyoT4DziQ4) [00:25:57] by **Scott Hanselmann**
 
-- [Delivering the goods](https://www.youtube.com/watch?v=R8W_6xWphtw) [00:23:25] by **Paul Irish**
+- [Delivering the goods](https://www.youtube.com/watch?v=R8W_6xWphtw) [00:23:25] by **Paul Irish**
 
-- [Parallax Performance](https://www.youtube.com/watch?v=R6TXuXV1bbY) [00:32:01] by **Paul Irish**
+- [Parallax Performance](https://www.youtube.com/watch?v=R6TXuXV1bbY) [00:32:01] by **Paul Irish**
 
-- [React: Rethinking best practices](https://www.youtube.com/watch?v=x7cQ3mrcKaY) [00:29:32] by **Pete Hunt**
+- [React: Rethinking best practices](https://www.youtube.com/watch?v=x7cQ3mrcKaY) [00:29:32] by **Pete Hunt**
 
-- [React: RESTful UI Rendering](https://www.youtube.com/watch?v=IVvHPPcl2TM) [00:36:15] by **Pete Hunt**
+- [React: RESTful UI Rendering](https://www.youtube.com/watch?v=IVvHPPcl2TM) [00:36:15] by **Pete Hunt**
 
-- [Hacker Way: Rethinking Web App Development at Facebook](https://www.youtube.com/watch?v=nYkdrAPrdcw) [00:44:36] by **Tom Occhino, Jing Chen & Pete Hunt** (it starts pretty slow and marketingy, but gets much better over time)
+- [Hacker Way: Rethinking Web App Development at Facebook](https://www.youtube.com/watch?v=nYkdrAPrdcw) [00:44:36] by **Tom Occhino, Jing Chen & Pete Hunt** (it starts pretty slow and marketingy, but gets much better over time)
 
-- [Immutability: Putting The Dream Machine To Work](https://www.youtube.com/watch?v=SiFwRtCnxv4) [00:22:06] by **David Nolen**
+- [Immutability: Putting The Dream Machine To Work](https://www.youtube.com/watch?v=SiFwRtCnxv4) [00:22:06] by **David Nolen**
 
-- [How I learned to Code by Making 180 websites in 180 days](https://www.youtube.com/watch?v=QaSbL4sRff8) [00:22:03] by **Jennifer De Walt**
+- [How I learned to Code by Making 180 websites in 180 days](https://www.youtube.com/watch?v=QaSbL4sRff8) [00:22:03] by **Jennifer De Walt**
 
-- [How NOT to Measure Latency](https://www.youtube.com/watch?v=lJ8ydIuPFeU) [00:42:59] by **Gil Tene**
+- [How NOT to Measure Latency](https://www.youtube.com/watch?v=lJ8ydIuPFeU) [00:42:59] by **Gil Tene**
 
-- [C10M - Defending The Internet At Scale](https://youtu.be/73XNtI0w7jA) [00:47:53] by **Robert Graham**
+- [C10M - Defending The Internet At Scale](https://youtu.be/73XNtI0w7jA) [00:47:53] by **Robert Graham**
 
-- [Upgrading the Web](https://www.youtube.com/watch?v=6UTWAEJlhww) [00:41:19] by **Douglas Crockford**
+- [Upgrading the Web](https://www.youtube.com/watch?v=6UTWAEJlhww) [00:41:19] by **Douglas Crockford**
