@@ -7,6 +7,7 @@
 // so hidden from assistive tech.
 import { RINGS } from '../data/scribbles';
 import { compactPath } from '../utils/compact-path';
+import { strokeSlices } from '../utils/stroke-slices';
 interface Props {
 	path: string;
 	color: string;
@@ -49,6 +50,7 @@ const strokes = path
 	.filter(Boolean)
 	.map(compactPath);
 const oneStrokeAtATime = !ring && strokes.length > 1;
+const slices = strokeSlices(strokes);
 // Hover rings are defined once in BaseLayout (#hover-ring-N) and drawn with <use>:
 // a full copy per row was a fifth of /uses' HTML
 const ringIndex = ring ? RINGS.indexOf(path) : -1;
@@ -68,11 +70,7 @@ if (ring && ringIndex < 0) throw new Error('Scribble: a ring must be one of RING
 		'pointer-events-none absolute overflow-visible',
 		className,
 	]}
-	style={
-		ring
-			? undefined
-			: `--dur:${duration};--del:${delay};--n:${strokes.length};--line:${strokeWidth}`
-	}
+	style={ring ? undefined : `--dur:${duration};--del:${delay};--line:${strokeWidth}`}
 	viewBox={viewBox}
 	preserveAspectRatio={ring || stretch ? 'none' : 'xMidYMid meet'}
 	aria-hidden="true"
@@ -89,7 +87,11 @@ if (ring && ringIndex < 0) throw new Error('Scribble: a ring must be one of RING
 			<use href={`#hover-ring-${ringIndex}`} />
 		) : (
 			strokes.map((d, i) => (
-				<path pathLength="1" d={d} style={oneStrokeAtATime ? `--i:${i}` : undefined} />
+				<path
+					pathLength="1"
+					d={d}
+					style={oneStrokeAtATime ? `--at:${slices[i].at};--share:${slices[i].share}` : undefined}
+				/>
 			))
 		)}
 	</g>

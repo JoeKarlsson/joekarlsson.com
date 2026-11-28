@@ -43,17 +43,28 @@
 	}
 }
 
-/* Multi-stroke marks (tallies, rays, hatching, bursts) draw like one pen: each
-   stroke takes 4.5% of the loop and starts as the one before it ends (Scribble
-   sets --i per stroke and --n strokes in all), all hold, then erase in the same
-   order. A mark with more than nine strokes (Joe's flower has 13) starts each one
-   sooner, so the last is in by 40% of the loop and the whole mark holds until the
-   erase at 80%; at a fixed beat it would never show complete. */
+/* Multi-stroke marks (tallies, rays, a coil in pieces) draw like one pen on the same beats
+   as a one-stroke scribble: drawn by 35% of the loop, held, erased from 85%. Every stroke
+   runs on one clock, --pen (0 to 1 drawing, 1 to 2 erasing), and draws only in its own
+   slice of it, sized by its length (--at, --share from src/utils/stroke-slices.ts), so the
+   pen keeps one speed. A fixed beat per stroke drew a long coil in a fraction of a second
+   and erased it in pieces. */
+@property --pen {
+	syntax: '<number>';
+	inherits: false;
+	initial-value: 0;
+}
 .redraw-strokes path {
 	stroke-dasharray: 1;
-	stroke-dashoffset: 1;
-	animation: redraw-stroke var(--dur, 7s)
-		calc(var(--del, 0s) + var(--i, 0) * var(--dur, 7s) * min(0.045, 0.4 / var(--n, 1))) infinite;
+	/* In px: Safari drops a unitless calc() here and shows the stroke fully drawn */
+	stroke-dashoffset: calc(
+		(
+				1 - clamp(0, (var(--pen) - var(--at, 0)) / var(--share, 1), 1) -
+					clamp(0, (var(--pen) - 1 - var(--at, 0)) / var(--share, 1), 1)
+			) *
+			1px
+	);
+	animation: redraw-stroke var(--dur, 7s) var(--del, 0s) cubic-bezier(0.45, 0.55, 0.3, 1) infinite;
 }
 
 /* A mark with `once` draws in like the rest, then stays: no hold-and-erase loop,
@@ -81,28 +92,24 @@
 
 @keyframes draw-stroke-in {
 	0% {
-		stroke-dashoffset: 1;
-		animation-timing-function: cubic-bezier(0.3, 0.6, 0.4, 1);
+		--pen: 0;
 	}
-	4.5%,
+	35%,
 	100% {
-		stroke-dashoffset: 0;
+		--pen: 1;
 	}
 }
 
 @keyframes redraw-stroke {
 	0% {
-		stroke-dashoffset: 1;
-		animation-timing-function: cubic-bezier(0.3, 0.6, 0.4, 1);
+		--pen: 0;
 	}
-	4.5%,
-	80% {
-		stroke-dashoffset: 0;
-		animation-timing-function: ease-in;
+	35%,
+	85% {
+		--pen: 1;
 	}
-	84%,
 	100% {
-		stroke-dashoffset: -1;
+		--pen: 2;
 	}
 }
 
