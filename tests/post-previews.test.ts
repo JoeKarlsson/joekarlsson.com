@@ -7,9 +7,13 @@ import { withoutLinkPreviews } from '../src/utils/feed-html.js';
 import { createMarkdownProcessor } from '@astrojs/markdown-remark';
 
 const blogDir = fs.mkdtempSync(path.join(os.tmpdir(), 'post-previews-'));
+// A real generated thumbnail, looked up because a redraw renames it (thumb-<hash>.webp)
+const thumb = fs
+	.readdirSync('public/images/blog/recording-setup-tour')
+	.find((f) => /^thumb-[0-9a-f]{8}\.webp$/.test(f));
 fs.writeFileSync(
 	path.join(blogDir, 'doom.md'),
-	"---\ntitle: 'I put an MCP server inside DOOM'\ndate: 2026-10-16T14:47:57Z\nheroImage: /images/blog/recording-setup-tour/thumb-44f25f59.webp\n---\nBody",
+	`---\ntitle: 'I put an MCP server inside DOOM'\ndate: 2026-10-16T14:47:57Z\nheroImage: /images/blog/recording-setup-tour/${thumb}\n---\nBody`,
 );
 fs.writeFileSync(path.join(blogDir, 'old.md'), '---\ntitle: Old post\ndate: 2015-01-02\n---\nBody');
 

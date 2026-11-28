@@ -80,7 +80,8 @@ const talks = await getCollection('talks');
 const talk = (slug: string) => {
 	const entry = talks.find((t) => t.data.slug === slug);
 	if (!entry) throw new Error(`Homepage talk "${slug}" is not in src/content/talks`);
-	return { title: entry.data.title, href: `/talks/${slug}/` };
+	// The poster follows the talk's heroImage, which the thumbnail generator renames on a redraw
+	return { title: entry.data.title, href: `/talks/${slug}/`, poster: entry.data.heroImage };
 };
 const spreadTalk = {
 	...talk('the-art-of-computer-science'),
@@ -101,7 +102,6 @@ const talkCards = [
 		...talk('an-introduction-to-iot-internet-of-toilets'),
 		kicker: 'My most-given talk',
 		clip: '/images/blog/an-introduction-to-iot-internet-of-toilets/stop_motion_intro-1024x683.mp4',
-		poster: '/images/blog/an-introduction-to-iot-internet-of-toilets/thumb-ec97a203.webp',
 		noInvert: false,
 	},
 ];
