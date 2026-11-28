@@ -1766,7 +1766,7 @@ export const projects: Project[] = curlEveryString(
 			title: 'Data Structures & Algorithms in JS',
 			description:
 				'Common data structures and algorithms implemented in JavaScript. Created as teaching material when I was an instructor at DevLeague. It covers linked lists, trees, graphs and sorting.',
-			image: '/images/projects/data-structures/thumb-bb1d89ad.webp',
+			image: '/images/projects/data-structures/thumb-c08eb31a.webp',
 			imageAlt:
 				'Three data structures drawn in chalk: a linked list of 3, 7 and 1 ending in null, a binary search tree with 8 at the root, and a stack with 5 being pushed on top',
 			date: '2016-06',
@@ -1778,7 +1778,8 @@ export const projects: Project[] = curlEveryString(
 			title: 'Guide to Client-Server Communication',
 			description:
 				'Every way a client and server communicate - HTTP, WebSockets, SSE, GraphQL and gRPC, each with examples.',
-			image: '/images/projects/client-server-communication/thumb-1d6d8b03.webp',
+			// node scripts/boiling-thumbnail.mjs public/images/blog/complete-guide-node-client-server-communication/transports.svg public/images/projects/client-server-communication --view 5,3,635,357
+			image: '/images/projects/client-server-communication/thumb-f9429a52.webp',
 			imageAlt:
 				'Three browser transports side by side, XHR polling, server-sent events and WebSocket, each a client and a server with hand-drawn arrows between them',
 			date: '2016-07',
@@ -1834,7 +1835,7 @@ export const projects: Project[] = curlEveryString(
 			title: 'Python Sudoku Generator & Solver',
 			description:
 				'A Python program that generates unique Sudoku boards at 4 difficulty levels, and solves them by backtracking.',
-			image: '/images/projects/sudoku-generator/thumb-d515f26f.webp',
+			image: '/images/projects/sudoku-generator/thumb-c56a3a9d.webp',
 			imageAlt:
 				'A Sudoku board drawn in chalk solving itself: the solver fills the blank cells in pink, a few at a time, as the count climbs from 30 to 81 and the board reads Solved',
 			date: '2015-04',
@@ -2025,7 +2026,7 @@ export const projects: Project[] = curlEveryString(
 			shareTitle: 'GPU Subtitle Generator: Whisper subtitles for a whole library, on shared GPUs',
 			description:
 				'Subtitles for a whole video library, written by Whisper on the GPUs my house already uses. Workers detect the language and translate to English, and they wait for free VRAM before each file.',
-			image: '/images/projects/gpu-subtitle-generator/thumb-08106819.webp',
+			image: '/images/projects/gpu-subtitle-generator/thumb-0fd74548.webp',
 			imageAlt:
 				"A playhead runs along a film's audio waveform as Whisper, on an NVIDIA GPU, writes each line of speech into an SRT file: They're coming to get you, Barbara",
 			date: '2026-02',
@@ -2091,7 +2092,7 @@ export const projects: Project[] = curlEveryString(
 			shareTitle: "MikroTik's binary router API in 137 lines of standard-library Python",
 			description:
 				"A Python client for MikroTik's binary router API, written from scratch so I could change my switch's bonds, DHCP and firewall rules from scripts instead of typing into SSH.",
-			image: '/images/projects/mikrotik-api-client/thumb-6cc55f0c.webp',
+			image: '/images/projects/mikrotik-api-client/thumb-c4506e11.webp',
 			imageAlt:
 				'A MikroTik API login sentence written to the wire one word at a time, /login, =name=admin and =password=secret, each with its length byte, then a zero byte, and RouterOS answering !done',
 			date: '2026-03',

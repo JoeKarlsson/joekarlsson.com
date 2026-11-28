@@ -14,7 +14,8 @@
 // --view crops the diagram to a 16:9 window of its own coordinates, so a taller
 // diagram can fill the card. --step sets how long each middle frame of an animation shows
 // (220ms by default): a few frames that each need reading want longer. Prints the new
-// file's path.
+// file's path. A redraw deletes the card it replaces and points src/ (projects.ts) at the
+// new one, so a card is never left showing the old drawing or pointing at a deleted file.
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import {
@@ -25,9 +26,10 @@ import {
 	renameSync,
 	rmSync,
 	statSync,
+	writeFileSync,
 } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, relative, resolve } from 'node:path';
 import { parseArgs } from 'node:util';
 import { chromium } from 'playwright';
 import sharp from 'sharp';
@@ -125,6 +127,18 @@ const page = `<!doctype html><html><head>
 <feDisplacementMap in="SourceGraphic" in2="w" scale="5"/></filter></svg>
 <div id="stage"></div></body></html>`;
 
+/** Files under src/ that mention text; git grep exits 1 when none do. */
+function filesUsing(text) {
+	try {
+		return execFileSync('git', ['grep', '-l', '-F', text, '--', 'src'], { encoding: 'utf8' })
+			.split('\n')
+			.filter(Boolean);
+	} catch (error) {
+		if (error.status === 1) return [];
+		throw error;
+	}
+}
+
 const work = mkdtempSync(join(tmpdir(), 'boiling-thumbnail-'));
 const browser = await chromium.launch();
 try {
@@ -157,6 +171,21 @@ try {
 	mkdirSync(outDir, { recursive: true });
 	const out = join(outDir, `thumb-${hash}.webp`);
 	renameSync(animated, out);
+	// A redraw replaces the old card: delete it and point every page that used it at the new one
+	const publicDir = resolve('public');
+	const url = (name) => '/' + relative(publicDir, resolve(outDir, name));
+	for (const old of readdirSync(outDir).filter(
+		(f) => /^thumb-[0-9a-f]{8}\.webp$/.test(f) && f !== `thumb-${hash}.webp`,
+	)) {
+		rmSync(join(outDir, old));
+		const users = filesUsing(url(old));
+		for (const file of users)
+			writeFileSync(
+				file,
+				readFileSync(file, 'utf8').replaceAll(url(old), url(`thumb-${hash}.webp`)),
+			);
+		console.log(`replaced ${url(old)} in ${users.join(', ') || 'nothing'}`);
+	}
 	console.log(out);
 } finally {
 	await browser.close();
